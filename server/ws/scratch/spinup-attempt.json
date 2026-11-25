@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-spinup-liquid-staking",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. SpinUp mHYPE LST has no permissionless caller-paid reward. The keeper functions (accrueFee, withdrawHypeToDestination on HyperpieStaking 0x509b9d74..., and fillWithdrawBuffer on the WithdrawManager) are gated by onlyAllowedBot = AccessControl hasRole(ALLOWED_BOT_ROLE) on the central HyperpieConfig 0x76202c03...; a fresh address eth_call reverts with 0x7d54404d CallerNotHyperpieConfigAllowedBot. The only permissionless fns (stakeHype deposit, queueWithdrawal/claimWithdrawals) move a user's own funds and pay the caller nothing.",
+  "numbers": "7d window (blocks 50,954,000..51,559,234, HyperEVM ~0.98s/block): FeeAccrued 0, AssetTransferred(withdraw) 0, AssetDeposited(stakeHype) 5 -> 30d: 0 / 0 / 54 (control: same getLogs shape on AssetDeposited returns non-empty, so the 0s are real). eth_call accrueFee()/withdrawHypeToDestination(1e18) from 0x..dEaD both revert 0x7d54404d (role). mHYPE totalSupply 2450.61; config getMHypeFeeValue=42 (denom 1e6) -> weekly inflation mint 2450.61*42/1e6 = 0.103 mHYPE ~ 0.103 HYPE ~= $7.09/week, minted to fee destination 0xe2ec3c1f... (treasury), NOT the caller. Gas: eth_gasPrice 0.1 gwei; sample stakeHype tx gasUsed 143,443 -> ~0.0000143 HYPE ~ $0.001/call. HYPE price $68.70 (coins.llama.fi coingecko:hyperliquid @1794971121). Sources: eth_getLogs on 0x509b9d74, eth_call, explorer source hyperevm 0x90fb3d08 (HyperpieStaking), docs.spinup.zone smart-contracts."
+}

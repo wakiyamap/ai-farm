@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "woofi_swap",
+  "status": "dead_end",
+  "checked": "Pool 0x5520385bFcf07Ec87C4c53A7d8d65595Dff69FA4 (TransparentUpgradeableProxy, impl 0x7b5Fdb8C89a616d319202704b0ea18b168654281 unverified; quoteToken()=USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 verified on-chain, pool holds 166,490 USDC; address confirmed by DefiLlama adapter projects/woofi.js wooPPContract and paraswap-dex-lib src/dex/woo-fi-v2/config.ts Network.BASE). Oracle WooracleV2_2 0x2A375567f5E13F6bd74fDa7627Df3b1Af6BfA5a6 (verified source via explorer: postPrice/postState/postPriceList all onlyAdmin via WooAccessManager). FeeManager 0xc45B55032caFeaff3b8057d52758D8f8211DA54D (verified: collectFee(amount,broker) pull-transfers quoteToken from msg.sender pool; distributeFees onlyAdmin). Pool.claimFee() is stranger-callable (eth_call from 0x...dEaD returns 0x) but pays feeAddr=FeeManager, not the caller; unclaimedFee()=0; last claimFee tx 2026-09-01 by 0xb08dc5670682658a77841db446b226dd355527f2 at daily cadence, moved $1.36 USDC, 77,264 gas @ 0.009 gwei; 0 calls in last 7 days. Pool is active trading (172 WooSwap event logs in last 50k blocks, ~2.8h) - v2.5 fees are auto-collected in-swap via feeManager.collectFee, no keeper bounty. skim/sync/repayWeeklyLending revert from stranger; RebateManager.claimRebate pays only msg.sender's own rebate."
+}

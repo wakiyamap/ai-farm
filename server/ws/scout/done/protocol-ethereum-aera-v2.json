@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-aera-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 974,
+ "chain": "ethereum",
+ "slug": "aera-v2",
+ "name": "Aera V2",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 38645791,
+ "url": "https://www.aera.finance",
+ "github": null,
+ "listed_days_ago": 974,
+ "run_id": "1424815cbe684f8abd277a7867ad2980",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Aera V2 ethereum (85 vaults from 5 factories, ex-Gelato GGV): submit onlyGuardian, execute onlyOwner, claim() pays only the per-vault feeRecipient (fresh-address eth_call reverts Aera__NoClaimableFeesForCaller 0x2129c592); 7d window blocks 26,412,415-26,462,672 (11-14..11-21): 4 logs total across all 85 vaults (1 owner-executed tx on 0xd243c778), 0 Submitted, 0 Claimed (also 0/30d), stranger gross 0 USD; active vault fee()=0.",
+  "kb": [
+   "attempts:3265",
+   "protocols:1593"
+  ],
+  "run_id": "1424815cbe684f8abd277a7867ad2980",
+  "at": 1795255053
+ }
+}

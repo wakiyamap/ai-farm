@@ -1,0 +1,12 @@
+{
+  "run_id": "b87399122b6442d394727e04c994865b",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Polygon PoS keeper-class scout (lead 135): 1-day collect-event census on the census contracts, name fee claimers",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:889", "leads:135"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "1-day census (44 pages, 44 per-page Transfer controls healthy): the top census pool A4 0x4d97dcd9... shows no external collect claimer - its collect-like event fires 178,573/day with contract callers (p50 payout 13.6 USDC) = protocol-internal fee routing; A4 is a UniV3-fork-style pool (canonical v3 event hashes, token0()/token1() getters revert, 15 kB). Polygon []-provider recurs (zeros count only with same-run same-shape controls) and candidate event-hash strings must come from real logs, not from `cast keccak` guesses. Lead 135 narrowed to: P2-proxy collect census + protocol identity on the fork; gas measured cheap (~240 gwei, 438k-gas tx ~0.01 USD)."
+}

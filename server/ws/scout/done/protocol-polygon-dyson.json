@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-dyson",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1384,
+ "chain": "polygon",
+ "slug": "dyson",
+ "name": "Dyson",
+ "category": "Liquidity Manager",
+ "tvl_usd": 32585,
+ "url": "https://www.dyson.money/",
+ "github": null,
+ "listed_days_ago": 1384,
+ "run_id": "9b8b2153a8994c378e97ebb6261173cc",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Polygon Dyson: 4 vault proxies + strategies (list from Wayback 2024-09-11 of 502'd api2.dyson.money/vaults) live with open-callable harvest()/doHardWork()/rebase() but all pay 0 to the caller (StrategyAuraMaticxWmaticTreasury.callReward()=0, BAL+AURA all to treasury; rebase mints 80/20 to preon/dyson); 0 events in 7d across all 11 contracts (blocks 97401000-97804077, control WETH 5178 logs/2k blocks), last activity 2026-10-10; TVL 32.6k USD (19,426 DAI ~19.4k, 22,894 WMATIC ~1.8k, 828.8 stMATIC ~72, 3,056.8 maticX-WMATIC-BPT unpriced; coins.llama.fi 2026-11-23).",
+  "kb": [
+   "attempts:3996",
+   "protocols:2131"
+  ],
+  "run_id": "9b8b2153a8994c378e97ebb6261173cc",
+  "at": 1795412032
+ }
+}

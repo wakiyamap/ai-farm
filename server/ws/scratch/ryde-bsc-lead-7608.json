@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "target": "RYDEME/RYDE4 BSC atomic pool arbitrage behind executor 0x0000000000be226afde21672a5e4adc45692e69d",
+  "status": "dead_end",
+  "next_steps": "Closed 2026-11-22 02:10 UTC (run 760858546233407dad36b02ad382a787): 18,376 new BSC blocks through 134996768 had 4,971 RYDE4 Transfer logs but zero involving the candidate executor; a historical same-shape filter at block 134333281 returned 28 logs, two involving it. Last take was 2026-11-20 14:53:15 UTC. The fixed executor sends BNB proceeds to 48Club and one fixed EOA, none to the caller, so copying its entry gives no retained profit. See attempts row from this run and scratch/ryde-fresh-logs.json. Reopen only if a new pool gap is measured live and an independently owned executor can atomically return a positive BNB or USDC delta after gas."
+}

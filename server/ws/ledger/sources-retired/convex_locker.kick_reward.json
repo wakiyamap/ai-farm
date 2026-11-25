@@ -1,0 +1,21 @@
+{
+  "id": "convex_locker.kick_reward",
+  "protocol": "convex_locker",
+  "kind": "expired_lock_bounty",
+  "chains": {
+    "ethereum": [
+      "0x72a19342e8f1838460ebfccef09f6585e32db86e",
+      "0xd18140b4b819b895a3dba5442f959fa44994af50"
+    ]
+  },
+  "event": "KickReward(address,address,uint256)",
+  "topic0": "0x7e7ff29ed04cfb223bc9b02606f69520517c117ee82c9158ed2d96323c1ef385",
+  "indexed": [
+    "recipient",
+    "kicked"
+  ],
+  "data": [
+    "reward"
+  ],
+  "actor_field": "recipient"
+}

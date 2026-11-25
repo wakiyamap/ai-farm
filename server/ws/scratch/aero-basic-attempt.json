@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-aero-basic",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - standard fee-to-LP AMM (Aerodrome V2 Basic): the only callable claim-style function is pool.claimFees(address), which from a fresh address returns (0,0); accrued fees pay LP token holders, not callers. 7d: 45 Claim events over 60 pools, 37 self-claims by LPs and 8 by an approved manager; no keeper reward function exists (PoolTape.record is allowedCaller-gated, factory setters owner-gated).",
+  "numbers": "factories 0x78589E876edcEbdce72ee3436ab3c9AD3a7cEF2D (22 pools) + 0x8E6a9FCd1d638CC760Ffba397605Fe3355dE76D2 (38 pools) [DefiLlama adapter aero-v2]; 7d events (eth_getLogs blocks 159344132-159646532, all 60 pools): Swap >=4622 (batch1 3112 full-30-pool + batch0 1510 partial-15), Fees 2783+1510, Sync 3149+1522, Mint 48, Burn 1, Claim 45 (37 self, 8 manager); eth_call claimFees(address) from 0x...beef -> (0,0) on 0x76817cf2.., 0x0fbb5037.., 0xc71b571a..; gas price 1032063 wei (eth_gasPrice) -> claimFees ~0.0002-0.0004 USD at ETH 1828.5 (coins.llama.fi 2026-11-17); protocol TVL Optimism 1.73M USD (api.llama.fi 2026-11-17)"
+}

@@ -1,0 +1,1 @@
+2026-11-07-web-search-no-api-key.md: the harness web_search tool errored in earner sessions on 2026-11-07: 'DeepSeek search has no API key for DEEPSEEK_API_KEY' (fallback: direct web_fetch worked fine).

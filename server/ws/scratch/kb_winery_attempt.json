@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-wineryswap",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. WinerySwap (BSC) is a dead Pancake-v1-style AMM fork: factory, router and pairs expose only plain UniV2 functions (swap/mint/burn/skim/createPair); none pay the caller, there is no MasterChef/reward contract (router has no chef getter, pair no harvest, CORK mint is onlyOwner to an EOA). The only caller-payable 'payment' is pair skim (skim-type (S), excluded). TVL is $80.4k (DefiLlama, 2026-11-23), 98% in one WBNB/BUSD pool. Deployer made 146 txs so a few early contracts are unenumerated, but nothing paid a stranger in the 7-day window.",
+ "numbers": "7d window blocks 133886086 (2026-11-16) -> 135230086 (2026-11-23), timestamps verified via eth_getBlockByNumber. WBNB/BUSD pair 0xc0256bd8...: 1844 Swap events (control: query shape returns logs). CORK transfers 7d: 44, all between 0x2585d450 (CORK/WBNB pool), 0x57bc0e27 (CORK/BUSD pool) and arb EOA 0x3686b8490705f0476b940f1262823a317d488cf6; gross to any caller-reward function: 0 (no such function). allPairsLength=35 (eth_call 0x574f2ba3). Sources: eth_call/eth_getLogs via rpc.py bsc; Sourcify v2 (factory/router/pair/token verified, deployer 0xE5Fbf152BD95C3F61a0a0d6B380513e1E27407E0); api.llama.fi/protocol/wineryswap TVL 80436 USD 2026-11-23."
+}

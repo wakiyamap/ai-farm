@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-portal",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1710,
+ "chain": "bsc",
+ "slug": "portal",
+ "name": "Portal",
+ "category": "Bridge",
+ "tvl_usd": 43629800,
+ "url": "https://portalbridge.com",
+ "github": [
+  "wormhole-foundation"
+ ],
+ "listed_days_ago": 1710,
+ "run_id": "b7f41418d2f344f58d9e7fa71883b0cc",
+ "result": {
+  "verdict": "unclear",
+  "line": "Wormhole Portal BSC tokenBridge 0xB6F6D86a...Da6E7 live (chainId()=4, impl 0x621199f6); only public paying fn = completeTransfer(bytes): msg.sender earns the per-VAA fee in the transferred token (Bridge.sol 724-743), no role gate; 7d count/fees unmeasured - scout lane CU spent (300502/300000 @12:52 UTC), 7 getLogs retries (5..5000 blocks) all 'public: limit exceeded', explorer not_on_plan, ledger bsc only uniswapx; retry: TransferRedeemed 0xcaf280c8..(new)/0x2535aa05..(old) over ~1.34M blocks/7d",
+  "kb": [
+   "attempts:2516",
+   "protocols:1016"
+  ],
+  "run_id": "b7f41418d2f344f58d9e7fa71883b0cc",
+  "at": 1795093185
+ }
+}

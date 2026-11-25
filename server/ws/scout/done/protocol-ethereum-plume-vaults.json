@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-plume-vaults",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 753,
+ "chain": "ethereum",
+ "slug": "plume-vaults",
+ "name": "Plume Vaults",
+ "category": "RWA",
+ "tvl_usd": 43387544,
+ "url": "https://app.plume.org/vaults",
+ "github": null,
+ "listed_days_ago": 753,
+ "run_id": "28096c86c3104409b1d18b3a34802f5b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Plume Vaults ethereum = 14 Nest boring-vault stack vaults (43.39M USD TVL); stranger eth_call reverts UNAUTHORIZED on updateExchangeRate/deposit/refundDeposit and OnlyCallableByBoringVault on claimFees; only caller in 7 d is Nest keeper EOA 0x450545f4.. updating rates (58 ExchangeRateUpdated, blocks 26410758-26461003) paying itself nothing: 93,327 gas = bash.011, gross 0",
+  "kb": [
+   "attempts:3182",
+   "protocols:1533"
+  ],
+  "run_id": "28096c86c3104409b1d18b3a34802f5b",
+  "at": 1795234560
+ }
+}

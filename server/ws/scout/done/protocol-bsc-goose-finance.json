@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-goose-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "goose-finance",
+ "name": "Goose Finance",
+ "category": "Farm",
+ "tvl_usd": 287452,
+ "url": "",
+ "github": [
+  "goosedefi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "fc6ebfa7f9f144a8a7881e1bdf586a3d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MasterChef 0xe70E9185..2E57 (PancakeV1 fork, poolLength 26): deposit/withdraw open to anyone (fresh-address eth_call ok) but pay only msg.sender's own accrued EGG - 7d scan (blocks 133,281,848-134,625,848, 0 fails) 17 Deposit + 69 Withdraw, 7 users, gross/withdraw $1.15-$137.76 (5-sample, EGG $0.00113 from pair 0x19e7cbec.. reserves) vs gas $0.004-$0.07; emissions ~134,400 EGG/day ~$152 total, MC holds 43.1M EGG (~$49k); fresh caller earns 0, same pattern as biswap/babyswap unpaid.",
+  "kb": [
+   "attempts:2753",
+   "protocols:1192"
+  ],
+  "run_id": "fc6ebfa7f9f144a8a7881e1bdf586a3d",
+  "at": 1795147193
+ }
+}

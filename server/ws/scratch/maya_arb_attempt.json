@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-maya-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. MayaChain (THORChain fork, CACAO) on arbitrum: only contract is ArbRouter 0x700e97ef07219440487840dc472e7120a7ff11f4 (verified source read); every public function either takes the caller's own funds (deposit/depositWithExpiry) or is vault-driven (transferOut etc., allowance/underflow gates msg.sender to the TSS vaults). Nothing pays a caller. Custody is in TSS EOAs (eth_getCode = 0x). Same conclusion as ethereum (protocols:1624, attempts:3303).",
+  "numbers": "7d = blocks 524611500 (ts 1794791689, 2026-11-16 ~01:12 UTC) to 526664745 (2026-11-23 ~01:00 UTC); ArbRouter no-topic eth_getLogs: 614 logs = 263 Deposit (topic0 0xef519b7e... = keccak Deposit(address,address,uint256,string)) + 351 TransferOut (0xa9cd03aa... = keccak TransferOut(address,address,address,uint256,string)), topic0s matched from the no-topic scan of the contract itself; indexed callers (topic1) = 3 TSS vault EOAs 0xfab1eb69..36732 / 0xa318a98d..12c0a0 / 0xd75195a5..d64639; gross paid per call 0 USD (no paying function in verified source); gas: eth_estimateGas deposit(1 ETH) = 40,443 gas, eth_gasPrice 0.0202 gwei -> ~0.0014 USD at ETH 1712.25 USD (midgard ARB.ETH assetPriceUSD, 2026-11-23 ~01:05Z); custody: ArbRouter holds 34,046.31 USDC (0xaf88d065e77c8cc2239327c5edb3a432268e5831, decimals()=6 read on chain), vault EOA 0xfab1eb.. holds 22.74 ETH; candidate tvl_usd 61,883."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-aevo-perps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1316,
+ "chain": "base",
+ "slug": "aevo-perps",
+ "name": "Aevo Perps",
+ "category": "Derivatives",
+ "tvl_usd": 240719,
+ "url": "https://app.aevo.xyz/r/defillama",
+ "github": null,
+ "listed_days_ago": 1316,
+ "run_id": "0215915bd2804a4a86a9a514c80a2073",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Base = Socket Superbridge only: vaults 0x6ee3907d..fb48 (207,273 USDC) + 0xa8bd0ecb..9e8b (4.662 WETH), TVL 215,554. unlockPendingFor(receiver,connector) is callable from a fresh address (eth_call 0x, no role revert) but pays 0: connectorPendingUnlocks=0 and PendingTokensTransferred 0 in 7d and 0 since deployment 2024-07-11. 7d (blocks 56,275,575-59,299,575): 16 deposits by one Socket router 0x6ea58e68..4e56 (1-15,149 USD), 14 unlocks paying users their own 17-16,750 USD; gas 0.006 gwei = 0.0016 USD per call at ETH 1,784 (coins.llama.fi).",
+  "kb": [
+   "attempts:2317",
+   "protocols:858"
+  ],
+  "run_id": "0215915bd2804a4a86a9a514c80a2073",
+  "at": 1795051007
+ }
+}

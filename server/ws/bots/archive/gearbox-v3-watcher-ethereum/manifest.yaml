@@ -1,0 +1,171 @@
+id: gearbox-v3-watcher-ethereum
+author: earner/qwen3.8-flash-next
+chains: [ethereum]
+strategy: >
+  Watch Gearbox Protocol V3 credit accounts (CreditFacadeV3 WETH facade): poll the
+  CreditManagerCompressor account enumeration every 20 s and batch-read
+  creditManager.isLiquidatable (healthy accounts return 0 or revert
+  CreditAccountDoesNotExistException 0x309d1501 — measured live), and when an account
+  crosses to liquidatable and holds the measured-pool BPT, simulate (paper) or send
+  (live) the bot-deployed GearboxFlashLiquidator5 executor: ONE tx = Morpho
+  flashLoan(4 WETH, fee 0) -> CreditFacadeV3.liquidateCreditAccount(account,
+  to=executor, calls[redeemDiff(1) WMoo-adapter,
+  removeLiquiditySingleTokenDiff(BPT,1,WRAP,minRateRAY) router-adapter, redeemDiff(1)
+  WRAP-adapter]) -> the account's own collateral pays its pool debt and the protocol
+  pays the premium (~2-4% of debt: fork-measured 3.222826 WETH on an ~87.7 WETH
+  debtor) to the executor -> NoProfit revert unless the executor's WETH balance ended
+  at least principal + minProfit -> Morpho pulls principal back -> the premium is
+  swept to the owner IN THE SAME TX (the contract ends every success at exactly 0
+  WETH, so the guard bounds every transaction, not an accumulating balance).
+copied_from: >
+  the measured mainnet liquidation tx1 0x906b3d51233d9538bdcfbc583ca91fd0eda77102b8d85
+  b1abb9d5f1941b8d847 (block 26287070, account 0x56631dcb1ea548d2629e82e01375090ed1f8
+  1b7e): the flash-executor recipe (adapter call layout decoded from that tx,
+  attempts 365) with NO external deposit (the deposit-timing rule, attempts 362/364);
+  ledger source gearbox_v3.liquidate_credit_account installed 2026-11-07 (facade event
+  LiquidateCreditAccount topic0 0x7dfecd8419723a9d3954585a30c2a270165d70aafa146c11c1e
+  1b88ae1439064, hash verified with cast keccak against the block-26287070 facade logs).
+capital_usd: 100
+principal_usdc: 0
+allowed_contracts:
+  - 0x14115b5fdab3afcd72cf03785041c720100edb0e   # GearboxFlashLiquidator5 sim target (fork-deployed of record); the gate deploys the real one at promotion with the bot wallet as constructor owner and allows that address
+  - 0x4da50da058ad6cc96bb63edff55b534d2a2cbe92   # CreditFacadeV3 (WETH facade: liquidateCreditAccount 0xe3f46b26, creditManager(), underlying())
+  - 0x1293a69e4ad4a93293a06b6303104be35bdd83af   # CreditManager (isLiquidatable 0x8340e24d; reads + the facade multicall context)
+  - 0x81cb9ea2d59414ab13ec0567efb09767ddbe897a   # CreditManagerCompressor (getCreditAccounts enumeration; reads only)
+  - 0xca11bde05977b3631167028862be2a173976ca11   # Multicall3 (reads only)
+  - 0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb   # Morpho Blue v2 singleton (flashLoan 0xe0232b42; pull-back transfer + WETH approve)
+  - 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2   # WETH (flash asset, principal unit, premium sweep)
+  - 0xb4adb364309ec7af0ec286d706b7cb6c3c46381d   # ERC4626Adapter registered for WMoo (tx1 calls[0] target: redeemDiff 0x0acb3202)
+  - 0x0214d10f4922c8407351c509150761e0bd487989   # BalancerV3RouterAdapter (tx1 calls[1] target: removeLiquiditySingleTokenDiff 0x1806d99c)
+  - 0x5deb19295e463eee1457c009d3e9a3f84211868e   # ERC4626Adapter registered for the WRAP pool token (tx1 calls[2] target: redeemDiff 0x0acb3202)
+  - 0x0bfc9d54fc184518a81162f8fb99c2eaca081202   # WRAP: the pool wrapper token = the router exit tokenOut (measured tx1 calls[1] arg 2; the adapter registered for it is the calls[2] target)
+  - 0x57c23c58b1d8c3292c15becf07c62c5c52457a42   # BPT: the measured pool token whose collateral the router exits (pre-check balanceOf + tx1 calls[1] arg 0)
+  - 0x1a711a5bc48b5c1352c1882fa65dc14b5b9e829d   # WMoo (the debt-side ERC4626 token of the measured debtor class; pre-check reads, adapter redeems)
+  - 0x0f948cba8231db7898ef36a4212581ad7b1b4580   # MorphoChainlinkOracle WETH/USDC (price() 0xa035b1fe: native gas valuation only; measured divisor 1e24 by morpho-watcher-ethereum)
+max_loss_per_tx_usd: 35
+max_loss_guarantee: >
+  The whole action runs in ONE transaction through the bot-deployed
+  GearboxFlashLiquidator5 (source scratch/gearbox-v3/contracts/src/GearboxFlashLiquidator5.sol). Its onMorphoFlashLoan ends with if (balW < principal + minProfit) revert
+  NoProfit(balW, need) (GearboxFlashLiquidator5.sol:114, balW = the contract's own
+  WETH balance: the contract entered with 0 WETH — the same-tx sweep keeps it 0 after
+  every success), so any shortfall — failed adapter leg, non-liquidatable account,
+  premium below minProfit, failed pull-back — rolls the whole tx back: worst case is
+  gas only. On this chain (plain public mainnet, EIP-1559, no OP-Stack L1 data fee)
+  the gas worst case IS enforced by the signed transaction: maxFeePerGas DERIVED each
+  cycle from the latest header (basefee x 9/8 + 0.001 gwei tip, capped 10 gwei =
+  FEE_CAP_WEI, bot.js updateFeePolicy) x gasLimit 1500000 <= 0.015 ETH = 35 USD at any
+  native valuation <= 2333 USD/ETH (the live path refuses when the bound times the
+  fresh oracle price exceeds 35 USD — fail closed; measured oracle 2239.78 USD/WETH at
+  head 26360848); at today's derived maxFee ~0.046 gwei the bound is ~0.10 USD. Entry
+  is open to anyone (the guard, not the caller, protects the route); the premium sweep
+  to the owner is part of the guarded transaction.
+expected_value: >
+  Fork-measured occurrence economics: the tx1-layout debtor (debt ~87.7 WETH) paid
+  3.222826 WETH premium to the executor = 7,218 USD gross at the measured live oracle
+  price 2239.78 USD/WETH (3.222825835 x 2239.78; premium = 3.67% of debt,
+  remainingFunds mechanism); the same liquidation's gas measured 1,350,704 gas =
+  0.0000535 ETH = ~0.12 USD at the current head base fee 0.0396 gwei x the measured
+  price (signed worst-case bound 35 USD at the 10 gwei cap, NOT the expected spend).
+  Cadence measured 0.31 liquidations/day with poll-catchable windows 34-10398 blocks
+  (attempts 358: windows measured from the backward HF ladder — a 20 s poll catches
+  them; same-block-race crossings are outside this class). After-gas expectation: the
+  ONE measured large debtor nets ~7,218 USD per capture minus ~0.12 USD gas — clearly
+  positive for it. The premium scales linearly with the repaid debt (3.67% of debt),
+  so the after-gas EV is positive for any debtor down to the on-chain minProfit floor
+  0.1 WETH = ~224 USD premium gross (covering debt >= ~2.7 WETH ~ 6,100 USD at the
+  measured 3.67% rate; smaller debtors revert NoProfit and cost only gas, bounded by
+  L). The debtor distribution beyond the ONE measured large case is UNMEASURED
+  (single-measured-case caveat): the ledger source gearbox_v3.liquidate_credit_account
+  (installed 2026-11-07) ingests every future facade liquidation, so paper + ledger
+  measure the debt distribution of the class before any promotion decision.
+executor: scratch/gearbox-v3/contracts/out/GearboxFlashLiquidator5.sol/GearboxFlashLiquidator5.json
+executor_note: >
+  The artifact is a forge build (solc0.8.24) at scratch/gearbox-v3/contracts;
+  NO constructor args (constructor() { owner = msg.sender; } — the only difference
+  between the fork proof and the live deployment is the deployer: the gate deploys
+  through the bot wallet, whose address is baked into the deployed code and becomes
+  the sweep target, so executor_args stays unset and the gate needs no ABI input).
+  Paper sims use the fork runtime override (executor-runtime.hex = eth_getCode of the
+  fork executor 0x14115b5fdab3afcd72cf03785041c720100edb0e, re-taken by
+  proof-flash5.py from the deployment with owner 0xc0ffee...01 baked as deployer —
+  never forge deployedBytecode, whose immutable group is a zero placeholder).
+fork_evidence: >
+  Done on the shared local ethereum fork (anvil, reset 26287069, the parent of the
+  mainnet liquidation tx1 0x906b3d51... mined at 26287070; account 0x56631dcb...
+  liquidatable, isLiquidatable positive control == 1; rerunnable one-script proof
+  scratch/gearbox-v3/proof-flash5.py which leases the fork only for its run).
+  Controls in the script: facade.underlying() == WETH; cm.contractToAdapter(WRAP) ==
+  the WRAP adapter registered; cm.adapterToContract(wmooAdapter) == WMoo and
+  (routerAdapter, WRAP-adapter) registered (positive controls for the three hardcoded
+  calls); executor.owner() == the constructor owner (the constructor ran — immutables
+  baked); Morpho WETH liquidity 15822.4 >= principal 4; target WMoo balance 87.7e18 >
+  0. SUCCESS: flashLiquidate(facade, 0x56631dcb..., BPT, wmooAdapter 0xb4adb364...,
+  routerAdapter 0x0214d10f..., wrap-adapter 0x5deb1929..., principal 4e18, minRateRAY
+  0x02a649c112686927b4 (all tx1-measured), minProfit 1e17) tx
+  0x1662177cb3e027004a5d8b7f87bf470ac01a704df94ae9179d23f8b6b73eaa00 status 1, gasUsed
+  1350704: the Morpho flash -> the facade multicall with the three tx1-layout adapter
+  calls -> premium 3.222826 WETH paid to the executor -> guard cleared -> principal
+  pulled back -> premium swept to the owner: owner WETH delta +3.222825835214505678e18
+  POSITIVE (>= minProfit 1e17; 7,218 USD at the measured live price 2239.78 USD/WETH) and the executor
+  WETH balance ends exactly 0 (the sweep invariant: the per-tx guard never
+  accumulates). REVERT: the same call on a healthy account
+  0x000000000000000000000000000000000000000a (minProfit 1) tx
+  0xe00e942070802eaf082365ec0e5422c2b1958817b2e751590de2e0d972fcc1fe status 0 with
+  owner and executor balances unchanged (mined revert; the live relay sim reverts the
+  same CreditAccountNotLiquidatableException 0x234b893b on healthy mainnet accounts —
+  scratch/gb-bot-simtest.js). Paper sims re-take the runtime from the fork instance
+  (eth_getCode after every source change) and carry it as the relay eth_call code
+  state-override at the synthetic executor address (measured: mainnet has no code and
+  no WETH balance there, owner() through the override returns the constructor owner).
+  Rerun 2026-11-09T10:1-10:2xZ (runs 9550ca60, twice, lease released at exit) after
+  the constructor dropped its owner argument (constructor() { owner = msg.sender; }):
+  success tx 0x4e66dcf112b147a0b3930cdd4b6031b9c085ce98ae9781d87c54a6972e63d85f status
+  1, gasUsed 1347729, owner WETH delta +3222824667987895703 (> minProfit 1e17,
+  executor ends 0); healthy-account revert tx
+  0xa186843f8c78a6c20edf877b6a7fcf8731914aea7836add3d88acf5deb9f00c5 status 0 with
+  owner and executor balances unchanged. The same run also writes the pinned runtime
+  (deployed code with owner 0xc0ffee...01 baked as the deployer) to
+  scratch/gearbox-v3-executor-runtime.hex; the bot's executor-runtime.hex was
+  re-taken from that fork deployment (6987 bytes, 26 bytes shorter than the
+  constructor-arg version).
+awaited_events: >
+  facade LiquidateCreditAccount (ledger source gearbox_v3.liquidate_credit_account,
+  installed 2026-11-07, daemon verifies on its next run): last measured occurrence
+  block 26287070 tx 0x906b3d51233d9538bdcfbc583ca91fd0eda77102b8d85b1abb9d5f1941b8d847;
+  cadence measured 0.31/day (attempts 358) — an UNSCHEDULED event, no scheduled next
+  time; the bot polls. The trigger the bot waits for is a credit account crossing
+  isLiquidatable (HF below 1): measured poll-catchable windows 34-10398 blocks
+  (attempts 358 — the account is liquidatable for tens of blocks to days before
+  anyone liquidates it; competition is thin).
+good_signs: >
+  Paper logs show: startup controls OK (underlying == WETH, runtime_ok true),
+  heartbeats every ~20 s with header_lag ~0 (the header is read by its explicit fresh
+  number — the relay answers eth_getBlockByNumber("latest") up to 25 blocks stale) and
+  rpc_cycle <= 4 (blockNumber + header + compressor page + one tryAggregate batch) and
+  accounts = the TRUE enumeration count (20 at block 26287069, 21 at head 26360944
+  measured with the corrected dynamic-array decode; the known liquidatable account
+  0x56631dcb1ea548d2629e82e01375090ed1f81b7e IS enumerated at 26287069 among the 20 —
+  scratch/gb-enum-verify.py), liquidatable
+  transitions logged with liquidatable_since_block, opportunity_skip ONLY for accounts
+  with BPT balance 0 (no RPC sim spent), simulate records with sim_ok true on a
+  transitioned BPT-holding account and NO simulate for healthy accounts, simulate_revert
+  notes carrying the protocol error selectors (0x234b893b / 0x532e7bb6 / NoProfit),
+  base_fee_gwei tracking the live header and fee_bound_ok true.
+bad_signs: >
+  startup fatal rows (underlying changed / runtime missing); agg_decode_error on every
+  cycle; a simulate that succeeds while the heartbeat liquidatable count is 0
+  (impossible — the sim would revert NotLiquidatable); liquidatable_accounts flipping
+  every cycle (threshold/thresholds ramp artifact — would show the poll chasing
+  noise); eth_usd missing or stale (the live path fail-closes without it); rpc_cycle
+  far above 4 (retry loops spending the quota); a live_skip reason repeated every
+  cycle (fee bound/valuation dead-lock).
+rpc_reads_per_min: 18
+legal_note: >
+  Gearbox V3 credit-account liquidations: liquidateCreditAccount is public and the
+  protocol pays the liquidator the remaining funds (premium of the repaid debt) — an
+  intended keeper mechanism under S. No role gating measured on the entry (the facade
+  multicall is callable by anyone; the v1/v2 deposit-free attempts 362/364 confirm
+  the permission structure). The premium is taken in the same transaction and swept
+  to the owner; no price manipulation, no sandwiches, the collateral sale goes
+  through the pool route the protocol itself uses.
+expedite: false

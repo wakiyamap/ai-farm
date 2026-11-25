@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-gridex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1314,
+ "chain": "arbitrum",
+ "slug": "gridex",
+ "name": "Gridex",
+ "category": "Dexs",
+ "tvl_usd": 50958,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1314,
+ "run_id": "634e02c717674be78eac46ea277f6423",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: no function pays a stranger - settleMakerOrder is order.owner-gated (fresh-addr eth_call reverts G_COO), collect pays msg.sender's own owed (0,0 from fresh addr), swap/flash make caller pay fees; 47 grids, 24 logs in 7d all from ONE settle tx (0x42e45b74..., 11.29M gas = 0.43 USD ETH@1730.36), 0 Swap events, 0 factory logs (control: same scan returned 24), TVL 50.9k USD",
+  "kb": [
+   "attempts:3969",
+   "protocols:2109"
+  ],
+  "run_id": "634e02c717674be78eac46ea277f6423",
+  "at": 1795405945
+ }
+}

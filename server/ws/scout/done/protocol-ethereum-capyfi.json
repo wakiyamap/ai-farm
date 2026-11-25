@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-capyfi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 824,
+ "chain": "ethereum",
+ "slug": "capyfi",
+ "name": "Capyfi",
+ "category": "Lending",
+ "tvl_usd": 3670416,
+ "url": "https://capyfi.com/",
+ "github": null,
+ "listed_days_ago": 824,
+ "run_id": "6465e0fd2ada46fea268a65eeb6fd40d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Capyfi ethereum = compound-v2 fork, comptroller 0x0b9af1fd73885aD52680A1aeAa7A3f17AC702afA (DefiLlama capyfi Ethereum TVL 3.44M, 13 ca* markets via getAllMarkets); reward machinery empty (getCompAddress()=0x0, compRate()=0) so claimComp pays 0; only liquidateBorrow pays the caller: 9 events/7 d (blocks 26410800-26461296, Nov 14-21), taken by 4 keepers (0x36331e29, 0x00acd500..5565, 0x5ac9bc14, 0x1dcf3006), 5-sample gross at today's prices -.9..+5.1 USD vs gas 0.13-6.8 USD (net ~0; incentive +6..110 USD at event-time ETH ~1810) and same-block contested per attempts:412",
+  "kb": [
+   "attempts:3203",
+   "protocols:1549"
+  ],
+  "run_id": "6465e0fd2ada46fea268a65eeb6fd40d",
+  "at": 1795239048
+ }
+}

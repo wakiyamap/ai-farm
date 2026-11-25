@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-defi-saver-asset-management",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The keeper entry StrategyExecutorL2.executeStrategy reverts BotNotApproved for strangers (BotAuth.approvedCallers is a global owner-managed whitelist, addCaller onlyOwner) and pays the caller nothing on-chain even when whitelisted - DeFi Saver runs its own 2 keeper EOAs and charges users a DFS subscription. A farm bot would need a BotAuth whitelist slot (partner arrangement), not an open function.",
+ "numbers": "TVL 10.48M USD (DefiLlama candidate). SubStorageL2 0x24ab6839...getSubsCount=7182 subs. Sample of 25 executeStrategy txs over 32.3h (explorer txs to 0xe4719f2d...36325c, ts 1794992188-1795108247) = ~0.77/h (~130/wk extrapolated), callers only 0x3b20f1394f4cf46c6f460fd8d2799f88c23c37ea and 0xd49cf89361274f5d612bac538bfcec0fdcad9365 (approvedCallers=1 each, stranger=0). Gross to caller 0 USD (no token transfers to keeper in 4 sampled receipts; keeper pays gas). Gas per call 2.01M-3.88M gas at 0.02 gwei = 0.07-0.14 USD (ETH 1775.31 USD coins.llama.fi ts 1795115704). Stranger eth_call revert selector 0x75e5153c = BotNotApproved(address,uint256)."
+}

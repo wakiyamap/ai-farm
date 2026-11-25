@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-cyclone",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "cyclone",
+ "name": "Cyclone",
+ "category": "Yield",
+ "tvl_usd": 104160,
+ "url": "",
+ "github": [
+  "cycloneprotocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "2275802f561b4124bbb69b3b9a146de4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only public callable reward fn is updateBlockReward() (4 mixer pools + AeolusV2; eth_call from fresh stranger ok, not role-gated) but it pays the caller $0 (accumulator-only per verified CycloneV2dot2.sol); 0 events on all 6 addresses in 7d (blocks 26416430-26466685, 2026-11-14 to 11-21; same-shape control TORN 3310 logs); gas ~$0.007/call (39,355 gas, 0.102 gwei, ETH $1680); Aeolus pot 994 CYC ~$1578 accrues to stakers, not the caller - same as bsc dead_end.",
+  "kb": [
+   "attempts:3513",
+   "protocols:1779"
+  ],
+  "run_id": "2275802f561b4124bbb69b3b9a146de4",
+  "at": 1795303124
+ }
+}

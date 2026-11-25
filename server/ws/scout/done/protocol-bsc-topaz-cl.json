@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-topaz-cl",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 181,
+ "chain": "bsc",
+ "slug": "topaz-cl",
+ "name": "Topaz CL",
+ "category": "Dexs",
+ "tvl_usd": 614432,
+ "url": "https://www.topazdex.com",
+ "github": null,
+ "listed_days_ago": 181,
+ "run_id": "5f3e58f23fec4b70a08051dfb708910c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Topaz CL = Aerodrome Slipstream fork, 123 pools on bsc (factory 0x73DC...2ed9), TVL $612,627; no open fn pays a stranger: gauge getReward(address) onlyVoter (reverts NV from fresh addr), getReward(tokenId) staker-only (reverts NA), notifyRewardAmount onlyVoter; pool swap/mint/collect/flash pay only the caller's own side. Top pool BNB/USDT ts50 0x767F1F4b: 35,524 Swap/7d (364 in ~1h); its gauge 0x5e0c0a67: 558 ClaimRewards/7d from 6 stakers, largest claim $17.4 TOPAZ (TOPAZ $0.000495), weekly emission pot left $69.6, gas $0.004 (BNB $587.11, coins.llama.fi).",
+  "kb": [
+   "attempts:1680",
+   "protocols:364"
+  ],
+  "run_id": "5f3e58f23fec4b70a08051dfb708910c",
+  "at": 1794911727
+ }
+}

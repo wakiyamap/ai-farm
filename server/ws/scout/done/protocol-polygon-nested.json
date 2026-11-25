@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-nested",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1691,
+ "chain": "polygon",
+ "slug": "nested",
+ "name": "Nested",
+ "category": "Indexes",
+ "tvl_usd": 30242,
+ "url": "https://nested.fi",
+ "github": null,
+ "listed_days_ago": 1691,
+ "run_id": "1737b58b4a1c4422b40dc692e5ec93e8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only stranger-callable paying fn is FeeSplitter.releaseTokens (0x449d088c...5200f, native sel 0x6d9634b7): fresh-address eth_call reverts FS: NO_PAYMENT_DUE (pays 0); PaymentReleased 0 in 7d (blocks 97,409,710-97,814,320, 2026-11-16 to 11-23; all-time control 2163, last 2026-11-13; historical claims 0.15-0.37 WPOL = 0.01-0.03 USD vs gas ~0.002 USD); all factory fns onlyTokenOwner - users PAY entry 30 / exit 80 bps; 7d activity 16 NftUpdated + ~21 user txs, TVL 30,242 USD",
+  "kb": [
+   "attempts:4061",
+   "protocols:2187"
+  ],
+  "run_id": "1737b58b4a1c4422b40dc692e5ec93e8",
+  "at": 1795427480
+ }
+}

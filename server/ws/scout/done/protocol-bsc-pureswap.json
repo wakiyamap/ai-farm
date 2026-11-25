@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-pureswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1834,
+ "chain": "bsc",
+ "slug": "pureswap",
+ "name": "PureSwap",
+ "category": "Dexs",
+ "tvl_usd": 217418,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1834,
+ "run_id": "2f2fd0da1162458f9de89af41db48b53",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PancakeV1 fork on bsc: masterChef 0xB8692D...ADB8 deposit/withdraw pay PURE to any caller, but 0 masterChef events in 40x5000-block sample across 7d and 0 swaps on all 48 pairs in 6x5000 windows (control: 15 WBNB Transfers in 1 block); TVL 17k, site dead; gas ~bash.0035/call at 0.05 gwei x 120k gas.",
+  "kb": [
+   "attempts:2575",
+   "protocols:1062"
+  ],
+  "run_id": "2f2fd0da1162458f9de89af41db48b53",
+  "at": 1795107460
+ }
+}

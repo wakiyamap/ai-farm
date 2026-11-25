@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-pharaoh-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 399,
+ "chain": "avalanche",
+ "slug": "pharaoh-v3",
+ "name": "Pharaoh V3",
+ "category": "Dexs",
+ "tvl_usd": 22792917,
+ "url": "https://www.phar.gg/",
+ "github": null,
+ "listed_days_ago": 399,
+ "run_id": "00ed67f18ee14b95bad1c984a3e9ad1f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Voter 0x922b9Ca8e2207bfB850B6FF647c054d4b58a2Aa7 distribute/distributeAll/collectProtocolFees callable by anyone (eth_call from fresh addr passes) but source pays msg.sender 0 (no bounty transfer in _distribute, unlike Velodrome); DistributeReward events last 7d = 0 (scan blocks 100404906-100580405, 29 pages, control 1 log in 5k); gas ~$0.013/call (9.4 gwei x AVAX $7.07 coins.llama.fi); claims are owner/approved-gated self-pay.",
+  "kb": [
+   "attempts:1798"
+  ],
+  "run_id": "00ed67f18ee14b95bad1c984a3e9ad1f",
+  "at": 1794935273
+ }
+}

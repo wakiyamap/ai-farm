@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "address": "0x266ff938ee4f87aac248e7346086977ed5557afb",
+  "strategy": "Naive hourly EOA keeper on Lets Get HAI (KB protocol 'hai') OracleJob 0xf4f18205d8d46638489865e42c0a71a3d4f9fc22: calls workUpdateCollateralPrice(bytes32 'RETH') (sel 0x4e6669ed) every exactly 3600 s; most txs revert (price already taken / not beatable); pays itself 0.05 HAI via StabilityFeeTreasury.pullFunds into a SAFEEngine internal-coin balance on the rare win. Won 1 of 3108 job rewards in 7 d (148 calls) - a gas-burner far behind the first-block winners (top 4 keepers take ~92%); reward is internal coin, needs CoinJoin 0x30ce72230a47a0967b7e52a1bae0178dbd7c6ea3 exit.",
+  "evidence": "0xece0897093247229964b4b9b06a0af40b1c23fe620201bbe25dbb29b1f14ab3d (block 159883139, success, Rewarded 0.05e18 to candidate, gasUsed 248712); 0x9e335980307295f580376bfc81f69b0e83c90f0d6de909713fe9b1117c3c05e2 (FAILED, gasUsed 144743); nonce 0x366-0x2d2 = 148 txs in 7 d; explorer sample 25/25 txs -> 0xf4f18205 sel 0x4e6669ed",
+  "est_profit_usd_day": -0.04
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-renzo",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Renzo on base is only the ezETH XERC20 wrapper token (proxy 0x2416092f143378750bb29b79eD961ab195CcEea5, impl XERC20 0xb370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7). Its full non-view ABI is ERC20/permit + factory-gated mint/burn + owner setters; no function pays a caller (no reward/keeper/poke/claim), and mint/setLockbox revert from a fresh address. Reward distribution (Eigen rewards, LXP) happens on Ethereum where the earlier renzo check found no permissionless poke either.",
+  "numbers": "txs last ~12d: 25 (all approve(), explorer txs listing, block 54.1M-59.2M); totalSupply 259.33 ezETH (eth_call); TVL $512,968 (candidate/DefiLlama); fresh-address eth_call reverts: mint 0x0b6842aa, setLockbox 0x2029e525=IXERC20_NotFactory; FACTORY 0x9bce21489a7a85ed475c9e9d0dc94b4e6a1aebf3"
+}

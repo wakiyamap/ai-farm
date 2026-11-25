@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-gmx-evm",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: every function that pays its caller on GMX V2 avalanche (executeOrder, executeLiquidation, executeDeposit/Withdrawal/Shift, executeGlv*, updateAdlState) requires a RoleStore keeper role - a stranger eth_call on executeLiquidation reverts InvalidRoleAccess(0xa35b150b, role 'LIQUIDATION_KEEPER'); RoleStore membership is admin-granted (timelock) like arbitrum (protocols:14). The pond is near-dormant anyway: 9 protocol txs in 7 days, 0 liquidations, keeper pay is a gas refund (gross ~= gas).",
+  "numbers": "7d protocol txs = 9 distinct (eventEmitter 0xDb17B211...c26 logs, blocks 100130587-100703587, snowtrace); executeOrder 7d = 4 by 2 keeper EOAs (0x8e2e2dd583... x3, 0xc539cb358a... x1) to new OrderHandler 0x7950851b845ad6361672d16f429786e2d2ea87a7; executeLiquidation 7d = 0 (old handler 0x1eAa...4e last tx 2026-11-10); stranger role revert 0xa35b150b; gas ~300k x 55 gwei = 0.016 AVAX = $0.12 at AVAX $6.999 (coins.llama.fi); TVL $6.75M (api.llama.fi 2026-11-18). Docs-set ExchangeRouter created 2026-07-14 block 90318122."
+}

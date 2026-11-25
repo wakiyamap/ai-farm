@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-swell-btc-lrt",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 826,
+ "chain": "ethereum",
+ "slug": "swell-btc-lrt",
+ "name": "Swell BTC LRT",
+ "category": "Yield Aggregator",
+ "tvl_usd": 365017,
+ "url": "https://app.swellnetwork.io/stake/swbtc",
+ "github": null,
+ "listed_days_ago": 826,
+ "run_id": "021b0acb93b840fa95f90c14ff9998ee",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: swBTC Yearn-V3 vault 0x8DB2...4dDE (WBTC; 5.7567 WBTC = 324,239 USD @ 56,323 coins.llama.fi) + Aera strategy 0x8041...8ae3; 7d blocks 26,411,066-26,461,347 (11-14..11-21): 0 Deposit/Withdraw/StrategyReported (no-topic scan: 2 logs = 1 Approval + 1 Transfer; WBTC Transfer control 3,377/200 blk); 90d from block 25,813,347: 12 Withdraw + 12 DebtUpdated, 0 reports, 0 deposits; fresh-address eth_call: process_report and update_debt revert 'not allowed', claim() reverts OwnableUnauthorizedAccount, harvestAndReport/tendThis onlySelf; gross to a stranger 0 USD.",
+  "kb": [
+   "attempts:3202",
+   "protocols:1548"
+  ],
+  "run_id": "021b0acb93b840fa95f90c14ff9998ee",
+  "at": 1795238925
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "bend_dao",
+  "status": "dead_end",
+  "checked": "mainnet pool+loan proxies verified via relay eth_getCode at head 26362122 (pool proxy 4504 B, impl 0x9015b2c79064a07C7a40f390485177931C2817c3 40392 B; loan impl 0x64e7A0969d57C69d81237172D3cDf1f8C342d080); NOT an Aave-v2 LiquidationCall emitter - liquidation events LoanLiquidated/LoanAuctioned emit on LendPoolLoan proxy (repo ILendPoolLoan.sol); cadence: 1143 liquidations in year to 2026-04-14, 0 in last ~147 d (eth_getLogs chunked scans, attempt 394); sources: github.com/BendDAO/bend-lending-protocol README + deployments/deployed-contracts-main.json (docs.benddao.xyz 403 via web_fetch), llama module benddao. 2026-11-21 recheck (candidate protocol-ethereum-benddao-lending-v1, llama slug benddao-lending-v1, attempt 3439): dead streak continues - 0 LoanCreated/LoanAuctioned/LoanLiquidated in last 7 d (blocks 26,409,740-26,468,508 = 2026-11-14/21, no-topic scan total 3 logs LoanUpdated x2 + LoanRepaid x1, no unknown topic0) and 0 liquidations + 0 auction bids in 30 d (from 26,244,673); paused()=false; LendPool has no claim/reward/harvest fn - auction/redeem/liquidate carry only nonReentrant+whenNotPaused; verdict unpaid (last-ever liquidation block 24,883,282 = 2026-04-14)."
+}

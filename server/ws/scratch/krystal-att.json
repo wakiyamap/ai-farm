@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-krystal-community-vault",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Krystal Community Vaults (SharedVault) have no function that pays a caller reward: open deposit/withdraw are user ops paying 0, and the only keeper-style function execute(Action[]) is role-gated (onlyAuthorized / automator OPERATOR_ROLE, 2 Krystal operator EOAs); every fee slice (platform, vault-owner, gasFeeX64) is paid to Krystal's feeRecipient or the vault owner, never to msg.sender.",
+  "numbers": "69 vaults (VaultCreated logs, factory 0xefdf2e686099bd2a8d6af226652735503deb74f1, base since 47450869); impl 0x9916bc6101951e1135650f2266030a68a0bc1333, 45/50 selectors match ISharedVault (KrystalDeFi/krystal-vault-contracts-v2 main, 2026-11-16); 7d (blocks 55.49M-58.55M, eth_getLogs all 69 vaults): 23 deposits, 20 withdraws, 362 executes (sample of all M=405 events, not capped); stranger eth_call execute([]) -> revert Unauthorized; automator 0x7a03df8ba8e48efa2acd18c61f5e04b2000d34a1, operators 0x4b82847c82087ea19418bed079966810f64f39f4 / 0x9729585607568dcbf1f5f3802afbf5b221702932; TVL $199,075 (candidate/DefiLlama), gasPrice 0.006 gwei = ~$0.002/tx, ETH $1827 (coins.llama.fi)"
+}

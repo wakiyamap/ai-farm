@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-alpaca-leveraged-yield-farming",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only caller-paid function in Alpaca v1 LYF (bsc-alpaca-contract Vault2 system, 9 lending vaults incl. ibWBNB 0xd7D069493685A581d27824Fc46EdA46B7EfC0063) is kill(uint256 id): it pays msg.sender killBps (100 bps read on ibWBNB VaultConfig 0x53dbb71303ad0F9AFa184B8f7147F9f12Bb5Dc01) of the seized collateral, but requires config.whitelistedLiquidators[msg.sender] (onlyOwner setter); eth_call kill(0) from a fresh address reverts '!whitelisted liquidator'. No open-to-anyone paying function found; user functions (work, deposit, withdraw) pay nothing to callers.",
+ "numbers": "TVL $13.2M BSC at api.llama.fi 2026-11-19 (18,189 WBNB = $10.53M @ $579/BNB implied, $2.64M USDT); Kill events last 7d across 9 vaults: 0 (eth_getLogs topic0 0x1f645d83d1940a1cb59e44eda10b9611d98402a975eef915b67160f46ee349e3, blocks 134,407,400-134,609,000, 41 chunks); also 0 in the 7-14d window; control same shape same addresses Transfer topic last 30k blocks = 204 logs; kill revert data '!whitelisted liquidator' (eth_call from 0x1111...1111, block latest)"
+}

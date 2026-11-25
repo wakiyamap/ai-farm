@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-dao-swap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: DAO Swap is a plain PancakeV2 fork on bsc (factory 0x940BEb635cbEeC04720AC97FADb97205676e6aa4, 14 pairs). Its whole public surface is swap/mint/burn/sync/createPair plus owner-gated setFeeTo/setFeeToSetter (feeTo=0x43184b8425c8cb800e4b4b8ef809b9abb62cf60b); no function pays a caller or a recipient argument a reward (no claim/harvest/bounty; not even skim). The DEX is also near-dead: 127 swaps in 7 days across 3 pairs.",
+  "numbers": "7d window blocks 133883680 (2026-11-16T06:58:53Z) to 135227132 (2026-11-23T06:58:53Z), timestamps read via eth_getBlockByNumber. eth_getLogs no-topic scan, all 14 pairs (control for renamed topics): 259 logs = 127 Pancake-Swap (topic0 0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822) + 127 Sync(uint112,uint112) (0x1c411e9a...) on 0x30b4a9a0a4be2129f9153029506f3bc3176fe225 (WBNB/BUSD, 62 swaps), 0xfc38d99970b70a35b624202e7b15820487a16eb3 (DAO/BUSD, 57), 0x6cbe9185ab537ef1d1b54523fb11e6f21f21eac8 (DAO/WBNB, 8); 1 Burn + 3 Transfer on 0x73c86eac; 10 pairs zero events. Swap senders: 18 distinct addresses (swappers/routers, not reward keepers). Caller reward per call: 0 (no reward function). TVL 44,394 USD (api.llama.fi/protocol/dao-swap, point ts 1795405931 = 2026-11-23T03:52Z); BNB 557.28 USD (coins.llama.fi coingecko:binancecoin @1795417518); token symbols and 18 decimals read on chain from the pair contracts (token0()/token1())."
+}

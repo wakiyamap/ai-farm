@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the meta agent every 12 hours
+
+[Timer]
+OnBootSec=1h
+OnUnitInactiveSec=12h
+Unit=agent@meta.service
+
+[Install]
+WantedBy=timers.target

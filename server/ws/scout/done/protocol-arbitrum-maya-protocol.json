@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-maya-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1103,
+ "chain": "arbitrum",
+ "slug": "maya-protocol",
+ "name": "Maya Protocol",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 61883,
+ "url": "https://www.mayaprotocol.com",
+ "github": null,
+ "listed_days_ago": 1103,
+ "run_id": "693e249861944904bd99bd10af564b52",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: only Maya contract on arbitrum is ArbRouter 0x700e97ef07219440487840dc472e7120a7ff11f4 (verified source); no function pays a caller (deposit/depositWithExpiry user-driven, transferOut/returnVaultAssets vault-driven by msg.sender allowance); 7d blocks 524611500-526664745 (11-16..11-23): 263 Deposit + 351 TransferOut (no-topic scan, topic0s match source keccaks); callers = 3 TSS vault EOAs (code 0x, one holds 22.74 ETH) + users; gross 0 USD/call, gas 40,443 = 0.0014 USD (0.0202 gwei, ETH 1712.25 USD midgard 11-23); router holds 34,046 USDC",
+  "kb": [
+   "attempts:3927",
+   "protocols:2078"
+  ],
+  "run_id": "693e249861944904bd99bd10af564b52",
+  "at": 1795396979
+ }
+}

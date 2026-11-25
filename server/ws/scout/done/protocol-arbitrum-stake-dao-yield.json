@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-stake-dao-yield",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "stake-dao-yield",
+ "name": "Stake DAO Yield",
+ "category": "Yield",
+ "tvl_usd": 727772,
+ "url": "https://stakedao.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "71de2a2244be459f8948dabfbf14a504",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Accountant 0x93b4b9bd.. harvest(address[],bytes[],address) is callable by anyone (eth_call from fresh addr succeeds, no role revert) but pays 0: getHarvestFeePercent()=0 on chain and harvesterFee=0 in all 9 Harvest events of the last 7d (2,768 CRV harvested, ~536 USD at 0.19369 USD/CRV; 0 fee in all 233 events back to 2026-08-08 as control); callers are vault users claiming their own CRV (tx 0x56ecd128..), gas ~0.0145 USD/call (411,467 gas @ 20,012,000 wei).",
+  "kb": [
+   "attempts:2637",
+   "protocols:1110"
+  ],
+  "run_id": "71de2a2244be459f8948dabfbf14a504",
+  "at": 1795121233
+ }
+}

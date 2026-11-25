@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-convex-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "convex-finance",
+ "name": "Convex Finance",
+ "category": "Yield",
+ "tvl_usd": 872925,
+ "url": "https://www.convexfinance.com/",
+ "github": [
+  "convex-eth"
+ ],
+ "listed_days_ago": null,
+ "run_id": "90eead25da714d98874518cdb67b4100",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Convex Arbitrum Booster 0xF403C135...AE31 (40 pools, 33 active, verified source): no function pays a caller - claimCrv reverts '!auth' from fresh addr, FeeDeposit.processFees is a source no-op, getReward(address) pays 0 to a caller with no staked LP; 7d all 33 RewardPaid events are self-claims (user==to), 1016.7 CRV = $196.94 gross to 11 EOA stakers, $13.31-31.39/claim vs gas $0.017-0.018 (CRV 0x11cdb42b..., $0.1937 coins.llama.fi 1795114855); TVL 857.5k USD.",
+  "kb": [
+   "attempts:2612",
+   "protocols:1088"
+  ],
+  "run_id": "90eead25da714d98874518cdb67b4100",
+  "at": 1795115297
+ }
+}

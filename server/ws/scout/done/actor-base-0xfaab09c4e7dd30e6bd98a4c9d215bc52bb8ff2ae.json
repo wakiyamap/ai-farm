@@ -1,0 +1,21 @@
+{
+ "id": "actor-base-0xfaab09c4e7dd30e6bd98a4c9d215bc52bb8ff2ae",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "base",
+ "address": "0xfaab09c4e7dd30e6bd98a4c9d215bc52bb8ff2ae",
+ "retries": 1,
+ "run_id": "da567290ade3438785708dfc5c80ebfa",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Morpho Blue liquidation batch executor (unverified; keeper EOA 0x0c91e1bb, entry 0x1dbf95fe -> self-call 0xa7b8b534 -> Morpho liquidate 0xd8eabcb8, collateral sold to USDC in-tx, profit swept to owner): 175 liquidations in 47 txs, 364.76 USDC in 39 sweeps over its whole 15 h life (2026-11-20T15:16Z..11-21T06:17Z, no 7 d history) = 9.35 USDC/sweep, 1.98/liquidation, 1.1% of 32,934 USDC repaid (99.4% cbBTC/USDC 0x9103c3b4); gas 1.88-32.34 USD success, 0.01-4.34 reverted (ETH 1627.89); 162 sends for 47 earning txs = same-block race.",
+  "kb": [
+   "attempts:3237",
+   "leads:356",
+   "actors:324"
+  ],
+  "run_id": "da567290ade3438785708dfc5c80ebfa",
+  "at": 1795248180
+ }
+}

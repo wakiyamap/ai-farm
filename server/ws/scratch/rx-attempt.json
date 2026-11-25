@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-rockawayx",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: RockawayX on Base is one Morpho-style VaultV2 (0xAE4181CFB5aaA08bbE77d269c6B595672b9F9Edc, 'RockawayX Midas USDC Prime', 602,956 USDC). The ABI has no claim/reward/harvest/auction/liquidation function; the only permissionless state-changing call is accrueInterest(), which pays the caller 0. Last-7-day accruals were all side effects of user deposits/withdrawals routed through 0x2b08a911f48de25a7e305d910afb5597abe8ea7b - nobody is paid for keeping it ticking.",
+  "numbers": "7d logs on vault (base blocks 55,610,673-58,634,673, 2026-11-10..17): 38 total = AccrueInterest 10 (in 7 txs), Transfer 10, Approval 4, Withdraw 4, Deallocate 4, Deposit 3, Allocate 3. Sample of 5 of 7 accrue txs: all to router 0x2b08a911f48de25a7e305d910afb5597abe8ea7b (sels 0x6bbba4e0 / 0x932084a8) from 0x3916869bdc5b0d91c7a364f070d1bca7bc61211b, 0x26c856009f3678c808b16c3cce75c5b5f7f29917, 0x9d26b4b629e016e754c2f8c70fc20cb0c85c95e7 (x2), 0xc81eba678c5ffa4bdba4a44634ae1e14c5d9579f; gross paid to caller 0 USD per call. Gas used 298k-312k per router tx at effGasPrice 0.006-0.035 gwei = $0.004-$0.019 (ETH $1,813.14, coins.llama.fi 2026-11-17). accrueInterest() from a stranger: eth_call succeeds (0x, no revert), pays 0."
+}

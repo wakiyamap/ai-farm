@@ -1,0 +1,20 @@
+{
+ "id": "actor-ethereum-0x07ae8551be970cb1cca11dd7a11f47ae82e70e67",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "ethereum",
+ "address": "0x07ae8551be970cb1cca11dd7a11f47ae82e70e67",
+ "run_id": "f2ba12d25713426b9f0c6a2f8df51bee",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Across relayer/treasury EOA: SpokePool.fillRelay (0x5c7bcd6e, sel 0xdeff4b24, ~120k gas) + Across V5 Gateway.execute (0x998d7c17, sel 0xe3a64e34, ~210-665k gas); ~390 own txs/day, gross USDC+USDT out 67.5M / in 67.4M over 7d (~9.6M/day each way), median transfer 977, mean 21k; net to the EOA in its own txs NEGATIVE in 11/11 sampled (it fronts the payout, repaid later on the origin chain in the dataworker batch tx, not in-transaction); gas 103k-665k at 0.08-0.60 gwei = 0.02-0.25 USD/call, mean 0.083 (ETH 1823.50, coins.llama.fi); ~43% of its SpokePool calls revert at ~43k gas (relayer race)",
+  "kb": [
+   "actors:203",
+   "protocols:285",
+   "attempts:1538"
+  ],
+  "run_id": "f2ba12d25713426b9f0c6a2f8df51bee",
+  "at": 1794880645
+ }
+}

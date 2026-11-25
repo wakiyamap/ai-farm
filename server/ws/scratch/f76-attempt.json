@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0xf76ead30ee64192e30ec26f7c39a4b069b9c1ccf",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers: Felix CollateralRegistry redemption is permissionless and this actor's atomic route earned a small spread in four calls; proceeds went to a beneficiary while the key paid gas. Existing redemption class lead 149 remains economically closed at current size.",
+  "numbers": "7d from timestamp: block 51475729 (2026-11-17 04:13:41 UTC) through 52090549 (2026-11-24 04:13:41 UTC). Ledger source felix_cdp.redemption: actor 4 tx/8 events on Nov 24, 2203.893 feUSD principal; all actors 249 tx/498 events. Sample of 19 of at least 200 explorer-listed recent calls; four Felix receipts 0x16d785f8..., 0x87b7afd0..., 0x4c001ab0..., 0xe8b48204... paid beneficiary 0.0194023988 WHYPE = $1.2331, gas 0.007612 HYPE = $0.4841, net $0.7490 (gross $0.3083/call, gas $0.1210/call). WHYPE 0x5555555555555555555555555555555555555555, symbol WHYPE/18 decimals via eth_call; price $63.5535 from coins.llama.fi at 2026-11-24 04:14 UTC. HYPE $63.5937 from coins.llama.fi at 04:11 UTC. debug_traceTransaction for 0xe8b48204... shows 0xab6d53bd call to Felix CollateralRegistry and WHYPE transfer to beneficiary; no ERC-20 transfer to actor in these receipts."
+}

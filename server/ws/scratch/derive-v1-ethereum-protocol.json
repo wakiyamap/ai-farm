@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "derive_v1",
+  "status": "dead_end",
+  "checked": "Derive V1 is ex-Lyra V1. Archived DefiLlama adapter projects/lyra/index.js at cac3773 (current adapter 404; api.llama.fi/protocol/derive-v1 gives module lyra/index.js) lists Ethereum staking proxies 0x54d59c4596c7ea66fd62188ba1e16db39e6f5472 (stkUSDC) and 0xcb9f85730f57732fc899fb158164b9ed60c77d49 (stkLYRA). Both eth_getCode != 0x; proxy implementations from explorer source: 0x79eb08324bc567d153cda161a3b659b32d6d1a75 and 0x213062749d906f7a15156399f8dee230c28ea39a, verified. STAKED_TOKEN()/REWARD_TOKEN() getters answer USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 / LYRA 0x01ba67aac7f75f647d94220cc98fb30fcc5105bf and LYRA / stkLYRA respectively. Verified VirtualAAVEStakedToken.sol claimRewards(to,amount) calculates only msg.sender's staked accrued rewards, then transfers that amount from REWARDS_VAULT to to; no caller bounty. stake requires caller's token transfer, redeem burns caller's staking shares; configureAssets requires EMISSION_MANAGER. USDC migration redeem similarly burns caller's shares. Fresh address 0x...1234 has getTotalRewardsBalance=0 on both, eth_call claimRewards(0x...1234,1) reverts INVALID_AMOUNT on both. No public function paying an unrelated caller was found."
+}

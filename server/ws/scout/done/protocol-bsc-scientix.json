@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-scientix",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "scientix",
+ "name": "Scientix",
+ "category": "Synthetics",
+ "tvl_usd": 367440,
+ "url": "https://scientix.finance",
+ "github": [
+  "ScientixFinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b569072908e4475387c93770ccdc9d50",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Scientix bsc dormant: 0 events in 7d on Scientist 0xEbB1...60Da + TransmuterB 0x2dfE...2bcF (5k-block pages, controls 241 & 1099 logs); only stranger-pay fn forceTransmute(address) open-callable but reverts 'Transmuter: !overflow' (totalSupplyScTokens=0, pays 0 BUSD); TransmuterB.harvest onlyKeeper, Scientist.harvest open but 10% fee to rewards contract; gas ~0.004 USD/call (0.05 gwei x 150k, BNB 566.56 coins.llama.fi 05:10 UTC)",
+  "kb": [
+   "attempts:2778"
+  ],
+  "run_id": "b569072908e4475387c93770ccdc9d50",
+  "at": 1795151881
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-usdfi-lending",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1496,
+ "chain": "bsc",
+ "slug": "usdfi-lending",
+ "name": "USDFI Lending",
+ "category": "Lending",
+ "tvl_usd": 68365,
+ "url": "https://lending.usdfi.com/usdlend",
+ "github": null,
+ "listed_days_ago": 1496,
+ "run_id": "e1ce9c3c7b59470294416772806ca1ba",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: RainMaker.claimComp(address) (0x1482359f...) is public/no-role and eth_calls OK (~1,591,518 gas = bash.044 at 0.05 gwei, BNB 56.92), but pays 0: compSupply/BorrowSpeeds=0 on all 16 markets and 0 STABLE-deprecated Transfers left RainMaker in 7d blocks 133883268-135226716 (same-shape BUSD control 9,641 logs; also 0 in 30d); pot 179.41 STABLE x bash.5939 = 06 sits against old dust (largest compAccrued 5.07 STABLE = .01, self-claim succeeds, unclaimed 30+ days).",
+  "kb": [
+   "protocols:2151",
+   "attempts:4022"
+  ],
+  "run_id": "e1ce9c3c7b59470294416772806ca1ba",
+  "at": 1795417632
+ }
+}

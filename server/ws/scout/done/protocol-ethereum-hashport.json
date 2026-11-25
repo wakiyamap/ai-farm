@@ -1,0 +1,23 @@
+{
+ "id": "protocol-ethereum-hashport",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 644,
+ "chain": "ethereum",
+ "slug": "hashport",
+ "name": "Hashport",
+ "category": "Bridge",
+ "tvl_usd": 1204217,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 644,
+ "retries": 1,
+ "run_id": "815590e2916f4d109821b9c5d3ad7221",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only reward fn is FeeCalculatorFacet.claim(address,address) 0x21c0b342 on router diamond 0x367e59b5...Cd4B7: onlyMember-gated (9 validators), pays the member's admin not the caller; 0 router txs/logs in last 7 d (blocks 26,410,777-26,460,903, control: 7 logs on June range), claimable 0; last claims 2026-06-01 by non-member keeper 0x791b0e95, one paid 23,441.72 UNDEAD (~7.45 USD) for 116,734 gas (~0.20 USD).",
+  "kb": [],
+  "run_id": "815590e2916f4d109821b9c5d3ad7221",
+  "at": 1795233990
+ }
+}

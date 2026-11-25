@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "address": "0xb091bc76e235239e3f1c172702fc52fe00a3ad71",
+  "strategy": "Personal cross-protocol liquidator executor on Base (unverified, owner-gated): owner EOA 0xc217fe74a26b4e7bdb2b30d569723e8a1224e591 registers markets (Venus mTokens, Fluid, Seamless, Aave) and calls liquidate() which flash-loans debt token from Morpho Blue 0xbbbb...ffcb, liquidates via Aave V3 liquidationCall / Seamless / Uni V3 router swaps, repays in-transaction. Deployed by that EOA 2026-11-16; all 153 txs in a 7.5 h window, dormant since. Retained balance ~= $0.02 (8.3e-6 cbETH + 1.9e-7 WETH), native 0 - a bot in testing, no profit stream.",
+  "evidence": "deploy 0xf5afb317755d378437055e4d857b03b9328ba96616abe866dade021fa45748a2 (block 58337444, by 0xc217fe74); Aave dust liquidation 0x3ec27f9bf74d1bb9e92643684e712250f400c5e4beedbff5e9df28944ad95313 (debtToCover 2.568e-9 cbETH, 715k gas); Seamless liquidation 0xd15eb1bcb9b360fa13b398a8078cef5ab2b14c3614a814bf0174b5b2fa9b0d05 (pool 0x8f44fd75..., 899k gas); batch liq 0x1f2c5fadebd98d565ca74a6fe4ff08154049b14f1f35e6baf06b66cda8860ade (521k gas, Morpho USDC flash loan -> Uni V3 router 0xb125e668); full 153-tx history via explorer txs (scratch/txs_all.txt): 72x cb29b4a9 register(market,flag), 34x 9b7a21f3 liquidate (20 ok/14 revert), 35x a62b1227(addr,-1), 26x 3816a292(addr,1), 8x 140d0f1c, 2x 4c5f1080 (Venus mVIRTUAL 0xde8df9d9) - all from 0xc217fe74, all owner-gated (eth_call from 0x1111.. reverts with custom error 0x30cd7471).",
+  "est_profit_usd_day": 0.01
+}

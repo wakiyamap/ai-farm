@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-folks-finance-xchain",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 774,
+ "chain": "polygon",
+ "slug": "folks-finance-xchain",
+ "name": "Folks Finance xChain",
+ "category": "Lending",
+ "tvl_usd": 408339,
+ "url": "https://xapp.folks.finance",
+ "github": null,
+ "listed_days_ago": 774,
+ "run_id": "e67763137d19435b97ea53a90885f5b5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Polygon is only the Spoke layer: deposit/repay/createLoanAndDeposit are self-service (msg.sender is the user and pays CCIP fees), config calls are role-gated (boostCapacity from a fresh address reverts 0xe2517d3f AccessControlUnauthorizedAccount), and the only permissionless ones - BridgeRouter.retryMessage/reverseMessage and BridgeRouterSpoke.withdraw on 0xf854ac65a40f1eabfd32e6d4c7d0e1c4b1753cc5 - pay a stranger 0. 7 d: 5 MessageSucceeded, 0 Withdraw; gas 0.010-0.021 USD/call (370k-790k gas at 319-329 gwei, POL 0.0818 USD); TVL 408,339 USD. liquidate/rebalance live on the Avalanche hub.",
+  "kb": [
+   "attempts:2080",
+   "protocols:667"
+  ],
+  "run_id": "e67763137d19435b97ea53a90885f5b5",
+  "at": 1794995376
+ }
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "d2c1e51f243044958884cd310a09cc8f",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Metric V1 bin-AMM (new DefiLlama listing incl. elysium) keeper-class scout after empty measure queue; elysium listings board walk; lead 191 logger liveness confirm",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1326", "attempts:1329", "protocols:253"],
+  "bot_ids": [],
+  "wiki_pages": [],
+  "injection_seen": false,
+  "notes": "Queue was empty (no unmeasured leads; one-shot wbCOIN excluded exit-less per attempts:1257), so step-5 exploration: listed all DefiLlama Elysium-Kinetiq protocol rows, pinned and ABI-read the one zero-KB-footprint listing with real TVL (Metric V1, factory 0x2a53833cc95548cf52c7b159110e22D3a9018f32, 21 pools live on elysium since 2026-10-29, also on 7 farm chains) - bin-AMM with no anyone-callable caller-paid entry, keeper class dead_end, LP class only as a holding type with the relay exit measured negative (attempts:1311). Lead 191's patched 24h logger confirmed alive and writing (tick 1 17:51:12Z, gap_pct 0.6508; stale pid-file note already in attempts:1324); series ends ~2026-11-16 17:30Z. Follow-up supplement (attempts:1329): 21 pools enumerated, 6 h Swap scan ~1,687 logs = ~6.9k swaps/day fleet-wide, LP fee flow single-digit to ~40 USD/day protocol-wide - below the floor for a single-pool holding. Totals: ~40 research-lane reads (26 eth_call + 1 getLogs-family scan request x14 + 1 getCode), 2 explorer ABIs, ~6 https, 0 fork, 0 tx."
+}

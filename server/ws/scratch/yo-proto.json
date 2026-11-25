@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "yo_protocol",
+  "status": "dead_end",
+  "checked": "YO Protocol (app.yo.xyz, DefiLlama slug yo-protocol, adapter projects/yo/index.js). Arbitrum contracts (docs.yo.xyz/protocol/contract-addresses + adapter): yoUSD vault 0x0000000f2eB9f69274678c76222B35eEc7588a65 and yoUSD Edge vault 0x5DD8BFa6C5C68D05d25EF6143E05C11E26c4cDB7, both TransparentUpgradeableProxy -> impl YoVault 0xc84a6e01bff58996540f1abc22355a9dfe0d78dc (verified via explorer), plus hardcoded YoOracle 0x6E879d0CcC85085A709eBf5539224f53d0D396B0 (getLatestPrice responds: Edge price 1.027512 USDC/share). eth_getCode non-zero on all. Edge owner() = 0x67b6f699f1c8040414032a3c2c88a54db144fcd2, authority() = 0x9524e25079b1b04d904865704783a5aa0202d44d (RolesAuthority). All keeper-ish fns (fulfillRedeem, cancelRedeem, manage, approveToken, pause, fee setters) are requiresAuth: fresh-address eth_call reverts Unauthorized (0x82b42900). Oracle updateSharePrice reverts NotUpdater (0x9a280f39) for strangers. The only anyone-callable money function is requestRedeem/redeem (user redeems own shares; fresh caller reverts InsufficientShares 0x39996567) - pays no bounty. $YO rewards are distributed via Merkl and claimed on Base exclusively (docs.yo.xyz/user-guides/usdyo-token) - nothing claimable on Arbitrum. No reward function for strangers on this chain."
+}

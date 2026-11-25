@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-clipper",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "clipper",
+ "name": "Clipper",
+ "category": "Dexs",
+ "tvl_usd": 27525,
+ "url": "",
+ "github": [
+  "shipyard-software"
+ ],
+ "listed_days_ago": null,
+ "run_id": "c905efa962d14e2e97f9f65822882953",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No caller-reward function on any arbitrum Clipper contract (verified ABIs of exchange 0x769728b5.., cove 0xB873921b.., Blade register 0x2E32C76b..): only swaps and MM's own deposit/withdraw; 1 tx in last 7 d on the pool (own burnToWithdraw, 0 USD gross to caller), cove dead since 2023-10-07, register since 2025-10-27; TVL 27.5k = 3.1997 WETH + 5,280.75 DAI + 16,640.53 ARB via allTokensBalance.",
+  "kb": [
+   "attempts:4109",
+   "protocols:2231"
+  ],
+  "run_id": "c905efa962d14e2e97f9f65822882953",
+  "at": 1795439639
+ }
+}

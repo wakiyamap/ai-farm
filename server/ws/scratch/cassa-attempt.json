@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-cassa",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Cassa's only keeper-style function settle() on the ITUT vault is onlyAdmin (eth_call from a stranger reverts CassaITUT_Unauthorized 0xb4001508); every other public function is a user-driven ERC4626 deposit/redeem or router swap that pays the caller nothing. The one market shown on beta.cassa.fyi is a TEST market (MOCK asset); zero transactions on vault/policy/router in the last 7 days (last txs 2026-02-16, only two team EOAs as callers). Nothing pays a stranger.",
+  "numbers": "Contracts: vault 0x16FCcc9952C3e7e41cD79544AeE25BB3218BFa79, policy 0x77A156dd3F5037A744479cA019F8450505ECDc68, router 0xb8c3f27325e6941b1d05859fc233089da46e5c97 (all non-0x code, getters answer). settle() selector 0x11da60b4 (cast sig), role revert from fresh address. Policy effectiveDate 1769176355 (2026-01-23), expirationDate 1771979811 (2026-02-25), settlementRatio (0,false) = unsettled. 7-day tx count = 0 on all three (explorer txs; control: same query returns Feb-2026 txs, last vault tx block 24465166 ts 1771194155 2026-02-16, last router tx 2026-02-16, last policy tx 2026-01-23; callers only 0xb0e34f640be7f3156efabdd3a66ef9ea3d4a5b50 admin and 0x7054b25d47b9342da3517ad41a4bd083de8d3f70). TVL 115,185 USD listed (api.llama.fi/protocol/cassa 2026-11-20, tokens AUSD 23.3k + WSTRCX 17.0k + PT-REUSD-10DEC2026 74.2k). Gross per call to any keeper fn: 0, so gas is irrelevant. No reward pot found in source."
+}

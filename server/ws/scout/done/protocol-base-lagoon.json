@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-lagoon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 693,
+ "chain": "base",
+ "slug": "lagoon",
+ "name": "Lagoon",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 4381202,
+ "url": "https://lagoon.finance",
+ "github": [
+  "hopperlabsxyz"
+ ],
+ "listed_days_ago": 693,
+ "run_id": "7733086967b844d9bcbfe46938454f56",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Lagoon base: ERC7540 vaults (impl 0x45b69691 v0.5.1 verified src), settlement onlySafe/onlyValuationManager (fresh-address eth_call reverts OnlySafe(0xac47b422..)); 7d (blocks 55949574..58973574): 4 settle events protocol-wide (sample of 4 of 4), all by curator EOAs via per-vault safes, caller reward 0 USD vs ~0.003-0.01 USD gas (253k gas @ 0.006 gwei, ETH 1806 USD coins.llama.fi) -> role_gated, no keeper bounty",
+  "kb": [
+   "attempts:2039",
+   "protocols:628"
+  ],
+  "run_id": "7733086967b844d9bcbfe46938454f56",
+  "at": 1794985614
+ }
+}

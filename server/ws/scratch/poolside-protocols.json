@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "poolside",
+ "status": "dead_end",
+ "checked": "Poolside (Buttonwood's Buttonswap AMM, poolside.party). DefiLlama adapter projects/poolside/index.js: base factory 0x75a92DfB38C3506dcE3Bbb5EB32A10852f9ba64a (ButtonswapFactory, verified source via Blockscout, eth_getCode non-empty, allPairsLength()=4). 4 PairCreated logs -> 3 real pairs: 0x9e06b7351d0c1099564fac636b2bf3e412f3bf12, 0x4978e6f34843e9670b07c60593e3302d9202cd82 (cbETH/WETH), 0x5d222725c084ecafff9cb6f9a4ca29348a363336. Public pair fns from verified source: mint, mintWithReservoir, burn, burnFromReservoir, swap - standard AMM ops paying the swapper/LP, no reward to a caller-stranger; no skim, no checkpoint/epoch/distribute. Protocol fee is minted as LP shares sent to factory feeTo or burned (role-set, ButtonswapPair.sol _mintFee + burn-fee path L173-180). Factory fns createPair/setFeeTo* are setter-gated. Verdict no_reward: DEX with no keeper/caller incentive; also dormant (0 pair logs in last 7 d)."
+}

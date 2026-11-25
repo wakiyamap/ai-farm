@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-kipseli",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Kipseli (bsc) is a proprietary order-flow AMM: contracts live (lens 0x6e56480f8d8e17a1c7148f43bc3762e59c3abe90, reserve 0xbee1aa51dce11faa5bfc6c56dbfa5b95d4dfc000, venue entry 0xe6eeda550918638529c6cf2ea14f9ea0572d6f88) and trading is active, but the canonical public interface (verified mainnet wrapper KipseliPropAMMWrapper) is swap/quote only - no reward, bounty, claim, harvest or epoch function anyone can call. Swappers pay the venue the spread; nothing pays a stranger a reward.",
+  "numbers": "TVL 350,314 USD (candidate, DefiLlama kipseli). Lens getListedTokens()=7 tokens, quote token USDT 0x55d3...955 (eth_call 2026-11-17). Control window blocks 134073962-134075018 (1057 blocks, ~8.5 min, eth_getLogs USDT Transfer): 10 transfers involving the reserve (5 in, 5 out) - protocol live. Venue swap entry 0x985f61a1 called by PancakeSwap Universal Router / Uniswap / 1inch (trace of 0xddf008420621092fb6891c9208fb3cbb1d707cf80372eac28b384251842f6250). Gas 0.05 gwei (eth_gasPrice 0x2faf080) x BNB 592.87 USD (coins.llama.fi) => ~0.009 USD per 300k-gas swap; gross reward to caller = 0. Mainnet wrapper ABI (eth.blockscout.com /api/v2/smart-contracts/0x71e790dd841c8a9061487cb3e78c288e75ce0b3d): 14 functions, 0 reward-type.",
+  "bot_id": null
+}

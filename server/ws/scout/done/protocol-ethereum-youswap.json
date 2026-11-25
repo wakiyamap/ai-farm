@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-youswap",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "youswap",
+ "name": "YouSwap",
+ "category": "Dexs",
+ "tvl_usd": 132107,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "7c4c4a9757394d7d98ea83a99e8d4433",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Staking pool 0x0604F278... (YouswapFactoryV1, verified source) has 19 pools, all rewardTotal=0/rewardPerBlock=0/totalPower=0, last minted 2021-22; withdraw(pool,0) callable by anyone (eth_call fresh addr returns 0x, no revert) and pays 0 USD vs 0.016 USD gas (78,321 gas @0.1234 gwei, WETH 1660.16 coins.llama.fi 2026-11-22); YOU 0 mints and Repurchase 0 logs in 7d (blocks 26418871-26469124, no-topic scans; control YOU token 47 logs); factory's 32 pairs did 696 swaps/7d but ~0.01 ETH dust churn paying LP fees only; Repurchase.swap() onlyCaller = role_gated",
+  "kb": [
+   "attempts:3638",
+   "protocols:1873"
+  ],
+  "run_id": "7c4c4a9757394d7d98ea83a99e8d4433",
+  "at": 1795332781
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-stake-dao-yield",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "stake-dao-yield",
+ "name": "Stake DAO Yield",
+ "category": "Yield",
+ "tvl_usd": 209731,
+ "url": "https://stakedao.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "53bd49960f164e5c923059045e9cebf2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "avalanche footprint = 1 legacy VaultV1 0x0665eF3556520B21368754Fb644eD3ebF1993AD4 (sdav3CRV) + Controller 0x01f0ea8d52247428a7cef21327f78d7e00d37502: only role-free state-changing fn is earn(), which pays the caller 0 (verified source: no reward transfer); 7d: 1 vault tx (user withdraw, tx 0x266326a6de.., gas 110212 = 0.0087 USD), 0 earn() calls; earn() gas 59772 = 0.0047 USD vs gross 0 USD; vault holds 0 av3CRV and controller strategies/vaults = 0, so the 209,731 USD TVL is a stale balance() read.",
+  "kb": [
+   "attempts:2669",
+   "protocols:1130"
+  ],
+  "run_id": "53bd49960f164e5c923059045e9cebf2",
+  "at": 1795128575
+ }
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "balancer_v2",
+ "status": "dead_end",
+ "checked": "2026-11-19 scout run 87f9f85c. Addresses from balancer/balancer-deployments master addresses/arbitrum.json (DefiLlama adapter path projects/balancer-v2/index.js 404s; vault 0xBA12222222228d8Ba445958a75a0704d566BF2C8 from registries/balancer.js). eth_getCode non-0x for Vault, ProtocolFeesWithdrawer 0x70Bbd023481788e443472e123AB963e5EBF58D06, MerkleOrchard-v2 0x9805dcfD25e6De36bad8fe9D3Fe2c9b44B764102, ChildChainGauge 0xa523f47A933D5020b23629dDf689695AA94612Dc; Vault getter getProtocolFeesCollector() returns 0xce88686553686DA562CE7Cea497CE749DA109f9F. Fee route ProtocolFeesWithdrawer.withdrawCollectedFees(0xb8793a56) eth_call from fresh 0x1111..1111 reverts = `authenticate` authorizer role (verified source explorer); explorer txs: last call block 12343668 ts 1652819797 (2022-05-18), dormant. Linear pools: 6 deployed from the 3 ACTIVE factories (erc4626/aave-v5/yearn), ABI has NO manageFreeUnderlying - V2 rebalances inside join/exit/swap, no pool keeper fn. 4 merkle distributors (2 orchards + 2 MerkleRedeem): 0 Claimed events in 7d. Gauges self-service. No caller-reward function exists on this chain."
+}

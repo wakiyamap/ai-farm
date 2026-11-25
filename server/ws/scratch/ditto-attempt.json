@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-ditto-earn",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated — the only non-user callable operations on ethereum (vault rebalance, receiver execute 0xe1178c04) sit behind KEEPER_ROLE / verifier: eth_call from a fresh address reverts on all of them; the only caller in history is Ditto's own EOA 0x8ae18c68fffd394b207906cfbefe36f14d260212 (~one call every 6-13 days). Nothing pays a caller anyway: no reward/bounty/claim/harvest function and no reward token on ethereum (0% mgmt fee, 3.75% performance fee minted from yield); the MUSD claim flow is on Mezo, not ethereum. ERC-4626 deposit/withdraw pay only the user's own funds.",
+ "numbers": "7d window blocks 26429572 (ts 1794855971, 2026-11-16) to 26479815 (2026-11-23, eth_getBlockByNumber timestamps): 0 logs across vault + pilot receiver + V2 receiver (no-topic address scan; control same shape: 94 USDC Transfers in last 2000 blocks). Last vault user tx: block 26042928 (ts 1790199755, 2026-09-23) redeem by 0x08d81572 (explorer txs). Last keeper receiver call: block 26419870 (ts 1794739283, 2026-11-15, just before window), receipt 0xd2660f720187631fc33fedc34e401539adfec8936be0b3157aa40bbd04546e05, gasUsed 336482 x effGasPrice 0.233 gwei = 0.14 USD (ETH 1740.67 USD, coins.llama.fi ts 1795461014); pays caller 0. Vault totalAssets() = 46,121,634 = 46.12 USDC (6 decimals read on chain), getStrategyCount() = 5; protocol TVL ~99,277 USD (candidate, DefiLlama)."
+}

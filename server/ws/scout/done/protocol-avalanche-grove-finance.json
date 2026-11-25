@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-grove-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 235,
+ "chain": "avalanche",
+ "slug": "grove-finance",
+ "name": "Grove Finance",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 264106750,
+ "url": "https://data.grove.finance/",
+ "github": null,
+ "listed_days_ago": 235,
+ "run_id": "6599a9f998d64db5b3d2046d0e6c4c7e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only Grove contract on avalanche is ALMProxy 0x7107...3644 ($264.2M: 250M JAAA + 17.9M GACLO-1); doCall/doCallWithValue/doDelegateCall all onlyRole(CONTROLLER) (fresh-address eth_call reverts AccessControlUnauthorizedAccount 0xe2517d3f); no reward/claim fn; 9 external txs ever, 0 in last 7d (0 proxy logs in 5k blocks vs control 5,178 USDC Transfers); gas ~7.5 gwei, ~$0.003/call at AVAX $7.24 (coins.llama.fi).",
+  "kb": [
+   "attempts:1707"
+  ],
+  "run_id": "6599a9f998d64db5b3d2046d0e6c4c7e",
+  "at": 1794917590
+ }
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "communityv3",
+ "status": "dead_end",
+ "checked": "Uniswap V3 fork check, 2026-11-20. No projects/communityv3 dir in DefiLlama-Adapters (git tree search); factory from registries/uniswapV3.js line for 'communityv3': 0x00a38533c68327aBE0Cc265436e036066E2D6B38, fromBlock 25895766 (2026-09-03). eth_getCode non-0x; owner()=0x0 (burned); feeTo() reverted. PoolCreated scan (topic0 0x783cca1c... from a factory receipt; note cast keccak differs from chain in this env) since deployment: 420 pools, 33 created in last 7d, 23 fee tiers in use 500..50000 (long-tail USDC pairs). Explorer source of factory and of pool 0x9f810a99...: standard UniswapV3Factory/UniswapV3Pool v0.7.6; deployed pool ABI has only the standard functions (mint swap burn collect flash observe...), no reward/claim/keeper fn. eth_call collect from fresh address 0x1111... returns (0,0) (pays only the position's own accrued fees); collectProtocol reverts (onlyOwner, owner=0x0). Verdict no_reward: value accrues to LPs as swap fees, nothing pays a stranger for calling."
+}

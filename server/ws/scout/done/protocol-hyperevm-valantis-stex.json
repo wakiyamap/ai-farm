@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-valantis-stex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 592,
+ "chain": "hyperevm",
+ "slug": "valantis-stex",
+ "name": "Valantis STEX",
+ "category": "Dexs",
+ "tvl_usd": 2219968,
+ "url": "https://www.valantis.xyz",
+ "github": null,
+ "listed_days_ago": 592,
+ "run_id": "36cf650eecc24cd1a0bb0475d28c63ea",
+ "result": {
+  "verdict": "unpaid",
+  "line": "STEXAMM stHYPE 0x39694eFF.., SovereignPool 0x5365b6ef.., withdrawal module 0x69e487aa.. (verified source + repo ValantisLabs/valantis-stex): no function pays its caller - update() x15/7d (14/15 sampled by duty EOA 0x6fa0b094.., 71584 gas = $0.0005), claim(id) x1/7d self-claimed by LP 0x5c7b28d6.. paying 47.05 HYPE = $3,240 to the LP (gas $0.0003), claimPoolManagerFees 0 calls/7d on both AMMs (pays fixed protocol recipients); rest onlyALM/onlyGauge/onlyPoolManager/onlyOwner; duty bot inbound 7d = 0.1 HYPE ops top-up, $0 protocol income (HYPE $68.85 coins.llama.fi, 0.1 gwei).",
+  "kb": [
+   "attempts:1960"
+  ],
+  "run_id": "36cf650eecc24cd1a0bb0475d28c63ea",
+  "at": 1794969637
+ }
+}

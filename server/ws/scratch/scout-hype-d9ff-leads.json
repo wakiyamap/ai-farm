@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "morpho_blue liquidate (executor-wrapped 0xc1ec19c0(Morpho,bytes) entry, hbHYPE-collateral HYPE markets)",
+  "why": "Incumbent 0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3 with worker EOAs 0x143dd73bada9EC9f9d2Ab15385f59359Bc81A15 and 0xe319d3a838Bcc59F797D8A0A56962Ca7c16bcf56 takes these itself: sample of 200 of 200+ tx over 19 days (2026-10-28..11-17) has 101 job calls, 35 successful (1.8/day); one measured success 0xe65615e2edb03dd2606d205c33a0842be8bbd4fb12ad924c963706860c9c3dbc: repaid 11.466 HYPE, seized 11.399 hbHYPE, sold for 11.596 HYPE -> gross +0.13 HYPE ~= $9.0 at $69.39/HYPE (coins.llama.fi coingecko:hyperliquid). Morpho Blue (MorphoBlue 0x68e37de8d93d3496ae143f2e900490f6280c57cd) pays the liquidation bonus to any caller, so a fresh address is paid too.",
+  "next_steps": "Contract: MorphoBlue 0x68e37de8d93d3496ae143f2e900490f6280c57cd on hyperevm; executor-wrapped liquidate+swap (repay HYPE, seize hbHYPE, swap to WHYPE) in one tx. 19-day count: 101 attempts / 35 successes (~5.3 attempts, 1.8 successes/day). Gross per success ~$9 (1 sample, small ~11 HYPE position; scales with position size). Gas per successful job call $1.07 at 29 gwei (0x2cd9db20); failed attempts cost gas too and HyperEVM gas price swings 0.1->4300 gwei (observed same week), so per-call gas ranges $0.01-$200+; time attempts at low gas. Whether the incumbent takes these in the first block (latency race vs slow-taker class in lead 173 / measured leads 228) is not measured - trial candidate.",
+  "status": "measured"
+}

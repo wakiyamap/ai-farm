@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "jetswap",
+ "status": "dead_end",
+ "checked": "JetSwap polygon = stock UniV2 fork + PancakeSwap-v1 MasterChef (DefiLlama root registries/uniswapV2.js 'jetswap' polygon entry, projects/jetswap has no own dir). Factory 0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7 (verified JetswapFactory, allPairsLength=457); MasterChef 0x4e22399070aD5aD7f7BEb7d3A7b543e8EcBf1d85 (verified, poolLength=26, cakePerBlock=1e18, totalAllocPoint=11562, boostvaultaddr 0xe8b8cf540e64d4576c77edfae4d08a80eb028e91 has NO code); pWINGS token 0x845E76A8691423fbc4ECb8Dd77556Cb61c09eE25 (JetSwapPolygonToken, llama has no price). Everyone-callable fns eth_call OK from fresh 0xf39F...2266: massUpdatePools(), updatePool(5), deposit/withdraw/enterStaking/leaveStaking/emergencyWithdraw. None pays the caller: updatePool mints pWINGS to devaddr (10%)/burn (5%)/boostvaultaddr (10%)/syrup (100%) and credits accCakePerShare; deposit/withdraw pay msg.sender their OWN pending. No keeper bounty exists. 7d events (Deposit|Withdraw topic0 0x90890809.., 0xf279e6a1.. computed by cast keccak, blocks 97337327-97639727): 4, all in one self-compound tx 0xbee57932094587fcceb06cda38436f721079bcb8df5c455dbfe47aedd8f7df4f by 0x8f3b596b7052a90d4d95177ef28be4a428840804 on pid 2. Same-shape control (WPOL 0x0d500B1d... Transfer, 16 blocks) returned 155 logs."
+}

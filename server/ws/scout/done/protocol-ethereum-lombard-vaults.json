@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-lombard-vaults",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 796,
+ "chain": "ethereum",
+ "slug": "lombard-vaults",
+ "name": "Lombard Vaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 53289467,
+ "url": "https://www.lombard.finance/app/stake/?referrer=ssybnl",
+ "github": null,
+ "listed_days_ago": 796,
+ "run_id": "20641a6de2824f929fa3cebae0db95e8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: BoringVault stack (vault 0x5401b862, teller 0x2ea43384, accountant 0x28634d0c) - all money functions solmate requiresAuth; stranger eth_call UNAUTHORIZED, authority canCall=1 only for Lombard Safe 0x757fad4e; 4 updateExchangeRate/7d (blocks 26410915-26461170, 168h, 4 of 4, one EOA 0xfa8af0b4 via that Safe), gross to caller 0 USD, gas 110.8k = 0.32 USD (ETH 1552.32 CoinGecko 04:48 UTC); claimFees only callable by the vault, no FeesClaimed in 7d; vault 23 Enter + 12 Exit user flows; control 91 logs.",
+  "kb": [
+   "attempts:3193",
+   "protocols:1542"
+  ],
+  "run_id": "20641a6de2824f929fa3cebae0db95e8",
+  "at": 1795236980
+ }
+}

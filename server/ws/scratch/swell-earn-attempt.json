@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-swell-earn",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Swell Earn on ethereum is two Raft BoringVaults (earnETH 0x9Ed15383940CC380fAEF0a75edacE507cC775f22, earnBTC 0x66E47E6957B85Cf62564610B76dD206BB04d831a, verified source BoringVault.sol 0.8.21 via etherscan) whose only write entry points enter/exit/manage are behind Raft Auth roles; eth_call from a stranger reverts UNAUTHORIZED. There is no permissionless reward/harvest/claim function and nothing pays a caller; strategy keeper activity (Euler/Velo) is on Swellchain, where the farm has no chain. Protocol is also nearly dormant: 1 tx touching either vault in 7 d.",
+  "numbers": "7d window blocks 26410613 (2026-11-14, ts 1794627875) .. 26461013 (2026-11-21, ts 1795234427), eth_getBlockByNumber timestamps; no-topic eth_getLogs on both vaults = 2 logs / 1 tx (Exit + Transfer, tx 0x5df401a95354a2ced63cd7b17ae400eddd03200f5e6565f5c1eedaa5d359aba7); control USDC 100-blk no-topic scan 11127 logs (same query shape); stranger eth_call enter 0x39d6ba32.. and manage 0xf6e715d0.. both revert 'UNAUTHORIZED'; TVL ethereum 332,195 USD (api.llama.fi/protocol/swell-earn currentChainTvls, 2026-11-21); gross to strangers 7d = 0 USD; gas cost of the 1 tx ~ standard ERC20 exit gas, not farm-relevant."
+}

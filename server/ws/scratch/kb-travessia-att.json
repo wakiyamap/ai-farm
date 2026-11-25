@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-travessia-credit",
+  "outcome": "dead_end_recorded",
+  "reason": "Verdict unpaid. Travessia Credit's only Avalanche vault (TTV, 0x9c3da70c...8Fd2 + loan 0xA8163782...99d4) exposes stranger-callable maintenance functions accrueInterest()/updateLateStatus()/processAvailableWithdrawals() (eth_call from a fresh address succeeds), but none pays the caller: all fees are minted as vault shares to the investment manager and treasury. The loan and vault also had zero transactions in the last 7 days (loan zero in 30d), so no keeper even bothers to call them.",
+  "numbers": "0 txs to loan 0xA8163782b06d3338a3E93DdB6F29330A27Ff99d4 and vault 0x9c3da70cD7feDEAeF528d060ea99AcE133E08Fd2 in last 7d (blocks ~100.26M-100.57M, Snowtrace api txlist; USDT 0x9702..A8c7 control same query = 100 txs). Gross per accrueInterest call to caller = $0. Gas estimate 120,733 (eth_estimateGas) x gasPrice 7.5 gwei (eth_gasPrice) x AVAX $7.222 (coins.llama.fi) = $0.0065/call. loanState()=3 OngoingDynamic, vault totalSupply 489,545.8 shares (6dp), DefiLlama avalanche TVL $515,643 (candidate)."
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "stockereum",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/stockereum/index.js + verified explorer source (LaunchHook.sol, FeeEscrow.sol, LaunchFactory.sol). Uniswap v4 launchpad hooks: v2 0xAFeD2c6e0d906520ca17143a8918Ce6d54b128Cc, v3 0x322dcEc4958C14e021A9F1cD49DF11b9457968cC (eth_getCode non-0x; factory()/escrow() getters answer). FeeEscrows: v2 0x0b943b855912214f0a73ca80b73deaccea1ab8da, v3 0xacefe251da006887da41c063d06cc82a060824ba (identical source). Factory 0xc6b080ded03c3382476a76345e79f82bd480977b. Public state-changing surface: hook.sweep(address) (anyone, pays caller 0 - funds go to escrow), escrow.claim(currency,to) (anyone, pays only claimable[msg.sender]), factory.createLaunch/createLaunchAndBuy (payable cost). Everything else onlyOwner/onlyPoolManager/onlyFactory/onlyHook."
+}

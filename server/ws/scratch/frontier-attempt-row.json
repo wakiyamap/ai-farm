@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-inverse-finance-frontier",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Frontier/Anchor has a public liquidation function, but none of its 24 markets emitted a liquidation in the last seven days. INV claims pay only the accrued holder, and all listed market distribution speeds are zero.",
+  "numbers": "7 d timestamp window: block 26430752 at 2026-11-16 23:02:35 UTC to block 26480994 at 2026-11-23 23:02:35 UTC. eth_getLogs on 24 addresses from Comptroller.getAllMarkets(): LiquidateBorrow topic 0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52 = 0; no-topic same-window scan = 163 logs with known topics only (Mint 28, Redeem 48, Transfer 76, AccrueInterest 2, xINV DelegateVotesChanged 8, RepayBorrow 1). Known-active same-shape control: USDC Transfer at block 26480992 = 87 logs. compSpeeds getter 0 in 24/24 markets. Fresh-address anDOLA liquidation eth_call returned Compound error code 3; compAccrued(fresh)=0. No successful liquidations to sample; gross reward per call and gas USD unmeasured. Sources: Inverse Finance registry https://docs.inverse.watch/cheat-sheets/contracts, Etherscan verified source via explorer, relay queries in scratch/frontier_scan.py and scratch/frontier_no_topic.py."
+}

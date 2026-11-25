@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-azverse-perps",
+ "outcome": "dead_end_recorded",
+ "reason": "not_found: no contracts on bsc. DefiLlama BSC footprint is 3 qualified-custodian EOA wallets (eth_getCode 0x); the protocol is an off-chain CEX-style DEX (matching/settlement on its own AZ L1, positions closed by the system, no liquidator or keeper role), docs list no BSC contracts and the GitHub org has no contracts repo. Nothing anyone can call, so no reward to collect.",
+ "numbers": "custody EOAs (adapter projects/azverse/index.js): 0x03a7e5..6608 91,985 USDT + 18,799 USDC (nonce 694); 0xdc3798..7a41 598,077 USDT + 189,633 USDC (nonce 1); 0xc2a290..78ce 0 + 0; all eth_getCode 0x on bsc (relay, 2026-11-17); USDT 0x55d398326f99059fF775485246999027B3197955 / USDC 0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d balanceOf at latest; chainTvls.Binance 942,546 USD (api.llama.fi). Prior Arbitrum dead_end: attempts 389-391."
+}

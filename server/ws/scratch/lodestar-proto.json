@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "lodestar_v1",
+  "status": "dead_end",
+  "checked": "Compound v2 fork (source lodestar/contracts on etherscan). Unitroller proxy 0xa86dd95c210dd186fa7639f93e4177e97d057576: eth_getCode not 0x, getAllMarkets() returns 15 markets; implementation 0xe64e44c97f9a019f70f8cdb3f4d3d465c56e9ab2 (verified). DefiLlama adapter projects/lodestar-v1 (same controller addr). Only public reward fn: claimComp(address) (also holders/markets overloads) - eth_call from fresh address 0x...cafe0001 succeeds (no role gate); cToken has no claim/sift fn. Reward token getCompAddress()=0xF19547f9ED24aA66b03c3a552D181Ae334FBb8DB, symbol()='LODE', decimals()=18 read on chain. 7d window blocks 524623001 (2026-11-16T02:13Z) to 526677097 (2026-11-23T02:13Z) from eth_getBlockByNumber timestamps: 0 LODE Transfers from comptroller (claims), 0 LiquidateBorrow across all 15 cToken markets; same-shape control (Borrow topic0 taken from a cEther receipt) returns 6 logs. 95-day lookback: still 0 claims. Comptroller LODE balance (pot for ALL claims) = 1.128 LODE; LODE unpriced on coins.llama.fi current and historical 2026-11-16..23 (last known price 0.0816 USD at ts 1719000111 = 2024-06-22). Emission speeds still nonzero (e.g. cEther supply 0.4139 LODE/block) but grantCompInternal skips transfer when amount > pot, so accrued claims cannot be paid."
+}

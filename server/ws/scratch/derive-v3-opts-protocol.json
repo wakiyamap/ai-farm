@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "derive_v3_options",
+  "status": "dead_end",
+  "checked": "Derive V3 (ex-Lyra V3 zk exchange, L1 migration 2026-10-08) ethereum footprint = 5 docs-listed contracts (docs.derive.xyz/getting-started/contracts.md + DefiLlama adapter projects/derive-v3): SPOT_VAULT 0x2e7dF4fAf35a1599979C7E764444e112d936ec42 (custody escrow, onlyOwner approveToken/disableToken), WithdrawalOutbox 0x7c743D79C9C595cE332314503d84cBBb4E85FA63, VerifiableApp 0xd330145C17fB6EF2a21ACf1275Ce683A305F58BB, OnchainActionManager 0xE366CcA474968e33b777E13905829A3b800CFAD3, WithdrawFactory 0xFec48bBC648bd2284520d862Ec67fc68F709915e. All verified sources read (etherscan, proxies -> impls). Matching/trading is off-chain: L1 only escrow + state-root settlement. Only free-callable value function is WithdrawalOutbox.processQueue(recipient,asset,maxItems); it pays the withdrawal recipients (their own principal), the caller earns nothing. Role-gated: submitBatch (batchSubmitter 0x000000C88C2c8a7f8317783f2268eb2b9b41257e), executeWithdrawals (VAPP-only), deferredProcess/claimWithdrawalFee (onlyOwner), WithdrawFactory.processWithdrawal (onlyKeeper), guardianRefill (guardian). eth_getCode nonempty + getters answered (batchSubmitter())."
+}

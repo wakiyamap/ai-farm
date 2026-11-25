@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-yuzu-money",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only candidate function fillRedeemOrder sits behind ORDER_FILLER_ROLE (one address per vault) and pays 0 anyway: redeemOrderFeePpm()=0 and fee=0 on all 9 fills in the last 7 days. Pool ops (updatePool, start/endPoolUpdate, distribute) are POOL_MANAGER_ROLE/DISTRIBUTOR_ROLE; finalize/cancel redeem orders are order-owner/controller only. Nothing on the two ethereum vaults pays a stranger.",
+  "numbers": "eth_getLogs blocks 26407438-26457838 (7d), topic0 from verified source (logs emitted by the two vaults themselves): FilledRedeemOrder 9 (all by 0x18f61fa4... on yzSyrup, 0x9d7c56af... on yzCash, sample of 9 of 9), CreatedRedeemOrder 6, FinalizedRedeemOrder 8, UpdatedPool 1. Fill payout: fee = 0 USDC (all 9 fills; e.g. tx 0xbd9ee5f437f802e1a5b7aeab599233923a22577ad9bc3b4c6b2fe25fdb1d4f18 filler paid 2,580,718.79 USDC for 2,489,283.64 shares, fee 0). Fill gas 240,246 gas @ 3.345 gwei = 0.000804 ETH = 1.30 USD (coins.llama.fi ETH 1623.56 USD, USDC 0.9999, 2026-11-20 17:43 UTC). Vault totalAssets (asset()=USDC read on chain): yzCash 865,585 USDC, yzSyrup 3,032,069 USDC."
+}

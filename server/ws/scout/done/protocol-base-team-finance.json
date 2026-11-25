@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-team-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1601,
+ "chain": "base",
+ "slug": "team-finance",
+ "name": "Team Finance",
+ "category": "Token Locker",
+ "tvl_usd": 6161927,
+ "url": "https://www.team.finance",
+ "github": [
+  "team-finance"
+ ],
+ "listed_days_ago": 1601,
+ "run_id": "0da4fe8e3487461aaeac18260ffe2fbe",
+ "result": {
+  "verdict": "role_gated",
+  "line": "lock proxy 0x4f0f...c33a (impl 0x6dd2...59f1, LockToken.sol, 2676 deposits): withdrawTokens/collectUniswapV3LPFees/splitLock/mintNFTforLock all require msg.sender == withdrawal address (stranger eth_call reverts 'Unauthorised to unlock'); 7d events: 1 NFT + 0 ERC20 withdrawals (user EOA via router 0x26227...), VestingCreated 0/7d vs 20/30d control; stranger gross 0 USD",
+  "kb": [
+   "attempts:2463"
+  ],
+  "run_id": "0da4fe8e3487461aaeac18260ffe2fbe",
+  "at": 1795080308
+ }
+}

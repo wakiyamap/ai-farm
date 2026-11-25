@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "fren_pets claimPetGold / claimFp",
+ "status": "unmeasured",
+ "why": "If the payout goes to msg.sender rather than the pet owner, anyone could sweep pets' accrued rewards: 5,374 ClaimRewards events/7d on 0x0e22B5f3E11944578b37ED04F5312Dfc246f443C, median 9.96 units (max 244), EOAs 0xb6d46c5301c85e708780e5cafdb2bb4a61894d0a and 0xd8500d12031e6da7045dfe5f02c998a884f0e02d do thousands of them. kill() is anyone-callable but its PetKilled reward is 1 wei (~$0).",
+ "next_steps": "Read the claim facet source (Blockscout was 503 this whole session - retry, or Sourcify by facet address found from the diamondCut creation log). Determine the asset and recipient of ClaimRewards(nftId,amount): goldBalance/goldPrice() vs $FP (2.1458 USD, coins.llama.fi 1795387976); replay one ClaimRewards tx (debug_traceCall) to see if the caller received value. Gas <0.01 USD/call (0.006 gwei). If recipient = caller and asset has USD value > gas, re-scout as pays_strangers."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-uncx-network-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1650,
+ "chain": "avalanche",
+ "slug": "uncx-network-v2",
+ "name": "UNCX Network V2",
+ "category": "Token Locker",
+ "tvl_usd": 49936,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 1650,
+ "run_id": "5df43b4c75cf44759824431f6aee782a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "3 UniswapV2Locker lockers 0xa9f6..b3bb/0xb2b1..8076/0x07dd..90eb (getNumLockedTokens 214/3/4); withdraw+relock from fresh addr revert NOT OWNER; lockLPToken pays fees out, not to caller; 0 txs and 0 events in 7d (blocks 100463684..101150435 = 2026-11-16..23, 69x10k no-topic chunks; control: 3 logs, topic0 from receipt of 0xe42c9060..)",
+  "kb": [
+   "protocols:2179",
+   "attempts:4053"
+  ],
+  "run_id": "5df43b4c75cf44759824431f6aee782a",
+  "at": 1795424859
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-mdex",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. MDEX bsc is a PancakeSwap/UniV2 fork (TVL 1.26M): the only caller-paying functions are chef/boardroom deposit/withdraw/emergencyWithdraw and SwapMining.takerWithdraw, which pay msg.sender's own accrued MDX (eth_call from a fresh address: boardroom deposit(0,0) succeeds and pays 0, pending(0,fresh)=0); everything else is onlyOwner/onlyRouter/onlyCaller. No keeper function pays a stranger for calling, and the reward flow is nearly dead: 9 MDX Transfers in 24h (all user-to-user/LP moves), 0 new pairs in 7 days.",
+  "numbers": "factory 0x3CD1C46068dAEa5Ebb0d3f55F6915B10648062B8 (feeTo/getPair ok); MDX 0x9c65ab58d8d978db963e63f2bfb7121627e3a739 symbol 'MDX' 18 dec, price 0.000454 USD (coins.llama.fi ts 1795147686); boardroom 0x55c11417c7d9789161a3f8478b8b9057830a6fc9 poolLength=2, deposit(0,0) from fresh addr: 0 paid, gas 40,109 = 0.011 USD (0.05 gwei eth_gasPrice 0x2faf080, BNB 570.47 coins.llama.fi ts 1795148219); PairCreated 0 in blocks 134,599,200-134,627,999 (24h) and 0 in 134,426,400-134,431,199 (7d ago); control 70 Swap events same shape same range on pair 0x09cb618bf5ef305fadfd2c8fc0c26eecf8c6d5fd; MDX Transfers 9/24h (3.3k-13.5k MDX = 1.5-6.1 USD) vs 0 in 7d-ago chunk; yields.llama.fi shows 23 bsc mdex pools, reward APY 0-5.5%"
+}

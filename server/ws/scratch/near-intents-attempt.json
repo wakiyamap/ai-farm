@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-near-intents",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only Base contract (MetaWallet 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd, verified source) has one permissionless state-changing redemption, withdraw(uint128,address,address,uint128,bytes), which pays receiver_id the redeemed funds and pays the caller nothing (msg.value goes to the owner's fees, fees()=0); hot_verify is view and everything else is onlyOwner. Nothing a stranger can call earns anything on Base.",
+  "numbers": "7d (blocks 55689448-58713448): USDC out of wallet (withdraws) 0 logs, USDC in 0 logs, NewTransfer deposit events 3 (native ETH 0.0082/0.00033/0.00011 ETH; txs 0x24ee1bbabbfe..., 0x70a233d589a8..., 0xfa47d2902829...). 30d: 12 USDC withdrawals 0.035-90 USDC; 3 sampled receipts show caller == receiver (0xacffb9034f5e..., 0xb1c52ba41f07..., 0x5b8509ddbd66...): users redeem their own funds, no keeper is paid. Control: same 30d topic-shape queries returned 12 and 1 logs, so the 7d zeros are real. Withdraw gasUsed 134k-151k at eth_gasPrice 6.15e6 wei = ~$0.0016/call (ETH $1779.22 coins.llama.fi); reward per call to caller $0.00."
+}

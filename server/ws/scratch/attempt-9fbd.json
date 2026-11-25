@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "actor-arbitrum-0x9fbd5e5fa2a0f8076cb19ec813d3abc6ebee3f8d",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Contract module (deployed by 0xd99df7b9, creator tx 0x0653cc7cc1e85b6ccd1c710766ac8ef3b0aa87f8d9f6bf212bda1adff7ed1fc6) performs Aave v3 liquidationCall on Pool 0x794a6135 in private bundles: driver EOA 0x9d8a4c00 submits through Fastlane Atlas executor 0x8ad1ae9d (name 'Atlas'), the module flash-loans the debt asset from Morpho Blue 0x6c247b1f, sells collateral via Uniswap V3 (0x6131b5fa / 0xfe0e40b9) and sweeps the residual in-tx to owner EOA 0x799dc363; it holds zero token/native balance today, so the sweeps are the full take-home. The bonus is protocol-paid to any caller (same call from a fresh address is paid). Pond already covered: protocols row 3 aave_v3 arbitrum measured, live bot trial-aave-arbitrum, leads 9/12/15 measured; new leads 217 records the prize calibration.",
+  "numbers": "14 LiquidationCall events over 9 bundle txs in 10 d (2026-11-05..11-14; 0 on 11-15/16; ledger source aave_v3.liquidation, actor_daily 11-05:1, 11-08:1, 11-10:7, 11-14:5) = 1.4/day. Gross (sum of in-tx sweeps to owner, alchemy_getAssetTransfers on all 9 txs) = $19.13 => $1.37/liquidation, $1.91/day gross. Gas 1.06-2.81M gas/tx at 0.038-0.176 gwei effectiveGasPrice (receipts) = 0.000816 ETH total = $1.49 (ETH $1,830.98 coins.llama.fi 2026-11-16) => $0.11/liquidation. Net ~$17.6/10 d = ~$1.8/day."
+}

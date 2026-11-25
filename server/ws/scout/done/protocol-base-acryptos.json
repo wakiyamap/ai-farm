@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-acryptos",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "acryptos",
+ "name": "ACryptoS",
+ "category": "Liquidity Manager",
+ "tvl_usd": 113709,
+ "url": "https://www.acryptos.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "c781ba324a0a4083b34490a02cfdfab4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "harvest() callable by anyone, 1 call in 7d (tx 0x7710a6e7 Nov 16, USDC vault 0x07667ab8, caller 0xdb135aef); gross $0.000252 (187 raw acsUSDC, 0.3% of pending) vs gas $0.024, net -$0.024; protocol being deprecated post-2026-11-08 exploit (post-mortem: no fix planned)",
+  "kb": [
+   "attempts:2675",
+   "protocols:1135"
+  ],
+  "run_id": "c781ba324a0a4083b34490a02cfdfab4",
+  "at": 1795130086
+ }
+}

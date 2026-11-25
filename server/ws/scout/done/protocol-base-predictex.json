@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-predictex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "predictex",
+ "name": "PredictEX",
+ "category": "Prediction Market",
+ "tvl_usd": 119571,
+ "url": "https://predictex.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "29433b7ac8534b8a8cc31b5f7c8d1188",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Manager proxy 0x38c4E93b (Rysk-AMBER modules): callable settle/clearTradersInPool/settleNextTraderInPool pay caller 0 (eth_call from 0xdEaD ok, no msg.sender pay in source), updatePriceFeeds caller PAYS msg.value, setEmergencyState onlythis/mntnr, pool ops onlyGovernance. 7d getLogs 0x3613c92-0x38f4812: DistributeFees 1036, SetEmergencyState 196, Liquidate 1 (0xe2b7744f, self-called by trader 0x934725, 608k gas, caller gross 0). All ops from operator EOA 0x4423fedd; sample 4/1339 txs traced.",
+  "kb": [
+   "attempts:2700",
+   "protocols:1152"
+  ],
+  "run_id": "29433b7ac8534b8a8cc31b5f7c8d1188",
+  "at": 1795135053
+ }
+}

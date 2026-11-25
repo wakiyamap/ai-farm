@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-multichain",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Multichain/AnySwap on optimism is the dead 2022-23 MPC bridge, same as arbitrum/avalanche/bsc. The 67 config pairs are all router-type anyToken vaults (AnyswapV6ERC20, verified source); their surface is ERC20 + deposit/withdraw (user moves own funds) + Swapin/Swapout (mpc) + owner/minter/vault roles, 0 matches for reward/bounty/keeper/harvest/claim/redeem/auction. The dominant holder anyUSDC 0xf390830d (669,658 USDC) had 0 events in 7 days; its last tx was a user withdraw 70 days ago.",
+  "numbers": "TVL 950,212 USD (api.llama.fi/protocol/multichain currentChainTvls.Optimism 2026-11-20); anyUSDC 0xf390830df829cf22c53c8840554b98eafc5dcbc2 balanceOf=669,658.05 USDC (6 dec, underlying()=0x7f5c764c read on chain); anyWETH 0x965f84d915a9efa2dd81b653e3ae736555d945f4 = 56.198 WETH; 7-day eth_getLogs blocks 0x9816df9-0x9860b39 on 4 vaults = 0 logs (controls: 1 log at last-activity block 0x957d820-0x957d826, 984 logs/1000 blocks on USDC 0x7f5c..); last tx 0x972185db... block 156751907 ts 1789102591 = 2026-09-11 (withdraw, 70d ago); gasPrice 0.001 gwei, ETH 1745.07 USD (coins.llama.fi ts 1795158313) -> 150k gas ~ 0.0003 USD; gross per call 0 (no reward function)"
+}

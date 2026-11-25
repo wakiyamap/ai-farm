@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-solv-rwa",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1144,
+ "chain": "bsc",
+ "slug": "solv-rwa",
+ "name": "Solv RWA",
+ "category": "RWA",
+ "tvl_usd": 6646344,
+ "url": "https://solv.finance/",
+ "github": null,
+ "listed_days_ago": 1144,
+ "run_id": "2b850dbbc8434455aa2840e1276965b7",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Solv RWA bsc ($6.48M) = 2 open-fund slots on shared OpenFundMarket 0xaE050694c137aD777611286C316E5FDda58242F3 + navOracle 0x9c491539aec346aafeb0bee9a1e9d9c02ab50889 (code confirmed); source census: settlement role-gated (closeCurrentRedeemSlot require sender==poolManager, setSubscribeNav only-nav-manager, settleProtocolFee pays collector), claimTo _isApprovedOrOwner, zero fn pays msg.sender; stranger eth_call reverts 'OFM:'; 7d getLogs scan 325/325 provider fails (bsc public node down for logs), KB:268 shows only Solv ops EOA 0x99754c36 activity; same arch as 4 prior Solv dead-ends",
+  "kb": [
+   "attempts:2256",
+   "protocols:810"
+  ],
+  "run_id": "2b850dbbc8434455aa2840e1276965b7",
+  "at": 1795034953
+ }
+}

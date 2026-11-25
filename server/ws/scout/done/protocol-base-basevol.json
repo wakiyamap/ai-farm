@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-basevol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 292,
+ "chain": "base",
+ "slug": "basevol",
+ "name": "BaseVol",
+ "category": "Options",
+ "tvl_usd": 33902,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 292,
+ "run_id": "0d9006d804e44b588d4c6f927e702795",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: no permissionless paying fn - ClearingHouse 0xa57c9bD3... claimTreasury() reverts OnlyAdmin (pot 689.107 USDC, 6 dec read on chain), withdraw/lockInEscrow/releaseFromEscrow/settleEscrowWithFee onlyOperator, GenesisVault onRoundSettled onlyKeeper (admin whitelist); 1 tx in 7 d across 18 protocol addresses (blocks 57,764,209 2026-11-15 -> 60,788,209 2026-11-22; control 484 logs in a June 140k-block window), last CH tx 2026-06-26, TVL 351,172 -> 33,902 USD",
+  "kb": [
+   "attempts:3714",
+   "protocols:1932"
+  ],
+  "run_id": "0d9006d804e44b588d4c6f927e702795",
+  "at": 1795348889
+ }
+}

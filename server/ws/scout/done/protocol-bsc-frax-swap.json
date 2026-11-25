@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-frax-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1515,
+ "chain": "bsc",
+ "slug": "frax-swap",
+ "name": "Frax Swap",
+ "category": "Dexs",
+ "tvl_usd": 267117,
+ "url": "https://frax.com/swap",
+ "github": null,
+ "listed_days_ago": 1515,
+ "run_id": "0a3cc91155e6490a926f6dbba0da4433",
+ "result": {
+  "verdict": "unpaid",
+  "line": "FraxSwap bsc (V1 factory 0xa007a971..08dE 4 pairs, V2 0xf89e6CA0..A011 7 pairs): TWAMM executeVirtualOrders/skim are permissionless but pay nobody - 0 TWAMM orders on all 11 pairs, 7-day scan (blocks 133118508-134461463, 269 x 5000-block eth_getLogs, 2415 logs) = Swap 847 / Sync 847 / VirtualOrderExecution 721 / Mint-Burn-Transfer-WithdrawProceeds 0, 12/12 sampled VOE txs were arbitrage routers (0 direct keeper calls); gas 0.0009 USD vs the only pot, 3.575 FXS = 0.71 USD skim dust on 0xf51709f6..30d63; feeTo = 0 on both factories.",
+  "kb": [
+   "attempts:2431",
+   "protocols:958"
+  ],
+  "run_id": "0a3cc91155e6490a926f6dbba0da4433",
+  "at": 1795073297
+ }
+}

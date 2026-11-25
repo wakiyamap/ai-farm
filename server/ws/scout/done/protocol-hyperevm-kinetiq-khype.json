@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-kinetiq-khype",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 487,
+ "chain": "hyperevm",
+ "slug": "kinetiq-khype",
+ "name": "Kinetiq kHYPE",
+ "category": "Liquid Staking",
+ "tvl_usd": 665556475,
+ "url": "https://kinetiq.xyz/stake",
+ "github": null,
+ "listed_days_ago": 487,
+ "run_id": "717689320c7d43f7a050350ec9ab388f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "kHYPE stack (StakingManager 0x393D0B87...2109 -> diamond 0x23fda3b9, 7 facets; sKNTQ 0x696238e0...4d0F): no fn pays a stranger. processL1Operations, completeRewardDistribution, completeBufferRebalance, requestBufferRebalance, confirmWithdrawalFor all revert MissingRole 0xe2517d3f from a fresh address; OPERATOR_ROLE has exactly 1 member 0x23a4604c...4038. Permissionless fns pay msg.sender only its own money. Gross 0 vs gas 0.0013 USD (135,088 gas @0.14069 gwei, HYPE 67.85 llama). Sample 25 txs/17h: 23 EOAs self-confirming, 0 keeper calls; 0 keeper events in 6x1000-blk windows/7d.",
+  "kb": [
+   "attempts:1847",
+   "protocols:487"
+  ],
+  "run_id": "717689320c7d43f7a050350ec9ab388f",
+  "at": 1794944887
+ }
+}

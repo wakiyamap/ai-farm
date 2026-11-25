@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-arrakis-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1346,
+ "chain": "ethereum",
+ "slug": "arrakis-v2",
+ "name": "Arrakis V2",
+ "category": "Liquidity Manager",
+ "tvl_usd": 106013,
+ "url": "https://arrakis.finance/",
+ "github": null,
+ "listed_days_ago": 1346,
+ "run_id": "61da720c623a4826bd45f748c95dbfda",
+ "result": {
+  "verdict": "role_gated",
+  "line": "rebalance() onlyManager (per-vault Gnosis Safe; fresh-address eth_call reverts); only open fn withdrawManagerBalance() pays the manager not the caller (45,026 gas ~= 0.75 USD, gross 0); 0 events of any kind on all 102 vaults in 7d (blocks 26,414,107 2026-11-14 -> 26,464,358 2026-11-21, no-topic scan, WETH same-shape control; last activity 2026-10-08, last rebalance 2025-10-24); TVL 106k USD",
+  "kb": [
+   "attempts:3371"
+  ],
+  "run_id": "61da720c623a4826bd45f748c95dbfda",
+  "at": 1795275643
+ }
+}

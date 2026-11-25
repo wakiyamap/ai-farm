@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-stryke-clamm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1091,
+ "chain": "arbitrum",
+ "slug": "stryke-clamm",
+ "name": "Stryke CLAMM",
+ "category": "Options",
+ "tvl_usd": 153927,
+ "url": "https://www.stryke.xyz/",
+ "github": null,
+ "listed_days_ago": 1091,
+ "run_id": "54bd0fe829c742468bd2c88bd6af360d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: settleOption is the only caller-paid fn (surplus to msg.sender) but needs settlers[msg.sender] whitelist (fresh-address eth_call reverts; settler 0x3f4bc1ffadb1435f19909d31588f4ce12bc0e452), exerciseOption pays owner/delegate only; 0 txs in last 7 days on all 7 contracts (4 DopexV2OptionMarketV2 markets + positionManager 0x5ee223ac + handler 0x6f73afb6 + feeStrategy 0x11d27d84; newest tx 2025-09-17, etherscan txlist), TVL 49k (api.llama.fi) is idle LP positions",
+  "kb": [
+   "attempts:2229",
+   "protocols:791"
+  ],
+  "run_id": "54bd0fe829c742468bd2c88bd6af360d",
+  "at": 1795028668
+ }
+}

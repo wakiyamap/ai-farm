@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-uniswap-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: no Uniswap V3 OP Mainnet contract pays a stranger for calling. The only reward function in the stack is UniswapV3Staker 0xe34139463bA50bD61336E0c446Bd8C0867c6fE65 claimReward(address,address,uint256), callable with no role (eth_call from a fresh address succeeds) but it pays only msg.sender's own accrued balance; the pot is empty and the staker has had no transaction since 2024-12-10. Pool/NPM functions (mint/burn/collect/swap/flash) pay the caller only their own position balances. Same shape as uniswap-v2 (attempts:2411) and uniswap-v4 (attempts:2022) on this chain.",
+  "numbers": "RewardClaimed (topic0 0x106f923f993c2149d49b4255ff723acafa1f2d94393f561d3eda32ae348f7241, deployed sig RewardClaimed(address,uint256)) on staker last 7 days = 0 over blocks 159432810-159735210 (relay eth_getLogs; same-shape same-range control: NPM Transfer = 7134 logs); last staker tx block 129116317 = ts 1733831411 2024-12-10, last direct claimReward 0x2f2d783d tx 0xa8c37d3529c19257d288a66cdf2fc1012920f15d1b88aa9b5deed88265809d11 block 119545574 (2024-05-02) (explorer txs); staker OP balance 9.85 OP = $0.75 (OP $0.0764 coins.llama.fi 2026-11-19); eth_call claimReward(OP,0x..fe,0) from 0x1111..1111 returned 0, no revert; gas: eth_gasPrice 1000577 wei, 150k-gas claim = 1.5e-7 ETH = $0.0003 + L1 data fee, call it <$0.01 (ETH $1801.75 coins.llama.fi 2026-11-19); gross per claim in last 7 days = $0 (no claims)."
+}

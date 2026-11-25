@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-eth-strategy",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: ETH Strategy (ESPN) is a 3.88M-USDS ERC4626 note vault whose only public functions are deposit/mint/withdraw/redeem/burn/increaseAssetsPerShare (a donation where the caller PAYS USDS to the manager Safe); no claim/keeper function exists on the vault, the STRAT token or the ETHSR token, and the vault is idle (0 logs in 7d, last tx 2026-09-29 was an approve). Nothing pays a stranger.",
+  "numbers": "ESPN 0xb250C9E0F7bE4cfF13F94374C993aC445A1385fE totalAssets 3,878,657.27 USDS (eth_call 0x01e1d114, block 26,458,283, 2026-11-20; USDS address from asset() on chain, 18 decimals; USDS ~= 1 USD so gross per public call = 0 USDS = 0 USD, gas irrelevant). Vault logs last 7d: 0 (no-topic eth_getLogs slices blocks 26,407,883-26,458,283; control USDS Transfer same shape returns logs). Last vault tx block 26,081,139 = 2026-09-29 05:49 UTC (approve, 0x1888fc564b12d6cfc65a12783da584bdfc312a50fb0074e05a14d778600b8d9f). Manager Safe 0xc53cced6332d06972a7eaedc64fdf6d4af5220b8 last execTransaction block 26,230,281 = 2026-10-20. eth_call from fresh address 0x..0042: increaseAssetsPerShare (0xbe3dd65e) reverts 'Usds/insufficient-balance' (funds, not role); mint(uint256) (0xa0712d68) reverts plainly (no funds/allowance; source shows no role check on deposit). Sources: explorer source EthStrategyPerpetualNote / StratToken / EthStrategy; DefiLlama adapter projects/EthStrategy/index.js."
+}

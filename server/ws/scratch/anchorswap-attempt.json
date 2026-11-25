@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-anchorswap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: PancakeV1/ALA farm fork (AnchorSwap, bsc, Dexs) has no anyone-callable function that pays the caller. MasterChef 0x23f7F3119d1b5b6c94a232680e2925703C4ebbF5 (Sourcify full match) public fns are deposit/withdraw/emergencyWithdraw/massUpdatePools/updatePool; none transfer tokens to the caller, and add/set*/updateEmissionRate revert 'Ownable: caller is not the owner'. Emissions are dead (anchorPerBlock()=0) and the farm is dormant: 0 logs on masterchef and referral in 7 days (token same-shape scan returned 63, so the zeros are real).",
+  "numbers": "7d window = blocks 133,927,526 (2026-11-16 12:27:48 UTC) -> 135,270,920 (2026-11-23 12:27:48 UTC), found via eth_getBlockByNumber timestamps (relay bsc). eth_getLogs no-topic address-only scan: masterchef 0 logs, referral 0x42da818171a8b58a98771f4b99ea0175f9f7bfc7 0 logs, token 0x4aac18De824eC1b553dbf342829834E4FF3F7a9F 63 logs (34 Transfer + 24 Approval + 5 other topic0) = working control for the zeros. poolLength()=17; anchorPerBlock()=0; gross per hypothetical call 0 (no caller-paying fn exists, so nothing to price; gas never a cost since no reward). TVL 35,827 USD Binance (api.llama.fi/protocol/anchorswap currentChainTvls, 2026-11-23; misrepresentedTokens=true). eth_call from fresh 0x1111..1111: massUpdatePools()->0x ok, updatePool(1)->0x ok, updateEmissionRate(1) and add(uint256,address,uint16,uint256,bool,uint256) revert 'Ownable: caller is not the owner'."
+}

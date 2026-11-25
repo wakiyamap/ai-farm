@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-spinup-liquid-staking",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 598,
+ "chain": "hyperevm",
+ "slug": "spinup-liquid-staking",
+ "name": "SpinUp Liquid Staking",
+ "category": "Liquid Staking",
+ "tvl_usd": 167615,
+ "url": "https://www.spinup.zone/",
+ "github": null,
+ "listed_days_ago": 598,
+ "run_id": "33b398dfb16143f0a93ed390c471c877",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: SpinUp mHYPE LST - HyperpieStaking 0x509b9d74 keeper fns accrueFee/withdrawHypeToDestination (onlyAllowedBot; fresh-addr eth_call reverts 0x7d54404d CallerNotHyperpieConfigAllowedBot) got 0 calls in 7d and 30d (control: 5 stakeHype deposits 7d, 54 30d on same contract); they pay treasury/validator not caller (weekly fee 0.103 mHYPE ~7 USD to fee dest 0xe2ec3c1f); only permissionless fns (stakeHype, queueWithdrawal/claimWithdrawals) move the user's own funds; gas ~0.001 USD/call (0.1 gwei x 143k), HYPE 68.70 USD. Dead end.",
+  "kb": [
+   "attempts:1970",
+   "protocols:574"
+  ],
+  "run_id": "33b398dfb16143f0a93ed390c471c877",
+  "at": 1794971477
+ }
+}

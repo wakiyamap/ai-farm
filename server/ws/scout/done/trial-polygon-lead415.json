@@ -1,0 +1,20 @@
+{
+ "id": "trial-polygon-lead415",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "polygon",
+ "lead_id": 415,
+ "target": "sLGNS rebase surplus in the DODO sLGNS / USDT pool 0x51542cbb on Polygon (zero-input sellBase after each 14,400-block rebase)",
+ "run_id": "82a7dd43bc3c48f5a8fa334b41cffffc",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7 d on polygon: 28/28 rebases (every 14,400 blocks = 6 h, 4/day) taken, 3 takers (2 keeper EOAs + router users); sample of 20/28: median gross 0.157 USDT (range 0.153-0.160) vs one-attempt gas 0.006 USD (incumbent 758k-gas route 0.018), median winner priority fee 82.5 gwei, median gap takeable-to-taken 138 blocks - prompt bots land +2-4 blocks but the first block is often left open (gaps 18-2902)",
+  "kb": [
+   "attempts:3884",
+   "leads:415"
+  ],
+  "run_id": "82a7dd43bc3c48f5a8fa334b41cffffc",
+  "at": 1795387472
+ }
+}

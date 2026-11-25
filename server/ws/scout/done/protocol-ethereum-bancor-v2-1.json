@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-bancor-v2-1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "bancor-v2.1",
+ "name": "Bancor V2.1",
+ "category": "Dexs",
+ "tvl_usd": 7036379,
+ "url": "https://app.bancor.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "4d601163586048ff881e17ff6aaa9898",
+ "result": {
+  "verdict": "unpaid",
+  "line": "processNetworkFees() (0x12b6705f, protected = reentrancy lock; eth_call from fresh 0x1234..8888 ok) is the only public value mover on the 347-pool V2.x converters and pays msg.sender 0: the fee goes to wallet 0x60917e542addd13bfd1a7f81cd654758052dadc4 (NetworkSettings 0x59d03727... @ 1000000 ppm = the Carbon Vault); BancorNetwork 0x2f9ec37d... = conversions only, BancorRewards = 0x0; route alive (ledger carbon_vortex.fee_collected 93 events/9 actors, blocks 26416286-26466542, 11-14..11-21 UTC) but the only bounty is Vortex 0.5% = 1.06 USD/day whole-pool (attempt 1387); TVL 7,036,379 USD.",
+  "kb": [
+   "attempts:3504",
+   "protocols:1772"
+  ],
+  "run_id": "4d601163586048ff881e17ff6aaa9898",
+  "at": 1795301409
+ }
+}

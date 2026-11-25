@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-sodex-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "not_found. SoDEX Bridge holds HyperEVM funds in two shared custody EOAs (0x72b2f19f...ba287, 0x00b7aF08...11f5) from the DefiLlama sumTokens registry; eth_getCode is 0x for both, so there is no contract on hyperevm, no callable function and no keeper or reward role a stranger could claim. Their whole tx history is plain native transfers (withdrawals paid directly from the EOAs), same custodial-EOA design already recorded as not_found on bsc and arbitrum.",
+ "numbers": "824.00 HYPE total across the 2 EOAs (821.66 + 2.34, eth_getBalance latest) x 62.61 USD (coins.llama.fi coingecko:hyperliquid 2026-11-22T11:57Z) = 51,593 USD; api.llama.fi/protocol/sodex-bridge Hyperliquid L1 51,545. eth_getCode 0x on both EOAs and on the base/ethereum bridge proxy 0xCC7322A2f9f82251dA51584B1a89915dBc02185B. explorer txs (etherscan) hyperevm: listings non-empty (27 and 7 records) but all input 0x value transfers; latest tx timestamps 2026-11-06 and 2026-11-11 are both before now-7d = 2026-11-15, so 0 transfers in the last 7 d from each (control: the same listing returns records). projects/sodex-bridge adapter 404; registry source registries/sumTokens.js key 'sodex' chain 'hyperliquid'."
+}

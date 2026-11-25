@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "sunx_bridge",
+  "status": "dead_end",
+  "checked": "DefiLlama registry config (DefiLlama-Adapters registries/sumTokens.js, key \"sunperp\"; api.llama.fi/protocol/sunx-bridge, 2026-11-17) lists 3 Arbitrum TVL owners: 0x4d1Be6c39Fe3fB1362ff602a6c0CBB5B3BF64eC7 (contract: ERC1967Proxy -> impl 0x9ac0c8bade28dfe1f44ae4fd75465e3cce6f0152, verified source \"SunperpVault\" via explorer), 0xa9c99a9f70ccf9fcd23fc05f1ebdc76040ebeb1e (contract: Gnosis SafeProxy, a treasury, no reward function), 0xabc02c4f217f5f1d6b1e7e2d3415eae096acb5ad (EOA / MPC wallet, eth_getCode = 0x). Getter upgrader() on the proxy answers 0x09d2fa4c9536c58a672b469e017654e9d61b4923. SunperpVault.sol: deposit() pays nothing; the only money-out functions withdraw() and withdrawWhitelist() are onlyRole(OPERATE_ROLE) (getRoleMemberCount = 2; active caller 0x116dbdbdcf2c4e2f037d74f7c49d6545120e2ea4 hasRole = true, a fresh address hasRole = false and its withdraw eth_call reverts while the operator's gets past the role check); everything else is ADMIN_ROLE / BUSINESS_ROLE / PAUSE_ROLE / STOP_ROLE / onlyUpgrader. No reward, bounty, harvest, claim, checkpoint or liquidation function anywhere in the contract, and _transfer sends the whole amount to action.receiver, so the caller keeps nothing."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-tulipa-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Tulipa Capital on Base is two curated ERC-4626/7540 vaults (Creditcoop Tulipa Credit Vault 0x61a8606e04d350dfa1d1aaa68b37260746ae47d4, 16.38M USDC; Ember Hilbert Basis+ 0x9c2dcdbdb3f0a0f628d1112bbcabd9ae75353df3, 215.1 cbBTC ~ $13.9M). The settle/fee functions anyone might call (processDepositRequest, processRedeemRequest, mintFeeShares, depositIntoStrategy) revert from a stranger (OnlyOperator/OnlyVaultManager); the callable user functions (deposit/redeem/request*) pay only the depositor themselves. Nobody is paid for calling: 7-day activity is user flows only (credit vault 0 events since 2026-04-13; Ember 37 ERC20 Transfer/Approval logs, all user deposits via router 0x8888...f946).",
+  "numbers": "Base TVL 13,902,679 USD (api.llama.fi/protocol/tulipa-capital); credit vault totalAssets 16,383,139 USDC, Ember 215.15 cbBTC at block 58,818,889; 7d logs: 0 credit / 37 Ember (eth_getLogs 0x3535cc9..latest); eth_call reverts from 0x000..cafe1234: mintFeeShares 0x4a3a418d, processDepositRequest 0xd1389414; gas price 0.006 gwei (0x5b8d80), ~$0.002 per 150k-gas call at ETH $1823.87 (coins.llama.fi 2026-11-17)"
+}

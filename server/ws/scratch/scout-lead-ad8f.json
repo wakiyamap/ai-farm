@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "morpho_blue liquidate via shared wrapper 0xd49a4d98 fn 0x8d6ac3b9 (ungated, pays caller native change)",
+ "why": "Measured 2026-11-19 scout run b18b4e5c: EOA 0xad8faabd7fd1e2b7463c066c5c69eb355c19ddf8 and sibling 0x76a9c280bd2d3db65adbbb91f5ec5d01418446af take kHYPE/USDC (market 0x96c47d37) liquidations through unverified proxy wrapper 0xd49a4d983faec5ddf8f7f0305141ded7b998aa9b (impl 0x75df91520692de225c20cf854b91a62f840711dc); the wrapper flash-repays Morpho 0x68e37de8, swaps seized collateral via UniV3 pool 0x6c9a33e3 and pays msg.sender the leftover native. A stranger's eth_call of the same calldata succeeds (0x...0123 at block 51641327) - no auctioneer gate. Paid so far is dust though: txs 0xbab29f5c, 0xb829e5dd, 0xaa8a30e0, 0x18f6555d paid callers 6.5e-6 to 2.0e-4 HYPE ($0.0004-$0.0134) vs $0.046-$0.051 gas.",
+ "next_steps": "Contract: wrapper 0xd49a4d98 (proxy, impl 0x75df9152, admin 0xa0d22aec, unverified); function 0x8d6ac3b9(bytes32 marketId,address borrower,uint256,uint256). 7d count for the kHYPE/USDC markets: ~22 Liquidate events (leads:230). Gross per call here $0.0004-0.0134 native change, gas/call $0.046-0.051 (445-501k gas @ 1.534e9 wei, HYPE $66.87 DefiLlama) => net negative on dust fills; bigger positions would pay. Others already take it (2 keeper EOAs seen), and the farm's own routes leads:228 (direct-on-Morpho) and leads:230 (kHYPE/USDC) are the better-documented paths; treat this row as the wrapper-route variant, trial only for large liquidatable positions.",
+ "status": "measured"
+}

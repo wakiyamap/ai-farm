@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-qidao",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "qidao",
+ "name": "QiDao",
+ "category": "CDP",
+ "tvl_usd": 106746,
+ "url": "https://app.mai.finance",
+ "github": [
+  "0xlaozi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "c072ff42c4104b93bdbd0ecab87a4238",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "pays_strangers but dust: anyone-callable liquidateVault (stabilityPool()=0 on all 9 vaults) paid stranger 0xf7789fa9...3ec7 5x in 7d on WETH vault 0x062016cd...bc55, gross 0.000001-0.000073 WETH ($0.002-0.13 at ETH $1,747.77 llama 2026-11-20 07:17 UTC) vs gas ~$0.0001 (177,635 gas @ 0.0001-0.0003 gwei); paid real WETH via getPaid (2 transfers, 0.000086 WETH total); 30d: 17 events / 5 wallets / 0.0226 WETH (~$40); BoughtRiskyDebtVault 0 in 7d; reward is ~10% bonus on fronted MAI (0.002-0.12 MAI/call), nothing liquidatable at check time",
+  "kb": [
+   "attempts:2807",
+   "leads:319"
+  ],
+  "run_id": "c072ff42c4104b93bdbd0ecab87a4238",
+  "at": 1795159753
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-nami",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Every reward-adjacent callable on Nami/Base is behind KEEPER_ROLE (one team EOA), STANDARD_POOL_CLAIMER_ROLE or isApprovedOrOwner; fresh-address eth_call of DistributeFeesNami.execute reverts AccessControlUnauthorizedAccount. Nothing pays a stranger: fee/upkeep callers get no transfer, user claims pay only the caller's own earned balance, and fee distribution has never emitted a DistributionExecuted/CycleCompleted/StandardPoolClaimed log since deploy (claims disabled until 2026-11-25). No bot opportunity for us.",
+  "numbers": "7d DistributionExecuted=0, StandardPoolClaimed=0 (eth_getLogs 0x0e65a2A9...327E5, 55485343..58509343); all-activity-since-deploy = 19 admin logs only (5 RoleGranted, 5 ClaimsEnabledAtSet, 2 Upgraded, 2 RoleRevoked, 2 OwnershipTransferred, 1 Initialized, 1 AdminChanged, 1 other); control same shape 1841 WETH Transfer logs in 100 blocks (58509243..58509343); KEEPER_ROLE members = 1 (EOA 0xcd055fB7E7cE280f002dC401CD2e281A04BDF72a); claimsEnabled()=false, claimsEnabledAt=1795622400 (2026-11-25); gas 0.006 gwei x ~400k = ~$0.005/call (ETH $1829 coins.llama.fi). TVL $313,948."
+}

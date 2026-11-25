@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-lista-liquid-staking",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The stranger-callable claim paths (claimWithdraw / claimWithdrawByUUID on ListaStakeManager 0x1adB950d8bB3dA4bE104211D5AB038628e477fE6) deliver the user's own queued BNB to the user, not the caller (sample: 7 of 8 txs were self-claims moving 0.007-100 BNB of principal); the only bot path claimWithdrawFor is BOT-role gated and pays the user, not the bot (AutoRefunder commission route is also onlyRole(BOT)). No reward/fee/bounty function pays a stranger caller.",
+  "numbers": "7d event counts blocks 133,985,185-134,385,185 via bsc-rpc.publicnode.com eth_getLogs (scout lane spent 305900/300000; control slisBNB Transfer 5000 blk = 9 logs): ClaimWithdrawal 66, RequestWithdraw 51, InstantWithdraw 0, ClaimUndelegatedFrom 2. Sampled claim payouts 0.0074-100.06 BNB to users ($576.49/BNB, coins.llama.fi coingecko:binancecoin). BSC gas 0.05 gwei (eth_gasPrice) -> claimWithdraw gas ~$0.01, caller gross 0. eth_call fresh address: claimWithdraw(0) reverts 'Invalid index' (not role-gated, just nothing to claim), claimWithdrawFor reverts missing BOT role 0x902cbe3a..., instantWithdraw reverts (instantWhitelistOff()=false)."
+}

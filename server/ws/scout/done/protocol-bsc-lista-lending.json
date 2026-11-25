@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-lista-lending",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 579,
+ "chain": "bsc",
+ "slug": "lista-lending",
+ "name": "Lista Lending",
+ "category": "Lending",
+ "tvl_usd": 806163295,
+ "url": "https://lista.org/lending",
+ "github": null,
+ "listed_days_ago": 579,
+ "run_id": "6b504918b09e4703b45810637b46b302",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 49 Moolah liquidations in 7d (blocks 132.88M-134.22M, 0 PublicLiquidator) all to 3 per-market whitelist keepers (0x6a87c155 47/49); fresh eth_call reverts 'not liquidation whitelist' / NotWhitelisted; gross/call $450-1305 (repaid x (LIF-1), top repaid $9.5k, 18-dec stables) vs ~$10 gas (50 gwei x BNB $593.70) - pool real, gate is MANAGER whitelist of 3 addresses",
+  "kb": [
+   "attempts:1946",
+   "protocols:558"
+  ],
+  "run_id": "6b504918b09e4703b45810637b46b302",
+  "at": 1794966615
+ }
+}

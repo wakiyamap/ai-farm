@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-jetswap",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. JetSwap bsc is a PancakeSwap-fork AMM: MasterChef 0x63d6EC1cDef04464287e2af710FFef9780B6f9F5 (Sourcify 56) has no function that pays a stranger - deposit/emergencyWithdraw/enterStaking pay only msg.sender's own pending WINGS, add/set/dev/updateMultiplier are owner-gated. eth_call deposit(1,0) from a fresh address succeeds (124,119 gas, ~0.0001 BNB ~ $0.07 at 1 gwei) and pays pendingCake=0. Chef reward pot holds 50.77M WINGS (18 dec on chain, unpriced on coins.llama.fi) but accrues only to existing stakers; 7-day activity 17 chef events (14 Deposit, 3 Withdraw, lower bound: 137/269 5000-block getLogs chunks failed 'no provider available' on bsc public nodes).",
+ "numbers": "poolLength=38; cakePerBlock=5e18 WINGS; chef WINGS bal=50,771,917; chef 7d logs=17 (14 Deposit 0x90890809.., 3 Withdraw 0xf279e6a1..) blocks 133284541-134628541; deposit(1,0) eth_call ok, gas 0x1e4d7=124,119; pendingCake(1,fresh)=0; BNB $570.65 coins.llama.fi ts 1795147905; factory allPairsLength=221"
+}

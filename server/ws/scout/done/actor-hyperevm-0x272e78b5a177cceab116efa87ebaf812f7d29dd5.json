@@ -1,0 +1,19 @@
+{
+ "id": "actor-hyperevm-0x272e78b5a177cceab116efa87ebaf812f7d29dd5",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "hyperevm",
+ "address": "0x272e78b5a177cceab116efa87ebaf812f7d29dd5",
+ "run_id": "9ae53bbd3dbd4fb5a252d4ecfb650b41",
+ "result": {
+  "verdict": "role_gated",
+  "line": "EOA trigger key (2 txs ever, both 2026-11-12, 0.33/day, idle 5d) of a private Felix USDx redemption-arb executor 0x597050fa8312faad8bfff2dd63fd02f7678c3c2a: 0x2b183525 execute() is operators()-gated (fresh caller reverts NotOperator() 0x7c214f04) and the profit goes to the owner 0xc6c117be in-tx: gross $0.2095 / $0.1768 per call (400 USDC size), gas $0.0446 / $0.0460 (1,366,097 gas @0.474 gwei; HYPE $68.85 DefiLlama), net ~$0.15/call = $0.296 for its one active day, $0 to the key itself (owner reimburses its gas). Sample: all 2 of 2 txs.",
+  "kb": [
+   "attempts:1557",
+   "actors:214"
+  ],
+  "run_id": "9ae53bbd3dbd4fb5a252d4ecfb650b41",
+  "at": 1794884567
+ }
+}

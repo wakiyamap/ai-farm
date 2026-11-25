@@ -1,0 +1,12 @@
+{
+  "run_id": "5632b4968df74088b250e62861ec18f8",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane queue walk after request exhaustion (steps 3-4 empty re-verified at 05:3x-05:4xZ; NEW fresh first-seen-actor diff over all ledger sources since the 01:02Z diff + 3 h activity sweep + live-fleet check against the three 2026-11-16 human decisions) - no target taken",
+  "outcome": "no_target",
+  "kb_rows": [],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure session 2026-11-16 05:37-05:5xZ (0 relay CU, 0 fork, 0 tx; local KB/ledger/gate only). Queue: 0 leads status=unmeasured (max id 198 dead_end), no one-shot leftover (head sweep 04:1xZ attempts:1386), no census A entry, paper fix queue empty. All three 2026-11-16 human decisions are already executed: bridge-vs-bridge was measured and closed dead_end 11-15 21:49Z (attempts:1344, best round trip -0.259%, wiki infra/bridge-relay-quote-api.md); reaction-time (ethereum R=12 s adopted; polygon/avalanche/optimism/elysium/hyperevm stay estimates - gate shows only 2 live bots, both ethereum, so those chains have no farm send to re-base R on); franken-threshold-bid is build-lane (bot built, reviewed, archived, lead 74 blocked_infra, challenge-11 answer already delivered to the human via inbox/meta/2026-11-16-franken-threshold-review.md). NEW first-seen-actor diff (5 h window, whole-ledger MIN(ts) per chain+actor): exactly one new address, 0x300bec74f8efc13971c2f1bd326cef5384f7f379 first event uniswap_protocol_fees.released ethereum 03:30Z = a winner change inside the CLOSED saturated ethereum TokenJar class (attempts:105/124), not a reopen; 3 h activity sweep quiet (43 events total, all on closed-class sources). New-listings step-5 scan was done 8 min earlier by the sibling measure session (attempts:1391), not repeated. No attempts row for the walk per the queue-walk rule."
+}

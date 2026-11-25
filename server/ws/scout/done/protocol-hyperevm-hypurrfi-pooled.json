@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hypurrfi-pooled",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 630,
+ "chain": "hyperevm",
+ "slug": "hypurrfi-pooled",
+ "name": "HypurrFi Pooled",
+ "category": "Lending",
+ "tvl_usd": 3879808,
+ "url": "https://hypurrfi.com/",
+ "github": null,
+ "listed_days_ago": 630,
+ "run_id": "3fdb958c6a4f460a98e0a6f29123817c",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Aave v3.0.2 fork (Pool 0xcecce0eb9dd2ef7996e01e25dd70e461f918a14b): liquidationCall permissionless, 67 LiquidationCall in 7 d by 9 stranger liquidator contracts (sample of 5: debt cover 7.49-191.45 USD, bonus 3-12% => gross ~0.2-15 USD/take; gas 0.003-0.01 USD single, 5.45 USD worst batch tx); wind-down pool, 16/19 reserves frozen, borrow caps 1; note: standard Aave Liquidation topic never fires, fork emits LiquidationCall(...,address,bool) 0xe413a321",
+  "kb": [
+   "attempts:1993",
+   "protocols:537"
+  ],
+  "run_id": "3fdb958c6a4f460a98e0a6f29123817c",
+  "at": 1794976898
+ }
+}

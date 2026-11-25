@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-allblue-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 380,
+ "chain": "avalanche",
+ "slug": "allblue-v2",
+ "name": "AllBlue V2",
+ "category": "Dexs",
+ "tvl_usd": 59953,
+ "url": "https://allbluedex.io",
+ "github": null,
+ "listed_days_ago": 380,
+ "run_id": "44a0f5d01442499a8adae9da219857cd",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MasterChef farms (SHELL 0xc510..894c, PEARL 0x3cEC..4883, impl 0xc8c080fa..): claimReward(uint256)/massUpdatePools callable by anyone (fresh-address eth_call OK, no role revert) but pay only caller's own accrual (pendingReward(0,fresh)=0); 7d window 11-15..11-22 (Routescan txlist, control 15 txs returned): 15 SHELL-farm txs = 12 deposit + 2 withdraw + 1 admin updateRewardPerDay, 0 claimReward; emission 86,400 SHELL/day = 12.3 USD/day total (SHELL 0.000142 USD coins.llama.fi); gas ~0.0072 USD/call (143500 gas, 7.5 gwei, AVAX 6.67) -> unpaid",
+  "kb": [
+   "attempts:3764"
+  ],
+  "run_id": "44a0f5d01442499a8adae9da219857cd",
+  "at": 1795361651
+ }
+}

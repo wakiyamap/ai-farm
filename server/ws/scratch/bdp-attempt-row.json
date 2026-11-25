@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-big-data-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Public farming functions pay only existing stakers, never an unrelated updater; BDP and bALPHA emissions are exhausted. No master events in the measured 7-day window.",
+  "numbers": "Ethereum blocks 26430547 (2026-11-16 22:21:35 UTC)-26480788 (2026-11-23 22:21:23 UTC), timestamps from eth_getBlockByNumber: no-topic eth_getLogs on both master addresses returned 0; same-shape no-topic USDC control at block 26480788 returned 83 logs. On-chain BDP seedPoolAmount()=0 BDP tokens; bAlpha cap()=totalSupply()=18000.1 bALPHA, so new reward=0 tokens / $0 irrespective of price. getPoolReward(26430547,26480788,1)=0 on both masters. Fresh address 0x000000000000000000000000000000000000dEaD: BDP claimReward(0) reverts 'BDPToken: cannot mint for pool', bAlpha claimReward(0) returns 0x, no stake so zero payout per verified source. bAlpha fresh claim estimate 110619 gas, eth_gasPrice 109686112 wei, ETH $1719.76897785 at coins.llama.fi timestamp 1795472411 => about $0.02087 gas. 0 sample paid calls of 0 events; most recent explorer direct master txs were BDP 2026-10-05 and bAlpha 2026-09-25."
+}

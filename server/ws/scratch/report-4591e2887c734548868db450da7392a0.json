@@ -1,0 +1,12 @@
+{
+ "run_id": "4591e2887c734548868db450da7392a0",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "trial-oraclejob-hai-optimism (lead 211, first cheap-chain trial bot, decision 2026-11-17-cheap-chain-trials section 4)",
+ "outcome": "paper_placed",
+ "kb_rows": ["attempts:1448", "leads:211", "protocols:277"],
+ "wiki_pages": [],
+ "bot_ids": ["trial-oraclejob-hai-optimism"],
+ "injection_seen": false,
+ "notes": "Session 2 on lead 211: built the HaiOracleJobTrial executor (job -> internal-coin credit -> CoinJoin.exit -> UniV3 HAI/WETH -> unwrap -> pay bot, revert unless minProfit), fork-proved one-lease (success 0xf34b7d6d.. profit 0.0616 USD gas 368872; two correct reverts) after three real fixes: reward is SAFEEngine internal coins to the caller (needs SAFEEngine.approveSAFEModification(CoinJoin) before CoinJoin.exit), UniV3 sqrtPriceLimit must be MIN+1 (SPL), executor needs receive() for WETH.withdraw. Placed bots/paper/trial-oraclejob-hai-optimism (poll 60 s DelayedOracleChild.shouldUpdate over the 15 kept cTypes, sim-gated send, gas cap 3e-5 ETH, prio 0.03 gwei = 33% gross, ~35k CU/day); fixed a b32 left-align bug after first start; service active. Anvil local-account balance overlay did not credit incoming ETH after fork reset - used eth_call return + traced payment value as the delta evidence. Trial win rate is now measured live."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-sport-fun",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 448,
+ "chain": "base",
+ "slug": "sport.fun",
+ "name": "Sport.fun",
+ "category": "Prediction Market",
+ "tvl_usd": 1804848,
+ "url": "https://pro.sport.fun",
+ "github": null,
+ "listed_days_ago": 448,
+ "run_id": "7835e9e8c10941ea97d77189e5a72c49",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Base contracts = 2 FDFPairV4 proxies (0x9da1bB4e..6617, 0x4Fdce033..585e, all $1.8M USDC TVL) + PlayerV3/PlayerPackV3/FeeManagerV3/FUN; full ABI checked: only non-role fn is signed buyTokens 0xc228cb35 where the caller pays; no claim/settle/reward fn anywhere; live (147 buys in last 40k blocks ~2.2h, sample of 10 receipts: 4 protocol bundler EOAs, users are ERC-4337 AA wallets; gas $0.0038/call, ETH $1789.62 coins.llama.fi)",
+  "kb": [
+   "attempts:1832",
+   "protocols:474"
+  ],
+  "run_id": "7835e9e8c10941ea97d77189e5a72c49",
+  "at": 1794940993
+ }
+}

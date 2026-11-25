@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "lendflare",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/lendflare/index.js (convexBooster.js + supplyPools) -> ConvexBooster proxy 0x4C3c78cEbc9Cc87436dEEd2782998bC002F2B69f (has code; ERC1967 impl 0x7b2dd456d6fe55b44cdfb155d02d76b79ab24a85 = ConvexBoosterV2, verified source via explorer). lendingMarket() = 0xac86b0d995a2ba4058860eaf0c0230895b8daa07 (LendFlareProxy -> LendingMarketV2 impl 0x03f744a9ec8d350d1991ac6704fce0c211fce26d, verified). Public caller-facing fns from source: booster claimRewardToken(pid)/claimAllRewardToken() forward CRV/CVX to staker pools, pay caller 0 (Convex earmark style); SupplyBooster getRewards(pids)/claimTreasuryFunds() forward, pay caller 0; LendingMarketV2 liquidate(id,x) public (any caller) pays msg.sender the sponsor ETH fee via LendingSponsor.payFee; liquidate/depeg on booster are onlyLendingMarket. No auction/vote-incentive fn in the verified bundle."
+}

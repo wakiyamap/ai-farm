@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-iron-bank",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Permissionless liquidation has a 1.08x seize incentive, but no liquidation occurred across Iron Bank's 24 Ethereum markets in the measured 7 days. The liquidity-mining module is unset and public accrueInterest pays no caller; no stranger reward was observed.",
+  "numbers": "7 d timestamp window: block 26430449 at 2026-11-16 22:01:59 UTC to block 26480692 at 2026-11-23 22:01:59 UTC (relay eth_getBlockByNumber). Sample 0 of 0 LiquidateBorrow calls; gross payout not observed, gas per rewarded call n/a, USD n/a. 24 markets from Unitroller 0xAB1c342C7bf5Ec5F02ADEA1c2270670bCa144CbB getAllMarkets(); relay eth_getLogs across all 24: 0 LiquidateBorrow topic0 0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52, 35 no-topic logs in total. No-topic scan topic0 census: 13 UserCollateralChanged, 8 Transfer, 9 AccrueInterest, 5 Approval, no unknown topic0. Same-shape positive control: 3 no-topic logs on market 0x41c84c0e2ee0b740cf0d31f63f3b6f627dc6b393 at block 26381721, tx 0x90b851f82fb9f771408c7e0a77507b62fd086578ec284743bbb39b7a727605e5. liquidityMining()=0; liquidationIncentiveMantissa()=1.08e18. Sources: relay output scratch/ironbank_scan.out, scratch/ironbank_topics.py; verified explorer source."
+}

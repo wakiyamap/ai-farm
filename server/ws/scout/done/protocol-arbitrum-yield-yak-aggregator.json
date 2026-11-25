@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-yield-yak-aggregator",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "yield-yak-aggregator",
+ "name": "Yield Yak Aggregator",
+ "category": "Yield Aggregator",
+ "tvl_usd": 4093290,
+ "url": "https://yieldyak.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "0316da1e59e44b1186922b3554dc619c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "reinvest() permissionless (onlyEOA) on all 35 farms pays REINVEST_REWARD_BIPS/10000 of checkReward in WETH to caller, but 0 Reinvest events in 7d (blocks 523674262-525725144, chunked scan, controls 2284/2 logs); best pending caller cut $0.046 (S*USDT, 2.62e13 wei WETH @ $1762.29), biggest farm (WBTC DeltaPrime 0x3B85d871, 41.16 WBTC of the $4.03M TVL) pays 0 bips with checkReward 0; gas ~84k = $0.003; last reinvest Apr-2026 tx 0xae3063c5 paid caller 0.",
+  "kb": [
+   "attempts:2644",
+   "protocols:1115"
+  ],
+  "run_id": "0316da1e59e44b1186922b3554dc619c",
+  "at": 1795122473
+ }
+}

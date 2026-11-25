@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "address": "0xf399972cff76e258175e4fc9e2f5cc24bebd0cc1",
+  "strategy": "Atlas intent solver adapter: unverified contract owned by and deployed by EOA 0x271381c423d07bfab0479af2be110262e8469d58; entered only by Atlas 0x8ad1ae9d97c79aa68a0a151e83ff3942f68f86c1 (selector 0x024181a6, same gated entry as the other Arbitrum adapter in protocols:283), which a bundler EOA 0xbdaf054a42a32e7fbc4ef094f6121b8a84410d92 drives through Atlas metacall 0x4317ca01. Each fill is a flash-funded multi-venue swap (deposit 0xe0232b42 + onMorphoFlashLoan 0x31f57072 callback on 0x6c247b1f6182318877311737bac0844baa518f5e, Uniswap V3 router 0xc6962004f452be9203591991d15f6b388e09e8d0, Curve USDts0/USDC pool 0x9c4ec768c28520b50860ea7a15bd7213a9ff58bf, WETH unwrap) that pays ETH out to the exec env 0xab6deeaf17d69f091e6fe8e9f472a69c7112ce45 and keeps only a small ETH remainder; no protocol fee, no bond (Atlas balanceOfBonded/accessData = 0).",
+  "evidence": "0xbd1aa39b2e816f52db530ce2ce534e4cd3e1b24995ed6495dbc03f08b61e7c03, 0x81c61ba909b59a84fc8a3683dfc807be5420b25375b7fa7a1ead667889add8c1, 0x1dd189a3df4b65b440b917abf7c132e3f53ee92224de62a0223bd532ea9b3afa, 0xbf15e963c0a30e8cc6b77f74782167047915ba33bbd42fa3ee6f89d96313fc5d, deploy 0xe13b18475e70fb29e8cad416820c79fd44017e9dc38e9687fb8a5070e33afd13 (block 523582554). 9 of 9 fills in its whole history (explorer txs --internal/--token, -n 200): 2026-11-12T14:19 to 2026-11-15T01:08, none since.",
+  "est_profit_usd_day": 0.3
+}

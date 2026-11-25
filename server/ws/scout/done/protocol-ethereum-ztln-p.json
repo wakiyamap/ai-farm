@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-ztln-p",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 664,
+ "chain": "ethereum",
+ "slug": "ztln-p",
+ "name": "ZTLN-P",
+ "category": "RWA",
+ "tvl_usd": 2198162,
+ "url": "https://zoth.io/",
+ "github": null,
+ "listed_days_ago": 664,
+ "run_id": "e5681a50923943f99b172a10969ca384",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ZTLN-P (proxy 0xfEd3D6557Dc46A1B25d0A6F666513Cb33835864B, verified impl 0xf5429683 ZTLNPrime): no caller-paid function exists; processRedemption/setPrice/transferToCustodian are onlyAdminOrOperator (revert PermissionDenied 0x1e092104 from a fresh address), deposit/redeem are KYC-whitelist-gated (UserMissingKyc 0x2e5d611d); 0 txs in 7d (blocks 26,409,998-26,460,252; last tx ever 2025-01-24, 26 txs total via Blockscout), TVL 2,198,162 USD in USDT sits idle at an offchain custodian.",
+  "kb": [
+   "attempts:3135"
+  ],
+  "run_id": "e5681a50923943f99b172a10969ca384",
+  "at": 1795225935
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "run_id": "2377fc11dc9949f6bf7abc4f7e1453f6",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "lead 117 Liquity V2 BOLD redemption tail-block executor: fork proof completed and bold-redeem-tail-ethereum placed in paper",
+ "outcome": "paper_placed",
+ "kb_rows": ["attempts:1312"],
+ "wiki_pages": [],
+ "bot_ids": ["bold-redeem-tail-ethereum"],
+ "injection_seen": false,
+ "notes": "Three caller bugs found from the pool's own source and fixed: the UniV3 callback must PUSH the input token (IIA settle check), exact-input is POSITIVE amountSpecified (the negative one swept 226M WETH and OOG'd), and newer pools enforce strict SPL so limits are MIN+1/MAX-1. Fork proof at 26417352: success tx 0x46cb9936... +0.00589 ETH (gas 1,085,586) and guard revert 0xfe77cbc5... zero balance. Paper bot polls Redemption at the 6 TroveManagers and simulates the executor with the fork runtime override; ~15 USD net per tail catch, ~15 USD/day if one tail entry per burst-day lands. Head redemption rate 0.777% and falling (fee leg small); BOLD discount at head still unmeasured, the paper sim log answers it."
+}

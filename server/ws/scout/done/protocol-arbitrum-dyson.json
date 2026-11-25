@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-dyson",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1378,
+ "chain": "arbitrum",
+ "slug": "dyson",
+ "name": "Dyson",
+ "category": "Liquidity Manager",
+ "tvl_usd": 168235,
+ "url": "https://www.dyson.money/",
+ "github": null,
+ "listed_days_ago": 1378,
+ "run_id": "1926266e453348d8a098526f3c23d028",
+ "result": {
+  "verdict": "unpaid",
+  "line": "strategy harvest()/harvest(address) is open-callable (eth_call from fresh addr succeeds, no role gate) but callFee=0 on all 17 Dystopia strategies (keeper 0x7754d8b0...5b4aae) so a stranger is paid 0; 0 harvests in last 7d (StratHarvest getLogs blocks 522897655-525498226, control found 2 events at 500679652 and 5761 WETH transfers in 9k blocks), last harvest 2026-09-01 by team bot 0x000960bc7b1ae1313668ae8b936970ffe2404700, gas $0.13 (3.59M gas @ 0.02 gwei, ETH $1767.94 llama.fi), gross/call $0",
+  "kb": [
+   "attempts:2350",
+   "protocols:888"
+  ],
+  "run_id": "1926266e453348d8a098526f3c23d028",
+  "at": 1795056879
+ }
+}

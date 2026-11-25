@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hyperbeat-credit",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Hyperbeat Credit's HyperEVM contracts are 6 PermissionedWrapper ERC20s (wWHYPE, wbeHYPE, wUBTC, wUETH, wUSOL, wXAUt0; DefiLlama adapter hyperbeat-wtoken). wrap/unwrap exchange 1:1 and pay the caller nothing extra, and are themselves whitelist-gated (eth_call wrap(1) from a stranger reverts, WrapNotAllowed). No reward/bounty/claim/keeper function exists anywhere in the verified ABI, so there is nothing to harvest.",
+  "numbers": "TVL $902,456 (candidate) / $929,033 (api.llama.fi currentChainTvls 2026-11-17). Last 7 days (blocks 50877731-51492519, eth_getLogs, all 6 wrappers): 60 Wrapped/Unwrapped events (35 wrap, 25 unwrap) by 27 distinct accounts, all 6 wrappers active. Sample wrap tx 0xb6367f608789d5cb3f81620d9f29bf687a3483e00f8ae96b151572c0b797940e: 380,607 gas @ 0.303 gwei = 0.000115 HYPE = $0.008 (HYPE $68.98, coins.llama.fi). Gross reward per call: $0 (1:1 wrap)."
+}

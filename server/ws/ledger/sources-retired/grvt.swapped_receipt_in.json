@@ -1,0 +1,22 @@
+{
+  "id": "grvt.swapped_receipt_in",
+  "protocol": "grvt",
+  "kind": "nav_rebalance_swap",
+  "chains": {
+    "ethereum": [
+      "0x189b2c1ce2f4cd8e535e98b005a2d7e798124b18"
+    ]
+  },
+  "event": "SwappedReceiptIn(address,address,uint256,uint256,uint256)",
+  "topic0": "0x26f4fc6070bceb16be529f5e2bd96dd064252326230ba458c9fb2adbcdc75c8a",
+  "indexed": [
+    "operator",
+    "receipt_token"
+  ],
+  "data": [
+    "receipt_amount",
+    "vault_token_amount",
+    "price_e18"
+  ],
+  "actor_field": "tx_from"
+}

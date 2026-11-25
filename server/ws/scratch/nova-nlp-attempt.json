@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-nova-nlp",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Nova NLP is a permissioned Lagoon v0.6.0 USDC vault (0xEeEd7BB939d65938Fe8f40dd898Cd5942E32f09E) whose only keeper-shaped functions (settleDeposit, settleRedeem, expireTotalAssets, claimShares/AssetsOnBehalf) are onlySafe and revert OnlySafe from a fresh address; updateNewTotalAssets is onlyValuationManager. The source has no reward/bounty/incentive mechanism at all, and the vault itself is whitelist-gated (isAllowed=false for strangers), so nothing pays a stranger.",
+ "numbers": "TVL 61,397.94 USDC (totalAssets(), 6-dec USDC 0xb88339cb...630f read on chain, 2026-11-22). 7d window blocks 51,317,896 (2026-11-15 09:06) -> 51,932,716 (2026-11-22 09:06, ~1 block/s, timestamps from eth_getBlockByNumber): no-topic eth_getLogs on proxy = 2 logs, both from 1 tx 0xa592d3824e2c1f234d5bf2a67552b74157945eb364987ef3d2d47fdfb371bdb5 (user requestRedeem, 2026-11-18 14:18). settleDeposit calls in explorer tx list: 0 in window, last 2026-11-03 (tx 0x684b5e65..., from Safe 0x01e187f06c9e7871986f0ed4e9d2bf528af9b2cf); updateNewTotalAssets callers: 0xfbb96d7e8683142d61f5e93dad93355026c54012 only. eth_call settleDeposit(1)/settleRedeem(1)/expireTotalAssets()/claimSharesOnBehalf([])/claimAssetsOnBehalf([]) from 0x0000000000C0FFEE000000000000000000000042 all revert 0xfde82f1f OnlySafe(safe). Gross to a stranger: 0 USD (no reward mechanism in src/v0.6.0; grep reward|bounty|incentive|keeper = 0 hits)."
+}

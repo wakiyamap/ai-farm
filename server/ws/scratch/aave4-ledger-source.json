@@ -1,0 +1,30 @@
+{
+ "id": "aave_v4.liquidation",
+ "protocol": "aave_v4",
+ "kind": "liquidation",
+ "chains": {
+  "ethereum": [
+   "0x973a023a77420ba610f06b3858ad991df6d85a08"
+  ]
+ },
+ "event": "LiquidationCall(uint256,uint256,address,address,bool,uint256,uint256,int256,int256,uint256,uint256,uint256,uint256)",
+ "topic0": "0x2a1f12d996f530f89d8038aa293f9fde81cac44b6dfd6225e3358d09b78a4a37",
+ "indexed": [
+  "collateralReserveId",
+  "debtReserveId",
+  "user"
+ ],
+ "data": [
+  "liquidator",
+  "receiveShares",
+  "debtAmountRestored",
+  "drawnSharesLiquidated",
+  "premiumDelta_sharesDelta",
+  "premiumDelta_offsetRayDelta",
+  "premiumDelta_restoredPremiumRay",
+  "collateralAmountRemoved",
+  "collateralSharesLiquidated",
+  "collateralSharesToLiquidator"
+ ],
+ "actor_field": "liquidator"
+}

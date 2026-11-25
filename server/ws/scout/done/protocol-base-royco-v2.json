@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-royco-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 270,
+ "chain": "base",
+ "slug": "royco-v2",
+ "name": "Royco V2",
+ "category": "Yield",
+ "tvl_usd": 832297,
+ "url": "https://www.royco.org",
+ "github": null,
+ "listed_days_ago": 270,
+ "run_id": "5d13d70cd0ae4e079a90e14cd4d35726",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Royco EPs on base: executeDeposit/executeRedemption anyone-can-call (role check passes, INVALID_REQUEST revert only) and pay msg.sender an executorBonusWAD cut of the assets, but gross $0 in last 7d: 1 DepositExecuted (self-exec 0xe04262ec, ~$0.79, bonus 0, tx 0xb7051004), 0 redemptions; 30d: 2 self-execs, 0 stranger bonuses; Dawn EP idle; gas ~$0.0022/call (0.006 gwei, ETH $1822.57 coins.llama.fi)",
+  "kb": [
+   "attempts:1737",
+   "protocols:402"
+  ],
+  "run_id": "5d13d70cd0ae4e079a90e14cd4d35726",
+  "at": 1794922242
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "address": "0xb77ef5360d1b40d00a0abea5087478fdc59c1c3b",
+  "strategy": "Moonwell USDC borrow-market whale liquidator: 5 ledger LiquidateBorrow captures over ~21 ledger days (blocks 53.26M-55.1M), repay sum 37,433 USDC, mean 7,487 USDC per capture; at the 10 pct Moonwell liquidation penalty that is ~750 USD gross per capture (~180 USD/day before gas and collateral-sale cost). Copyable incumbent for the moonwell-whale route (its captures land on mcbBTC/mcbXRP-family collateral the moonwell-whale executor has watch-only).",
+  "evidence": "ledger moonwell_core.liquidate_borrow group-by json_extract(fields,'$.liquidator'), contract 0xedc817a28e8b93b03976fbd4a3ddbc9f7d176c22 = Moonwell USDC borrow market (on-chain name() pinned 2026-11-09 run 69d711e8, scratch relay reads); measured 2026-11-09 09:3xZ attempt 663. Other mUSDC-market harvesters same window: 0x8109f72495df4161fd6b70dfd4b4ee6abb1bc6a5 5 events sum 2,370 USDC, 0x5ac9bc14... 6 events 664 USDC, dust bot 0x5301c7dd... 135 events sum 11.39 USDC."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-mountain-protocol",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. USDM is a permissioned oracle-rated yield stablecoin in wind-down: no function anyone can call that pays the caller. mint/burn and addRewardMultiplier are role-gated (stranger eth_call reverts AccessControl) and pay nothing anyway; yield accrued to holders via the exchange-rate multiplier, rate set to 0% at wind-down Phase 2. Redemption is now a Uniswap v4 wUSDM/USDC swap; LP fees accrue to the reserve's own position. Token barely active.",
+ "numbers": "7d window blocks 26413112-26463366 (2026-11-14 to 2026-11-21, eth_getBlockByNumber timestamps): no-topic eth_getLogs on USDM = 29 logs total (16 Transfer, 13 Approval), 0 RewardMultiplier events (topic0 0xfe5d4a0d... from deployed ABI; no-topic scan shows no other topic0). totalSupply 1,283,532.34 USDM (18 decimals read on chain) ~= DefiLlama tvl_usd 1,282,878. rewardMultiplier() = 1.0887393e18 (lifetime +8.87%, frozen). addRewardMultiplier(1e21) from 0x0000...dEaD reverts 'missing role 0x68e79a7b...' (ORACLE_ROLE). Sources: rpc.py ethereum eth_call/eth_getLogs, explorer source/abi 0x7f2f92c4dbda28d8cd7d046e005f65c0540f331e, docs.mountainprotocol.com/wind-down-documentation/usdm-wind-down-overview.md, DefiLlama adapter raw."
+}

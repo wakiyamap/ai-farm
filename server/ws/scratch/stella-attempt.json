@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-stella",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only permissionless keeper function on Stella's arbitrum contracts is RewardVault.distributeReward(address[]); its ALPHA pot is empty and it has had no calls since 2025-02-20 (single daily keeper before that). Reward emissions ended, so a call pays 0. Strategy liquidations (liquidatePosition) exist but were not measured this session.",
+  "numbers": "vault 0xa67CF61b0b9BC39c6df04095A118e53BFb9303c7 ALPHA balance 0 (eth_call balanceOf, ALPHA 0xc9cbf102c73fb77ec14f8b4c8bd88e050a6b2646); last vault tx ts 1740038443 = 2025-02-20, selector 0x8449c1b7, keeper 0xc3fcefddfdf1d1dc31cc48a05192586f6dbd400d (explorer txs via etherscan); 0 calls in last 7d (eth_getLogs unusable this run - scout lane public fallback, USDC control 0 items); rewardDistribution() = (3e16, 3e16); eth_gasPrice 0x131a230 wei = 0.02 gwei; TVL 469,794 USD (session context) / 462,010 (api.llama.fi 2026-11-18)"
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "yam_finance",
+  "status": "dead_end",
+  "checked": "DefiLlama slug yam-finance (deadUrl=true, TVL 107.9k) uses adapter projects/degenerative: 11 UMA-v2-fork ExpiringMultiParty contracts from yam-finance/synths-sdk src/assets.json (ugas/ustonks/upunks groups; chain key '1'). All 11 confirmed with eth_getCode (non-empty) and collateralCurrency() answering: 8x WETH 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, 3x USDC 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 (token addr read from EMP itself). Balances: 9.07 WETH + 92,885 USDC (~$107.9k at WETH $1657.85 coins.llama.fi ts 1795331404), dominated by ustonks EMP 0x4f1424cef6ace40c0ae4fc64d74b734f1eaf153c (92,877 USDC). Source (Etherscan, ExpiringMultiParty.sol, v0.6.12): UMA v2 FinancialContract fork - no caller-paid reward anywhere; withdrawLiquidation gated to sponsor/liquidator/disputer, settleExpired pays msg.sender's own position, payRegularFees pays the store. 7d no-topic eth_getLogs on all 11 addresses (blocks 26418813 2026-11-15 07:09:47 -> 26469067 2026-11-22 07:09:47) = 0 logs; control WETH no-topic 204 blocks = 7,625 logs. Last activity 2026-11-13 10:01 UTC: two settleExpired() self-settlements by sponsors."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-aster-usdf",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 726,
+ "chain": "bsc",
+ "slug": "aster-usdf",
+ "name": "Aster USDF",
+ "category": "Basis Trading",
+ "tvl_usd": 111663611,
+ "url": "https://www.asterdex.com/en/usdf",
+ "github": null,
+ "listed_days_ago": 726,
+ "run_id": "7d8d909f71784e2594565abaf0b3beb8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: asUSDF dispatchReward(uint256) on 0xdB57a53C428a9faFcbFefFB6dd80d0f427543695 reverts AccessControlUnauthorizedAccount(REWARD_ROLE, sole member = protocol router 0x56f966fd...5d02); ~100 dispatches in 7d (4 hits in 50k sampled blocks of 1.31M, ~14/day; last 2026-11-18 04:22 UTC tx 0xf559...6896 pushed 180.95 USDF into pool), keeper 0xb4aacda6...d8ae paid 0 in 3/3 sampled calls, gas 83,817 x 0.05 gwei = bash.0025 (BNB 92, coins.llama.fi); USDF mint/redeem custodial (BOT_ROLE), no stranger-payable function",
+  "kb": [
+   "attempts:2059"
+  ],
+  "run_id": "7d8d909f71784e2594565abaf0b3beb8",
+  "at": 1794990607
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "alphaprimer",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter path 404; api.llama.fi/protocol/alphaprimer gives address=null, url='', listedAt 1792096059 (~2026-10-16), twitter AlphaPrimer_R. Contracts from repo README (github.com/alphaprimer-research/defi-autopilot, org alphaprimer-research): vault proxy 0x87Ef5c25203886b1026ad907E7f84fBAABdF1fa9 (eth_getCode non-empty; version()=3.5.2, totalAssets()=51,185 USDC via rpc.py), impl 0x4e2DC401A2c825bDE8e8352De7b068d6fa7758c2, explorer ABI (verified) matches src/AlphaPrimerVault.sol. All non-view functions reviewed: only keeper-style ones are harvest/deployIdle/rebalanceTo (onlyStrategistOrOwner, revert 'not authorized' from a fresh address), collectFees (onlyOwner, pays accruedFees 47.68 USDC to owner), emergencyExit (onlyGuardianOrOwner), set*/reactivate (owner/guardian). deposit/mint/withdraw/redeem are ordinary user functions paying nothing. Verdict role_gated, no function pays a stranger. Strategist 0x4d062ecae79fc94e6915d927bcb8e2945654633e ran harvest 31x in 7d (no-topic getLogs, blocks 524410497-526467560), 0 rebalances."
+}

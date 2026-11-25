@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-venombridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 960,
+ "chain": "polygon",
+ "slug": "venombridge",
+ "name": "VenomBridge",
+ "category": "Bridge",
+ "tvl_usd": 31830,
+ "url": "https://venombridge.com",
+ "github": null,
+ "listed_days_ago": 960,
+ "run_id": "24170a43e6e04938a966e02653566e9c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BroXus MultiVault/Octus EVM vault 0x4aB740157721105aE503fbad756a578171512525 (11-facet diamond): settle fn setPendingWithdrawalApprove is onlyGovernanceOrWithdrawGuardian (guardian 0x3644f69d24a96bb964267278d29d16da73cd2497) and pays the recipient, open callables (deposit/withdraw relay) pay caller bash (bounty goes to Venom-side relayer); 7d blocks 97380178-97788818 (11-15 20:48Z to 11-22 23:04Z): 2 txs both depositByNativeToken (40+10 POL) by one EOA, 0 relay/settle calls, gas ~0.00004 USD (POL 0.0756).",
+  "kb": [
+   "attempts:3894"
+  ],
+  "run_id": "24170a43e6e04938a966e02653566e9c",
+  "at": 1795389100
+ }
+}

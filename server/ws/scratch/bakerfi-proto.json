@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "bakerfi",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/bakerfi/index.js (raw, 2026-11-22): 3 base vault proxies, all eth_getCode non-0x and getters answer: 0x37327c99bBc522e677a97d01021dB20227faF60A (symbol base-mfbrETH, asset() = 0x4200000000000000000000000000000000000006 WETH, totalAssets 28.75), 0x892022FE1431fdE03836725BBD0f0380e21E2095 (base-stbrETH, totalAssets 0.11), 0x4BA3f77a8072217dabd7FeD28DB244A5d32C572E (seUSD, totalAssets ~2e-13, empty). EIP1967 impls Sourcify exact_match = baker-fi/bakerfi-contracts (master, last push 2025-02-18) contracts/core/Vault.sol and MultiStrategyVault.sol. Deployed function surface: deposit/mint/withdraw/redeem + native variants (user actions; isAccountEnabled(stranger)=true so whitelist open), rebalance((uint256,bytes)[]) = the harvest/settle entry, all setters role-gated. rebalance from 0x1111...1111 reverts 'AccessControl: missing role 0xd1473398... (VAULT_MANAGER_ROLE)'. No function pays msg.sender: performance fee goes to feeReceiver 0x5b9d9e25a00a88290f35ee726490852e4df083e3. Protocol dormant: 0 logs on all 3 vaults in 7 d (blocks 57982072 2026-11-15 -> 61006073 2026-11-22, no-topic scan), last event 2026-11-01 (Withdraw on 0x8920...), only 24 logs since 2026-06-06 (block 0x2d20000) as same-shape control."
+}

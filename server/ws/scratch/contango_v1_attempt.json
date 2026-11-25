@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-contango-v1",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the Contango v1 Arbitrum deployment is a yield-protocol vault-v2 stack (Ladle 0x93343c08e2055b7793a3336d659be348fc1b08f9, Cauldron 0x44386ddb4c44e7cb8981f97af89e928ddd4258dd, sources verified) in which no callable function pays the caller: every Ladle fn (pour/close/repay/roll/stir/redeem...) pays the vault owner or a user-chosen `to`, build and slurp are auth'd, and the only open state-changers (Cauldron.mature/accrual) pay nothing. The whole deployment is dormant too: zero events in 7 days across Ladle, Cauldron and the WETH Join (control OK), all series long matured.",
+ "numbers": "7d events: Ladle 0, Cauldron 0, Join 0xaf93a04d5d8d85f69af65ed66a9717db0796fb10 (range 0x1f49b36c..latest, 604k blocks); control WETH Transfer 10k blocks = 7428 logs. Join holds 75.11 WETH (eth_call balanceOf, WETH 0x82af49447d8a07e3bd95bd0d56f35241523fbab1); TVL 229,542 USD (DefiLlama candidate data). accrual(0x0030ff00028e) returns 1e18 from a fresh address; mature() reverts 'Already matured'. Last IlkAdded block 115,591,085 = 2023-07-27."
+}

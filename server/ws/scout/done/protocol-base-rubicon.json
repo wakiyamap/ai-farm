@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-rubicon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1840,
+ "chain": "base",
+ "slug": "rubicon",
+ "name": "Rubicon",
+ "category": "Dexs",
+ "tvl_usd": 88734,
+ "url": "https://app.rubicon.finance/swap",
+ "github": [
+  "RubiconDeFi"
+ ],
+ "listed_days_ago": 1840,
+ "run_id": "723cfe88e6a94e79a3a9541f0dc53458",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No stranger-payable function on any of Rubicon's 3 base systems (classic order book 0x9A5215E96E1185d4e6002C95C3Cc0aB6eEaD354F impl 0x78f8ac46...323a verified, Aquila UniV2 factory 0xA5cA8Ba2..., CLMM UniV3 factory 0xB5E5A9e6...): fork ABIs have no reward/bump/kill fn, del_rank(uint256) is stranger-callable (eth_call fresh addr = true) but moves no tokens (gas ~$0.0005 at 0.006 gwei, ETH $1,723.79); order book dead: 0 market txs in 7d, last tx 0x94f4fa68 2026-09-15.",
+  "kb": [
+   "attempts:4092",
+   "protocols:2214"
+  ],
+  "run_id": "723cfe88e6a94e79a3a9541f0dc53458",
+  "at": 1795435579
+ }
+}

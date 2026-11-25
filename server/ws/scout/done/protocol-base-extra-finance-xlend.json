@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-extra-finance-xlend",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 692,
+ "chain": "base",
+ "slug": "extra-finance-xlend",
+ "name": "Extra Finance Xlend",
+ "category": "Lending",
+ "tvl_usd": 1017775,
+ "url": "https://xlend.extrafi.io/",
+ "github": null,
+ "listed_days_ago": 692,
+ "run_id": "5b1ffe039f2d42deb382c0d83c0eebe9",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Aave V3 fork, Pool 0x09b11746...22e03 (32 reserves, Base TVL $1.008M); only stranger-payable fn is liquidationCall: 7 events / 5 txs in 7d, all taken by third-party router 0x5ac9bc14...95bd driven by >=6 EOAs with same-block FAILED competitors (first-block contested); gross $0.03-5.37/call vs gas $0.02-2.23 at today's prices (coins.llama.fi), 7d totals gross $6.29 gas $2.76 net $3.53; rebalanceStableBorrowRate commented out, 0 events (control: same getLogs returned the 7).",
+  "kb": [
+   "attempts:2036",
+   "leads:266"
+  ],
+  "run_id": "5b1ffe039f2d42deb382c0d83c0eebe9",
+  "at": 1794984735
+ }
+}

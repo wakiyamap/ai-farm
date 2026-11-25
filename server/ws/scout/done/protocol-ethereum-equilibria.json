@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-equilibria",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1259,
+ "chain": "ethereum",
+ "slug": "equilibria",
+ "name": "Equilibria",
+ "category": "Yield",
+ "tvl_usd": 7561422,
+ "url": "https://equilibria.fi/home",
+ "github": [
+  "eqbtech"
+ ],
+ "listed_days_ago": 1259,
+ "run_id": "484530e95bd4445ba27ae6c73937fd60",
+ "result": {
+  "verdict": "unpaid",
+  "line": "earmarkRewards(pid) on booster 0x4D32C8Ff2fACC771eC7Efc70d6A8468bC30C26bF (poolLength 380, incentive 50/10000=0.5%) is open (eth_call from fresh addr succeeds) but 0 EarmarkIncentiveSent and 0 RewardClaimed in 7d (blocks 26,416,821-26,463,800) and 0 in 30d; pending pots sample 5/380 markets: 4x zero + 0.018 PENDLE = 0.023 USD gross (0.5% = 0.0001 USD) vs ~1.02 USD gas (401,985 gas @ 1.499 gwei, ETH 1687 USD)",
+  "kb": [
+   "attempts:3336"
+  ],
+  "run_id": "484530e95bd4445ba27ae6c73937fd60",
+  "at": 1795268630
+ }
+}

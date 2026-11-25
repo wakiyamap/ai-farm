@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-ufarm-digital-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 46,
+ "chain": "ethereum",
+ "slug": "ufarm-digital-v2",
+ "name": "UFarm Digital V2",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 32360,
+ "url": "https://ufarm.digital",
+ "github": null,
+ "listed_days_ago": 46,
+ "run_id": "2041999364f140bc8e8fdbcf75aac483",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ERC-7540 vaults (impl 0x537d75f9.., core 0xdef157b8.., lifecycle module 0x093702d7..): settleRequests/resetRequests/manualResendOracleRequest/terminate/executeAdapter all revert Unauthorized (0x8e4a23d6) from a fresh address; 18 settle txs in 7 d (blocks 26429474-26479846, 199 vault logs) by 2 permission-mask keepers (0x9885edcd.. EOA, 0xfd98422f.. contract), 0 paid to caller, gas 0.0001508 ETH = 0.26 USD per settle (ETH 1741.59, coins.llama.fi 19:18 UTC).",
+  "kb": [
+   "attempts:4196",
+   "protocols:2314"
+  ],
+  "run_id": "2041999364f140bc8e8fdbcf75aac483",
+  "at": 1795461615
+ }
+}

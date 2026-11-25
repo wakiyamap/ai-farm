@@ -1,0 +1,27 @@
+{
+ "id": "protocol-hyperevm-rip-xyz",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 261,
+ "chain": "hyperevm",
+ "slug": "rip.xyz",
+ "name": "Rip.xyz",
+ "category": "NFT Automated Strategies",
+ "tvl_usd": 54425,
+ "url": "https://www.rip.xyz/",
+ "github": [
+  "RebelDividends"
+ ],
+ "listed_days_ago": 261,
+ "run_id": "2486c19e10b84eca9ce379cafe2324f6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "rHYPURR vault 0x0Df4f69CF9417b1817AB9579bF099537a694667B: processDeposits/processRedemptions/submitNav onlyRole(ORACLE_ROLE) (eth_call from fresh addr reverts e2517d3f(address,ORACLE_ROLE)); 7 d no-topic scan blocks 51244940-51940797 (2026-11-15->11-22): 758 submitNav all by team EOA 0x96e6687c (pays caller 0), 8 deposits from one user (30.1 WHYPE ~1879 USD), 0 redemptions; verified source transfers nothing to msg.sender anywhere; marketplace 0xB05fEa97/depositor/factory unverified proxies idle since 2026-10-16; gas ~0.001 USD/call (0.1 gwei).",
+  "kb": [
+   "attempts:3703",
+   "protocols:1922"
+  ],
+  "run_id": "2486c19e10b84eca9ce379cafe2324f6",
+  "at": 1795346860
+ }
+}

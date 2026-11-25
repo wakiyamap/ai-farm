@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "cian_automation",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/cian-automation/index.js: avax factory 0x15cbFF12d53e7BdE3f1618844CaaEf99b2836d2A (WalletFactory, verified source on Snowtrace, code confirmed, getters trustAccountLogic/trustSubAccountLogic answer). Accounts: CIAN API data.cian.app/avalanche/api/v1/accounts = 3253 accounts; sampled main account 0x3785631c9cc24f14f1d9b40fec9cc536f1a4e5c7 and 0xeBb53C2aEae70Fe7f02406Ea7F4Ccba8AD991760 (code, owner()/autoExecutor() answer). Logics: ControllerLib 0x601954e6afb77dac21503dbdfa751fbef9ee5374 + ControllerLibSub 0x9aa8b1998b1882008c407fbb5bf775a5e2d8e544 (verified source): every function is onlyOwner or onlyAutomationOrOwner. Automation 0x056c41b8c2a2e7c6454842c9a62050fa1b5ffbae (verified source): autoExecute* have no modifier but ERC2612Verifier 0x25440d9e199974e705a07df6f2464291d0ba1e2f gates the caller: eth_call isTxPermitted(0x3785..., keeper 0x4a8e72d9442dd4d8da918b1759c6b3022c995895, op 2)=true, stranger 0x1111... reverts 'Basic: not allowed!'. No ERC4626 vaults on avax (cian-yl adapter has no avalanche). TVL ~$582k (api.llama.fi 2026-11-18)."
+}

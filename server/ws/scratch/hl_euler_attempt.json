@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-euler-v2",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers: liquidate() on the Euler EVK hyperevm book (60 factory vaults) was called by 3 stranger EOAs 5 times in the last 7 days and gross > gas on the USDC/UBTC one (+$2.30 vs $0.35 gas, tx 0xf6ea50ec...); the rest are dust-level (~gas). No other public reward function pays the caller: touch() has no gas refund in this EVK build, convertFees() pays the Safe treasury 0xd3cbf0..., accumulatedFeesAssets()=0. Thin book: weekly gross ~$2.3 ~ weekly gas total.",
+ "numbers": "6 Liquidate events / 5 tx in 7 d, blocks 50,905,000-51,587,598 (same-shape control Borrow topic = 6 events); gross per tx (seized-repaid at block-time prices, coins.llama.fi 2026-11-18): +$0.02, +$2.30, -$0.12, +$0.02, ~+$0.03 (sample 5 of 5); gas $0.008-$0.35/tx (0.82-1.27M gas @ 0.1-5.3 gwei, HYPE $68.70); factory 0xcF5552580fD364cdBBFcB5Ae345f75674c59273A getProxyListLength=60; TVL $981,599"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-uniswap-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "arbitrum",
+ "slug": "uniswap-v2",
+ "name": "Uniswap V2",
+ "category": "Dexs",
+ "tvl_usd": 5806064,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "159a9733ea6449bb8308d3bb4fcbe6eb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Canonical V2 core (factory 0xf1D7CC64Fb4452F05c498126312eBE29f30Fbcf9, verified source, 8893 pairs): no reward function; only pair.skim(address to) is open (fresh-address eth_call ok, no role revert) and pays balance-reserve = 0 on 6/6 token balances of 3 sampled pairs (pair(0) WETH/LUSD control: 3,613 Swap events in ~7d, blocks 522.89M-525.30M); 0 successful skims in 7d (the only skim in ~39d of pair(0) direct txs failed, block 517097221); gas ~0.0203 gwei, skim ~45k gas = ~bash.002.",
+  "kb": [
+   "attempts:2401",
+   "protocols:932"
+  ],
+  "run_id": "159a9733ea6449bb8308d3bb4fcbe6eb",
+  "at": 1795066712
+ }
+}

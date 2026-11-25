@@ -1,0 +1,28 @@
+{
+ "id": "protocol-ethereum-sherlock",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "sherlock",
+ "name": "Sherlock",
+ "category": "Insurance",
+ "tvl_usd": 226843,
+ "url": "https://sherlock.xyz",
+ "github": [
+  "sherlock-protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "0deb92b7f1e84a1bb640e2a215f8dc34",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Sherlock V2 staking pool 0x0865a889...eabF arbRestake(uint256) is permissionless and pays USDC to msg.sender: 70 calls by 4 stranger keepers in 7 d (blocks 26418283-26468538), gross $12.88 USDC total, median $0.104 / max $0.614 per call vs $0.028-0.064 gas per call (receipts, ETH $1651 coins.llama.fi) - gross > gas, but whole-pool flow is only ~$1.8/wk on $105.6k USDC and 4 keepers compete; v1 SherX proxy 0xacbBe...8215 ($121.3k USDC) has no caller-paid fn (payoutClaim claim-manager-gated).",
+  "kb": [
+   "attempts:3605",
+   "leads:391",
+   "protocols:1846"
+  ],
+  "run_id": "0deb92b7f1e84a1bb640e2a215f8dc34",
+  "at": 1795325513
+ }
+}

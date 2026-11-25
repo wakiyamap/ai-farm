@@ -1,0 +1,24 @@
+# via etherscan
+constructorNone(address,address,address,address)
+balanceOf(address) view -> (uint256)
+decimals() pure -> (uint8)
+deposit() payable
+deposit(address) payable
+initialize()
+name() view -> (string)
+owner() view -> (address)
+proxiableUUID() view -> (bytes32)
+renounceOwnership()
+totalSupply() view -> (uint256)
+transferFrom(address,address,uint256) -> (bool)
+transferOwnership(address)
+upgradeTo(address)
+upgradeToAndCall(address,bytes) payable
+withdraw(uint256)
+withdrawFrom(address,address,uint256)
+event AdminChanged(address,address)
+event BeaconUpgraded(address)
+event Initialized(uint8)
+event OwnershipTransferred(address,address)
+event Transfer(address,address,uint256)
+event Upgraded(address)

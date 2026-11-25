@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-babydogeswap",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: BabyDogeSwap on bsc is a UniV2 fork (factory 0x4693B62E5fc9c0a45F89D62e6300a03C85f43137) plus one reflection single-stake vault (0xcecd3e7eadae1ad0c94f53bf6a2af188df1a90d0). Neither has a function anyone can call that pays the caller: the vault's 37 external functions are owner setters, views, and user deposit/withdraw (rewards go to the caller's own stake, and withdraw/emergencyWithdraw from a stranger revert). The vault is idle: 0 events in 6x5000-block sample windows spread over 7 days and lastRewardBlock lagging head by ~1.92M blocks (~10 days).",
+ "numbers": "ABI via bytecode dispatcher + 4byte.directory (bscscan/Blockscout/Sourcify all unavailable keyless). Vault: totalPendingReward 1.433e21 raw (9-dec BABY) = 1.43e12 BABY ~= $368 (BABYDOGE $2.568e-10, coins.llama.fi 2026-11-19); vault BABYDOGE balance 2.537e12 BABY ~= $652; rewardPerBlock 2.5e7 BABY. Events: 6 sample windows (offsets 0/52k/269k/537k/941k/1325k blocks from head 134453788, 0.45 s/block measured) x 5000 blocks = 0 vault logs each; control WBNB same shape 1000 blocks = 18,345 logs (getLogs works, bsc lane). lastRewardBlock 132534106, head 134453788. Gas: 0.05 gwei (eth_gasPrice), BNB $588.74 -> ~$0.003 per 100k-gas call. Candidate TVL 1.79M = AMM pools, no keeper surface; factory allPairsLength=911."
+}

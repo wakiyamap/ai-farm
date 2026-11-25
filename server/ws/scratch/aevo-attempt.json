@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-aevo-perps",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: on Optimism Aevo is only a Socket Superbridge bridge (3 Vault proxies holding the $279k TVL); the perps exchange runs on Aevo's own appchain. The one permissionless payout-shaped function, unlockPendingFor(receiver,connector), pays the receiver argument (a user's own rate-limited tokens) and nothing to the caller; the pending pot is 0 and it was called 0 times in 7d (0 PendingTokensTransferred out of 10 vault events). Everything else is onlyOwner (updateLimitParams, rescueFunds) or connector-gated (receiveInbound). No caller reward mechanism exists on these vaults.",
+  "numbers": "7d window blocks 159423554-159725954 (eth_getLogs, 3 vaults): 10 events = 6 TokensUnlocked ($77-$5,000 USDC each to users, samples tx 0xf0f96181957306841f082143506ff..., 0x1a578411ab742ba73d10c48ed..., 0x8b2feb1379f23db2ae8954c48...) + 4 TokensDeposited ($90-$5,001); 0 PendingTokensTransferred (0 unlockPendingFor calls; same-shape control returned 10 logs); connectorPendingUnlocks=0; unlockPendingFor eth_call from fresh address: success, pays $0 to caller; caller tx gas ~377k gas @ ~101,305 wei = ~3.8e-8 ETH ~ $0.0001 (ETH $1,781.99 coins.llama.fi 2026-11-19)"
+}

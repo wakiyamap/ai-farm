@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-abracadabra-spell",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "abracadabra-spell",
+ "name": "Abracadabra Spell",
+ "category": "CDP",
+ "tvl_usd": 1637289,
+ "url": "https://abracadabra.money/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "87e3b45703ff4097bce8774b4c1d3937",
+ "result": {
+  "verdict": "unpaid",
+  "line": "CauldronV4 liquidate() anyone-callable (5% spread, no role: eth_call from fresh addr reverts on state 'all solvent'), but 0 calls in 7d - whole 14-cauldron complex had 4 user txs / 14 logs; last payment 2026-10-09 (tx 0xab7b7224ebba): 2.11 MIM debt liquidated, gross 0.105 MIM = $0.0026 (MIM $0.0252, coins.llama.fi 18:40Z) vs 4.28M gas = $0.15 at 0.02 gwei - dormant pond (WETH cauldron 307,603 MIM borrows = $7.7k).",
+  "kb": [
+   "attempts:2604",
+   "protocols:1083"
+  ],
+  "run_id": "87e3b45703ff4097bce8774b4c1d3937",
+  "at": 1795113885
+ }
+}

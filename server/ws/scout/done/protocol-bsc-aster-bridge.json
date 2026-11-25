@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-aster-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 864,
+ "chain": "bsc",
+ "slug": "aster-bridge",
+ "name": "Aster Bridge",
+ "category": "Bridge",
+ "tvl_usd": 305607204,
+ "url": "https://www.asterdex.com",
+ "github": null,
+ "listed_days_ago": 864,
+ "run_id": "7c0695d840b44bfea6753b131c92d7c1",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BSC vault 0x128463A60784c4D3f46c23Af3f65Ed859Ba87974 (impl 0x9a183b1e8939d7a7bd49c47ab0ad540f8aa07360, 57 selectors matched to verified AstherusVault source): only payout path withdraw 0x0cd4b1fe + cancelWithdraw revert AccessControlUnauthorizedAccount(OPERATE_ROLE) from a stranger eth_call, withdrawFee ADMIN-only, OPERATE_ROLE holders=6, open deposit/depositNative/depositFor pay 0; TVL 288-306M USD; 7d event count pending (scout Alchemy 300,376/300,000 CU spent, bsc public getLogs 'limit exceeded'), same family as arb protocols:703 where fee 0.51 USDT/withdraw stays in vault.",
+  "kb": [
+   "attempts:2138",
+   "protocols:711"
+  ],
+  "run_id": "7c0695d840b44bfea6753b131c92d7c1",
+  "at": 1795006866
+ }
+}

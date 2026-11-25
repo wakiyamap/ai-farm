@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-aave-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1691,
+ "chain": "polygon",
+ "slug": "aave-v3",
+ "name": "Aave V3",
+ "category": "Lending",
+ "tvl_usd": 109383906,
+ "url": "https://aave.com",
+ "github": null,
+ "listed_days_ago": 1691,
+ "run_id": "5676147a79684537a68f91db79988d0b",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Recheck 2026-11-19, one Blockscout getLogs query blocks 97184973-97588173: 172 LiquidationCall / 168 txs / 18 liquidators on Pool 0x794a6135...14aD (identical to builder census attempts:1741); liquidationCall not role-gated (fresh-address eth_call reverts HealthFactorNotBelowThreshold); median gross 15.23 USD, 5 largest 3,113.47/1,930.78/1,201.78/1,046.48/894.62 USD vs median gas 0.040 USD (POL 0.0825, coins.llama.fi 11:36Z); pays_strangers but latency race (71/75 flip in capture block) - leads:243 already live as trial-aave-polygon",
+  "kb": [
+   "attempts:2498",
+   "protocols:407"
+  ],
+  "run_id": "5676147a79684537a68f91db79988d0b",
+  "at": 1795088649
+ }
+}

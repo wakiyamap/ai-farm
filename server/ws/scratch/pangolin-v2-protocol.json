@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "pangolin_v2",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/pangolin/index.js (pangolin-v2 slug): avax factory 0xefa94DE7a4656D787667C749f7E1223D71E9FD88, png 0x60781C2586D68229fde47564546784ab3fACA982, staking 0x88afdaE1a9F58Da3E68584421937E5F564A0135b. Factory eth_getCode != 0x; getter allPairsLength()=3660 pairs, allPairs(0)=0xa37cd29a87975f44b83f06f9ba4d51879a99d378. Verified source via Routescan getsourcecode + GitHub pangolindex/exchange-contracts contracts/pangolin-core/PangolinFactory.sol = vanilla Uniswap V2 factory (allPairs/createPair open with no reward to caller; setFeeTo/setFeeToSetter feeToSetter-gated). PangolinPair.sol: mint/burn/swap/skim/sync = keeper-less AMM; skim(address) is open (eth_call from fresh 0x111..111 returns 0x, no revert, no role gate) and pays only balance-above-reserve dust to the recipient. No liquidation/harvest/claim/keeper-bounty function pays an arbitrary caller. Staking (Vault/MasterChef 0x88afda.., rewardEnd() reverts so it is not a MiniChef) pays PNG to LP stakers through their own harvest, 0 to a stranger caller. Checked 2026-11-19."
+}

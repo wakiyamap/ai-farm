@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-ipor-fusion",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Fusion vaults (EIP-1167 proxies -> PlasmaVault impl 0x7924184350e9d555a576153fe5feeec86270530a) expose only execute / claimRewards / updateMarketsBalances as op functions; all are OZ AccessManaged restricted and a fresh address reverts AccessManagedUnauthorized on 4/4 sampled vaults. Source and 5 sample txs show the caller is never paid (fees go to the vault feeAccount), so even the 16 active curator executors earn no on-chain per-call reward.",
+  "numbers": "267 vaults / 35.9M USD TVL on base (api.ipor.io/v2/fusion/vaults, 2026-11-18); 578 ExecuteFinished/7d over top-32-TVL vaults (sample of 32 of 267; eth_getLogs blocks 56014583..59001085 topic0 0x2af77635...); 16 distinct executors, 18/32 vaults active; 5 sample calls (txs 0x66824421.., 0x621335a0.., 0xa67c2cf3.., 0xf7c7866f.., 0xe6279d5b..): 0 value, 0 token transfers to caller; gas 447k-1798k median 1091k = $0.005-0.019 at 0.006 gwei x ETH 1809.63 (coins.llama.fi)"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-bunni-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 651,
+ "chain": "ethereum",
+ "slug": "bunni-v2",
+ "name": "Bunni V2",
+ "category": "Dexs",
+ "tvl_usd": 217443,
+ "url": "https://bunni.xyz/",
+ "github": null,
+ "listed_days_ago": 651,
+ "run_id": "b1cfe599853840ab93ab33d8d68642b3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: post-hack Bunni V2 on Uniswap v4 (BunniHub 0x49c7bcbca294e63567b4d21eb765f1 + 0x000000dceb71f3107909b1b748424349bfde5493, 108 pools, TVL 217,443 USD); no function pays a caller (withdraw self-service, claimProtocolFees pays a fixed unset recipient -> reverts 0x261bdb72, curatorClaimFees onlyCurator, rest hook/owner-gated); 7d (blocks 26409859-26460114, 2026-11-14..21): 0 user ops on both hubs (90d control 3 logs, last op ~24-39d ago), 0 v4 Swap on all 108 poolIds (control 22,861 PoolManager swaps/1000 blk).",
+  "kb": [
+   "attempts:3129",
+   "protocols:1499"
+  ],
+  "run_id": "b1cfe599853840ab93ab33d8d68642b3",
+  "at": 1795224488
+ }
+}

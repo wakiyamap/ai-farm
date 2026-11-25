@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-siren",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "siren",
+ "name": "Siren",
+ "category": "Options",
+ "tvl_usd": 311748,
+ "url": "",
+ "github": [
+  "sirenmarkets"
+ ],
+ "listed_days_ago": null,
+ "run_id": "ac05d1e3cf12406bb9982cacd2bb3de1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: Opyn-fork (MarketsRegistry 0xb862..af63 + 12 MinterAmm from 2021 + vault 0x7b63..a469); only anyone-callable settle fn MinterAmm.claimAllExpiredTokens pays the caller 0 (value -> AMM LPs, exercise/close/claim fees -> owner); 0 events on all 14 protocol addresses in 7d (blocks 26418326 2026-11-15 to 26468579 2026-11-22, USDC control 6948 logs/100 blk), last protocol event 2026-09-11; TVL 311,748 USD, vault USDC dust 0.002.",
+  "kb": [
+   "attempts:3607",
+   "protocols:1848"
+  ],
+  "run_id": "ac05d1e3cf12406bb9982cacd2bb3de1",
+  "at": 1795325995
+ }
+}

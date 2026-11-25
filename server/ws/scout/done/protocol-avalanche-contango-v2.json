@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-contango-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1137,
+ "chain": "avalanche",
+ "slug": "contango-v2",
+ "name": "Contango V2",
+ "category": "Derivatives",
+ "tvl_usd": 155375,
+ "url": "https://contango.xyz",
+ "github": null,
+ "listed_days_ago": 1137,
+ "run_id": "d5b0e1a2af064400aff174eb57d48e17",
+ "result": {
+  "verdict": "role_gated",
+  "line": "claimRewards(bytes32,address) on ContangoProxy 0x6Cae28b3...C24E is position-owner-gated (eth_call from fresh addr reverts Unauthorised(0x1111..)); 0 RewardsClaimed and 2 PositionUpserted in 1 tx (0xec31443e.., tradedBy=owner=StrategyBuilderProxy 0x5BDe..65Bd) over 7d blocks 100049942-100694175; no Liquidations contract on avalanche; no keeper pays anyone; TVL 155,375 USD.",
+  "kb": [
+   "attempts:2240",
+   "protocols:801"
+  ],
+  "run_id": "d5b0e1a2af064400aff174eb57d48e17",
+  "at": 1795031270
+ }
+}

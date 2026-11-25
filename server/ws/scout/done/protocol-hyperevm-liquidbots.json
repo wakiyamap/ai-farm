@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-liquidbots",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 143,
+ "chain": "hyperevm",
+ "slug": "liquidbots",
+ "name": "LiquidBots",
+ "category": "Interface",
+ "tvl_usd": 68053,
+ "url": "https://liquidbots.xyz",
+ "github": null,
+ "listed_days_ago": 143,
+ "run_id": "4eb1bef31e82484abe6470b83f18ffd8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: LqFactory 0x7a4CbfC4... on hyperevm (verified, getters answer) deploys per-user LqTrader proxies; every funds-moving fn is onlyUser/onlyBackend/onlyCloser/onlyFeeTaker (grantRole onlyOwner); eth_call takeFeePerpsToPerpsUsdc from fresh addr reverts 'LqTrader: only fee taker'; fees go to protocol feeWallet 0x6043daf4...; 7d = 10 LqTraderCreated (10 users, blocks 51,322,733-51,937,553 = 2026-11-15..11-22), 0 paid to strangers; TVL 68,053 USD.",
+  "kb": [
+   "attempts:3685"
+  ],
+  "run_id": "4eb1bef31e82484abe6470b83f18ffd8",
+  "at": 1795343388
+ }
+}

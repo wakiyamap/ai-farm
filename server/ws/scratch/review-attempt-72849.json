@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "Mint Club V2 Bond burn / mint versus hookless v4 native-ETH pools on Base: HUNT-reserve tokens MT, DR, HEPE, ONCHAT, SIGNET (trial-mintclub-hunt-base)",
+  "outcome": "review_promote",
+  "reason": "Independent paper review passed all cheap-chain trial checks. I reproduced both the wallet-raising success and NoProfit guard revert using the current artifact and bot calldata on a Base fork at parents 60062500 and 57774584. The bot's live start address matches executor.json after gate promote. First live HEPE burn send succeeded in block 60544249 (tx 0xdaa5792fd6dfb75039f460eaf6eb9c13e59649d9f1cad97cfca546e3772d8cc4).",
+  "numbers": "review proof scratch/trial-mintclub-hunt-base/review-proof-72849c15.json: burn gain 77696704925362 wei before gas, 1588969 gas; mint gain 2784143131671718 wei before gas, 1651971 gas. First live log: gross 12642215990374 wei, gas cost 3835713572872 wei, estimated net 8806502417502 wei. Live CU baseline 74880/day, hard cap 95000/day, approximately $0.0504/day at 1M CU=$0.53.",
+  "bot_id": "trial-mintclub-hunt-base"
+}

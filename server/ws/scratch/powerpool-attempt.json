@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-powerpool",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: PowerAgent reward execution and slashing require a registered keeper worker with CVP stake; withdrawal is restricted to the keeper admin or worker. Index pools have no public caller bounty path.",
+  "numbers": "Ethereum latest eth_call PowerAgent 0xc9ce4CdA5897707546F3904C0FfCC6e429bC4546: getActiveKeepersLength()=0, getActiveKeepers()=[]; fresh 0x1111111111111111111111111111111111111111 execute_44g58pv() reverted JobHasNoKeeperAssigned (0xfed4943f), withdrawCompensation(1,fresh,max) reverted MissingAmount (0x06551f4d). Verified source PPAgentV2Based.sol lines 292-340, 1127-1148; PPAgentV2RandaoBased.sol lines 347-370. DefiLlama adapter powerindex/index.js identifies 2 index pool factories; both code-bearing and getter-confirmed. 7-day gross/gas not applicable to these gated paths; no event/call zero is claimed."
+}

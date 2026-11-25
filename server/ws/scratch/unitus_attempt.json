@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-unitus",
+ "outcome": "lead_recorded",
+ "reason": "unclear: Unitus BSC is a dForce general-pool lending market (comptroller 0x0b53E608bD058Bb54748C35148484fD627E6dc0A, RewardDistributor 0x78fDBEDbcc8B04b5ED63C19d0cf02E780cFe84eF paying UTS emissions). Claim functions exist and take recipient arguments (holders / hunter), so a stranger can be the paid party, but fresh-address eth_call of claimAllReward and claimBounty reverts with an undecoded custom error 0xe91797cc and no 7-day log sample could be taken (bsc scout-lane getLogs failed with 'all providers failed: public: limit exceeded'). Whether a stranger was paid in the last 7 days, and gross per call, is unverified.",
+ "numbers": "TVL supply 378,722 USD / borrowed 294,511 USD on BSC (api.llama.fi/protocol/unitus, 2026-11-18); UTS emissions 800 UTS/day supply + 200 UTS/day borrow (eth_call globalDistributionSupplySpeed=0x20e53f4b08097c, globalDistributionSpeed=0x8394fd2c2025f on 0x78fDBE...); bountyRatio=0.05 (0xb1a2bc2ec50000/1e18); 29 iToken markets (marketsV2?chainId=56 API); claimAllReward 0x42e77284 and claimBounty 0x8ceb13d4 from fresh addr both revert 0xe91797cc; getLogs attempts 0 results (provider limit error, not a measured zero)."
+}

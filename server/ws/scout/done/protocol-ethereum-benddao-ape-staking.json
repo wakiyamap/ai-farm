@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-benddao-ape-staking",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1368,
+ "chain": "ethereum",
+ "slug": "benddao-ape-staking",
+ "name": "BendDAO APE Staking",
+ "category": "Yield",
+ "tvl_usd": 722415,
+ "url": "https://www.benddao.xyz/en/apecoin-staking/explore/pairing-listings/",
+ "github": null,
+ "listed_days_ago": 1368,
+ "run_id": "a630f85acdf94f5cad0264595d3df5a1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ApeCoinStaking 0x5954aB967Bc958940b7EB73ee84797Dc8a2AFbb9 (verified source): open claims pay only msg.sender's own position (7d: 32 claim events, 30/30 recipient==user; 19,880 APE ~= 1,400 USD all self-claimed by 2 addresses, incl. one making 30 claims of exactly 0.0 APE); reward ranges expired (pool0 lastRewardedTs frozen 2024-11-19, BAYC 2025-04-15); BendStakeManager compound/compoudNftPool/claim* onlyBot-gated (fresh-address eth_call reverts 'caller is not bot admin', botAdmin 0xef9237cf...); claim gas 143,850 @ 1.006 gwei = 0.24 USD; blocks 26414208-26464459, 2026-11-14 to 2026-11-21",
+  "kb": [
+   "attempts:3379",
+   "protocols:1685"
+  ],
+  "run_id": "a630f85acdf94f5cad0264595d3df5a1",
+  "at": 1795276578
+ }
+}

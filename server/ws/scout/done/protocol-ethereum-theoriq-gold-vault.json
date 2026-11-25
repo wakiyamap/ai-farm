@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-theoriq-gold-vault",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 236,
+ "chain": "ethereum",
+ "slug": "theoriq-gold-vault",
+ "name": "Theoriq Gold Vault",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 109516,
+ "url": "https://theoriq.ai/",
+ "github": null,
+ "listed_days_ago": 236,
+ "run_id": "589ebcf308284c7387a0f1628560a433",
+ "result": {
+  "verdict": "unpaid",
+  "line": "TokenizedVault proxy 0x0F54097295E97cE61736bb9a0a1066cDf3e31C8f (XAUt, 29.16 XAUt = $103.0k): collectFees/chargeManagementFee callable by anyone (eth_call from fresh addr OK) but pay 100% to fixed collectors - sample tx 0x5c16aa25... paid 0.000397 XAUt = $1.40 to 0xc547..., gas 70034 = $0.08 (ETH $1,678.87); 7d: keeper EOA 0xe0b7deab... ran collectFees x8 + chargeManagementFee x9 + chargePerformanceFees x1, caller paid $0.00; claims pay redeemers, not caller.",
+  "kb": [
+   "attempts:2958",
+   "protocols:1367"
+  ],
+  "run_id": "589ebcf308284c7387a0f1628560a433",
+  "at": 1795189268
+ }
+}

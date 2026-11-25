@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0x9240b56ee52b82ab2df5fcb7b599561a55e99d28",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated - the actor is a hired keeper EOA, not a protocol-paid stranger. It fires pre-computed mint/redeem-arb calldata (selectors 0x89894d55, 0xcadeb28d, 0xe8d314f2, 0xedb27a4d) into two executors (0xfc4a891484a74af328cde6c5ccfe2edc86135231, 0x0c8314c783cc4f0869b41512e1307c437496d384) both deployed hours earlier by and owned by 0x43637877fb1d10d9a751817f5cde1406ef69af21; every successful tx routes its profit to that owner (not msg.sender) and 0x43637877 then pays callers in plain out-of-band HYPE transfers. A fresh address making the same call would pay gas and receive nothing on chain, and would not have the owner's route calldata.",
+  "numbers": "Success events (topic 0x147eadb5, eth_getLogs from block 0x30f0000, head 0x3153d3e): 0xfc4a89 8 successes in ~13 min, profit per call $0.02-$1.23 USDC (6dp); 0x0c8314 20 successes in ~4.5 h, profit $0.08-$1.71 USDC and 0.0012-0.193 wHYPE per call (wHYPE outlier $12.9). Gas per call: 349,814-830,272 gas at eGP 0.14-21 Gwei = $0.008-$0.94 (HYPE $66.94, coins.llama.fi ts 1795132210). Keeper pay: 2 transfers of 0.0446/0.0468 HYPE (~$3.0) to the actor in ~63 min from 0x43637877 (extrapolated gross ~2.1 HYPE/day ~ $140, before gas; short sample, contracts only hours old). 4 distinct caller EOAs with many FAILED attempts (contested): 0x9240b56e..., 0x4949e724..., 0x388dac97..., 0x43637877."
+}

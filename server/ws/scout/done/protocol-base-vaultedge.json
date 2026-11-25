@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-vaultedge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 376,
+ "chain": "base",
+ "slug": "vaultedge",
+ "name": "Vaultedge",
+ "category": "CDP",
+ "tvl_usd": 108773,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 376,
+ "run_id": "8254fcecb42344709c7c4ec79fe4e780",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Liquity-V1 CDP fork on base: VMO liquidateVessels/liquidate/batchLiquidateVessels stranger-callable (nonReentrant only) and pay msg.sender, but 0 liquidation events in last 7 days (scanned 52.39M-58.69M in 7 chunks, control 2 logs at 0x2cc4925), sole liquidation ever 2026-06-05 (tx 0xe69b6faa, 831,354 gas, paid 0.000666 ETH + 0.5 debtToken gas comp), liquidateVessels reverts NothingToLiquidate on all 7 collaterals today, 12 vessels, 47,004 USD system debt, call gas ~0.009 USD (0.006 gwei x 1807.52 USD/ETH)",
+  "kb": [
+   "attempts:1770"
+  ],
+  "run_id": "8254fcecb42344709c7c4ec79fe4e780",
+  "at": 1794929514
+ }
+}

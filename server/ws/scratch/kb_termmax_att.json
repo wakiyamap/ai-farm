@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-termmax",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. TermMax BSC is idle: 45k USD TVL, 0 borrowed (DefiLlama 2026-11-22), 21 newest markets emitted 0 logs in 7-8.3 d and 12 of them 0 logs in ~60 d; the only 7-day activity is one user deposit/withdrawing from vault 0xef8efbaa (9 logs, no keeper pay). No public reward-paying function confirmed (no verified source; collect/claimReward/harvest/accrue/collectFundFees/updateState/poke all revert from a fresh address) and any fee pot is empty with zero borrows.",
+ "numbers": "TVL Binance 45,022 USD, Binance-borrowed 0 (api.llama.fi/protocol/termmax 2026-11-22); 7d window blocks 133,801,094 (2026-11-15) - 135,144,545 (2026-11-22), scans used fromBlock 133,519,622 (~8.3 d); newest market creation block 123,977,595; 6 newest vaults 9 logs / 8.3 d all by 0x2847be6b52 (Deposit/Transfer); getLogs control relay-probe getlogs-range bsc 24 logs same run; USDT asset() read 0x55d398326f99059ff775485246999027b3197955 (18 decimals, BSC); gas irrelevant (no taker, no reward)."
+}

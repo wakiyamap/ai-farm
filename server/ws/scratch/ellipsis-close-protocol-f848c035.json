@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "ellipsis_finance",
+  "status": "dead_end",
+  "checked": "Prior attempts:2749 and scratch/ellipsis_7d_logs.json measured public LPStaking.claim and FeeDistributor.claim over BSC blocks 133278000-134622268: 2 LP reward claim events, 2 fee-claim txs, 0 FeesReceived. Claim payout goes to the beneficiary/claimReceiver, not the caller; official docs https://docs.ellipsis.finance/the-epx-token/locking specify minimum one-week EPX lock and a further 7-day release, beyond the holding frame. Official LP docs https://docs.ellipsis.finance/liquidity-providers/staking-for-epx-rewards require depositing LP tokens. Closed bot route in run f848c035796a49da830975b1158e8620; reopen only on new reward and liquid exit evidence."
+}

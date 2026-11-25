@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-nami",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 33,
+ "chain": "ethereum",
+ "slug": "nami",
+ "name": "Nami",
+ "category": "Dexs",
+ "tvl_usd": 39690,
+ "url": "https://nami.fi/",
+ "github": [
+  "namifi"
+ ],
+ "listed_days_ago": 33,
+ "run_id": "86ce879028da4bdf970e8fc6dcc81e6c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all fee/emission callables (DistributeFeesNami.execute, FeeConverter.execute, EmissionsController.distributeEmissions) onlyRole(KEEPER_ROLE)=team EOA 0xcd055fB7..BDF72a (fresh eth_call reverts AccessControlUnauthorizedAccount); only public fn Minter.update_period pays caller 0 (source-verified, 0 Mint/EpochChanged logs since deploy, epochs not started); 7d (blocks 26429621-26479821, 11-16 to 11-23) 8 logs over 10 contracts, none paying a stranger; claims disabled till 2026-11-25; gas ~bash.08/call (0.186 gwei, ETH $1744.5); TVL $40,381",
+  "kb": [
+   "attempts:4193",
+   "protocols:2311"
+  ],
+  "run_id": "86ce879028da4bdf970e8fc6dcc81e6c",
+  "at": 1795461217
+ }
+}

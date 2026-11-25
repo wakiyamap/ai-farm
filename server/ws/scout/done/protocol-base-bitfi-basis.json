@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-bitfi-basis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 640,
+ "chain": "base",
+ "slug": "bitfi-basis",
+ "name": "BitFi Basis",
+ "category": "Basis Trading",
+ "tvl_usd": 25428229,
+ "url": "https://www.bitfi.one",
+ "github": null,
+ "listed_days_ago": 640,
+ "run_id": "dd07198231cc43cd86b8e50c31016789",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Base BitFi Basis = bfBTC LayerZero OFT 0x623F2774d9f27B59bc6b954544487532CE79d9DF (impl Bfbtc.sol 0x128eb2ba): updateEpoch/approveWithdraw/nativeWithdraw onlyMultisig (fresh eth_call reverts NotMultiSig 0xcfa65c8d), anyone-callable deposit/requestWithdraw/claim only move the caller's own principal (claim([]) pays 0); 7d (blocks 54,460,416-58,908,946, same-shape control returned them): EpochUpdated x4 all by multisig Safe 0x1eb14ec5.. (gas 138,239 = $0.002, gross $0), Claimed/WithdrawRequest/WithdrawalApproved 0 \u2014 nobody paid on Base.",
+  "kb": [
+   "attempts:1998",
+   "protocols:596"
+  ],
+  "run_id": "dd07198231cc43cd86b8e50c31016789",
+  "at": 1794977921
+ }
+}

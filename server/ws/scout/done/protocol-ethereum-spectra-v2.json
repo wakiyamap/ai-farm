@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-spectra-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 896,
+ "chain": "ethereum",
+ "slug": "spectra-v2",
+ "name": "Spectra V2",
+ "category": "Yield",
+ "tvl_usd": 647410,
+ "url": "https://app.spectra.finance/fixed-rate",
+ "github": null,
+ "listed_days_ago": 896,
+ "run_id": "603481cfdfe04561b2510b7659f5b5e0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "152 PT markets (TVL 616k, ethereum): claimFees() feeCollector-only (fresh-caller revert 0x5c427cd9 to 0xdbbfc051...e9e7), claimRewards(bytes) AccessManaged-restricted (revert 0x068ca9d8), open-call claimYield/updateYield/storeRatesAtExpiry pay a stranger 0; 7 d (blocks 26411747-26461993): FeeClaimed 0 / YieldClaimed 0 across all 152 PTs (control 15 PT Transfers same window), 30 d: 1 FeeClaimed to feeCollector (498.34 IBT, tx 0x166cf71d...), 8 YieldClaimed all owner==receiver.",
+  "kb": [
+   "attempts:3231",
+   "protocols:1566"
+  ],
+  "run_id": "603481cfdfe04561b2510b7659f5b5e0",
+  "at": 1795246686
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-idex-classic",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. IDEX Classic v2 settles trades off-chain: executeOrderBookTrade/executePoolTrade/executeHybridTrade and withdraw are all onlyDispatcher (the IDEX operator wallet), and the anyone-callable functions (deposit, exitWallet, withdrawExit, addLiquidity) move only the caller's own funds - no function anywhere in the verified source pays a caller reward. The protocol is also dormant: zero exchange logs in the last 7 days (last log block 96999406 = 2026-11-09T04:23Z, before the window) and zero trade events in 60 days.",
+  "numbers": "TVL 138,307 USD (DefiLlama candidate row). 7d eth_getLogs on exchange 0x3253...26B6 block 0x5CC88A0..latest (head 0x5d1dbea): 0 logs; same-shape 60d control 0x5A6B3C2..latest: 14 logs (real zero, not lane artifact). 60d OrderBook/Pool/HybridTradeExecuted events: 0. Dispatcher slot 0x11 = 0xf088c3471cc1d9de827180e9b1d5e557f1b5ef5e; feeWallet slot 0x12 = 0x034767f3c519f361c5ecf46ebfc08981c629d381. eth_call loadCustodian() -> 0x3bcc4eca0a40358558ca8d1bcd2d1dbde63eb468. Gas: n/a (no takers). Sources: DefiLlama adapter projects/idex/index.js, explorer source Exchange_v3_1, rpc.py polygon eth_call/eth_getLogs 2026-11-20."
+}

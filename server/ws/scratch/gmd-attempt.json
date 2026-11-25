@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-gmd-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The vault's reward/compound functions cycleRewardsETH()/cycleRewardsETHandEsGMX() are onlyOwner (stranger eth_call reverts 'Ownable: caller is not the owner') and even for the owner the swept WAVAX goes to owner(), so a caller is never paid. Staking updatePool/massUpdatePools are publicly callable but pay 0 (accumulators only, staking TVL 0). Whole deployment is dormant: zero transactions in 7 days to vault, staking or GMD token; vault's last tx was 2025-01-14.",
+  "numbers": "TVL $228,765 (totalUSDvaults() eth_call @block 100730924; adapter projects/gmd/index.js, vault 0x5517c5F22177BcF7b320A2A5daF2334344eFb38C). Txs last 7 days (Snowtrace txlist 100428524-100730924): vault 0, staking 0x4f2c414b76fd9cd45c000af7a449ade4125740ce 0, GMD token 0x1FE70939c2cEc8F31E8F7729442658586B469972 0; control WAVAX 1,926. Last vault tx 2025-01-14 (Snowtrace all-time txlist)."
+}

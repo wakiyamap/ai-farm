@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-uncx-network-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. All 3 UniswapV2Locker LP lockers counted on avalanche gate every value-moving function behind the lock owner (require userLock.owner == msg.sender, 'NOT OWNER'); eth_call withdraw/relock from a fresh address reverts NOT OWNER on all 3. The one open function lockLPToken makes the caller pay fees, it pays nothing out. Zero transactions to any of the 3 lockers in the last 7 days (last tx 2026-08-29, a lockLPToken). Same verdict as the other 5 chains for this family.",
+  "numbers": "3 lockers (DefiLlama adapter projects/unicrypt config.js avalancheContractData, 2026-11-23): 0xa9f6...b3bb getNumLockedTokens=214, 0xb2b1...8076 =3, 0x07dd...90eb =4. 7d window blocks 100463684 (ts 1794819608, 2026-11-16) to 101150435 (ts 1795424408, 2026-11-23) = 69 chunks of 10000 blocks, no-topic eth_getLogs: 0 logs; control: same query shape on window 93955000-93956000 returns 3 logs, topic0 0x3e5a874dd8f086c73bba5a860cb04972e50b6207f84cc020037d576afa6ebc13 taken from receipt of tx 0xe42c90608794bb757242db4f523a4f4d2469c8d7cff539b6c836f02d22b64bba (topic0 from receipt). routescan txlist desc: last tx per locker 2026-08-29 / 2022-03-20 / 2026-08-19 = 0 txs in 7d. eth_call withdraw(1,1) from 0x...deadbeef: 'execution reverted: NOT OWNER' on all 3 (rpc.py avalanche). Gross/caller 0 USD, no reward function exists."
+}

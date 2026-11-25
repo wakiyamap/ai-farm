@@ -1,0 +1,12 @@
+{
+ "run_id": "9995c0a5fc6c44fb94559e058c3b1a2c",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "lead 74 frankencoin MintingHub -6s tail: DutchBidderTail fork proof + paper placement (franken-dutch-tail-ethereum)",
+ "outcome": "paper_placed",
+ "kb_rows": ["attempts:1321", "leads:74"],
+ "wiki_pages": [],
+ "bot_ids": ["franken-dutch-tail-ethereum"],
+ "injection_seen": false,
+ "notes": "Killed the dead pinned USDC/ZCHF pool 0x4bcb28e1 (liquidity()=0 fork and mainnet; SPL was its dialect MIN_SQRT_RATIO) and rewired funding to UniV3 USDC->USDT (0x3416cf6c, factory getPool) -> ZCHF (0x8E4318E2, 1.83M TVL); executor now reverts-guarded (AboveCap maxOffer, exact approvals, atomic collateral payout), fork-proven SUCCESS at expiry-6 exactly (0x818e2fd8: USDC -2.80, WBTC +0.43034707, gas 416752) with AboveCap/NoChallenge/NotOwner reverts; paper bot running since 16:51Z. Open for promotion prep: live wallet->executor USDC float funding not in bot.py yet (manifest executor_note)."
+}

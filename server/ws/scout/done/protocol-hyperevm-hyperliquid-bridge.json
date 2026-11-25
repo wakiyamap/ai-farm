@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperliquid-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 944,
+ "chain": "hyperevm",
+ "slug": "hyperliquid-bridge",
+ "name": "Hyperliquid Bridge",
+ "category": "Bridge",
+ "tvl_usd": 5624986225,
+ "url": "https://app.hyperliquid.xyz",
+ "github": null,
+ "listed_days_ago": 944,
+ "run_id": "984553e2b2de4fd98a8a9839ff56a11c",
+ "result": {
+  "verdict": "not_found",
+  "line": "No bridge contract on hyperevm: the only contract is Bridge2 0x2Df1c51E09aECF9cacB7bc98cB1742757f163dF7 on Arbitrum (DefiLlama bridges-server adapter, arbitrum-only; eth_getCode 0x on hyperevm, non-0x on arbitrum same run); hyperevm surface is native system contracts only - 0x2222..2 bare receive() (calldata==0), 0x20..token_index EOAs, CoreWriter 0x3333..3333 sendRawAction(bytes) 0x17938e13 caller burns ~25-47k gas - zero stranger-paid functions; .587B of the .62B TVL is HyperCore-native state (api.llama.fi 2026-11-18).",
+  "kb": [
+   "attempts:2176",
+   "protocols:746"
+  ],
+  "run_id": "984553e2b2de4fd98a8a9839ff56a11c",
+  "at": 1795016027
+ }
+}

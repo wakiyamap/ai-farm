@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "katana_pre_launch",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/katana-prelaunch/index.js (404 on slug path, found via repo tree 2026-11-20): 4 Yearn V3 vaults (apiVersion 3.0.4) kpdUSDC 0xF470EB50B4a60c9b069F7Fd6032532B8F5cC014d (asset USDC), kpdUSDT 0xA5DaB32DbE68E6fa784e1e50e4f620a0477D3896 (USDT), kpdWBTC 0xe1Ac97e2616Ad80f69f705ff007A4bbb3655544a (WBTC), kpdWETH 0x77570CfEcf83bc6bB08E2cD9e8537aeA9F97eA2F (WETH), all eth_getCode non-0x, getters answer (apiVersion, pricePerShare, asset). 2 BoringVault tokens: vbETH-holder 0x69d210d3b60E939BFA6E87cCcC4fAb7e8F44C16B (weETH/eETH/WETH/stETH/wstETH), vbBTC-holder 0x75231079973C23e9eB6180fa3D2fc21334565aB5 (LBTC). Etherscan sources: Yearn V3 Vault.vy (101 defs, NO harvest/poke/tend/claim/distribute - lazy-report design, no keeper entry point) and BoringVault.sol (manage/enter/exit all requiresAuth). No on-chain reward function on ethereum; the KAT reward (pro-rata 70M KAT + Krate NFTs) accrues off-chain and is claimed on Katana chain/app."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "optimism",
+  "protocol": "reaper_farm",
+  "status": "dead_end",
+  "checked": "Reaper Farm (Byte-Masons, now OATH) on Optimism, TVL 1.09M USD (api.llama.fi currentChainTvls 2026-11-20). DefiLlama adapter projects/reaper.farm pulls vault list from Reaper API (2ch9hbg8hh.execute-api.us-east-1.amazonaws.com/dev/api/vaults/0xa) which returns Internal server error (down). Found 11 Reaper.Farm vaults via explorer.optimism.io token search (vaults are ERC20 shares, name prefix Reaper.Farm): Aave USDT/USDC/DAI/WBTC/WETH/sUSD Vaults + Sonne DAI/USDC/USDT + Sonne supply-only wstETH/WBTC Crypts, e.g. Aave USDT Vault 0x61cbcb4278D737471EE54dc689de50E4455978D8, Sonne DAI Crypt 0x19Ca00D242e96A30A1cad12f08C375cAa989628F. Source (Blockscout): ReaperVaultv1_4 (yVault v1 style: deposit/earn/withdraw, no keeper role); strategy ReaperAutoCompoundFlashBorrow (Aave v3 leveraged farmer) 0x8702c9a26d400ae1f996569fa508063fb26db0c0 for the USDT vault. harvest() (0x4641257d) is permissionless (only whenNotPaused) and pays msg.sender callerFee = callFee/10000 x USDC value of totalFee/10000 of strategy OP balance: on-chain totalFee=450 (4.5%), callFee=1000 (10%), paused=false. Pays in bridged USDC 0x7F5c764cBc14f9669B88837ca1490cCa17c31607 (constant in source). But everything is dormant: see attempts row."
+}

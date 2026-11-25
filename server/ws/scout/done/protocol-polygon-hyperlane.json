@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-hyperlane",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 268,
+ "chain": "polygon",
+ "slug": "hyperlane",
+ "name": "Hyperlane",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 64006,
+ "url": "https://www.hyperlane.xyz/",
+ "github": null,
+ "listed_days_ago": 268,
+ "run_id": "aaaca0b1b1ab4db8bc591ea435af2acf",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Mailbox.process(bytes,bytes) open to anyone (fresh-addr replay reverts 'Mailbox: already delivered', not role) but pays caller 0: 295 process txs in 7d (blocks 97357844-97761044, 2026-11-15 to 11-22), sample 12 of 295 all from relayer 0x74cae0ec, trace shows 0 value to caller, gas 188,888 x 285 gwei = 0.054 POL = 0.0041 USD (POL bash.0754 llama 11-22); IGP.claim() sweeps 1.37 POL = 0.10 USD to fixed beneficiary 0xa7eccdb9..4d9ba, not the caller; rebalance() whitelist-gated; no Fast warp routes on polygon.",
+  "kb": [
+   "attempts:3706",
+   "protocols:1925"
+  ],
+  "run_id": "aaaca0b1b1ab4db8bc591ea435af2acf",
+  "at": 1795347603
+ }
+}

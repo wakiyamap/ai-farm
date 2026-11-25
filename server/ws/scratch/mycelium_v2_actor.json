@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "address": "0x84450c615a80ce985d4909ccc17ae33ef829323a",
+  "strategy": "Mycelium v2 PoolKeeper scheduled upkeep recipient on the 12-hour pool; public keeper payment in USDC.e",
+  "evidence": "KeeperPaid logs in scratch/mycelium-v2-measured.json: four payments to this address in seven days ending 2026-11-22 14:10 UTC, including 0.552131 USDC.e in tx 0x4a3734f30e9c80f9e6ad36bd99292776e85ede656887e857bb5ab97273f8293d, block 526410515. The verified PoolKeeper.sol passes msg.sender to KeeperRewards.payKeeper and emits KeeperPaid. This address is a recipient, not necessarily the transaction sender."
+}

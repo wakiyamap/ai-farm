@@ -1,0 +1,19 @@
+{
+ "id": "actor-arbitrum-0x55b3c308f22a0d12223e5b8ff595ed3e40273ad2",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0x55b3c308f22a0d12223e5b8ff595ed3e40273ad2",
+ "run_id": "8ce9513b149b4628a220998019a99ebc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Contract, not an EOA: liquidation/flash-swap executor called only by 16 hardcoded keeper EOAs via fn 0x45499ab0 (strangers revert; owner EOA 0xf7bccadc); sample 25 calls/17 min, 6 FAILED races; ledger: 11 Aave V3 liquidations in 1.2 d, 9,206 USD debt -> 460 USD gross bonus (5%, avg 42/call, ~370/day gross) + 2 Compound absorbs 3,512 USD @ ~4.2% discount; gas 0.005-6.12 USD/call (WETH 1558.77 coins.llama.fi 11-21 06:09 UTC); est net ~350 USD/day stays in the club",
+  "kb": [
+   "attempts:3210",
+   "actors:316"
+  ],
+  "run_id": "8ce9513b149b4628a220998019a99ebc",
+  "at": 1795241623
+ }
+}

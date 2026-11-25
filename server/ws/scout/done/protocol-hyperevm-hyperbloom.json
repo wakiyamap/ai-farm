@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperbloom",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 485,
+ "chain": "hyperevm",
+ "slug": "hyperbloom",
+ "name": "HyperBloom",
+ "category": "DEX Aggregator",
+ "tvl_usd": 34984,
+ "url": "https://www.hyperbloom.xyz/",
+ "github": null,
+ "listed_days_ago": 485,
+ "run_id": "fc4350fa61d24af09ad153113f3ee05e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ICHIVault.collectFees() (factory 0xCd952718e6Ef25ac7DBDDd55E501AAA0177dbfA0, 8 vaults) is open to anyone but pays the factory feeRecipient 0xaf1691844db260a2c3f7d6bd3e2a1f3125997568, never the caller: 1 call in 7 d (blocks 51346216-51961036, 2026-11-15/22), caller 0xf62b10b2a9c717f4a1e8a327d4494cf972aaa156 got 0 USD while 0.2842 USDC + 0.4575 USDT0 = 0.74 USD went to the feeRecipient and gas was 862,333 = 0.0067 USD (HYPE 63.11); rebalance() onlyOwner, Beefy vaults are Beefy's contracts, Deposit control 61/7 d, TVL 35,814 USD.",
+  "kb": [
+   "attempts:3785",
+   "protocols:1980"
+  ],
+  "run_id": "fc4350fa61d24af09ad153113f3ee05e",
+  "at": 1795366789
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-frax-swap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Uniswap-V2-fork AMM with no keeper-callable, stranger-paid function. feeTo()=0x0 on both factories and the protocol docs list only Factory + Router (no distributor/gauge/minter), so there is no claim/distribute/harvest anyone can call for a reward. The only reward is LP swap fees that accrue automatically inside pairs (no function to call); the entire avalanche deployment earned just $144.52 in fees over the last 7 days, so even LP yield is negligible. Not a candidate for the farm.",
+  "numbers": "7d fees across all avalanche FraxSwap pools = $144.52, all from one pool WAVAX/FRAX (944 swaps, $48,180 volume) per api.frax.finance/v2/fraxswap/pool?chain=avalanche fees7D; that API's all-time swap counts are non-zero (207,983 WAVAX/FRAX), confirming the near-zero 7d read is real not a broken query. Avalanche TVL $193,699 (coins/api.llama.fi, candidate 195,315). feeTo()=0x0 both factories (eth_call). V2 factory 0xf77ca9B635898980fb219b4F4605C50e4ba58afF allPairsLength=4, router 0x5977b16AA9aBC4D1281058C73B789C65Bf9ab3d3; V1 deprecated factory 0x5Ca135cB8527d76e932f34B5145575F9d8cbE08E allPairsLength=2. AVAX $7.06 (coins.llama.fi). No keeper tx exists to cost."
+}

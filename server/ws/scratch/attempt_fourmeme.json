@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-four-meme",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. four.meme (BSC launchpad, TVL 3.54M USD per DefiLlama) exposes permissionless functions but none pays a fresh stranger: TaxToken.dispatchTax() and OpenFourCore.migrate(token) pay the caller nothing (source shows no msg.sender payout); TaxToken.claimFee() and FeeRouter.claimDevFee/claimPartnerFee pay only the caller's/recipient's own pre-accrued balances (holder rewards, preset-author fee, partner share); the 5% protocol-fee rebate is auto-sent to one fixed rebate() address (0x2b6e6e4def77583229299cf386438a227e683b28). TOKEN_KEEPER and AIR_DROP_EXECUTOR expose only role/admin selectors. FeeRouter claim events: 0 in a sample of 3x5000-block windows (~3 h of the last 7 days); the 5000-block getLogs window gave an inconsistent control on bsc so the zero is weak.",
+ "numbers": "Tvl 3540317 USD (DefiLlama candidate record, 2026-11-18); latest bsc block 134291906; windows 134286907-134291906, 134171707-134176706, 134056507-134061506, DeveloperFeeClaimed topic0 0x4d9d44c2..., PartnerFeeClaimed topic0 0xb2754d00..., 0 logs each; USDT Transfer control returned logs on 442 blocks but errored on 5000 (bsc public getLogs range flaky); gross per stranger call 0 wei; source github four-meme-community/openfour-docs (TaxToken.sol dispatchTax L285, _claimFee L765 pays account not caller)"
+}

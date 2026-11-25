@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-polycat",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "polycat",
+ "name": "Polycat",
+ "category": "Farm",
+ "tvl_usd": 199667,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "162cd938f1ff48a48304b32ec58b326c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Polycat VaultChef 0xBdA1f897...A904 + StrategyDividends 0x640328b6...0b94 (pid 259): harvest() role-free but pays only caller's own accrued PAW (pendingPaw fresh addr = 0, no keeper bounty); 0 harvest calls in 7d (last block 79742001, 354d ago, paid 0); 1 chef tx in 7d = user withdrawAll 0x6767eee0 (6441 PAW = $0.04 reward + 22.78 FISH = $0.12 own principal, gas 188703 = $0.0004); PAW pot 71.4M = $479 (prices coins.llama.fi @1795162076)",
+  "kb": [
+   "attempts:2845"
+  ],
+  "run_id": "162cd938f1ff48a48304b32ec58b326c",
+  "at": 1795166397
+ }
+}

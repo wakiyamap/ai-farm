@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-probable",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Polymarket-style CLOB prediction market on BSC; the only keeper-like external functions (matchOrders/fillOrder, the settle/take analog) are onlyOperator-gated and no other function pays a stranger caller. Redemption (CTF redeemPositions) is self-service and pays the position holder, not a caller. No separate on-chain rewards contract.",
+  "numbers": "Contracts (from @prob/core SDK addresses[56], github.com/ivanzzeth/probable-go-contracts config.go): Exchange 0xF99F5367ce708c66F0860B77B4331301A5597c86, CTF 0x364d05055614B506e2b9A287E4ac34167204cA83, collateral USDT 0x55d398326f99059fF775485246999027B3197955 (18 dec), SafeProxyFactory 0xB99159aBF0bF59a512970586F38292f8b9029924. eth_call matchOrders from fresh addr 0x...dEaD reverts 0x7c214f04 = NotOperator(); isOperator(fresh)=false (source: rpc.py bsc eth_call @block 134130531). 0 exchange events in 5x3000-block windows across ~7 days + 0 in recent 5000-block windows; exchange USDT balance = 0 (balanceOf). BNB $591.55 (coins.llama.fi). Gross to a stranger caller = $0 (fills move collateral maker<->taker, fee to operator; only operator can call)."
+}

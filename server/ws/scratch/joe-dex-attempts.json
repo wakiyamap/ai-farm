@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-joe-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Joe DEX (Trader Joe V1 AMM, factory 0x9Ad6C38BE94206cA50bb0d90783181662f0Cfa10, Router V1 0x60aE616a2155Ee3d9A68541Ba4544862310933d4, verified JoeFactory/JoeRouter02/JoePair sources via Routescan) exposes no open function that pays the caller: every public mutable on router and pair is a user action (swap*, add/removeLiquidity*, mint/burn/skim/sync) and the factory's only non-user fn trio (setFeeTo/setFeeToSetter/setMigrator) is behind require(msg.sender==feeToSetter). LP fees accrue in-pair to LPs; feeTo 0x60233142befce7d4ed73e7793ead2d6190fccaab is the treasury. The DEX still has user traffic (router >=100 txs in 7d) but nobody is paid for calling.",
+ "numbers": "TVL 8,486,151 USD (candidate/DefiLlama 2026-11-19); factory allPairsLength 48,922; router txs 7d >=100 (Routescan txlist page cap; sample of 100: 78x swapExactAVAXForTokens 0xa2a1623d, 11x swapExactTokensForTokens 0x38ed1739, 4x swapExactTokensForAVAX 0x676528d1, 1x addLiquidityAVAX 0xf91b3f72, ~30 distinct EOAs); factory 0 txs in 7d, last createPair 2026-10-21 08:34 UTC 0x901fd70e81397ff253a4857500e05aefbb803fa8b94d8782efbf26c5bdd8484e; gross per stranger call 0 (no payout function exists), gas cost side only."
+}

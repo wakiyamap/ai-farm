@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-paradex-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1127,
+ "chain": "ethereum",
+ "slug": "paradex-bridge",
+ "name": "Paradex Bridge",
+ "category": "Bridge",
+ "tvl_usd": 20724834,
+ "url": "https://app.paradex.trade/r/defillama",
+ "github": null,
+ "listed_days_ago": 1127,
+ "run_id": "72a874ec4b5e4e2b9734f441b124d122",
+ "result": {
+  "verdict": "no_reward",
+  "line": "StarkGate v2 escrow pair (0xE3cbE3A636AB6A754e9e41B12b09d09Ce9E53Db3 holds 19,991,382 USDC; 0x45B79622C095ab834b9C8dC71013ed13B39F1B8D 13.97 ETH): in 7 d (blocks 26,413,033-26,463,288) 48 withdraw(address,uint256,address) calls - 46/48 by one relayer 0xba4b26277c49304486215ca8e2f86e74f53cf92c - paid recipients 1,773,020 USDC + 1,092,148 DIME, but the caller receives 0 and pays a median 101,479 gas = bash.032 (ETH ,648.61); no claim/reward/distribute/auction function in either implementation's ABI (only withdraw is public, gated by INVALID_MESSAGE_TO_CONSUME).",
+  "kb": [
+   "attempts:3307",
+   "protocols:1628"
+  ],
+  "run_id": "72a874ec4b5e4e2b9734f441b124d122",
+  "at": 1795262577
+ }
+}

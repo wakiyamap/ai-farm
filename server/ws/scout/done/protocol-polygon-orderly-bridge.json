@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-orderly-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1467,
+ "chain": "polygon",
+ "slug": "orderly-bridge",
+ "name": "Orderly Bridge",
+ "category": "Bridge",
+ "tvl_usd": 100010,
+ "url": "https://orderly.network",
+ "github": null,
+ "listed_days_ago": 1467,
+ "run_id": "89def0cc8a0b4c8eb52cc404e34b84b5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Polygon escrow is the Orderly Vault proxy 0x816f722424b49cf1275cc86da9840fbd5a6167e9 (impl 0x4f8c0f4f794dc5b6d4f1c0883e3fab402867f083, verified): withdraw/withdraw2Contract/rebalanceMint/rebalanceBurn onlyCrossChainManager (0xa0a07a78c7d31e6f8698f48fc9219f9a3030f38c), delegateSwap onlySwapOperator=address 0; any-call deposit/depositTo/delegateSigner pay 0 and eth_call withdraw from a fresh address reverts; last 7d (all 47 vault events, blocks 97,269,800-97,572,200): 47 AccountWithdraw, 1,514.90 USDC to receivers, 47.00 USDC fees kept inside the vault, 0 paid to any caller.",
+  "kb": [
+   "attempts:2385"
+  ],
+  "run_id": "89def0cc8a0b4c8eb52cc404e34b84b5",
+  "at": 1795064049
+ }
+}

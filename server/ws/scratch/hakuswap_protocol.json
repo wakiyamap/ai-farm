@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "hakuswap",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter 404 (projects/hakuswap/index.js); api.llama.fi/protocol/hakuswap gave address avax:0x695Fa794d59106cEbd40ab5f5cA19F458c723829 = HAKU token (symbol() read on chain; owner 0xba438a6f03c03fb1cf86567f6bb866ccfc9b2da7). MasterChef 0xba438...2da7 verified on routescan (MasterChef.sol flattened, pancake-style, no harvest function; updatePool/massUpdatePools callable by anyone but mint rewards go to ecoaddr/reserveaddr/syrup, not caller; deposit/withdraw pay only the position holder). SyrupBar 0xc21c4e31208f8092b7aae6bd8bd309d6b041358b. HAKU/WAVAX pair 0x7943acd42c41a345841cb22bd846794a22d8682d has the standard 27-function UniV2 pair ABI (routescan getabi); router 0x87f983c6b8373a2bdd95554acb2837c30db4685f unverified, standard UniV2 router (emits 0 logs, as expected). Emissions dead: HAKU totalSupply 100,042,219 >= hakuMaxSupply 100e6 so getMultiplier() returns 0; all 9 mints in 7d are exactly 0 HAKU; pendingCake(22,fresh)=0 via eth_call. UpdatePool from fresh address eth_calls OK, pays caller 0."
+}

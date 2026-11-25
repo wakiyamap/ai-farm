@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-termfinance-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 602,
+ "chain": "avalanche",
+ "slug": "termfinance-vaults",
+ "name": "TermFinance Vaults",
+ "category": "Yield",
+ "tvl_usd": 1668823,
+ "url": "https://www.term.finance",
+ "github": null,
+ "listed_days_ago": 602,
+ "run_id": "0a7a99d5ca044013bfb305c8ebb4b54d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "2 Strategy vaults (0x8fc260cd..0af9 1,671,722 USDT idle + 0xe1252029..ece4 109 USDC; snowtrace-verified src/Strategy.sol): only stranger-callable fns are auctionClosed() (eth_call from fresh addr OK, pays caller $0, redeems vault's own repo tokens) and sellRepoToken (holder exit swap); 0 txs to either vault in 7d and 30d (control: WAVAX same query returns txs), last-ever 2026-02-14/2025-08-08; auctionClosed gas 73,266 x 7.5 gwei = $0.004 (AVAX $7.14 coins.llama.fi)",
+  "kb": [
+   "attempts:1969"
+  ],
+  "run_id": "0a7a99d5ca044013bfb305c8ebb4b54d",
+  "at": 1794971233
+ }
+}

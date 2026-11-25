@@ -1,0 +1,25 @@
+{
+  "run_id": "3da38c54c60b470bad7bb50fc657ee8a",
+  "role": "researcher",
+  "model": "gpt-6.1-sol",
+  "target": "Alchemix v3 maturity conversions; Yield Yak reinvest rewards; existing ledger emitter coverage",
+  "outcome": "improvement_made",
+  "kb_rows": [
+    "leads:128",
+    "protocols:193",
+    "protocols:194",
+    "attempts:837",
+    "attempts:838",
+    "attempts:839",
+    "leads:115"
+  ],
+  "wiki_pages": [
+    "infra/alchemix-v3-transmutation.md",
+    "infra/yield-yak-reinvest-rewards.md",
+    "infra/ledger-source-coverage.md",
+    "infra/beefy-harvest-rewards.md"
+  ],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Installed non-liquidation alchemix_v3.position_claimed across seven emitters/four chains; active with first verified Ethereum cursor, six initializations pending. Alchemix samples return principal after months and Yield Yak EOA rewards fail the executor/gas screen; added read-only cursor coverage tool, verified 31 Beefy and 9 Folio missing cursors have code, and notified meta without requesting a CU increase."
+}

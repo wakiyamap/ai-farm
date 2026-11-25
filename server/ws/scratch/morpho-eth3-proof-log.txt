@@ -1,0 +1,10 @@
+morpho-watcher3-ethereum fork proof (run a8ec3ebf0a6d43ea888f720097a8fee8, 2026-11-11 ~21:44Z)
+fork lease ethereum 20 min (released after capture); fork reset ethereum 26328589 (generation 511)
+deploy: fork deploy ethereum scratch/morpho-exec3/contracts/out/MorphoLiquidator.sol/MorphoLiquidator.json --args <executor_args>
+  -> 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352, deploy tx 0x93255389d2abf185d3b269dd7ddfeb62cd951997171d5364beb664965297a080 gasUsed 2076371
+  (the rejected 13057-byte artifact measured 2636574 on this same fork, 3190399 in the gate's live measurement)
+node scratch/morpho-eth2-proof.js liquidate WETHUSDC 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352
+  fork at 26328590; eligibility: borrowed 85163224 maxBorrow 84883253 LIQUIDATABLE
+  SUCCESS tx 0xdb57c173c4cfa3feeec069058c796372627910b103be7e1804fdaeaeb79b0082 status 0x1 gasUsed 0x512d9 (332505)
+  bot-wallet(owner 0xff..fe) USDC 0 -> 3711168, delta +3.711168 USDC POSITIVE (profit PAID to the bot wallet in the same tx)
+  REVERT tx 0x95c3d56d807928eb6e9a07d75ce5a077c10ab0500307da66d8f3159d825bad18 status 0x0 (same borrower now healthy: NO_PROFIT guard, minProfit per-call 1.0 USDC)

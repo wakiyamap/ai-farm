@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-symbiosis",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Symbiosis is live on Base (Portal 0xEE981B2459331AD268cc63CE6167b446AF4161f8, ~48 outbound bridge requests/day, ~17 inbound completions/day) but has no public function that pays the caller. The no-role functions (synthesize, metaSynthesize, revertBurnRequest, verified Portal.sol) are user entry/refund paths where the caller deposits tokens and pays stableBridgingFee; completions (unsynthesize, metaUnsynthesize, revertSynthesize) are onlyBridge and send the fee to the BridgeV2 contract, never to msg.sender. Nothing a stranger can call for profit.",
+  "numbers": "Portal active: 42 SynthesizeRequest events (topic0 0x31325fe0..) in 9x50k-block (~21h) getLogs scan ending 0x38bc740 (2026-11-19), ~= 48/day; BurnCompleted (0xaeef64b7..) 2 in 50k blocks ~= 17/day; control 838 USDbC Transfers same window. Callers: routers 0xa18348e793e77239ec68caa51b74c5cdc82c8a9d + 0x1aecba5af25d90f9a36eda909eaa1ed912a891f8; inbound bridge txs 0x7c5d5222f60853159bbdcc058088587618d61b24. Sample metaSynthesize tx 0xcd9dd9a416d26fe1dbb47e84e2237bbf031f6e4710c72f1f737f52930c9a4f67 gasUsed 203036 (~$0.01 on base). TVL on Base $210,189 (candidate). Sources: DefiLlama adapter config.js, verified Portal source 0x8c199d633199df6dc8d2df66e6fc755d704fa23e, rpc.py eth_getLogs."
+}

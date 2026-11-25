@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-pantherswap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: PantherSwap is a UniswapV2 fork (factory 0x670f55c6284c629c23baE99F585e3f17E8b9FC31, router 0x24f7C33ae5f77e2A9ECeed7EA858B4ca2fa1B7eC) plus CAKE-style MasterChef and Synthetix-style Jungle staking; every state-changing function is a user action (swap/mint/burn/deposit/withdraw pay msg.sender) or onlyOwner admin - nothing anyone-can-call pays the caller. DEX is near-dormant: 0 Swap events in 7 days on a 32-of-287 pair sample (control: same-shape WBNB Transfer query returns logs; WBNB/PANTHER pair had 12 LP Transfers in the same window).",
+  "numbers": "factory allPairsLength=287 (eth_call 0x574f2ba3, block 134633020); Swap events 7d (blocks 133289020..134633020, 5000-block chunks, eth_getLogs, 32-pair sample) = 0; LP Transfers 7d on 0xc24ad5197daefd97df28c70acbdf17d9ff92a49b = 12; TVL 247116 USD (api.llama.fi/protocol/pantherswap, 2026-11-20); BSC ~0.45 s/block measured (blocks 134630969@ts, 134633020@ts)"
+}

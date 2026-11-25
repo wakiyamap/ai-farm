@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-hyperbrick",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Standard Trader Joe v2.2 Liquidity Book fork: factory + pair implementation expose no function that pays a stranger caller. The only public mutable pair fn (increaseOracleLength) transfers nothing; fee collection and decay are role-gated (protocol fee recipient / factory). Nothing to farm at $32k TVL.",
+ "numbers": "Factory 0x4A1EFb00B4Ad1751FC870C6125d917C3f1586600 getNumberOfLBPairs()=87 (eth_call 2026-11-22); pair impl 0x984769768d4cbbc58c45ce7bfc0b22a4650236bd, 36/36 dispatch selectors = standard TJ v2.2 LBPair (33 matched to fork ILBPair, 3 via 4byte: initialize(uint16..)/setStaticFeeParameters(uint16..)/approveForAll(address,bool)); factory 42 selectors all standard LBFactory + 1af5bacc (bytes32 constant); TVL 32139 USD (candidate/DefiLlama 2026-11-22); source: DefiLlama registries/traderJoeV2.js, github HyperBrickLabs/joe-v2"
+}

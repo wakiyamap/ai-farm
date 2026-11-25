@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "sperax_demeter_v2",
+  "status": "dead_end",
+  "checked": "2026-11-22 scout run e7e56db2: DefiLlama adapter (DefiLlama-Adapters/projects/sperax-demeter-v2/index.js) -> farm registry 0x45bC6B44107837E7aBB21E2CaCbe7612Fce222e0 (eth_getCode non-0x, getFarmList() 0x3214e893 returns 10 farms). All 10 farms are 45-byte proxies to one impl 0xc659eba33feb2436aea79b2174fee78e78625af4 (Etherscan-verified 'CamelotV3Farm', source contracts/Farm.sol read in full). Reward tokens read on-chain from getRewardTokens() 0xc4f59f9b: SPA 0x5575552988a3a80504bbaeb1311674fcfd40ad4b, xSPA 0x0966e72256d6055145902f72f9d3b6a194b9ccc3, ARB 0x912ce59144191c1204e64559fe8253a0e49e6548 (all 18 decimals). Payout functions claimRewards/claimPoolFee pay msg.sender but require deposits[id].depositor == msg.sender (eth_call from fresh 0x1111..1111 reverts DepositDoesNotExist 0xc7c9660f); setRewardRate/updateRewardData/recoverRewardFunds revert NotTheTokenManager 0x9fbc075f from a fresh address and pay 0. No keeper bounty anywhere in the source. TVL 27k USD."
+}

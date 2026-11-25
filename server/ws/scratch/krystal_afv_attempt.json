@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-krystal-auto-farm-vault",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The auto-farm vault system (PrivateVaultFactory 0x99029ddf...1eee + PrivateVault clone + PrivateConfigManager 0x4cb65229...ecba) has no function that pays the caller: multicall is the only generic entry point and is whitelist/role gated (stranger eth_call reverts Unauthorized 0x82b42900), sweeps/deposits/role-grants are onlyOwner, and fees go to configManager.feeRecipient (Krystal). Vaults are single-owner AI-managed smart wallets; the owners run them themselves.",
+ "numbers": "2153 vaults on base (VaultCreated logs 40,537,619-58,920,791); 19 created last 7d; Base TVL $166,579 (api.llama.fi); isWhitelistedCaller(stranger)=false; base gasPrice 0.006 gwei, ~$0.002/200k-gas call, ETH $1806.71 (coins.llama.fi 2026-11-18); gross to a stranger $0 (no caller-pay function exists)"
+}

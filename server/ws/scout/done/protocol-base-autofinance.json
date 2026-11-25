@@ -1,0 +1,28 @@
+{
+ "id": "protocol-base-autofinance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "autofinance",
+ "name": "AUTOfinance",
+ "category": "Yield",
+ "tvl_usd": 3127884,
+ "url": "https://www.auto.finance",
+ "github": [
+  "Tokemak"
+ ],
+ "listed_days_ago": null,
+ "retries": 1,
+ "run_id": "ff612747b41242cd8819214662024e5d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 6 AutoPool vaults on Base (main USDC 0x9c686410..c831, 2,866,502 USDC of 3.1M TVL); updateDebtReporting (AUTO_POOL_REPORTING_EXECUTOR) and flashRebalance (SOLVER) both revert AccessDenied 0x4ca88867 from fresh address; 7d: 33 updateDebtReporting txs all from ops EOA 0x1a65e4..396a3 with 0 token transfers to keeper in 33/33 receipts (gas 0.01-0.03 USD each) + 22 flashRebalance txs by 2 role EOAs (0xbfd497..fe253 x21, gas 0.06-0.75 USD); no stranger paid",
+  "kb": [
+   "attempts:2688",
+   "protocols:1145"
+  ],
+  "run_id": "ff612747b41242cd8819214662024e5d",
+  "at": 1795133106
+ }
+}

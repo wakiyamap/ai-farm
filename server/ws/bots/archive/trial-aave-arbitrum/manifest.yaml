@@ -1,0 +1,22 @@
+id: trial-aave-arbitrum
+author: builder/gpt-6-sol
+chains: [arbitrum]
+strategy: "trial: flash-funded Aave v3 same-asset WETH or native-USDC liquidation after a confirmed pool event or timed near-HF scan"
+copied_from: "Arbitrum Aave v3 same-asset winners 0x0dc76a8cdc8194e2ed4810e729cea63d4b864104 in tx 0x00422627b85bd9c908fbe681b73f36014e05ffb581a7d563bf7fb47ddf0617f7 and 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd in tx 0xf878b53e57054c01cd24500cbb2fb6cb34861d56d02f6bb5807268f8ae5d36f8"
+capital_usd: 15
+allowed_contracts: []
+send_route: public
+max_loss_per_tx_usd: 1
+max_loss_guarantee: "TrialAaveLiquidator.sol:47 reverts unless flash debt token increases, :49-57 pays ETH or USDC to bot in the same transaction; bot.py:225 caps priority bid at 25% of gross, :227-232 requires gross > signed gas cap, rejects cap >= 1 USD, and sets on-chain minProfit above the gas cap. No principal is funded; WETH 0.1 or USDC 300 cover is flash borrowed."
+expected_value: "Trial win rate measured by sends. Last 7d ledger (2026-11-16): 28 same-asset events in 25 tx from 9 takers; 331 all-pair events in 188 tx from 27 takers (attempts:1458). One WETH winner at block 524318519 received 2.353001 WETH against 2.251676 WETH covered, gross 0.101325 WETH; this bot's 0.1 WETH slice fork-paid 0.00449445 ETH net gas. The WETH case became unhealthy at B-1 and was taken at B; trial policy accepts this race for empirical sends. Two sampled winners paid effective 0.05 and 11.020528 gwei; the bot bids at most 0.1 gwei and 25% of simulated gross."
+executor: scratch/trial-aave-arbitrum/contracts/out/TrialAaveLiquidator.sol/TrialAaveLiquidator.json
+executor_args: "{bot}"
+executor_note: "Owner-only, pool and Balancer Vault protocol constants, user and debt token call arguments, no setup transaction. Exact Pool approval reset to zero, Vault repaid inside callback; profit returned as native ETH (WETH) or configured native USDC. Live address from EXECUTOR_ADDR_ARBITRUM or EXECUTOR_ADDR only."
+fork_evidence: "scratch/trial-aave-arbitrum/proof.py resets Arbitrum 524318518, deploys artifact, funds owner, estimates 478643 gas and sends guard/success. Guard 0x7d0e5958ff881907d8c20ab08b516c175637925001502118d064fa29fb588497 block 524318520 NoProfit() 0xe39aafee, wallet gas-only -6989188657905 wei. Success 0x2ddac27e9ebb633069d502e15a21f29b90be2fae3dd9644ee8746ff0e009c3b5 block 524318521, gas 411212, owner wallet +4494453486600692 wei after gas, executor WETH/native/Pool allowance all zero. Historical winner 0x00422627... at 524318519; proof is at B+2 on B-1 state because deployment and guard consume fork blocks."
+awaited_events: "Pool LiquidationCall feed (last sampled block 524812960, 2026-11-16); potential Aave cascade after any liquidation. Every 60 seconds scan 200 near-HF debtors in one Multicall; hourly scan seed plus new Borrow/Withdraw users; discover users from Pool logs every 10 minutes. Next occurrence unpredictable."
+good_signs: "Feed or timer logs an underwater borrower with WETH or native USDC supplied and borrowed, exact executor simulation returns gross greater than signed gas cap, receipt status 1 with positive net wallet delta."
+bad_signs: "No live sends in 7 days, fee spikes >0.1 gwei, all profitable cases taken before feed delivery, or read budget reaches 75k relay CU/day."
+rpc_reads_per_min: "~1 Multicall eth_call/min near scan, 39 eth_call/hour full scan, one getLogs per 10 min, plus rare opportunity simulations."
+alchemy_cu_per_day: "Baseline relay ~57,600 CU/day: near 1440*20=28,800; full ceil(7762/200)*24*20=18,720; discovery 144*60=8,640; blockNumber 144*10=1,440. Feed: 47 events/day*35 CU + 4 CU/min idle = ~7,400, total ~65,000 CU/day = $0.034/day at $0.53/M CU. Code caps relay at 75,000 CU/day, leaving 25,000 for feed and variance; total <=100,000 CU/day."
+legal_note: "Public Aave v3 liquidation bonus for repaying unhealthy debt. Reacts only to confirmed on-chain events or timed scans, never pending transactions."
+expedite: false

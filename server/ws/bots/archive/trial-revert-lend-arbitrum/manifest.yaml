@@ -1,0 +1,22 @@
+id: trial-revert-lend-arbitrum
+author: builder/gpt-6-sol
+chains: [arbitrum]
+strategy: "trial: flash-funded Revert Lend V3Vault liquidation of WETH/USDC or ARB/USDC Uniswap v3 collateral, sold to USDC in one transaction"
+copied_from: "Revert Lend takers 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd tx 0xfe6fedf39f345a61f6fd781241d2a604d8fc53a73d929efc344329aa68d13721 and 0x09779ec1c7e2904e188138d6be7d36d56adf9ccb tx 0xfad7a6725c6d83bf5b2eed2aeaf24da4c35107f228351c584738b3d509a047f9"
+capital_usd: 15
+allowed_contracts: []
+send_route: public
+max_loss_per_tx_usd: 1
+max_loss_guarantee: "RevertTrial.sol:69 requires positive USDC gain above minProfit, returns it to the owner, and repays Balancer USDC inside the callback; bot.py:211 bids at most 25% of simulated gross as priority fee and :214 requires gross above the signed gas cap below $1. Native wallet holds at most the 15 USD capital."
+expected_value: "Trial measures live win rate rather than counting race EV. Last 7d through 2026-11-16: 19 Revert Lend Liquidate events by 6 addresses; sample 10 windows median 0 blocks, five top gross events taken in first eligible block; priority fee median 0.008 gwei, range 0-0.018 gwei (lead 57, attempts:1491). This bot covers WETH/USDC and ARB/USDC positions; it aims for at least one of their roughly 9 observed events per 7d. Fork gross owner payouts: 0.165843 USDC for ARB/USDC, 0.211765 USDC for WETH/USDC, each over observed ~$0.05-0.08 gas."
+executor: scratch/trial-revert-lend-arbitrum/contracts/out/RevertTrial.sol/RevertTrial.json
+executor_args: "{bot}"
+executor_note: "Owner-only one-call executor; vault, pool, USDC, token0 and tokenId are transaction arguments. Balancer V2 flash vault is the flash provider constant. No setup transaction. Callback caller and active pool checked; vault allowance set for this transaction then reset to zero; USDC/ARB/WETH leftovers zero in proofs. Live executor address comes only from EXECUTOR_ADDR_ARBITRUM or EXECUTOR_ADDR."
+fork_evidence: "scratch/trial-revert-lend-arbitrum/proof.py reset Arbitrum 524327777, deploy, fund, guard 0x65f38b513c8f473d9da36e9dc54e4f687a9309a5fcc618f790d8f4553a80a78f block 524327779 NoProfit, success 0xa95ab80328e163560aadaa4a873daccef3aa6ab22d2406b5572dc80299eeaacc block 524327780 owner +0.165843 USDC, zero USDC/ARB executor, then already-taken 0x154ed9d1a3cbb7e970ee77821300958ef1a4752f1d2989c0809fa836774ae24c block 524327781 NotLiquidatable. proof-weth.py reset 524210043, guard 0xe1f7626890bf4228806663ebdb1ef1ccee07236ccd502779e217c0ace6b94828 NoProfit, success 0xbae799f558578f3f59ee262663a451d68d216f1bcfc8eb6477e0c1168ee49922 owner +0.211765 USDC, zero USDC/WETH executor. Winner trace scratch/revert-trial-fe6-trace.json; replay timed out after reset, direct historical state proof succeeded."
+awaited_events: "Timer every 30 seconds scans loanInfo for active position ids; confirmed vault Borrow/Add logs every 900 seconds add ids. Last Liquidate in measured seven days at block 524327778 (2026-11-15); next time is unpredictable."
+good_signs: "Confirmed loanInfo liquidationCost>0, actual executor eth_call USDC gain exceeds signed gas cap, successful receipt returns USDC to wallet."
+bad_signs: "All profitable captures taken before the timer, no sends in seven days, trial gas consumed without wins, or read budget reaches 80k relay CU/day."
+rpc_reads_per_min: "About 2 Multicall eth_call/min for 89 active seeded loans, one getLogs per 15 min, one blockNumber per 15 min, rare route and simulation calls."
+alchemy_cu_per_day: "At head 2026-11-16, 256 seven-day Borrow/Add seed ids shrink to 89 active after first scan. One batched Multicall every 30s x 2,880 x 20 = 57,600 CU/day; 96 getLogs x 60 = 5,760; 96 blockNumber x 10 = 960; rare candidate reads estimated <5,000: total <70,000 CU/day, about $0.037/day at $0.53/M CU. If active IDs exceed 250 the code chunks calls and the hard 80,000 CU/day cap stops reads before the trial 100,000 limit. No feed."
+legal_note: "Public V3Vault liquidation bonus to the caller for repaying undercollateralized debt; only confirmed state and timer reads, no mempool observation. Fresh stranger historical eth_call reached ERC20 allowance check at 524327777, proving no role gate."
+expedite: false

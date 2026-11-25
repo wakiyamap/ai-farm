@@ -1,0 +1,16 @@
+{
+ "run_id": "b8032100167a4a97aa69d1376110a735",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "reserve-dutch lead 19/126 rebuilt-exit borrow-entry generation pin per attempt 1009 recipe (executor leg session)",
+ "outcome": "lead_recorded",
+ "kb_rows": [
+  "attempts:1010"
+ ],
+ "wiki_pages": [],
+ "bot_ids": [
+  "reserve-dutch-ethereum-v3"
+ ],
+ "injection_seen": false,
+ "notes": "Fork reset to C-1 and dumped the live Loop dispatchers: the borrow entry exists on the lending impl 0xbc870c47 only under non-standard selectors and none of the three pinned GitHub generations' borrow/repay/deposit selectors match - pin it from a live eETH borrow-tx calldata next session before building the borrow->burn executor leg. No new positive executor delta this session; the 1009 burn-replay proof stands."
+}

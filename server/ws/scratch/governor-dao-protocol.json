@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "governor_dao",
+  "status": "dead_end",
+  "checked": "DefiLlama protocol governor-dao lists GDAO 0x515d7E9D75E2b76DB60F8a051Cd890eBa23286Bc (module gdao.js; liquidity-mining TVL); Governor-DAO/SmartContracts-Public GovTreasurer README names mainnet mining contract 0x4dac3e07316d2a31baabb252d89663dee8f76f09. Both have code at latest; GDAO symbol() returns GDAO and treasurer poolLength() returns 10. Etherscan verified GovTreasurer source inspected. Public updatePool(uint256) transfers reward only to address(this), then updates accGDAOPerShare. massUpdatePools loops updatePool. deposit/withdraw pay pending GDAO only to msg.sender, calculated from that sender's existing userInfo stake; fresh address withdraw(0,0) reverts. emergencyWithdraw has no reward; add/set and ownership methods are owner gated. No public function pays an unrelated caller or caller-selected recipient. Sources: https://github.com/Governor-DAO/SmartContracts-Public/blob/main/GovTreasurer/README.md ; https://etherscan.io/address/0x4dac3e07316d2a31baabb252d89663dee8f76f09#code ; https://api.llama.fi/protocol/governor-dao."
+}

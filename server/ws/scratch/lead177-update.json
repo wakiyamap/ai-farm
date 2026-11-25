@@ -1,0 +1,4 @@
+{
+  "next_steps": "No further work: re-checked at head 2026-11-15 run 7c34546f (attempts:1257, base fork head-state reads 57644745): position still open and liquidatable (debt 1,300.035 > maxDebt 1,291.158, oracle static 127.23, Saturday), and a swap venue now exists but is ~3x too small - direct wbCOIN/USDC UniV3-style pool 0x3b2f708c holds only 458.33 USDC (seize-repay 1,300.04 -> net <= -841.7 USD best case) and the 2-hop wtCOIN route ~165 USDC; DefiLlama lists no wbCOIN base pool. Re-open only if the direct pool's USDC balance passes ~1,400.",
+  "status": "dead_end"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-saturn",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 222,
+ "chain": "ethereum",
+ "slug": "saturn",
+ "name": "Saturn",
+ "category": "Stablecoin Wrapper",
+ "tvl_usd": 129902413,
+ "url": "https://app.saturn.credit/",
+ "github": null,
+ "listed_days_ago": 222,
+ "run_id": "f7db4d056eb8472885d147f2439dd2f6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Saturn ethereum (USDat 0x2323..aa71, sUSDat 0xd166..2df7): only payout path USDat.claimYield() is YIELD_RECIPIENT_MANAGER_ROLE-gated (stranger eth_call reverts) and pays a fixed recipient, not caller - 1 claim in 7d (tx 0xd5dc2c93..) paid 61,678 USDat = $61,590 to 0x3dc0aa75.., caller got 0 (gas $1.16); claimMYield() reverts AssetNotAllowed(M, PYUSDx migration); sUSDat.sweep() anyone-callable but transfers 0 (SurplusSwept 0/7d, no-topic scan control 1999 logs); buy/sell/seize/batch all OPERATOR/ENFORCER/queue-gated.",
+  "kb": [
+   "attempts:2955"
+  ],
+  "run_id": "f7db4d056eb8472885d147f2439dd2f6",
+  "at": 1795188506
+ }
+}

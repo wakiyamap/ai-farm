@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-xave-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1110,
+ "chain": "polygon",
+ "slug": "xave-finance",
+ "name": "Xave Finance",
+ "category": "Dexs",
+ "tvl_usd": 134724,
+ "url": "https://xave.co",
+ "github": null,
+ "listed_days_ago": 1110,
+ "run_id": "34e2b424bf6e406281f87665199f94c3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: Xave polygon = Balancer-fork DEX (TVL $134.7k); 3 adapter factories have code (0x627d7593, 0xf169c1ae, 0x6bfb...74e; owner()/getPoolId() answer) but no anyone-callable function pays the caller - FXPool setters onlyOwner, swaps via Balancer vault, curve-pool fees to LPs; dormant: factory last tx 2023-10-10, deployer last newFXPool 2024-02-27, curve pool 0x6156f030 last real tx 2023-12-11, AmmRewards 0x972127af last tx 2023-03-20; 0 reward calls in 7d; POL $0.0804, 100k gas ~= $0.0008.",
+  "kb": [
+   "attempts:2232",
+   "protocols:794"
+  ],
+  "run_id": "34e2b424bf6e406281f87665199f94c3",
+  "at": 1795029051
+ }
+}

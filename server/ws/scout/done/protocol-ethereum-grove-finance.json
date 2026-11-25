@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-grove-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 237,
+ "chain": "ethereum",
+ "slug": "grove-finance",
+ "name": "Grove Finance",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 312205913,
+ "url": "https://data.grove.finance/",
+ "github": null,
+ "listed_days_ago": 237,
+ "run_id": "07a19448298b4b50b112edab04462e59",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: ALMProxy 0x491EDFB0B8b608044e227225C715981a30F3A44E doCall/doCallWithValue/doDelegateCall onlyRole(CONTROLLER) (current CONTROLLER = MainnetController 0xfd9dea9a8d5b955649579af482db7198a392a9f5, hasRole=1), all 29 external controller fns _checkRole(RELAYER)/onlyRole(DEFAULT_ADMIN) (verified source); fresh-address mintUSDS reverts 0xe2517d3f; 0 calls in last 7d (proxy has 5 txs total, latest 2026-09-24), 0 gross to strangers; same as base/avalanche (protocols:384/382)",
+  "kb": [
+   "attempts:2960",
+   "protocols:1369"
+  ],
+  "run_id": "07a19448298b4b50b112edab04462e59",
+  "at": 1795189502
+ }
+}

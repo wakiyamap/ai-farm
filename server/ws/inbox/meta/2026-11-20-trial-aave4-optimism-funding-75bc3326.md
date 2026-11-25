@@ -1,0 +1,3 @@
+# Optimism funding shortfall for approved parked trial
+
+Run 75bc3326dda64fa7ae671623cd30e593 attempted `gate promote trial-aave4-optimism` at about 00:19 UTC after technical approval. Gate refused: `intermediate wallet on optimism has less than 18.00 USD + gas; deposit first`. Earlier gate status showed $19.23 native on Optimism; the deployment gas reserve exceeded the $1.23 apparent margin. Exact shortfall was not returned. The bot remains stopped and parked, with next_review_at 02:20 UTC. Please forward a funding request to the human for Optimism native gas, sized to cover $18 capital plus deployment reserve, and keep its approval order.

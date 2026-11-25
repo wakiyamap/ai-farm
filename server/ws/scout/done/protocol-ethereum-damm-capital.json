@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-damm-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 68,
+ "chain": "ethereum",
+ "slug": "damm-capital",
+ "name": "DAMM Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 4056502,
+ "url": "https://dammcap.finance/",
+ "github": [
+  "DAMM-Cap"
+ ],
+ "listed_days_ago": 68,
+ "run_id": "65e7c93b3a934b64a6db72f567b056de",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Both ethereum contracts are Lagoon ERC-7540 vaults (DAMMeth 0x3c63f3ce.. WETH impl 0xe50554ec v0.5.0; DAMMbtc 0x7ededf83.. WBTC impl 0x6c77c47f v0.6.0 verified): settleDeposit/settleRedeem/expireTotalAssets/claimSharesOnBehalf revert OnlySafe 0xfde82f1f, updateNewTotalAssets 0x14c9222d from fresh address; 7d blocks 26405556-26455956 both vaults no-topic getLogs: 17 logs, SettleDeposit 0, SettleRedeem 0, DepositRequest 4, Transfer 6 control; senders = DAMM EOA 0x5822b262 + user Safes 0xc89fb16b; 0 paid to strangers, gross 0 vs gas ~1-2 USD.",
+  "kb": [
+   "attempts:2884",
+   "protocols:1302"
+  ],
+  "run_id": "65e7c93b3a934b64a6db72f567b056de",
+  "at": 1795173776
+ }
+}

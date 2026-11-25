@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "address": "0xdc0e2fdeb89d2f363f2ea1b50e923d464c414daa",
+  "strategy": "EIP-7702 smart account (7702StatelessDeleGator) user unwinding its own DeFi position: calls run(uint256) on a contract it deployed itself (0x19ad153b83f9a1cbcac2182dcef14d0e825a9634), which exits Balancer BOLD/stETH legs via BatchRelayer/1inch and pays the wallet back 12.1-13.2 ETH per call; wallet then forwards ETH to exchange addresses and MAYAChain_Router deposits - own funds, not a keeper job",
+  "evidence": "0x373d05db82253e5b2d33fe66e2d20717bcf37d94df29beeed1852f8356c13606 (wallet deploys 0x19ad153b, creator=wallet per etherscan creation); 0x6c066e4c7c9e06309d074d47c494a1fcff9dec3aab5f76302e66baec327ece99 (run ok, +13.196806 ETH to wallet in-tx per callTracer); 0x915c73684bd3f15e (first run, +12.089339 ETH); 0x9811d6a48ba199dcd4ef7173eb96637223f1e02ccc7cfd7449ead62c0b26b7ba (MAYAChain_Router depositWithExpiry 2.45 ETH); 0x49dfb325fc37a19918b97370c8303be8e2b399cc4b0db1b19bb12a4d5baaec33 (111.0002 ETH out to 0x7d71...)",
+  "est_profit_usd_day": 0
+}

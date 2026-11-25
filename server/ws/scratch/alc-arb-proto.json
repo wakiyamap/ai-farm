@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "alchemix_v3",
+  "status": "dead_end",
+  "checked": "2026-11-17 run 0b3d526c (scout): DefiLlama adapter factory 0x8C7C0C380bA4eE38461eb5a6b82e5d930EC11Ca2 (CreateVaultV2 logs) -> 2 vaults: USDC VaultV2 0xeBa62b842081CEf5a8184318Dc5C4E4AACa9F651, WETH VaultV2 0xFE8f223f3d81462f55BF8609897B8cECfa4b195c (adapters are MYTStrategy/ERC4626Strategy yield strategies). AlchemistV3 proxies: alUSD 0xded3a04612ff12b57317abe38e68026fc9d28114, alETH 0x930750A3510E703535e943e826aBa3C364fFC1DE (impl 0x40ba0d16ec0a0df332de9fa394a4591b2264999e, verified source). Transmuters: alUSD 0x2584E8b0616b3E750492c9629a3b27679C410cb9, alETH 0x693b7594ae0633d9c5574d0da46a040f92f5b281 (alchemist()+version()='3.0.0' getters answer). AlchemistAllocators 0x12114eb8e17800b3b2e777339b9e0c32638e0be0 / 0x143c2118417f2df7489ad241023b3be915906865: allocate/deallocate admin-or-operator gated. All eth_getCode != 0x. Stranger-callable surface pays nothing: poke, VaultV2.accrueInterest, Transmuter.pokeMatured (no transfer in source); liquidate/batchLiquidate pay the caller but Liquidated events = 0 since launch on both alchemists (eth_getLogs 452291175..525012325; controls: 70 raw alchemist logs and 3 SelfLiquidated in 7d window). ethereum/optimism already dead_end (protocols:193, protocols:287)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-sushiswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "sushiswap",
+ "name": "SushiSwap",
+ "category": "Dexs",
+ "tvl_usd": 1101637,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e661330211254777953007de487832ca",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: base sushiswap slug is a plain UniswapV2 fork (factory 0x71524B4f93c58fcbF659783284E38825f0622859, verified SushiSwapFactory.sol; allPairsLength 6152, feeTo 0x1d2af2b99e253b68d72c76484dd88ffb0ace158c); no public function pays the caller - mint/burn need an LP position, swap is a price race, skim(to) from a stranger succeeds but pays 0 vs gas $0.0005 (0.006 gwei x ETH $1753.45); TVL $1.07M, volume $3.48M/7d, 1 PairCreated in 7d",
+  "kb": [
+   "attempts:2702",
+   "protocols:1153"
+  ],
+  "run_id": "e661330211254777953007de487832ca",
+  "at": 1795135533
+ }
+}

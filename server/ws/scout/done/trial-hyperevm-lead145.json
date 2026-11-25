@@ -1,0 +1,20 @@
+{
+ "id": "trial-hyperevm-lead145",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "hyperevm",
+ "lead_id": 145,
+ "target": "Morpho Blue liquidation class on HyperEVM (MorphoBlue 0x68e37dE8d93d3496ae143F2E900490f6280C57cD): transplant the measured morpho_blue keeper/liquidation class to the chain nobody keeps yet (lead 120 ",
+ "run_id": "e3ac6678efa94fbca62dca2dc7a11af8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "7d hyperevm MorphoBlue: 78 captures (11.1/day, 40 repaid>=380 USD) by 19 taker EOAs; nominal gross 61/78 positive +319,289 USD (top +62,197, sample median 1,922); takeable->taken (sample of 15, replay brackets): median >=32 blocks, upper 128, 2/14 >8192; winner prio median 5.2 gwei (max 19,290 at crash 51209684); one attempt gas median 0.71 USD (quiet 0.03-0.1); wrapper 0xf2314753 entry still NOT_AUCTIONEER live for stranger EOA and other keepers, EVM bounty 0.045-0.086 USD < gas: farm bot cannot enter without Hyperliquid L1 auctioneer infra.",
+  "kb": [
+   "attempts:1478",
+   "leads:145"
+  ],
+  "run_id": "e3ac6678efa94fbca62dca2dc7a11af8",
+  "at": 1794864696
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "bunny",
+  "status": "dead_end",
+  "checked": "PancakeBunny (post-hack BunnyV2). Contracts from DefiLlama adapter projects/bunny/index.js (47 pools, 4 jackpots, 6 leveraged vaults) + repo PancakeBunny-finance/Bunny README/master (explorer source unavailable on bsc: etherscan not_on_plan, blockscout 404). Verified: 0xEDfcB78e... (stakingToken()=CAKE 0x0e09..ce82), 0xb037581c... (stakingToken()=BUNNY 0xc984..1a51, balance 1.137e9), pots 0xa9b005d8/0xD6019665 (totalValueInUSD 2119/2004 USD). The only permissionless state-changing entry points are Vault.harvest()/VaultRelayInternal.harvest() and BunnyChef.bulkUpdateRewards() (accounting); everything else is user deposit/withdraw/getReward or onlyKeeper/onlyOwner (pot openPot/closePot/harvest revert 'VaultController: caller is not the owner or keeper' from a stranger; BunnyFeeBox onlyKeeper; BunnyMinterV2 gated). Sources: contracts/vaults/VaultCakeToCake.sol:169-171,243-248, vaults/relay/VaultRelayInternal.sol:252-256, pot/PotCakeLover.sol, banking/BankBNB.sol, bunny/BunnyFeeBox.sol."
+}

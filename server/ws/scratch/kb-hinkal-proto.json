@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "hinkal",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/hinkal/index.js SHARED_OWNERS -> the two 'Hinkal' ZK privacy-pool contracts on Arbitrum: 0x25e5e82f5702A27C3466fE68f14abDbbAdFca826 (idle, last transact 2026-09-21 per explorer txs) and 0x7cb60446d7635C68EDf1c568cac74A1f98c1Cfa4 (active, daily transact). Both confirmed via eth_getCode and explorer source (contract name Hinkal). Only function that pays the caller is transact(): on a withdrawal it sends a USDC relay fee to circomData.relay. Helper HinkalHelper (proxy 0x907cf0531cc9576f17a0ef2f67931e49b63aab14, impl 0x6fac96fc379efefb0e6c90cf2480d756f37d8d12) requires tx.origin == relay AND isRelayInList(relay); RelayStore.addRelay is onlyOwner (centrally whitelisted relayers). eth_call of transact from a fresh address reverts 'Unauthorized relay'. prooflessDeposit/registerExternalAction/bufferApprovals pay nothing."
+}

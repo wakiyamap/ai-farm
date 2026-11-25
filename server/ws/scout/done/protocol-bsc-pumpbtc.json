@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-pumpbtc",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 844,
+ "chain": "bsc",
+ "slug": "pumpbtc",
+ "name": "PumpBTC",
+ "category": "Bridge",
+ "tvl_usd": 120128,
+ "url": "https://pumpbtc.xyz/",
+ "github": [
+  "pumpbtc"
+ ],
+ "listed_days_ago": 844,
+ "run_id": "cdbb2a5db90c4af9a2054da9e34826e3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "PumpStaking(BTCB) proxy 0x2Ee8...bCBb (impl 0x14b0...bc7c, 42 selectors = PumpStaking.sol): stake/unstakeRequest/claimSlot/claimAll/unstakeInstant pay only the callers own redemption and all revert \"only allow stake at first\" from a fresh address (onlyAllowStake=true, totalClaimableAmount 0); withdraw/deposit/withdrawAndDeposit onlyOperator (nonce 1) pay 0; fees 0.21456 pumpBTC (USD 13.8k) collectFee() onlyOwner; proxy 0.345 BTCB (USD 22.1k) vs llama bsc TVL USD 120,461; gas USD 0.003/call; no 7d log census (scout lane 300,256/300,000 CU spent, no getLogs on public bsc)",
+  "kb": [
+   "attempts:2121",
+   "protocols:696"
+  ],
+  "run_id": "cdbb2a5db90c4af9a2054da9e34826e3",
+  "at": 1795004109
+ }
+}

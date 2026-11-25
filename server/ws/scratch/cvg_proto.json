@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "convergence_fi",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter (raw github DefiLlama-Adapters main projects/convergence-fi/index.js) + verified sources. Contracts (all eth_getCode != 0x, getters answer): tower proxy 0xB0Afc8363b8F36E0ccE5D54251e20720FfaeaeE7 (CvgControlTowerV2 impl 0xbdbddc4bf67e9bc02706e4ce53bc14d6ce3038f1), CvgRewards proxy 0xa044fd2e8254ec5de93b15b8b27d005899579109 (CvgRewardsV3 impl 0xe0256b12bc6883131fb85ff2046c2672abd28715), SdtStakingViewer 0xA3A8cDA21f50b6737385E46FC9495a9998B05Ff0, BondDepository 0xea3c304fab04aa459a5e4712e06eb22ef3624420, GaugeController 0xdb77895ea7fbec05264423910ef9c9144ee8190d, 37 SdtStakingPositionService gauge clones (impl 0xdba75359b323cc61e02975760d89178f79dcf799) enumerated via tower.getSdtStakings. Reward design: weekly cycle (writeStakingRewards, 1x per 7d+8h) + per-clone processSdtRewards (1x per cycle) distribute underlying StakeDAO yield to stakers; CVG emissions are 0 by construction in V3. No function pays a keeper/caller anything. Team-run: only callers in window are two EIP-7702 wallets 0xa88e98bbd2af6ddd642407cb5455f956f0c553f0 and 0x953c1ba7029c92741a1739dcd18a8a462109b618. Verdict unpaid."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-cana-holdings-california-carbon-credits",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. MaseerOne CANA token (0x01995A697752266d8E748738aAa3F06464B8350B): settle() and exit(id) are callable by strangers (compliance cop passes a fresh address, eth_call from 0x...f01 succeeds) but pay the caller 0 - settle sweeps USDT surplus to a fixed conduit flo, exit pays the pre-registered redeemer. Oracle poke is buds-allowlist (role_gated). No protocol events at all in 7 days; the only claimable redemption (28.29 USDT, id=9) has sat unclaimed since 2026-04-08 because calling exit for someone else costs gas for 0 return.",
+ "numbers": "Token 0x01995A697752266d8E748738aAa3F06464B8350B (verified MaseerOne.sol). gem=USDT (6d on chain). settle() returns 1.959485 USDT (unsettled, 0x1de63d) -> goes to flo 0x12c8091a719125bf08875635c3ed738510c56141, caller paid 0. exit(9) would pay 28.2926 USDT to redeemer 0xccadea5cc24204995a98daa056c37bd5207fd0c5, caller 0. 7d eth_getLogs (blocks 26408351-26458751, sample of 20 of 20): 14 Transfer + 6 Approval, 0 protocol events; full-history control on same scan shape: ContractCreated 68 / ClaimProcessed 10 / Settled 2 / Issued 3 / Smelted 1. Gas: settle est 83,438 gas = $0.161, exit est 76,833 gas = $0.148 (eth_gasPrice 1.208 gwei, ETH $1593.59 coins.llama.fi 2026-11-20T20:43Z). TVL 465,846 USD (DefiLlama candidate row)."
+}

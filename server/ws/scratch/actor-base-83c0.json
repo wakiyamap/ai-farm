@@ -1,0 +1,7 @@
+{
+"chain":"base",
+"address":"0x83c014466efe37387f581f911468a7dc2701ecb0",
+"strategy":"Base cost-borne EOA keeper: calls 0xde16e61171ca80c169ecb82e9328118ae5958369 selector 0xd893efe7 (~0.87 tx/block, 199k gas/tx, 3 events 0x9f9e4044../0x2f915faf../0xcf363efc.. per call, caller in the event data); pays its own gas from its balance (-0.00321 ETH measured per 2800 blocks at head 56022910, ~150 USD/day at 0.005 gwei) and received no token or native payout in the window",
+"evidence":"measured 2026-11-11 run d0ee55b1: trace_block 100 blocks head 56022910 (58/100 blocks contain the pair); sample tx 0x7f140ee628d1695e9384e7a0e0ce40a2afa716a43a6e4ba3a3a851c2379ead11 (gasUsed 199015); caller native delta across its tx block = -1.21e-6 ETH (gas only); alchemy_getAssetTransfers toAddress window 2800 blocks = 0 inflows; scratch/base-census-d0ee/",
+"est_profit_usd_day":0
+}

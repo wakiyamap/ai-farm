@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-thedeep",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. TheDeep on Base is the ichi-farm ICHI-vault stack (3 verified ICHIVaultFactory contracts, 61 vaults). The only stranger-callable reward-type functions are collectFees() and collectRewards(): anyone may call them but the collected fees/rewards are sent to ammFeeRecipient / factory feeRecipient / affiliate, and msg.sender receives nothing (source comment: 'Everybody is allowed to pay for this transaction'). rebalance() is onlyOwner. No keeper incentive exists; the caller pays gas to move someone else's fees.",
+  "numbers": "Base TVL $2.03M (api.llama.fi/protocol/thedeep, 2026-11-17); 61 vaults enumerated (44/6/11 across factories 0xaBe5..ab3b3 / 0xf6B5..45FA6 / 0xBff2..17ad1); CollectFees events last 7d = 0 across all 61 vaults (427 eth_getLogs, 50k-block chunks, 0 provider errors; control: 8 events on chunk0 same window, same shape); ICHIVaultCreated 7d = 0; eth_call collectFees() from fresh addr returned fees (0,0) on 0x0a2c..074a (callable, not role-gated); base gasPrice 0x5b8d80 = 0.006 gwei, ETH $1789.69 (coins.llama.fi) -> ~150k-gas collectFees call costs ~$0.002."
+}

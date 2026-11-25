@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-vfat-io",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 916,
+ "chain": "bsc",
+ "slug": "vfat.io",
+ "name": "vfat.io",
+ "category": "Yield Aggregator",
+ "tvl_usd": 762046,
+ "url": "https://vfat.io/yield",
+ "github": null,
+ "listed_days_ago": 916,
+ "run_id": "4b6500b87c03487ba6cb0e589828cdf2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Sickle v1 on BSC: keeper entry points (compoundFor/harvestFor/executeFor, automationStrategy 0x4fd738409d33bb9061f16c3618d63b0296395a7c) gated by admin-only automator whitelist - approvedAutomatorsLength=1 (Sickle's bot 0xb0bada5d45d939a03c6d211d24a61a4418d7cd13), isApprovedAutomator=false from fresh address - plus owner actionConsent (0 for 3/3 sampled sickles); 7d log count unmeasured (relay bsc getLogs 'public: limit exceeded', scout lane 305k/300k CU); gas ~$0.006/call (0.05 gwei, BNB 586 USD); BSC TVL 711k USD / 1326 positions (api.vfat.io).",
+  "kb": [
+   "attempts:2168"
+  ],
+  "run_id": "4b6500b87c03487ba6cb0e589828cdf2",
+  "at": 1795013920
+ }
+}

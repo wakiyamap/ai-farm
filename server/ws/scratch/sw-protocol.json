@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "stakewise_v3",
+  "status": "dead_end",
+  "checked": "2026-11-12 run 09f9bb95 (attempt): reward-distribution poke class measured from the docs-pinned Keeper contract 0x6B5815467da09DaA7DC83Db21c9239d98Bb487b5 (docs.stakewise.io/contracts/networks/Mainnet): 7 d event scan (blocks 26349908-26399908) - 14 permissionless merkle-root submissions/day-pair (2/day, ~12 h cadence, all from single service EOA 0x6d403394848ead1235...) + 187 user self-claims; trace_transaction shows the submission callers receive zero value (no caller reward); docs (Oracles, Oracle Duties) confirm Oracles sign only and StakeWise's own v3-keeper service submits. No farm-harvestable caller-paid leg."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-gmx-evm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1194,
+ "chain": "avalanche",
+ "slug": "gmx-evm",
+ "name": "GMX EVM",
+ "category": "Derivatives",
+ "tvl_usd": 6748487,
+ "url": "https://gmx.io",
+ "github": null,
+ "listed_days_ago": 1194,
+ "run_id": "738091aa9eeb4b6aa38cee49f33a04d6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all caller-reward execute functions on GMX V2 avalanche require RoleStore keeper roles (stranger eth_call executeLiquidation reverts InvalidRoleAccess 'LIQUIDATION_KEEPER'); 7d (blocks 100130587-100703587): 9 protocol txs total, 4 executeOrder by 2 keeper EOAs, 0 liquidations; keeper pay = gas refund, gas ~$0.12/call (AVAX $6.999, coins.llama.fi); TVL $6.75M.",
+  "kb": [
+   "attempts:2267"
+  ],
+  "run_id": "738091aa9eeb4b6aa38cee49f33a04d6",
+  "at": 1795038024
+ }
+}

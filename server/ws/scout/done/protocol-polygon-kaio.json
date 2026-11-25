@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-kaio",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 656,
+ "chain": "polygon",
+ "slug": "kaio",
+ "name": "KAIO",
+ "category": "RWA",
+ "tvl_usd": 258197,
+ "url": "https://www.kaio.xyz/",
+ "github": null,
+ "listed_days_ago": 656,
+ "run_id": "05dbe76eb9a4443c96714b13d6a0fef0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "5 LibreReceiptToken UUPS proxies (impl 0x8b37f32749cf339f39bcf5cff2c880d342ddf64b, verified): only mint/burn mutate state, both onlyOwner (stranger eth_call mint reverts 0x118cdaa7), transfers hard-revert, no reward/claim/settle fn exists; only UMA has supply 2,058.24 shares ~258k USD (= tvl); owner 0x55413c13... is an EOA; eth_getLogs 1yr on all 5 = 1 log (burn 10k BHMA tx 0xe0647cc6, 2026-05-01), 7d = 0, 30d = 0 (control: USDC 37,932 logs/2k blocks; over-cap wide ranges error, not false-zero).",
+  "kb": [
+   "attempts:2023",
+   "protocols:615"
+  ],
+  "run_id": "05dbe76eb9a4443c96714b13d6a0fef0",
+  "at": 1794981748
+ }
+}

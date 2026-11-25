@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-saddle-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "saddle-finance",
+ "name": "Saddle Finance",
+ "category": "Dexs",
+ "tvl_usd": 744311,
+ "url": "",
+ "github": [
+  "saddle-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b44c843a97084378986b72f9706ca538",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only payable fn is MiniChefV2 0x691ef79e40d909C715BE5e9e93738B3fF7D58534 harvest(pid,to), callable by anyone (eth_call from fresh addr succeeds pids 1-5) but pays 0: saddlePerSecond()=0, 0 Harvest events in 7d (blocks 26418261 2026-11-15 -> 26468515 2026-11-22; control SDL Transfer=25 logs same shape) and 0 over ~90d; gross 0 USD/call vs gas ~0.03 USD (0.131 gwei, ETH 1651.72 coins.llama.fi 2026-11-22 05:20Z); pools dormant (USDv2 last tx 2026-10-19 removeLiquidity), TVL 744k.",
+  "kb": [
+   "attempts:3603",
+   "protocols:1844"
+  ],
+  "run_id": "b44c843a97084378986b72f9706ca538",
+  "at": 1795325147
+ }
+}

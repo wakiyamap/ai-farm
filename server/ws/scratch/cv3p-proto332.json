@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "compound_v3",
+ "status": "measured",
+ "checked": "2026-11-17 run 193ec8f4: comets from compound-finance/comet deployments/polygon roots.json: cUSDCv3 0xF25212E676D1F7F89Cd72fFEe66158f541246445 (base USDC.e 0x2791bca1, collaterals WETH/WBTC/WPOL/MaticX/stMATIC), cUSDTv3 0xaeB318360f27748Acb200CE616E389A6C9409a07. 7 d eth_getLogs (blocks 97,060,731-97,463,919, scratch/cv3x/scan.json; non-zero result): cUSDCv3 4 absorb txs, 13 BuyCollateral, 9 residue buys 1-2 blocks after the absorb (lots up to 23,155 USDC); cUSDTv3 0 events in 7 d. No leftover at head (all reserves dust). | 2026-11-19 scout run ed179679 re-scan (scratch/cv3-poly-v3-scan.py + scan.json, blocks 97,175,741-97,578,941, 5 absorb txs / 10 AbsorbCollateral / 17 BuyCollateral logs, all cUSDCv3, cUSDTv3 again 0): 17 buys paid $57,251 USDC.e, gross $3,683 spot-vs-paid (coins.llama.fi historical), 8 bot-contract buyers (0x10e3c6c0 $1,921 over 4, 0xc36d7053 $1,259 over 3); 5-sample gas $0.02-132.68 USD at POL $0.0822; eth_call of buyCollateral(asset,minAmount,baseAmount,recipient) 0xe4e6e779 from an unfunded fresh address reverts only on the ERC20 pull (no role gate, sale still open at head). Verdict pays_strangers."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-swapbased-concentrated-liquidity",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1192,
+ "chain": "base",
+ "slug": "swapbased-concentrated-liquidity",
+ "name": "SwapBased Concentrated Liquidity",
+ "category": "Dexs",
+ "tvl_usd": 35749,
+ "url": "https://swapbased.finance/#/swap",
+ "github": null,
+ "listed_days_ago": 1192,
+ "run_id": "b03c3bd4ff3a4c9ba4983ff17d6c7bf8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PancakeSwap-V3 (Plunder) fork on base (V3 factory 0xb5620F90e803C7F957A9EF351B8DB3C746021BEa, MasterChefV3 0xeBA10CDb4C2186800f2704538FbDBBBE7F6D245b, docs.swapbased.finance): harvest/collect require the LP NFT owner, upkeep/add/updatePools are owner/operator, the only open function updateLiquidity pays 0; emergency()=true (emissions off, 2.23e12 reward-token/s unused), MasterChef idle native/WETH/USDC all 0; 7d activity = 2 events, both Withdraw (blocks 58023221 2026-11-16 to 61047217 2026-11-23, no-topic control scan); gross 0 USD/call vs gas <0.01 USD",
+  "kb": [
+   "attempts:3940",
+   "protocols:2088"
+  ],
+  "run_id": "b03c3bd4ff3a4c9ba4983ff17d6c7bf8",
+  "at": 1795400012
+ }
+}

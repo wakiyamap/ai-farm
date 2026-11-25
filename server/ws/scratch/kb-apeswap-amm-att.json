@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-apeswap-amm",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The reward-paying calls (MC1 deposit/withdraw/emergencyWithdraw, MC2 deposit/withdraw/harvestFromMasterApe) are open to any EOA but BANANA emissions are frozen, so they pay 0: 5 stranger calls in 7 days (MC1 4 Deposits by 0x31b05a72037e91b86393a0f935fe7094141ba0a7, MC2 1 Deposit by 0x9b685667638e33f4de23724b4ec14a17c26a953c), receipts of all 5 show zero BANANA transfers to the caller and pendingCake/pendingBanana for a fresh address = 0. The AMM half (factory, $6.81M pool TVL) has no caller-paying function at all (PancakeFactory: createPair + owner-only setFeeTo).",
+ "numbers": "emissions frozen: MC1 BONUS_MULTIPLIER=0, totalAllocPoint=1 (poolLength 221), MC2 bananaPerSecond=0 (poolLength 68), MC2 availableBananaRewards 15.69M BANANA unpriced (delisted on coins.llama.fi 2026-11-20); 7d window blocks 133,265,294-134,609,294 (1,344,000 blk @ 2.22 blk/s, eth_getLogs full range accepted), control factory PairCreated 20 logs same range; MC1 4 Deposit + MC2 1 Deposit events, 0 BANANA transfers to caller in all 5 receipts (txs 0xf6ebbd810a03f8d8f9a8..., 0x19a6b2791b48bbe80e54..., 0x469dec078694d5a735ae..., 0x5791ad1a97e97e70bfdb..., 0xd5c979db400462272e85...); gas: MC2 deposit gasUsed 122,861 (0x1dfed), MC1 deposit 278,489, eth_gasPrice 0.05 gwei -> ~0.004-0.008 USD per call at WBNB $576.83 (coins.llama.fi ts 1795139395); gross paid to callers in 7d = 0 BANANA; TVL bsc $6.81M (DefiLlama currentChainTvls 2026-11-20)"
+}

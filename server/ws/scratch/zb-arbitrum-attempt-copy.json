@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-zerobase-cedefi",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. ZEROBASE CeDeFi on arbitrum is a depositor self-service stablecoin vault (stake / requestClaim / claim), not a keeper opportunity: claim_41202704 and cancelClaim require claimItem.user == msg.sender so a stranger calling is paid 0 (verified by eth_call from a fresh address), transferToCeffu is BOT_ROLE-gated, sendLpTokens requires msg.sender == airdropAddr, and every WithdrawVault function needs VAULT_ROLE/BOT_ROLE/DEFAULT_ADMIN_ROLE. Rewards accrue only to depositors at an admin-set rate; no function pays anyone for calling.",
+  "numbers": "vault 0xCc5Df5C68d8c991035B6A437D4e00A99875228E4 (DefiLlama adapter projects/ZEROBASE/index.js); getTVL(USDT)=7,616,593 USDT, getTVL(USDC)=0 (DefiLlama Arbitrum TVL 8.4M, 2026-11-17); lastClaimQueueID=18,425 lifetime claims; paused=false; cancelClaim disabled. 7-day activity from explorer txs (page spans 22 days, window complete): 7 txs = 3 requestClaim + 2 stake + 2 claim by 6 distinct EOAs. Sample claim 0x4a1ba551acb255ee793ceae7768d1d1acf47c0a2cdc8c7ebab72cfc047603506 (block 523472808) paid the caller itself 282.55 USDT gross; gasUsed 287,639 at eth_gasPrice 0.020334 gwei = 5.85e-6 ETH = $0.011 (ETH $1,806.35, coins.llama.fi 2026-11-17) - but gross to a stranger caller is 0. Depositor reward rate USDT 11200/10000 = 112%/yr (Vault.sol calculateReward). Note: research lane budget spent (1,013,812/1,000,000 CU) so 7-day counts come from explorer txs, not eth_getLogs."
+}

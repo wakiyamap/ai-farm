@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0x2327c3cda4bf97cdadc80cd8d0aa51223af90801",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward - the EOA is an execution key of a brand-new private bot, not a keeper a protocol pays. It sent 11 txs in its whole life (32 h window), all fn(bytes) (0x42313c45) to its own unverified router 0x86885a82 created by its funder 0x7740e8519; the txs are dust-sized Aave-v3-HIP-3 USDe/UETH loop rebalances + stable swaps with an exact-repaid flash loan, and the ~$0.016/call spread accrues to the router, not to the EOA. A fresh address making the same call with the same bytes is paid nothing - own funds, own positions, not a public job.",
+  "numbers": "lifetime txs 11 (eth_getTransactionCount=0xb), 2026-11-15 17:48 to 2026-11-17 01:35 UTC (blocks 51205865-51319662) ~= 8 calls/day; sample of 5 of 11 receipts: gasUsed 39,158-899,680, effectiveGasPrice 0.1186-11.5 gwei => 0.00005-0.00046 HYPE ~= $0.003-0.03/call at HYPE $68.77 (coins.llama.fi coingecko:hyperliquid, 2026-11-17); gross kept in router per paying call +0.0166 USDe (0xde6b7c26...) and +$0.0164 USDT0 (0x42156cf7...); 3 of 5 sampled calls were 39k-gas heartbeats with no token flow (net $0); est ~2-3 paying ops/day => ~$0.03-0.05/day gross, ~$0.05 est_profit_usd_day; router balances 0.282 USDe + 0.08 USDT0; EOA balance 0.31 HYPE funded by 0x7740e8519"
+}

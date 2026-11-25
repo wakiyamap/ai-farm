@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-hop-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "hop-protocol",
+ "name": "Hop Protocol",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 210531,
+ "url": "",
+ "github": [
+  "hop-protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "4e00125b81f941a1b30978363e221bd4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Hop v1 L2 bridges pay only the governance-whitelisted bonder 0xa6a688F1...9203e (bondWithdrawal/bondWithdrawalAndDistribute onlyBonder, eth_call fresh reverts 'ACT: Caller is not bonder'; distribute/setTransferRoot onlyL1Bridge); permissionless commitTransfers/settleBondedWithdrawals/withdraw pay the caller 0; 0 events of ANY type on all 7 bridges in last 7d blocks 523779861-525709861 (control: 1785 USDC logs/2000 blk same shape), last activity 2026-11-10 05:38Z block 0x1f2aae28, TVL 208590 USD api.llama.fi 2026-11-19.",
+  "kb": [
+   "attempts:2622",
+   "protocols:1097"
+  ],
+  "run_id": "4e00125b81f941a1b30978363e221bd4",
+  "at": 1795118378
+ }
+}

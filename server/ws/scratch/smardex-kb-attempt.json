@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-smardex-amm",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: no function anyone can call is paid. SMARDEX AMM on arbitrum is a UniV2-style DEX (factory 0x41A00e3FbE7F479A99bA6822704d9c5dEB611F22, 43 pairs): LP fees auto-accrue into reserves (no claim fn) and pool fees are auto-swapped to SDEX and burned by AutoSwapperL2.executeWork called inside the user's own mint/burn tx, which pays the caller nothing. Only mint/burn/swap pay and all need capital.",
+ "numbers": "7d window blocks 524649549 (2026-11-16 04:33 UTC) -> 526705708 (2026-11-23 04:33 UTC, eth_getBlockByNumber timestamps), all 43 pairs, eth_getLogs topic0 from explorer-ABI events (non-empty results confirm topic0s): 156 Swap logs / 91 unique txs (119/156 from sender 0xe200007fb83b7916a300dfa97c00000073e2edd2, aggregator-style), 8 Burn, 6 Mint. Sample swap receipt gasUsed 330677 @ effectiveGasPrice 0.0204 gwei = 6.75e-6 ETH = 0.012 USD gas (ETH 1724.86 USD, coins.llama.fi timestamp 1795408554 = 2026-11-23 04:35 UTC). Sample swap sizes ~5 USD (USDC 6 decimals, token1 0xaf88d065e77c8cc2239327c5edb3a432268e5831 read on pair). LP fee yield 0.117% APY on the only sizable arbitrum pool WETH-SDEX 25.8k USD (DefiLlama yields.llama.fi 2026-11-23). eth_call burn(address) from 0x000...0123 reverts 'SmarDex: INSUFFICIENT_LIQUIDITY_BURNED' (capital, not role, required). Factory getDefaultFees()=(9000,1000)/1e4, pair getPairFees()=(8000,2000) feesLP/feesPool."
+}

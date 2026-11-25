@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "ribbon_lend",
+  "status": "dead_end",
+  "checked": "Ribbon Lend: DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/ribbon-lend/index.js and protocol docs https://github.com/ribbon-finance/ribbon-docs/blob/master/developers/contract-addresses.md identify factory 0x312853485a41f76f20a14f927cd0ea676588936c and auction 0x3b383D8E92CC922539f9e9f4d64dA119e250334A. Factory PoolCreated history (from adapter block 15598950) gives three pools 0x44cbd2f4566beb7d75c1ec2f334f74adbd58ee10, 0x66a693d0fa5bfe1b5a9eb3932ca87c7ce42cbbdd, 0x559548340350d4211e637b242da25549337a61df. All have nonempty eth_getCode and working getters (factory rbn(), auction isWhitelistedBidder(), pools cash()/currency()). Verified explorer implementations: factory 0xd5e165c91b576e72baa1c71746996ace81146a47, pools 0x9c22029f923eed55ef1af2644021a6647d941f2b, auction 0x893402228c45a07e9e764c80f7ead7ab844084f6. Factory withdrawReward(address[]) passes msg.sender to each pool and transfers only that user's RBN reward to msg.sender; fresh address has zero. All three rewardPerSecond() = 0. Factory setPoolRewardPerSecond is keeper-only; auction bid is whitelisted; pool allowWithdrawalAfterNoAuction has no caller payment and reverts CDC now. No permissionless caller bounty."
+}

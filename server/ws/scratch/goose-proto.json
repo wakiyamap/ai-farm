@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "goose",
+ "status": "dead_end",
+ "checked": "Golden Goose (goose.farm, GooseFarmLabs/contract, DefiLlama module goose-farm/index.js). USDVault 0x0874F961178879cDbDe3500544C49F864F232899 verified on etherscan; getters answer: token=USDT0 0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9, lpToken 0x94c31e6e8f9ef8ec1b101df1407c920c9edd2722, dataStorage 0x7da1ea975cfa94c230fe527b9d36a62a77448ef3, custodian EOA 0x8c50a2e87f6597b05722838f8c88cbb1c0460dbf. Public fns (source): unLockDeposit(ids), withdraw(ids) callable by anyone (eth_call from fresh addr 0x...42 ok) but pay 0 to caller - withdraw sends redeemLock.assetAmount to redeemLock.account (the redeemer's own principal). redeem() reverts for a stranger ('Available balance not enough'). LpToken.updatePrice onlyManager, forceUpdatePrice onlyOwner, no bounty anywhere; RewardPool.claim needs a merkle proof and pays `account`. 0 vault events last 7d (eth_getLogs 5 topics; control USDT0 Transfer 1113 logs/2k blocks); last call to vault 2026-01-22 (tx 0x6fdc0517ce9593c7d8d6ce372082b5c4353fe4aca973b1df0de0cdb2e353dfd7 withdraw). Custodian EOA holds 0 USDT0; vault 325 USDT0; book TVL 3,022,621 LP x price 1.107438 = $3.35M with price frozen since 2025-10-10 (updateTime 0x68e86ddd). Gas 86,323 @ 0.02 gwei ~ $0.003 (ETH $1806 coins.llama.fi)."
+}

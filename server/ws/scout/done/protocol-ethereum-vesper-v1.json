@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-vesper-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "vesper-v1",
+ "name": "Vesper V1",
+ "category": "Yield Aggregator",
+ "tvl_usd": 61132491,
+ "url": "https://vesper.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "6865ff9b9ec842d5837a4e38a7d90068",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Vesper V1 ethereum: only permissionless payer is PoolRewards.claimReward(address) paying the recipient's own accrued VSP (0 for a stranger); 0 RewardPaid in 7d (blocks 26418715-26468968, 13 rewards contracts, no-topic scan; control 5 pools = 6 logs); keeper fns (claimAndSwapRewards, processWithdrawals) revert from fresh address (onlyKeeper); emissions 567.98 VSP/day = 80.6 USD for ALL depositors (VSP 0.141878 USD api.vesper.finance), pots 96,510 VSP = 13,692 USD; last RewardPaid ~272d ago; gas 0.1214 gwei (~0.004 USD per claim, gross 0).",
+  "kb": [
+   "attempts:3631",
+   "protocols:1866"
+  ],
+  "run_id": "6865ff9b9ec842d5837a4e38a7d90068",
+  "at": 1795330874
+ }
+}

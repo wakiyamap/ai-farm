@@ -1,0 +1,26 @@
+{
+ "id": "protocol-hyperevm-balancer-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 705,
+ "chain": "hyperevm",
+ "slug": "balancer-v3",
+ "name": "Balancer V3",
+ "category": "Dexs",
+ "tvl_usd": 399533,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": 705,
+ "retries": 1,
+ "run_id": "d4551c6e724d41c3bcbe826f8025a1ce",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only permissionless fee fn collectAggregateFees (PFC 0xCaCC7E1e..EE76b) pays caller 0 (fees -> DAO treasury 0x9ff471f9..af7e); 0 calls and 0 PFC events in 7d (control: 41 Vault Swap logs same run), accrued pot 0.55 USD, call gas 163-208k = 0.0011-0.0014 USD (0.1 gwei x HYPE 68.78 coins.llama.fi); sweep/burn role-gated (onlyFeeRecipientOrGovernance/onlyProtocolFeeSweeper); 7d protocol gross swap fees ~1.4 USD on 399,533 TVL",
+  "kb": [
+   "attempts:2086",
+   "protocols:672"
+  ],
+  "run_id": "d4551c6e724d41c3bcbe826f8025a1ce",
+  "at": 1794996273
+ }
+}

@@ -1,0 +1,10 @@
+# via etherscan
+constructorNone(address)
+UPGRADE_INTERFACE_VERSION() view -> (string)
+owner() view -> (address)
+renounceOwnership()
+transferOwnership(address)
+upgradeAndCall(address,address,bytes) payable
+event OwnershipTransferred(address,address)
+error OwnableInvalidOwner(address)
+error OwnableUnauthorizedAccount(address)

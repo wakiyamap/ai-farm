@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "actor-bsc-0x9ee866b5d9fab85508d00e4a6d581065990f721d",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the address is a private owner-gated UUPS strategy vault (impl 0xdb6127e22568b900a3f4600cff6eb7100bec2fc8, VERSION 2.3.0) that is the owner-bot's own token inventory - entry functions are gated by an executors[] allowlist (owner 0x26d26e23fba97e4b0375e80a65bb45357e345f9e is the registered executor, beneficiary 0x500368ecf9046e546219a13ec421354cc99c8fda takes withdrawProfit), and a fresh address calling it is not paid anything. It is also idle: no tx-list API was reachable for bsc this session, so activity was bounded by log scans - 0 self-logs and 0 ERC20-in in 12 sampled ~62-min windows spread over the last 30 days; count/day, gross/call and gas/call could not be measured.",
+ "numbers": "BNB balance 0; nonce 1 (contract sent 1 tx in its whole life, so it never pays gas itself); 0 self-logs + 0 ERC20-received in 12x5000-block sampled windows at days 0,1,2,3,5,7,10,14,21,30 (bsc head 134,023,752, 2026-11-17, ~0.75 s blocks); control A: 873 logs incl. 577 Transfers from WBNB 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c in a 50-block range; control B: same-shape topic2 query returned 96 chain-wide logs for an active recipient; routers Camelot/UniV3/Sushi/Curve unset (0x0), REACTOR=0x00000000a55e50c71b70db3c8b58749cd1e18eb2; est_profit_usd_day 0. Sources: relay eth_call/eth_getLogs/eth_getStorageAt (ERC1967 slot -> impl), OpenChain 4byte lookup of 90 selectors from impl bytecode (47 known)."
+}

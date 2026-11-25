@@ -1,0 +1,19 @@
+{
+ "id": "actor-hyperevm-0x9240b56ee52b82ab2df5fcb7b599561a55e99d28",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "hyperevm",
+ "address": "0x9240b56ee52b82ab2df5fcb7b599561a55e99d28",
+ "run_id": "7fa4c5acfb5645b383544075d68eaa24",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Hired keeper EOA for 0x43637877's BULL/iBULL NAV-arb shop: calls two executors it doesn't own (0xfc4a89, 0x0c8314, deployed hours earlier by the owner) with pre-computed routes; profits (bash.02-$1.71 USDC, up to 0.193 wHYPE per call; sample of 28 successes over 13 min-4.5 h) all route to the owner, keeper paid out-of-band ~0.045 HYPE (~$3) per batch (2 in 63 min, gross ~$140/day), gas $0.01-$0.94/call; 4 caller EOAs compete (many FAILED). A fresh address gets no on-chain pay.",
+  "kb": [
+   "attempts:2687",
+   "actors:280"
+  ],
+  "run_id": "7fa4c5acfb5645b383544075d68eaa24",
+  "at": 1795133011
+ }
+}

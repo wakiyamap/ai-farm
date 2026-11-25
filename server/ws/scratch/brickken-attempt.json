@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-brickken",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Brickken on base is an STO tokenization launchpad: the only user-facing functions (buyToken, getTokens = redemption/refund) are gated by a KYC whitelist and the rest are role-gated (issuer/admin); no function pays a caller - 0 matches for reward|bounty|incentive|keeper in the verified source. Last 7 days saw 1 transaction total across the factory and 54 escrows: a new escrow deployment by Brickken's own smart wallet; nothing a stranger could call for reward.",
+  "numbers": "escrows=54 (factory 0x278D7bdc2451B0Fa4087A68ce084a86cB91D4d83 stoEscrows 1..54); 7d txs=1 across factory+54 escrows (tx 0xb494dc07f8f247955cba9ce317d09520dfcc9088baa8a0e2ac035fc3e8db659e, block 58281380 = 2026-11-16T16:30Z, execute from Brickken wallet 0x46565eeD..., fee 6.43e-6 ETH ~= $0.011 at ETH $1766.40 from coins.llama.fi 2026-11-18); factory last external call 2026-10-30 (block 53288462, all from 0x79894515c1...); most active escrow 0x54adea82... last tx 2026-09-22 (getTokens x20, finalizeIssuance, offchainReporting, all from Brickken ops wallet 0x97764D79eD); fresh-address eth_call buyToken+getTokens revert 0xaafefe9b UserIsNotWhitelisted; TVL $5.1M (candidate)."
+}

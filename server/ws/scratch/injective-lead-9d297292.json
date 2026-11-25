@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "target": "injective_bridge submitBatch",
+  "status": "blocked_infra",
+  "next_steps": "Second session (run 9d297292, attempts:3599). Need an approved Injective read route through the farm relay for Peggy OutgoingTxBatches and BatchConfirms. Timestamp when each batch becomes fully signed; compare with Ethereum first successful submitBatch and R=12s for 7 days. Compute fees, gas, and counted EV/day; only then consider executor. No direct public Injective RPC. Prior attempts:3565 gives all-winner upper bound $3.61/day; if route costs more, close. Third session without positive new number: close under the stop rule."
+}

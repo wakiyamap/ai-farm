@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-pandaswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1801,
+ "chain": "bsc",
+ "slug": "pandaswap",
+ "name": "PandaSwap",
+ "category": "Dexs",
+ "tvl_usd": 25550,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1801,
+ "run_id": "fc9b77f6ce0a4ce1a6864fbd45be840e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "bsc PandaSwap = 2021 Bao Pancake-v2 fork: factory 0x9ad32bf5.. (129 pairs, TVL 25,550 USD), pairs stock V2 (no claim/harvest fn), feeTo 0xe1a2cd53.. an owner-gated Bao converter; skim/sync callable from fresh 0x1111..1 and pay 0 (skim = LP money, S rule), 0 gross/call; factory 0 logs in 7 d (blocks 133,974,787 2026-11-16 .. 135,318,160 2026-11-23), sample of 10,000 blocks over 32/129 pairs = 18 Swap + 18 Sync in 16 txs (control WBNB 26,712 logs/200 blk); full 129-pair 7 d scan unfinished (bsc getLogs 10k-block cap).",
+  "kb": [
+   "attempts:4186",
+   "protocols:2304"
+  ],
+  "run_id": "fc9b77f6ce0a4ce1a6864fbd45be840e",
+  "at": 1795458961
+ }
+}

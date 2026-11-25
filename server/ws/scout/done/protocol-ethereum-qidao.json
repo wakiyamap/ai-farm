@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-qidao",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "qidao",
+ "name": "QiDao",
+ "category": "CDP",
+ "tvl_usd": 136647,
+ "url": "https://app.mai.finance",
+ "github": [
+  "0xlaozi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "7be09c696a7542d3b567131633932bd2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "QiDao ethereum: 10 vault contracts (adapter list, 536 ids, all code + vaultCount OK), liquidateVault(id,front) anyone-callable in principle (stabilityPool()=0x0 on all 10) but 0 logs of any kind in 7 d (blocks 26,418,066-26,468,321 timestamp-verified; control USDC same shape 4,523 logs; last vault event 2026-09-15; 0 LiquidateVault among the 15 logs of 90 d) and it reverts 'Front end not added' for every caller now (promoter==0 on all 536 ids); the 3 checkLiquidation hits are underwater (largest cost 137,144 MAI = 136.8k USD buys 59.98 WETH = 99.7k USD), so nothing pays a stranger.",
+  "kb": [
+   "attempts:3595",
+   "protocols:1838"
+  ],
+  "run_id": "7be09c696a7542d3b567131633932bd2",
+  "at": 1795323938
+ }
+}

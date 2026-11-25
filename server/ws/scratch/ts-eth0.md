@@ -1,0 +1,5 @@
+> For the complete documentation index, see [llms.txt](https://tech.usual.money/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://tech.usual.money/smart-contracts/protocol-contracts/eth0.md).
+
+# ETH0
+
+<table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="image">Cover image</th></tr></thead><tbody><tr><td align="center"><strong>ETH0 DAO Collateral Smart Contract</strong></td><td><a href="/smart-contracts/protocol-contracts/eth0/eth0-daocollateral.md">ETH0 DaoCollateral</a></td><td data-object-fit="cover"><a href="https://1503334455-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FpUhQzPJGdJzuLTQ5sCym%2Fuploads%2Fs03nwUaWtx0ACaNQKxRX%2FCard%20Cover%2041.png?alt=media&amp;token=99184f18-f0bd-43c2-a680-60f8d304eff3">Card Cover 41.png</a></td></tr></tbody></table>

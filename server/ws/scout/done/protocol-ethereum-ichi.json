@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-ichi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1825,
+ "chain": "ethereum",
+ "slug": "ichi",
+ "name": "ICHI",
+ "category": "Liquidity Manager",
+ "tvl_usd": 520518,
+ "url": "https://www.ichi.org",
+ "github": [
+  "ichifarm"
+ ],
+ "listed_days_ago": 1825,
+ "run_id": "651dcaa05dbe4dcf83408d9643c0009d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "117 vaults on 3 factories (0x5a40DFaF.., 0x8Dd50926.., 0xEAeC81F0..) + oneFactory 0xD0092632..: collectFees() is the only stranger-callable money fn (eth_call from 0xdead succeeds, BLB/WETH vault 0x0414055f would collect 1.34M BLB + 0.472 WETH = 1,994 USD gross) but source-verified _distributeFees pays fixed feeRecipient/affiliate, 0 to caller; rebalance onlyOwner; 0 CollectFees events in 7d across all 117 vaults (blocks 26,415,785-26,466,036; only activity was 31 swap/mint/burn events on 1 vault); gas 150k @0.116 gwei = $0.03.",
+  "kb": [
+   "attempts:3480",
+   "protocols:1757"
+  ],
+  "run_id": "651dcaa05dbe4dcf83408d9643c0009d",
+  "at": 1795296640
+ }
+}

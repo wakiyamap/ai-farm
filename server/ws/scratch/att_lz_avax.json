@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-layerzero-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. LayerZero V2 on avalanche is bridge infrastructure: the only externally-callable payout is UlnV3.withdrawFee, which pays only fees[msg.sender] (a stranger's is 0: fresh-address eth_call reverts 0x34084fb8 InvalidAmount(1,0)); all 7d fee withdrawals (8 NativeFeeWithdrawn, 230.72 AVAX ~ $1590.67) were self-service by the two protocol fee receivers, none by a stranger. OFT-adapter fee withdrawals are planner/treasury-gated (fresh revert 0x5bd25eff). Matches arbitrum protocols:1100.",
+  "numbers": "8 NativeFeeWithdrawn / 7d = 230.72 AVAX total ~ $1590.67 (AVAX $6.8943 coins.llama.fi @1795125636); per-call gross 19.36-48.08 AVAX ($133-$331) but only to the 2 fee receivers (0xe93685f3 103.11 AVAX/4tx, 0xb8ff877e 127.61 AVAX/4tx); gas $0.022/withdrawal (352800 gas @ 8.98 gwei); window blocks 100089667-100809667 (72x10k getLogs, 0 errors); controls positive (35 ExecutorFeePaid same contract/window; 8671 USDC.e Transfer)"
+}

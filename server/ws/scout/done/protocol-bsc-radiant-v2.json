@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-radiant-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1341,
+ "chain": "bsc",
+ "slug": "radiant-v2",
+ "name": "Radiant V2",
+ "category": "Lending",
+ "tvl_usd": 48091,
+ "url": "https://radiant.capital/#/markets",
+ "github": null,
+ "listed_days_ago": 1341,
+ "run_id": "bf769c7bfb3f4b8cb95adcc17a868a5e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "bsc radiant_v2: liquidationCall permissionless (fresh-address eth_call reverts state error '42', not role-gated) but 0 liquidations in 7 d (blocks 133,863,339@2026-11-16 -> 135,206,779@2026-11-23, no-topic scan of core pool 0xccf31d54 + 3 RIZ pools = 21 logs, all user repay/withdraw, control same call); 90 d had only 3 LiquidationCall (renamed 8-field topic0 0xe76026d1 from source) on RIZ pool 0x8e46 by external EOAs, gross collateral 4.3-84.1 USD at CAKE 1.53 / USDT 0.999 (coins.llama.fi ts 1795408732), gas 2.5-3.4M gas ~0.07-0.09 USD at 0.05 gwei x BNB 556.62; sunset 2026-05-01, TVL 48k USD.",
+  "kb": [
+   "attempts:3980"
+  ],
+  "run_id": "bf769c7bfb3f4b8cb95adcc17a868a5e",
+  "at": 1795409051
+ }
+}

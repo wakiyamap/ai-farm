@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "stargate_v2",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/stargatefinance-v2/index.js lists avax pools 0x5634c4a5FEd09819E3c46D86A965Dd9447d86e47 (USDC.e, token()=0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e, StargatePoolUSDC verified on routescan) and 0x12dC9256Acc9895B076f6638D628382881e62CeE (USDT, token()=0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7). eth_getCode non-0x on both; getAddressConfig() on pool1 returns feeLib 0xdfc47dcef7e8f9ab19a1b8af3eecf000c7ea0b80, planner 0xe37f7c80ced04c4f243c0fd04a5510d663cb88b5, treasurer 0xc2b638cb5042c1b3c5d5c969361fb50569840583, tokenMessaging 0x17e450be3ba9557f2378e20d64ad417e59ef9a34, creditMessaging 0x08ed1d79d509a6f1020685535028ae60c144441e. Verified source (routescan API): this is the bus/taxi OFT design. Permissionless calls: pool deposit/redeem/redeemSend (return own principal to receiver), retryReceiveToken (comment: ok for anyone to retry; pays _receiver, not caller), driveBus on TokenMessaging (comment: Anyone can drive the bus; caller self-funds the LayerZero send fee, no payment to msg.sender). Fee streams all go to fixed roles: busFare/plannerFee -> planner, treasuryFee -> treasurer (withdrawPlannerFee/withdrawTreasuryFee onlyCaller). No reward/claim/keeper-fee function exists in either pool ABI."
+}

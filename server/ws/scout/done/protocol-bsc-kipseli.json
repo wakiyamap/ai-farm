@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-kipseli",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 82,
+ "chain": "bsc",
+ "slug": "kipseli",
+ "name": "Kipseli",
+ "category": "Dexs",
+ "tvl_usd": 350314,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 82,
+ "run_id": "992aba439e1f4fc09be6fed16f24a6d6",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Kipseli bsc = proprietary order-flow AMM (lens 0x6e5648.., reserve 0xbee1aa.., venue 0xe6eeda.. swap 0x985f61a1); canonical verified interface (mainnet KipseliPropAMMWrapper) is swap/quote only - no reward/claim/harvest function; venue live (10 USDT transfers vs reserve in 1057 blocks, 5 in 5 out, callers PCS/Uniswap/1inch routers); swap gas ~0.009 USD (0.05 gwei x BNB 592.87, coins.llama.fi) but gross reward to caller 0",
+  "kb": [
+   "attempts:1625",
+   "protocols:321"
+  ],
+  "run_id": "992aba439e1f4fc09be6fed16f24a6d6",
+  "at": 1794899371
+ }
+}

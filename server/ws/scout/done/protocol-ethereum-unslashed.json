@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-unslashed",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "unslashed",
+ "name": "Unslashed",
+ "category": "Insurance",
+ "tvl_usd": 2609729,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "049e02ac4d0f484ebed75f9a7406dbb4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: whole 2.47M USD TVL sits in Enzyme vault 0x86fb84 (last tx 2024-01-05); v2 suite (factory 0xB0e0C4, BasketMarket 0xfa6Ace, MerkleTokenDispenser 0xf55f3a, collateral 0x6DBa76) emitted 0 events in 7d (blocks 26418719-26468974; control: 7 Approval logs on USF token 0xe0e05c); MerkleTokenDispenser pot = 0 USF; no function pays a caller",
+  "kb": [
+   "attempts:3628"
+  ],
+  "run_id": "049e02ac4d0f484ebed75f9a7406dbb4",
+  "at": 1795330396
+ }
+}

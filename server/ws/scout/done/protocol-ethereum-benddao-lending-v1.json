@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-benddao-lending-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1645,
+ "chain": "ethereum",
+ "slug": "benddao-lending-v1",
+ "name": "BendDAO Lending V1",
+ "category": "NFT Lending",
+ "tvl_usd": 331519,
+ "url": "https://www.benddao.xyz",
+ "github": null,
+ "listed_days_ago": 1645,
+ "run_id": "04546f94fc8f473087fd460718af96e7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: LendPool 0x70b97A0d..2762 auction/redeem/liquidate are role-free (nonReentrant whenNotPaused only, paused()=false) but paid nobody in 7 d - 0 LoanLiquidated/LoanAuctioned/LoanCreated (loan proxy 0x5f6ac80C..1d5C, blocks 26,409,740-26,468,508 = 2026-11-14/21; no-topic scan 3 logs total: 2 LoanUpdated + 1 self-repay, no unknown topic0); 0 liq + 0 bids in 30 d, last-ever liquidation 2026-04-14 (attempt 394); gross 0 USD vs ~gas, llama tvl 310k / borrowed 2.75M USD",
+  "kb": [
+   "attempts:3439",
+   "protocols:59"
+  ],
+  "run_id": "04546f94fc8f473087fd460718af96e7",
+  "at": 1795288341
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-aevo-perps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1316,
+ "chain": "optimism",
+ "slug": "aevo-perps",
+ "name": "Aevo Perps",
+ "category": "Derivatives",
+ "tvl_usd": 279539,
+ "url": "https://app.aevo.xyz/r/defillama",
+ "github": null,
+ "listed_days_ago": 1316,
+ "run_id": "e9caa643431b4ab5abc427704e5e714d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Optimism Aevo = 3 Socket Superbridge Vault proxies only (perps live on Aevo appchain); unlockPendingFor is permissionless (eth_call ok) but pays the receiver argument, bash to caller; pending pot 0; 0 calls in 7d (eth_getLogs 159423554-159725954: 10 events = 6 TokensUnlocked of 7-5,000 USDC to withdrawing users by Socket executors + 4 TokensDeposited); rest onlyOwner/connector-gated; caller gas ~377k @ ~1e5 wei ~ bash.0001 (ETH ,782 DefiLlama)",
+  "kb": [
+   "attempts:2318",
+   "protocols:859"
+  ],
+  "run_id": "e9caa643431b4ab5abc427704e5e714d",
+  "at": 1795051105
+ }
+}

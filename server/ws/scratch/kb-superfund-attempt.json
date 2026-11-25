@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-superfund",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The vault 0x10076e...e47b (EulerEarn fork by Superlend) exposes anyone-callable state functions harvest(), updateInterestAccrued(), gulp() (eth_call from a fresh random address returns OK on all three, no role revert), but none pays the caller: yield accrues to vault LPs and a 10% performance fee goes to feeRecipient 0xfc12109251a359c034d9b34937200d840c81fb5b. rebalance and all strategy/reward admin fns are role-gated. Protocol is near-dormant: zero logs of any kind (no-topic scan) in the last 7 days, and only 2 logs in the preceding month.",
+  "numbers": "7d window blocks 57864722 (2026-11-15T17:22Z) -> 60892630 (2026-11-22T17:35Z), eth_getBlockByNumber timestamps, base 0.2s blocks. Vault logs in window = 0 (3-chunk no-topic getLogs; control: same shape USDC 0x8335...2913 returned 19,828 logs in blocks 60890000-60892000). Vault's last-ever log = Transfer at block 55628012 (2026-11-10T15:46:43Z), tx 0x5ff7e19ad17260f3d544ab108fc485fc5218347aec62e6cef3af59c43a5ab4d1, so 0 calls/7d to harvest/gulp/updateInterestAccrued (source shows _harvest always emits Harvest(uint256,uint256,uint256)). Gross paid per harvest() call = 0 USD. Gas: eth_estimateGas harvest() = 1,139,599 gas x 0.006 gwei (eth_gasPrice) = 6.8e-6 ETH = 0.012 USD (ETH $1711.60 coins.llama.fi 2026-11-22T17:35Z). totalAssets = 59,184.98 USDC (6 decimals, read on chain)."
+}

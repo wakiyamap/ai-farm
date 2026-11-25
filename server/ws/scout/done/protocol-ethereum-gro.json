@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-gro",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "gro",
+ "name": "Gro",
+ "category": "Yield",
+ "tvl_usd": 1744854,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "7e952b3e72bf41459058509067118d4d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only anyone-callable paying fns are staker claim/multiClaim (0x2E32bAd4\u2026376C, 0x001C249c\u2026aaD7) but emissions are off (groPerBlock=0 both) and 0 claims in 7 d (last claim 243 d ago, fresh-address claim eth_call pays 0); 7 d window (blocks 26416913 ts 1794703751 -> 26467313) shows 43 logs total, all user transfers + 2 controller withdrawals where the users paid gas (0.24 and 2.68 USD), gross to caller 0; controller 0x19a07afe\u2026, oracle is pure-view, TVL 1.74M (PWRD base 1.52M).",
+  "kb": [
+   "attempts:3544",
+   "protocols:1799"
+  ],
+  "run_id": "7e952b3e72bf41459058509067118d4d",
+  "at": 1795310853
+ }
+}

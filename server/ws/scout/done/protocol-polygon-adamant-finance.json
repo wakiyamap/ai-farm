@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-adamant-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "adamant-finance",
+ "name": "Adamant Finance",
+ "category": "Yield",
+ "tvl_usd": 106576,
+ "url": "",
+ "github": [
+  "eepdev"
+ ],
+ "listed_days_ago": null,
+ "run_id": "cb9ecaf31fc1435998634a7290852f3a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "strategy harvest() callable by any EOA (onlyHumanOrWhitelisted) but pays caller 0: profit->depositors, fee->strategist; 7d (blocks 97233423-97636614, all 338 jars+338 strategies, same-shape control OK): 114 vault / 0 strategy logs, 10 txs from 3 exiting depositors, 26 Claimed totalling 30.4 ADDY ~bash.20 (ADDY bash.0064), max claim 17 ADDY ~bash.11 vs ~bash.009 single-call gas (278.5 gwei, POL bash.0789); vault TVL 03k",
+  "kb": [
+   "attempts:2813",
+   "protocols:1240"
+  ],
+  "run_id": "cb9ecaf31fc1435998634a7290852f3a",
+  "at": 1795160821
+ }
+}

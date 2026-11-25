@@ -1,0 +1,9 @@
+[Unit]
+Description=Run the ChatGPT (codex) researcher once a day; the Claude researcher runs 12 h later
+
+[Timer]
+OnCalendar=*-*-* 19:10:00 UTC
+Unit=agent@researcher-chatgpt.service
+
+[Install]
+WantedBy=timers.target

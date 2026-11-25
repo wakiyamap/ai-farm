@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "address": "0xed989ee258ecc93769a8478c9973667b17462dfe",
+  "strategy": "Morpho Blue batch liquidator executor, entered only through the Atlas OEV auction: Atlas MetacallRouter 0x583dcfef calls atlasSolverCall 0x024181a6, the executor takes ONE zero-fee Morpho flashLoan 0xe0232b42 per batch, loops Morpho liquidate 0xd8eabcb8 over 1-30 borrowers in one tx, forwards all seized collateral to the operator's shared settlement desk 0xd1d42cbc and keeps the liquidation incentive in-transaction as WETH (pipeline: 0 USDC / ~0 WETH / exactly 0.100000 ETH at head, profit swept out).",
+  "evidence": "0x9a75b0b5acf4ce588af0474b59ee3c23ab5f96e431ff75972defcd993224b178 (block 57581105, 18 liquidations, +4.068 WETH net, 5,558,832 gas @15.005 gwei); 0x418446231d9d68968eb5fde586459368169223a4f726d1dc227dc65688d7bf40 (19 liq, +31.449 WETH, 6.74M gas); 0x973a53557fe6f6e529c470c6bf0909d5305ef874a05dc174f628341d5b73d75b (20 liq, +24.524 WETH); 0x06e8283995964ceff92fac89ff1832ab8c4813bba32465ab6c1f0ef583b221c1 (9 liq, +18.946 WETH); 0x33d82f456ac0ebf72134a0d05135f204bdf9c4751f1a7187a56f0f3b9c3a74af (20 liq, +10.504 WETH); 0x6e4e80e072f520ac10f348f02a944fc66a4d568991c5f3bd11cd6557be0aaa80 (30 liq, +9.054 WETH); 0x56126fc4ef94b6f8d44a6e00402505b7e6fa606ed635877380cf24b0aa7f8ec3 (1 liq, +0.027 WETH). Selectors from cast sig + 4byte; flows from eth_getTransactionReceipt Transfer logs via relay research lane.",
+  "est_profit_usd_day": 37900,
+  "wiki_page": "infra/bot-census/op-ed989ee2.md"
+}

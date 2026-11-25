@@ -1,0 +1,31 @@
+# One live bot. Started only by the gate. Same confinement as paper@, plus the
+# signer socket; still no keys in the process.
+[Unit]
+Description=Farm live bot (%i)
+After=rpc-relay.service farm-signer.service
+Requires=rpc-relay.service farm-signer.service
+StartLimitIntervalSec=10min
+StartLimitBurst=5
+
+[Service]
+Type=exec
+User=farmbot
+Group=farm
+SupplementaryGroups=farmbot
+WorkingDirectory=/srv/farm/ws/bots/live/%i
+ExecStart=/srv/farm/ws/bots/live/%i/run.sh
+Environment=RPC_RELAY_URL=http://127.0.0.1:8545 RPC_LANE=live BOT_ID=%i BOT_MODE=live
+Environment=SIGNER_SOCK=/run/farm/signer.sock
+Environment=HOME=/srv/farm/ws/bots/live/%i/state PATH=/opt/node/bin:/usr/local/bin:/usr/bin:/bin
+Restart=on-failure
+RestartSec=20
+UMask=0007
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/srv/farm/ws/bots/live/%i/logs /srv/farm/ws/bots/live/%i/state
+MemoryMax=2G
+CPUQuota=100%
+TasksMax=256
+SyslogIdentifier=bot-%i

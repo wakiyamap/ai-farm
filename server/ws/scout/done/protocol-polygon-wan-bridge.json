@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-wan-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1526,
+ "chain": "polygon",
+ "slug": "wan-bridge",
+ "name": "Wan Bridge",
+ "category": "Bridge",
+ "tvl_usd": 119348,
+ "url": "https://bridge.wanchain.org",
+ "github": null,
+ "listed_days_ago": 1526,
+ "run_id": "1788a86925e14827a6a245a0139490b6",
+ "result": {
+  "verdict": "unpaid",
+  "line": "CrossDelegateV7 lock 0x2216072a246a84f7b9ce0f1415dd239c9bf201ab: smgRelease role-gated (fresh-addr eth_call reverts 'caller is not authorized'); 7d 10 SmgRelease + 6 UserLock, 5/5 releases from one storeman EOA 0xd1eb8e69.. with 0/5 transfers to it (0.2% fee to fixed partner); open smgWithdrawHistoryFee succeeds from a stranger but is void and pot getStoremanFee(Aries_072)=0; gas 359k @ 242.7 gwei = bash.0072 (POL bash.08215 coins.llama.fi).",
+  "kb": [
+   "attempts:2449"
+  ],
+  "run_id": "1788a86925e14827a6a245a0139490b6",
+  "at": 1795076365
+ }
+}

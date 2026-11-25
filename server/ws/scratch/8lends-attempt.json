@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-8lends",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. All payout functions pay the position owner, not whoever presses the button: claim(projectId,investor) reverts NotAllowed() from a fresh address (investor-or-ManagerRegistry-admin only), and RewardSystem claimUSDCForProject pays only the caller's own accrued referral balance (fresh address reverts 'No USDC rewards for this project'). 7d of Claimed events are all self-claims by investors (7/7 direct claim txs called by the investor EOA itself, 3 via the investor's own ERC-4337 wallet through handleOps). Anyone-callable stage movers (moveProjectStage, cancelProject) pay nothing at all, so a keeper pressing them earns no fee.",
+  "numbers": "7d (2026-11-10 18:40 to 11-17 18:43 UTC, Blockscout log pagination, 17 pages / 850 logs, all events, full window covered): Claimed 679, Invest 101, InterestRepayment 26, PrincipalRepayment 2, ProjectFunded 3, ProjectCreated 6, InvestmentTransferred 7, ProjectStatusChanged 5. Claimed sum 63,480,856,027 raw = 63,480.86 USDC (Base native USDC 6 dec) ~ $63.5k gross to investors = ~$9.1k/day; mean ~$93.5, top single claim 16,550.22 USDC (pid 506, tx 0x987756c8365bb52329...). Gas per self-claim 109,587 gas at 0.006 gwei (eth_gasPrice base) = 0.0000006575 ETH = $0.0012 (ETH $1787.74, coins.llama.fi coingecko:ethereum). Control for the zero: same pagination without filters returned 850 logs, so the query shape works; timeframe=7d param on Blockscout returned 0 (broken, do not use)."
+}

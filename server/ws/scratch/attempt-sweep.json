@@ -1,0 +1,7 @@
+{
+  "chain": "any",
+  "target": "one-shot head sweep 2026-11-16 14:35Z (2 h 25 m after attempts:1418) - no new farm-size leftover; srRoyUSDC margins still sub-floor",
+  "outcome": "dead_end_recorded",
+  "reason": "Measured 2026-11-16 14:3xZ run 01521c63 (measure lane; 6-chain Morpho blue-api GraphQL band sweep re-run of scratch/oneshot_1210_band.py, 0 farm relay CU, 0 fork, 0 tx). Band HF 0.40-1.0 counts 131/92/234/18/0/66 (eth/base/arb/pol/op/hyper). Nominal-profit hits (debt>=50, coll>=debt): ethereum 15 = 12 ynETHx/msETH (closed liquidate class per attempts:1418) + 3 srRoyUSDC/USDC margins 7.42/7.54/10.08 USD still under the 10 USD one-shot floor (same trio as 1418: 7.46-10.12); base 1 = wbCOIN 111.48 USD margin (closed class, attempts:1418); arb/pol/op/hyper 0. No new leftover: nothing takeable at head that is not an already-recorded closed class or sub-floor position. Queue context: measure queue empty at session start (0 unmeasured leads); step 3 sweep + step 5 scout (Index Coop, attempts:1425).",
+  "numbers": "band items 131/92/234/18/0/66; hits eth 15 (12 closed ynETHx/msETH + 3 srRoyUSDC sub-floor 7.42-10.08 USD), base 1 closed wbCOIN, others 0"
+}

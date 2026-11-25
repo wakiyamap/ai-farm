@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-zyfai",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 573,
+ "chain": "ethereum",
+ "slug": "zyfai",
+ "name": "ZyFAI",
+ "category": "AI Agents",
+ "tvl_usd": 404688,
+ "url": "https://zyf.ai",
+ "github": null,
+ "listed_days_ago": 573,
+ "run_id": "0aa0b096baff4994a21731bad892541a",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: executeGuardedBatch (module 0xF659..8790, CREATE3 same addr as Base) is callable from anyone (eth_call reverts EmptyBatch, not role_gated) but pays the caller $0; 62 GuardedBatchExecuted in 7d (blocks 0x192f985-0x193bdd4) all made by ZyFAI's own bundler + agent EOA, gas $0.05-0.12/call (sample 3 of 62, ETH $1616.61), registry mutators onlyOwner",
+  "kb": [
+   "attempts:3100"
+  ],
+  "run_id": "0aa0b096baff4994a21731bad892541a",
+  "at": 1795217965
+ }
+}

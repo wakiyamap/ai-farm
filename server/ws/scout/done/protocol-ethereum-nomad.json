@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-nomad",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1669,
+ "chain": "ethereum",
+ "slug": "nomad",
+ "name": "Nomad",
+ "category": "Bridge",
+ "tvl_usd": 262244,
+ "url": "https://nomad.xyz",
+ "github": [
+  "nomad-xyz"
+ ],
+ "listed_days_ago": 1669,
+ "run_id": "3bbad4672eb6488f97af62d2bece0136",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No function pays the caller on ethereum (Home.update/Replica.proveAndProcess permissionless but pay 0, BridgeRouter.handle onlyReplica, no reward/bounty/claim fn); 0 logs 7d on router 0x88A69B4E...Ad30A3 and 0 Home Update events (blocks 26415325-26465578 = 2026-11-14..11-21, topic0s from receipts, USDC control 775 logs), 0 Send/Receive over 90d; last bridge call 2023-01-29; 3,721 USDC held of 262k USD TVL.",
+  "kb": [
+   "attempts:3444",
+   "protocols:1733"
+  ],
+  "run_id": "3bbad4672eb6488f97af62d2bece0136",
+  "at": 1795289937
+ }
+}

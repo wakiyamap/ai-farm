@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-mitosis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 921,
+ "chain": "arbitrum",
+ "slug": "mitosis",
+ "name": "Mitosis",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 48675,
+ "url": "https://mitosis.org",
+ "github": [
+  "mitosis-org"
+ ],
+ "listed_days_ago": 921,
+ "run_id": "b1ee1f82faba4e25a20668cae2054206",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only round-advance fn TheoDepositVault.rollToNextRound(uint256) is onlyKeeper (reverts '!keeper' from a stranger; surplus goes to keeper 0xbb691ee7 itself); 0 logs on all 4 vaults blocks 524566100-526619477 (2026-11-15 to 11-22, USDC control 29,029 transfers), gross to stranger 0; Theo vault 26.23 WETH = 45,123 USD (WETH 1720.03 coins.llama.fi 11-22 21:11 UTC), other vaults dust",
+  "kb": [
+   "attempts:3864"
+  ],
+  "run_id": "b1ee1f82faba4e25a20668cae2054206",
+  "at": 1795382506
+ }
+}

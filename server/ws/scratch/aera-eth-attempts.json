@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-aera-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Same pattern as base (497) and arbitrum (1866): the only open-to-anyone paid path is ProvisionerV2.solveRequestsDirect (eth_call from fresh addr returns without revert), but on ethereum all 69 async requests in the last 7 days carried solverTip=0, so the tip pot a stranger could pocket was $0. All 29 solve txs in 7d came from two known EOAs (0xdd998274... = the same whitelisted solver EOA as base, 27/29; 0x0ffcaad7..., 2/29) via routers with one selector baae8abf (the same router route identified as the whitelisted solveRequestsVault path on base, row 497); nobody even uses the open direct path. 30d control found only 2 nonzero tips, both $0.0001 dust test orders, confirming the parser catches nonzero tips.",
+ "numbers": "44 vaults / 44 provisioners (factory 0x29722cC9a1cACff4a15914F9bC274B46F3b90B4F, VaultCreated from 22583788); 7d window blocks 26,409,291..26,459,691 (0x192f64b..0x193bb2b): 114 provisioner logs, 11 active provisioners, 69 requests, 33 solves, 0 nonzero tips, gross to callers $0; 30d: 151 requests, 2 nonzero tips x 100 units USDC (decimals 6 read on chain; $0.0001; tx 0xd31c3b9273be55fb.., 0xa57834649e1b7570..); solve tx gasUsed 179,933 @ eth_gasPrice 0.68 gwei = 1.22e-4 ETH = $0.19 (ETH $1595.54 coins.llama.fi 2026-11-20 21:20 UTC); claimFees on feeCalculator 0x19c03bdb.. returns (0,0,0) from fresh addr; TVL $40.48M"
+}

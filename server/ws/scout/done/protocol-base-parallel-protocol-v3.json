@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-parallel-protocol-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 474,
+ "chain": "base",
+ "slug": "parallel-protocol-v3",
+ "name": "Parallel Protocol V3",
+ "category": "CDP",
+ "tvl_usd": 236550,
+ "url": "https://parallel.best/",
+ "github": null,
+ "listed_days_ago": 474,
+ "run_id": "82f394d1c50b4d5da411eda8edd4db73",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All keeper fns on the Parallelizer diamond 0xC3BEF21Ea7dEB5C34CF33E918c8e28972C8048eD (processSurplus, release, sellRewards, updateNormalizer, updateOracle; harvest onlyTrusted on rebalancer 0xCa43eCFCDFBA1fED003649e946Ae6091646B410a) are AccessManager-gated: canCall(stranger)=false (eth_call to 0x0e4e7ca9d7b1e6293d0713efefb4bca010debf46); 7-day full scan blocks 55,666,485-58,759,000 (62x50k pages): 25 user Swap events, 0 SurplusProcessed, 0 RewardsSoldFor - stranger gross 0 USD, and these functions pay governance payees/collateral, not the caller.",
+  "kb": [
+   "attempts:1843",
+   "protocols:483"
+  ],
+  "run_id": "82f394d1c50b4d5da411eda8edd4db73",
+  "at": 1794943764
+ }
+}

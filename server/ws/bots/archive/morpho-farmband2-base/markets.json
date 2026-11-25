@@ -1,0 +1,117 @@
+{
+ "markets": {
+  "0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836": {
+   "name": "cbBTC",
+   "coll": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+   "collDec": 8,
+   "lltv": 860000000000000000,
+   "oracle": "0x663becd10dae6c4a3dcd89f1d76c1174199639b9",
+   "feeds": [
+    "0xeb3ad4395924b76eb64b3d6ababa0b62875b1a1f",
+    "0x137233996b6586a110bb7a753248e26cc0307b1b"
+   ],
+   "hop": {
+    "pool1": "0xfbb6eed8e7aa03b138556eedaf5d271a5e1e43ef",
+    "pool2": null,
+    "mid": null
+   },
+   "borrowers": [
+    "0xa63827fc5a9150d5aa65b1438cf750e0bbfd5cfe",
+    "0x58b58936e9afcdfcf0ca94da2e62427137edb426",
+    "0xfdd8e9cd9ae71a3767c875511fe4a3e7f29eb5a6",
+    "0xf79d2080fe7bff8835f82f5604d6d7bc2128a7e7",
+    "0xf1681fb62b43f92629213660f9d49ad78769048e",
+    "0xf021256e77de4278e691bb20e0dd65ac1fe829fb",
+    "0xeff020cc99c9b418f927c5b166a31ee78124c3aa",
+    "0xee3517cd078a82a35b850e0cd8a827b49a44f30c",
+    "0x63a905f49590b5428e66845b4fb240031a09bbad",
+    "0x85049883759d4f2e3e9d23364129ddf5bb99dcb1"
+   ]
+  },
+  "0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda": {
+   "name": "WETH-USD",
+   "coll": "0x4200000000000000000000000000000000000006",
+   "collDec": 18,
+   "lltv": 860000000000000000,
+   "oracle": "0xfea2d58cefcb9fcb597723c6bae66ffe4193afe4",
+   "feeds": [
+    "0x83f3425a5b32655dc645f7f4e422dd60e9741794"
+   ],
+   "hop": {
+    "pool1": "0x6c561b446416e1a00e8e93e221854d6ea4171372",
+    "pool2": null,
+    "mid": null
+   },
+   "borrowers": [
+    "0x1cb4126497fca7d16db37a233c3930f862754f51",
+    "0xd1b0fe6fbd15f0f3555fd4cc904ca8ad5d2ac93b",
+    "0x357f6ec65d4a9b3a484bff451164eea93d606b76",
+    "0xfa4400264abd97fa6d61ab04471dacad081928de",
+    "0xdeaf34b9dbe70186a13b37af0a3a5483fd97dafd",
+    "0xcb4545abe7ec054660ee78a6719cbdf8c1c1481b",
+    "0xbd1b8e4a8309d16e93c4a7f1cfbaec89f1366e33",
+    "0xb079868385f7c9f62292e281036d9bb18b3a1257"
+   ]
+  },
+  "0x0ca10126f6c94cbd9cf0a48cc9516ae5e3dec5aa68303e6d988ee37c5149bf0d": {
+   "name": "cbETH-USD",
+   "coll": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22",
+   "collDec": 18,
+   "lltv": 770000000000000000,
+   "oracle": "0x97ff9cbd7e77348b2b8ffbb883bf29452ad18295",
+   "feeds": [
+    "0x71e021bc2e8a709b72ac7b6036e5b2bf30f263d0"
+   ],
+   "hop": {
+    "pool1": "0xfdebedc97d56edd31abdcb887570546b257964f2",
+    "pool2": null,
+    "mid": null
+   },
+   "borrowers": [
+    "0x2edde1006e88b73b148a6ed4d90b537a42ed0e7a",
+    "0xdfa915a3ba4cc8cae6c0f8e229ce99455c2e19e2",
+    "0x796e0a9ad23e894608a71b0a6090c77d582e024d",
+    "0x7209dc98c640f11bddcae7433d745ede8c069ea3",
+    "0x576bd162259133c5193188bc4ae1aa8e165e6333",
+    "0x0ecc518452dd3c945e9e68aec64f63cd617b0f47",
+    "0xffa1f201340a3705b17d1c248501335f76b56744",
+    "0xff37087a837ddbe159cb12467e2e31c3572066d6",
+    "0xd1a9a065a5edc85a73e7ea81b5032133548235a3"
+   ]
+  },
+  "0xd4a903dc6d949519060c7707f9604fdc9772c046e05c2e3a8fce0bd7196e4109": {
+   "name": "cbXRP-USD-625",
+   "coll": "0xcb585250f852c6c6bf90434ab21a00f02833a4af",
+   "collDec": 8,
+   "lltv": 625000000000000000,
+   "oracle": "0x031b2efc8d70042ac8d9f5c793c4149ec4b60fde",
+   "feeds": [],
+   "hop": {
+    "pool1": "0x170b6bfc071426aab7c81ae12383219facbb6b6a",
+    "pool2": "0x6c561b446416e1a00e8e93e221854d6ea4171372",
+    "mid": "0x4200000000000000000000000000000000000006"
+   },
+   "borrowers": [
+    "0x21d1b711fccb1a91de0643fdea72474dc6fbee4d",
+    "0x6f13b41ee83a8c750066e521e9d8601d4d18a0d4",
+    "0x8a16ff06e80cd8031652e27d6a1d947bd7e825d2"
+   ]
+  },
+  "0xfdfecf85a4dd90a7637ae2aaf28b35061166f0e62bfc714c565eed9f7e959783": {
+   "name": "cbXRP-USD-77",
+   "coll": "0xcb585250f852c6c6bf90434ab21a00f02833a4af",
+   "collDec": 8,
+   "lltv": 770000000000000000,
+   "oracle": "0x031b2efc8d70042ac8d9f5c793c4149ec4b60fde",
+   "feeds": [],
+   "hop": {
+    "pool1": "0x170b6bfc071426aab7c81ae12383219facbb6b6a",
+    "pool2": "0x6c561b446416e1a00e8e93e221854d6ea4171372",
+    "mid": "0x4200000000000000000000000000000000000006"
+   },
+   "borrowers": [
+    "0x959ace5e01d19d11c074a75de62fa36048db49aa"
+   ]
+  }
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-fake-world-assets-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 53,
+ "chain": "ethereum",
+ "slug": "fake-world-assets-v2",
+ "name": "Fake World Assets V2",
+ "category": "Luck Games",
+ "tvl_usd": 705719,
+ "url": "https://www.fwa.fun",
+ "github": null,
+ "listed_days_ago": 53,
+ "run_id": "82b30649629043b5afc59ad495626227",
+ "result": {
+  "verdict": "unpaid",
+  "line": "FWA V2 main pool 0x958C41181182e76F221331b2755b77D9e1426A98: 1457 acquisitions/7d (topic0 control from receipt), processor 0xcacbd874 ran 941 of them for 0 ETH paid to caller; all callable fns (processAcquisitions/activateListings/payoutFees, eth_call from fresh addr, no role gate) pay msg.sender 0 - gas ~0.008 USD empty call; only caller-payment is the acquire() builder rebate 15% of the 0.0518 ETH fee (~13.6 USD at ETH 1760.6, coins.llama.fi 1795171524) in unpriced FWA, and that needs buying in first",
+  "kb": [
+   "attempts:2875"
+  ],
+  "run_id": "82b30649629043b5afc59ad495626227",
+  "at": 1795171945
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-uncx-network-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. All 3 Base lockers (2x UNCX_LiquidityLocker_UniV3, 1x SlipStream) gate every state function behind lock.owner / additionalCollector / AUTO_COLLECT_ACCOUNT (an UNCX EOA); collect from a stranger reverts 'OWNER' and even for the bot the fee goes to the lock owner, not the caller. Nothing pays a stranger; activity is near-zero (3 onWithdraw events in 7 days). Matches the v4 sibling (attempts:1648).",
+  "numbers": "3 lockers with code; getLocksLength = 0 / 1161 / 8; collect eth_call from 0x1111..1111 reverts 'OWNER' (selector 0x260e12b0); AUTO_COLLECT_ACCOUNT 0xd45dd91df475bfd944335160f538c1a14888dc1c eth_getCode=0x; 7d eth_getLogs blocks 56230192-59254194 (61 chunks of 50k) = 3 logs, all onWithdraw (tx 0xba1cd48f8c331cc25d8ad3a60c2ed4adf33aa3392e9907ac52a2a763635c888d, 0xb7d6a893fee39640525eb5a970fb07098a6c473af11fbc77b99a2b70b204a52c, 0xc01e08445803eea2c4df9d07d2f9b80a0894383088337ceb43665c3edbe0f85d), 0 on the other two; control USDC 17541 logs/2k blocks; gas 0.006 gwei (eth_gasPrice) x ~200k = $0.002 at ETH $1763.38 (coins.llama.fi 2026-11-18); gross to stranger caller = $0."
+}

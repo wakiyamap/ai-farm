@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "baibai",
+  "status": "dead_end",
+  "checked": "BaiBai (Spire Labs) PropAMM DEX on Base. Docs docs.baibai.cx/takers/deployments give 3 proxies, all confirmed non-0x via eth_getCode and one getter answering (Entrypoint quoteToken()=USDC): Entrypoint 0x98c1D9E102Eb2806D902b13186BDc7892aC4fFBa (swapExactAmountIn f50c05c4, quoteFor 69082970), CurveBook 0x604d9b9eB1e1571C78661a6C1088427EC9c8c6E5 (quote/pair/ttl/validUntil), Custodian 0xAaC48FEB93c5C97E0fb3c7C57E1633922A4ACDa3 (deposit 47e7ef24, requestWithdraw 397a1b28, executeWithdraw 43138789, settleWithdraw 55169016, claim 21c0b342, withdrawDelay 0288a39c). Selectors extracted from implementation bytecode (contracts unverified on explorers; routed via Etherscan/Routescan/Blockscout, all unverified). No callable function pays the caller: swapExactAmountIn is taker-initiated (caller PAYS a caller-fee credited off-chain to the caller's ledger row, docs quoting-and-swapping); executeWithdraw pays msg.sender only its own settled withdrawal claim (fresh-address eth_call reverts, custom error 0x9b0e91e1 = NoClaim); settleWithdraw is poster-only (docs makers/funds: 'Only a poster can call this'). Maker income (spread) is attributed off-chain in Spire's ledger; checkpoints are audit-only. Verdict no_reward."
+}

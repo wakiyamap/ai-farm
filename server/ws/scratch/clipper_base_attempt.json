@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-clipper",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: no anyone-callable function that pays the caller exists on any of the 4 base Clipper contracts (verified ABIs: swap family pays the trader, deposit/withdraw moves the LP's own money, takeFees is onlyOwner, stop/resumeTrade triageRole). Dying protocol: zero txs in the last 7 d on all four contracts (TVL 90.4k sits idle as USDC/DAI/WETH). Same verdict as clipper ethereum and arbitrum.",
+ "numbers": "Window blocks 58247467 (2026-11-16) .. 61271467 (2026-11-23), timestamps from eth_getBlockByNumber. 7d tx count 0/0/0/0 (no-topic eth_getLogs; control USDC 400 blocks = 7,339 logs). Holdings (allTokensBalance, decimals on chain): 0xb32D856cAd3D2EF07C94867A800035E37241247C 40,002.03 USDC + 20,074.06 DAI + 18.0273 WETH; 0x663fA8731045765067e2B5b6acB19BE2ce974C7f 0.2255 WETH + 509.83 USDC + 265.82 USDS (usd: llama TVL 90,402 candidate row 2026-11-23). Last incoming txs (explorer txs, control older rows returned): exchange 2026-10-01, Blade 2026-01-30, register 2025-10-27. api.clipper.exchange http=000."
+}

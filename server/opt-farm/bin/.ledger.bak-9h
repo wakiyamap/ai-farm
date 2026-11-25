@@ -1,0 +1,154 @@
+#!/usr/bin/env python3
+"""Ledger CLI for agents (read-only; the ingest daemon writes).
+
+  ledger schema                     tables and columns
+  ledger query "<SQL>"              SELECT / WITH over ledger.db, at most 50 rows (cells cut at 300 chars)
+  ledger query --json "<SQL>"       same rows as JSON lines, one object per row, nothing truncated
+  ledger sources                    active, unverified and rejected sources
+  ledger top [--chain C] [--days N] most active actors (actor_daily)
+  ledger add-source <file.json>     validate a source file and install it under ledger/sources.d/
+
+A source file describes one event to track:
+  {"id": "...", "protocol": "...", "kind": "...", "chains": {"base": ["0x..."]},
+   "event": "Name(type,...)", "topic0": "0x...", "indexed": [...], "data": [...], "actor_field": "..."}
+Only static ABI types; topic0 must equal keccak256(event). The daemon verifies the
+contracts on-chain on its next run; check `ledger sources` afterwards.
+"""
+import importlib.machinery
+import importlib.util
+import json
+import os
+import re
+import shutil
+import sqlite3
+import sys
+import time
+
+DB_PATH = "/srv/farm/ws/ledger/ledger.db"
+SOURCES_DIR = "/srv/farm/ws/ledger/sources.d"
+INGEST = "/opt/farm/bin/ledger-ingest"
+MAX_ROWS, MAX_CELL = 50, 300
+
+
+def die(msg):
+    print(f"ledger: {msg}", file=sys.stderr)
+    sys.exit(2)
+
+
+def connect():
+    try:
+        con = sqlite3.connect(f"file:{DB_PATH}?mode=ro", uri=True, timeout=10)
+    except sqlite3.Error as exc:
+        die(f"can't open the ledger: {exc}")
+    con.execute("PRAGMA query_only=1")
+    return con
+
+
+def show(cur, rows):
+    print("\t".join(d[0] for d in cur.description or []))
+    for r in rows[:MAX_ROWS]:
+        print("\t".join((str(v) if v is not None else "")[:MAX_CELL] for v in r))
+    if len(rows) > MAX_ROWS:
+        print(f"... more than {MAX_ROWS} rows; narrow the query")
+
+
+def show_json(cur, rows):
+    cols = [d[0] for d in cur.description or []]
+    for r in rows[:MAX_ROWS]:
+        print(json.dumps(dict(zip(cols, r)), ensure_ascii=False, default=str))
+    if len(rows) > MAX_ROWS:
+        print(json.dumps({"_note": f"more than {MAX_ROWS} rows; narrow the query"}))
+
+
+def cmd_query(sql, as_json=False):
+    if sql.strip().split(None, 1)[0].lower() not in ("select", "with"):
+        die("only SELECT or WITH")
+    con = connect()
+    deadline = time.monotonic() + 15
+    con.set_progress_handler(lambda: 1 if time.monotonic() > deadline else 0, 10000)
+    try:
+        cur = con.execute(sql)
+        rows = cur.fetchmany(MAX_ROWS + 1)
+        (show_json if as_json else show)(cur, rows)
+    except sqlite3.Error as exc:
+        die(f"query failed: {exc}")
+
+
+def cmd_top(chain, days):
+    con = connect()
+    sql = ("SELECT chain, actor, protocol, kind, sum(n) AS events, count(DISTINCT day) AS active_days "
+           "FROM actor_daily WHERE day >= date('now', ?)")
+    args = [f"-{days} days"]
+    if chain:
+        sql += " AND chain=?"
+        args.append(chain)
+    sql += " GROUP BY 1,2,3,4 ORDER BY events DESC LIMIT 50"
+    cur = con.execute(sql, args)
+    show(cur, cur.fetchall())
+
+
+def cmd_add_source(path):
+    ingest = load_ingest()
+    try:
+        with open(path, encoding="utf-8") as f:
+            s = json.load(f)
+        with open("/etc/farm/ledger.json", encoding="utf-8") as f:
+            chains = set(json.load(f)["blocks_per_call"])
+        ingest.check_source(s, chains)
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        die(f"invalid source: {exc}")
+    dest = os.path.join(SOURCES_DIR, f"{s['id']}.json")
+    if os.path.exists(dest):
+        die(f"a source with id {s['id']} already exists")
+    existing = len([f for f in os.listdir(SOURCES_DIR) if f.endswith(".json")])
+    if existing >= 40:
+        die("sources.d is full (40); propose a cleanup in inbox/meta/")
+    shutil.copyfile(path, dest)
+    os.chmod(dest, 0o644)
+    print(f"ok installed {dest}; the daemon verifies the contracts on its next run (ledger sources)")
+
+
+def load_ingest():
+    loader = importlib.machinery.SourceFileLoader("ledger_ingest", INGEST)
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    mod = importlib.util.module_from_spec(spec)
+    loader.exec_module(mod)
+    return mod
+
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help", "help"):
+        print(__doc__.strip())
+        return
+    cmd, rest = argv[0], argv[1:]
+    if cmd == "schema":
+        con = connect()
+        for (sql,) in con.execute("SELECT sql FROM sqlite_master WHERE type='table' ORDER BY name"):
+            print(sql + ";\n")
+    elif cmd == "query" and len(rest) == 1:
+        cmd_query(rest[0])
+    elif cmd == "query" and len(rest) == 2 and "--json" in rest:
+        cmd_query([a for a in rest if a != "--json"][0], as_json=True)
+    elif cmd == "sources":
+        con = connect()
+        cur = con.execute("SELECT source_id, origin, protocol, kind, status, note FROM sources ORDER BY status, source_id")
+        show(cur, cur.fetchall())
+    elif cmd == "top":
+        chain, days = None, 7
+        it = iter(rest)
+        for a in it:
+            if a == "--chain":
+                chain = next(it, None)
+            elif a == "--days":
+                days = int(next(it, "7"))
+        if chain and not re.match(r"^[a-z]+$", chain):
+            die("bad chain")
+        cmd_top(chain, max(1, min(days, 90)))
+    elif cmd == "add-source" and len(rest) == 1:
+        cmd_add_source(rest[0])
+    else:
+        die("bad arguments; run 'ledger help'")
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

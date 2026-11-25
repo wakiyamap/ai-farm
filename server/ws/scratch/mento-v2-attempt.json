@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-mento-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Mento V2 has no protocol contracts on ethereum mainnet - the 6.5M USD DefiLlama TVL is Mento's Reserve portfolio parked in treasury wallets (Gnosis Safe 0xd0697f70E79476195B742d5aFAb14BE50f98CC1E + 4 EOAs) per Mento's own DefiLlama adapter fork. The exchange machinery (Broker, BiPoolManager, FPMM, SortedOracles) runs on Celo/Monad/Polygon only. A Safe wallet exposes no callable function that pays a stranger.",
+ "numbers": "TVL ethereum 6.52M USD (api.llama.fi/protocol/mento-v2, 2026-11-22). Safe balanceOf eth_call 2026-11-22: sUSDS 4,234,485.75 (0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD, 18 dec, 4732183 USD at llama 2026-11-22), USDT 1,222,798.96 (0xdac17f958d2ee523a2206206994597c13d831ec7), stETH 254.23 (0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84); EURC 683,640 / EUROP 1,000,000 / AUSD 58,192 (eth.blockscout.com token-balances 2026-11-22). Safe getters answer: getThreshold()=3, VERSION()='1.3.0' (selectors via cast sig). 4 other adapter owners eth_getCode=0x (EOAs). mento-sdk chainId.ts: no ChainId.ETHEREUM; deployments-v2 broadcast has no chain-1 dir; DefiLlama main repo has only projects/mento-v3 (celo, monad). Reward functions callable by anyone on ethereum: none -> 0 calls/7d, gross 0, gas n/a."
+}

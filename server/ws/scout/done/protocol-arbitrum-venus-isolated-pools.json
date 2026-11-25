@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-venus-isolated-pools",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1222,
+ "chain": "arbitrum",
+ "slug": "venus-isolated-pools",
+ "name": "Venus Isolated Pools",
+ "category": "Lending",
+ "tvl_usd": 37027,
+ "url": "https://app.venus.io/#/isolated-pools/",
+ "github": null,
+ "listed_days_ago": 1222,
+ "run_id": "e6b6eae3a7f74500becceec2d73de6de",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only isolated pool on arbitrum (Liquid Staked ETH, comptroller 0x52bAB1aF...23F16, 3 vTokens): 0 LiquidateBorrow in 7d (blocks 524625900-526449223, ts-verified; 8 logs total = 2 redeems, no-topic scan control); 1 liquidation in 30d gross bash.14 (0.00008 WETH) vs bash.10 gas; liquidateBorrow/liquidateAccount callable by strangers (eth_call revert MinimalCollateralViolated, not role) but XVS speeds 0 on all markets (227.39 XVS pot, 95, pays holders not callers); pool debt ~.75 vs 5k supplied.",
+  "kb": [
+   "attempts:3947",
+   "protocols:2093"
+  ],
+  "run_id": "e6b6eae3a7f74500becceec2d73de6de",
+  "at": 1795401727
+ }
+}

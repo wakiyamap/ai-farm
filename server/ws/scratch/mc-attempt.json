@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-mint-club-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Mint Club V2 on Base (bonding-curve launchpad + token staking pools) has no function that pays a stranger caller. Staking claim(poolId) pays only the caller's own accrued rewards (fresh-address eth_call claim(0) succeeds and pays 0x); creation/claim fees go to an owner-set protocolBeneficiary; cancelPool is creator-only; bond mint/burn are user curve buys/sells. All 7-day RewardClaimed events go to the stakers themselves.",
+  "numbers": "TVL $471,751 (candidate, DefiLlama). Contracts (source: DefiLlama adapter projects/mint-club-v2/index.js; verified source via explorer): bond/MINT 0xc5a076cad94176c2996B32d8466Be1cE757FAa27, staking v1 0x364e0f814a2c5524d26e82937815c574f8bB86C1, v1.1 0x3460E2fD6cBC9aFB49BF970659AfDE2909cf3399, v1.2 0x9Ab05EcA10d087f23a1B22A44A714cdbBA76E802; all eth_getCode non-empty; poolCount()=223 (v1.2, block 0x386ce14). RewardClaimed (topic0 0x39ff35f4...) sample of 22 events in 6x50k-block windows spanning 7 days (public node 50k range cap), 6 distinct stakers, all self-claims. Stranger eth_call claim(0) from 0x...0099: success, return 0x."
+}

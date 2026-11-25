@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-autofarm",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Masterchef and strategy contracts have anyone-callable keeper-style functions (masterchef updatePool/massUpdatePools; strat earn()/farm()/convertDustToEarned) but none pays the caller: updatePool mints AUTO to owner()+vault, strat fees go to rewardsAddress/buyBackAddress. Emissions ended 2021 (all real pools allocPoint=0), earn() reverts from a stranger on 11/11 sampled strats and no strat has earned since blocks 6.8M-41.7M vs head 134.6M (years ago). Nothing to collect.",
+  "numbers": "masterchef 0x0895196562c7868c5be92459fae7f877ed450452, poolLength 714, totalAllocPoint 1e6 all in dummy pool 0xdead, real-pool allocPoint 0; 7d Deposit+Withdraw = 0 over blocks 133265142-134609142 (269 getLogs chunks, 0 errors; control same shape 6117 logs); earn() revert 11/11 strats sampled, lastEarnBlock 6.8M-41.7M vs head 134.6M; gross to caller per updatePool/earn = 0 AUTO; gas ~21-300k gas (~<0.01 USD) BSC; TVL 4,123,666 USD (session candidate). Prices: gross 0, none needed. Source: AutoFarmV2.sol + StratX2.sol github autofarmnetwork/autofarm-v2-contracts@master."
+}

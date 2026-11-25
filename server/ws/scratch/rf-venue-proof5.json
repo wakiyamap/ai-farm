@@ -1,0 +1,63 @@
+{
+ "reset_block": 26306742,
+ "usdcIn": 9057578,
+ "winner_taker": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0",
+ "PAYFULL": "9398683583154130380",
+ "instance_E": "0x57967f281d08916d4871b6c3070204cc67498b79",
+ "allowedFolio_slot": 0,
+ "grants": [
+  "0x06050552:4e5445:0x1",
+  "0x06050552:f0fed2:0x1",
+  "0xf404e5f8:4e5445:0x1",
+  "0xf404e5f8:f0fed2:0x1",
+  "0xA043FDc5:4e5445:0x1",
+  "0xA043FDc5:f0fed2:0x1",
+  "0x2b772707:4e5445:0x1",
+  "0x2b772707:f0fed2:0x1",
+  "0xebbcb2ce:4e5445:0x0",
+  "0xebbcb2ce:f0fed2:0x0"
+ ],
+ "funded": "SELL 57582275034043643305 BUY 8000000000000000000 ROUTER 15.46e18+5e18-mint SETTLE 1 (Folio/vault, verified)",
+ "approvals": "WINNER -> 7 spenders x {SELL,BUY,SETTLE} at 1e24",
+ "blobs_unpatched": true,
+ "control_tx": "0xab7534532e8ceb2048ae57d8a0ab44808fda0356da5f1503c0f442703bb129f0",
+ "control_status": "0x0",
+ "success_tx": "0x802720ce3847cccd348dddcd6873b38249cb287ae3f204b1a0570b8b3f258c71",
+ "success_status": "0x0",
+ "success_gasUsed": "0x77794",
+ "revert_nodes": [
+  {
+   "from": "0x000000000000000000000000000000000000f007",
+   "to": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0",
+   "fn": "0x7cda801a",
+   "err": "execution reverted",
+   "type": "CALL"
+  },
+  {
+   "from": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0",
+   "to": "0x6131b5fae19ea4f9d964eac0408e4408b66337b5",
+   "fn": "0xe21fd0e9",
+   "err": "execution reverted",
+   "type": "CALL"
+  },
+  {
+   "from": "0x6131b5fae19ea4f9d964eac0408e4408b66337b5",
+   "to": "0x8f10b468b06c6fd214b65f87778827f7d113f996",
+   "fn": "0xd9c45357",
+   "err": "execution reverted",
+   "type": "CALL"
+  },
+  {
+   "from": "0x8f10b468b06c6fd214b65f87778827f7d113f996",
+   "to": "0xd7a5c6b52756e795f680b0f7e0c2f21281dde6ef",
+   "fn": "0xd9c45357",
+   "err": "execution reverted",
+   "type": "DELEGATECALL"
+  }
+ ],
+ "success_revert": "traced on fork: scratch/rf-venue-trace5.json",
+ "owner_usdc_delta": "0",
+ "exec_usdc_delta": "0",
+ "exec_buy_delta": "0",
+ "exec_sell_delta": "0"
+}

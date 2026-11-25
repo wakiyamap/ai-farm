@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-ccip",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. CCIP on base (Router 1.2.0 0x881e3a65b4d4a04dd529061dd0071cf975f58bcd, active OffRamp 1.6.0 0xf09afe78d3c7d359b334d7cb88995751f7ec5e13, TokenAdminRegistry 0x6f6C373d09C07425BaAE72317863d7F6bb731e37) has public write entry points callable by anyone (fresh-address eth_call on manuallyExecute reverts EmptyBatch 0xc2e5347d, a validation revert not a role revert) but pays the caller zero: the verified OffRamp 1.6.0 source contains no transfer or refund to msg.sender, value leaves only as token releaseOrMint to the message receiver. All current calls are Chainlink DON commits (rotating set of ~7 hotkeys, all value=0, ~50 txs/2.5h) that pay gas out of their own pocket; no stranger was paid in the last 7 days. Same closed class as avalanche/arbitrum/bsc/hyperevm/polygon/optimism.",
+  "numbers": "7d caller activity: ~480 commit txs/7d extrapolated from 50 txs/2.5h on 0xf09afe78 (Blockscout, head 58629349 2026-11-17T11:52Z); sample of 6 EVM2EVMOffRamp 1.5.0 = 216 txs all transmit/admin, newest 2026-09-20; router newest 50 = user ccipSend only. Gross to caller = 0 (no msg.sender transfer in verified source). Gas per commit = 116,195 gas @ 0.0078 gwei = 9.02e-7 ETH = $0.0016 at ETH $1,816.21 (coins.llama.fi 2026-11-17); receipt 0x2acfeddc0a4b7160dedd43272e8c387fdcc7ccb659ceb4e0718e2caa1b3bbee2. Fresh-addr reverts: manuallyExecute([],[]) -> 0xc2e5347d EmptyBatch; commit -> role revert (protocols row 380)."
+}

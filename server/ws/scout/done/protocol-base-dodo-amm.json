@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-dodo-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "dodo-amm",
+ "name": "DODO AMM",
+ "category": "Dexs",
+ "tvl_usd": 339639,
+ "url": "https://dodoex.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e317ce2a77e047c88b555ac630e1425e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: 1,069 pools on base (906 DVM/109 DPP/54 DSP, factory NewX logs); 2,731 DODOSwap in 7d over 189 active pools (blocks 56.68M-59.70M) - active but swappers pay: ABIs (blockscout) of sampled pools (DVM 1.0.2, DSP 1.0.1, DPP Adv 1.0.0: 0x73543879.., 0xd2674b67.., 0x0e5872de..) have no claim/reward fn (claimRewards/claimBaseTokens/claimQuoteToken revert), ratioSync reverts NOT_OWNER from fresh addr, mtFee goes to fixed _MAINTAINER_ 0x409daacf..; gas ~0.001 USD/call (0.006 gwei, ETH 1747.80 USD ts 1795131436). Same verdict as arbitrum/avalanche dodo_amm.",
+  "kb": [
+   "attempts:2681",
+   "protocols:1140"
+  ],
+  "run_id": "e317ce2a77e047c88b555ac630e1425e",
+  "at": 1795131591
+ }
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "eb22962bd96a468eaaf5816f12ad9354",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "blocked_infra re-triage leads 33/35/67 (decision 2026-11-13-blocked-infra-feed-retriage, ethereum step-2 order)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1056", "attempts:1057", "attempts:1058", "leads:33", "leads:35", "leads:67"],
+  "wiki_pages": ["methods/keeper-calldata-replay-probe.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Lead 33 dolomite: new block recount (18 winning-tx calldata replays at E-2/E-8 via relay historical eth_call, fork trace pinned the deployed liquidate selector a67a6a45 - Blockscout verified source is stale) shows 9/18 captures liquidatable >=2 blocks before capture (5 >=8 blocks) - the 'race-timed' assumption was overturned; flipped unmeasured with exact feed/poll bot next steps (gross 13-16 USD/big capture, our gas ~0.14-1.2 USD at 1.9M gas x 0.036-0.3 gwei). Leads 35/67: classified (a) speed with carried-over 0/1/>=2-block counts, stay blocked_infra. Next retriage order: leads 31/41/42/44/57/72/147/157 (step 4) then step 3 held leads."
+}

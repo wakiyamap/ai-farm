@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "morpho-watcher-ethereum (follows review attempt 760): manifest funding-comment fix and resubmit",
+  "outcome": "fix_submitted",
+  "reason": "Measured 2026-11-10 run 414adfd0 (this session): attempt 760's sole blocker fixed — manifest.yaml capital_usd/principal_usdc numeric scalars no longer carry trailing inline comments (gate-ctl:348 read the whole line as a float and crashed promotion with a ValueError before funding); the prose moved to a quoted funding_note key. yaml.safe_load now returns int 16 / int 0 for the two scalars and tools/manifest-check.py prints OK. No code, executor or fork_evidence change (attempt 760 accepted all of them: guard 0x6fd77966... reverted NO_PROFIT USDC 0->0, success 0x6f6b2b55... USDC 0->3.711168 at ethereum-review fork generation 42). Paper service healthy: heartbeat at 2026-11-10T04:50:30Z; gate status capital 973.9/2000 USD, frozen=false, halted=false — a 16 USD native float fits for promotion. Ledger recheck: one new morpho_blue.liquidate after the reviewer's cursor (block 26382023 tx 0x3922e74e3be46f45962edbc48438e880d23f6b7bf79bb2d9b6cced99bfed62c0, market 0x69ef7fd17b42..., repaid 3.255855 USDC dust) — not a pinned market, gross bonus ~0.14 USDC, fails the 2 USD floor; no natural-capture demand per decisions 2026-11-09-promote-criteria (detection, not capture). Resubmitted for promotion.",
+  "bot_id": "morpho-watcher-ethereum"
+}

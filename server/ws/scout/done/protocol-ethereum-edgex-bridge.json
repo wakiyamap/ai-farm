@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-edgex-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 833,
+ "chain": "ethereum",
+ "slug": "edgex-bridge",
+ "name": "edgeX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 6885247,
+ "url": "https://pro.edgex.exchange",
+ "github": null,
+ "listed_days_ago": 833,
+ "run_id": "98e3bd1d7ac24d13a2f7c05aed7568e3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: EdgexBridge finalize(bytes32[],bytes)/sweepStrayUsdc() open-callable but pay the caller 0 - all 32 finalize calls in 7d (blocks 26411160-26461414) came from edgeX keeper 0x94175b588f67be600a280ab8f260ab81a4109b7c paying ~$0.04 gas itself; payouts (11.49 ETH + 583,959 EDGE to recipients, 32 txs sample 32/32); sweep USDC pot = 0; TVL 6.44M = 2.42M USDT StarkPerp + 1.08M USDC MSCA + 1888.34 ETH bridge (coins.llama.fi 2026-11-21)",
+  "kb": [
+   "attempts:3209",
+   "protocols:1554"
+  ],
+  "run_id": "98e3bd1d7ac24d13a2f7c05aed7568e3",
+  "at": 1795240604
+ }
+}

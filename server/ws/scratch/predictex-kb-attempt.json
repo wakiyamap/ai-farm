@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-predictex",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: prediction-market perp stack (Rysk-AMBER fork style); the functions anyone can call (settle, settleTraders, clearTradersInPool, settleNextTraderInPool, updatePriceFeeds) pay the caller nothing - settlement money goes to traders, updatePriceFeeds makes the caller pay msg.value for Pyth. Emergency/setter ops are onlyMaintainer/onlyGovernance ('onlythis/mntnr' revert). The only reward-shaped event in 7d, Liquidate, fired once and was self-called by the trader. No stranger was paid.",
+  "numbers": "7d events on proxy 0x38c4E93b...f1A8 (eth_getLogs 0x3613c92-0x38f4812): DistributeFees 1036, SetEmergencyState 196, SettlementComplete 98, Clear 10, SettleV2 10, Liquidate 1. Liquidate tx 0xe2b7744f38c23a811b168bee7102b0eb9c28c541e94a7a759d2a785ab3449e37 from trader 0x934725...a874, 608k gas (~$0.01 at base ~0.01 gwei; usd: gas only, gross to caller 0). Operator EOA 0x4423fedd2e1cac86e2ee96ebaa4586dc2318683b sends nearly all maintenance txs. TVL 119571 USD (session candidate, DefiLlama 2026-11-20)."
+}

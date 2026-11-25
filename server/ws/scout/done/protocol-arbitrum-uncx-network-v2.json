@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-uncx-network-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1650,
+ "chain": "arbitrum",
+ "slug": "uncx-network-v2",
+ "name": "UNCX Network V2",
+ "category": "Token Locker",
+ "tvl_usd": 68846,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 1650,
+ "run_id": "e29e9210c37a4e4d96675cfa24a2b5be",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 4 Unicrypt V2 LP lockers on arbitrum (0x275720567E5955F5f2D53A7A1Ab8a0Fc643dE50E 121 locked tokens, 0x4d19c218cd2de3261e77e3a4ed80feca8cb4cba6 WithFees 0, 0x63f4b2c082b1e0bba38874567e053800379bf8d7 8, 0xa71182392faaa9a123a9e8120e79515117f05be4 51): withdraw/relock/splitLock/migrate/claimFees require lock.owner (fresh-address eth_call reverts 'NOT OWNER') and pay msg.sender only; open fns charge the caller. 0 events in 7 d (blocks 524702142->526759028, no-topic scan; 60 d control 3 logs); last call owner withdraw 2026-10-09. TVL 68,846 USD.",
+  "kb": [
+   "attempts:4052",
+   "protocols:2178"
+  ],
+  "run_id": "e29e9210c37a4e4d96675cfa24a2b5be",
+  "at": 1795424781
+ }
+}

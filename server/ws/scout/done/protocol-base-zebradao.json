@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-zebradao",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1054,
+ "chain": "base",
+ "slug": "zebradao",
+ "name": "ZebraDAO",
+ "category": "Lending",
+ "tvl_usd": 118231,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1054,
+ "run_id": "0f2edeef04bc4097806b0bc013965718",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Compound v2 fork (comptroller 0xBEA1D596Ae022fae90d84ffaF0907E38a25Ed6E7, impl verified zeb/compound-v0.8-reward), 6 markets all with cash()=0, borrows ~= the 118,231 USD TVL; only role-free paid call is liquidateBorrow but liquidationIncentiveMantissa()=0 (seizes nothing, closeFactor 0.15) and claimReward pays its holder argument not the caller; 0 txs on any of the 10 contracts in 7 days (newest 2025-10-01 cDAI, rest Apr-May 2024, Blockscout txs); pot 76.7M ZEBRA unpriced; 0 USD gross/call vs 0.003 USD gas (0.006 gwei, ETH 1769).",
+  "kb": [
+   "attempts:2221",
+   "protocols:785"
+  ],
+  "run_id": "0f2edeef04bc4097806b0bc013965718",
+  "at": 1795026864
+ }
+}

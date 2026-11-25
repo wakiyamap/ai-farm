@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "renzo",
+  "status": "dead_end",
+  "checked": "No caller-reward function on Arbitrum (checked 2026-11-18, run 0b34bbd8). Only 2 contracts per docs (docs.renzoprotocol.com/docs/contracts/layer-2s/arbitrum): ezETH xERC20 proxy 0x2416092f143378750bb29b79eD961ab195CcEea5 (impl 0xb370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7, standard xERC20 Lockable: only approve/transfer/transferFrom/permit public; mint/burn restricted to factory/bridge; code non-empty, totalSupply 976.9 ezETH answers) and xRenzoDeposit proxy 0xf25484650484de3d554fb0b7125e7696efa4ab99 whose current impl 0x5eafb1d4b5bdfafe81715eebcc7713e418c80e78 is L2RateProvider (only initialize()/getRate()/owner fns); depositETH selector reverts (0x9f8420b3, empty revert) and every depositETH in the tx history FAILED, last tx 1787492200 (2026-08-22). 7d (blocks 522977918-525397918): 904 ezETH Transfers, 13 mints, 10 burns; all 13 mint txs from one origin 0x74cae0ecc47b02ed9b9d32e000fd70b9417970c5 (Renzo's own bridge relayer) - no stranger earns anything calling these contracts; bridge relayers pay their own gas here. Matches ethereum renzo row id 143 (no permissionless poke)."
+}

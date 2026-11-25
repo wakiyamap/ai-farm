@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-elfi-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 791,
+ "chain": "arbitrum",
+ "slug": "elfi-protocol",
+ "name": "ELFi Protocol",
+ "category": "Derivatives",
+ "tvl_usd": 114986,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 791,
+ "run_id": "dd0fd90cbdf3468fa4c28be0e1803b85",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ELFi Diamond 0x153c613d..5d55: executeOrder (0x22dabfa5) + liquidationAccount (0x5a536f8f) revert RequireRole(fresh,'KEEPER'); only open fn callLiabilityClean has 1 pending clean (+1.36 USD gross, untouched since 2026-07-17); 0 events on all 5 contracts in 7d (control USDC 15890 logs/2k blocks), last diamond tx 2026-09-15, gas 0.005 USD/150k - dormant + keeper-gated, mirrors base (protocols:676)",
+  "kb": [
+   "attempts:2625",
+   "protocols:1099"
+  ],
+  "run_id": "dd0fd90cbdf3468fa4c28be0e1803b85",
+  "at": 1795118970
+ }
+}

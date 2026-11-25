@@ -1,0 +1,460 @@
+#!/usr/bin/env python3
+"""Fork CLI for agents: a local anvil fork of each mainnet (no real funds, no keys).
+
+  fork url <chain>                           JSON-RPC URL of the fork (also $FORK_URL_<CHAIN>)
+  fork status [<chain>]                      block number of each fork vs. mainnet head
+  fork reset <chain> [<block>]               re-fork from mainnet head (or a block); wipes local state
+  fork fund <chain> <address> <eth>          give an address fake native balance on the fork
+  fork fund-token <chain> <token> <holder> <to> <amount>   move ERC-20 from a rich holder (impersonated; exit 2 if the transfer fails)
+  fork deploy <chain> <bytecode.hex|artifact.json> [<from>] [--args <hex>]   deploy creation bytecode; prints
+                                             the address. --args appends ABI-encoded constructor arguments
+                                             (e.g. --args $(cast abi-encode 'constructor(address)' 0x...)).
+                                             A forge artifact (out/X.sol/X.json) is read for bytecode.object.
+                                             On a revert it prints gasUsed, the revert data and the last opcodes.
+  fork info <chain>                          anvil version, hardfork and fork block (anvil_nodeInfo)
+  fork call <chain> '<json tx>'              eth_call on the fork
+  fork send <chain> '<json tx>'              send a tx from any address (impersonated, no key) and print receipt
+  fork trace <chain> <txhash>                debug_traceTransaction callTracer on the fork
+  fork replay <chain> <txhash>               re-fork at tx's block-1 and re-execute the mainnet tx (same from/to/data)
+  fork lease <chain> <minutes> [note]        reserve the fork: other sessions' reset/replay are refused meanwhile
+  (chains: base | arbitrum | ethereum | bsc | polygon | avalanche | optimism | hyperevm |
+   ethereum-review — the last is the paper-reviewer's own ethereum fork, unreachable from the
+   earner and the bots. `fund` sets the chain's native token: BNB, POL, AVAX, ETH or HYPE)
+  fork release <chain>                       end your lease early
+
+A fork is shared by everyone. `reset` and `replay` wipe its state, so take a
+lease first when a measurement spans several commands, and check the generation
+number (`fork status`, printed by every write) before trusting a result: a
+different generation means someone reset the fork in between. A lease is
+advisory (max 60 min, --force overrides) and belongs to your run id.
+Compile contracts with `forge build` (Foundry is installed at /opt/foundry/bin).
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+import urllib.request
+
+PORTS = {"base": 9001, "arbitrum": 9002, "ethereum": 9003, "ethereum-review": 9013,
+         "bsc": 9004, "polygon": 9005, "avalanche": 9006, "optimism": 9007, "hyperevm": 9008}   # 10a
+UPSTREAM = {"ethereum-review": "ethereum"}       # fork name -> mainnet chain it mirrors (default: same name)
+
+
+def upstream(chain):
+    return UPSTREAM.get(chain, chain)
+STATE = "/srv/farm/ws/scratch/.fork"          # <chain>.gen (reset counter), <chain>.lease (json)
+RUN_ID = os.environ.get("FARM_RUN_ID") or f"uid{os.getuid()}"
+import time
+RELAY = os.environ.get("RPC_RELAY_URL", "http://127.0.0.1:8545")
+ADDR = re.compile(r"^0x[0-9a-fA-F]{40}$")
+HASH = re.compile(r"^0x[0-9a-fA-F]{64}$")
+
+
+def die(m):
+    print(f"fork: {m}", file=sys.stderr)
+    sys.exit(2)
+
+
+def url(chain):
+    if chain not in PORTS:
+        die(f"chain must be one of {sorted(PORTS)}")
+    return f"http://127.0.0.1:{PORTS[chain]}"
+
+
+def rpc(u, method, params):
+    body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
+    req = urllib.request.Request(u, data=body, headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            out = json.loads(r.read())
+    except OSError as exc:
+        die(f"{u}: {exc}")
+    if "error" in out:
+        die(f"{method}: {out['error'].get('message')} {out['error'].get('data', '')}")
+    return out["result"]
+
+
+def receipt(u, h, timeout=30.0):
+    """Poll for a receipt: anvil may answer eth_sendTransaction before the block is indexed."""
+    import time
+    deadline = time.monotonic() + timeout
+    while True:
+        r = rpc(u, "eth_getTransactionReceipt", [h])
+        if r:
+            return r
+        if time.monotonic() >= deadline:
+            die(f"no receipt for {h} after {timeout:.0f}s (tx dropped or fork busy; try again after 'fork reset')")
+        time.sleep(0.25)
+
+
+def _read(path, default):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return f.read()
+    except OSError:
+        return default
+
+
+def _write(path, text):
+    os.makedirs(STATE, exist_ok=True)
+    fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o664)
+    try:
+        os.write(fd, text.encode())
+    finally:
+        os.close(fd)
+
+
+def generation(chain):
+    return int(_read(f"{STATE}/{chain}.gen", "0").strip() or 0)
+
+
+def bump_generation(chain):
+    g = generation(chain) + 1
+    try:
+        _write(f"{STATE}/{chain}.gen", f"{g}\n")
+    except OSError as exc:
+        print(f"fork: warning: cannot record generation: {exc}", file=sys.stderr)
+    return g
+
+
+def lease(chain):
+    """Active lease dict or None."""
+    try:
+        d = json.loads(_read(f"{STATE}/{chain}.lease", "") or "null")
+    except ValueError:
+        return None
+    if d and d.get("until", 0) > time.time():
+        return d
+    return None
+
+
+def guard_lease(chain, force=False):
+    d = lease(chain)
+    if d and d.get("run_id") != RUN_ID and force:
+        lease_log(chain, "force_over_lease", holder=d.get("run_id"))
+    if d and d.get("run_id") != RUN_ID and not force:
+        left = int(d["until"] - time.time())
+        die(f"{chain} fork is leased by run {d.get('run_id')} ({d.get('role', '?')}) for {left}s more"
+            f"{': ' + d['note'] if d.get('note') else ''}. Wait, pick another chain, or add --force and say so in your notes")
+
+
+def lease_log(chain, op, **extra):
+    try:
+        rec = {"at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "op": op, "run_id": RUN_ID,
+               "role": os.environ.get("FARM_ROLE", ""), **extra}
+        os.makedirs(STATE, exist_ok=True)
+        fd = os.open(f"{STATE}/{chain}.lease.log", os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o664)
+        try:
+            os.write(fd, (json.dumps(rec) + "\n").encode())
+        finally:
+            os.close(fd)
+    except OSError:
+        pass
+
+
+def cmd_lease(chain, minutes, *note):
+    url(chain)
+    m = max(1, min(int(minutes), 60))
+    d = lease(chain)
+    if d and d.get("run_id") != RUN_ID:
+        die(f"{chain} fork is already leased by run {d.get('run_id')} for {int(d['until'] - time.time())}s")
+    _write(f"{STATE}/{chain}.lease", json.dumps({"run_id": RUN_ID, "role": os.environ.get("FARM_ROLE", ""),
+                                                 "until": time.time() + m * 60, "note": " ".join(note)}))
+    lease_log(chain, "lease", minutes=m, note=" ".join(note), generation=generation(chain))
+    print(f"ok leased {chain} for {m} min (run {RUN_ID}); generation {generation(chain)}")
+
+
+def cmd_release(chain):
+    url(chain)
+    d = lease(chain)
+    if d and d.get("run_id") != RUN_ID:
+        die(f"{chain} lease belongs to run {d.get('run_id')}")
+    try:
+        os.unlink(f"{STATE}/{chain}.lease")
+    except OSError:
+        pass
+    lease_log(chain, "release", generation=generation(chain))
+    print(f"ok released {chain}")
+
+
+def head(chain, lane="research"):
+    return int(rpc(f"{RELAY}/{chain}?lane={lane}", "eth_blockNumber", []), 16)
+
+
+def cmd_status(chain=None):
+    for c in ([chain] if chain else sorted(PORTS)):
+        try:
+            fb = int(rpc(url(c), "eth_blockNumber", []), 16)
+            d = lease(c)
+            ls = f"leased by {d['run_id']} {int(d['until'] - time.time())}s" if d else "free"
+            print(f"{c}\tfork {fb}\tmainnet {head(upstream(c))}\tgen {generation(c)}\t{ls}\t{url(c)}")
+        except SystemExit:
+            print(f"{c}\tdown\t{url(c)}")
+
+
+def cmd_reset(chain, block=None, force=False):
+    guard_lease(chain, force)
+    f = {"jsonRpcUrl": f"{RELAY}/{upstream(chain)}?lane=research"}
+    if block:
+        f["blockNumber"] = int(block)
+    rpc(url(chain), "anvil_reset", [{"forking": f}])
+    g = bump_generation(chain)
+    print(f"ok reset {chain} at block {int(rpc(url(chain), 'eth_blockNumber', []), 16)} generation {g}")
+
+
+def cmd_fund(chain, address, eth):
+    if not ADDR.match(address):
+        die("bad address")
+    wei = int(float(eth) * 1e18)
+    rpc(url(chain), "anvil_setBalance", [address, hex(wei)])
+    print(f"ok {address} balance {eth} ETH on {chain} fork")
+
+
+def selector(sig):
+    try:
+        from Crypto.Hash import keccak
+    except ImportError:
+        sys.path.insert(0, "/opt/farm/pylib")
+        from Crypto.Hash import keccak
+    h = keccak.new(digest_bits=256)
+    h.update(sig.encode())
+    return h.hexdigest()[:8]
+
+
+def cmd_fund_token(chain, token, holder, to, amount):
+    for a in (token, holder, to):
+        if not ADDR.match(a):
+            die("bad address")
+    u = url(chain)
+    rpc(u, "anvil_setBalance", [holder, hex(10**18)])     # gas for the impersonated holder
+    data = "0x" + selector("transfer(address,uint256)") + to[2:].rjust(64, "0") + int(amount).to_bytes(32, "big").hex()
+    h = rpc(u, "eth_sendTransaction", [{"from": holder, "to": token, "data": data, "gas": hex(200000)}])
+    r = receipt(u, h)
+    ok = bool(r) and r.get("status") == "0x1"
+    print(f"{'ok' if ok else 'FAILED'} transfer {amount} of {token} {holder} -> {to} ({h})")
+    if not ok:
+        reason = "no receipt (timeout)" if not r else f"status {r.get('status')}, gasUsed {r.get('gasUsed')}"
+        print(f"fund-token failed: {reason}. The holder may lack the balance, or the token may block "
+              f"transfers from it; pick another holder (check balanceOf(holder) first).", file=sys.stderr)
+        sys.exit(2)
+
+
+def load_initcode(path):
+    with open(path, encoding="utf-8") as f:
+        raw = f.read().strip()
+    if path.endswith(".json") or raw.startswith("{"):
+        art = json.loads(raw)
+        bc = art.get("bytecode")
+        code = bc.get("object") if isinstance(bc, dict) else bc
+        if not code:
+            die(f"{path}: no bytecode.object (abstract contract or interface?)")
+    else:
+        code = raw
+    code = code.strip()
+    if code.startswith("0x"):
+        code = code[2:]
+    if "__$" in code:
+        die("bytecode has unlinked library placeholders (__$...$__); link or inline the library first")
+    if re.search(r"[^0-9a-fA-F]", code):
+        bad = re.search(r"[^0-9a-fA-F]", code)
+        die(f"bytecode is not plain hex (char {bad.group()!r} at offset {bad.start()}); "
+            "a second 0x, a newline or quotes inside the file are the usual cause")
+    if len(code) % 2:
+        die("bytecode has an odd number of hex digits")
+    return code.lower()
+
+
+def initcode_warnings(code):
+    w = []
+    n = len(code) // 2
+    if n > 49152:
+        w.append(f"initcode is {n} bytes, over the EIP-3860 limit of 49152")
+    # solc creation code = constructor part + embedded runtime, so the free-memory-pointer
+    # preamble 6080604052 normally appears at least twice; runtime-only code has it once.
+    # solc constructors with arguments copy them from the end of the code: PUSH2 <len> CODESIZE SUB DUP1
+    # PUSH2 <len> ...; <len> is the creation code length, so code of exactly that length has no args
+    # and the ABI decoder reverts with empty data after a few opcodes.
+    m = re.search(r"61([0-9a-f]{4})38038061\1", code) or re.search(r"60([0-9a-f]{2})38038060\1", code)
+    if m and int(m.group(1), 16) == n:
+        w.append("the constructor takes arguments but none are appended (code length == the constructor's "
+                 f"own length {n}); pass --args <abi-encoded args> or append them to the hex")
+    if code.startswith("6080604052") and code.count("6080604052") == 1:
+        w.append("this looks like RUNTIME code (deployedBytecode), not creation code: executing it as a "
+                 "constructor hits the dispatcher and reverts with empty data at a fixed gasUsed. "
+                 "Use bytecode.object (or pass the forge artifact .json)")
+    return w
+
+
+def deploy_diagnostics(u, h, tx, r):
+    logs_seen[0] = False
+    print(f"fork: deployment reverted ({h}) gasUsed {int(r.get('gasUsed', '0x0'), 16)} of limit "
+          f"{int(tx['gas'], 16)}", file=sys.stderr)
+    call = {k: tx[k] for k in ("from", "data", "gas")}
+    try:
+        out = rpc_raw(u, "eth_call", [call, "latest"])
+        err = out.get("error")
+        print(f"  eth_call replay: {json.dumps(err)[:600] if err else 'succeeds now (state-dependent?) ' + str(out.get('result'))[:80]}",
+              file=sys.stderr)
+    except Exception as exc:                                     # diagnostics are best effort
+        print(f"  eth_call replay failed: {exc}", file=sys.stderr)
+    try:
+        ct = rpc_raw(u, "debug_traceTransaction", [h, {"tracer": "callTracer"}]).get("result") or {}
+        print(f"  callTracer: error={ct.get('error')!r} revertReason={ct.get('revertReason')!r} "
+              f"output={str(ct.get('output'))[:200]}", file=sys.stderr)
+    except Exception as exc:
+        print(f"  callTracer failed: {exc}", file=sys.stderr)
+    try:
+        st = rpc_raw(u, "debug_traceTransaction", [h, {"disableStorage": True, "disableMemory": True,
+                                                        "disableStack": False}]).get("result") or {}
+        logs = st.get("structLogs") or []
+        logs_seen[0] = bool(logs)
+        print(f"  opcodes executed: {len(logs)}; last ones:", file=sys.stderr)
+        for l in logs[-6:]:
+            print(f"    pc {l.get('pc')} {l.get('op')} gas {l.get('gas')} stack top {(l.get('stack') or [])[-3:]}"
+                  f"{' error ' + str(l.get('error')) if l.get('error') else ''}", file=sys.stderr)
+    except Exception as exc:
+        print(f"  opcode trace failed: {exc}", file=sys.stderr)
+    for w in initcode_warnings(tx["data"][2:]):
+        print(f"  hint: {w}", file=sys.stderr)
+    if not logs_seen[0]:
+        print("  (anvil returned no opcode list for this create; an empty revert after ~intrinsic gas "
+              "usually means the constructor's argument decoding or a require without message)", file=sys.stderr)
+    sys.exit(2)
+
+
+logs_seen = [False]
+
+
+def rpc_raw(u, method, params):
+    body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
+    req = urllib.request.Request(u, data=body, headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=120) as resp:
+        return json.loads(resp.read())
+
+
+def cmd_deploy(chain, path, frm=None, args=None):
+    code = load_initcode(path)
+    if args:
+        a = args[2:] if args.startswith("0x") else args
+        if re.search(r"[^0-9a-fA-F]", a) or len(a) % 2:
+            die("--args must be hex (ABI-encoded constructor arguments)")
+        code += a.lower()
+    for w in initcode_warnings(code):
+        if not (args and "none are appended" in w):
+            print(f"fork: warning: {w}", file=sys.stderr)
+    u = url(chain)
+    frm = frm or "0x" + "f" * 39 + "e"
+    if not ADDR.match(frm):
+        die("bad from address")
+    rpc(u, "anvil_setBalance", [frm, hex(10**19)])
+    tx = {"from": frm, "data": "0x" + code, "gas": hex(8_000_000)}
+    h = rpc(u, "eth_sendTransaction", [tx])
+    r = receipt(u, h)
+    if not r or r.get("status") != "0x1":
+        deploy_diagnostics(u, h, tx, r or {})
+    print(r["contractAddress"])
+    print(f"generation {generation(chain)}", file=sys.stderr)
+
+
+def cmd_info(chain):
+    u = url(chain)
+    info = rpc(u, "anvil_nodeInfo", [])
+    try:
+        ver = rpc(u, "web3_clientVersion", [])
+    except SystemExit:
+        ver = "?"
+    fork = info.get("forkConfig") or {}
+    print(f"{chain}\tclient {ver}\thardfork {info.get('hardFork')}\tchain id {int(rpc(u, 'eth_chainId', []), 16)}"
+          f"\tfork block {fork.get('forkBlockNumber')}\tblock {info.get('currentBlockNumber')}\tgeneration {generation(chain)}")
+
+
+def cmd_call(chain, txjson):
+    print(rpc(url(chain), "eth_call", [json.loads(txjson), "latest"]))
+
+
+def cmd_send(chain, txjson):
+    tx = json.loads(txjson)
+    if "from" not in tx:
+        die("tx needs 'from' (any address; the fork impersonates it)")
+    u = url(chain)
+    bal = int(rpc(u, "eth_getBalance", [tx["from"], "latest"]), 16)
+    if bal < 10**17:
+        rpc(u, "anvil_setBalance", [tx["from"], hex(10**18)])
+    h = rpc(u, "eth_sendTransaction", [tx])
+    print(json.dumps(receipt(u, h), indent=1))
+    print(f"generation {generation(chain)}", file=sys.stderr)
+
+
+def cmd_trace(chain, txhash):
+    if not HASH.match(txhash):
+        die("bad tx hash")
+    print(json.dumps(rpc(url(chain), "debug_traceTransaction", [txhash, {"tracer": "callTracer"}]), indent=1))
+
+
+def cmd_replay(chain, txhash, force=False):
+    if not HASH.match(txhash):
+        die("bad tx hash")
+    guard_lease(chain, force)
+    tx = rpc(f"{RELAY}/{upstream(chain)}?lane=research", "eth_getTransactionByHash", [txhash])
+    if not tx:
+        die("tx not found on mainnet")
+    blk = int(tx["blockNumber"], 16)
+    cmd_reset(chain, blk - 1)
+    u = url(chain)
+    rpc(u, "anvil_setBalance", [tx["from"], hex(int(rpc(u, "eth_getBalance", [tx["from"], "latest"]), 16) + 10**18)])
+    h = rpc(u, "eth_sendTransaction", [{"from": tx["from"], "to": tx["to"], "data": tx.get("input", "0x"),
+                                        "value": tx.get("value", "0x0"), "gas": tx.get("gas", hex(3_000_000))}])
+    r = receipt(u, h)
+    print(f"replayed at block {blk - 1}+1: status {r.get('status')} gasUsed {int(r.get('gasUsed', '0x0'), 16)} logs {len(r.get('logs', []))}; fork tx {h}; generation {generation(chain)}")
+
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help", "help"):
+        print(__doc__.strip())
+        return
+    c, a = argv[0], argv[1:]
+    force = "--force" in a
+    a = [x for x in a if x != "--force"]
+    args = None
+    if "--args" in a:
+        i = a.index("--args")
+        if i + 1 >= len(a):
+            die("--args needs a hex value")
+        args = a[i + 1]
+        del a[i:i + 2]
+    try:
+        if c == "url" and len(a) == 1:
+            print(url(a[0]))
+        elif c == "status":
+            cmd_status(a[0] if a else None)
+        elif c == "reset" and 1 <= len(a) <= 2:
+            cmd_reset(*a, force=force)
+        elif c == "lease" and len(a) >= 2:
+            cmd_lease(*a)
+        elif c == "release" and len(a) == 1:
+            cmd_release(a[0])
+        elif c == "fund" and len(a) == 3:
+            cmd_fund(*a)
+        elif c == "fund-token" and len(a) == 5:
+            cmd_fund_token(*a)
+        elif c == "info" and len(a) == 1:
+            cmd_info(a[0])
+        elif c == "deploy" and 2 <= len(a) <= 3:
+            cmd_deploy(*a, args=args)
+        elif c == "call" and len(a) == 2:
+            cmd_call(*a)
+        elif c == "send" and len(a) == 2:
+            cmd_send(*a)
+        elif c == "trace" and len(a) == 2:
+            cmd_trace(*a)
+        elif c == "replay" and len(a) == 2:
+            cmd_replay(*a, force=force)
+        else:
+            die("bad arguments; run 'fork help'")
+    except (ValueError, KeyError) as exc:
+        die(str(exc))
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Operator keeper EOA (one of 3 worker keys behind treasury 0xf70da97812cb96acdf810712aa562db8dfa3dbef) running Morpho Blue liquidations through its own executor 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd via selector 0xc1ec19c0(address,bytes); the liquidation bonus is open to any caller (lead recorded). Side activity is own-funds housekeeping (LiFi stHYPE/wstHYPE->HYPE swaps, sweeps, updatePriceFeeds on the Chainlink mirror 0xe9d69cdd, 2x batchLiquidateTroves on 0x3100f4e7).",
+  "numbers": "Sample of 200 of 200+ tx over 19 days (2026-10-28..11-17): ~10.5 tx/day total; job calls 0xc1ec19c0 101 (35 ok, 66 FAILED) = 5.3 attempts, 1.8 successes/day. Gross per success +0.13 HYPE ~= $9.0 (1 sample tx 0xe65615e2edb03dd2606d205c33a0842be8bbd4fb12ad924c963706860c9c3dbc: repay 11.466 HYPE, seize 11.399 hbHYPE token 0x96c6cbb6, sell 11.596 HYPE). Gas: successful job $1.07 @29.2 gwei, failed attempt ~0.04-0.1 HYPE range, updatePriceFeeds $2.50 @155.6 gwei, LiFi swap $0.007 @0.129 gwei, batchLiquidateTroves $202 @4322 gwei (receipts via relay). HYPE $69.39 (coins.llama.fi, 2026-11-17). Est net ~$12/day (1.8 x $9 gross minus gas on ~5 attempts) - gross is a single sample, small position."
+}

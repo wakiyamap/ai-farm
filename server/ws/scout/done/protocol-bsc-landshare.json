@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-landshare",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 859,
+ "chain": "bsc",
+ "slug": "landshare",
+ "name": "Landshare",
+ "category": "RWA",
+ "tvl_usd": 621293,
+ "url": "https://landshare.io",
+ "github": [
+  "ls-jordan"
+ ],
+ "listed_days_ago": 859,
+ "run_id": "056522cd66cf403e9a65dbe624875c56",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MasterChef staking 0x3f94..F93b updatePool/massUpdatePools callable by anyone (no role revert, eth_call from fresh addr) but pays caller 0 and reward pot is empty: LAND.balanceOf(staking)=0 (LAND @$0.0007014 coins.llama.fi); other contracts are Chainlink API consumer getTotalValue()=621,293 (matches TVL, block 134310437) + AccessControl LSRWA token (role-gated); 7d log counts unmeasured (bsc getLogs refused, scout CU spent).",
+  "kb": [
+   "attempts:2124",
+   "protocols:699"
+  ],
+  "run_id": "056522cd66cf403e9a65dbe624875c56",
+  "at": 1795004790
+ }
+}

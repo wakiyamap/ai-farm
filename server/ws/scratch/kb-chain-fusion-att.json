@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-chain-fusion",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found - Chain Fusion is an Internet Computer (ICP) threshold-signature interconnect protocol, not an ethereum protocol. The only ethereum address in its DefiLlama adapter is an EOA holding the locked assets (eth_getCode = 0x), so there is no contract, no callable function and nothing that pays a caller on ethereum; ICP is not one of the farm's nine chains.",
+  "numbers": "eth_getCode(0xb25eA1D493B49a1DeD42aC5B1208cC618f9A9B80)=0x, same-call control USDC=0x6080... code (rpc.py ethereum, 2026-11-21); eth_getBalance=0x1c7bae7632b95684b1=525.42 ETH; api.llama.fi/protocol/chain-fusion currentChainTvls Ethereum 4,546,742 USD / Bitcoin 13,230,322 USD (candidate tvl_usd 4,671,869 matches Ethereum bucket); adapter raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/chain-fusion/index.js lists only that one ethereum address."
+}

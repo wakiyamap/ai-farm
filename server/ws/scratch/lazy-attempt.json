@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-lazy",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the only publicly callable function on LazyUSDVault is purgeProcessedWithdrawals(uint256), which by design pays the caller 0 (storage-cleanup gas refund only) and has never been called (0 WithdrawalsPurged events since deployment). The real keeper jobs (fulfillWithdrawals, reportYieldAndCollectFees, forceProcessWithdrawal) are operator-gated and done by the team EOA 0x46a1...254a, which pays itself nothing; no one outside the team is ever paid. Nothing to earn here.",
+  "numbers": "TVL 854,268 USD (session ctx) / totalAssets() 854,379.64 USDC 6dec on chain. 7d vault activity: 7 logs / 3 txs (1 YieldReported+FeeCollected 0xbcbc8c3a, 1 WithdrawalRequested 0xfdc657e9, 1 WithdrawalForced 0x161cc194), all from 0x46a1022e7574680c5d79e5a09f8b704ee308254a; WithdrawalFulfilled 0 in 7d, 4 in full history (all team EOA; latest blk 26248126 ~29d ago); WithdrawalsPurged 0 in full history (control: WithdrawalFulfilled same query shape returned 4). purgeProcessedWithdrawals eth_call from fresh addr OK, estimateGas 93,081 -> 0.000292 ETH = 0.48 USD @ 3.133 gwei (eth_gasPrice 0xbab8c394) and ETH 1641 USD (coins.llama.fi ts 1795193704). fulfillWithdrawals eth_call fresh addr reverts 0x27e1f1e5 (onlyOperator). Gross to caller: 0 USDC."
+}

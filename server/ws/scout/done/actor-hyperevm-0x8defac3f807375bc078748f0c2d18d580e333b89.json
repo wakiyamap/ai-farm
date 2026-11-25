@@ -1,0 +1,19 @@
+{
+ "id": "actor-hyperevm-0x8defac3f807375bc078748f0c2d18d580e333b89",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "hyperevm",
+ "address": "0x8defac3f807375bc078748f0c2d18d580e333b89",
+ "run_id": "6a111bb8ada24949ab82b1b5acf142b9",
+ "result": {
+  "verdict": "no_reward",
+  "line": "User EOA moving own funds, not a paid keeper: all 148 txs (2026-05-20..11-14; 16 in last 7d, all 11-14) go to its own deployed contracts (0x29281e35 fn cf1f5981 liquidate wrapper on Morpho Blue hyperevm 0x68e37de8, 47/55 calls FAILED; kHYPE approve/queueWithdrawal); the 5 Nov-14 liquidations were dust (repaid 0.00001-0.001 WHYPE, bonus < $0.05 total), gross/call ~ $0, gas/call 0.00022 HYPE = $0.015 (HYPE $69 coins.llama.fi), nothing accumulates: contracts 0, EOA 0.054 HYPE topped up by a person on 11-14.",
+  "kb": [
+   "attempts:1561",
+   "actors:218"
+  ],
+  "run_id": "6a111bb8ada24949ab82b1b5acf142b9",
+  "at": 1794885828
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-stonedefi",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the only anyone-callable keeper-type functions on StoneDefi's BSC contracts (StoneBank rebaseSTBNBToBNB, batchClaimPendingUnstake) pay the caller 0 and the reward pot is empty (stakingRewardVault holds 0.0 BNB, rebase reverts 'stakingRewardVault has no BNB'); the whole deployment emitted zero events in 7 days and its last event was 2026-09-27.",
+  "numbers": "7 d = blocks 133916235-135259629 (2026-11-16 11:03 to 2026-11-23 11:03 UTC, eth_getBlockByNumber timestamps): 0 logs across all 13 adapter contracts (no-topic eth_getLogs; control = same shape over 90 d returned 86 logs on the same 13 addresses, last at block 124481645 ts 1790548008 = 2026-09-27; relay-probe bsc same-run 165 logs). eth_call rebaseSTBNBToBNB (0x9f653fff) from fresh address reverts 'stakingRewardVault has no BNB'; eth_getBalance of reward vault 0x4ec8633de14f97f0a3f3bc579219bea96753c2fc = 0 BNB; headerIdx=tailIdx=10 (empty unstake queue). Gas price 0.05 gwei (eth_gasPrice 50000000 wei). Vault impl 0x0F9F39F6AABc86c457901df26275c72de32B26A4 (Vyper yVault via Sourcify v2) has no harvest() selector 0x4641257d in bytecode; report(uint256,uint256,uint256) is onlyStrategy. TVL 36,792 USD (candidate, DefiLlama)."
+}

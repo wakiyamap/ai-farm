@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-bitfi-basis",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. BitFi Basis on Base is only the bfBTC LayerZero OFT token (custodial CeDeFi basis product); the maintenance functions (updateEpoch, approveWithdraw, nativeWithdraw) are onlyMultisig and the anyone-callable ones (deposit, requestWithdraw, claim) just move the caller's own principal, paying 0 reward. Nobody was paid in the last 7 days.",
+  "numbers": "7d window blocks 54,460,416-58,908,946 (timestamps verified): EpochUpdated 4, Claimed 0, WithdrawRequest 0, WithdrawalApproved 0 (getLogs on proxy 0x623F2774d9f27B59bc6b954544487532CE79d9DF; same-shape control returned the 4). updateEpoch gas 138,239 x 0.008008 gwei = $0.002 (receipt 0x91fcca44062845c80cae82acecba7a189457a29ab14b4fa03b1a399ddda8cdec; ETH $1,803.64 coins.llama.fi). Gross per updateEpoch call $0. TVL check: 350.93 bfBTC x BTC $64,266 = $22.55M vs adapter $25.3M. Fresh-address eth_call: updateEpoch reverts NotMultiSig (0xcfa65c8d); claim([]) succeeds paying 0. Multisig Safe 0x1eb14ec5fc6d596c041f4dea2bf0f2cb6ef0dd03; impl 0x128eb2baca6ac5416bed268d41c202fc41d55f1b (Bfbtc.sol)."
+}

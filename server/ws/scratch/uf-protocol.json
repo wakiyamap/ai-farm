@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "unifarm",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/unifarm/index.js: 19 V1 cohort contracts + 17 Cohort proxies on ethereum (e.g. cohort 0x17cf1f7abe02e2cefea0c9c1bd812b2cf8121f2b, proxy 0x4d1cec3f30ad9b1a7f69e510016a5d790cfa6fc0) + liquidity/bridge registry 0xD13dF6B426358C2471bC6dea75167c3c106Ef881 (UUPS proxy, impl 0xd617b6e8e33820781c85a475cb9fc24b740f9d4e = TokenBridgeRegistryUpgradeable). eth_getCode non-empty; getter paused() returns 0 (not paused). Explorer (etherscan) source: cohorts = UnifarmV22.sol, proxies = Cohort.sol: external functions are only user ops (stake, unStake(address,uint256)) + views; all admin fns onlyOwner. No caller-paid reward/claim/refresh fn; unStake from stranger eth_call reverts 'UNSTAKE: Invalid User Entry' (sender must be the staker or owner; reward goes to the staker, not the caller). 7 d (blocks 26415929 2026-11-14 to 26466185 2026-11-21) and 90 d (from block 25818185 ~2026-08-23) no-topic eth_getLogs over all 37 adapter addresses: 0 logs each (control: relay-probe getlogs-range 673 logs/8 blocks same run). Last tx on cohort: block 15630127, 2022-09-28, unStake. Protocol dormant on ethereum 4+ years, TVL 179k USD."
+}

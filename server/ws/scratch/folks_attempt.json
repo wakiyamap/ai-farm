@@ -1,0 +1,8 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-folks-finance-xchain",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. On Polygon Folks xChain is only the Spoke layer: every public write (createLoanAndDeposit, deposit, repay) is a self-service user op that requires _addressOracle.isEligible(msg.sender) and records msg.sender as the user, and the admin/bridge entry points are role-gated (CONFIG_CONTRACTS_ROLE, BOOST_RATE_LIMIT_ROLE, MESSAGE_SENDER_ROLE, onlyRouter). The only permissionless ones (BridgeRouter.retryMessage/reverseMessage, BridgeRouterSpoke.withdraw) pay the caller nothing - a stranger is never paid here, and the money-making actions (liquidate with its collateral bonus, rebalanceUp/Down) sit in the hub LoanManager on Avalanche, rebalances role-gated. Deployment is also nearly idle (5 ops / 7 d).",
+ "numbers": "7 d (blocks 97,149,000-97,659,603 (true 7 d), eth_getLogs on BridgeRouterSpoke 0xf854ac65a40f1eabfd32e6d4c7d0e1c4b1753cc5): 5 MessageSucceeded, 0 Withdraw; POL spoke 0x4Db12F554623E4B0b3F5bAcF1c8490D4493380A5 last inbound tx block 96,928,504 (ts 1794098212, 10 d ago); 3 sample receipts gasUsed 369,596-789,736 at 319-329 gwei = 0.010-0.021 USD/call (POL 0.08179 USD, coins.llama.fi); TVL 408,339 USD; eth_call boostCapacity(1) from fresh address reverts 0xe2517d3f (AccessControlUnauthorizedAccount), eth_call withdraw() from fresh address returns 0x (pays balances[msg.sender] = 0).",
+ "bot_id": "none"
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "address": "0x9fbd5e5fa2a0f8076cb19ec813d3abc6ebee3f8d",
+  "strategy": "Aave v3 liquidator module run in private Atlas(OEV) bundles: driver EOA 0x9d8a4c00 calls Fastlane Atlas executor 0x8ad1ae9d (selector 0x4317ca01); module flash-loans the debt asset from Morpho Blue 0x6c247b1f, calls Aave Pool 0x794a6135 liquidationCall (0x00a718a9), sells the seized collateral in the same tx through Uniswap V3 routers 0x6131b5fa / 0xfe0e40b9, repays the flash loan and sweeps the residual profit in-tx to owner EOA 0x799dc363 (module keeps zero residual balance)",
+  "evidence": "ledger aave_v3.liquidation: 14 LiquidationCall events over 9 bundle txs, 2026-11-05..11-14 (none 11-15/16); e.g. 0xab4fef678a95b0a9b9327528015da0dd742aed55dcc3105974ea74797fdc6dc9 (4 liq, 2.20M gas), 0xd2b538b169e47879e014ce0dcb18ebecd82d1874f188ff14398f1e08d586e21b (2 liq), 0xcafb662acdec87c11bf912d54150a8a7a95dad11565014efbaf042f924c8aa67 (2 liq, debug_traceTransaction shows Morpho flash + 0x00a718a9 + UniV3 swap + sweep to 0x799dc363)",
+  "est_profit_usd_day": 1.8
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-avalanche-arena-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 556,
+ "chain": "avalanche",
+ "slug": "arena-dex",
+ "name": "Arena DEX",
+ "category": "Dexs",
+ "tvl_usd": 1435624,
+ "url": "https://arena.social/",
+ "github": null,
+ "listed_days_ago": 556,
+ "run_id": "9eb4dfbef49d48708b15bdd0c205eacc",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Vanilla UniswapV2 fork on avalanche: ArenaFactory 0xF16784dcAf838a3e16bEF7711a62D12413c39BD1 (1075 pairs) + ArenaRouter02 0xf56d524d651b90e4b84dc2fffd83079698b9066e, verified sources show no reward/claim/harvest/keeper fn anyone can call; only skim(to), dust 0 (balanceOf==reserve0); router ~25 tx/day over last 7d (all user swaps); gas 7.5 gwei -> ~0.008 USD/call; TVL 1.44M USD",
+  "kb": [
+   "protocols:547",
+   "attempts:1932",
+   "attempts:1934"
+  ],
+  "run_id": "9eb4dfbef49d48708b15bdd0c205eacc",
+  "at": 1794963149
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-turboflow-perps",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. TurboFlow is a custodial perps exchange: the only BSC contract is an admin-upgradeable deposit/withdraw bridge holding USDT/USDC. Every fund-moving function is operator-role-gated (eth_call of the proposal fn 0x059e8423 from a fresh address reverts 'Illegal permissions'); there is no reward/claim/harvest-style function that pays a caller. User deposits arrive via platform-sponsored EIP-7702 bundler txs and withdrawals are proposal-executed by 2 protocol hot wallets that pay their own gas, so no stranger is paid on-chain.",
+  "numbers": "6.8d eth_getLogs (blocks 0x7ebe000..134143615, one call) on bridge 0x145CD0d5...25dB: 9063 logs, 3 event types - 4947 deposits (0xfe4c7e48..., USDT/USDC in, e.g. tx 0x0cff3c2d... from bundler 0x2657516a...), 2058 proposal-add (0xc66239e4..., tx 0x3f20d5cf... by 0x8c267e65924522ca730483624f1b1b68b0f91003, sel 0x059e8423) + 2058 proposal-exec (0x3ba1c066..., tx 0x462c06dc... by 0xbb767f1204d11f025f45745cbd95a51862b06f7f, sel 0x09ed2b0d). Gas: 119k-342k gas/tx at 0.055-0.1 gwei = $0.004-0.02/tx with BNB $590.14 (coins.llama.fi 2026-11-17). Gross to caller: 0 (no reward payment function found in the 71-selector dispatch)."
+}

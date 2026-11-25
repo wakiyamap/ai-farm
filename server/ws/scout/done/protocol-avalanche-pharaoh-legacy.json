@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-pharaoh-legacy",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 979,
+ "chain": "avalanche",
+ "slug": "pharaoh-legacy",
+ "name": "Pharaoh Legacy",
+ "category": "Dexs",
+ "tvl_usd": 167714,
+ "url": "https://www.phar.gg/",
+ "github": null,
+ "listed_days_ago": 979,
+ "run_id": "442cf391cdca4e8ea0f8ae5d23fe9097",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Keepers permissionless (Minter.updatePeriod, Voter.distribute/poke/updateAll; eth_call from fresh addr succeed) but pay caller $0: weeklyEmission()=0 and source shows emissions go Minter->Voter->gauge, no transfer to msg.sender; 0 direct txs to voter/minter/ve in 7d (newest 2026-11-05 vote); claims pay only LP/veNFT holders. Gas/distribute $0.026 (493k gas @ 7.5 gwei, AVAX $6.96 llama). Factory proxy 0xAAA16c016BF556fcD620328f0759252E29b1AB57 (813 pairs), Voter impl 0x12c0f312767ab87780d39aa0fa9b0c416304f9e0, Minter impl 0xfe0ca8fc277b93ce56028ade08ca813db6066def.",
+  "kb": [
+   "attempts:2202",
+   "protocols:769"
+  ],
+  "run_id": "442cf391cdca4e8ea0f8ae5d23fe9097",
+  "at": 1795022096
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-ufarm-digital-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 838,
+ "chain": "arbitrum",
+ "slug": "ufarm-digital-v1",
+ "name": "UFarm Digital V1",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 86455,
+ "url": "https://ufarm.digital",
+ "github": null,
+ "listed_days_ago": 838,
+ "run_id": "4933800c72804ca690ca0dd19ea3f9a2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No function anyone can call pays the caller: pool surface is meta-tx deposit/withdraw + manager approvals + protocolAction via Gelato relay 0xe53a646a (protocol-sponsored gas) + role-gated quex oracle flow (resetOracleRequestId() reverts from fresh address); 7d window blocks 524556676 (2026-11-15) -> 526609788 (2026-11-22): 0 events, 0 txs across 12 pools + 6 funds + core (control USDC 8462 logs/2k blocks); gross to a stranger 0 USD; TVL 86,455 USD, valueToken USDT (6 dec) read on chain.",
+  "kb": [
+   "attempts:3848",
+   "protocols:2024"
+  ],
+  "run_id": "4933800c72804ca690ca0dd19ea3f9a2",
+  "at": 1795379738
+ }
+}

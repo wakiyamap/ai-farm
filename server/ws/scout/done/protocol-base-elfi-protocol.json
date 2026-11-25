@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-elfi-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 788,
+ "chain": "base",
+ "slug": "elfi-protocol",
+ "name": "ELFi Protocol",
+ "category": "Derivatives",
+ "tvl_usd": 1315845,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 788,
+ "run_id": "bb0e57795c7c44ea842a02c5731c436e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ELFi perp diamond 0x957e0C...9d50 (base): executeOrder + liquidationPosition/Account/Liability all require ROLE_KEEPER (fresh-address eth_call reverts role error, hasRole(fresh,KEEPER)=false); only open fn callLiabilityClean is a 1:1 collateral-for-liability redemption (12 pending cleans, no discount); 0 txs and 0 events in last 7d on all 5 contracts (diamond last tx 2026-09-15, vaults 2025-02-27; getLogs control USDC 10404 logs same shape), gas 0.006 gwei so <bash.01/call, TVL 1.32M USD dormant",
+  "kb": [
+   "attempts:2092"
+  ],
+  "run_id": "bb0e57795c7c44ea842a02c5731c436e",
+  "at": 1794997316
+ }
+}

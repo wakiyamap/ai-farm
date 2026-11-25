@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "powh3d",
+ "status": "dead_end",
+ "checked": "DefiLlama registries/sumTokens.js (fetched 2026-11-22) lists one farm contract 0xB3775fB83F7D12A36E0475aBdD1FCA35c091efBe holding ETH. Verified source Hourglass.sol via explorer source (solidity 0.4.20, Team JUST Jan-2019 dividend pyramid, self-contained: no external contract calls). Deployed dispatch = exactly the 26 source functions + payable fallback, no hidden ones (regex over eth_getCode, selectors matched with cast sig). Getters answer: totalEthereumBalance()=1989.4058 ETH (equals eth_getBalance), totalSupply()=336,103.91 P3D. Payout paths: withdraw()/reinvest() are onlyStronghands (require myDividends(true)>0) and pay msg.sender only their own accrued dividends; exit() (no modifier) reverts for a stranger through its withdraw() call; sell(uint256) onlyBagholders; buy(address)+fallback are purchases; 5 admin-only setters. eth_call withdraw()/exit() from fresh address 0x...C0DE revert; myDividends(true) from fresh address = 0. No keeper/bounty/recipient-arg function anywhere in the surface."
+}

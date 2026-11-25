@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "xsigma",
+ "status": "dead_end",
+ "checked": "2026-11-21 run efd2d0eb scout. DefiLlama adapter projects/xsigma/index.js deleted from main; fetched from parent commit d9ed73ec (GitHub API): TVL = USDC/DAI/USDT held by SigThreePool 0x3333333ACdEdBbC9Ad7bda0876e60714195681c5 + staking/pool2 in SigMasterChef 0x98C32b59a0AC00Cd33750427b1A317eBcf84D0F7 + SIG 0x7777777777697cfeecf846a76326da79cc606517. All addresses confirmed via eth_getCode != 0x and working getters (explorer source: SigThreePoolProxy, SigMasterChef, SigToken, PeriodicDutchAuction 0xb843b122ac2ff261f425bf0f639b5718e25c0691, SharedVault 0x4c34a635c18149c4757de73f9a7d4a9ef4678116). Proxy owner()=0xd730d6e5d97f78101bde4045bbb946e0014947cc (also MasterChef devaddr). Only anyone-callable reward fns: SigThreePoolProxy.withdraw_admin_fees() (pays the fee excess to dutchAuction 0xb843.., not the caller; reverts now), exchange2 i->j swap cashback to tx.origin (needs >=1000 stables and >=30 SIG held; pot dust), MasterChef deposit/withdraw harvest (pays only the caller's own staked balance). Everything else onlyOwner/renounced. Verdict unpaid."
+}

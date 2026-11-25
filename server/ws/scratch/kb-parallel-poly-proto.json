@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "parallel_protocol_v2",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/mimo/index.js polygon entry (slug parallel-protocol-v2, url mimo.capital): 2 vault cores, both eth_getCode non-0x with a() answering. PAR VaultsCore 0x0a9202C6417A7B6B166e7F7fE2719b09261b400f (AP 0xa802ee4bd9f449295adb6d73f65118352420758a, config 0xcae2cae9a4384b196c0f1bae59724e0eb9a347e0, vaultsData 0xde1996189ee1857d79f1f2bebe2a4a2b200bcb44, 1381 vaults, 70 with debt ~3.8k PAR); paUSD VaultsCore 0xcABAbC1Feb7C5298F69B635099D75975aD5E6e5f (AP 0xb89ddc23168442c31792c16d8f352842a5855b88, 24 vaults, 0 with debt). Etherscan-verified source (VaultsCore.sol 0.6.12, same codebase as ethereum lead 388): only permissionless caller-paid functions are liquidate/liquidatePartial (liquidationBonus 3-10% by collateral from config, liquidationFee 0 on all 14+12 configs); deposit/borrow etc are user ops, upgrade/withdrawStableX onlyManager. No keeper/reward/refresh job that pays a caller on polygon (refresh only updates rates, no payment)."
+}

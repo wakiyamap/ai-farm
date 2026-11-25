@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "orion_money",
+  "status": "unmeasured",
+  "checked": "Historical DefiLlama adapter at https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/49fecb3423ae96005bde7489a6ae1b0aa6cc2367/projects/orion-money/index.js identifies saver proxies 0xefe0fed2b728b9711030e7643e98477957df9809 and 0xd9184981bbab68e05eafd631dd2f8cbaf47e3e13. Both have nonempty eth_getCode and owner() returns 0xbb533fca884e8ce9acd23f5f4e020f66bd490b4c. Explorer reports current implementations 0x776d9d8359a968b28b32efab14115ab2062ddbdb and 0xb586395242f805ea3d3d690264567c5c3bc746bc, but neither implementation has verified source or ABI. Historical proxy calls include takeProfit(address,address,uint256), withdrawLocal(address,uint256), and claim(bool). A fresh address calling takeProfit on first proxy reverts 'Ownable: caller is not the owner'; withdrawLocal(wUST,1) reverts SVR22; claim(false) on second proxy reverts FARM03. No-topic eth_getLogs over blocks 26430825-26481067 (2026-11-16 23:17:11 to 2026-11-23 23:17:11 UTC) returns 0 proxy events, while identical-shape no-topic control on ORION token 0x727f064a78dc734d33eec18d5370aef32ffd46e4 returns 54 events. No verified implementation ABI/source means other entry points cannot be ruled out."
+}

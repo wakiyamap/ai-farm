@@ -1,0 +1,9 @@
+# via etherscan
+_getRealTimeBorrowRateAndInterest(address) view -> (uint256,uint256)
+getDebtOf(address,address) view -> (uint256)
+getRates(address) view -> (uint256,uint256)
+getRatesAndInterests(address) view -> (uint256,uint256,uint256,uint256)
+getRealTimeBorrowRate(address) view -> (uint256)
+getRealTimeSavingsRate(address) view -> (uint256)
+getSyncedTotalDebts(address) view -> (uint256,uint256,uint256)
+previewRedeem(address,address,uint256) view -> (uint256,uint256)

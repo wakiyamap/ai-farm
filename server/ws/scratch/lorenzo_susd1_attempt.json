@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-lorenzo-susd1",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The sUSD1+ vault on BSC (proxy 0x4F2760B32720F013E900DC92F65480137391199b, impl 0x972c27ee69b19d7648cef365700c22713a9a31fd, source OTF-Contract repo) has no function that pays a caller: all public functions move the caller's own funds (NAV-accruing share vault, user deposit/withdraw flows) and every keeper operation (setUnitNav, resetUnitNav, updatePortfolios) is onlyManager. Nothing to harvest, settle or claim for a stranger; also barely active (2 withdrawals in 7 days).",
+ "numbers": "7d eth_getLogs scan, 41 windows x 5000 blocks, ~133,950,000-134,156,325 (relay research lane): WithdrawFinished=2 (tx 0x433b8a53ef6851db523eaf8925e8346e873c2e785fc8d6dd2b068eca8804c672 user 0x3dfa7d836dc7c9cadaf6470a43fbd15cdf2bff01 97.52M shares; tx 0x90a3d54de87311eb37e5d29dbd0eb932b93dc0c754faa5bbe61ef911db4f7f97 user 0xa2ba80d206734d6673784f40588ac5fe1cd698da 99.15M shares), PendingShares=0, ConfirmShares=0, DirectDeposit=0, Unsupply=0, WithdrawRequested=0; same-scan non-zero result is the control. Gross reward per call to a stranger = 0 USD. TVL $79.9M (candidate). Selector sweep: 55/63 repo fns present in impl bytecode, remainder resolve to custom errors/getters."
+}

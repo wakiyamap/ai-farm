@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-piedao",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "piedao",
+ "name": "PieDAO",
+ "category": "Indexes",
+ "tvl_usd": 274556,
+ "url": "",
+ "github": [
+  "pie-dao"
+ ],
+ "listed_days_ago": null,
+ "run_id": "f0bea6712f934eabb6560c17d086f732",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Oven.bake (harvest) is role-gated: fresh-address eth_call reverts NOT_CONTROLLER on DEFI++ oven 0x1d616dad (controller = EOA 0x0b69d09d...) and AUTH_FAILED (BAKER) on YPIE oven 0xAedec86; bake pays depositors not the caller (no tip); the one open fn, eject() on staking 0x6Bd0D8c8, pays 0 to the caller; 7d (blocks 26418040-26468295) no-topic scan of 10 piedao contracts: 62 logs all user events on DEFI++ pie 0x8d1ce361, 0 on ovens/staking (30d ovens also 0); TVL 274,556 USD",
+  "kb": [
+   "attempts:3589"
+  ],
+  "run_id": "f0bea6712f934eabb6560c17d086f732",
+  "at": 1795322573
+ }
+}

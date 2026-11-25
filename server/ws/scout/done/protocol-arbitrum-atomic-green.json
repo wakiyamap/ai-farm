@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-atomic-green",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1262,
+ "chain": "arbitrum",
+ "slug": "atomic-green",
+ "name": "Atomic Green",
+ "category": "Derivatives",
+ "tvl_usd": 83848,
+ "url": "https://atomic.green",
+ "github": null,
+ "listed_days_ago": 1262,
+ "run_id": "4bce5d086d4f417c83df368efd4705c9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "liquidate(uint256) on manager 0x8b7610 (impl 0xdd1a2d2d) reverts 'AccessManager: NA' from a fresh address; protocol dormant: 0 events in 7d across all 5 proxies (blocks 524688419 11-16 to 526688419 11-23; same-shape control 33 logs), last tx anywhere 2026-09-17, totalBorrowed dust (USDC 0, 0.011 WETH, 0.000405 WBTC), last liquidate ever 2022-11-10 (tx 0x06394941, 1.05M gas); supply/withdraw/claimReward only pay the caller's own yield (12,387 USDC accrued in USDC pool).",
+  "kb": [
+   "attempts:3962"
+  ],
+  "run_id": "4bce5d086d4f417c83df368efd4705c9",
+  "at": 1795403830
+ }
+}

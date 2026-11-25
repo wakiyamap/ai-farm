@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-mev-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 550,
+ "chain": "base",
+ "slug": "mev-capital",
+ "name": "MEV Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 52511,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 550,
+ "run_id": "631c215952a946f9ad453648317edaec",
+ "result": {
+  "verdict": "no_reward",
+  "line": "2 MetaMorpho v1.1 vaults: mevfUSDC 0x8773447e...9084 totalAssets 51300.38 USDC + mLCAP 0x45f8cc9a...179d 254.85 LCAP (~1257.72 USD, Morpho API 2026-11-22) = 52.5k TVL; no function pays a caller - skim(address) pays skimRecipient (not caller) and reverts ZeroAddress 0xd92e233d from fresh addr (skimRecipient=0x0 both vaults), 0 Skim events since creation (chain-wide 7d control = 1 event, topic0 from EventsLib source); both vaults 0 logs over 7d blocks 57873307 (2026-11-15) -> 60897309 (2026-11-22), address-only control Gauntlet Prime 3847 logs/50k blocks; gross 0 USD, no gas to spend",
+  "kb": [
+   "attempts:3804",
+   "protocols:1992"
+  ],
+  "run_id": "631c215952a946f9ad453648317edaec",
+  "at": 1795370302
+ }
+}

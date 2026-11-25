@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-near-intents",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 395,
+ "chain": "arbitrum",
+ "slug": "near-intents",
+ "name": "NEAR Intents",
+ "category": "Bridge",
+ "tvl_usd": 5251288,
+ "url": "https://near.com/",
+ "github": null,
+ "listed_days_ago": 395,
+ "run_id": "dc2b97d380ff4ea983da3bb114673524",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Arbitrum side is a passive bridge connector 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd (ABI: deposit payable, withdraw(nonce,token,receiver,amount,proof), hot_verify, owner withdrawFees); no function pays the caller - docs-listed NEAR Intents EVM addr 0x2CfF...2680 is an EOA; last-7-days activity: 1 deposit (tx 0x58123a6e...b28b), 0 paid to strangers; 1bp protocol fee and solver rewards accrue on NEAR (intents.near), TVL $4.89M not held in this connector (its USDC balance $148.6).",
+  "kb": [
+   "attempts:1786",
+   "protocols:443"
+  ],
+  "run_id": "dc2b97d380ff4ea983da3bb114673524",
+  "at": 1794932825
+ }
+}

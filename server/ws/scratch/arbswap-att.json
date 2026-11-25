@@ -1,0 +1,8 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-arbswap-amm",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Arbswap AMM on Arbitrum One is a vanilla Uniswap V2 fork (SwapFactory/SwapPair/SwapRouter, Arbswap-branded strings in deployed bytecode); it has no caller-reward function. The only unroled pair functions are mint (needs a deposit: stranger eth_call reverts 'Arbswap: INSUFFICIENT_LIQUIDITY_MINTED'), skim (LP money, skim type S) and sync; swap fees accrue passively to LPs and protocol fees to feeTo EOA 0xeae69ce09d8ca7244827bed2071eac6ebfa49420 (codeless, no claim fn). ARBS token and any chef are on Arbitrum Nova, not One.",
+ "numbers": "7d window blocks 524686718 (2026-11-16 07:42 UTC) -> 526744491 (2026-11-23 07:47 UTC) (eth_getBlockByNumber timestamps). Census of all 76 factory pairs: 1905 Swap events on 17 pairs (topic0 0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822, confirmed present in deployed pair bytecode; the verified-source event hash 0xb3e27736 is NOT in the code - approximate match). 1 Mint event (tx 0xe2c8ef00ad52e41b502be39729ab46adc2e1ac1c3b01ad6f2759029669f4a9b9, EOA 0x31057107c9fcaa824fbbaf7f2d7775c0299271f9 via router 0xd01319f4b65b79124549de409d36f25e04b3e551, an LP add, not a keeper payment). ARBS token 0xf50874f8246776CA4B89eEF471E718F70f38458F: 1 Transfer in 7 days (eth_getLogs). eth_call mint from 0x1111...1111 reverts (not role-gated); skim returns OK, pays 0 (no stray balance). Gas price 0x131e880 = 0.02 gwei -> ~0.01 USD per ~300k-gas call at WETH 1721.67 USD (coins.llama.fi 2026-11-23T07:57Z). TVL Arbitrum One 61,882 USD (api.llama.fi protocol/arbswap-amm 2026-11-23). DefiLlama yields: 0 arbswap pools on Arbitrum (no chef).",
+ "bot_id": null
+}

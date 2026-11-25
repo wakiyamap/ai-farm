@@ -1,0 +1,12 @@
+{
+  "run_id": "d17bdd08e07d4c7ca96894bb80b932b0",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-ethereum-telos-consilium",
+  "outcome": "scouted",
+  "kb_rows": ["protocols:1424", "attempts:3034"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "unpaid: Telos Consilium is 28 Euler v2 vaults (factory 0x29a56a1b, module 0x8ff1c814) created by 0x7054b25D/0x7d07BFdd; the only permissionless calls are liquidate() (0 Liquidate events in 7d and 90d across all 28 vaults, control no-topic scan 773 logs; 400 all-history, last blk 25416773 2026-06-28, repaid 31.88 USDT0, gross <=15% disc = 4.8 USD vs 1,395,475 gas = 3.63 USD at 1.62 gwei, ETH 1607.99) and convertFees() (pays feeReceiver 0x1b81ce5c, the curator, not the caller); fresh-address liquidate reverts E_ControllerDisabled, a state error not a role."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-arcadia-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Reward-paying functions on the Arcadia V2 Optimism LendingPools are gated: settleLiquidationHappyFlow/UnhappyFlow and auctionRepay are onlyLiquidator (LIQUIDATOR set at construction); startLiquidation is external but reverts IsNotAnAccountWithDebt (0x8276ded7) from a fresh address - only the indebted Arcadia Account itself may call it, the initiator argument (credited as realisedLiquidity, not sent) is who earns. Referrer fee on borrow was 0.0 in all 11 borrows last 7d; updateInterestRate() is an empty stub; Compounder/Rebalancer/YieldClaimer initiator-fee class already PERMISSIONED per protocols:276. 0 auctions paid out in the last 7 days.",
+ "numbers": "TVL OP 218,786 USD (api.llama.fi 2026-11-18). Contracts: registry 0xDa14Fdd72345c4d2511357214c5B89A919768e59 (allAccountsLength()=359), wethPool 0x803ea69c7e87D1d6C86adeB40CB636cC0E6B98E2, usdcPool 0x3ec4a293Fb906DD2Cd440c20dECB250DeF141dF1 (eth_getCode 23,855 B each). Last 7d eth_getLogs both pools (sample of 550 of 550 logs, control: same query returned InterestSynced/PoolStateUpdated/Borrow/Withdraw): 0 AuctionStarted, 0 AuctionFinished, 0 Repay; 11 Borrow all fee=0.0, referrer=0x0000. Last 90d topic-filtered: 8 auction events (last 155824271, ~45d ago). Sampled 2 wethPool auctions: initiationReward 0.00286 WETH (~$5.05) and 0.000458 WETH (~$0.81) at ETH $1765.89 (coins.llama.fi); gas per tx ~9.3e-9 ETH = ~$0.00002 (blockscout fee, tx 0x8c9ab225...)"
+}

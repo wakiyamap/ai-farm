@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-bundles",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. Bundles.fi v2 (index + UniV2-fork AMM): Index.rebalance (sel 0x98880506) is callable by anyone with an IIndexCallee callback; a stranger EOA 0xee5f1096950ee296df87fe83c6726521d8c8259f (not index owner) took it 8 times in the last 7 days, gross 0.50-7.32 USD per call (ETH forwarded in-tx), vs ~$0.05 gas. All other candidate functions are self-claims or role-gated; the AMM pairs had zero swaps in 7 days. Revenue is real but tiny (~18 USD/week protocol-wide).",
+ "numbers": "7d no-topic eth_getLogs on 3 indexes + 11 pairs (block 0x192f57e..0x193ba5e): 10 logs = 8 Rebalanced (topic0 0x619b96ef.. from receipt, matches IIndex.sol) on e202345c (5) / d19d6750 (3), 1 Burn + 1 Sync on BUN/ETH pair, 0 Swap/Mint. 5 of 8 traced (debug_traceTransaction callTracer): ETH to caller 0.000317/0.000493/0.000473/0.001246/0.004595 ETH = $0.50/0.79/0.75/1.99/7.32; gasUsed 360874-442199, effectiveGasPrice 0.0771 gwei (receipt of 0xc5e36d37) = $0.045/call at WETH $1593.27 (coins.llama.fi 2026-11-20 20:42 UTC). Rebalance BUN fee (paid BY caller into index): 132-1838 BUN; BUN $0.0071 derived from pair 0x9dd78ea2b7a92b6cb5d4a495dac34f8641070ceb reserves (604,950 BUN vs 2.703 WETH); coins.llama.fi has no BUN price. indexesLength()=3, allPairsLength()=11."
+}

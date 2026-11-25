@@ -1,0 +1,19 @@
+{
+ "id": "actor-hyperevm-0x0da1f1549e9377b566f52268800e51826dccde3b",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "hyperevm",
+ "address": "0x0da1f1549e9377b566f52268800e51826dccde3b",
+ "run_id": "6b8a07e196284535842f59964e8e6c5c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "EOA owner+sole caller of its private executor 0x1438e66b (0x9d410c42 is onlyOwner: eth_call from a fresh address reverts 0x30cd7471); ~15.6 flash-loan USDC arb tx/day (sample of 25 over 1.6 d, 4 FAILED) + ~5-7 heartbeat self-calls; gross $0.075 USDC/call (avg of 4, exact spread forwarded in-tx to its own treasury 0x18c6a0c8), gas $0.054/call (1.6-1.9M gas, HYPE $68.77 DefiLlama) => net ~$0.3/day; EOA receives nothing itself - own arbitrage, not a protocol job",
+  "kb": [
+   "attempts:1552",
+   "actors:212"
+  ],
+  "run_id": "6b8a07e196284535842f59964e8e6c5c",
+  "at": 1794883900
+ }
+}

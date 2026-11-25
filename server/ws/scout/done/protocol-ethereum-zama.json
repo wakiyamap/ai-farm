@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-zama",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 197,
+ "chain": "ethereum",
+ "slug": "zama",
+ "name": "Zama",
+ "category": "Privacy",
+ "tvl_usd": 78790090,
+ "url": "https://www.zama.org/",
+ "github": [
+  "zama-ai"
+ ],
+ "listed_days_ago": 197,
+ "run_id": "14d54ba77f464a92b476223bfe7bbd7e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No function pays a caller: claimRewards(address)/release(address) on ProtocolStaking pools (KMS 0xe9b176cc, Copro 0x7147485b) are permissionless (eth_call from fresh addr ok) but mint ZAMA to the staker's recipient; only ELIGIBLE_ACCOUNT_ROLE whitelisted stakers earn (17 active in 7d; emissions 10.46+6.97 ZAMA/s = 7.7k/day at bash.0582). 0 RewardsClaimed in 7d (last batch 8.9d ago: 2.17M ZAMA = 26,458 gross, bash.11 gas, tx 0x525ea6d5); 286 stake/unstake/release events. Registry + 33 cToken wrappers (8.8M reserves): no fee/reward functions in source.",
+  "kb": [],
+  "run_id": "14d54ba77f464a92b476223bfe7bbd7e",
+  "at": 1795186234
+ }
+}

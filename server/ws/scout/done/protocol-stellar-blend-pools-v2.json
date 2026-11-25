@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-blend-pools-v2",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 570,
+ "chain": "stellar",
+ "slug": "blend-pools-v2",
+ "name": "Blend Pools V2",
+ "category": "Lending",
+ "tvl_usd": 98652948,
+ "url": "https://www.blend.capital",
+ "github": null,
+ "listed_days_ago": 570,
+ "run_id": "323f383867134e1b9e9a52be0958bd0f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "blend-contracts-v2 audit: permissionless fns (pool update_status/gulp/gulp_emissions/new_auction/del_auction/bad_debt, backstop distribute) pay the caller nothing; BLND rewards are self-claimed (claim from.require_auth); interest/bad-debt auction filler pays 120% premium, liquidator bonus is liquidation (not built). Backstop CAQQ...3IM7 and factory CDSY...4QSU: 0 events over 60 d (64580000-65614100, control USDC CCW67...MI75 returns events); pool ids not enumerable on-chain so 7-d per-function counts missing.",
+  "kb": [
+   "attempts:3746",
+   "protocols:1952"
+  ],
+  "run_id": "323f383867134e1b9e9a52be0958bd0f",
+  "at": 1795358021
+ }
+}

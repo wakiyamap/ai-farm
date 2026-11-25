@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-dopple-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only reward-paying keeper fn on the KUSD vault (0xa275769Fb6fF34A1a01C8CE61D0182f5d36AD27A) is recollateralizeShare (recollatFee 0.6%) and it reverts 'Not whitelisted' from a fresh address; stepDownTCR reverts 'Sender is not a ratio setter'; rebalanceVault(0) reverts 0x. buyBackShare is callable by anyone but reverts 'No enough Share' (getECR()=0, buybackFee()=0, empty pot). The 8 SyncSwap-style pools expose only user swap/liquidity fns, no keeper reward. Protocol app is dead (deadUrl=true).",
+ "numbers": "TVL 160.6k USD (llama, ts 1795136243). 7d eth_getLogs over 9 addrs blocks 134350579-134622849 = 35 logs, all user pool swaps (router 0x1a3304cb...), 0 from the vault proxy (same-scan control returned logs, so vault zero is real). recollatFee()=6e15 (0.6% on 1e18); getECR()=0; buybackFee()=0; totalGlobalSynthValue~0x3581bea4. eth_call reverts from 0x...cafe0001: stepDownTCR='Sender is not a ratio setter', recollateralizeShare='Not whitelisted', rebalanceVault(0)=0x revert, buyBackShare='No enough Share'. Gas on bsc ~0.0001 BNB/call."
+}

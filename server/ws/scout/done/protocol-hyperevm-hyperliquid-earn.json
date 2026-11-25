@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-hyperliquid-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 26,
+ "chain": "hyperevm",
+ "slug": "hyperliquid-earn",
+ "name": "Hyperliquid Earn",
+ "category": "Lending",
+ "tvl_usd": 1452866545,
+ "url": "https://app.hyperliquid.xyz/earn",
+ "github": null,
+ "listed_days_ago": 26,
+ "run_id": "a3f61ef736a34b92b8336645fca20907",
+ "result": {
+  "verdict": "no_reward",
+  "line": "HyperCore-native lending (TVL $1.48B); HyperEVM surface is read precompiles 0x812/0x80c (eth_getCode 0x, eth_call answers) + CoreWriter bridge 0x3333..3333 with one function sendRawAction (lending Supply/Withdraw user actions, 320 logs in last 3600 blocks, pays caller 0, ~47k gas = $0.0004 at HYPE $70.23); USDC reserve 642.8M supplied / 397.6M borrowed, 2.78% APY accrues passively (hourly index), liquidations executed by HyperCore itself - no callable EVM function pays the caller",
+  "kb": [
+   "attempts:1586"
+  ],
+  "run_id": "a3f61ef736a34b92b8336645fca20907",
+  "at": 1794891486
+ }
+}

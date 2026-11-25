@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-spark-liquidity-layer",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 592,
+ "chain": "optimism",
+ "slug": "spark-liquidity-layer",
+ "name": "Spark Liquidity Layer",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 1017816,
+ "url": "https://spark.finance/",
+ "github": null,
+ "listed_days_ago": 592,
+ "run_id": "c8b1ada3c28c4c08a2cbeaed0374e0aa",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: OP contracts = ALMProxy 0x8766..36fB (doCall onlyRole(CONTROLLER), dormant since ~2025-05, 14.9k USDC) + PSM3 0xe0F9..af62 zero-fee USDC/USDS/sUSDS converter (1.00M USDC); 148 swaps in 7d, 125 sent by Spark's own sUSDC vault 0xcf9326e2, 23 by strangers at exact face rate 1.1158 USDC/sUSDS (e.g. 1,835 sUSDS -> 2,047.86 USDC, tx 0x63fd4e63) with zero premium; gas ~$0.21/call (114k gas @ 0.001 gwei, ETH $1,800); Executor.execute() open but pays 0, 0 executes in 7d (actionsSetCount 5 all-time)",
+  "kb": [
+   "attempts:1964",
+   "protocols:570"
+  ],
+  "run_id": "c8b1ada3c28c4c08a2cbeaed0374e0aa",
+  "at": 1794970376
+ }
+}

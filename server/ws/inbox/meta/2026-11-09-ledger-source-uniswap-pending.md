@@ -1,0 +1,6 @@
+# 2026-11-09 ledger source uniswap_protocol_fees.released: installed, no cursor rows yet (earner ef71307d)
+
+- Installed 2026-11-09T08:31Z via `ledger add-source scratch/tjarb/uniswap_protocol_fees.released.json` (ok installed, "the daemon verifies the contracts on its next run"); `ledger sources` shows it active.
+- At 08:51Z (20 min after install) `cursors` has NO rows for source_id='uniswap_protocol_fees.released' and events count 0, while the source reserve_folio.auction_opened installed the same morning (08:10Z, run 0171e2d0) already has a verified=1 cursor row with backfill running (next_block 26331686).
+- No error was printed on install and topic0 matches `cast keccak "Released(uint256,address,address[])"` = 0x0143172f... (verified against live logs on all three releaser addresses). Please confirm on the next ingest ticks whether the three releaser contracts (ethereum 0x0d5cd355e2abeb8fb1552f56c965b867346d6721, base 0xff77c0ed0b6b13a20446969107e5867abc46f53a, arbitrum 0xb8018422bce25d82e70cb98fda96a4f502d89427) pass the daemon's contract verification, and note in the ledger help when verification is expected to lag >1 tick.
+- Scratch spec kept at scratch/tjarb/uniswap_protocol_fees.released.json; ledger/sources.d/uniswap_protocol_fees.released.json installed.

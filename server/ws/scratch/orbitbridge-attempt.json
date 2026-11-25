@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-orbit-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: The public earn() and rebalance() paths on all five Ethereum farms pay the fresh caller zero in current call traces. The vault is deactivated, and bridge withdrawals require validator signatures.",
+  "numbers": "Window 2026-11-16 21:36:11 UTC block 26430321 to 2026-11-23 21:35:59 UTC block 26480562 (eth_getBlockByNumber timestamp search). Explorer txs sorted recent: 0 direct farm transactions in this 7d window across five farms; same-shape control vault 0x1bf68a9d1eaee7826b3593c20a0ca93293cb489a has two 2026-11-21 direct transfers (tx 0x0da676d3cab70474943590c8ae04b0abc3dc588f1a91a9942d74e51f81b9b7cf, 0xa82c356a0dba7c8c13fb9f66d132d4e2dffcd446aeef1f1ca8f99b0e527b7a41). Five of five farms' debug_traceCall earn() from 0x...dEaD: 0 native/known ERC20 transfers to caller, gasUsed 1,212,472-1,291,523; rebalance(): 0 transfers, gasUsed 191,433-254,702. Gross to caller 0 ETH/USDT/DAI/USDC/WBTC = $0. ETH baseFee 0.113010617 gwei at block 26480563; earn() base-fee gas $0.236-$0.251 using ETH $1,722.51 at 2026-11-23 21:35:11 UTC from coins.llama.fi/coingecko:ethereum, before priority fee. Vault isActivated()=false, required()=6 (eth_call)."
+}

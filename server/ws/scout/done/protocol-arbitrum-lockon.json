@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-lockon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1109,
+ "chain": "arbitrum",
+ "slug": "lockon",
+ "name": "LOCKON",
+ "category": "Indexes",
+ "tvl_usd": 100124,
+ "url": "https://lockon.finance",
+ "github": null,
+ "listed_days_ago": 1109,
+ "run_id": "a24aded2e080424fb2f686e207bcb7e1",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Set v2 fork (controller 0xA36c2B06aFc96Ffd52d148Ed6acbB9fe2Ab864Be, 4 sets, TVL 98,448 USD): only keeper fn TradeModule.trade 0x4951133b9429ac86ea894b428ff6409b08a026a6 is onlyManagerOrOperator with 1 operator - 86 txs in 7d (blocks 523,303,584-525,404,512), all from 0x38350b623713ae24884a7b2396c4d903fc9136ae, 0 in last 24h; stranger eth_call reverts OnlyManagerOrOperator; pays 0 (0.2% fee goes to feeRecipient, not caller); public issue/redeem 0 calls in 7d; gas 0.014-0.032 USD/call.",
+  "kb": [
+   "attempts:2231"
+  ],
+  "run_id": "a24aded2e080424fb2f686e207bcb7e1",
+  "at": 1795028992
+ }
+}

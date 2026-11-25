@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-wombat-exchange",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1663,
+ "chain": "arbitrum",
+ "slug": "wombat-exchange",
+ "name": "Wombat Exchange",
+ "category": "Dexs",
+ "tvl_usd": 139081,
+ "url": "https://www.wombat.exchange/",
+ "github": [
+  "wombat-exchange"
+ ],
+ "listed_days_ago": 1663,
+ "run_id": "60ce32d4b90b40119705da440f305c30",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Wombat v1 arbitrum winding down (TVL 139,045 USD): 21 pools had only 2 txs in last 7 days, both user withdraws (overnight 0x98ea8aad.. 2026-11-15, crossChainPool 0x95c94f86.. 2026-11-16); pools expose only user ops; the sole permissionless claim MasterWombatV3.multiClaim (0x62a83c67..) pays a stranger 0 (eth_call from fresh addr, reward=0) and had 0 txs in 7 days (last 2026-11-07); veWom (0x488B34F7..) has no claim fn, no tx since 2026-05-26. No keeper/bounty function.",
+  "kb": [
+   "attempts:2485",
+   "protocols:994"
+  ],
+  "run_id": "60ce32d4b90b40119705da440f305c30",
+  "at": 1795085693
+ }
+}

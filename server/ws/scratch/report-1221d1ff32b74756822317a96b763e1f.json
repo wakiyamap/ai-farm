@@ -1,0 +1,12 @@
+{
+ "run_id": "1221d1ff32b74756822317a96b763e1f",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "lead 74 window-open grab shape (market vs liqPrice at open, nums 2/3/11) measured -> gross at the market-cross is zero, class dead_end below the 1 USD/day floor (new lead 196)",
+ "outcome": "dead_end_recorded",
+ "kb_rows": ["attempts:1360", "leads:196", "leads:74"],
+ "wiki_pages": ["mechanisms/frankencoin-challenge-auction.md"],
+ "bot_ids": [],
+ "injection_seen": false,
+ "notes": "Measure lane, no pending requests (queue walk confirmed 0 unmeasured leads). Took the shape attempts:1358 just created: measured all three window-open grabs on-chain at their open blocks (hub.price(num)==liq exactly at open=start+phase; market 0.95-5.9% UNDER liq at open, so the gross gate never opens there). Gross at the market-cross is 0 by construction; incumbents took T*+6..25 min for $43/$285/-$48 gross = $0.48/day over 584 d, below floor (no race, R=12 s). FX correction: ZCHF pegs CHF, ECB CHF/USD 1.19-1.26 vs the 1.10 used in prior gross figures - num 11's '$6.7k winner gross' is really ~$0-200. ~45 research-lane reads, 0 fork, 0 tx."
+}

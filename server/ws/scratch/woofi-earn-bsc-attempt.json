@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-woofi-earn",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. WOOFi Earn BSC (Super Charger vaults, TVL $447,640) has one keeper-ish action per vault per week: startWeeklySettle()+endWeeklySettle(), both onlyAdmin (owner or WooAccessManager.isVaultAdmin) - eth_call from a fresh EOA reverts 'WooSuperChargerVault: !ADMIN'. All 14 settle calls in the last 7 days (7 vaults x start+end) came from one WOOFi EOA 0x3668ba88a32332269483a0eb2406a7f8149b486d, and the source transfers nothing to the caller, so even a permitted caller is unpaid. Functions anyone can call (reserve-Vault earn(), VoidStrategy harvest(), WooLendingManager accureInterest()) pay 0; no reward pot exists. Yield goes to depositors from interest charged to WOOFi's own lending borrower.",
+  "numbers": "settle events 7d: 14 (7 vaults x start+end), 1 caller 0x3668ba88..., scan eth_getLogs blocks 133567168-134373568 @0.75s, USDT v2 settle tx 0xe1196f1014d8d963d702b769bb629ea7a6b7f87eb4137d6367b2acbf4951bda0 gasUsed 105616 @0.05 gwei = $0.003 gas (BNB $580.94, fi-api.woo.org 2026-11-19); gross reward per call $0 (no transfer to caller in source, WooSuperChargerVaultV2.sol via Sourcify match 6941877); BSC TVL $447,640 (api.llama.fi currentChainTvls 2026-11-19)"
+}

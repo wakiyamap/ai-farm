@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-rysk-v12",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: Rysk V12 ethereum is an RFQ options book run entirely by the operator EOA 0x65802cc308aea8bb913882696c2df6bf23ff9e48 (Rysk API, same as hyperevm row 1858); every funds-moving function (Rysk.ingresso_*, MMarket.operate, Controller.operate, MarginPool.farm) reverts from a fresh address and the only permissionless writes pay nothing. Users pay a signed gasFee TO Rysk (gasFeeRecipient EOA), nobody pays a caller.",
+  "numbers": "Fresh-address eth_calls 2026-11-20: ingresso_OTCTrade/transferAsset revert 'bad operator' (selfServiceAllowed=false), Controller.operate 'C6', MarginPool.farm 'Sender is not farmer' (farmer=0x0). 7d (blocks 26408564-26458964): 47 OtokenCreated on factory 0x73ec54ab... (topic0 from receipt), 5 OTCTradeExecuted on Rysk proxy (topic0 0x885aa112... from keccak, no-topic scan showed no unknown topic0), 620 MMarket logs; callers: 5/5 sampled OtokenCreated receipts and 25/25 latest proxy txs from operator EOA 0x65802cc3... Gas 1.35-1.4M @ 0.15-0.55 gwei = 0.33-1.25 USD at ETH 1609.43 (coins.llama.fi 2026-11-20 21:23:57Z). MarginPool USDT 3,728,910, MMarket USDT 103,972 (USDT 0xdac17f958d2ee523a2206206994597c13d831ec7, decimals 6 on chain); DefiLlama Ethereum TVL 9.16M (api.llama.fi/protocol/rysk-v12)."
+}

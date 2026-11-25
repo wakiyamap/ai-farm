@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-rubicon",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Rubicon on base is 3 systems (classic MatchingMarket-fork order book, Aquila V2 UniV2 fork, CLMM V3 UniV3 fork) and none exposes a function anyone can call that pays the caller or a recipient: the fork ABIs have no keeper/reward entrypoint, and the market's only stranger-callable maintenance fn del_rank(uint256) returns true but moves no tokens. The order book is dead anyway (0 txs in 7d, last one 2026-09-15). Same dead end as optimism rubicon (protocols:1069): no bump/kill bounty in this fork family.",
+  "numbers": "market proxy 0x9A5215E96E1185d4e6002C95C3Cc0aB6eEaD354F impl 0x78f8ac461b4602083d652410f74a2b6f2b69323a (verified RubiconMarket.sol, explorer source base); del_rank(1) eth_call from fresh 0x1111..dEaD = true, estGas 45,409; gas price 0.006011 gwei (eth_gasPrice 0x5bba0f), ETH $1,723.79 (coins.llama.fi 2026-11-23 12:00 UTC) -> gas ~$0.0005, payout 0. Last market tx 0x94f4fa68b8faea1d28663d2ab94db1686a680c18d4c69077809543562ad24880 ts 1789511943 (2026-09-15); 0 market txs in 7d window (Blockscout txs listing; control: older txs returned). Aquila factory 0xA5cA8Ba2e3017E9aF3Bd9EDa69e9E8C263Abf6cD and CLMM factory 0xB5E5A9e628FEF819150A6E5127aB481cee5d6Ca9 verified: standard UniV2/UniV3 fork ABIs, no reward fns. getFeeBPS()=2 getter control answered."
+}

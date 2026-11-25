@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-el-dorado-exchange",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1440,
+ "chain": "bsc",
+ "slug": "el-dorado-exchange",
+ "name": "El Dorado Exchange",
+ "category": "Derivatives",
+ "tvl_usd": 29049,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1440,
+ "run_id": "74783821149c471a85035256d39da092",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidatePosition on 0xF1D7..35a9 open-access (liq-mode off) pays 5 USD in collateral but getKeys()=0 positions and 0 logs on all 3 BSC vaults in 7d (blk 133,876,000@2026-11-16 -> 135,216,291@2026-11-23, topicless, USDT control 14,713); last liq 2026-11-10 paid EOA 0xed20..2358 6.741e-05 BTCB ~5 USD, gas 453k x 0.05gwei = 0.013 USD (BNB 559.16 llama 11-23); 2 older vaults role_gated (inPrivateLiquidationMode=true); pool 29k USD",
+  "kb": [
+   "attempts:4011",
+   "protocols:2143"
+  ],
+  "run_id": "74783821149c471a85035256d39da092",
+  "at": 1795414430
+ }
+}

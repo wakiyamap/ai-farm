@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "anchorswap",
+  "status": "dead_end",
+  "checked": "Contracts from DefiLlama registries/masterchef.js entry 'anchorswap' (api.llama.fi/protocol/anchorswap has no projects/anchorswap adapter, 404). MasterChef ALA-farm 0x23f7F3119d1b5b6c94a232680e2925703C4ebbF5: eth_getCode 10,355 bytes, Sourcify full match, getters answer (poolLength()=17, anchor()=0x4aac...7a9f, anchorPerBlock()=0, anchorReferral()=0x42da...bfc7). ANCHOR token 0x4aac18De824eC1b553dbf342829834E4FF3F7a9F: Sourcify verified, name()='AnchorSwap Token', symbol()='ANCHOR'; 62-entry ABI is ERC20+checkpoints/delegate+owner update* only, no caller-paying fn. AnchorReferral 0x42da818171a8b58a98771f4b99ea0175f9f7bfc7: 3,046 bytes of code, not on Sourcify, no GitHub (github null), website deadUrl=true. Full MasterChef ABI (Sourcify v2): no reward/bounty/claim function; from fresh address eth_call massUpdatePools() and updatePool(1) succeed paying nothing, add(...)/updateEmissionRate(1) revert 'Ownable: caller is not the owner'. Verdict no_reward: nobody-callable caller-paying function exists."
+}

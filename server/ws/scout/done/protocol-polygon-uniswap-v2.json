@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-uniswap-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "polygon",
+ "slug": "uniswap-v2",
+ "name": "Uniswap V2",
+ "category": "Dexs",
+ "tvl_usd": 18602629,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "dc376b3d12ac41658ec25edbb8a1b111",
+ "result": {
+  "verdict": "unpaid",
+  "line": "canonical V2 core (factory 0x9e5A52f57b3038F1B8EeE45F28b3C1967e22799C verified UniswapV2Factory, 49,936 pairs, feeTo 0xc6Ae..f70a tokenJar): the only permissionless pay function Pair.skim(address) runs from a stranger (no role revert) but pays 0 - pot 0 on 10/10 sampled pairs, 0 Skim events chain-wide in 7d (blocks 97.17M-97.58M; control 5,329 Swap logs same topic-only shape; 7 majors logged 1,815 Swaps); skim gas ~55k x 281.68 gwei = 0.0155 POL = $0.0013 at POL $0.0824 (coins.llama.fi); same shape as arbitrum/base/bsc siblings (attempts 2401/2405/2409)",
+  "kb": [
+   "attempts:2414"
+  ],
+  "run_id": "dc376b3d12ac41658ec25edbb8a1b111",
+  "at": 1795070183
+ }
+}

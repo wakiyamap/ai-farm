@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-squadswap-wow",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. SquadSwap WOW is a PancakeSwap/Uniswap V3 fork ('Changeable V3', adjustable fee tiers via an owner-gated PoolManager). Factory, pool, PoolManager and position-manager ABIs expose only standard V3 user actions: swap/mint/burn/collect pay the LP or the NFT owner, collectProtocol pays the factory owner; no function pays a stranger for calling. LP fee revenue exists but goes to capital providers, not to callers.",
+  "numbers": "TVL $135,430 (api.llama.fi 2026-11-18). Factory 0x10d8612D9D8269e322AB551C18a307cB4D6BC07B: eth_getCode 4,314-byte code; feeManager()=0x5AF85B993645aF4E530f93721653fb9B6A424B00, owner()=0x67b636a0815b3e5f8072396253d6436a30b23ef3 (eth_call). BSC block time 0.466 s (blocks 0x7fff600..0x8005608 timestamps) -> 7 d = 1,296,741 blocks. Swap events on 5 top pools (SQUAD/WBNB fee100/2500/10000, USDC/WBNB fee100/500, found by getPool probe): 98 in 14 evenly spread 5k-block chunks (~5% of the week) -> ~1-2k swaps/wk extrapolated (sample, not census); 2 swaps in the last 205k blocks (~26 h). Control (same query shape, same lane): 10 NPM Transfer logs in one chunk. Sources: docs.squadswap.com llms-full.txt contracts table, nuthatch-org/squadswap-wow-v2-bsc README, DefiLlama-Adapters registries/uniswapV3.js."
+}

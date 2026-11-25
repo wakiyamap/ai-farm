@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-bmx-classic-perps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1160,
+ "chain": "base",
+ "slug": "bmx-classic-perps",
+ "name": "BMX Classic Perps",
+ "category": "Derivatives",
+ "tvl_usd": 57802,
+ "url": "https://www.bmx.trade/",
+ "github": null,
+ "listed_days_ago": 1160,
+ "run_id": "3323f50dfd71404e88a299d6b8825fd6",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "mint/redeem-at-vault-price arb pays strangers: 76 vault txs in 7d (blocks 58014261-61038261, 59 BuyUSDG + 71 SellUSDG, callers 0xc0ffee... vanity arbs), ~6.6 USD/7d to the larger of 2 operators and 40 takes (attempts:3816), gas ~0.02-0.09 USD/call (sample receipt 1894258 gas @ 0.028 gwei x ETH 1711.27); keeper side closed: liquidatePosition sel 0xde2ea948 behind isLiquidator whitelist (inPrivateLiquidationMode()=1) with 0 LiquidatePosition events in 7d; lead 411 measured, bot trial-wblt-nav-base live",
+  "kb": [
+   "attempts:3933",
+   "protocols:2084"
+  ],
+  "run_id": "3323f50dfd71404e88a299d6b8825fd6",
+  "at": 1795398629
+ }
+}

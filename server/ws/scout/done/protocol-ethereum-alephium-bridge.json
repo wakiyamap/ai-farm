@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-alephium-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1094,
+ "chain": "ethereum",
+ "slug": "alephium-bridge",
+ "name": "Alephium Bridge",
+ "category": "Bridge",
+ "tvl_usd": 196825,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1094,
+ "run_id": "906fe626c4344ef284c703c7d0af10ef",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Wormhole-style TokenBridge 0x579a3bde...dd43: completeTransfer(bytes) is public (dummy eth_call reverts on VAA parse, not role) but paid 0 to strangers in 7d: 20/20 calls (blocks 26412949-26463205, 2026-11-14\u219211-21, Blockscout+receipts) were self-claims with recipient==caller, no arbiterFee paid; gas 152-173k @0.241 gwei \u2248 0.06-0.07 USD/call (ETH 1639.59 USD llama 11:30 UTC)",
+  "kb": [
+   "attempts:3300"
+  ],
+  "run_id": "906fe626c4344ef284c703c7d0af10ef",
+  "at": 1795261130
+ }
+}

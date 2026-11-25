@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-dexalot-portfolio",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 822,
+ "chain": "arbitrum",
+ "slug": "dexalot-portfolio",
+ "name": "Dexalot Portfolio",
+ "category": "Bridge",
+ "tvl_usd": 1245412,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 822,
+ "run_id": "dce3f72bcf4941eea916d8a43df8a57e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PortfolioMain 0xf059..DD92 v2.7.0 + PortfolioBridgeMain 0x246c..9634 (arb TVL $1.35M): all payout fns role-gated (collectBridgeFees/collectNativeBridgeFees/refundNative=DEFAULT_ADMIN, processPayload=BRIDGE_PROVIDER_ROLE 0x765d9c20, all AccessControl-revert for stranger eth_call); 7d 454 PortfolioUpdated = 339 deposits (caller pays 137422624639406 wei ARB fee=$0.0000177 + $0.0000015 gas, gets $0) + 115 withdrawals all delivered by one relayer 0x7ddb0773.. paying own 162k gas (~$0.0000004), receiving $0 on arbitrum: gross $0.00 to any caller.",
+  "kb": [
+   "attempts:2108"
+  ],
+  "run_id": "dce3f72bcf4941eea916d8a43df8a57e",
+  "at": 1795000845
+ }
+}

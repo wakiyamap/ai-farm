@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-pinkswap",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. PinkSwap is a UniV2-fork DEX (factory 0x7D2Ce25C28334E40f37b2A068ec8d5a59F11Ea54) + Pancake-v1-style MasterChef (0xe981676633dCf0256Aa512f4923A7e8DA180C595) paying PINKS to LP stakers. The only anyone-callable functions are massUpdatePools()/updatePool(pid) which pay the caller nothing, and deposit/withdraw/emergencyWithdraw which pay msg.sender himself; no third-party claim/harvest, no keeper bounty. 7d events on the chef: 0 (nothing happened at all; last pool touch block 123333930, ~2026-09-22). Same verdict class as rocketswap-base and alien-base-v2.",
+ "numbers": "MasterChef 7d events = 0 over blocks 133290000-134633649 (281 chunks x 4800 blk eth_getLogs, 0 errors; control PancakeV2 factory same shape 4800-blk chunk = 83 logs). massUpdatePools gas 130,184 (eth_estimateGas from fresh address), gasPrice 0.05 gwei (eth_gasPrice) = 6.51e-6 BNB = 0.0037 USD at BNB 566.46 USD (coins.llama.fi ts 1795149916); gross per call 0 USD. pinksPerBlock 104,048 PINKS (0x16087098ac64e9e70000/1e18), totalAllocPoint 3600, poolLength 7. Chef PINKS balance 2.40e14 PINKS ~ 12.6k USD (PINKS 5.24e-11 USD from pair 0x61c960d033f1efe46bc7b1110ba8c4e60dd2017 reserves 11.50 WBNB / 1.243e14 PINKS). Factory allPairsLength 168, PairCreated 0 in 3 sampled 4800-blk chunks over 7d. TVL 426,005 USD (candidate) / 413,836 (api.llama.fi)."
+}

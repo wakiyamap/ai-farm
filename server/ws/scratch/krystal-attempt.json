@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-krystal-auto-farm-vault",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: Auto-Farm vault management and legacy harvest functions require the owner, admin, or a whitelisted automator. Fresh-address calls to sampled deployed vaults reverted Unauthorized().",
+  "numbers": "Ethereum: 1 Auto-Farm factory + 5 legacy factories from DefiLlama krystal adapter; 3 sampled vaults with nonempty code and answering vaultOwner(). Fresh-address eth_call: private sweepNativeToken(0), current legacy harvest, old clone harvest: 3/3 revert 0x82b42900 (Unauthorized()). Seven-day public reward count/gross/gas: not applicable because these entry points are role gated; no zero claim. Source: Etherscan verified PrivateVault 0x34c1b3f20c83f0d959ea8ff5a6d37960bd2362e3 and legacy Vault implementations returned by five factory vaultImplementation() getters, read 2026-11-23 20:19 UTC."
+}

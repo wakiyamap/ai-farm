@@ -1,0 +1,20 @@
+{
+  "id": "moonwell_eth.liquidate",
+  "protocol": "moonwell",
+  "kind": "liquidation",
+  "chains": {
+    "ethereum": [
+      "0x636080eb65F1b665b646f47D31f21901cDAaeE9F",
+      "0xE655790552C68F2871Eb44B2cFe3dcFE6A63e62E",
+      "0xb85Ca1decc4971F8094DA7676F8b71002a9590C4",
+      "0xeddC25B67D474EEEcFA4F69227b81D870C467011",
+      "0x89FE7F84264013Adbd20e31aa3D0B2Cb7c938E33",
+      "0x73269F35fbA4BECbeD896Cc0e010aD8417e9AEd4"
+    ]
+  },
+  "event": "LiquidateBorrow(address,address,uint256,address,uint256)",
+  "topic0": "0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52",
+  "indexed": [],
+  "data": ["liquidator", "borrower", "repayAmount", "mTokenCollateral", "seizeTokens"],
+  "actor_field": "tx_from"
+}

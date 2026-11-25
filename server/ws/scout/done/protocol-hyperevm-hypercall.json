@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hypercall",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 137,
+ "chain": "hyperevm",
+ "slug": "hypercall",
+ "name": "Hypercall",
+ "category": "Options",
+ "tvl_usd": 884184,
+ "url": "https://hypercall.xyz/",
+ "github": null,
+ "listed_days_ago": 137,
+ "run_id": "2e0f5e836ea24cc99ab5911b11525059",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Exchange 0xE6b7FaA216cabb2b38B392f577C9c826378b2240 executeUserDirective/executeRsmDirective are SEQUENCER_ROLE-only (sample of 25 of 25 Exchange txs over ~24h all from sequencer 0x56a2924217C91EB4d6989Cf4C7b4dF03020E8944; fresh-address eth_call reverts); anyone-callable Factory.createAccount/Router.deposit pay IN ~0.0218 HYPE (~1.51 USD at HYPE 69.18, coins.llama.fi), 0 out; on-chain auctioneer not configured; gas 0.1 gwei (~0.001-0.003 USD/call).",
+  "kb": [
+   "attempts:1647",
+   "protocols:341"
+  ],
+  "run_id": "2e0f5e836ea24cc99ab5911b11525059",
+  "at": 1794903846
+ }
+}

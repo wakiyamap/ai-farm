@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-stake-dao-yield",
+  "outcome": "dead_end_recorded",
+  "reason": "verdict unpaid. The only function on all of Stake DAO v2 on base that pays its caller is Accountant.harvest(address[],bytes[],address) (no modifier, pays harvesterFee to the receiver argument), but the on-chain harvest fee is 0 and harvesterFee = 0 in all 11 Harvest events of the last 7 days; everything else pays the user itself, the distributor role, or is role-gated (onlyVault/onlyAccountant/onlyAllowed). Same product as arbitrum protocols:1110 (fee 0) and ethereum protocols:237.",
+  "numbers": "getHarvestFeePercent()=0 raw and getProtocolFeePercent()=0.17e18 (eth_call to accountant 0x8f872ce018898ae7f218e5a3ce6fe267206697f8, latest); 11 Harvest events in 7 days (eth_getLogs fromBlock 56699119..59723119), harvesterFee=0 in all, amounts 39.4-114.8 CRV = 7.5-21.9 USD (CRV 0.191 USD, decimals 18 read on chain, coins.llama.fi ts 1795135454); gas: real harvest receipt 536,212 gas @ 0.0224 gwei = 0.021 USD (ETH 1753.44), estimateGas harvest 345,310 @ 0.006 gwei = 0.004 USD; 10 vaults, TVL 1.29M USD (api.stakedao.org/api/strategies/v2/curve/8453.json); harvest eth_call from fresh address succeeds (no role revert)."
+}

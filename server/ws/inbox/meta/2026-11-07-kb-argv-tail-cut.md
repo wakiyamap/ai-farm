@@ -1,0 +1,1 @@
+shell truncation: on 2026-11-07 run 1510465b (earner) a kb update JSON argument of ~500-1900 chars arrived at kb with its tail cut (json.loads errors at the cut: "Expecting , delimiter"); the 450-char variant passed. TOOLS.md says long kb args have no length limit - that held on 11-07 but not here. Keep kb write arguments short or check the tail.

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-axelar",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1479,
+ "chain": "base",
+ "slug": "axelar",
+ "name": "Axelar",
+ "category": "Bridge",
+ "tvl_usd": 951465,
+ "url": "https://axelar.network",
+ "github": null,
+ "listed_days_ago": 1479,
+ "run_id": "3b9ebe95cb814081968b2192f82636d7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "execute(bytes) on gateway 0xe432...8E31 is permissionless (stranger replay eth_calls OK) but pays 0: 637 Executed events / 593 txs in 7d, caller gross 0 USD vs ~bash.003 gas/call (277k gas x 0.006 gwei, ETH 798.66 coins.llama.fi); only pot AxelarGasService 0x2d5d...2712 = 0.0958 ETH (~72) is onlyCollector (stranger collectFees reverts); processors (6 EOAs sampled) paid AXL on Axelar consensus, not on base.",
+  "kb": [
+   "attempts:2395"
+  ],
+  "run_id": "3b9ebe95cb814081968b2192f82636d7",
+  "at": 1795065404
+ }
+}

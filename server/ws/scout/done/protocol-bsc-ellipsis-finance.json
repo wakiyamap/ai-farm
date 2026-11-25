@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-ellipsis-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "ellipsis-finance",
+ "name": "Ellipsis Finance",
+ "category": "Dexs",
+ "tvl_usd": 801396,
+ "url": "",
+ "github": [
+  "ellipsis-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "8dd3b88359ee42c88180db7728b0c6f9",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "4 permissionless claims in 7d: FeeDistributor.claim paid $1.46+ and ~$1 gross vs $0.30/$0.36 gas (tx 0xbd710c45, 0x61428153); LPStaking.claim paid 60.7 and 5,642,724 EPX (EPX 0xaf41... unpriced by llama, 27.03B minted) vs $0.015/$0.11 gas (tx 0x253c1814, 0x84659fdf, 0.05 gwei BNB @ $574.83). But rewards pay the position holder, not the caller: FD fee inflow dead (0 FeesReceived in 7d), IV emissions 139.3 EPX/s with weekly votes 0-10; a bot must lock EPX or stake LP to earn.",
+  "kb": [
+   "attempts:2749",
+   "leads:315"
+  ],
+  "run_id": "8dd3b88359ee42c88180db7728b0c6f9",
+  "at": 1795145824
+ }
+}

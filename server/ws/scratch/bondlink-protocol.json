@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "bondlink_finance",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/bondlink/index.js tracks one token: USDb 0x1623A55e0BA2384afD7511D6d7f77CF28790B5c5 (verified, LayerZero OFT over USDC 0xa0b8...eb48, deployed block 21637199 by 0xcc5cee90...). getters spct()=0xb4c10af7edf50e3f3f6c758f9973b500d7235f8a (SPCTPool, verified), oracle()=0x68f00f5392d5e827663044c8374d0ce54d16320d (unverified, getPrice()=1e18). Read verified sources via explorer: USDb.sol + SPCTPool.sol. USDb public entry points: deposit(address,uint256), depositBySPCT(uint256), redeemBackSPCT(uint256) - all move the caller's own principal (USDC/SPCT in, USDb out, fees go TO feeRecipient); cdRedeem and redeem require a valid ECDSA signature from signerAddress (off-chain KYC gate). SPCTPool: deposit/redeem are onlyUSDb, everything else POOL_MANAGER_ROLE/DEFAULT_ADMIN_ROLE. No reward/bounty/keeper/harvest/claim function anywhere. Website dead (DefiLlama deadUrl=true)."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-infinifi",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated: every reward/keeper entry point on infiniFi ethereum (Farm.claimRewards(bytes), LiquidationFarm.liquidate, Merkl/Fluid claimers, PLSmoother.accrue, YieldSharingV3.accrue) requires onlyCoreRole FARM_SWAP_CALLER/ACCRUE_YIELD on InfiniFiCore 0xF6d48735...; eth_call from a fresh address reverts 'UNAUTHORIZED'. Dedicated keeper EOAs (KEEPER_SWAP 0x6c0D4a98...) hold the roles. The only permissionless maintenance fns (MaturedFarmCleaner.removeMaturedFarm, PeriodicSwapper.distribute - not deployed here) pay the caller 0. Gateway mint/redeem are user flows where the caller pays.",
+ "numbers": "getFarms()=20 farms via registry 0xF5f2718708f471e43968271956CC01aaA8c46119 (accounting 0x7A5C5dbA4fbD0e1e1A2eCDBe752fAe55f6E842B3, DefiLlama adapter). 7d: KEEPER_SWAP 0x6c0D4a986571b3235fB0c565f40ed99026412fa5 called PL_Smoother.accrue() 16x (explorer txs list, all 25 shown span 14d at ~6.6h cadence). Sample accrue tx 0xcf445485d790634a241ebca1ab698c018e5bbc4d1b617c96a9857801e3b9c940: gasUsed 70219 @ 1.232 gwei = 8.65e-5 ETH = $0.14 (ETH $1614.31 coins.llama.fi 2026-11-20T21:55:11Z); gross to caller $0 (receipt logs: receipt-token burn + event only, 0 transfers to caller). Fresh-address eth_call reverts: 'UNAUTHORIZED' (PL_Smoother.accrue, LiquidationFarmV2.moveAsset 0x6cb8d40d control with cast-sig selector)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-azverse-perps",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found: no AZverse contracts on ethereum. The 526.8k USD llama TVL is ETH/USDT/USDC sitting in 3 qualified-custodian EOAs from the adapter; all return eth_getCode 0x. Perps settle on AZverse's own AZ L1 (az-bft repo), same dead_end as arbitrum/bsc.",
+  "numbers": "eth_getCode 0x for 0x03a7e58745874d49b3acc770c40261a3ce206608, 0xc2a290eceac480f057b6e7b45a7a949535e478ce, 0xdc379823a9a3a2ca9d77c33299551ecdbabf7a41 and the Arbitrum assetVault 0x91ba525861c16aa8cd4d6974e4058cc846f42ebe on ethereum (rpc.py, 2026-11-20). Custody balances (balanceOf/eth_getBalance, same day): 427,380 USDT + 62,016 USDC + 25.01 ETH across the three wallets vs chainTvls.Ethereum 532,630 (api.llama.fi). 0x03a7 still active (USDT withdrawals to block 26444111). No function, no calls, no reward to measure."
+}

@@ -1,0 +1,20 @@
+{
+ "id": "actor-base-0x0918242d33718b7cb3a1c6dd36fdfa9e9db37786",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "base",
+ "address": "0x0918242d33718b7cb3a1c6dd36fdfa9e9db37786",
+ "run_id": "5da7487629fe474fb0f32a25cd92cf5c",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Unverified Morpho Blue liquidation executor contract (deployed 2026-11-19 19:17Z by 0x5c51b4a2): 5 keeper EOAs call 0x7acd82aa -> Morpho flashLoan USDC -> N x liquidate (0xd8eabcb8) -> UniV3 sell seized WETH/cbDOGE in-tx -> repay. 127 liquidations in 19 txs over 29.5 h (blocks 59649166-60092656) = 103 liq/day; gross 237.2 USDC (1.87/liq, 12.5/tx); gas 117.07 USD total (avg 6.16/tx) at ETH 1622.15 -> ~98 USD/day net. Profit stays in the contract, swept by the owner; class is a measured latency race (lead 157 dead_end, attempts 3036).",
+  "kb": [
+   "attempts:3141",
+   "leads:346",
+   "actors:309"
+  ],
+  "run_id": "5da7487629fe474fb0f32a25cd92cf5c",
+  "at": 1795226829
+ }
+}

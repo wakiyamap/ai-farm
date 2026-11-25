@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-aero-basic",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - same Aerodrome V2 Basic AMM already scouted dead_end on Base (protocols 296) and Optimism (protocols 300): the only caller-payable claim function is pool.claimFees(address), which from a fresh address returns (0,0) on all 5 Arbitrum pools; fees belong to the LP account, nothing pays a keeper or stranger. Deployment is tiny and brand new: Arbitrum TVL 198,556 USD (DefiLlama, protocol API last point 198,555 at 1795430879; it was ~1 USD until 2026-11-20), 5 volatile pools, 0 stable.",
+  "numbers": "7d window blocks 524743928 (2026-11-16 12:14 UTC) - 526801080 (2026-11-23 12:14 UTC), eth_getBlockByNumber timestamps. No-topic eth_getLogs of all 5 pools (topic0 from receipt rule: all observed topic0s match the verified IPool ABI, no unknown topic0 = no renamed Claim): 31 logs = 7 Swap + 7 Fees + 2 Mint + 8 Sync + 6 Transfer, 0 Claim. Swap senders (5 unique): 0x5865ddc7015a384db8087ce75cf3af5365cbebb8, 0xaec8e3b79b6983d1ad6ff91f9885aa693ed1af11, 0xb88bb63113b50ff258138d8349e8521e2bf43654, 0xca205425e7e166ce55b34a30f5e1464fc94dff55, 0x0fef9e88a7b76bcdbf451780c6774fe32965ee98 - ordinary swappers/minters, no keeper. Gross to a stranger calling claimFees: 0 USD (eth_call (0,0) x5). Gas: eth_estimateGas claimFees = 81,326 gas x gasPrice 0x13163b0 = 20,018,352 wei (0.02002 gwei) = 1.63e-6 ETH x 1720.75 USD (coingecko:ethereum, coins.llama.fi ts 1795436113) = 0.0028 USD. Factories: Volatile 0x8E6a9FCd1d638CC760Ffba397605Fe3355dE76D2 allPoolsLength=5, Stable 0x78589E876edcEbdce72ee3436ab3c9AD3a7cEF2D allPoolsLength=0; mevTaxModule=0x0; leafVoter 0x382409fad8503fbcdbb27a4211551fa03e884078 (Base-side).",
+  "bot_id": null
+}

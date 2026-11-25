@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-yearn-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "yearn-finance",
+ "name": "Yearn Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 112702301,
+ "url": "https://yearn.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "5599a935a9074189be2261fff525f675",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: V2 vaults have no public harvest (BaseStrategy harvest/tend onlyKeepers); the open entry HarvestPublicKeep3rJob.work(strategy) at 0xf4f748d4... reverts KeeperNotValid (0xd2b2acaa) for fresh addresses and pays only keep3r credits, not the vault; 7d (blocks 26418880-26469117, 11-15 to 11-22): 38 StrategyReported across top-30 V2 vaults, all taken by 3 registered keeper EOAs, gas 762k-979k = 0.16-0.21 USD/call (0.126 gwei, ETH 1661.83 USD llama 07:37Z); gross paid by protocol per call 0; V3 already dead_end (protocols:247)",
+  "kb": [
+   "attempts:3637"
+  ],
+  "run_id": "5599a935a9074189be2261fff525f675",
+  "at": 1795332677
+ }
+}

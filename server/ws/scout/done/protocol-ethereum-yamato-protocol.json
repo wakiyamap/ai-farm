@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-yamato-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1193,
+ "chain": "ethereum",
+ "slug": "yamato-protocol",
+ "name": "Yamato Protocol",
+ "category": "CDP",
+ "tvl_usd": 1214951,
+ "url": "https://app.yamato.fi/#/",
+ "github": [
+  "DeFiGeek-Community"
+ ],
+ "listed_days_ago": 1193,
+ "run_id": "39db29b0d852461db1d42c05c081675b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "redeem(uint256,bool) callable by anyone pays 1% of redeemed ETH to caller: 4 calls in 7d paid $0.06-0.36 each vs $0.8-11 tx gas (blocks 26413253-26463496, 10-log no-topic scan); sweep() pays 1% of the 360,413 CJPY reserve (~$22) to any caller but 0 calls in 7d and reverts 'No sweepables.' (rankedQueueLen(0)=0, TCR ~230%)",
+  "kb": [
+   "attempts:3318",
+   "protocols:1639"
+  ],
+  "run_id": "39db29b0d852461db1d42c05c081675b",
+  "at": 1795265128
+ }
+}

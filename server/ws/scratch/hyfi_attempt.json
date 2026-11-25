@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-hyper-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the Sushi-fork MasterChef (the protocol's only adapter contract) has no caller-reward function: deposit/withdraw/emergencyWithdraw/updatePool/massUpdatePools are callable by anyone but pay only msg.sender's own accrued HYFI (fresh-address pendingSushi = 0, all three eth_call succeed). Reward stream is dead anyway: sushiPerBlock = 1 wei and allEndBlock passed ~108M blocks ago; only MasterChef event in 7 days was one self-withdraw paying the user their own 350.69 HYFI (0.019 USD), less than 3x gas in absolute terms and 0 for a stranger. Protocol site dead (deadUrl true), no GitHub listed.",
+  "numbers": "7d log count on MasterChef = 1 (address-only scan, blocks 133,951,151 @2026-11-16 15:25 UTC to 135,294,544 @2026-11-23 15:25 UTC, relay scout lane, log itself returned by the same query = control); 1 gross paid = 350.69 HYFI = 0.019 USD (HYFI $0.0000533 coingecko 2026-11-23T15:30Z) to the withdrawer themselves, tx 0x5b3de0b369e4cac799d77f5ce113f2aaa38d228b4d52091610f58e7d6c4d8ffa; gas 251,097 @ 0.05 gwei = 0.0000126 BNB = 0.007 USD (BNB 574.20 coins.llama.fi ts 1795447813); sushiPerBlock 1 wei; allEndBlock 27,245,268; poolLength 38; MC HYFI pot 28,258,471 HYFI (1,506 USD); TVL 32,062 USD (llama 2026-11-23)"
+}

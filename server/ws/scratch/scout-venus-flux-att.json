@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-venus-flux",
+  "outcome": "lead_recorded",
+  "reason": "unclear: Venus Flux is Venus's white-label Instadapp Fluid Lending on BSC (DefiLlama adapter projects/venus-fluid). Contracts found and live, but the specific stranger-payable reward function (Fluid liquidate/setRates class) was not pinned to concrete BSC addresses within budget, so no 7-day gross/gas measurement was done.",
+  "numbers": "FToken proxy 0x52Aa899454998Be5b000Ad077a46Bbe360F4e497 (impl 0x3560a1d1... = Fluid FToken, Sourcify exact_match), LiquidityResolver 0xca13A15de31235A37134B4717021C35A3CF25C60. listedTokens()=10 tokens (source: eth_call). getOverallTokensData at block 134120803 (source: eth_call 0xcd4a7e14): supplies USDT 252303, USDD 471446, ETH 32, BTCB 5, BNB 273; borrows USDT ~188992, USDD ~217404, ETH ~23 = ~425k USD borrowed. TVL 1.07M USD (DefiLlama). Missing: Borrowable/Liquidity BSC addresses (BscScan API needs key, Instadapp fluid-deployments has no BNB row), no 7d getLogs reward census, no gross/gas per call."
+}

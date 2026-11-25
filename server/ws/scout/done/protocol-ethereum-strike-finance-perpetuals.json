@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-strike-finance-perpetuals",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "strike-finance-perpetuals",
+ "name": "Strike Finance Perpetuals",
+ "category": "Derivatives",
+ "tvl_usd": 1904119,
+ "url": "https://www.strikefinance.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "f7e0129366db4fe1a770997145d9c794",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Ethereum is only a 3-of-5 validator escrow 0xbF4cFccd11257e568A936a7867D138f54A43cffa (validatorCount=5, threshold=3; 1.836M USD enz0BTC + 8.9k USDC balances): users deposit, relayers execute withdrawals at own cost, no function pays the caller - sample of 3 of ~25 txs in the last 7d: deposit 65k gas, withdrawal exec 211k gas = 0.045 USD with 0 USD received by caller; perps rewards live on Cardano.",
+  "kb": [
+   "attempts:3618",
+   "protocols:1854"
+  ],
+  "run_id": "f7e0129366db4fe1a770997145d9c794",
+  "at": 1795328090
+ }
+}

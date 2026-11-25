@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-re7-labs",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "re7-labs",
+ "name": "Re7 Labs",
+ "category": "Risk Curators",
+ "tvl_usd": 11055581,
+ "url": "https://www.re7labs.xyz",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "726ab34219844624b6df8773353467eb",
+ "result": {
+  "verdict": "role_gated",
+  "line": "curator aggregator, no Re7-owned contract on ethereum: TVL 10,575,510 USD (api.llama.fi 2026-11-20) sits in Morpho VaultV2 0x5E2339BC (6.116M shares, asset()=USDC), 11 Mellow MultiVault/Compat, tacETH BoringVault, Symbiotic vault, owned/managed by EOA 0x46BA7bCD + GnosisSafe 0xE86399fE; keeper-ish rebalance() (sel 0x7d7c2a1c) is REBALANCE_ROLE-gated to the Safe (stranger eth_call reverts 0xe2517d3f, Safe succeeds as control); 24 recent Re7LRT txs all user redeem/withdraw, no caller reward",
+  "kb": [
+   "attempts:3093"
+  ],
+  "run_id": "726ab34219844624b6df8773353467eb",
+  "at": 1795216249
+ }
+}

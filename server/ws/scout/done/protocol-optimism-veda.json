@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-veda",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 633,
+ "chain": "optimism",
+ "slug": "veda",
+ "name": "Veda",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 185888681,
+ "url": "https://veda.tech",
+ "github": [
+  "Veda-Labs"
+ ],
+ "listed_days_ago": 633,
+ "run_id": "2d75fd8c309443bc9ffcf8d2f64343f3",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Veda OP = 4 boring-vault stacks (adapter boringVaultsV0Optimism, 13/13 eth_getCode ok); all keeper fns solmate requiresAuth: updateExchangeRate reverts UNAUTHORIZED from a fresh addr, claimFees pays payoutAddress not caller; 7d census (blocks 159,386,489-159,688,889, getLogs ExchangeRateUpdated): 28 events / 7 txs, ALL from Veda keeper EOA 0x43e9fa7a60f80711c9d3afe4ce1bb3e8c3f7a9b8, 0 stranger calls; gross to caller $0; keeper batch 513,131 gas for 4 vaults @ gasPrice 1,011,048 wei, ETH $1801.55 (coins.llama.fi) = ~$0.93/tx, ~$0.23/vault",
+  "kb": [
+   "attempts:1995",
+   "protocols:593"
+  ],
+  "run_id": "2d75fd8c309443bc9ffcf8d2f64343f3",
+  "at": 1794977130
+ }
+}

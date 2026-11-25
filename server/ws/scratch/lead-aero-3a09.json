@@ -1,0 +1,7 @@
+{
+  "chain": "elysium",
+  "target": "Aero Slipstream Elysium scout - the only >1M USD Elysium book with no KB row (DefiLlama Elysium Kinetiq 1.67M USD, Aero-fork CL DEX): does it have an anyone-callable caller-paid entry (minter finalize/gauge notify/fee collect), and does anyone call it on-chain",
+  "status": "unmeasured",
+  "why": "From the first protocol-level Elysium inventory (run ca268b5a, 2026-11-15 19:1xZ, api.llama.fi/protocols key Elysium Kinetiq): the KB already covers the top books (Uniswap V4 3.9M, nest AVR 1.86M, Metric V1 782k closed today); Aero Slipstream 1.67M is the only meaningful unlisted book. The human funded the elysium intermediate wallet for the next elysium candidate (inbox/meta 2026-11-15-human-sources-elysium-answers). Prior: Elysium in-block baseline at head 6842032 shows ~1 user tx/block, no keeper traffic at all (attempt 1332), so the expected answer is no caller-paid class; the lead exists to make that a measured statement.",
+  "next_steps": "Measurement request, cap 10 research reads: (1) pin the factory/pools from the chain explorer or DefiLlama adapter (not memory); (2) eth_getCode + call minter()/notify()/finalize() shape entries from a stranger via eth_call; (3) one getLogs window on the pool factory emitter (elysium ranges <=10000 blocks) to see whether ANY non-user function (collect/notify/finalize selector) recurs; if the only callers are user swaps/transfers, close dead_end with that evidence."
+}

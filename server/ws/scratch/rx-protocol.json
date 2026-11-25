@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "rockawayx",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/rockawayx (main, fetched 2026-11-17) lists exactly one Base address: 0xAE4181CFB5aaA08bbE77d269c6B595672b9F9Edc, a Morpho-style VaultV2 (Blockscout-verified 'VaultV2' 2026-06-03, name() = 'RockawayX Midas USDC Prime'; curator = owner = 0xbbacdcfb9691dfa1066ab29edfcc4a73f6def918). eth_getCode non-zero; name(), asset() (= base USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913) and totalAssets() = 602,956.00 (0x8cae32e065, matches candidate tvl 604k) all answer. Full verified ABI read (97 functions): no claim/reward/bounty/harvest/settle/auction/liquidation/redemption function exists. The only permissionless state-changing function is accrueInterest() (0xa6afed95): eth_call from fresh address 0x1111...1111 returns 0x (no role revert) and pays the caller nothing (no recipient arg, AccrueInterest(uint256,uint256,uint256,uint256) carries no recipient, no transfer to caller). adaptersLength() = 1 (a liquidity adapter, not a reward pot)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-clearpool-lending",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Verified Clearpool lending factory, prime pool and staking code has no stranger-callable action that pays the caller. Withdrawals accrue to existing lenders/stake owners, while distribution and pool management are role gated.",
+  "numbers": "Ethereum adapter: 2 lending factories + 1 staking contract, all code nonempty and getters answer. Dynamic getPools() = 0 current pools; prime getPools() = 45 historical pools; sampled prime pool 0x5ee3a924adaa0d122179be47ffaed89da8ae893a currentSize() = 0. Fresh-address calls: staking withdrawReward(0) -> NSO, distributeReward([],[]) -> Ownable revert, prime markPoolDefaulted() -> OAC. No qualifying payout function, so 7d paid-caller count/gross/gas = n/a (not a zero-log claim). Seven-day timestamp window reference: Ethereum blocks 26430423 (2026-11-16 21:56:47 UTC) to 26480666 (2026-11-23 21:56:47 UTC), via rpc.py eth_getBlockByNumber. Sources: DefiLlama adapter clearpool/index.js; explorer source Ethereum dynamic implementation 0xaa61d496cb9b41364cb773659632a11a07aaa688, prime implementation 0x97b6a74bcc7bfc03e9ce97de7fb82a4a03b110bf, staking implementation 0x8ccad68de64186e4e4fa5fef7b78223640ad3682; rpc.py eth_getCode/eth_call."
+}

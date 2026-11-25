@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-opyn-gamma",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "opyn-gamma",
+ "name": "Opyn Gamma",
+ "category": "Options",
+ "tvl_usd": 735559,
+ "url": "https://www.opyn.co/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "5ab06358857d4ed2aac0cea2b24c7c44",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only stranger-callable paying path is Controller 0x4ccc2339 operate/LIQUIDATE (no role gate, system unpaused), 0 VaultLiquidated in 7 d (blocks 26417700 2026-11-15 -> 26468095 2026-11-22), 0 in 1 y, 10 all-time (last block 13697326, Jul 2021); whole protocol moved collateral twice in 7 d, 0.32655 WETH = 541 USD (ETH 1658.05, coins.llama.fi 04:00 UTC) both paid to the redeeming holders themselves, so 0 USD gross to a stranger vs 0.04 USD gas (0.136 gwei, 178k gas); control: same no-topic scan of the same address over 1 y returns 181 logs (155 Redeem, 26 VaultSettled).",
+  "kb": [
+   "attempts:3583",
+   "protocols:1828"
+  ],
+  "run_id": "5ab06358857d4ed2aac0cea2b24c7c44",
+  "at": 1795320385
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-stafi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "stafi",
+ "name": "Stafi",
+ "category": "Liquid Staking",
+ "tvl_usd": 3230622,
+ "url": "https://www.stafi.io/",
+ "github": [
+  "stafiprotocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "3532a7029ce64b9083298da33b7b0b70",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Stafi rETH stack (rETH 0x9559..3593 + UserDeposit/Distributor, 10 contracts): no function pays a caller - assignDeposits() open but pays 0, claim() pays the holder arg, userBurn reverts 'Burn is currently disabled'; 7d (blocks 26418387-26468640, 2026-11-15->11-22): 19 rETH logs (9 Transfer + 10 Approval, 0 mint/burn), 1x 0.15 ETH user redemption (tx 0x6f40d8..), 0 claims, gross to strangers 0; oracle dead since 2026-04-14.",
+  "kb": [
+   "attempts:3611"
+  ],
+  "run_id": "3532a7029ce64b9083298da33b7b0b70",
+  "at": 1795326824
+ }
+}

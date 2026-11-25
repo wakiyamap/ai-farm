@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-nerve",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "nerve",
+ "name": "Nerve",
+ "category": "Dexs",
+ "tvl_usd": 881341,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e4943541744b4fd68e65eba178f3a780",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BSC nerve (dead Curve/Synapse stableswap, TVL 881,341 USD): its 6 registry contracts (Swaps 0x1b3771a6, 0x6C341938, 0x146CD24d; 3 minimal proxies to 2 shared impls; veNerve 0x15B9462d holds 3.10M NRV = 1,030 USD) expose only owner/pause/unpause/swap/ERC20 - an 80-signature cast-sig sweep found no claim, claim_rewards, claim_admin_fees, harvest, distribute, checkpoint or settle: no stranger-paid call. NRV 0.000332 USD (coins.llama.fi ts 1795147686), 249.2M supply = 82,825 USD; 107 NRV Transfers in 417,000 blocks, all EOA/DEX flows; emission Gauge never located (no bsc ABI).",
+  "kb": [
+   "attempts:2761",
+   "protocols:1199"
+  ],
+  "run_id": "e4943541744b4fd68e65eba178f3a780",
+  "at": 1795149589
+ }
+}

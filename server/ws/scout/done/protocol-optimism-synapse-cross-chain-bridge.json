@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-synapse-cross-chain-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "synapse-cross-chain-bridge",
+ "name": "Synapse Cross Chain Bridge",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 41520,
+ "url": "https://synapseprotocol.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "c36726d382ad4a2981f20354755f5dc5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: bridge 0xAf41..dc6b mint/withdraw/mintAndSwap/withdrawAndRemove need NODEGROUP_ROLE (sole member = node 0x5ba0..05ba; fresh-address eth_call reverts 'Caller is not a node group'), withdrawFees/withdrawChainGas need GOVERNANCE_ROLE and chainGasAmount()=0; bridge 0 events in 7d (blocks 159625421-159927821, control same shape 5 logs/30d, newest 2026-11-12 all node mints), pools 0xE27B../0xF449.. user-ops only (21/25 events 7d) - same verdict as arbitrum/avax/ethereum/bsc",
+  "kb": [
+   "attempts:4170",
+   "protocols:2288"
+  ],
+  "run_id": "c36726d382ad4a2981f20354755f5dc5",
+  "at": 1795454768
+ }
+}

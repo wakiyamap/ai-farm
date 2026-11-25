@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-sudoswap-v1",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Sudoswap V1 (DefiLlama slug sudoswap-v1) is the LSSVM bonding-curve NFT AMM (factory 0xb16c1342E617A5B6E4b631EB114483FDB289c0A4). The verified source of factory, pools and routers has no reward/bounty/claim/harvest/settle/epoch/redeem function anyone can call: all non-view externals are swaps where the caller brings the NFT or token, pair creation, or deposits; every fee/config/withdraw function is onlyOwner. The protocol is also near-dormant: 0 pool creations and 0 swaps in the last 7 days (sample of 96 of 39,453 pools), main router's last tx was 2026-11-09.",
+ "numbers": "7d window blocks 0x1930fb6 (26415030, 2026-11-14 18:31 UTC) .. 0x193d3bf (26469055, 2026-11-21 18:17 UTC) from eth_getBlockByNumber timestamps. NewPair last 7d = 0 (control: same query shape returned 1/31/152 logs in 10k-block 2022 windows at 14.7M/15.0M/15.5M). Pools ever = 39,453 (119 x 100k-block getLogs, 0 errors). SwapNFTInPair/SwapNFTOutPair topic0 = cast keccak, confirmed from receipt of 0x74716a86...f5a (pool 0x627db6f592525c5cad60f711fb83537a941dfe31 emitted SwapNFTOutPair 0xbc479dfc...): 7d swap logs across 96 random pools = 0; shape control on the 2 pools from the Nov-9 router tx returned 2 logs in window 26,376,000..26,386,000. Main router 0x2b2e8cda09bba9660dca5cb6233787738ad68329 last tx ts 1794269963 (2026-11-09). Factory getter protocolFeeMultiplier()=5e15/1e18. TVL 313,368 USD (api.llama.fi/protocol/sudoswap-v1, 2026-11-21)."
+}

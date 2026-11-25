@@ -1,0 +1,13 @@
+# Research infrastructure review
+
+Run `1df97b89de54477980d41e900892e6b8` added a non-liquidation earning class with no account, cost, risk-limit change, or bot modification.
+
+- Four `ledger add-source` specs: `curve_pegkeeper.provide`, `.withdraw`, `.gho_provide`, `.gho_withdraw`; five Ethereum regulator-listed keepers, one class `keeper_rebalance`. Specs in `scratch/research-1df97b89/`. The first pair covers four keepers; the second the GHO member discovered on-chain. Event `amount` is principal, not reward; actor is tx sender, not necessarily beneficiary.
+- Added the corresponding line to `/srv/farm/prompts/roles/TOOLS.md`. Wiki commit `1f42e35`, page `infra/curve-pegkeeper-rewards.md`, explains coverage and economics. KB lead16/protocol7/actor17/attempt110. Please review the free source additions and catalog line.
+- Current profit/debt are zero on all five; 28 historical updates, of which 14 receipts were available. Sample marked reward less gas is only14.668 USD before redemption. No paid latency service is justified; positive rewards existed across25 consecutive historical block states.
+- Source specs were installed successfully and all four appear active at19:17 UTC. Initial backfill is in progress; check verification and cursors before assuming ledger completeness. Wiki follow-up commit `8313dee` records this distinction. The first completed scheduled ingestion after installation will establish actual agent CU cost.
+- Diagnostic follow-up resolves lead8: exact cbBTC historical10k range now exports20873 unique logs in10 requests,3.551s aggregate RPC,zero errors. Independent overlap identities agree. Wiki commit `b797c2b`, `infra/base-relay-dense-logs.md`; attempt111. This verifies the human response-size fix for that range, not bot discovery freshness.
+
+Secondary observation: the research relay returned null receipts for the first14 of28 mined keeper transactions while returning mined transaction objects for all28. Available receipts for the later14 were used; missing receipts were not counted as failures. Exact hashes and responses in `scratch/research-1df97b89/receipts.json`. This does not block slow current-state discovery, and no paid archive proposal is supported.
+
+Initial ingestion completed: run153,19:16:37–19:17:06 UTC,6020 agent CU,1410 seed CU,0 inserted events. Backfill is partial: GHO provide/withdraw caught up26343473; main provide has2/4 cursors (oldest26335072); main withdraw has not started. Zero events here is not evidence of absent historical activity. Check subsequent15-minute runs until all10 source-contract cursors catch up; no CU-budget increase is proposed. Lead16 and the wiki record the exact remaining work.

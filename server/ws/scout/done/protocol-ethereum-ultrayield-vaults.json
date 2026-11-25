@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-ultrayield-vaults",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 392,
+ "chain": "ethereum",
+ "slug": "ultrayield-vaults",
+ "name": "UltraYield Vaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 17879483,
+ "url": "https://ultrayield.app/",
+ "github": null,
+ "listed_days_ago": 392,
+ "run_id": "cde96dd7934e49b4995f6152f79992c2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all 7 ethereum vaults are UltraYield's own UltraVault/CompliantUltraVault; fulfillMultipleRedeems onlyRole(OPERATOR_ROLE) + collectFees onlyOwner (fresh-addr eth_call reverts AccessControlUnauthorizedAccount/NotOwner), 11 RedeemRequestFulfilled/9 tx in 7.2d by 2 keeper EOAs 0xe1e4c9f7/0x4b48d46e (hasRole=true, fresh=false), gross to caller 0 (withdrawal fee pays protocol feeRecipient 0x04041e87..), gas 145-167k = bash.02-0.40/call (ETH 1614.44 USD coins.llama.fi 2026-11-20), TVL 17.71M; no fn pays a stranger",
+  "kb": [
+   "attempts:3020",
+   "protocols:1413"
+  ],
+  "run_id": "cde96dd7934e49b4995f6152f79992c2",
+  "at": 1795201533
+ }
+}

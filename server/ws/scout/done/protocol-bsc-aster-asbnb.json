@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-aster-asbnb",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 690,
+ "chain": "bsc",
+ "slug": "aster-asbnb",
+ "name": "Aster asBNB",
+ "category": "Yield",
+ "tvl_usd": 47516740,
+ "url": "https://www.asterdex.com/en/earn",
+ "github": null,
+ "listed_days_ago": 690,
+ "run_id": "a9df0b4f560b4aad9fbefc6f1d07def4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "asBNB bsc: Mint proxy 0x2F31ab..52fD8 impl 0x7f5277..1a6fc, yieldProxy 0xe861dd..1bec2; compoundRewards reverts 'Caller is not yieldProxy', settleActivity/processMintQueue/withdrawFee revert AccessControlUnauthorizedAccount from a fresh address; feeAvailable()=0, rewardedAmount()=0; 78,268 BNB (~46.3M USD @ 591.38 BNB); 24h scan 39/39 windows (control WBNB 12 logs) = 12 events, all user mint/burn, no stranger paid",
+  "kb": [
+   "attempts:2035",
+   "protocols:624"
+  ],
+  "run_id": "a9df0b4f560b4aad9fbefc6f1d07def4",
+  "at": 1794984642
+ }
+}

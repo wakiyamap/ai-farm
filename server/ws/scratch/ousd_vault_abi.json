@@ -1,0 +1,13 @@
+# via etherscan
+governor() view -> (address)
+upgradeTo(address)
+upgradeToAndCall(address,bytes) payable
+implementation() view -> (address)
+claimGovernance()
+isGovernor() view -> (bool)
+initialize(address,address,bytes) payable
+transferGovernance(address)
+admin() view -> (address)
+event Upgraded(address)
+event PendingGovernorshipTransfer(address,address)
+event GovernorshipTransferred(address,address)

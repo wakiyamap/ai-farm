@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-privacy-pools-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 17,
+ "chain": "base",
+ "slug": "privacy-pools-v2",
+ "name": "Privacy Pools V2",
+ "category": "Privacy",
+ "tvl_usd": 61428,
+ "url": "https://privacypools.com/",
+ "github": null,
+ "listed_days_ago": 17,
+ "run_id": "3b9dcb4d499e404aaac6417a508f73ff",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No reward pool (same 0xbow ASP build as ethereum role_gated): transact requires processor==msg.sender (fresh eth_call reverts PoolVault_InvalidProcessor), RelaySwaps.execute is open but fee is proof-bound; 7d on base: 119 txs all from one relay EOA 0x9e2f1b23, 5 executes paid 0.022-0.023 USD each (~0.11 USD gross total) to one fixed recipient 0xfdece433, caller paid 0.011-0.019 USD gas and earned 0.",
+  "kb": [
+   "attempts:3654",
+   "protocols:1883"
+  ],
+  "run_id": "3b9dcb4d499e404aaac6417a508f73ff",
+  "at": 1795337089
+ }
+}

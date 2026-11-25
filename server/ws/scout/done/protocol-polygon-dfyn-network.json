@@ -1,0 +1,26 @@
+{
+ "id": "protocol-polygon-dfyn-network",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "dfyn-network",
+ "name": "Dfyn Network",
+ "category": "Dexs",
+ "tvl_usd": 335618,
+ "url": "",
+ "github": [
+  "dfyn"
+ ],
+ "listed_days_ago": null,
+ "run_id": "8301cae492c24dc5ad02efe710871e34",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Stock UniV2 fork: factory 0xE7Fb..423B (allPairsLength=1789), router 0xA102..7429 (WETH 0x4c28..E1fA, 18dec); no public fn pays the caller - StakingRewards getReward() pays msg.sender only (fresh-addr earned=0, pays 0), notifyRewardAmount onlyRewardsDistribution, factory setters owner-gated; farm 0x0656..6aE0 RewardPaid 7d=0 (control DFYN Transfers non-empty); router 7d use = swapExactTokensForTokens arb mostly by one bot 0x2941..fd1f; TVL 335.6k USD.",
+  "kb": [
+   "attempts:2827"
+  ],
+  "run_id": "8301cae492c24dc5ad02efe710871e34",
+  "at": 1795162995
+ }
+}

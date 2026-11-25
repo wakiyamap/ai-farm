@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-credit-guild",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 945,
+ "chain": "arbitrum",
+ "slug": "credit-guild",
+ "name": "Credit Guild",
+ "category": "Lending",
+ "tvl_usd": 35892,
+ "url": "",
+ "github": [
+  "volt-protocol"
+ ],
+ "listed_days_ago": 945,
+ "run_id": "0d7e136ede9048c8bada7e5dce9c32fa",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ECG (ex-Volt) liquidation path callable by anyone (LendingTerm.call/callMany, AuctionHouse.bid - eth_call from fresh addr gives state reverts, not role) but pays the caller no fee; 0 events protocol-wide in 7 d (blocks 524560640-526640237 2026-11-15..22, all 411 terms + 4 auction houses + 10 PSMs + RewardSweeper; control USDC same shape 7700 logs); last auction 2024-09-30 (~25 ever); issuance()=0 on 6 sampled terms; TVL 36k USD is residual collateral",
+  "kb": [
+   "attempts:3879",
+   "protocols:2046"
+  ],
+  "run_id": "0d7e136ede9048c8bada7e5dce9c32fa",
+  "at": 1795385211
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-balancer-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "balancer-v2",
+ "name": "Balancer V2",
+ "category": "Dexs",
+ "tvl_usd": 189498,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "0d94043ea7334938bdb25fadb9b4efff",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Balancer V2 base (vault 0xBA12..BF2C8 confirmed): gauge claim_rewards is permissionless but pays only the caller's own accrued BAL - 7d flow is 2 claims totalling 15.8 BAL = 1.80 USD gross vs 0.0016 USD gas; fee sweep withdrawCollectedFees is authorizer-gated (BAL#401 from fresh address) and dormant since 2023-07-12 with an empty pot (collector BAL/USDC 0, WETH 0.0008 USD); vault 26 PoolBalanceChanged in 7d, TVL 189k.",
+  "kb": [
+   "attempts:2674"
+  ],
+  "run_id": "0d94043ea7334938bdb25fadb9b4efff",
+  "at": 1795130015
+ }
+}

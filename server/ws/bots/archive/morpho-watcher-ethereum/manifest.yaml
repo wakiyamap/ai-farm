@@ -1,0 +1,295 @@
+id: morpho-watcher-ethereum
+author: earner/qwen3.8-flash-next
+chains: [ethereum]
+strategy: >
+  Watch the two measured collateral-sellable Morpho Blue markets on ethereum (WETH/USDC
+  and WBTC/USDC, 86% LLTV, USDC loan), poll borrower positions via Multicall3 (accrue +
+  market + position + oracle price) every 20 s over a rolling candidate set discovered
+  from position-changing logs, and when a position goes protocol-unhealthy, simulate —
+  and when live, send — the bot-deployed MorphoLiquidator executor: ONE tx = Morpho
+  flashLoan(USDC) -> liquidate(borrower, capped seize) -> sell ALL seized collateral on
+  the measured UniV3 pool (exact-input swap, recipient = executor) -> Morpho pulls the
+  flash back -> revert "NO_PROFIT" unless the executor's USDC balance rose by minProfit.
+copied_from: >
+  morpho-watcher-base (same protocol, same executor; port measured on the farm's
+  ethereum ledger): 119 morpho_blue Liquidate events in 7d (ledger chain=ethereum
+  protocol=morpho_blue; pinned-market sample 0x0969c9fde98d4c9ef51b82c7f3b5dde23fd11170befb55c052328f59edc7b94f
+  block 26328590: repaid 85163224, seized 39438063296017904 WETH, debt_limited; WBTC
+  samples 0x26338616-956072482/1310336).
+  Scan math, sizing chain and executor are copied from morpho-watcher-base (protocol-
+  identical); the swap leg was RE-measured for Uniswap V3 (POSITIVE = exact-input
+  amountSpecified per IUniswapV3PoolActions — an earlier -seized encoding was exact
+  OUTPUT and reverted every fork swap SWAP_FAILED, fixed and proven 2026-11-04;
+  zeroForOne per pool orientation, MIN_SQRT_RATIO+1 lower limit).
+capital_usd: 16
+principal_usdc: 0
+funding_note: "Fixed 2026-11-10 (review 247ca663 / attempts 757 and 760): the gate sends the non-principal part of capital as Ethereum NATIVE gas at promotion, so the old 400 funded the bot with 400 USD of ETH while bot.js refuses every send while the native wallet is above LIVE_BALANCE_CAP_USD = 18 USD (preflight compares the fixed wei balance against the cap re-valued at each cycle's fresh ETH/USD). Fund 16 USD native gas float instead: fits its own 18 USD preflight with ~12 pct headroom so a small ETH/USD rise after promotion does not idle the bot, and at the measured current-era fee (head base fee 0.0396 gwei; a 310k-gas send costs ~0.02 USD) the float covers hundreds of liquidation sends; high-fee eras fail closed on the expected-fee floor, not on the wallet. Attempt-760 fix (run 414adfd0): the trailing inline comments on the numeric capital_usd and principal_usdc scalars are REMOVED — the gate-ctl:348 capital float parser read the whole line and crashed promotion with a ValueError before funding (inbox/meta/2026-11-10-morpho-capital-inline-comment.md); this note carries their prose. principal_usdc 0: the flash loan sources the repay (fork proofs run from executor USDC 0 -> +3.711168 and 0 -> +0.158935), so no USDC principal is funded (decisions/human/2026-11-09-promote-criteria.md funds principal_usdc only where its guard is fork-proven)."
+allowed_contracts:
+  - 0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb   # Morpho Blue v2 singleton (flashLoan, liquidate)
+  - 0xca11bde05977b3631167028862be2a173976ca11   # Multicall3 (reads only)
+  - 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48   # USDC (loan asset, flash loan, minProfit unit)
+  - 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2   # WETH (collateral, executor sale; 18 dec measured)
+  - 0x2260fac5e5542a773aa44fbcfedf7c193bc2c599   # WBTC (collateral, executor sale; 8 dec measured)
+  - 0x0f948cba8231db7898ef36a4212581ad7b1b4580   # WETH/USDC market oracle (price() read + gas valuation)
+  - 0xdddd770badd886df3864029e4b377b5f6a2b6b83   # WBTC/USDC market oracle (price() read, 1e39 scale measured)
+  - 0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640   # UniV3 WETH/USDC 0.05% pool (executor swap target; token0=USDC measured)
+  - 0x9a772018fbd77fcd2d25657e5c547baff3fd7d16   # UniV3 WBTC/USDC pool (executor swap target; token0=WBTC measured)
+  - 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352   # MorphoLiquidator sim target (fork-deployed of record); the gate deploys the real one at promotion and allows that address
+max_loss_per_tx_usd: 20
+max_loss_guarantee: >
+  The whole action runs in ONE transaction through the bot-deployed MorphoLiquidator
+  (src scratch/morpho-executor-eth/contracts/src/MorphoLiquidator.sol — identical to the
+  base bot's proven contract, constructor [MORPHO, WETH, WBTC, 0, 0, UniV3 WETH/USDC
+  pool]). Its liquidate() ends with require(balAfter >= balBefore + minProfit) on the
+  executor's USDC balance and reverts otherwise, so any shortfall — repaid debt
+  exceeding sale proceeds, failed swap, flash pull-back — rolls the whole tx back:
+  worst case is gas only. On this chain (plain public mainnet, EIP-1559, no OP-Stack L1
+  data fee) the gas worst case IS enforced by the transaction itself: maxFeePerGas (DERIVED each
+  cycle from the latest header: basefee x 9/8 + 0.001 gwei tip, capped 17.5 gwei — revision
+  8b738b25, review a1438eb0 blocker 2; the old fixed 0.2 gwei cap was era-bound: the 2026-10-30
+  era charged 4.6-16.1 gwei base fee) x gasLimit (460000) ≤ 8.05e-3 ETH — ≤ ~19.5 USDC at the
+  observed era maximum 16.1 gwei (within L = 20 USD; bot.js FEE_CAP_WEI/LIVE_FEE_ALLOWANCE_WEI/
+  feeBound), ≤ ~0.06 USDC at the current head base fee (measured 0.039628498 gwei); the
+  EXPECTED-fee leg of the profit floor (bot.js EXPECTED_GAS_WEI x (basefee + tip), expectedFeeUsd)
+  prices the fee the chain actually charges, not the cap product. Entry is OWNER-ONLY,
+  collateral and pools whitelisted as constructor immutables (fail-closed runtime check
+  bot.js:99); the seized collateral is never approved to the pool (V3 callback pays by
+  transfer, bounded by the amount seized this operation).
+expected_value: >
+  Measured sample capture on the pinned WETH/USDC market: repaid 85.16 USDC, oracle
+  proceeds 88.90 USDC (fork probe at block 26328590, branch debt_limited) -> +3.74 USDC
+  per capture before gas; the pinned markets show ~1.86 events/day on-chain (lead 14
+  measurement; chain-wide 17/day incl. exotic collateral). At the measured median debt
+  86 USDC the liquidation bonus (measured seize factor 1.0438 — 4.38% of repaid debt:
+  the 15% parameter is capped by the 14% liquidation coverage at 86% LLTV, review
+  1c01613e) scales with borrower debt; net of the ~0.7 USDC enforced gas
+  worst case this is ~2-25 USDC per capture and a few captures/day — small but positive.
+executor: "scratch/morpho-executor-eth/contracts/out/MorphoLiquidator.sol/MorphoLiquidator.json"
+executor_args: "0x000000000000000000000000bbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc20000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c5990000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000088e6a0c2ddd26feeb64f039a2c41296fcb3f5640"  # cast abi-encode of the six constructor addresses (morpho, c0=WETH, c1=WBTC, c2=0, c3=0, p0=UniV3 WETH/USDC pool) in the constructor ABI order; the same six words end scratch/morpho-exec-eth-creation-args.hex used by the fork proofs (fix 2026-11-09 run 0ee564a1 per review f680575b deployment blocker)
+executor_note: >
+  (forge build solc0.8.24); constructor args [0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb,
+  0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2, 0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,
+  0x0000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000,
+  0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640]; deploy then ONE owner init tx
+  setPoolAllowed(0x9a772018fbd77fcd2d25657e5c547baff3fd7d16, true) so the WBTC route is
+  armed (the constructor whitelists only one pool slot). Since run 902b3327 (review
+  a41d9200 blocker 2) the bot no longer relies on prose: the LIVE path reads
+  isPoolAllowed(pool) (selector 0xd1e71c94) on the DEPLOYED executor before any send
+  and, while it is false, sends that single owner setPoolAllowed tx (selector
+  0x1bfa59c3, gas 100000, maxFeePerGas from the same derived fee policy as the
+  liquidate leg) through the signer once per pool
+  (bot.js pool-init block); the route goes executable only after the deployed getter
+  proves the armed state. The init tx targets the executor itself — already in
+  allowed_contracts, so the signer needs nothing new.
+fork_evidence: >
+  Done on the local ethereum fork (anvil, reset 26328589 forked from the relay research
+  lane; deploy tx 0xb33a2d87b48278e8c1d62b7d21810531070d062bc74f0d43dff1b4ffe830e297
+  from deployer 0xfffffffffffffffffffffffffffffffffffffffe -> executor
+  0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352, deployed code = constructor-patched
+  runtime; owner init setPoolAllowed(0x9a772018fbd77fcd2d25657e5c547baff3fd7d16, true)
+  tx 0xd978164e61aa0254903bdf5b74e108b9e977a186421624fa87907049e5e669fb status 1 —
+  proves the live one-init-tx flow). Oracle update 0xacecf2f2f8c3af67e92cce4357417d709b4a9b81eadaacc13a7ce5e2453abdbf left the pinned WETH/USDC position LIQUIDATABLE (borrowed 85163224 > maxBorrow 84883253 at fork block 26328591).
+  SUCCESS: liquidate(0x20f45e54..., debt_limited seize 39437906248696024, repaid
+  85163224, UniV3 WETH/USDC swap zeroForOne=false amountSpecified=+seized) tx
+  0x1d2da75de6512b99a92b255a08d7927a322761a204fe7467153064311d8bf8cb status 1, gasUsed
+  308505, executor USDC balance 0 -> 3711168: delta +3.711168 USDC POSITIVE (matches
+  the oracle-proceeds sizing chain +3.74 before fees). REVERT: same call on the same
+  borrower after its liquidation (position healthy) tx 0x4572a9c85e8a741032d84b5ae2e8122ad1af325e54017f15d68199a1dd108ace status 0, pre-sim reason "position is healthy" (runs before each send; the mined status-0 hash is the proof). Fork-local next-block base fee is 0 —
+  this proves the execution path and positive delta, not historical gas fees.
+  WBTC ROUTE (fix 2026-11-04, review 1c01613e blocker 1 — the 1e36 oracle price divisor
+  is a protocol constant, the per-market pdiv 39 undercounted WBTC collateral 1000x):
+  same fork reset 26301962 (parent of WBTC/USDC liquidation cluster 26301938..26302195;
+  executor redeployed 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352 from
+  scratch/morpho-exec-eth-creation-args.hex = creation + ABI-word-padded constructor
+  args, deployed code == executor-runtime.hex byte-for-byte; owner init setPoolAllowed
+  tx 0xfa60cf60ecbf621ea593765cba2de6d5f192051158200b3b99e432920a096d9b arms the WBTC
+  pool slot). SUCCESS: liquidate(0xc1a72408c71b7102c63e575119fc67cfe098ebf5, debt_limited
+  seize 4301, repaid 3163842, minProfit 100000, WBTC/USDC pool swap zeroForOne=true) tx
+  0x45ff8d9f9686b7a1bbab994b7b78a71f7cd268232e67448d28e42af045e9998b status 1, gasUsed
+  340225, executor USDC balance 0 -> 158935: delta +0.158935 USDC POSITIVE (dust-sized
+  position; the profit is debt-proportional). REVERT: same call on healthy borrower
+  0x1f1de251ee59f4272ac21ffda2bd4dfc40c81912 (hf 1.13 at fork state) tx
+  0xa71a767f787474883f611900ecef6e8d1e24c82481628099177c381ec5098e83 status 0
+  (mined revert on the healthy position). Measurements: scratch/morpho-eth-proof-log.txt.
+  NATURAL WINDOW MEASUREMENT (run 902b3327, review a41d9200 blocker 1; extended by
+   run f3f12ccc, review e7daaefc blocker 2: ALL 13 pinned-market Liquidate events of
+   the 7d ledger window classified with the bot's own accrued scan math (market ->
+   accrueInterest -> market -> oracle.price -> position via Multicall3 tryAggregate
+   at historical tags; scratch/morpho-eth-window/window-probe.js + window.json):
+   7/13 ORACLE-RACE (healthy at parent — the two samples below), 6/13 already
+   LIQUIDATABLE at the winner's parent block (CATCHABLE), with measured windows by
+   the backward HF ladder: 26300862 window 1 block (+31.9 USDC net of gas — the
+   race-like 1-block case), 26301897 window 2..4 blocks (+1.25), 26301963 window
+   128..256 blocks (−0.63, dust), 26302109 window 128..256 blocks (+1.65 USDC net
+   after the 0.7 USDC gas bound — POLLING-COMPATIBLE multi-block window and positive
+   after-fee size), 26302195 window 512..1024 blocks (−0.55), 26302472 window
+   128..256 blocks (−0.48). These windows are intervals between the SAMPLED backward
+   ladder probes (−128/−256/−512/−1024 tags) — eligibility between sampled endpoints is
+   unmeasured, not continuous evidence. After-fee size = repaidAssets x measured 4.384%
+   bonus − 0.7 USDC. The two older race findings stand: borrowers HEALTHY at parent
+   (WBTC/USDC 26338616 borrower 0xc1dafce6.. hf 1.004580 at tag 26338615, debt 956
+   USDC; WETH/USDC 26328590 borrower 0x20f45e54.. hf 1.002376 at tag 26328589); the
+   race crossing price first becomes readable in the winner's OWN block: WBTC parent
+   76561.579553 (readable from 26338497, 119 blocks ahead, HF still >1) vs
+   76162.753247 at tag 26338616; WETH parent raw 2266915468420000000000000000/1e24 =
+   2266.91546842 USD (readable from 26328450, 140 blocks ahead) vs raw
+   2254097655170000000000000000/1e24 = 2254.09765517 USD at tag 26328590 (the
+   reviewer's independent fixture read the same 2254.09765517 number from the real
+   winner block). RACE class: the liquidator acts in the oracle-update block —
+   measured window 0 blocks, the bot's path (20 s poll + sim + signer send, ~2-3
+   blocks) cannot pre-discover it. CATCHABLE class: the crossing happened BETWEEN
+   blocks (price updates hours ahead of the winner: 26302109's price crossed the HF
+   line between 128 and 256 blocks before the winner; HF then drifts only ~4e-8/block
+   from interest), so a 20 s poll sees the position liquidatable for minutes-to-hours
+   and the winner was LATE (>=128 blocks after the crossing — thin competition).
+   Discovery before the winner's block holds for both classes (the candidate set
+   retains these borrowers).
+   FEE POLICY RUN (revision 8b738b25, review a1438eb0 blocker 2): maxFeePerGas is no longer a
+   fixed 0.2 gwei cap — it is DERIVED per scan cycle from the latest block header (maxFee =
+   basefee x 9/8 + 0.001 gwei tip, capped at 17.5 gwei = LIVE_FEE_ALLOWANCE_WEI 0.00805 ETH =
+   the enforced worst case maxFee x gasLimit 460000). Natural fee-inclusion fork run
+   scratch/morpho-eth-fee/natural-case.js re-forks the CATCHABLE winner 26302109's parent
+   26302108, redeploys the executor from the creation of record, and sends the sized liquidate
+   (NO_PROFIT guard send + final-floor send + post-liquidation revert) with the fork's
+   next-block base fee SET to the REAL measured header base fee of two eras before every send
+   — today's head (0.039628498 gwei, measured relay header 0x191ff33) and the winner block's
+   own base fee (5.483491711 gwei, measured relay header 0x191569D): per send the sender's ETH
+   delta equals (base fee + tip) x effective gas used — the chain charged the era fee INSIDE
+   the derived cap (maxFee 0.04558206 gwei / 6.169928174 gwei both ≥ basefee + tip: includable,
+   unlike the old fixed 0.2 gwei cap below the era fee) — and the on-chain floor equals
+   MIN_PROFIT_USD + the expected fee at that base fee: the same 26302109 case CLEARS the floor
+   and succeeds (status 1, positive executor USDC delta) in the current era, and fail-CLOSES
+   with NO_PROFIT in the winner-block era where the expected fee (~5.6 USD) exceeds the 2.37
+   USD oracle profit (measured, not tuned: scratch/morpho-eth-fee/natural-case.json + log).
+   Deterministic policy arithmetic (same base fees, bot's feeBound/expectedFeeUsd):
+   scratch/morpho-eth-fee/fee-check.js — ALL PASS.
+   GATE REVISION (run 279a929a, review 2e9cbbaa remaining code blockers): the live send gate
+   compared a TRUNCATED profit — Number(profitWei / loanUnit) is BigInt integer division, so an
+   actual 2.041431317 USD profit reached the gate as the integer 2 and lost to the 2.041431317
+   floor despite sim_ok. The gate now keeps sub-cent precision for logs and compares in raw loan
+   units: profitWei >= ceil(needUsd x 1e6) — no truncation, no float edge (bot.js profitUsd/
+   needRaw). A FAILED header refresh now CLEARS feePolicy (scanCycle: updateFeePolicy() -> null
+   => feePolicy = null): the cycle never prices or signs a send on the previous cycle's stale
+   policy; feeBound/expectedFeeUsd then fail closed. Natural fee-inclusion evidence re-run FRESH
+   at the real era headers (script fixed to deploy from the constructor-args hex; outputs
+   scratch/morpho-eth-fee/natural-case.json + log): era1 today-header base fee 0.039628498 gwei —
+   NO_PROFIT guard 0xbe6362d51556d628e00dff092f6d723957139e677e9938b81d380be702f5b15d status 0
+   gas 381606 delta 0; success 0x73adaa672feda4d3f746d9e3ba31ed3ca4162e18d579fccfc42e90f4cc2a5977
+   status 1 gas 307335, executor USDC delta +2.736433 with the chain-charged fee 0.0275 USD
+   INSIDE the derived cap 0.04558206 gwei (includable), after-fee 2.7089 USD >= the 2 USD floor;
+   healthy revert 0x42281e949c14a7c24841d25ad6d9896cd092f87ae855a31ecea82a1abb5f54fd status 0.
+   Era2 winner-block base fee 5.483491711 gwei: derived maxFee 6.169928174 gwei includable; the
+   SAME case fail-CLOSES — the success-floor send 0xfea839ba53424d2aa9457335cc808ca25b9380ef68cf42ddbc301083b674f794
+   mined status 0 (NO_PROFIT, fee 4.617 USD paid, delta 0; guard 0xf60cbca2c1a00490a0f84d04e38dc047b2781386014fb789c56868e4d064b59b):
+   the expected-fee floor sits above the oracle profit in that era — measured, not tuned.
+   Deterministic gate/staleness fixture (no RPC): scratch/morpho-eth-fee/gate-check.js — ALL PASS.
+  NATURAL BIG-CASE FEE RUN (run 95d60886, review 6b61bdcb blocker "a natural pre-discovered final-sized
+  positive execution through the final live gate with CONTEMPORANEOUS inclusion fees"): the biggest
+  CATCHABLE pinned event of the ledger window — winner block 26300862 tx
+  0x97a32346a6a6c39113ea005cfe1c7329d5a3e2fed2a778ff3bd97f929a4a7679 (actor 0xa00003b2e58e808bcb536041045a5d0f7750c777,
+  borrower 0xf1706742cd509f06b24e547d5302294158862e3f, ledger repaid 743.760723 USDC seized 0.342779459242564112
+  WETH on the pinned WETH/USDC market). Fork reset 26300861, executor redeployed 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352
+  (constructor-args hex; runtime byte-checked vs executor-runtime.hex before and after every send); final bot sizing
+  (cap 398 USDC) → capital_limited: seized 183427573279480961 WETH, repaid 398.000000, ORACLE proceeds 415.448849
+  (oracle profit 17.448849 USDC). Both eras below use the event's OWN measured relay headers (no fee substitution):
+  era1 parent 26300861 header base fee 0x1063fc4b2 = 4379333554 wei; era2 winner block 26300862 header base fee
+  0x127038b2e = 4950061870 wei — the fee the chain actually charged the winner's inclusion.
+  era1: NO_PROFIT guard 0xec9565984809c7a23b6cbdafc8e8ff3cbb4a4e7fcc227efaed387ac3a4f4d365 status 0 gas 380733 delta 0
+  (sender paid 3.78 USD at the era base fee); success 0xede2f12f8793e4f41120d855de4051b025a6cf827fc6acf781903cc309ce689c
+  status 1 gas 306636, executor USDC delta +71.731107, chain-charged fee 3.0409 USD INSIDE the derived cap (maxFee
+  4927750248 wei ≥ basefee + tip — includable), after-fee +68.69 USD ≥ 2, raw floor 6165172 wei cleared; healthy revert
+  0xe56b5b2865cef171c7b73d00b1b66e12fe5cc16c57cd8872caae7afdc87665bd status 0 ("position is healthy").
+  era2: guard 0x37c130cc73b152557e915b9fc2a04b6b949faac45040a216616fb3e7c0308a9e status 0 gas 380733 delta 0 fee 4.27 USD;
+  success 0xc3325eb49a9af13cac968d32af70c999edd904503c5ae831cc84db34bff6cdf8 status 1 gas 306636 delta +71.731107, fee
+  3.4371 USD (sender ETH delta = (base fee + tip) × gasUsed at the winner block's own base fee), after-fee +68.294 USD,
+  raw floor 6707866 wei cleared; healthy revert 0xb8b900ab7fcba04fd748e00e39f29215c10a561f2b808291e5dbbba4d0fc874d
+  status 0. The realized delta 71.73 EXCEEDS the oracle profit 17.45 because the UniV3 pool sold the newly seized
+  collateral at a favourable spot ≈ 2560 USD/WETH vs the stale market oracle 2264.92 (measured, not tuned) — even the
+  conservative oracle-sized gross 17.45 exceeds both era floors (6.17/6.71 USDC), so the case clears its own-era fee
+  regardless of the pool/oracle divergence. The first run attempt used guard floor 29 USDC and measured the realized
+  delta BEFORE the success leg (guard succeeded status 1 delta +71.731107, txs 0xe4f3e145.../0x78a16e08...); the
+  success legs 0xede2f12f/0xc3325eb4 above are from the re-run with the corrected floor — disclosed, not hidden.
+  FINE WINDOW for this case (scratch/morpho-eth-natural2/window-fine.json, the bot's own scan math at historical
+  relay tags): HF 0.992854112 LIQUIDATABLE at parent 26300861 (oracle price 2264.92) vs HF 1.008783327 healthy at
+  26300860 (price 2301.26) — the crossing moved EXACTLY at the parent block: measured window 1 block, race-like
+  (the winner acted in the very next block; a 20 s poll cycle cannot pre-discover a 1-block window). This case's
+  window is NOT presented as a multi-block poll window; the multi-block CATCHABLE class stays as measured in the
+  window section above (e.g. 26302109: liquidatable ≥128 blocks before its winner).
+  CURRENT-ERA CLIFF STATUS (run 750cdd8e, review 7880fdd7 combined blocker — no natural case combines the
+  properties TODAY, measured, not tuned): the high-fee era ended inside the measured window. Relay headers
+  measured this session (research lane, eth_getBlockByNumber): block 26302472 baseFee 4734141325 wei (4.734
+  gwei — still era fee) vs block 26322217 baseFee 40329346 wei and block 26328590 baseFee 372920064 wei (the
+  post-cliff era fluctuates 0.037-0.43 gwei; current head 0.039628498 gwei). Pinned-market Liquidate events
+  since 26302472 are exactly THREE (ledger re-query this session — the latest pinned event remains 26338616
+  0xc790bdc9...): 26322217 (WETH/USDC, repaid 85.746232, delta repaid×4.384% = +3.76 USDC), 26328590
+  (WETH/USDC, repaid 85.163563, +3.74), 26338616 (WBTC/USDC, repaid 956.072482, +41.92) — ALL THREE measured
+  ORACLE-RACE (healthy at parent: 26328590 hf 1.002376, 26338616 hf 1.004580 — windows 0 blocks). Each
+  nevertheless CLEARS its own-era expected-fee floor (bot formula EXPECTED_GAS 420000 × (own winner header
+  baseFee + 0.001 gwei tip) at 2428 USD/ETH plus the 2.041 USD floor: 2.083 / 2.431 / 2.087 USDC — all below
+  their deltas), so after the cliff ONLY the polling-window property fails the combined blocker; no post-cliff
+  CATCHABLE pinned event exists yet. At the current header the floor is 2.09 USD: any new catchable pinned
+  event with debt ≥48 USDC resolves the blocker WITH ITS OWN-ERA FEE (measured median pinned debt 86 USDC; the
+  26302109-class case then succeeds at the current-era fee exactly as proven — 0x73adaa672feda4... +2.736433).
+  Measured post-cliff pinned rate: 3 events in 6.16 days (0.49/day; 6/13 catchable historically, ~half with
+  debt ≥48 USDC) — the next qualifying case is expected in days, not hours; the bot keeps paper-watching.
+awaited_events: >
+  Liquidate on either pinned market (newest: WETH/USDC wave 26372984-26372986 repaid
+  23,844.77 / 16,087.61 / 113.75 USDC at 2026-11-08T21:55:47-21:56:11Z, dust 26372995/26372996
+  (30.58/22.78 USDC) and 26373743 (914.58/7.45/0.67 USDC at 2026-11-09T00:23-00:28Z); prior
+  WBTC/USDC 26349648/26349528 2026-11-05, WETH/USDC 26328590); position-changing logs
+  (Borrow/Repay/Supply/Withdraw) feed the candidate set. The position goes unhealthy when the
+  market oracle price crosses the HF line: measured over all 13 pinned-market liquidations of
+  the 7d window (scratch/morpho-eth-window/ window.json, review a1438eb0 accepted attempt 140)
+  6/13 were already liquidatable at the winner's parent — a 20 s poll discovers those for
+  windows measured 1 to >=1024 blocks before the winner (the other 7/13 are oracle-update-race).
+  Trace of the review-b87263e4 missed borrowers against this bot's own heartbeat log: all three
+  wave debtors were scanned throughout (state.json candidates), and eligibility arrived inside
+  the capture block — 0x823d4904 (repaid 23,844.77) was logged healthy at HF 1.0062 at
+  21:55:37Z and captured at 21:55:47Z; 0x21ac856da7 (113.75) was tracked HF 1.0430 -> 1.0350
+  -> 1.0196 -> 1.00996 (healthy at 21:55:58Z) and captured at 21:56:11Z; 0x4a102de3 (16,087.61)
+  logged NO opportunity in any cycle since bot start — its HF stayed above the 1.05 warning
+  line until the capture block, where the WETH oracle price crossed the >4.8 pct needed to
+  bring it below 1.0 (capture-block oracle price 2,384.6 USD/WETH implied by the ledger
+  seizedAssets 7.8434 at repaid 16,087.61 and LLTV 0.86). Window 0-1 blocks: the pinned
+  WETH/USDC BIG-CAPTURE route is the same-block oracle-race class excluded by decisions/human/
+  2026-11-06-no-latency-race; the 26373743 dust captures DID offer a >=4.5 min poll window
+  (unhealthy opportunities logged 00:23:44-00:28:19Z) but repay <=0.92 USDC cannot fund any
+  gas. Pinned candidate retention stays PIN_CAND_CAP=1200 (run 2637916d). So the next
+  liquidation is an UNSCHEDULED event (chain-wide ~17/day, pinned markets ~0.49/day post-cliff)
+  with a catchable multi-block window for 6 of the 13 measured — no scheduled next event
+  justifies a wait; the bot polls.
+good_signs: >
+  Paper logs show: candidate discovery from logs (candidates map growing), scanCycle
+  market_state OK, underwater -> opportunity + simulate records with sim_ok true and a
+  POSITIVE balance delta on the fork-proven calldata shape (seized/repaid/proceeds
+  matching the sizing chain), and NO simulate for healthy borrowers. Measured RPC use is
+  logged per completed cycle (bot.js RPC_TOTAL counter -> heartbeat rpc_cycle/rpc_total,
+  added 2026-11-05): post-restart supervised logs show a completed 20 s heartbeat every
+  cycle with rpc_cycle = 4 (steady scan; the getLogs refresh batch runs only on the
+  300 s cadence) — ~12 reads/min measured against the declared 60. Cumulative reads/min
+  is 14.95 over the whole supervised window since the 2026-11-05T18:19:57Z start
+  (heartbeat rpc_total 377 -> 26196 over 1727 min, logs/bot.jsonl tail, run 019dc174:
+  the refresh batches add ~3 reads/min over the steady scan cycle); 4980 completed
+  heartbeats at a 20.8 s cadence, zero overlapping scans, zero deterministic-revert
+  retries and zero eth_call spent on the skipped dust positions in that window.
+bad_signs: >
+  market_state_missin errors (multicall chunks failing), sims disabled by the
+  fail-closed runtime check, opportunity_watch_only reasons, a simulate that succeeds
+  on a non-liquidatable position, or gasUsed far above the fork-measured range.
+  A WBTC-pool simulate reverting POOL_NOT_ALLOWED is now a BAD sign (fix 2026-11-04,
+  review 1c01613e blocker 3): paper sims model the post-promotion executor state by
+  injecting the owner-init storage slot (bot.js POOL_ALLOWED_INIT — allowedPool is
+  mapping slot 1; WBTC pool slot keccak(pool word ++ slot) =
+  0xfa2a8da10ebaa196ea21dc474321e5b03a94fb3684bdc473b2250a6ef99e5010 = 1; fork-verified
+  after owner init tx 0xfa60cf60ecbf621ea593765cba2de6d5f192051158200b3b99e432920a096d9b;
+  relay-verified the state map override is accepted: isPoolAllowed(WBTC pool) returns 0x..01
+  with it, 0x..00 without). Uneconomic dust positions must log simulate_skip WITHOUT any
+  eth_call (blocker 4); zero completed heartbeats or simulate records spending RPC on
+  positions whose oracle proceeds cannot clear minProfit are bad signs too.
+rpc_reads_per_min: 60
+legal_note: >
+  Morpho Blue liquidations: the protocol pays the liquidator a liquidation bonus capped
+  by the liquidation coverage (the 15% parameter is capped at 14% coverage for 86% LLTV:
+  measured seize factor 1.0438 = 4.38% of repaid debt on debt_limited captures) through
+  a public liquidate() anyone may call — an intended keeper mechanism under S. Selling
+  through Uniswap V3 pools at the pool spot is an AMM sale, no sandwiches/wash trades.

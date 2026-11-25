@@ -1,0 +1,4078 @@
+# The $B Token (/docs/btoken)
+
+\$B is the ecosystem token for Baseline Markets, an asset issuance protocol where tokens own their liquidity, and automatically manage it to grow value over time.
+
+## How \$B Accrues Value
+
+\$B holders benefit from protocol activity in three ways:
+
+1. **Token-Owned Liquidity**: Since \$B itself is a Baseline token, it inherits the properties of a  guaranteed floor price, and liquidity that grows token's value over time.
+2. **Protocol Fees**: Trading fees from all Baseline markets flow to the protocol, which may be used for staking, airdrops and buybacks in the future.
+3. **Token Pairing**: Some projects will choose to pair with \$B. Demand for partner token will route buy pressure through \$B.
+
+These value accrual mechanisms create a self-reinforcing flywheel: as more projects launch on Baseline, more trading volume is generated, more fees are generated for \$B holders, and the value of \$B increases.
+
+## Tokenomics
+
+| Category                  | Amount     | Percentage |
+| ------------------------- | ---------- | ---------- |
+| **Circulating Supply**    | 12,577,625 | 60%        |
+| **Token-Owned Liquidity** | 8,422,375  | 40%        |
+| **Team Allocation**       | 0          | 0%         |
+| **Investor Allocation**   | 0          | 0%         |
+| **Total Supply**          | 21,000,000 | 100%       |
+
+<div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+  <svg width="300" height="300" viewBox="0 0 300 300">
+    <circle cx="150" cy="150" r="100" fill="#5BB98B" />
+
+    <path d="M 150 150 L 150 50 A 100 100 0 0 1 208.8 230.9 Z" fill="#6b7280" />
+
+    <text x="100" y="144" fill="white" fontSize="14" fontWeight="bold" text-anchor="middle">
+      60%
+    </text>
+
+    <text x="100" y="160" fill="white" fontSize="11" text-anchor="middle">
+      Circulating
+    </text>
+
+    <text x="187" y="144" fill="white" fontSize="14" fontWeight="bold">
+      40%
+    </text>
+
+    <text x="192" y="160" fill="white" fontSize="11">
+      TOL
+    </text>
+
+    <g>
+      <rect x="30" y="260" width="15" height="15" fill="#5BB98B" rx="2" />
+
+      <text x="50" y="272" fontSize="12" fill="white">
+        Circulating Supply (12.6M)
+      </text>
+
+      <rect x="30" y="280" width="15" height="15" fill="#6b7280" rx="2" />
+
+      <text x="50" y="292" fontSize="12" fill="white">
+        Token-Owned Liquidity (8.4M)
+      </text>
+    </g>
+  </svg>
+</div>
+
+
+# Actions API (/docs/contracts/actions-api)
+
+**Base URL:** `https://api.baseline.markets`
+
+The actions API turns any Baseline protocol action — launch a token, buy, sell, stake (deposit / withdraw / claim), borrow, repay — into a wallet\_sendCalls-compatible (ERC-5792) transaction bundle over plain HTTP. It is the fastest way to integrate Baseline into a frontend: no SDK dependency, no contract knowledge, no quote or approval logic on your side.
+
+The API prepares and validates; your user's wallet signs and pays. It never holds keys, signs, or submits transactions.
+
+## Discovery
+
+`GET /v1/actions` (no auth) returns an OpenAPI 3.1 spec describing every endpoint, with request schemas generated from the same validators that guard the routes, and the live per-chain approved-reserve registry under `x-baseline-chains`. Also served at `/v1/actions/openapi.json`.
+
+## Integrating a frontend
+
+Three steps, all stateless:
+
+### 1. Authenticate (SIWE)
+
+```
+GET  /v1/auth/nonce                     → { nonce }
+POST /v1/auth/verify                    → { token, address, expiresAt }
+     { message, signature }
+```
+
+Build an EIP-4361 message with the nonce, have the wallet sign it (`personal_sign`), and exchange it for a JWT. Send the JWT as `Authorization: Bearer <jwt>` afterwards.
+
+### 2. Build the calls
+
+```
+POST /v1/actions/build
+```
+
+```json
+{
+  "type": "buy",
+  "chainId": 8453,
+  "bToken": "0x…",
+  "exactSide": "in",
+  "amount": "0.5",
+  "slippagePct": "1"
+}
+```
+
+The config is a discriminated union on `type`: `launch`, `buy`, `sell`, `deposit`, `withdraw`, `claim`, `borrow`, `repay`. Amounts are human-unit decimal strings — BToken amounts in whole tokens (18 decimals), reserve amounts in whole reserve units.
+
+The response is an executable artifact:
+
+```json
+{
+  "artifact": {
+    "type": "buy",
+    "chainId": 8453,
+    "account": "0x…",
+    "calls": [
+      { "to": "0x…", "data": "0x…" },
+      { "to": "0x…", "data": "0x…" }
+    ],
+    "summary": {
+      "exactSide": "in",
+      "exactAmount": "500000000000000000",
+      "quotedAmount": "1000000000000000000000",
+      "limitAmount": "990000000000000000000"
+    },
+    "quotedAt": "2026-07-08T00:00:00.000Z"
+  }
+}
+```
+
+* Trades are quoted on-chain at build time; the swap's limit is derived from `slippagePct`.
+* Required ERC-20 approvals are prepended to `calls`, so the bundle executes as-is — no separate approval step in your UI.
+* Launch artifacts include the precomputed `bToken` address, known before anything is signed.
+* `summary` carries the raw parsed amounts for your review screen.
+* Quotes go stale: rebuild the artifact if meaningful time passes between build and signing (`quotedAt` tells you when state was read).
+
+### 3. Execute
+
+Send `artifact.calls` in order from the authenticated wallet — `wallet_sendCalls` (EIP-5792) as one bundle, or sequential `eth_sendTransaction`. Every call must succeed. Simulate client-side before signing for pre-flight protection.
+
+Nothing is persisted server-side; there is no record to manage.
+
+## Reads
+
+The actions API constructs transactions only. For token lists, prices, balances, and pool state, use the [GraphQL API](/docs/contracts/api) at `/graphql` and the REST read endpoints.
+
+
+# API (/docs/contracts/api)
+
+**Base URL:** `https://api.baseline.markets`
+
+All REST endpoints are versioned under `/v1/`. Address parameters must be EIP-55 checksummed.
+
+Integration endpoints that expose indexed on-chain data are chain-scoped. Use the `:chain` path segment to select the network:
+
+| Chain       | Alias            | Chain ID |
+| :---------- | :--------------- | :------- |
+| `ethereum`  | `mainnet`        | `1`      |
+| `base`      | —                | `8453`   |
+| `hyperevm`  | `hyperliquid`    | `999`    |
+| `robinhood` | `robinhoodchain` | `4663`   |
+
+Legacy unscoped integration routes are still served as Ethereum mainnet, but chain-scoped routes are preferred.
+
+***
+
+## Protocol metrics
+
+### GET /v1/protocol/metrics
+
+Returns current protocol-level reserve metrics grouped by chain and reserve token, plus the Baseline staking metric for \$B. Values are raw integer token units; use the returned `decimals` field to decimalize balances.
+
+<ApiExample url="https://api.baseline.markets/v1/protocol/metrics" />
+
+**Response**
+
+```json
+{
+  "reserveMetrics": [
+    {
+      "chainId": "1",
+      "tokenAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "symbol": "WETH",
+      "decimals": 18,
+      "reserveLiquidity": "712116589552028176816",
+      "totalDebt": "14788752752346013575496",
+      "totalCreatorFees": "5663969771441968974",
+      "totalProtocolFees": "3977595860797789422",
+      "totalStakingFees": "0",
+      "totalVolume": "761102995753535272538"
+    }
+  ],
+  "stakingMetrics": [
+    {
+      "chainId": "1",
+      "tokenAddress": "0x9fDbDE76236998Dc2836FE67A9954eDE456A1D63",
+      "symbol": "B",
+      "decimals": 18,
+      "totalStaked": "29569970092404356096317215"
+    }
+  ]
+}
+```
+
+| Field                                | Type     | Description                                                                       |
+| :----------------------------------- | :------- | :-------------------------------------------------------------------------------- |
+| `reserveMetrics[].chainId`           | `string` | EVM chain ID                                                                      |
+| `reserveMetrics[].tokenAddress`      | `string` | Reserve token contract address on the chain                                       |
+| `reserveMetrics[].symbol`            | `string` | Reserve token symbol                                                              |
+| `reserveMetrics[].decimals`          | `number` | Reserve token decimals                                                            |
+| `reserveMetrics[].reserveLiquidity`  | `string` | Total reserve liquidity across indexed Baseline pools, in raw reserve token units |
+| `reserveMetrics[].totalDebt`         | `string` | Total outstanding debt across indexed Baseline pools, in raw reserve token units  |
+| `reserveMetrics[].totalCreatorFees`  | `string` | Total creator fees accrued, in raw reserve token units                            |
+| `reserveMetrics[].totalProtocolFees` | `string` | Total protocol fees accrued, in raw reserve token units                           |
+| `reserveMetrics[].totalStakingFees`  | `string` | Total staking fees accrued, in raw reserve token units                            |
+| `reserveMetrics[].totalVolume`       | `string` | Total swap volume, in raw reserve token units                                     |
+| `stakingMetrics[].chainId`           | `string` | EVM chain ID                                                                      |
+| `stakingMetrics[].tokenAddress`      | `string` | Staked \$B token contract address on the chain                                    |
+| `stakingMetrics[].symbol`            | `string` | Token symbol                                                                      |
+| `stakingMetrics[].decimals`          | `number` | Token decimals                                                                    |
+| `stakingMetrics[].totalStaked`       | `string` | Total \$B amount staked in Baseline, in raw token units                           |
+
+***
+
+## DexScreener adapter
+
+Implements the [DexScreener Adapter Spec v1.1](https://dexscreener.notion.site/DEX-Screener-Adapter-Specs-cc1223cdf6e74a7799599106b65dcd0e). These endpoints are queried directly by DexScreener to index Baseline pools.
+
+### GET /v1/dexscreener/:chain/latest-block
+
+Returns the latest indexed block for a chain. DexScreener polls this continuously to determine where to resume indexing.
+
+<ApiExample url="https://api.baseline.markets/v1/dexscreener/ethereum/latest-block" />
+
+**Response**
+
+```json
+{
+  "block": {
+    "blockNumber": 24922675,
+    "blockTimestamp": 1776706931
+  }
+}
+```
+
+| Field                  | Type     | Description                            |
+| :--------------------- | :------- | :------------------------------------- |
+| `block.blockNumber`    | `number` | Latest indexed block number            |
+| `block.blockTimestamp` | `number` | Unix timestamp (seconds) of that block |
+
+***
+
+### GET /v1/dexscreener/:chain/asset
+
+Returns token metadata for a given contract address on a chain.
+
+**Query parameters**
+
+| Parameter | Type     | Required | Description                        |
+| :-------- | :------- | :------- | :--------------------------------- |
+| `id`      | `string` | Yes      | Checksummed token contract address |
+
+<ApiExample url="https://api.baseline.markets/v1/dexscreener/ethereum/asset?id=0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B" />
+
+**Response**
+
+```json
+{
+  "asset": {
+    "id": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+    "name": "Based Liquidity Token",
+    "symbol": "BLT",
+    "decimals": 18,
+    "totalSupply": "72000000",
+    "circulatingSupply": "29569970.092404356096317215"
+  }
+}
+```
+
+| Field                     | Type     | Description                                             |
+| :------------------------ | :------- | :------------------------------------------------------ |
+| `asset.id`                | `string` | Contract address                                        |
+| `asset.name`              | `string` | Token name                                              |
+| `asset.symbol`            | `string` | Token symbol                                            |
+| `asset.decimals`          | `number` | Token decimals (also used to decimalize supply fields)  |
+| `asset.totalSupply`       | `string` | Decimalized total supply (omitted if unavailable)       |
+| `asset.circulatingSupply` | `string` | Decimalized circulating supply (omitted if unavailable) |
+
+**Errors**
+
+| Status | Body                                                                             | Cause                                     |
+| :----- | :------------------------------------------------------------------------------- | :---------------------------------------- |
+| `400`  | `{ error: [{ message: "Invalid input: expected string, received undefined" }] }` | Missing or invalid `id` parameter         |
+| `404`  | `{ error: "Asset not found" }`                                                   | Address not in the indexed token registry |
+
+***
+
+### GET /v1/dexscreener/:chain/pair
+
+Returns pool metadata for a given btoken contract address on a chain.
+
+**Query parameters**
+
+| Parameter | Type     | Required | Description                         |
+| :-------- | :------- | :------- | :---------------------------------- |
+| `id`      | `string` | Yes      | Checksummed btoken contract address |
+
+<ApiExample url="https://api.baseline.markets/v1/dexscreener/ethereum/pair?id=0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B" />
+
+**Response**
+
+```json
+{
+  "pair": {
+    "id": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+    "dexKey": "baseline",
+    "asset0Id": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+    "asset1Id": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "createdAtBlockNumber": 24921292,
+    "createdAtBlockTimestamp": 1776690287,
+    "createdAtTxnId": "0x7576a097a1680a8ec8a595212572b49e0d9cc8d64cfdcd891f5bc2bce2aa2178",
+    "creator": "0xB2A9f3886134e5F6A19a1A87bD62343FE2685c64"
+  }
+}
+```
+
+| Field                          | Type     | Description                                   |
+| :----------------------------- | :------- | :-------------------------------------------- |
+| `pair.id`                      | `string` | btoken contract address (the pair identifier) |
+| `pair.dexKey`                  | `string` | Always `"baseline"`                           |
+| `pair.asset0Id`                | `string` | btoken address                                |
+| `pair.asset1Id`                | `string` | Reserve token address (WETH on mainnet)       |
+| `pair.createdAtBlockNumber`    | `number` | Pool deploy block                             |
+| `pair.createdAtBlockTimestamp` | `number` | Pool deploy Unix timestamp                    |
+| `pair.createdAtTxnId`          | `string` | Pool deploy transaction hash                  |
+| `pair.creator`                 | `string` | Address that deployed the pool                |
+
+**Errors**
+
+| Status | Body                          | Cause                          |
+| :----- | :---------------------------- | :----------------------------- |
+| `404`  | `{ error: "Pair not found" }` | No pool found for this address |
+
+***
+
+### GET /v1/dexscreener/:chain/events
+
+Returns swap events within an inclusive block range for a chain. DexScreener uses this to index historical and live trades.
+
+**Query parameters**
+
+| Parameter   | Type     | Required | Description             |
+| :---------- | :------- | :------- | :---------------------- |
+| `fromBlock` | `number` | Yes      | Start block (inclusive) |
+| `toBlock`   | `number` | Yes      | End block (inclusive)   |
+
+Maximum range: 2000 blocks per request.
+
+<ApiExample url="https://api.baseline.markets/v1/dexscreener/ethereum/events?fromBlock=24921292&toBlock=24922675" />
+
+**Response**
+
+```json
+{
+  "events": [
+    {
+      "block": { "blockNumber": 24921350, "blockTimestamp": 1776691000 },
+      "eventType": "swap",
+      "txnId": "0x7576a097a1680a8ec8a595212572b49e0d9cc8d64cfdcd891f5bc2bce2aa2178",
+      "txnIndex": 4,
+      "eventIndex": 0,
+      "maker": "0xB2A9f3886134e5F6A19a1A87bD62343FE2685c64",
+      "pairId": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+      "asset1In": "0.5",
+      "asset0Out": "966424.684",
+      "priceNative": "0.00000063",
+      "reserves": {
+        "asset0": "29569970.09",
+        "asset1": "0.61"
+      }
+    }
+  ]
+}
+```
+
+Each event is a swap. `asset0` is always the btoken; `asset1` is always the reserve token.
+
+| Field             | Type     | Description                                    |
+| :---------------- | :------- | :--------------------------------------------- |
+| `eventType`       | `"swap"` | Always `"swap"`                                |
+| `txnId`           | `string` | Transaction hash                               |
+| `txnIndex`        | `number` | Transaction order within block                 |
+| `eventIndex`      | `number` | Event order within transaction                 |
+| `maker`           | `string` | Wallet that submitted the transaction          |
+| `pairId`          | `string` | btoken address                                 |
+| `asset1In`        | `string` | Reserve amount in (buy)                        |
+| `asset0Out`       | `string` | btoken amount out (buy)                        |
+| `asset0In`        | `string` | btoken amount in (sell)                        |
+| `asset1Out`       | `string` | Reserve amount out (sell)                      |
+| `priceNative`     | `string` | Price of asset0 quoted in asset1 (decimalized) |
+| `reserves.asset0` | `string` | Post-swap btoken pool balance                  |
+| `reserves.asset1` | `string` | Post-swap reserve pool balance                 |
+
+All amounts are decimalized (`amount / 10 ** decimals`).
+
+**Errors**
+
+| Status | Body                                                 | Cause                               |
+| :----- | :--------------------------------------------------- | :---------------------------------- |
+| `400`  | `{ error: "Block range exceeds max range of 2000" }` | Range greater than 2000 blocks      |
+| `400`  | `{ error: [{ message: "..." }] }`                    | Missing or invalid query parameters |
+
+***
+
+## 1inch adapter
+
+Same chain routes and indexer shape as the DexScreener adapter (`latest-block`, `asset`, `pair`, `events`), plus the pool state and quote surface 1inch needs to route Baseline. Chain-scoped routes use the prefix `/v1/1inch/:chain/`. Unprefixed routes are Ethereum mainnet.
+
+Pair ids on this prefix are the bToken address. That address is the pool key passed into the relay quote functions. Reserves and quote amounts are raw token units (`uint256` strings), not decimalized.
+
+Quotes are view calls on the Baseline relay (`0xc81Fd894C0acE037d133aF4886550aC8133568E8` on every chain):
+
+* Sell bToken for the reserve: `quoteSellExactIn(bToken, amountIn)` returns `(amountOut, fee, slippage)`. `amountIn` is bToken units.
+* Buy bToken with the reserve: `quoteBuyExactIn(bToken, reservesIn)` returns `(tokensOut, fee, slippage)`. `amountIn` on the HTTP quote route is reserve units.
+
+`GET /v1/1inch/:chain/latest-block`, `/asset`, `/pair`, and `/events` match the DexScreener routes above. `/pair` returns the bToken address as `pair.id` with no `:bpool` suffix.
+
+### GET /v1/1inch/:chain/pools
+
+Returns every indexed pool on the chain, with current reserves and the relay calls that quote it.
+
+<ApiExample url="https://api.baseline.markets/v1/1inch/ethereum/pools" />
+
+**Response**
+
+```json
+{
+  "quoteContract": "0xc81Fd894C0acE037d133aF4886550aC8133568E8",
+  "quotes": {
+    "sellExactIn": {
+      "function": "quoteSellExactIn",
+      "args": ["_bToken", "_amountIn"],
+      "returns": ["amountOut_", "feesReceived_", "slippage_"]
+    },
+    "buyExactIn": {
+      "function": "quoteBuyExactIn",
+      "args": ["_bToken", "_reservesIn"],
+      "returns": ["tokensOut_", "feesReceived_", "slippage_"]
+    }
+  },
+  "pools": [
+    {
+      "poolAddress": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+      "uniswapPoolId": "0xabc0000000000000000000000000000000000000000000000000000000000001",
+      "bToken": {
+        "address": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+        "name": "Based Liquidity Token",
+        "symbol": "BLT",
+        "decimals": 18
+      },
+      "reserveToken": {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Wrapped Ether",
+        "symbol": "WETH",
+        "decimals": 18
+      },
+      "reserves": {
+        "bToken": "29569970092404356096317215",
+        "reserve": "610000000000000000",
+        "updatedAtBlock": 24922675,
+        "updatedAtTimestamp": 1776706931
+      },
+      "createdAtBlockNumber": 24921292,
+      "createdAtBlockTimestamp": 1776690287,
+      "createdAtTxnId": "0x7576a097a1680a8ec8a595212572b49e0d9cc8d64cfdcd891f5bc2bce2aa2178",
+      "creator": "0xB2A9f3886134e5F6A19a1A87bD62343FE2685c64"
+    }
+  ]
+}
+```
+
+| Field                      | Type             | Description                                      |
+| :------------------------- | :--------------- | :----------------------------------------------- |
+| `quoteContract`            | `string`         | Relay address. All quote and swap calls go here  |
+| `quotes`                   | `object`         | Relay view functions. First arg is `poolAddress` |
+| `pools[].poolAddress`      | `string`         | bToken address. This is the pool key             |
+| `pools[].uniswapPoolId`    | `string \| null` | Uniswap v4 pool id, when a snapshot exists       |
+| `pools[].bToken`           | `object`         | bToken address, name, symbol, decimals           |
+| `pools[].reserveToken`     | `object`         | Reserve token address, name, symbol, decimals    |
+| `pools[].reserves.bToken`  | `string`         | Current bToken liquidity, raw units              |
+| `pools[].reserves.reserve` | `string`         | Current reserve liquidity, raw units             |
+| `pools[].reserves`         | `object \| null` | `null` until the indexer has a snapshot          |
+
+***
+
+### GET /v1/1inch/:chain/pool
+
+Returns one pool. Same fields as a `pools[]` entry, plus `quoteContract` and `quotes`.
+
+**Query parameters**
+
+| Parameter | Type     | Required | Description                       |
+| :-------- | :------- | :------- | :-------------------------------- |
+| `id`      | `string` | Yes      | bToken address (the pool address) |
+
+<ApiExample url="https://api.baseline.markets/v1/1inch/ethereum/pool?id=0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B" />
+
+**Errors**
+
+| Status | Body                              | Cause                                        |
+| :----- | :-------------------------------- | :------------------------------------------- |
+| `404`  | `{ error: "Pool not found" }`     | No indexed pool for this bToken on the chain |
+| `400`  | `{ error: [{ message: "..." }] }` | Missing or invalid `id`                      |
+
+***
+
+### GET /v1/1inch/:chain/quote
+
+Reads `quoteSellExactIn` or `quoteBuyExactIn` on the relay and returns the raw result.
+
+**Query parameters**
+
+| Parameter  | Type              | Required | Description                                                                           |
+| :--------- | :---------------- | :------- | :------------------------------------------------------------------------------------ |
+| `id`       | `string`          | Yes      | bToken address (the pool address)                                                     |
+| `side`     | `"buy" \| "sell"` | Yes      | `sell` quotes bToken in, reserve out. `buy` quotes reserve in, bToken out             |
+| `amountIn` | `string`          | Yes      | Positive integer in raw token units. bToken units for `sell`, reserve units for `buy` |
+
+<ApiExample url="https://api.baseline.markets/v1/1inch/ethereum/quote?id=0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B&side=sell&amountIn=1000000000000000000" />
+
+**Response**
+
+```json
+{
+  "poolAddress": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+  "quoteContract": "0xc81Fd894C0acE037d133aF4886550aC8133568E8",
+  "side": "sell",
+  "function": "quoteSellExactIn",
+  "amountIn": "1000000000000000000",
+  "amountOut": "500000000000000000",
+  "fee": "1000000000000000",
+  "slippage": "0"
+}
+```
+
+| Field       | Type     | Description                                           |
+| :---------- | :------- | :---------------------------------------------------- |
+| `function`  | `string` | `quoteSellExactIn` or `quoteBuyExactIn`               |
+| `amountOut` | `string` | Reserve out on a sell, bToken out on a buy. Raw units |
+| `fee`       | `string` | Fee from the relay quote, raw units                   |
+| `slippage`  | `string` | Slippage from the relay quote, raw units              |
+
+**Errors**
+
+| Status | Body                                 | Cause                                                                                         |
+| :----- | :----------------------------------- | :-------------------------------------------------------------------------------------------- |
+| `404`  | `{ error: "Pool not found" }`        | No indexed pool for this bToken on the chain                                                  |
+| `400`  | `{ error: [{ message: "..." }] }`    | Missing `id`, `side` other than `buy` or `sell`, or `amountIn` that is not a positive integer |
+| `500`  | `{ error: "Internal server error" }` | Relay quote reverted or the chain client failed                                               |
+
+***
+
+## CoinGecko and GeckoTerminal adapter
+
+CoinGecko-related HTTP surfaces on Baseline: a **GeckoTerminal-compatible on-chain index** (`latest-block`, `asset`, `pair`, `events`) and a **CoinGecko decentralized spot exchange** feed (`tickers`, `orderbook`, `historical_trades`). Chain-scoped routes use the prefix `/v1/coingecko/:chain/`.
+
+### GET /v1/coingecko/:chain/latest-block
+
+Returns the latest indexed block for a chain. This value should stay in sync with `/events`: it is the highest block for which event data is available for range queries.
+
+<ApiExample url="https://api.baseline.markets/v1/coingecko/ethereum/latest-block" />
+
+**Response**
+
+```json
+{
+  "block": {
+    "blockNumber": 24922675,
+    "blockTimestamp": 1776706931
+  }
+}
+```
+
+| Field                  | Type     | Description                            |
+| :--------------------- | :------- | :------------------------------------- |
+| `block.blockNumber`    | `number` | Latest indexed block number            |
+| `block.blockTimestamp` | `number` | Unix timestamp (seconds) of that block |
+
+***
+
+### GET /v1/coingecko/:chain/asset
+
+Returns token metadata for a given contract address on a chain.
+
+**Query parameters**
+
+| Parameter | Type     | Required | Description                        |
+| :-------- | :------- | :------- | :--------------------------------- |
+| `id`      | `string` | Yes      | Checksummed token contract address |
+
+<ApiExample url="https://api.baseline.markets/v1/coingecko/ethereum/asset?id=0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B" />
+
+**Response**
+
+```json
+{
+  "asset": {
+    "id": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+    "name": "Based Liquidity Token",
+    "symbol": "BLT",
+    "decimals": 18,
+    "totalSupply": "72000000",
+    "circulatingSupply": "29569970.092404356096317215"
+  }
+}
+```
+
+| Field                     | Type     | Description                                             |
+| :------------------------ | :------- | :------------------------------------------------------ |
+| `asset.id`                | `string` | Contract address                                        |
+| `asset.name`              | `string` | Token name                                              |
+| `asset.symbol`            | `string` | Token symbol                                            |
+| `asset.decimals`          | `number` | Token decimals (also used to decimalize supply fields)  |
+| `asset.totalSupply`       | `string` | Decimalized total supply (omitted if unavailable)       |
+| `asset.circulatingSupply` | `string` | Decimalized circulating supply (omitted if unavailable) |
+
+**Errors**
+
+| Status | Body                                                                             | Cause                                     |
+| :----- | :------------------------------------------------------------------------------- | :---------------------------------------- |
+| `400`  | `{ error: [{ message: "Invalid input: expected string, received undefined" }] }` | Missing or invalid `id` parameter         |
+| `404`  | `{ error: "Asset not found" }`                                                   | Address not in the indexed token registry |
+
+***
+
+### GET /v1/coingecko/:chain/pair
+
+Returns pool metadata for a given btoken contract address on a chain.
+
+**Query parameters**
+
+| Parameter | Type     | Required | Description                         |
+| :-------- | :------- | :------- | :---------------------------------- |
+| `id`      | `string` | Yes      | Checksummed btoken contract address |
+
+<ApiExample url="https://api.baseline.markets/v1/coingecko/ethereum/pair?id=0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B" />
+
+**Response**
+
+```json
+{
+  "pair": {
+    "id": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+    "dexKey": "baseline",
+    "asset0Id": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+    "asset1Id": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "createdAtBlockNumber": 24921292,
+    "createdAtBlockTimestamp": 1776690287,
+    "createdAtTxnId": "0x7576a097a1680a8ec8a595212572b49e0d9cc8d64cfdcd891f5bc2bce2aa2178",
+    "creator": "0xB2A9f3886134e5F6A19a1A87bD62343FE2685c64"
+  }
+}
+```
+
+| Field                          | Type     | Description                                   |
+| :----------------------------- | :------- | :-------------------------------------------- |
+| `pair.id`                      | `string` | btoken contract address (the pair identifier) |
+| `pair.dexKey`                  | `string` | Always `"baseline"`                           |
+| `pair.asset0Id`                | `string` | btoken address                                |
+| `pair.asset1Id`                | `string` | Reserve token address (WETH on mainnet)       |
+| `pair.createdAtBlockNumber`    | `number` | Pool deploy block                             |
+| `pair.createdAtBlockTimestamp` | `number` | Pool deploy Unix timestamp                    |
+| `pair.createdAtTxnId`          | `string` | Pool deploy transaction hash                  |
+| `pair.creator`                 | `string` | Address that deployed the pool                |
+
+**Errors**
+
+| Status | Body                          | Cause                          |
+| :----- | :---------------------------- | :----------------------------- |
+| `404`  | `{ error: "Pair not found" }` | No pool found for this address |
+
+***
+
+### GET /v1/coingecko/:chain/events
+
+Returns swap events within an inclusive block range for a chain.
+
+**Query parameters**
+
+| Parameter   | Type     | Required | Description             |
+| :---------- | :------- | :------- | :---------------------- |
+| `fromBlock` | `number` | Yes      | Start block (inclusive) |
+| `toBlock`   | `number` | Yes      | End block (inclusive)   |
+
+Maximum range: 2000 blocks per request.
+
+<ApiExample url="https://api.baseline.markets/v1/coingecko/ethereum/events?fromBlock=24921292&toBlock=24922675" />
+
+**Response**
+
+```json
+{
+  "events": [
+    {
+      "block": { "blockNumber": 24921350, "blockTimestamp": 1776691000 },
+      "eventType": "swap",
+      "txnId": "0x7576a097a1680a8ec8a595212572b49e0d9cc8d64cfdcd891f5bc2bce2aa2178",
+      "txnIndex": 4,
+      "eventIndex": 0,
+      "maker": "0xB2A9f3886134e5F6A19a1A87bD62343FE2685c64",
+      "pairId": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+      "asset1In": "0.5",
+      "asset0Out": "966424.684",
+      "priceNative": "0.00000063",
+      "reserves": {
+        "asset0": "29569970.09",
+        "asset1": "0.61"
+      }
+    }
+  ]
+}
+```
+
+Each event is a swap. `asset0` is always the btoken; `asset1` is always the reserve token.
+
+| Field             | Type     | Description                                    |
+| :---------------- | :------- | :--------------------------------------------- |
+| `eventType`       | `"swap"` | Always `"swap"`                                |
+| `txnId`           | `string` | Transaction hash                               |
+| `txnIndex`        | `number` | Transaction order within block                 |
+| `eventIndex`      | `number` | Event order within transaction                 |
+| `maker`           | `string` | Wallet that submitted the transaction          |
+| `pairId`          | `string` | btoken address                                 |
+| `asset1In`        | `string` | Reserve amount in (buy)                        |
+| `asset0Out`       | `string` | btoken amount out (buy)                        |
+| `asset0In`        | `string` | btoken amount in (sell)                        |
+| `asset1Out`       | `string` | Reserve amount out (sell)                      |
+| `priceNative`     | `string` | Price of asset0 quoted in asset1 (decimalized) |
+| `reserves.asset0` | `string` | Post-swap btoken pool balance                  |
+| `reserves.asset1` | `string` | Post-swap reserve pool balance                 |
+
+All amounts are decimalized (`amount / 10 ** decimals`).
+
+**Errors**
+
+| Status | Body                                                 | Cause                               |
+| :----- | :--------------------------------------------------- | :---------------------------------- |
+| `400`  | `{ error: "Block range exceeds max range of 2000" }` | Range greater than 2000 blocks      |
+| `400`  | `{ error: [{ message: "..." }] }`                    | Missing or invalid query parameters |
+
+***
+
+### GET /v1/coingecko/:chain/tickers
+
+Returns all active Baseline pools on a chain with current price, volume, and liquidity data. Responses are cached for 30 seconds.
+
+<ApiExample url="https://api.baseline.markets/v1/coingecko/ethereum/tickers" />
+
+**Response**
+
+```json
+[
+  {
+    "ticker_id": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B_0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "base_currency": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+    "target_currency": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "pool_id": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+    "last_price": "0.00000063",
+    "base_volume": "966424.68430129",
+    "target_volume": "0.61341692",
+    "liquidity_in_usd": "31086",
+    "high": "0.00000064",
+    "low": "0.00000060"
+  }
+]
+```
+
+`ticker_id` is formatted as `BTOKEN_RESERVE`. `base_currency` is the btoken; `target_currency` is the reserve asset.
+
+***
+
+### GET /v1/coingecko/:chain/orderbook
+
+Returns an empty orderbook stub. Baseline uses an AMM with no traditional order book.
+
+**Query parameters**
+
+| Parameter   | Type     | Required | Description                        |
+| :---------- | :------- | :------- | :--------------------------------- |
+| `ticker_id` | `string` | Yes      | Pair ID in `BTOKEN_RESERVE` format |
+
+<ApiExample url="https://api.baseline.markets/v1/coingecko/ethereum/orderbook?ticker_id=0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B_0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" />
+
+**Response**
+
+```json
+{
+  "ticker_id": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B_0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+  "timestamp": "1776770625054",
+  "bids": [],
+  "asks": []
+}
+```
+
+***
+
+### GET /v1/coingecko/:chain/historical\_trades
+
+Returns historical trades for a pair within an optional time window on a chain.
+
+**Query parameters**
+
+| Parameter    | Type                | Required | Description                        |
+| :----------- | :------------------ | :------- | :--------------------------------- |
+| `ticker_id`  | `string`            | Yes      | Pair ID in `BTOKEN_RESERVE` format |
+| `type`       | `"buy"` \| `"sell"` | No       | Filter by trade direction          |
+| `limit`      | `number`            | No       | Max trades to return               |
+| `start_time` | `number`            | No       | Unix timestamp start (inclusive)   |
+| `end_time`   | `number`            | No       | Unix timestamp end (inclusive)     |
+
+<ApiExample url="https://api.baseline.markets/v1/coingecko/ethereum/historical_trades?ticker_id=0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B_0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2&limit=1" />
+
+**Response**
+
+```json
+{
+  "buy": [
+    {
+      "trade_id": "0x7a68e9216c6e238e6388dd67e737e3de92c5c93b:1",
+      "price": "0.00000063",
+      "base_volume": "966424.68",
+      "target_volume": "0.61",
+      "trade_timestamp": "1776706931000",
+      "type": "buy"
+    }
+  ],
+  "sell": []
+}
+```
+
+***
+
+## Points and leaderboard
+
+### GET /v1/points/:walletAddress
+
+Returns points summary for a wallet — cumulative all-time points and per-week breakdown.
+
+**Path parameters**
+
+| Parameter       | Type     | Description                    |
+| :-------------- | :------- | :----------------------------- |
+| `walletAddress` | `string` | Checksummed EVM wallet address |
+
+<ApiExample url="https://api.baseline.markets/v1/points/0x89C6AD1CC1c22c8705670a8600541fEf162e77Cf" />
+
+**Response**
+
+```json
+{
+  "wallet": "0x89C6AD1CC1c22c8705670a8600541fEf162e77Cf",
+  "referralPoints": "0",
+  "cumulative": {
+    "totalPoints": "100000",
+    "totalVolumeUsd": "209",
+    "rank": 1
+  },
+  "currentWeek": {
+    "weekStart": 1776056400,
+    "points": "100000",
+    "volumeUsd": "209",
+    "rank": 1
+  },
+  "weeklyHistory": [
+    {
+      "weekStart": 1776056400,
+      "weekEnd": 1776661200,
+      "points": "100000",
+      "volumeUsd": "209"
+    }
+  ]
+}
+```
+
+***
+
+### GET /v1/leaderboard
+
+Returns the points leaderboard with pagination.
+
+**Query parameters**
+
+| Parameter    | Type              | Default | Description                                                  |
+| :----------- | :---------------- | :------ | :----------------------------------------------------------- |
+| `period`     | `"all"` \| `"1w"` | `"all"` | All-time or weekly leaderboard                               |
+| `limit`      | `number`          | `10`    | Results per page (max 500)                                   |
+| `offset`     | `number`          | `0`     | Pagination offset                                            |
+| `search`     | `string`          | —       | Filter by wallet address substring                           |
+| `week_start` | `number`          | —       | Unix timestamp of a specific week start (overrides `period`) |
+
+<ApiExample url="https://api.baseline.markets/v1/leaderboard?period=1w&limit=1" />
+
+**Response**
+
+```json
+{
+  "entries": [
+    {
+      "rank": 1,
+      "wallet": "0xe8d6d566c2B9eBBCcb4072ab5FffbD1dfe016721",
+      "points": "63935",
+      "volumeUsd": "922",
+      "weightedVolume": "922",
+      "referralWeightedVolume": "0",
+      "totalWeightedVolume": "922",
+      "breakdown": [
+        {
+          "btokenAddress": "0x7a68e9216C6e238e6388Dd67E737E3De92C5C93B",
+          "btokenSymbol": "BLT",
+          "reserveSymbol": "WETH",
+          "volumeUsd": 922.08,
+          "multiplier": 1,
+          "weightedVolume": 922.08
+        }
+      ],
+      "referralCount": 0
+    }
+  ],
+  "totalEntries": 4,
+  "totalWeightedVolume": 1442,
+  "totalPoints": 100000,
+  "totalVolume": 1442
+}
+```
+
+***
+
+### GET /v1/leaderboard/weeks
+
+Returns a list of completed weeks with their points pool sizes, ordered most-recent first.
+
+<ApiExample url="https://api.baseline.markets/v1/leaderboard/weeks" />
+
+**Response**
+
+```json
+{
+  "weeks": [
+    { "week_start": 1776056400, "points_pool": 100000 }
+  ]
+}
+```
+
+
+# BController (/docs/contracts/bcontroller)
+
+## Overview
+
+BController is Mercury's pool configuration and fee-distribution component, containing creator-specific functions and protocol admin controls. Below are creator-specific public functions.
+
+## Creator Functions
+
+### claimPoolFees
+
+Claims accrued creator and protocol fees for a pool. Anyone can call this function. The contract first sweeps pending pool accounting, then sends creator fees to the pool's `feeRecipient` and protocol fees to the protocol fee recipient.
+
+```solidity
+function claimPoolFees(BToken _bToken) external
+```
+
+| Parameter | Type     | Description                                            |
+| --------- | -------- | ------------------------------------------------------ |
+| `_bToken` | `BToken` | Pool whose creator and protocol fees should be claimed |
+
+### claimPoolFeesMulti
+
+Claims accrued fees for multiple pools in one transaction.
+
+```solidity
+function claimPoolFeesMulti(BToken[] calldata _bTokens) external
+```
+
+| Parameter  | Type       | Description               |
+| ---------- | ---------- | ------------------------- |
+| `_bTokens` | `BToken[]` | Pools to process in order |
+
+### setFeeRecipient
+
+Updates the address that receives the creator share of claimed fees for a pool. Callable by the pool creator, Relay, or an executor while the pool is not paused.
+
+```solidity
+function setFeeRecipient(BToken _bToken, address _feeRecipient) external
+```
+
+| Parameter       | Type      | Description               |
+| --------------- | --------- | ------------------------- |
+| `_bToken`       | `BToken`  | Pool to update            |
+| `_feeRecipient` | `address` | New creator-fee recipient |
+
+### transferCreator
+
+Transfers the recorded creator role for a pool. Callable by the current pool creator, Relay, or an executor while the pool is not paused.
+
+```solidity
+function transferCreator(BToken _bToken, address _newCreator) external
+```
+
+| Parameter     | Type      | Description         |
+| ------------- | --------- | ------------------- |
+| `_bToken`     | `BToken`  | Pool to update      |
+| `_newCreator` | `address` | New creator address |
+
+### modifyCreatorFeePct
+
+Updates the creator fee split for a pool. This is a protocol-admin operation and must be less than or equal to `1e18` (100% in WAD precision).
+
+```solidity
+function modifyCreatorFeePct(BToken _bToken, uint256 _creatorFeePct) external
+```
+
+| Parameter        | Type      | Description                                                            |
+| ---------------- | --------- | ---------------------------------------------------------------------- |
+| `_bToken`        | `BToken`  | Pool to update                                                         |
+| `_creatorFeePct` | `uint256` | WAD percentage of post-protocol fees paid to the creator fee recipient |
+
+### pausePool
+
+Pauses a single pool. Callable by an executor, Relay, or by the pool creator when that creator has an active deployer profile with `pauser` enabled.
+
+```solidity
+function pausePool(BToken _bToken) external
+```
+
+### unpausePool
+
+Unpauses a single pool with the same authorization rules as `pausePool`.
+
+```solidity
+function unpausePool(BToken _bToken) external
+```
+
+## Events
+
+```solidity
+event FeesClaimed(address bToken, address reserve, uint256 creatorAmount, uint256 protocolAmount);
+event CreatorTransferred(address bToken, address newCreator);
+event FeeRecipientSet(address bToken, address feeRecipient);
+event CreatorFeePctSet(address bToken, uint256 creatorFeePct);
+event LiquidityFeePctSet(address bToken, uint256 liquidityFeePct);
+```
+
+## ABI
+
+<MercuryAbi name="bController" />
+
+***
+
+## Related
+
+* [Contracts Overview](/docs/contracts): Mercury deployment addresses
+
+
+# BCredit (/docs/contracts/bcredit)
+
+## Overview
+
+BCredit handles 0% interest borrowing and leverage against bToken collateral. Collateral is valued at BLV, debt is denominated in the reserve asset, and new debt pays an origination fee. Credit account reads live on [BLens](/docs/contracts/blens) through `creditAccount`.
+
+## Borrowing functions
+
+### borrow
+
+Borrow reserves against the caller's unlocked staked bToken collateral. The contract locks the collateral required to keep the account solvent at BLV.
+
+```solidity
+function borrow(BToken _bToken, uint256 _amount, address _recipient) external
+```
+
+| Parameter    | Type      | Description                             |
+| ------------ | --------- | --------------------------------------- |
+| `_bToken`    | `BToken`  | The bToken collateral market            |
+| `_amount`    | `uint256` | Reserve amount to borrow                |
+| `_recipient` | `address` | Address that receives borrowed reserves |
+
+### borrowNative
+
+Borrow reserves and unwrap the native reserve when supported.
+
+```solidity
+function borrowNative(BToken _bToken, uint256 _amount, address _recipient) external
+```
+
+### repay
+
+Repay reserve debt for `_recipient`. The caller pays `_reservesIn`, and the protocol unlocks collateral based on the repayment.
+
+```solidity
+function repay(BToken _bToken, uint256 _reservesIn, address _recipient) external
+```
+
+| Parameter     | Type      | Description                            |
+| ------------- | --------- | -------------------------------------- |
+| `_bToken`     | `BToken`  | The bToken credit market               |
+| `_reservesIn` | `uint256` | Reserve amount to repay                |
+| `_recipient`  | `address` | Credit account receiving the repayment |
+
+### repayWithNative
+
+Repay with native ETH when the market reserve supports native wrapping.
+
+```solidity
+function repayWithNative(BToken _bToken, address _recipient) external payable
+```
+
+## Leverage functions
+
+### leverage
+
+Create or increase a leveraged position by buying additional bToken collateral with borrowed reserves.
+
+```solidity
+function leverage(
+  BToken _bToken,
+  uint256 _totalCollateral,
+  uint256 _collateralIn,
+  uint256 _maxSwapReservesIn
+) external returns (uint256 debt_)
+```
+
+| Parameter            | Type      | Description                                 |
+| -------------------- | --------- | ------------------------------------------- |
+| `_bToken`            | `BToken`  | The bToken to leverage                      |
+| `_totalCollateral`   | `uint256` | Target total collateral after leverage      |
+| `_collateralIn`      | `uint256` | Existing collateral supplied by the user    |
+| `_maxSwapReservesIn` | `uint256` | Maximum reserves the internal buy may spend |
+
+Returns:
+
+* `debt_`: New debt added to the caller's account
+
+### deleverage
+
+Reduce leverage by selling bToken collateral for reserves and applying the proceeds to debt.
+
+```solidity
+function deleverage(
+  BToken _bToken,
+  uint256 _collateralToSell,
+  uint256 _minSwapReservesOut
+) external returns (uint256 collateralRedeemed_, uint256 debtRepaid_, uint256 refund_)
+```
+
+| Parameter             | Type      | Description                       |
+| --------------------- | --------- | --------------------------------- |
+| `_bToken`             | `BToken`  | The leveraged bToken              |
+| `_collateralToSell`   | `uint256` | Collateral to sell into the curve |
+| `_minSwapReservesOut` | `uint256` | Minimum reserves from the sale    |
+
+Returns:
+
+* `collateralRedeemed_`: bToken collateral unlocked or returned
+* `debtRepaid_`: Reserve debt repaid
+* `refund_`: Reserve refund when sale proceeds exceed debt
+
+## Preview functions
+
+```solidity
+function getMaxBorrow(BToken _bToken, address _user) external view returns (uint256 maxBorrow_)
+function getBorrowForCollateral(BToken _bToken, uint256 _collateral) external view returns (uint256 borrowAmount_, uint256 fee_)
+function previewBorrow(BToken _bToken, address _user, uint256 _borrowAmount) external view returns (uint256 collateral_, uint256 debt_, uint256 fee_)
+function previewDepositAndBorrow(BToken _bToken, address _user, uint256 _depositAmount, uint256 _borrowAmount) external view returns (uint256 collateral_, uint256 debt_, uint256 fee_)
+function previewRepay(BToken _bToken, address _recipient, uint256 _reservesIn) external view returns (uint256 collateralRedeemed_, uint256 debtRepaid_)
+function previewRebalanceCollateral(BToken _bToken, uint256 _collateral, uint256 _debt) external view returns (uint256 unlocked_)
+```
+
+Use `BLens.creditAccount(BToken _bToken, address _user)` to read a user's current `collateral` and `debt`.
+
+## Credit claims
+
+`claimCredit` installs Merkle-proven credit positions, used for migration and launch flows with precomputed credit accounts.
+
+```solidity
+function claimCredit(
+  BToken _bToken,
+  address[] calldata _users,
+  uint128[] calldata _collaterals,
+  uint128[] calldata _debts,
+  bytes32[][] calldata _proofs
+) external
+```
+
+## Events
+
+```solidity
+event Borrow(BToken bToken, address user, uint256 borrowed, uint256 fee, State.CreditAccount post);
+event Repay(BToken bToken, address user, uint256 collateralRedeemed, uint256 debtRepaid, State.CreditAccount post);
+event CreditClaim(BToken bToken, address[] users, uint128[] collaterals, uint128[] debts);
+event Leverage(BToken bToken, address user, uint256 collateralAdded, uint256 debtAdded, uint256 collateralIn, uint256 reservesIn, State.CreditAccount post);
+event Deleverage(BToken bToken, address user, uint256 collateralRedeemed, uint256 debtRepaid, uint256 collateralSold, uint256 refund, State.CreditAccount post);
+```
+
+***
+
+## Errors
+
+| Error                                        | Description                                            |
+| -------------------------------------------- | ------------------------------------------------------ |
+| `BCredit_RepaidMoreThanDebt`                 | Repaying more than owed                                |
+| `BCredit_CannotRepayContract`                | Repayment recipient cannot be the relay itself         |
+| `BCredit_Leverage_ZeroCollateral`            | Leverage with no target collateral                     |
+| `BCredit_Leverage_InvalidStakedAmount`       | Supplied collateral is not below target collateral     |
+| `BCredit_Leverage_BorrowAmountTooLow`        | Borrowed amount cannot fund the leverage buy           |
+| `BCredit_Deleverage_InvalidCollateralToSell` | Invalid deleverage amount                              |
+| `BCredit_Deleverage_Undercollateralized`     | Operation would leave the position undercollateralized |
+| `BCredit_InvalidClaim`                       | Invalid Merkle credit claim                            |
+
+***
+
+## Usage Example
+
+```solidity
+// Borrow reserves against currently unlocked stake
+bcredit.borrow(bToken, 900e18, msg.sender);
+
+// Preview and execute leverage
+(uint256 targetCollateral, uint256 maxIn,,) = blens.quoteLeverage(
+  bToken,
+  1000e18,
+  1e18
+);
+bcredit.leverage(bToken, targetCollateral, 1000e18, maxIn);
+
+// Repay reserve debt
+reserve.approve(address(bcredit), 900e18);
+bcredit.repay(bToken, 900e18, msg.sender);
+```
+
+***
+
+## ABI
+
+<MercuryAbi name="bCredit" />
+
+***
+
+## Related
+
+* [Borrowing Guide](/docs/holders/borrow) : How to borrow
+* [Multiply](/docs/holders/multiply) : How to use leverage
+* [BLens Contract](/docs/contracts/blens) : Credit account reads and leverage quote
+* [BLV Mechanics](/docs/how-it-works/blv): Why loans are 0% interest
+
+
+# BFactory (/docs/contracts/bfactory)
+
+## Overview
+
+BFactory deploys new `BToken` instances and creates pools. Only the recorded bToken deployer may `createPool` for that bToken. Entry points:
+
+1. **createBToken**: deploy a minimal ERC-20 bToken and mint the total supply to the caller
+2. **createPool**: connect a bToken to a reserve, Uniswap v4 pool, BLV, fees, and optional initial credit (Merkle claim + collateral/debt) via `CreateParams`
+3. **precomputeBTokenAddress**: predict the create2 address of a bToken before deployment (salted per deployer)
+
+`createPool` is payable for native-reserve funding; the Relay routes the shared component stack as for other `Component` calls.
+
+## Factory functions
+
+### createBToken
+
+Deploys a new bToken. The full `_totalSupply` is transferred to `msg.sender`. The deployer is recorded in protocol state; only that address may call `createPool` for that bToken.
+
+```solidity
+function createBToken(string memory _name, string memory _symbol, uint256 _totalSupply, bytes32 _salt) external returns (BToken bToken_)
+```
+
+| Parameter      | Type      | Description                                                       |
+| -------------- | --------- | ----------------------------------------------------------------- |
+| `_name`        | `string`  | bToken name                                                       |
+| `_symbol`      | `string`  | bToken symbol                                                     |
+| `_totalSupply` | `uint256` | Full supply to mint to `msg.sender` (subject to on-chain min/max) |
+| `_salt`        | `bytes32` | Salt for create2; combined with `msg.sender` in the hash          |
+
+**Returns:** `BToken`, the new bToken instance
+
+### createPool
+
+`CreateParams` bundles bToken reference, pool reserves, active and BLV prices, creator, fee split, optional hook deployment, fee percentages, and optional initial credit (Merkle root, collateral, debt). The pool cannot already be initialized, and the caller must be the recorded deployer for `params.bToken`.
+
+```solidity
+function createPool(CreateParams calldata params) public payable
+```
+
+| Parameter | Type           | Description                                                                                                    |
+| --------- | -------------- | -------------------------------------------------------------------------------------------------------------- |
+| `params`  | `CreateParams` | BToken, reserve, initial liquidity, curve prices, fee split, optional hook, and optional initial credit fields |
+
+#### CreateParams
+
+```solidity
+struct CreateParams {
+    BToken bToken;
+    uint256 initialPoolBTokens;
+    address reserve;
+    uint256 initialPoolReserves;
+    uint256 initialActivePrice;
+    uint256 initialBLV;
+    address creator;
+    address feeRecipient;
+    uint256 creatorFeePct;
+    uint256 swapFeePct;
+    bool createHook;
+    bytes32 claimMerkleRoot;
+    uint256 initialCollateral;
+    uint256 initialDebt;
+}
+```
+
+<Callout id="book-price" title="Book price">
+  Book price is useful for calculating initial pricing. It is the reserve backing per circulating bToken at launch: `bookPrice = reserves / circ`, where `reserves = initialPoolReserves + initialDebt` and `circ = totalSupply - initialPoolBTokens`.
+</Callout>
+
+| Field                 | Type      | Description                                                                                                                                                                                                                                                                                 |
+| --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `bToken`              | `BToken`  | The bToken returned by `createBToken`. `msg.sender` must be the recorded deployer for this token.                                                                                                                                                                                           |
+| `initialPoolBTokens`  | `uint256` | bToken amount transferred from `msg.sender` into the pool as initial unsold supply. Must be less than the bToken total supply; otherwise initial circulating supply is zero and curve initialization cannot price the pool correctly.                                                       |
+| `reserve`             | `address` | Approved reserve token address. If funding with native ETH, this must be the configured wrapped native token.                                                                                                                                                                               |
+| `initialPoolReserves` | `uint256` | Reserve token amount transferred from `msg.sender` into the pool. For ERC-20 reserves, approve the Relay first. For native ETH funding, send this amount as `msg.value`; excess ETH is refunded.                                                                                            |
+| `initialActivePrice`  | `uint256` | Initial target active price in WAD precision. It must be greater than the pool's initial [book price](#book-price).                                                                                                                                                                         |
+| `initialBLV`          | `uint256` | Initial/minimum BLV floor price in WAD precision. For normal deployers, `createPool` must initialize a standard quadratic curve; pass `0` to let the protocol compute the starting BLV for that quadratic curve. The resulting BLV must be less than or equal to [book price](#book-price). |
+| `creator`             | `address` | Non-zero creator address recorded on the pool.                                                                                                                                                                                                                                              |
+| `feeRecipient`        | `address` | Non-zero address that receives the creator share of fees.                                                                                                                                                                                                                                   |
+| `creatorFeePct`       | `uint256` | WAD percentage of post-protocol fees paid to `feeRecipient` before staking fees. Must be `<= 1e18`; the remainder goes to staking.                                                                                                                                                          |
+| `swapFeePct`          | `uint256` | Minimum swap fee in WAD precision. Must be between `0.0015 ether` (0.15%) and `0.5 ether` (50%).                                                                                                                                                                                            |
+| `createHook`          | `bool`    | If `true`, initializes the Uniswap v4 hook pool for the bToken/reserve pair.                                                                                                                                                                                                                |
+| `claimMerkleRoot`     | `bytes32` | Merkle root for optional initial credit claims. Use `bytes32(0)` when not launching with initial credit. Must be approved to use.                                                                                                                                                           |
+| `initialCollateral`   | `uint256` | Optional bToken collateral reserved for initial credit. Must be zero unless `claimMerkleRoot` and `initialDebt` are both non-zero. Must be approved to use.                                                                                                                                 |
+| `initialDebt`         | `uint256` | Optional reserve debt backing initial credit. Must be zero unless `claimMerkleRoot` and `initialCollateral` are both non-zero. When set, it is counted in initial total reserves. Must be approved to use.                                                                                  |
+
+`claimMerkleRoot`, `initialCollateral`, and `initialDebt` are all-or-nothing: either all are empty/zero, or the root is non-zero and both amounts are positive. Initial credit also requires the deployer profile to be active and approved for credit deployment, and the resulting position must be solvent.
+
+`createPool` transfers `initialPoolBTokens + initialCollateral` bTokens from the caller and transfers `initialPoolReserves` reserve tokens from the caller. Approve those amounts before calling unless the reserve side is funded with native ETH.
+
+### precomputeBTokenAddress
+
+Create2 address for the bToken that `createBToken` would deploy with the same name, symbol, total supply, salt, and deployer. Use the same `_deployer` you will use as `msg.sender` on `createBToken`.
+
+```solidity
+function precomputeBTokenAddress(string memory _name, string memory _symbol, uint256 _totalSupply, bytes32 _salt, address _deployer) external view returns (address computedAddress_)
+```
+
+| Parameter      | Type      | Description                                                              |
+| -------------- | --------- | ------------------------------------------------------------------------ |
+| `_name`        | `string`  | Must match the planned `createBToken` call                               |
+| `_symbol`      | `string`  | Must match the planned `createBToken` call                               |
+| `_totalSupply` | `uint256` | Must match the planned `createBToken` call                               |
+| `_salt`        | `bytes32` | Must match the planned `createBToken` call                               |
+| `_deployer`    | `address` | Address that will call `createBToken` (use `msg.sender` when you deploy) |
+
+**Returns:** `address` (`computedAddress_`): the address the bToken would have at that create2 address
+
+## Events
+
+* **BTokenCreated**: bToken address, name, symbol, decimals, total supply, creator.
+* **PoolCreated**: bToken, reserve, creator, fee recipient, fee and price parameters, pool id and capital totals (including initial credit when used).
+
+## Errors
+
+| Error                                | Description                                                    |
+| ------------------------------------ | -------------------------------------------------------------- |
+| `NotDeployer`                        | Caller is not the recorded deployer for this bToken            |
+| `NotApprovedReserve`                 | Reserve token is not allowlisted for use                       |
+| `PoolAlreadyInitialized`             | `createPool` called when a pool already exists for this bToken |
+| `TotalSupplyTooLow`                  | `createBToken` supply below the protocol minimum               |
+| `TotalSupplyTooHigh`                 | `createBToken` supply above the protocol maximum               |
+| `InvalidName`                        | bToken name fails validation                                   |
+| `InvalidSymbol`                      | bToken symbol fails validation                                 |
+| `InvalidFeeRecipient`                | Fee recipient address is invalid                               |
+| `InvalidCreator`                     | Creator address or role is invalid                             |
+| `InvalidCreatorFee`                  | Creator fee `pct` or related value is invalid                  |
+| `UnauthorizedCreditPositionCreation` | Initial credit setup is not permitted for this call            |
+| `InvalidInitialCollateralOrDebt`     | Initial credit collateral or debt is inconsistent              |
+| `InsolventInitialCreditPosition`     | Initial credit position would be insolvent                     |
+| `InvalidPoolSupply`                  | Pool bToken / reserve supply inputs are invalid                |
+| `InvalidSalt`                        | Salt does not meet create2 / validation rules                  |
+| `InvalidConvexityExp`                | Convexity exponent for the curve is out of range               |
+
+***
+
+## ABI
+
+<MercuryAbi name="bFactory" />
+
+
+# BLens (/docs/contracts/blens)
+
+## Overview
+
+BLens exposes the read-only state that UIs, bots, and indexers need from the Mercury relay. It covers prices, pool balances, fees, staking, credit accounts, hook metadata, and router quote state.
+
+Most calls take a `BToken _bToken`. The live relay address is the call target; BLens itself is installed as a component behind that relay.
+
+## Price functions
+
+### activePrice
+
+Current market price in WAD precision (`1e18` = 1.0).
+
+```solidity
+function activePrice(BToken _bToken) external view returns (uint256)
+```
+
+### blvPrice
+
+Current Baseline Value floor price in WAD precision.
+
+```solidity
+function blvPrice(BToken _bToken) external view returns (uint256)
+```
+
+### getBookPrice
+
+Book-style price, computed as total reserves over circulating supply.
+
+```solidity
+function getBookPrice(BToken _bToken) external view returns (uint256)
+```
+
+### swapFee
+
+Current swap fee from the maker curve params.
+
+```solidity
+function swapFee(BToken _bToken) external view returns (uint256)
+```
+
+Derived metrics such as premium are off-chain calculations. For example: `activePrice(bToken) - blvPrice(bToken)`.
+
+## Pool state
+
+```solidity
+function reserve(BToken _bToken) external view returns (ERC20)
+function totalReserves(BToken _bToken) external view returns (uint256)
+function settledReserves(BToken _bToken) external view returns (uint256)
+function pendingSurplus(BToken _bToken) external view returns (uint256)
+function totalBTokens(BToken _bToken) external view returns (uint256)
+function totalSupply(BToken _bToken) external view returns (uint256)
+function getCirculatingSupply(BToken _bToken) external view returns (uint256)
+function creator(BToken _bToken) external view returns (address)
+function isPoolPaused(BToken _bToken) external view returns (bool)
+```
+
+Use these calls to read pool inventory, circulating supply, reserve accounting, creator ownership, and pause state.
+
+## Fee state
+
+```solidity
+function creatorClaimable(BToken _bToken) external view returns (uint256)
+function protocolClaimable(BToken _bToken) external view returns (uint256)
+function pendingYield(BToken _bToken) external view returns (uint256)
+function poolFeeRecipient(BToken _bToken) external view returns (address)
+function creatorFeePct(BToken _bToken) external view returns (uint256)
+function liquidityFeePct(BToken _bToken) external view returns (uint256)
+function protocolFeePct(BToken _bToken) external view returns (uint256)
+function poolFeeShare(BToken _bToken) external view returns (uint256 creator_, uint256 staking_)
+function totalFeeShare(BToken _bToken) external view returns (uint256 creator_, uint256 staking_, uint256 protocol_)
+```
+
+`poolFeeShare` returns the creator and staking split after protocol fees. `totalFeeShare` returns the absolute creator, staking, and protocol shares.
+
+## Staking state
+
+```solidity
+function claimableYield(BToken _bToken) external view returns (uint256)
+function accumulator(BToken _bToken) external view returns (uint256)
+function tokensPerSecond(BToken _bToken) external view returns (uint256)
+function lastUpdatedTimestamp(BToken _bToken) external view returns (uint256)
+function totalStaked(BToken _bToken) external view returns (uint256)
+function withdrawable(BToken _bToken, address _user) external view returns (uint256)
+function stakedPosition(BToken _bToken, address _user)
+  external view returns (uint256 amount, uint256 locked, uint256 earned, uint256 userAccumulator)
+```
+
+`stakedPosition` returns raw tuple fields for the user's staking account.
+
+## Credit state
+
+```solidity
+function totalCollateral(BToken _bToken) external view returns (uint256)
+function totalDebt(BToken _bToken) external view returns (uint256)
+function creditAccount(BToken _bToken, address _user)
+  external view returns (uint256 collateral, uint256 debt)
+```
+
+`creditAccount` is the canonical read for a user's BCredit position.
+
+## Quote and maker state
+
+```solidity
+function getMaker(BToken _bToken) external view returns (State.Maker memory)
+function getQuoteState(BToken _bToken) external view returns (QuoteState memory state_)
+function quoteLeverage(BToken _bToken, uint256 _collateralIn, uint256 _leverageFactor)
+  external view returns (uint256 targetCollateral_, uint256 maxSwapReservesIn_, uint256 expectedDebt_, uint256 slippage_)
+```
+
+`getQuoteState` exposes the state off-chain routers need to reproduce BSwap quotes locally. `quoteLeverage` previews the target collateral, max swap reserves, expected debt, and slippage for a leverage action.
+
+## Protocol and hook state
+
+```solidity
+function protocolFeeRecipient() external view returns (address)
+function defaultProtocolFeePct() external view returns (uint256)
+function defaultLiquidityFeePct() external view returns (uint256)
+function originationFee() external view returns (uint256)
+function timeToDistribute() external view returns (uint256)
+function timeToAdapt() external view returns (uint256)
+function poolIdToBToken(PoolId _poolId) external view returns (BToken)
+function isProtocolPaused() external view returns (bool)
+function isLocked() external view returns (bool)
+function isApprovedCreditDeployer(address _user) external view returns (bool)
+function reserveHoldings(ERC20 _reserve) external view returns (uint256)
+function hasHook(BToken _bToken) external view returns (bool)
+function poolKey(BToken _bToken) external view returns (PoolKey memory)
+function getComponents() external view returns (Component[] memory components_)
+```
+
+## Usage example
+
+```solidity
+// Get current prices
+uint256 marketPrice = blens.activePrice(bToken);
+uint256 blv = blens.blvPrice(bToken);
+uint256 premium = marketPrice - blv;
+
+// Check pool state
+uint256 reserves = blens.totalReserves(bToken);
+uint256 circulating = blens.getCirculatingSupply(bToken);
+
+// Preview leverage
+(uint256 targetCollateral, uint256 maxIn, uint256 expectedDebt, uint256 slippage) =
+  blens.quoteLeverage(bToken, 1000e18, 1e18);
+
+// Check user positions
+(uint256 staked, uint256 locked, uint256 earned,) = blens.stakedPosition(bToken, user);
+(uint256 collateral, uint256 debt) = blens.creditAccount(bToken, user);
+```
+
+***
+
+## ABI
+
+<MercuryAbi name="bLens" />
+
+***
+
+## Related
+
+* [BSwap Contract](/docs/contracts/bswap) : Trading functions
+* [BCredit Contract](/docs/contracts/bcredit) : Borrowing functions
+* [BStaking Contract](/docs/contracts/bstaking) : Staking functions
+
+
+# BStaking (/docs/contracts/bstaking)
+
+## Overview
+
+BStaking handles bToken staking and pro-rata protocol fee rewards. A reward accumulator streams pool fees and pays them in the reserve asset, so each staker's claim grows with the pool, not a fixed rate. The main drivers are:
+
+1. Share of total stake: staked amount over total staked
+2. Time staked: rewards accrue over time with the position
+3. Trading volume: more pool fees mean more rewards to distribute
+
+The pattern is designed to stay fair for early and late stakers. See `getAccumulator`, `getEarned`, and `getCurrentRate` for the current reward state.
+
+## Functions
+
+### Staking functions
+
+#### deposit
+
+Stakes bTokens to earn rewards. The caller transfers `_amount` bTokens into the protocol, while `_user` receives the staking position.
+
+```solidity
+function deposit(BToken _bToken, address _user, uint256 _amount) external
+```
+
+| Parameter | Type      | Description                       |
+| --------- | --------- | --------------------------------- |
+| `_bToken` | `BToken`  | The bToken to stake               |
+| `_user`   | `address` | User receiving the stake position |
+| `_amount` | `uint256` | Amount of bTokens to stake        |
+
+#### withdraw
+
+Withdraw unlocked staked bTokens for `msg.sender`.
+
+```solidity
+function withdraw(BToken _bToken, uint256 _amount) external
+```
+
+| Parameter | Type      | Description        |
+| --------- | --------- | ------------------ |
+| `_bToken` | `BToken`  | The staked bToken  |
+| `_amount` | `uint256` | Amount to withdraw |
+
+#### withdrawMax
+
+Withdraw all currently unlocked bTokens for `msg.sender`.
+
+```solidity
+function withdrawMax(BToken _bToken) external
+```
+
+| Parameter | Type     | Description       |
+| --------- | -------- | ----------------- |
+| `_bToken` | `BToken` | The staked bToken |
+
+#### withdrawAndClaim
+
+Withdraw `_amount` of unlocked staked bTokens and claim pending rewards in one call.
+
+```solidity
+function withdrawAndClaim(BToken _bToken, uint256 _amount) external
+```
+
+| Parameter | Type      | Description               |
+| --------- | --------- | ------------------------- |
+| `_bToken` | `BToken`  | The staked bToken         |
+| `_amount` | `uint256` | bToken amount to withdraw |
+
+### Rewards functions
+
+#### claim
+
+Claim accumulated reserve rewards for `_user`.
+
+```solidity
+function claim(BToken _bToken, address _user, bool _asNative) external returns (uint256 amount_)
+```
+
+| Parameter   | Type      | Description                                              |
+| ----------- | --------- | -------------------------------------------------------- |
+| `_bToken`   | `BToken`  | The staked bToken                                        |
+| `_user`     | `address` | User claiming rewards                                    |
+| `_asNative` | `bool`    | Send wrapped native reserve as native ETH when supported |
+
+Returns:
+
+* `amount_`: reserve tokens claimed
+
+### View functions
+
+#### getEarned
+
+Get unclaimed rewards for a user in the reserve asset.
+
+```solidity
+function getEarned(BToken _bToken, address _user) external view returns (uint256)
+```
+
+| Parameter | Type      | Description       |
+| --------- | --------- | ----------------- |
+| `_bToken` | `BToken`  | The staked bToken |
+| `_user`   | `address` | User to query     |
+
+Returns: `uint256`, reserve-denominated rewards not yet claimed.
+
+#### getAccumulator
+
+Preview the current global reward accumulator and distribution state for a pool.
+
+```solidity
+function getAccumulator(BToken _bToken)
+  external view returns (uint256 accumulator_, uint256 newYield_, uint256 tokensPerSecond_)
+```
+
+| Parameter | Type     | Description   |
+| --------- | -------- | ------------- |
+| `_bToken` | `BToken` | Pool to query |
+
+Returns:
+
+* `accumulator_`: current reward accumulator
+* `newYield_`: pending yield that would be distributed on sync
+* `tokensPerSecond_`: current streamed reward rate
+
+#### getCurrentRate
+
+Get the current annualized reward distribution rate for a staked bToken.
+
+```solidity
+function getCurrentRate(BToken _bToken) external view returns (uint256)
+```
+
+| Parameter | Type     | Description   |
+| --------- | -------- | ------------- |
+| `_bToken` | `BToken` | Pool to query |
+
+Returns: `uint256`, annualized reserve reward rate per staked bToken, scaled by the bToken decimals.
+
+***
+
+## Events
+
+```solidity
+event Deposit(BToken bToken, address user, uint256 amount, State.StakedAccount post);
+event Withdraw(BToken bToken, address user, uint256 amount, State.StakedAccount post);
+event Claim(BToken bToken, address user, uint256 amount);
+event Liquidate(BToken bToken, address user, uint256 amount, State.StakedAccount post);
+```
+
+***
+
+## Errors
+
+| Error                           | Description                         |
+| ------------------------------- | ----------------------------------- |
+| `BStaking_StakeIsLocked`        | Attempting to withdraw locked stake |
+| `BStaking_BTokenNotInitialized` | BToken pool is not initialized      |
+
+***
+
+## Usage Example
+
+```solidity
+// Stake 1000 bTokens
+bToken.approve(address(bstaking), 1000e18);
+bstaking.deposit(bToken, msg.sender, 1000e18);
+
+// Check earned rewards
+uint256 earned = bstaking.getEarned(bToken, msg.sender);
+
+// Claim rewards as native ETH when the reserve supports it
+uint256 claimed = bstaking.claim(bToken, msg.sender, true);
+
+// Withdraw and claim in one tx
+bstaking.withdrawAndClaim(bToken, 500e18);
+```
+
+***
+
+## ABI
+
+<MercuryAbi name="bStaking" />
+
+***
+
+## Related
+
+* [Staking Guide](/docs/holders/stake) : How to stake
+* [BLens Contract](/docs/contracts/blens) : View staking state
+
+
+# BSwap (/docs/contracts/bswap)
+
+## Overview
+
+The BSwap contract implements Baseline's power-law AMM curve for token trading. It handles exact-in and exact-out buys and sells, plus matching quote functions for off-chain previews.
+
+## Functions
+
+### Trading Functions
+
+#### buyTokensExactIn
+
+Buy bTokens with an exact amount of reserves.
+
+```solidity
+function buyTokensExactIn(
+  BToken _bToken,
+  uint256 _amountIn,
+  uint256 _limitAmount
+) external returns (uint256 amountOut_, uint256 feesReceived_)
+```
+
+| Parameter      | Type      | Description                                      |
+| -------------- | --------- | ------------------------------------------------ |
+| `_bToken`      | `BToken`  | The bToken to buy                                |
+| `_amountIn`    | `uint256` | Exact reserve amount to spend                    |
+| `_limitAmount` | `uint256` | Minimum bTokens to receive (slippage protection) |
+
+**Returns:**
+
+* `amountOut_`: bTokens received
+* `feesReceived_`: Fees attributed to the trade
+
+***
+
+#### buyTokensExactOut
+
+Buy an exact amount of bTokens.
+
+```solidity
+function buyTokensExactOut(
+  BToken _bToken,
+  uint256 _amountOut,
+  uint256 _limitAmount
+) external payable returns (uint256 amountIn_, uint256 feesReceived_)
+```
+
+| Parameter      | Type      | Description                                     |
+| -------------- | --------- | ----------------------------------------------- |
+| `_bToken`      | `BToken`  | The bToken to buy                               |
+| `_amountOut`   | `uint256` | Exact bTokens to receive                        |
+| `_limitAmount` | `uint256` | Maximum reserves to spend (slippage protection) |
+
+**Returns:**
+
+* `amountIn_`: Reserves spent
+* `feesReceived_`: Fees attributed to the trade
+
+***
+
+#### sellTokensExactIn
+
+Sell an exact amount of bTokens.
+
+```solidity
+function sellTokensExactIn(
+  BToken _bToken,
+  uint256 _amountIn,
+  uint256 _limitAmount
+) external returns (uint256 amountOut_, uint256 feesReceived_)
+```
+
+| Parameter      | Type      | Description                                       |
+| -------------- | --------- | ------------------------------------------------- |
+| `_bToken`      | `BToken`  | The bToken to sell                                |
+| `_amountIn`    | `uint256` | Exact bTokens to sell                             |
+| `_limitAmount` | `uint256` | Minimum reserves to receive (slippage protection) |
+
+**Returns:**
+
+* `amountOut_`: Reserves received
+* `feesReceived_`: Fees attributed to the trade
+
+***
+
+#### sellTokensExactOut
+
+Sell bTokens to receive an exact amount of reserves.
+
+```solidity
+function sellTokensExactOut(
+  BToken _bToken,
+  uint256 _amountOut,
+  uint256 _limitAmount
+) external returns (uint256 amountIn_, uint256 feesReceived_)
+```
+
+| Parameter      | Type      | Description                                   |
+| -------------- | --------- | --------------------------------------------- |
+| `_bToken`      | `BToken`  | The bToken to sell                            |
+| `_amountOut`   | `uint256` | Exact reserves to receive                     |
+| `_limitAmount` | `uint256` | Maximum bTokens to sell (slippage protection) |
+
+**Returns:**
+
+* `amountIn_`: bTokens sold
+* `feesReceived_`: Fees attributed to the trade
+
+***
+
+### Quote Functions
+
+Quote functions return expected trade results without executing.
+
+#### quoteBuyExactIn
+
+```solidity
+function quoteBuyExactIn(BToken _bToken, uint256 _amountIn)
+  external view returns (uint256 tokensOut_, uint256 feesReceived_, uint256 slippage_)
+```
+
+**Returns:**
+
+* `tokensOut_`: bTokens for `_amountIn` reserve (preview)
+* `feesReceived_`: Fee portion of the quote
+* `slippage_`: Price impact as a WAD-scaled ratio
+
+#### quoteBuyExactOut
+
+```solidity
+function quoteBuyExactOut(BToken _bToken, uint256 _amountOut)
+  external view returns (uint256 amountIn_, uint256 feesReceived_, uint256 slippage_)
+```
+
+**Returns:**
+
+* `amountIn_`: Reserves required for `_amountOut` bTokens (preview)
+* `feesReceived_`: Fee portion of the quote
+* `slippage_`: Price impact as a WAD-scaled ratio
+
+#### quoteSellExactIn
+
+```solidity
+function quoteSellExactIn(BToken _bToken, uint256 _amountIn)
+  external view returns (uint256 amountOut_, uint256 feesReceived_, uint256 slippage_)
+```
+
+**Returns:**
+
+* `amountOut_`: Reserves for `_amountIn` bTokens sold (preview)
+* `feesReceived_`: Fee portion of the quote
+* `slippage_`: Price impact as a WAD-scaled ratio
+
+#### quoteSellExactOut
+
+```solidity
+function quoteSellExactOut(BToken _bToken, uint256 _amountOut)
+  external view returns (uint256 tokensIn_, uint256 feesReceived_, uint256 slippage_)
+```
+
+**Returns:**
+
+* `tokensIn_`: bTokens to sell to receive `_amountOut` reserves (preview)
+* `feesReceived_`: Fee portion of the quote
+* `slippage_`: Price impact as a WAD-scaled ratio
+
+***
+
+### View Functions
+
+#### getCurveParams
+
+Get current curve parameters for a bToken.
+
+```solidity
+function getCurveParams(BToken _bToken) external view returns (CurveParams memory)
+```
+
+**Returns:** `CurveParams` (`CurveLib`, WAD):
+
+* `BLV`, `circ`, `supply`, `swapFee`, `reserves`, `totalSupply`, `convexityExp`, `lastInvariant` (curve state for pricing and invariant math)
+
+***
+
+## Events
+
+```solidity
+event Swap(
+  BToken bToken,
+  address user,
+  uint256 activePrice,
+  uint256 blvPrice,
+  int256 bTokenDelta,
+  int256 reserveDelta,
+  uint256 totalFee,
+  uint256 liquidityFee
+);
+```
+
+***
+
+## Errors
+
+| Error              | Description                                                                 |
+| ------------------ | --------------------------------------------------------------------------- |
+| `SlippageExceeded` | Result would break the min/max slippage bound on the trade (`_limitAmount`) |
+| `SolverFailed`     | Numerical solver failed to converge for the trade                           |
+
+***
+
+## Efficient Swap Paths For Integrators
+
+BSwap exposes 4 swap functions, but only 2 are gas-efficient on-chain:
+
+| Function             | Direction         | Gas       | Reason                          |
+| -------------------- | ----------------- | --------- | ------------------------------- |
+| `buyTokensExactOut`  | reserve to bToken | Cheap     | Direct curve computation        |
+| `sellTokensExactIn`  | bToken to reserve | Cheap     | Direct curve computation        |
+| `buyTokensExactIn`   | reserve to bToken | Expensive | Binary-searches for `amountOut` |
+| `sellTokensExactOut` | bToken to reserve | Expensive | Binary-searches for `amountIn`  |
+
+The `ExactIn`/`ExactOut` naming refers to what's exact from the user's perspective, but the on-chain cost depends on whether the contract receives the natural input to the curve math (direct computation) or the other side (binary search).
+
+**Pattern for integrators:**
+
+* **Buys:** Quote off-chain via `quoteBuyExactIn` (view call, solver is free), then execute via `buyTokensExactOut` with the quoted `amountOut`.
+* **Sells:** Call `sellTokensExactIn` directly. It is already the efficient path.
+* Never call `buyTokensExactIn` or `sellTokensExactOut` on-chain unless you can't pre-compute the amounts.
+
+The [`@baseline-markets/sdk`](/docs/contracts/sdk) exposes the same pattern for TypeScript apps:
+
+```ts
+const quote = await sdk.quoteBuyExactIn(bToken, reservesIn);
+
+await sdk.buyTokensExactOut(bToken, quote.tokensOut, maxReservesIn, {
+  confirmations: 1,
+});
+
+await sdk.sellTokensExactIn(bToken, amountIn, minReservesOut, {
+  confirmations: 1,
+});
+```
+
+***
+
+## Usage Example
+
+Recommended buy flow: quote off-chain, then execute on the cheap path.
+
+```solidity
+// 1. Quote off-chain: how many bTokens does 100 reserves buy?
+(uint256 quotedOut, uint256 quotedFee, uint256 slippage) = bswap.quoteBuyExactIn(
+  bToken,
+  100e18    // 100 reserves in
+);
+
+// 2. Execute via buyTokensExactOut with the quoted amount.
+//    Apply slippage tolerance to the reserve cap (e.g. +1%).
+uint256 maxIn = 101e18;
+(uint256 amountIn, uint256 fees) = bswap.buyTokensExactOut(
+  bToken,
+  quotedOut,
+  maxIn
+);
+
+// Sells are already on the efficient path. Call directly.
+(uint256 amountOut, uint256 sellFees) = bswap.sellTokensExactIn(
+  bToken,
+  10e18,    // 10 bTokens in
+  9e18      // min 9 reserves out (slippage)
+);
+```
+
+***
+
+## ABI
+
+<MercuryAbi name="bSwap" />
+
+***
+
+## Related
+
+* [BMM Mechanics](/docs/how-it-works/bmm): Power-law curve explanation
+* [BLens Contract](/docs/contracts/blens) : View functions
+
+
+# CLI (/docs/contracts/cli)
+
+`@baseline-markets/cli` is the Baseline command-line interface for launching
+Baseline tokens, inspecting deployments, and installing agent skills.
+
+It exposes two Baseline commands:
+
+* `baseline launch` builds wallet-compatible launch calls for a new Baseline
+  token.
+* `baseline info` inspects a deployed Baseline token.
+
+It also exposes `baseline skills add`, which installs packaged Baseline agent
+skills for agents that can run shell commands.
+
+Use the CLI when you want an unsigned launch artifact before approving anything.
+Use the [SDK](/docs/contracts/sdk) when you are building launch, swap, stake,
+borrow, or leverage flows directly into an app with viem clients.
+
+<Callout type="info">
+  By default, the CLI prepares unsigned calls. You can hand those calls to a
+  wallet, an agent flow, or another execution layer before anything is signed.
+</Callout>
+
+## Install Agent Skills
+
+If your agent supports skills, install the Baseline skills into its environment:
+
+```bash
+npx @baseline-markets/cli@latest skills add
+```
+
+This installs the packaged Baseline skills, including general CLI workflow
+guidance, generated `launch` and `info` command references, and a Base MCP
+launch flow for agents that use Base Account approval.
+
+After installing the skills, you can ask your agent to use the Baseline CLI to
+prepare a launch, inspect a token, or follow the Base MCP flow when Base MCP is
+available.
+
+For Base MCP specifically, the `base-mcp-baseline` skill tells the agent how to
+prepare unsigned calls, validate the artifact, submit the calls through
+`send_calls`, show the Base Account approval link, and poll request status after
+approval.
+
+## Build Launch Calls
+
+`baseline launch` builds a launch artifact with `chain`, `account`, `bToken`,
+and ordered `calls`.
+
+```bash
+npx @baseline-markets/cli@latest launch \
+  --mode zrp \
+  --chain-id 84532 \
+  --account 0x0000000000000000000000000000000000000001 \
+  --name "Example Baseline Token" \
+  --symbol EBT \
+  --reserve 0xB85885897D297000A74eA2e4711C3Ca729461ABC \
+  --total-supply 1000000000 \
+  --output .context/launches/example-launch.json
+```
+
+The output artifact is a superset of the Base MCP `send_calls` payload:
+
+```json
+{
+  "chainId": 84532,
+  "chain": "base-sepolia",
+  "account": "0x0000000000000000000000000000000000000001",
+  "bToken": "0xBToken",
+  "calls": [
+    { "to": "0xTarget", "data": "0xCalldata", "value": "0x0" }
+  ]
+}
+```
+
+For external executors, submit `artifact.chain` and `artifact.calls` exactly as
+emitted. Keep `chainId`, `account`, and `bToken` for validation and reporting.
+
+For Base MCP, this maps directly to `send_calls`.
+
+## Launch Modes
+
+### ZRP
+
+`zrp` is the default zero-reserve pool launch mode. It mints the full BToken
+supply straight into the pool and starts without an initial reserve seed, so
+the deployer needs no balance or approvals.
+
+The artifact contains a single call: Relay `launch`.
+
+Use `--initial-fdv` to set the launch valuation — the fully diluted valuation
+in reserve units, quoted when circulating supply first exits the frozen zone
+(5% of supply). It defaults to the protocol minimum.
+
+### Standard
+
+`standard` launches with reserve liquidity. It requires both initial pool
+BTokens and initial pool reserves:
+
+```bash
+npx @baseline-markets/cli@latest launch \
+  --mode standard \
+  --chain-id 84532 \
+  --account 0x0000000000000000000000000000000000000001 \
+  --name "Example Baseline Token" \
+  --symbol EBT \
+  --reserve 0xB85885897D297000A74eA2e4711C3Ca729461ABC \
+  --total-supply 1000000000 \
+  --initial-pool-btokens 900000000 \
+  --initial-pool-reserves 1 \
+  --output .context/launches/example-launch.json
+```
+
+The call order is:
+
+1. Relay `createBToken`
+2. BToken approval to the Relay
+3. Reserve token approval to the Relay
+4. Relay `createPool`
+
+## Launch Flags
+
+| Flag                      | Description                                                                                                                 |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `--mode`                  | Launch mode: `zrp` or `standard`. Defaults to `zrp`.                                                                        |
+| `--chain-id`              | Chain ID for the launch calls. Defaults to Base Sepolia `84532`.                                                            |
+| `--rpc-url`               | Optional RPC URL for read calls.                                                                                            |
+| `--account`               | Deployer address. Required unless using `--execute`.                                                                        |
+| `--name`                  | BToken name.                                                                                                                |
+| `--symbol`                | BToken symbol.                                                                                                              |
+| `--reserve`               | Reserve token address.                                                                                                      |
+| `--total-supply`          | Total BToken supply in token units.                                                                                         |
+| `--initial-pool-btokens`  | Initial BTokens deposited into the pool for `standard` launches.                                                            |
+| `--initial-pool-reserves` | Initial reserve amount for `standard` launches.                                                                             |
+| `--initial-fdv`           | Launch FDV for `zrp` launches, in reserve units at the frozen-zone exit (5% circulating). Defaults to the protocol minimum. |
+| `--creator`               | Creator address. Defaults to `--account`.                                                                                   |
+| `--fee-recipient`         | Address receiving the creator share of swap fees. Defaults to creator.                                                      |
+| `--creator-fee-pct`       | Creator share of swap fees, from `0` to `100`. Defaults to `50`; the remaining share goes to stakers.                       |
+| `--swap-fee-pct`          | Swap fee charged by the pool. Defaults to `1`.                                                                              |
+| `--salt`                  | Optional bytes32 salt.                                                                                                      |
+| `--reserve-decimals`      | Reserve token decimals. Defaults to `18`.                                                                                   |
+| `--execute`               | Execute the launch calls with a private key signer.                                                                         |
+| `--private-key`           | Private key for `--execute`. Falls back to `BASELINE_PRIVATE_KEY`.                                                          |
+| `--output`                | Optional path to write the JSON artifact.                                                                                   |
+
+## Supported Chains
+
+Use the chain ID and reserve token for the selected network:
+
+| Network          | `--chain-id` | Artifact `chain` | Primary reserve                                    |
+| ---------------- | ------------ | ---------------- | -------------------------------------------------- |
+| Ethereum mainnet | `1`          | `ethereum`       | WETH `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2`  |
+| Base mainnet     | `8453`       | `base`           | WETH `0x4200000000000000000000000000000000000006`  |
+| Base Sepolia     | `84532`      | `base-sepolia`   | WETH `0xB85885897D297000A74eA2e4711C3Ca729461ABC`  |
+| HyperEVM         | `999`        | `HyperEVM`       | WHYPE `0x5555555555555555555555555555555555555555` |
+| Robinhood Chain  | `4663`       | `robinhood`      | WETH `0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73`  |
+
+Robinhood also supports USDG (`0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168`) as a reserve token.
+
+Treat Ethereum mainnet, Base mainnet, HyperEVM, and Robinhood Chain as production. Confirm the chain, token
+name, symbol, supply, reserve, fees, creator, and fee recipient before
+submitting calls.
+
+## Base MCP Handoff
+
+When using Base MCP, keep the CLI in unsigned mode and submit only the artifact
+fields Base MCP needs:
+
+```json
+{
+  "chain": "base-sepolia",
+  "calls": [
+    { "to": "0xTarget", "data": "0xCalldata", "value": "0x0" }
+  ]
+}
+```
+
+Use `artifact.chain` directly and preserve call order. Do not include
+`artifact.account` in the `send_calls` payload; Base MCP uses the connected
+Base Account session for approval and execution.
+
+## Execute Locally
+
+By default, `baseline launch` only builds unsigned calls. Execute locally only
+when you explicitly want the CLI to submit transactions with a private key:
+
+```bash
+BASELINE_PRIVATE_KEY=0x... npx @baseline-markets/cli@latest launch \
+  --execute \
+  --mode zrp \
+  --chain-id 84532 \
+  --name "Example Baseline Token" \
+  --symbol EBT \
+  --reserve 0xB85885897D297000A74eA2e4711C3Ca729461ABC \
+  --total-supply 1000000000
+```
+
+Do not use `--execute` when another execution layer is responsible for approval
+and submission. Base MCP, for example, consumes the unsigned `calls` artifact
+and handles user approval through Base Account.
+
+## Inspect A Token
+
+After a launch completes, inspect the bToken:
+
+```bash
+npx @baseline-markets/cli@latest info 0xBToken --chain-id 84532
+```
+
+Use `--format json` for structured output:
+
+```bash
+npx @baseline-markets/cli@latest info 0xBToken --chain-id 84532 --format json
+```
+
+## Safety Boundaries
+
+* Prefer unsigned artifacts for agent-assisted or externally executed launches.
+* Do not give an agent a private key unless the user explicitly chooses local
+  CLI execution and understands the signer boundary.
+* Preserve the emitted call order and calldata.
+* Validate `account`, `chainId`, `chain`, and `calls` before submission.
+* `zrp` artifacts should have one call; `standard` artifacts should have
+  four calls.
+* Ambiguous failures should be recovered from by reading on-chain state before
+  retrying.
+
+
+# Overview (/docs/contracts)
+
+Baseline Mercury uses a singleton contract pattern that lives at the same address on every deployed EVM chain: **0xc81Fd894C0acE037d133aF4886550aC8133568E8**. All pools and protocol features (swapping, quoting, staking, borrowing and leveraging) are managed by this contract.
+
+<Callout type="info">
+  Use the [`@baseline-markets/cli`](/docs/contracts/cli) to build launch calls, install agent skills, execute with an explicit signer, and inspect deployed tokens. Most app integrations should use [`@baseline-markets/sdk`](/docs/contracts/sdk), a TypeScript SDK for launching tokens, and integrating swapping, staking, borrowing and leveraging functionality. The contract pages in this section are the ABI-level reference for raw, low-level access.
+</Callout>
+
+### Deployments
+
+| Network         | Singleton Address                                                                                                                      |
+| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| Ethereum L1     | [0xc81Fd894C0acE037d133aF4886550aC8133568E8](https://etherscan.io/address/0xc81Fd894C0acE037d133aF4886550aC8133568E8)                  |
+| Base L2         | [0xc81Fd894C0acE037d133aF4886550aC8133568E8](https://basescan.org/address/0xc81Fd894C0acE037d133aF4886550aC8133568E8)                  |
+| HyperEVM        | [0xc81Fd894C0acE037d133aF4886550aC8133568E8](https://hyperevmscan.io/address/0xc81Fd894C0acE037d133aF4886550aC8133568E8)               |
+| Robinhood Chain | [0xc81Fd894C0acE037d133aF4886550aC8133568E8](https://robinhoodchain.blockscout.com/address/0xc81Fd894C0acE037d133aF4886550aC8133568E8) |
+
+Need Baseline Mercury on another EVM network? Reach out to us in [Discord](https://discord.gg/baseline).
+
+## Operational
+
+| Contract            | Address                                                                                                               |
+| :------------------ | :-------------------------------------------------------------------------------------------------------------------- |
+| Protocol Treasury   | [0xFf0034bbf2A92d0E27717387F3F829f37241ee5a](https://etherscan.io/address/0xFf0034bbf2A92d0E27717387F3F829f37241ee5a) |
+| Operations Multisig | [0x8044f710c58B6eA6a178CC540f9F1Cd758F7d1B2](https://etherscan.io/address/0x8044f710c58B6eA6a178CC540f9F1Cd758F7d1B2) |
+
+Looking for pre-Mercury contracts? See the [Legacy](/docs/contracts/legacy) deployments.
+
+
+# Legacy (/docs/contracts/legacy)
+
+These are the pre-Mercury Baseline deployments. All supported tokens have migrated into [Mercury](/docs/contracts). These addresses are kept for reference only.
+
+| Contract              |  Network | Address                                                                                                               |
+| :-------------------- | :------: | :-------------------------------------------------------------------------------------------------------------------- |
+| YES (v3)              |  Base L2 | [0x1B68244B100A6713ca7F540697b1bE12148a8bf9](https://basescan.org/address/0x1B68244B100A6713ca7F540697b1bE12148a8bf9) |
+| Liquidity Pool (v3)   |  Base L2 | [0xdFCFDf5dd0569d591E0Bce28B5dA3b13dE09E3CB](https://basescan.org/address/0xdFCFDf5dd0569d591E0Bce28B5dA3b13dE09E3CB) |
+| MARKET\_MAKING (v3)   |  Base L2 | [0xe9B2fa00e24310f712aFFD9C00EC8c2C42c0c34F](https://basescan.org/address/0xe9B2fa00e24310f712aFFD9C00EC8c2C42c0c34F) |
+| CREDIT\_FACILITY (v3) |  Base L2 | [0xc9329Cb681d1338219B9e21E5E99754853436C8D](https://basescan.org/address/0xc9329Cb681d1338219B9e21E5E99754853436C8D) |
+| LOOP\_FACILITY (v3)   |  Base L2 | [0x7bA0Fc5542Fad1931A5b765c220dB2ECF3E09a4F](https://basescan.org/address/0x7bA0Fc5542Fad1931A5b765c220dB2ECF3E09a4F) |
+| LOOPS (v3)            |  Base L2 | [0x6B129C94eE04Ff4d989B0a0B2784Fc8bcFe777eF](https://basescan.org/address/0x6B129C94eE04Ff4d989B0a0B2784Fc8bcFe777eF) |
+| CREDT (v3)            |  Base L2 | [0xa35E4Ac9565Fb006812755C30c369314be3511D9](https://basescan.org/address/0xa35E4Ac9565Fb006812755C30c369314be3511D9) |
+| RESERVE (v3)          |  Base L2 | [0x4200000000000000000000000000000000000006](https://basescan.org/address/0x4200000000000000000000000000000000000006) |
+| YES (v2)              | Blast L2 | [0x1a49351bdB4BE48C0009b661765D01ed58E8C2d8](https://blastscan.io/address/0x1a49351bdB4BE48C0009b661765D01ed58E8C2d8) |
+| Liquidity Pool (v2)   | Blast L2 | [0xD0F1e1243c9FfB11100eFd25f1C9Ef7Ca956dC13](https://blastscan.io/address/0xD0F1e1243c9FfB11100eFd25f1C9Ef7Ca956dC13) |
+| YES (v1)              | Blast L2 | [0x20fE91f17ec9080E3caC2d688b4EcB48C5aC3a9C](https://blastscan.io/address/0x20fE91f17ec9080E3caC2d688b4EcB48C5aC3a9C) |
+| Baseline (v1)         | Blast L2 | [0x14eB8d9b6e19842B5930030B18c50B0391561f27](https://blastscan.io/address/0x14eB8d9b6e19842B5930030B18c50B0391561f27) |
+| BaselineFactory (v1)  | Blast L2 | [0x0C056B34F2AFa70Ee1351e3659DFBD2097765275](https://blastscan.io/address/0x0C056B34F2AFa70Ee1351e3659DFBD2097765275) |
+| PreAsset (v1)         | Blast L2 | [0x60BF64CCAa52da304d456892dC0A8f1C5B159f61](https://blastscan.io/address/0x60BF64CCAa52da304d456892dC0A8f1C5B159f61) |
+| YEV (v1)              | Blast L2 | [0xC7b96D7f622e0a3A24cf333e84C29e36955f25BB](https://blastscan.io/address/0xC7b96D7f622e0a3A24cf333e84C29e36955f25BB) |
+| Liquidity Pool (v1)   | Blast L2 | [0x1d16788b97eDB7d9a6aE66D5C5C16469037Faa00](https://blastscan.io/address/0x1d16788b97eDB7d9a6aE66D5C5C16469037Faa00) |
+
+
+# SDK (/docs/contracts/sdk)
+
+The Baseline SDK is the recommended way for apps and developers to interface with Baseline contracts. It exposes a single `BaselineSDK` class that allows apps to launch tokens, perform swaps, stake, borrow and leverage.
+
+The package is available on NPM at [`@baseline-markets/sdk`](https://www.npmjs.com/package/@baseline-markets/sdk).
+
+<Callout type="info">
+  Use the lower-level [contract reference](/docs/contracts) when you need raw ABIs or contract-level details.
+</Callout>
+
+## Install
+
+```bash
+npm install @baseline-markets/sdk viem
+# or
+bun add @baseline-markets/sdk viem
+```
+
+`viem` is a peer dependency. Bring your own viem clients from your app, wallet framework or RPC setup.
+
+## Quickstart
+
+```ts
+import { BaselineSDK } from '@baseline-markets/sdk';
+import { createPublicClient, createWalletClient, custom, http } from 'viem';
+import { base } from 'viem/chains';
+
+const publicClient = createPublicClient({
+  chain: base,
+  transport: http(),
+});
+
+const walletClient = createWalletClient({
+  chain: base,
+  transport: custom(window.ethereum),
+});
+
+const sdk = new BaselineSDK(publicClient, walletClient, {
+  defaultUseNative: true,
+  approvals: 'infinite',
+});
+
+const bToken = '0x9fDbDE76236998Dc2836FE67A9954eDE456A1D63' as const;
+
+const price = await sdk.activePrice(bToken);
+const reserve = await sdk.getReserve(bToken);
+const quote = await sdk.quoteBuyExactOut(bToken, 100n);
+```
+
+Caveats:
+
+* Each SDK instance is bound to a single chain from `publicClient.chain`. To use another chain, build new viem clients and instantiate a new `BaselineSDK`. The SDK has no `chainId` parameter on its methods by design.
+* `defaultUseNative: true` uses native ETH paths by default where supported.
+
+## Launch a token
+
+For full launch context, see [Launch](/docs/launch). The SDK exposes the same factory actions as the contracts.
+
+### Single-transaction launch (zrp)
+
+The simplest path is `sdk.launch`, which deploys the bToken and an initialized zero-reserve pool in one transaction. The full supply is minted straight into the pool, so the caller needs no balance or approvals. `initialFdv` sets the launch valuation in WAD reserve units, quoted when circulating supply first exits the frozen zone (5% of supply).
+
+```ts
+import { zeroHash } from 'viem';
+import type { Address } from 'viem';
+
+const WAD = 10n ** 18n;
+const reserve = '0x4200000000000000000000000000000000000006' as Address; // Base WETH
+
+const { hash, bToken } = await sdk.launch(
+  {
+    name: 'Example Token',
+    symbol: 'EXAMPLE',
+    totalSupply: 1_000_000n * WAD,
+    salt: zeroHash,
+    reserve,
+    initialFdv: 10n * WAD, // launch FDV of 10 WETH at the frozen-zone exit
+    creator: walletClient.account!.address,
+    feeRecipient: walletClient.account!.address,
+    creatorFeePct: 5n * 10n ** 17n, // 50%
+    swapFeePct: 10n ** 16n, // 1%
+  },
+  { confirmations: 1 },
+);
+```
+
+To build unsigned calls instead (for `wallet_sendCalls` or agent flows), use `sdk.calls.launch` — in `zrp` mode it returns a single `launch` call.
+
+### Standard launch
+
+Standard launches seed the pool with reserve liquidity and keep part of the supply circulating.
+
+First, create the bToken. The full supply is minted to the caller, and only that caller can create the pool for the token.
+
+```ts
+import { zeroHash } from 'viem';
+
+const WAD = 10n ** 18n;
+const totalSupply = 1_000_000n * WAD;
+
+const { bToken } = await sdk.createBToken(
+  'Example Token',
+  'EXAMPLE',
+  totalSupply,
+  zeroHash,
+  { confirmations: 1 },
+);
+```
+
+Next, create the pool. The caller must own and approve the bTokens and reserve assets used to initialize it. `initialBLV: 0n` lets the protocol calculate the starting BLV.
+
+```ts
+import { erc20Abi, zeroHash } from 'viem';
+import type { Address } from 'viem';
+
+const WAD = 10n ** 18n;
+const totalSupply = 1_000_000n * WAD;
+const STANDARD_CREATOR_FEE = 5n * 10n ** 17n; // 50%
+const STANDARD_SWAP_FEE = 10n ** 16n; // 1%
+
+function toWad(amount: bigint, decimals: number): bigint {
+  if (decimals === 18) return amount;
+  if (decimals > 18) return amount / 10n ** BigInt(decimals - 18);
+  return amount * 10n ** BigInt(18 - decimals);
+}
+
+const account = walletClient.account;
+if (!account) throw new Error('Wallet client must include an account');
+
+const creator = account.address;
+const reserve = '0x4200000000000000000000000000000000000006' as Address; // Base WETH
+
+// Seed the pool with the creator's available bToken and reserve balances.
+const [initialPoolBTokens, initialPoolReserves, reserveDecimals] =
+  await Promise.all([
+    sdk.getTokenBalance(bToken, creator),
+    sdk.getTokenBalance(reserve, creator),
+    publicClient.readContract({
+      address: reserve,
+      abi: erc20Abi,
+      functionName: 'decimals',
+    }),
+  ]);
+
+await sdk.ensureApproval(bToken, sdk.proxy, initialPoolBTokens, {
+  confirmations: 1,
+});
+await sdk.ensureApproval(reserve, sdk.proxy, initialPoolReserves, {
+  confirmations: 1,
+});
+
+// Set non-zero values to launch with Baseline Options.
+const initialCollateral = 0n;
+const initialDebt = 0n;
+
+// Start at a 5% premium to backed circulating supply.
+const reserves = toWad(initialPoolReserves + initialDebt, reserveDecimals);
+const circulatingSupply = totalSupply - initialPoolBTokens;
+const bookPrice = (reserves * WAD) / circulatingSupply;
+const initialActivePrice = (bookPrice * 105n) / 100n;
+
+await sdk.createPool(
+  {
+    bToken,
+    initialPoolBTokens,
+    reserve,
+    initialPoolReserves,
+    initialActivePrice,
+    initialBLV: 0n, // use zero to auto-calculate BLV
+    creator,
+    feeRecipient: creator,
+    creatorFeePct: STANDARD_CREATOR_FEE,
+    swapFeePct: STANDARD_SWAP_FEE,
+    createHook: false,
+    claimMerkleRoot: zeroHash,
+    initialCollateral,
+    initialDebt,
+  },
+  { confirmations: 1 },
+);
+```
+
+## Swaps
+
+The SDK exposes four [BSwap](/docs/contracts/bswap) functions, but only two are gas-efficient on-chain:
+
+| Function             | Direction         | Gas       | Reason                          |
+| -------------------- | ----------------- | --------- | ------------------------------- |
+| `buyTokensExactOut`  | reserve to bToken | Cheap     | Direct curve computation        |
+| `sellTokensExactIn`  | bToken to reserve | Cheap     | Direct curve computation        |
+| `buyTokensExactIn`   | reserve to bToken | Expensive | Binary-searches for `amountOut` |
+| `sellTokensExactOut` | bToken to reserve | Expensive | Binary-searches for `amountIn`  |
+
+The `ExactIn` / `ExactOut` naming refers to what's exact from the user's perspective. On-chain cost depends on whether the contract receives the natural input to the curve math (direct computation) or the other side (binary search).
+
+### Buying bTokens
+
+Quote off-chain via `quoteBuyExactIn` (view call, solver is free), then execute via `buyTokensExactOut` with the quoted `amountOut`. Avoid calling `buyTokensExactIn` on-chain unless you can't pre-compute the amount.
+
+```ts
+const quote = await sdk.quoteBuyExactIn(bToken, reservesIn);
+
+await sdk.buyTokensExactOut(bToken, quote.tokensOut, maxReservesIn, {
+  confirmations: 2,
+  onSimulateError: (error) => {
+    console.error(error);
+  },
+});
+```
+
+### Selling bTokens
+
+Call `sellTokensExactIn` directly. It is already the efficient path. Avoid calling `sellTokensExactOut` on-chain unless you can't pre-compute the amount.
+
+```ts
+await sdk.sellTokensExactIn(bToken, amountIn, minReservesOut, {
+  confirmations: 2,
+  onSimulateError: (error) => {
+    console.error(error);
+  },
+});
+```
+
+## Stake
+
+```ts
+const amountToStake = 1_000n * 10n ** 18n;
+
+await sdk.ensureApproval(bToken, sdk.proxy, amountToStake, {
+  confirmations: 1,
+});
+
+await sdk.deposit(bToken, amountToStake, {
+  confirmations: 1,
+});
+
+const position = await sdk.getStakedAccount(bToken, user);
+
+if (position.earned > 0n) {
+  const { amount: claimed } = await sdk.claim(bToken, {
+    confirmations: 1,
+  });
+}
+```
+
+## Borrow
+
+```ts
+// Borrow
+
+// Read the user's current collateral and debt.
+const creditAccount = await sdk.getCreditAccount(bToken, user);
+
+// Check the maximum borrowable reserve amount.
+const maxBorrow = await sdk.getMaxBorrow(bToken, user);
+
+// Preview the account state after borrowing.
+const borrowPreview = await sdk.previewBorrow(bToken, user, debtAmount);
+
+// Borrow reserve assets against bToken collateral.
+await sdk.borrow(bToken, debtAmount, recipient, { confirmations: 1 });
+
+// Repay
+
+// Preview how much collateral is redeemed and debt is repaid.
+const repayPreview = await sdk.previewRepay(bToken, recipient, reservesIn);
+
+// Repay debt with reserve assets.
+await sdk.repay(bToken, reservesIn, recipient, { confirmations: 1 });
+```
+
+## Leverage
+
+```ts
+// Leverage
+
+// Quote the target collateral and swap bounds.
+const leverageQuote = await sdk.quoteLeverage(
+  bToken,
+  collateralIn,
+  leverageFactor,
+);
+
+// Add collateral and borrow against it in one transaction.
+await sdk.leverage(
+  bToken,
+  leverageQuote.targetCollateral,
+  collateralIn,
+  leverageQuote.maxSwapReservesIn,
+  { confirmations: 1 },
+);
+
+// Simulate leverage without submitting a transaction.
+const simulatedLeverage = await sdk.simulateLeverage(
+  bToken,
+  leverageQuote.targetCollateral,
+  collateralIn,
+  leverageQuote.maxSwapReservesIn,
+);
+
+// Deleverage
+
+// Simulate deleverage before unwinding collateral.
+const simulatedDeleverage = await sdk.simulateDeleverage(
+  bToken,
+  collateralToSell,
+  minSwapReservesOut,
+);
+
+// Sell collateral and repay debt in one transaction.
+await sdk.deleverage(bToken, collateralToSell, minSwapReservesOut, {
+  confirmations: 1,
+});
+```
+
+## Approvals
+
+Execution methods do not automatically approve ERC20 spends. Use `approve`, `getAllowance` or `ensureApproval` before actions that transfer reserve tokens or bTokens. For protocol actions, the spender is the Relay address exposed as `sdk.proxy`.
+
+```ts
+const allowance = await sdk.getAllowance(reserve, owner, sdk.proxy);
+
+if (allowance < maxReservesIn) {
+  await sdk.ensureApproval(reserve, sdk.proxy, maxReservesIn, {
+    confirmations: 1,
+    policy: 'infinite',
+  });
+}
+
+// Or approve manually.
+await sdk.approve(reserve, sdk.proxy, maxReservesIn, {
+  confirmations: 1,
+});
+```
+
+Use `defaultUseNative` on the SDK config, or `useNative` on supported payable buy and repay calls, when the reserve asset should be sent as native value. `borrow` supports `outputNative`, and `claim` supports `asNative`.
+
+## ABIs
+
+Baseline Mercury ABIs are exported from the SDK as `abis` for lower-level contract reads, writes or error decoding:
+
+```ts
+import { abis } from '@baseline-markets/sdk';
+
+const result = await publicClient.readContract({
+  address: sdk.proxy,
+  abi: abis.bLens,
+  functionName: 'activePrice',
+  args: [bToken],
+});
+```
+
+## Error handling
+
+Write methods throw `SDKError`, which exposes a `.kind` discriminator:
+
+```ts
+import { SDKError } from '@baseline-markets/sdk';
+
+try {
+  await sdk.buyTokensExactOut(bToken, amountOut, maxIn);
+} catch (err) {
+  if (err instanceof SDKError) {
+    switch (err.kind) {
+      case 'user_rejected':
+      case 'insufficient_funds':
+      case 'reverted':
+      case 'network':
+      case 'wallet':
+      case 'unknown':
+        break;
+    }
+  }
+}
+```
+
+The original viem error is preserved on `err.cause`.
+
+## React and wagmi
+
+wagmi returns viem clients, so you can wrap SDK construction in a hook:
+
+```tsx
+import { useMemo } from 'react';
+import { BaselineSDK } from '@baseline-markets/sdk';
+import { useChainId, usePublicClient, useWalletClient } from 'wagmi';
+
+export function useBaselineSDK(chainId?: number) {
+  const walletChainId = useChainId();
+  const targetChainId = chainId ?? walletChainId;
+  const publicClient = usePublicClient({ chainId: targetChainId });
+  const { data: walletClient } = useWalletClient({ chainId: targetChainId });
+
+  return useMemo(() => {
+    if (!publicClient) return null;
+    return new BaselineSDK(publicClient, walletClient ?? undefined);
+  }, [publicClient, walletClient]);
+}
+```
+
+`useWalletClient()` returns `undefined` until the user connects. The SDK still works for reads in that state, and `sdk.hasWallet` tells you whether write actions are available.
+
+## Supported networks
+
+The SDK only works on chains with Mercury deployments in the package address book. The current deployments are Ethereum mainnet, Base, Base Sepolia, HyperEVM, and Robinhood Chain.
+
+Use `supportedChainIds` to gate your app against the package's current runtime support:
+
+```ts
+import { supportedChainIds } from '@baseline-markets/sdk';
+
+if (!supportedChainIds.includes(chainId)) {
+  // Prompt the user to switch networks.
+}
+```
+
+## Switching networks
+
+The SDK is single-chain: the chain is baked into `publicClient`, so a `BaselineSDK` instance can only talk to one network. When the user switches network, create new clients and a new SDK.
+
+With the hook above, this happens automatically. Passing `chainId` to wagmi's `usePublicClient` and `useWalletClient` returns different client references per chain; those references update the `useMemo` dependencies and construct a fresh `BaselineSDK`.
+
+1. Chain change -> new clients -> new SDK. Construction is cheap because the SDK holds client references and resolves the proxy address from the chain ID.
+2. Do not mix chains in one SDK. Never pass a `publicClient` for one chain and a `walletClient` for another.
+3. For cross-chain reads, call the hook with an explicit `chainId` per component, such as `useBaselineSDK(mainnet.id)` and `useBaselineSDK(base.id)`.
+
+Include `sdk.chainId` in query keys so cached reads stay scoped to the network:
+
+```tsx
+import { useQuery } from '@tanstack/react-query';
+
+function Price({ bToken }: { bToken: `0x${string}` }) {
+  const sdk = useBaselineSDK();
+  const { data: price } = useQuery({
+    queryKey: ['baseline', 'activePrice', sdk?.chainId, bToken],
+    queryFn: () => sdk!.activePrice(bToken),
+    enabled: !!sdk,
+  });
+
+  return <span>{price?.toString()}</span>;
+}
+```
+
+For writes, gate actions on `sdk.hasWallet`:
+
+```tsx
+import { useMutation } from '@tanstack/react-query';
+import { SDKError } from '@baseline-markets/sdk';
+
+function BuyButton({ bToken, amount, maxIn }: {
+  bToken: `0x${string}`;
+  amount: bigint;
+  maxIn: bigint;
+}) {
+  const sdk = useBaselineSDK();
+  const buy = useMutation({
+    mutationFn: () =>
+      sdk!.buyTokensExactOut(bToken, amount, maxIn, { confirmations: 1 }),
+    onError: (err) => {
+      if (err instanceof SDKError && err.kind === 'user_rejected') return;
+      throw err;
+    },
+  });
+
+  return (
+    <button disabled={!sdk?.hasWallet || buy.isPending} onClick={() => buy.mutate()}>
+      {buy.isPending ? 'Confirming' : 'Buy'}
+    </button>
+  );
+}
+```
+
+## References
+
+* npm: [`@baseline-markets/sdk`](https://www.npmjs.com/package/@baseline-markets/sdk)
+* Contracts: [Mercury contract reference](/docs/contracts)
+* REST data API: [API reference](/docs/contracts/api)
+
+
+# Audits (/docs/contracts/security)
+
+| Audit           | Link                                                                                                 | Date       | Auditors                                          |
+| --------------- | ---------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------- |
+| Mercury AMM     | [2026-05-27\_Baseline\_Mercury\_AMM\_Report.pdf](/assets/2026-05-27_Baseline_Mercury_AMM_Report.pdf) | 2026-05-18 | [Guardian Audits](https://guardianaudits.com/)    |
+| Mercury         | [2026-05-15\_spearbit\_mercury\_audit.pdf](/assets/2026-05-15_spearbit_mercury_audit.pdf)            | 2026-05-15 | [Cantina](https://cantina.xyz/)                   |
+| Fixed Supply    | [2025-02-27\_Baseline\_Fixed\_Supply.pdf](/assets/2025-02-27_Baseline_Fixed_Supply.pdf)              | 2025-02-27 | [Guardian Audits](https://guardianaudits.com/)    |
+| BMM Looping #2  | [2025-02-03\_Baseline\_MM\_Looping\_2.pdf](/assets/2025-02-03_Baseline_MM_Looping_2.pdf)             | 2025-02-03 | [Guardian Audits](https://guardianaudits.com/)    |
+| BMM Looping #1  | [2025-01-22\_Baseline\_MM\_Looping.pdf](/assets/2025-01-22_Baseline_MM_Looping.pdf)                  | 2025-01-22 | [Guardian Audits](https://guardianaudits.com/)    |
+| Credit Migrator | [2024-11-28\_Baseline\_Credit\_Migrator.pdf](/assets/2024-11-28_Baseline_Credit_Migrator.pdf)        | 2024-11-28 | [Guardian Audits](https://guardianaudits.com/)    |
+| BToken          | [2024-10-27\_Baseline\_BToken.pdf](/assets/2024-10-27_Baseline_BToken.pdf)                           | 2024-10-27 | [Guardian Audits](https://guardianaudits.com/)    |
+| Loops           | [2024-08-23\_Baseline\_Loops.pdf](/assets/2024-08-23_Baseline_Loops.pdf)                             | 2024-08-23 | [Guardian Audits](https://guardianaudits.com/)    |
+| Baseline V2     | [guardian\_v2.pdf](/assets/guardian_v2.pdf)                                                          | 2024-06-17 | [Guardian Audits](https://guardianaudits.com/)    |
+| Baseline V1     | [audit\_trust\_security.pdf](/assets/audit_trust_security.pdf)                                       | 2024-02-27 | [Trust Security](https://www.trust-security.xyz/) |
+
+
+# Borrow (/docs/holders/borrow)
+
+Baseline allows you to borrow against your bTokens at 0% interest and a small origination fee, using the [Baseline Value (BLV)](/docs/how-it-works/blv) floor price as collateral.
+
+Baseline Borrow gives you access to capital without needing to sell your position or risk liquidation. Borrowing against bTokens is ideal for users who want to free up liquidity for other purposes: like rotating capital into another token.
+
+## Why borrow?
+
+* **Access capital without selling** : Keep your bToken exposure
+* **No liquidation risk** : BLV guarantees your collateral value so there's no need for expiration or liquidation thresholds
+* **0% interest** : No ongoing borrowing costs
+* **Maintain exposure to future upside** : If bToken price increases, you benefit
+* **Earn trading fees** : Borrowing automatically entitles you to a pro-rata amount of trading fees captured by the token
+* **No oracles**: No need to trust external price feeds oracles that may misreport.
+
+## How borrowing works
+
+1. bTokens have a Baseline Value (BLV) that is backed by reserves in the liquidity pool.
+2. You can borrow against the BLV value of your bTokens directly from the Baseline protocol
+3. When you borrow, you deposit your bTokens as collateral, and receive the borrowed amount in the reserve asset (e.g., ETH). The amount you receive is based on the BLV value:
+
+$\text{borrowed} = P_{blv} \times \text{bTokens}$
+
+4. You can repay the reserve amount anytime and get back your bTokens. There is no expiration date, or liquidation threshold.
+
+### Example
+
+Suppose that YES is a bToken trading at 1.5 ETH per token, and the BLV is 1 ETH per token. In this case, the premium is +50% (1.5 ETH / 1 ETH - 1). You own 100 bTokens that you want to borrow against. Then:
+
+| Metric                            | Value                      |
+| --------------------------------- | -------------------------- |
+| Your bTokens                      | 100                        |
+| Market price per token            | 1.5 ETH                    |
+| BLV per token                     | 1 ETH                      |
+| Market value of your bTokens      | 150 ETH                    |
+| Borrowed amount (total BLV value) | 100 ETH                    |
+| Loan-to-Value (LTV)               | 66.67% (100 ETH / 150 ETH) |
+
+Let's consider some scenarios:
+
+1. Market price increases to 2 ETH per token. You can repay the loan (100 ETH) to get back your bTokens, and sell for 200 ETH. Note that you still benefitted from the price increase, even though you borrowed against your bTokens.
+2. Market price decreases to BLV (1 ETH per token). You can repay the loan (100 ETH) to get back your bTokens, and sell for 100 ETH. Note that when the price converges to BLV, there is no incentive to repay since you'll get back exactly what you used to repay.
+
+## Next Steps
+
+* Earn trading fees by [staking](/docs/holders/stake)
+* Multiply exposure through [multiply](/docs/holders/multiply)
+
+
+# For Holders (/docs/holders)
+
+Baseline turns a token from a liability that works against holders into an asset that works for them.
+
+Most tokens are built on broken tokenomics and rented liquidity. That is why over 85% of tokens end up below their TGE price. When sentiment flips, liquidity disappears, holders race to the exit toward zero, and the project never recovers.
+
+Baseline changes that structure. Each token owns its liquidity, has a visible floor price, captures value from trading activity, and gives holders built-in ways to stake, borrow, and multiply exposure.
+
+In other words, Baseline gives holders a better game:
+
+1. The token owns the liquidity that supports holders.
+2. The token has a visible floor price.
+3. Trading fees flow back into the token instead of leaking out.
+4. Holders can earn trading fees by [staking](/docs/holders/stake).
+5. Holders can [borrow](/docs/holders/borrow) against the floor without selling.
+6. Holders can [multiply](/docs/holders/multiply) exposure without relying on a separate lending market.
+
+## What holders get
+
+### 1. Token that works for you
+
+In a normal pool, trading activity benefits everyone except holders: LPs earn fees, market makers capture spread, and the token is left hoping new buyers keep showing up.
+
+Baseline changes where that value goes. Because the token owns its liquidity, trading activity flows back into the token. Trading fees strengthen the floor, fund liquidity rewards, and grow the token's balance sheet instead of leaking out to third parties. The token effectively creates its own market that it captures value from and uses that value to support holders over time.
+
+### 2. A guaranteed floor price
+
+The [Baseline Value (BLV)](/docs/how-it-works/blv) is the minimum price enforced by the Baseline Market Maker. It is backed by reserves in the pool and visible onchain.
+
+This means holders can hold confidently, knowing the token's own liquidity acts as the ultimate backstop when the market sells off. Armed with this knowledge, traders and investors can make rational decisions to enter or exit positions without trusting any human intermediary.
+
+### 3. Fees that strengthen the token
+
+Every trade generates fees. In a normal market, much of that value leaks to outside liquidity providers or market makers. In Baseline, trading activity feeds back into the token's own system.
+
+Fees can raise the floor, fund staking rewards, and increase the amount of value the token controls. More useful trading activity means a stronger token balance sheet that benefits all holders.
+
+### 4. Earn trading rewards without the hassle
+
+Holders can [stake bTokens](/docs/holders/stake) to earn a share of trading fees. They keep token exposure, avoid impermanent loss from traditional LP positions, and can claim rewards as they accrue.
+
+This turns volume into a holder incentive. If the market trades, stakers get exposure to the value created by that activity.
+
+### 5. Access capital without sell
+
+Because BLV is a guaranteed floor, holders can [borrow](/docs/holders/borrow) against that floor value at no interest, with an origination fee and no liquidation threshold.
+
+Holders can access capital without fully exiting their position. They keep exposure to future upside while using the token's floor as collateral.
+
+### 6. Leverage without liquidation risk
+
+Advanced users can [multiply](/docs/holders/multiply) exposure by borrowing against BLV and buying more bTokens.
+
+Traditional leverage products require integration, and liquidity must be sourced. With Baseline, leverage emerges from the token-owned liquidity and requires no oracle dependencies. This gives holders instant utility to take directional bets and amplify gains and losses.
+
+## How to measure value
+
+Price action is pointless if there's no liquidity to support the underlying price levels. For holders, that should matter because deep liquidity supports price during dumps, and efficient quoting during pumps reduces future supply overhang.
+
+Simulating historical trading activity of multiple tokens, Baseline pools tend to outperform by growing more liquidity per token, absorbing more supply into the pool, and accruing more fees.
+
+Explore [Baseline Simulator](https://sim.baseline.markets) to see how tokens like REPPO, VVV and CLANKER perform better with Baseline.
+
+## Next steps
+
+* Start with [Trade](/docs/holders/trade) for the core holder experience.
+* Read [Stake](/docs/holders/stake) to understand fee rewards.
+* Read [Borrow](/docs/holders/borrow) to understand 0% interest capital access.
+* Read [Multiply](/docs/holders/multiply) before using leverage.
+
+
+# Multiply (/docs/holders/multiply)
+
+Baseline allows you to create leveraged positions on bTokens without liquidation risk. By borrowing against the Baseline Value (BLV) floor and using those funds to buy more bTokens, you can amplify your exposure to price movements.
+
+## Why multiply?
+
+* **Amplify price exposure** : Use borrowed funds to buy more bTokens, amplifying your price exposure to directional moves
+* **Earn trading fees** : Multiplying automatically entitles you to a pro-rata amount of trading fees captured by the token. Since multiplying increases your total bToken position, you earn more fees relative to basic staking or borrowing.
+* **No liquidation risk** : The BLV floor guarantees your collateral is always worth at least your debt which means your leveraged position cannot be liquidated.
+
+Baseline multiply is an advanced trading strategy that requires careful consideration of the risks involved. In particular:
+
+* **Price Exposure**: Larger positions mean bigger gains AND bigger losses
+* **Slippage**: Leveraging buys (and sells) from the Baseline Pool which means it will be subjct to price impact and slippage.
+* **Market Timing**: Buying high with leverage amplifies losses if price drops
+* **Locked Collateral**: Your bTokens are locked until you deleverage
+
+## How leverage works
+
+Baseline leverage uses a "multiply" mechanism repeatedly borrowing against your bTokens and using the borrowed funds to buy more bTokens:
+
+1. **Deposit bTokens** : Your bTokens become collateral
+2. **Select target leverage** : Select the target leverage you want to achieve
+3. **Borrow against BLV** : The Baseline protocol borrows against your floor value
+4. **Buy more bTokens** : Borrowed funds purchase additional bTokens
+5. **Add to collateral** : New bTokens increase your position
+6. **Repeat** : Repeat the process to multiply your exposure to the target leverage
+
+## Example
+
+Suppose that YES is a bToken trading at 1.5 ETH per token, and the BLV is 1 ETH per token. In this case, the premium is +50% (1.5 ETH / 1 ETH - 1). You own 100 bTokens and want to multiply your exposure:
+
+| Metric                            | Value                                |
+| --------------------------------- | ------------------------------------ |
+| Your bTokens                      | 100                                  |
+| Market price per token            | 1.5 ETH                              |
+| BLV per token                     | 1 ETH                                |
+| Market value of your bTokens      | 150 ETH                              |
+| Borrowed amount (total BLV value) | 100 ETH                              |
+| Additional bTokens purchased      | 66.67 (100 ETH / 1.5 ETH)            |
+| Total bTokens after leverage      | 166.67                               |
+| Net leverage                      | 1.66x (166.67 bTokens / 100 bTokens) |
+
+Let's consider some scenarios:
+
+1. Market price increases to 2 ETH per token. Your 166.67 bTokens are now worth 333.34 ETH. After repaying your 100 ETH debt, you have 233.34 ETH equity (compared to 200 ETH if you hadn't leveraged). Gain: +55.6% vs +33.3% without leverage.
+2. Market price decreases to BLV (1 ETH per token). Your 166.67 bTokens are now worth 166.67 ETH. After repaying your 100 ETH debt, you have 66.67 ETH equity (compared to 100 ETH if you hadn't leveraged). Loss: -55.6% vs -33.3% without leverage.
+
+## Key differences: borrowing vs leverage
+
+Both features are borrowing against BLV: the difference is what happens with the borrowed funds.
+
+| Feature                  | Borrowing      | Leverage             |
+| ------------------------ | -------------- | -------------------- |
+| **Borrowed funds**       | In your wallet | Reinvested in bToken |
+| **bToken position size** | Unchanged      | Increased            |
+| **Use case**             | Access capital | Amplify exposure     |
+| **Risk level**           | Lower          | Higher               |
+
+## Next Steps
+
+* [Stake](/docs/holders/stake) : Earn fees on your position
+* [Borrow](/docs/holders/borrow) : Access capital without leverage
+
+
+# Stake (/docs/holders/stake)
+
+Baseline staking lets bToken holders earn rewards directly from trading activity. The amount you earn depends on:
+
+| Factor             | Impact on Rewards                       |
+| ------------------ | --------------------------------------- |
+| **Your stake**     | Larger stake = larger share             |
+| **Total staked**   | More competition = smaller share        |
+| **Trading volume** | Higher volume = more fees to distribute |
+
+Staking has no lock-up period, and you can claim your rewards anytime. Users who borrow or leverage their bTokens are automatically staked, and thus also eligible for staking rewards.
+
+## Why stake?
+
+* **Harvest trading volume** : Capture value from every trade as fees flow to stakers
+* **Passive income** : Earn fees without actively trading
+* **No impermanent loss** : Unlike traditional LP staking, your bTokens remain bTokens and you incur no impermanent loss
+
+## How staking works
+
+On a high-level, staking works as follows:
+
+1. **Trading fees accumulate** : Every bToken trade generates fees
+2. **Fees stream to staking contract** : The Baseline protocol uses the Fee Manager to route a portion of the fees to the staking contract
+3. **Proportional distribution** : Stakers earn based on their share of total staked
+4. **Claim anytime** : Rewards accumulate and can be claimed whenever you want
+
+Baseline uses an adaptive distribution system that smoothly streams rewards to stakers. Trading fees flow into a pending yield pool, and the protocol automatically adjusts the distribution rate using a proportional controller. When trading volume is high, the distribution rate increases to match the influx of fees. During quieter periods, it gradually decreases. This ensures steady, predictable reward streams rather than sudden spikes or long waits between distributions.
+
+Your rewards accrue continuously with every block based on your share of the total staked amount. The protocol tracks cumulative rewards using an accumulator that updates in real-time, so your earned balance grows automatically without requiring any action on your part. You can claim your accumulated rewards whenever you want—there are no epochs or waiting periods.
+
+## Next Steps
+
+* Access capital by [borrowing](/docs/holders/borrow)
+* Multiply exposure through [multiply](/docs/holders/multiply)
+
+
+# Trade (/docs/holders/trade)
+
+Baseline tokens (bTokens) trade on the Baseline Market Maker with a guaranteed floor price, built-in staking, borrowing, and leverage. Every bToken comes with a floor price ([BLV](/docs/how-it-works/blv)), dynamic liquidity managed by the [Baseline Market Maker (BMM)](/docs/how-it-works/bmm), and DeFi utility that enhances the trading experience for novice and experienced investors.
+
+* **Guaranteed floor price** -- Every bToken has a public, on-chain minimum price. You can always exit at (or above) this price, even if no one else is buying. This price is enforced programmatically by smart contracts.
+* **Earn rewards** - Stake your bTokens to earn a pro-rata amount of trading fees captured by the token,
+* **Access capital** - Borrow against your bToken collateral at 0% interest and a low origination fee, accessing capital without having to sell your position,
+* **Multiply exposure** - Use borrowed funds to buy more bTokens, amplifying your gains.
+
+## Key Metrics
+
+* **Market Price** -- The current trading price based on protocol liquidity.
+* **BLV (Baseline Value)** -- The guaranteed price floor, backed by reserves.
+* **Premium** -- The % difference between market price and BLV.
+* **Volume** -- Baseline generates fees from trading volume. More volume means more staking rewards, and faster BLV growth.
+
+## Trading Strategies
+
+* **Conservative:** Buy bTokens near BLV for downside protection
+* **Earn:** Stake bTokens to earn trading fees passively without impermanent loss
+* **Capital Efficiency:** Borrow against bTokens at 0% to deploy capital elsewhere while maintaining exposure
+* **Speculative:** Use Baseline Multiply to amplify your exposure to price movements without liquidation risk
+
+## Next Steps
+
+* Earn trading fees by [staking](/docs/holders/stake)
+* Access capital by [borrowing](/docs/holders/borrow)
+* Multiply exposure through [multiply](/docs/holders/multiply)
+
+
+# Baseline Value (BLV) (/docs/how-it-works/blv)
+
+Every Baseline token comes with a **Baseline Value (BLV)**: a minimum redemption price that is backed by pool reserves. The BLV is programmatically enforced by smart contracts, guaranteeing holders an exit regardless of market conditions. The BLV can never decrease but, through the token's market making operations, the BLV can increase over time.
+
+## Why BLV Matters
+
+Traditional tokens offer no downside protection. When market sentiment shifts, liquidity dries up, holders race to exit, and prices crash. This creates several problems:
+
+* **Rug pulls**: Projects can drain liquidity at any time, leaving holders with worthless tokens and no way to sell.
+* **Death spirals**: Price drops trigger panic selling. Without a floor to backstop, negative market reflexivity accelerates panic selling.
+* **Short lifespan**: When the only guarantee is a price of zero, tokens become unsuitable as collateral or for long-term holding.
+
+BLV transforms tokens from speculative instruments into assets with programmatic guarantees.
+
+## How BLV Works
+
+Every Baseline token splits reserves in the liquidity pool into backing reserves and buffer reserves:
+
+$$
+y_{pool} = y_{backing} + y_{buffer}
+$$
+
+* **Backing reserves** guarantee every circulating token can be redeemed at the floor price
+* **Buffer reserves** enable price discovery above the floor
+
+BLV is the guaranteed floor price that determines how backing reserves are allocated:
+
+$$
+P_{blv} = \frac{y_{backing}}{c}
+$$
+
+The [Baseline Market Maker (BMM)](/docs/how-it-works/bmm) enforces this as the minimum price for all trades. As trading happens, BMM directs excess reserves to increasing the BLV.
+
+## Benefits of BLV
+
+* **Downside Protection**: BLV guarantees a sell price, reducing the risk of catastrophic losses and making tokens safer to hold.
+* **Market Integrity**: Because BLV is onchain and cannot be manipulated or removed, Baseline eliminates common risks like liquidity rug pulls.
+* **Capital coordination**: As more users trade, stake, or loop, the BLV increases, reinforcing a shared incentive to grow the token's instrinsic value.
+* **DeFi Utility**: BLV is collateral. Token holders can [borrow](/docs/holders/borrow) against their BLV, or [multiply](/docs/holders/multiply) their exposure without liquidation risk.
+
+
+# Market Maker (BMM) (/docs/how-it-works/bmm)
+
+The Baseline Market Maker (BMM) is an onchain algorithmic market maker that differs from traditional market makers in three fundamental ways:
+
+1. It operates 24/7 and autonomously with rules transparently enshrined in smart contracts.
+2. It splits the pool reserves into backing (floor protection) and buffer (price discovery).
+3. It quotes bid-ask prices based on token circulating supply.
+
+By allocating liquidity intelligently, the BMM facilitates better price discovery and creates more efficient token markets for all participants.
+
+## Why BMM Matters
+
+Most markets today use central limit order books to allocate liquidity. This approach requires every project to negotiate deals to bootstrap liquidity, and have professional market makers to actively manage quotes. In a world where most assets are issued digitally at an accelerating pace, this is no longer a viable solution.
+
+Algorithmic Market Makers (AMMs) solve this by replacing active management with a bonding curve, a mathematical formula that quotes prices automatically using pooled liquidity. This approach, however, treats liquidity separate from the token, creating problems:
+
+* **Liquidity mismatch**: Pools quote without knowing float, causing either low-float pumps (too much liquidity) or death spirals (too little liquidity)
+* **Value leakage**: Most popular AMMs deploy liquidity even when they should protect reserves
+* **Death spirals**: Without awareness of circulating supply, the AMM is unable to backstop negative market reflexivity, causing tokens to trend to zero.
+
+BMM enables something traditional AMMs cannot: a **guaranteed floor price** that coexists with healthy price discovery.
+
+## How BMM Works
+
+By using token-owned liquidity, BMM tracks circulating supply, pool inventory and pool reserves. BMM splits reserves into backing reserves (blue) and buffer reserves (green):
+
+* **Backing reserves** guarantee every circulating token can be redeemed at the floor price
+* **Buffer reserves** enable price discovery above the floor
+
+The chart shows pool inventory on the x-axis and pool reserves on the y-axis. The blue area represents backing reserves required to buyback all circulating supply at the floor. The green area represents buffer reserves available for price discovery.
+
+<img src="/assets/reserves-curve.png" alt="Reserves Curve showing backing and buffer reserves" loading="lazy" style={{ width: '100%', maxWidth: '500px', margin: '1.5rem auto', display: 'block' }} />
+
+Backing reserves use the [Baseline Value (BLV)](/docs/how-it-works/blv) to determine how much reserves to allocate for a given circulating supply:
+
+$$
+y_{backing} = P_{blv} \cdot c
+$$
+
+Buffer reserves follow a power-law curve based on a ratio between circulating supply and pool inventory:
+
+$$
+y_{buffer}\cdot \left(\frac{x}{c}\right)^2 = K
+$$
+
+The invariant maintains a constant K by adjusting buffer reserves based on the inventory ratio (x/c):
+
+* **High circulation** (x is small, c is large): Inventory ratio is low, so buffer reserves are large. The pool deploys deep liquidity to facilitate price discovery as tokens trade actively.
+* **Low circulation** (x is large, c is small): Inventory ratio is high, so buffer reserves shrink. The pool withdraws liquidity as it absorbs supply, transitioning from price discovery to price protection at the floor.
+
+In other words, the pool automatically scales buffer reserves based on how much supply is circulating, preventing the low-float, high-FDV distortions that plague traditional AMMs.
+
+As trading happens, BMM captures value through the use of [dynamic fees](/docs/how-it-works/fees). This excess value is directed to increasing the BLV.
+
+## Benefits of BMM
+
+* **Token-Owned Liquidity:** Instead of depending on unreliable counterparties, BMM operates programmatically, transparently and in perpetuity.
+* **Value Accrual**: By managing its own liquidity, the token captures trading fees as revenue, and grows its own value over time.
+* **Efficient Markets**: BMM creates efficient markets by allocating liquidity intelligently based on circulating supply and pool inventory.
+
+
+# Fees (/docs/how-it-works/fees)
+
+Baseline charges fees on trades that flow back to the token's balance sheet. Every trade increases the floor price, making trading activity directly strengthen the token's value.
+
+## How Fees Work
+
+Fees adapt based on where the trade occurs relative to the floor price:
+
+**On Sells:**
+
+* Fee charged on the **premium portion** (above BLV)
+* Higher premiums pay higher fees
+* Distressed sells near the floor pay almost nothing
+
+This protects sellers who need to exit during market stress. If you're selling near the floor, you're already taking a loss - the fee structure doesn't punish you further.
+
+**On Buys:**
+
+* Fee charged on the **BLV portion**
+* Consistent fee capture on the stable component
+
+This ensures consistent revenue capture regardless of where the price is trading above the floor.
+
+## Benefits of Fees
+
+* **Floor Growth**: Fees accumulate in backing reserves, permanently raising BLV with every trade.
+* **Revenue Generation**: The token monetizes its own trading activity instead of paying market makers.
+* **Aligned Incentives**: More trading volume means higher floor prices for all holders.
+* **Distressed Seller Protection**: Sellers near the floor pay minimal fees - no punishment for exiting during stress.
+
+
+# Overview (/docs/how-it-works/overview)
+
+At its core, every Baseline token is managed by the [Baseline Market Maker (BMM)](/docs/how-it-works/bmm), a novel AMM that allocates liquidity more intelligently, facilitating better price discovery and creating more efficient token markets.
+
+## Why It Matters
+
+Most markets today use central limit order books to allocate liquidity. This approach requires every project to negotiate deals to bootstrap liquidity, and have professional market makers to actively manage quotes. In a world where most assets are issued digitally at an accelerating pace, this is no longer a viable solution.
+
+Algorithmic Market Makers (AMMs) solve this by replacing active management with a bonding curve, a mathematical formula that quotes prices automatically using pooled liquidity. This approach, however, treats liquidity separate from the token, creating problems:
+
+* **Liquidity mismatch**: Pools quote without knowing float, causing either low-float pumps (too much liquidity) or death spirals (too little liquidity)
+* **Value leakage**: Most popular AMMs deploy liquidity even when they should protect reserves
+* **Death spirals**: Without awareness of circulating supply, the AMM is unable to backstop negative market reflexivity, causing tokens to trend to zero.
+
+The Baseline Market Maker (BMM) enables Baseline tokens to move beyond limitations of traditional markets to programmable markets that actively grow the economies they represent.
+
+## How It Works
+
+Token-owned liquidity tracks circulating supply ($c$), pool inventory ($x$) and pool reserves ($y$) in a single smart contract. Pool reserves are split into backing reserves and buffer reserves:
+
+$$
+y = y_{backing} + y_{buffer}
+$$
+
+* **Backing reserves** guarantee every circulating token can be redeemed at the floor price
+* **Buffer reserves** enable price discovery above the floor
+
+### Baseline Value (BLV)
+
+[BLV](/docs/how-it-works/blv) is the guaranteed floor price that determines how backing reserves are allocated:
+
+$$
+P_{blv} = \frac{y_{backing}}{c}
+$$
+
+Equivalently:
+
+$$
+y_{backing} = P_{blv} \cdot c
+$$
+
+This invariant is enforced programmatically at the smart contract level, ensuring every circulating token can be redeemed at, or above, the floor price. The BLV can never decrease but, through the token's market making operations, the BLV can increase over time.
+
+### The Buffer Invariant
+
+Buffer reserves follow a power-law curve based on inventory ratio:
+
+$$
+y_{buffer}\cdot \left(\frac{x}{c}\right)^2 = K
+$$
+
+The invariant maintains a constant K by adjusting buffer reserves based on the inventory ratio (x/c):
+
+* High circulation (x is small, c is large): Inventory ratio is low, so buffer reserves are large. The pool deploys deep liquidity to facilitate price discovery as tokens trade actively.
+* Low circulation (x is large, c is small): Inventory ratio is high, so buffer reserves shrink. The pool withdraws liquidity as it absorbs supply, transitioning from price discovery to price protection at the floor.
+
+### Liquidity Efficiency
+
+[BMM](/docs/how-it-works/bmm) allocates liquidity based on two ratios that work together.
+
+**Inventory Ratio** measures pool inventory relative to circulating supply:
+
+$$
+R_{inventory} = \frac{x}{c}
+$$
+
+**Buffer Ratio** measures buffer reserves relative to total reserves in the pool:
+
+$$
+R_{buffer} = \frac{y_{buffer}}{y}
+$$
+
+Traditional AMMs ignore these relationships, which causes problems in extreme states. BMM, on the other hand, maintains a bounded liquidity efficiency:
+
+$$
+L_{efficiency} = R_{buffer} \times R_{inventory}
+$$
+
+This ensures liquidity allocation stays efficient across all circulation states. As inventory ratio increases, buffer ratio decreases proportionally, preventing the system from over-allocating liquidity when it should be protecting the floor.
+
+## Example
+
+The chart below shows pool inventory on the x-axis and total reserves on the y-axis. The blue area represents backing reserves required to buyback all circulating supply at the floor. The green area represents buffer reserves available for price discovery.
+
+<img src="/assets/reserves-curve.png" alt="Reserves Curve showing backing and buffer reserves" loading="lazy" style={{ width: '100%', maxWidth: '500px', margin: '1.5rem auto', display: 'block' }} />
+
+## Baseline vs Traditional AMMs
+
+Traditional constant-product AMMs (xy=k) have a fundamental limitation: they deploy all reserves for trading with no floor protection. Using the definitions above, in xyk systems, we have:
+
+* $y_{backing} = 0$ (no concept of backing reserves)
+* $y_{buffer} = y$ (all reserves used for price discovery)
+* $P_{blv} = 0$ (no floor price, tokens can go to zero)
+* $L_{efficiency} \rightarrow \infty$ as $c \rightarrow 0$
+
+This creates several problems:
+
+* **Liquidity mismatch**: Pools quote without knowing float, causing either low-float pumps (too much liquidity) or death spirals (too little liquidity)
+* **Value leakage**: Reserves get extracted even when the system should be protecting them
+* **No defensive mechanism**: Traditional AMMs don't transition from price discovery to price protection
+
+BMM solves this by being circulation-aware and splitting reserves into backing and buffer. As circulation collapses, BMM automatically withdraws buffer liquidity and transitions to price protection, preventing the distortions that plague traditional AMMs.
+
+## Key Concepts
+
+* **[Baseline Value (BLV)](/docs/how-it-works/blv)**: The guaranteed floor price mechanism
+* **[Baseline Market Maker (BMM)](/docs/how-it-works/bmm)**: The circulating-supply-aware AMM
+* **[Fees](/docs/how-it-works/fees)**: How fees grow the floor price
+
+
+# What is Baseline? (/docs)
+
+<img className="home-banner" src="/assets/docs-hom-med800.webp" alt="Baseline protocol: tokens that own their liquidity and grow value over time" />
+
+## Tokens as assets, not liabilities
+
+Today, the process of launching a token is risky, expensive, and time-consuming. Instead of building, founders are figuring out smart contracts, negotiating with market makers, and optimizing their tokenomics. As a result, launching a token today causes more problems than it solves.
+
+Every step in a token's lifecycle presents a different obstacle:
+
+1. **Misconfigured setup**: Imbalances in supply and liquidity can result in easy manipulation and ineffective price discovery. That's why over [85% of all tokens](https://x.com/mementoresearch/status/2003089388511604744) end up below their TGE price.
+
+2. **Counterparty risk**: One rogue action from your investors, market makers or exchange can jeopardize your entire project.
+
+3. **Ongoing costs**: Once launched, tokens become a liability as you have to manage operations, liquidity and holder expectations.
+
+Baseline was built to solve these problems by turning a token from a liability that works against projects, into an asset that works for them.
+
+## The end-to-end asset issuance protocol
+
+In Baseline, tokens own their liquidity, and automatically manage it to grow value over time. By using Baseline, founders save time, prevent costly mistakes, and automate the entire token lifecycle. Founders configure launch parameters, and Baseline does the rest: token deployment, liquidity management and value accrual.
+
+* **Token-Owned Liquidity:** Instead of depending on unreliable counterparties, Baseline tokens operate programmatically, transparently and in perpetuity with no cost.
+* **Value Accrual:** By managing its own liquidity, the token captures trading fees as revenue, and grows its own value over time.
+* **Capital Coordination:** Baseline tokens have built-in utility like real yield, borrowing without interest, and leverage without liquidation.
+
+By rethinking token design from first principles, Baseline tokens move beyond static limitations of traditional equity to programmable assets that actively grow the economies they represent.
+
+[Launch a Token](/docs/launch)
+
+## Beyond zero-sum trading
+
+Traditional token trading is a zero-sum game with binary choices: hold and wait for a pump, or sell to access capital. Baseline gives traders optionality on how to manage and grow their portfolio.
+
+* **Guaranteed floor price:** Baseline establishes the point at which the risk-reward profile is the most asymmetric, backstopping negative market reflexivity.
+* **Incentives to hold:** Baseline captures and distributes LP fees to holders, harvesting volume into yield automatically.
+* **Access to Capital:** Baseline gives the ability to borrow with no interest and no liquidation risk, making every token a permanent source of liquidity when needed.
+
+With token-owned liquidity, Baseline offers programmatic guarantees that no other assets can, fundamentally rewriting the game theory of token trading.
+
+[Learn More](/docs/holders/trade)
+
+
+# Launch (/docs/launch)
+
+Baseline supports two launch paths:
+
+1. **Create**: deploy a new token with its own Baseline liquidity pool.
+2. **Migrate**: keep the existing token, and migrate liquidity into a Baseline liquidity pool.
+
+Need help or want to brainstorm what's possible with Baseline? Reach out to us in [Discord](https://discord.gg/baseline) or [fill out this form](https://baselineprotocol.notion.site/302c1b2b222b8075b572da3f3799bf3b?pvs=105) and we'll get back to you.
+
+<Callout type="info">
+  Developers and agents can use the [Baseline CLI](/docs/contracts/cli) to build unsigned launch calls, execute with an explicit signer, install agent skills, and inspect deployed tokens. App developers can use the [Baseline SDK](/docs/contracts/sdk) to create tokens, approve assets, and create pools with viem clients.
+</Callout>
+
+## Create a token
+
+For agent-assisted launches, install the Baseline skills and ask your agent to prepare a Baseline launch:
+
+```bash
+npx @baseline-markets/cli@latest skills add
+```
+
+The agent can prepare unsigned calls with the CLI, validate the artifact, and hand the calls to the approval path you choose. If you use Base MCP, the agent can submit through `send_calls` and give you the Base Account approval link.
+
+For direct CLI usage, build a zero-reserve pool launch artifact:
+
+```bash
+npx @baseline-markets/cli@latest launch \
+  --mode zrp \
+  --chain-id 84532 \
+  --account 0x0000000000000000000000000000000000000001 \
+  --name "Example Baseline Token" \
+  --symbol EBT \
+  --reserve 0xB85885897D297000A74eA2e4711C3Ca729461ABC \
+  --total-supply 1000000000 \
+  --output .context/launches/example-launch.json
+```
+
+See the [CLI docs](/docs/contracts/cli) for Base MCP submission, mainnet chain IDs, fee flags, local execution, and token inspection.
+
+At the contract level, deploying a token can be done in three steps. If you're not a developer, a frontend to launch bTokens will be available in the near future.
+
+1. **Call <a href="/docs/contracts/bfactory#createbtoken" target="_blank" rel="noreferrer noopener"><code>createBToken</code></a>** on the <a href="/docs/contracts/bfactory" target="_blank" rel="noreferrer noopener">BFactory contract</a> to deploy the token. The total supply is minted to the caller, and only that caller will be able to create the pool in step 3.
+
+<Code sample="createBToken" />
+
+2. **Approve the <a href="/docs/contracts" target="_blank" rel="noreferrer noopener">Relay contract</a>** to transfer the quote asset and bToken. When `createPool` is called, this allows the contract to transfer liquidity from the caller into the Baseline pool.
+
+<Code sample="approvePoolAssets" />
+
+3. **Call <a href="/docs/contracts/bfactory#createpool" target="_blank" rel="noreferrer noopener"><code>createPool</code></a>** on the <a href="/docs/contracts/bfactory" target="_blank" rel="noreferrer noopener">BFactory contract</a> to initialize the Baseline pool and launch the token live.
+
+<Code sample="createPool" />
+
+Congratulations! Your bToken is live. You can now:
+
+* Trade the token: [https://app.baseline.markets](https://app.baseline.markets)
+* View token analytics: [https://app.baseline.markets](https://app.baseline.markets)
+* Claim creator fees and edit metadata: [https://app.baseline.markets/dashboard](https://app.baseline.markets/dashboard)
+
+Routers (e.g. KyberSwap) and indexers (e.g. CoinGecko and Defined) automatically route and index trades within seconds. The token will also appear under Baseline DEX on [CoinGecko](https://www.coingecko.com/en/exchanges/baseline-ethereum) and [GeckoTerminal](https://www.geckoterminal.com/eth/baseline-ethereum/pools).
+
+## Migrate a token
+
+Existing tokens can migrate their liquidity to a Baseline pool to unlock better quoting, a guaranteed floor value, and DeFi features such as staking, borrowing and leveraging native to the token itself. [Backtested simulations](https://x.com/BaselineMarkets/status/2037200824925855817) show that tokens on Baseline DEX have better price performance, liquidity growth, supply control and fee accrual than traditional DEX pools.
+
+Migration is possible from any liquidity pool, including Uniswap (V2, V3 and V4), Aerodrome, and other pool designs. At a high level, the project withdraws or migrates liquidity from the existing pool and initializes the Baseline pool with the chosen quote asset and launch parameters. The process takes less than an hour.
+
+Interested in migrating a token? Reach out to us in [Discord](https://discord.gg/baseline) or [fill out this form](https://baselineprotocol.notion.site/302c1b2b222b8075b572da3f3799bf3b?pvs=105) and we'll get back to you.
+
+
+# Points Program (/docs/points)
+
+Baseline will launch a Points program soon after \$B goes live. Points earned will convert into a future airdrop. More details coming soon.
+
+
+# Brand Kit (/docs/resources/brand-kit)
+
+## Wordmark
+
+The full "/baseline" text logo. Use the **Lime** variant on dark backgrounds (preferred). Use **Light** on dark backgrounds where color is not desired. Use **Dark** on light backgrounds.
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6 not-prose">
+  <BrandAsset name="Lime" svg="/brand/logo-lime.svg" png="/brand/logo-lime.png" />
+
+  <BrandAsset name="Light" svg="/brand/logo-light.svg" png="/brand/logo-light.png" />
+
+  <BrandAsset name="Dark" svg="/brand/logo-dark.svg" png="/brand/logo-dark.png" preview="light" />
+</div>
+
+## Logomark
+
+The "/" slash icon, used as an avatar or compact brand mark.
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6 not-prose">
+  <BrandAsset name="Lime" svg="/brand/logomark-lime.svg" png="/brand/logomark-lime.png" />
+
+  <BrandAsset name="Light" svg="/brand/logomark-light.svg" png="/brand/logomark-light.png" />
+
+  <BrandAsset name="Dark" svg="/brand/logomark-dark.svg" png="/brand/logomark-dark.png" preview="light" />
+</div>
+
+## Token Icons
+
+Official \$B token icons for exchange listings, portfolio trackers, and DeFi integrations.
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 not-prose">
+  <BrandAsset name="Circle" svg="/brand/B-token-circle.svg" png="/brand/B-token-circle.png" />
+
+  <BrandAsset name="Square" svg="/brand/B-token-square.svg" png="/brand/B-token-square.png" />
+</div>
+
+## Colors
+
+<table className="not-prose w-full my-6">
+  <thead>
+    <tr className="border-b border-[#2a2a2a]">
+      <th className="text-left py-3 pr-4 font-semibold text-[#e0e0e0]">
+        Role
+      </th>
+
+      <th className="text-left py-3 pr-4 font-semibold text-[#e0e0e0]">
+        Hex
+      </th>
+
+      <th className="py-3 pr-4 font-semibold text-[#e0e0e0]" />
+
+      <th className="text-left py-3 font-semibold text-[#e0e0e0]">
+        Usage
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr className="border-b border-[#2a2a2a]">
+      <td className="py-3 pr-4 text-[#b8b8b8]">
+        Primary (Baselime)
+      </td>
+
+      <td className="py-3 pr-4 font-mono" style={{ color: '#BDEE63' }}>
+        \#BDEE63
+      </td>
+
+      <td className="py-3 pr-4">
+        <div className="w-10 h-5 rounded" style={{ backgroundColor: '#BDEE63' }} />
+      </td>
+
+      <td className="py-3 text-[#b8b8b8]">
+        Brand color, buttons, accents, links
+      </td>
+    </tr>
+
+    <tr className="border-b border-[#2a2a2a]">
+      <td className="py-3 pr-4 text-[#b8b8b8]">
+        Background
+      </td>
+
+      <td className="py-3 pr-4 font-mono">
+        <span className="rounded px-1.5 py-0.5" style={{ color: '#111111', backgroundColor: '#cccccc' }}>#111111</span>
+      </td>
+
+      <td className="py-3 pr-4">
+        <div className="w-10 h-5 rounded border border-[#2a2a2a]" style={{ backgroundColor: '#111111' }} />
+      </td>
+
+      <td className="py-3 text-[#b8b8b8]">
+        Page and card backgrounds
+      </td>
+    </tr>
+
+    <tr className="border-b border-[#2a2a2a]">
+      <td className="py-3 pr-4 text-[#b8b8b8]">
+        Foreground
+      </td>
+
+      <td className="py-3 pr-4 font-mono" style={{ color: '#D9D9D9' }}>
+        \#D9D9D9
+      </td>
+
+      <td className="py-3 pr-4">
+        <div className="w-10 h-5 rounded" style={{ backgroundColor: '#D9D9D9' }} />
+      </td>
+
+      <td className="py-3 text-[#b8b8b8]">
+        Body text
+      </td>
+    </tr>
+
+    <tr className="border-b border-[#2a2a2a]">
+      <td className="py-3 pr-4 text-[#b8b8b8]">
+        Border
+      </td>
+
+      <td className="py-3 pr-4 font-mono">
+        <span className="rounded px-1.5 py-0.5" style={{ color: '#2A2A2A', backgroundColor: '#ccc' }}>#2A2A2A</span>
+      </td>
+
+      <td className="py-3 pr-4">
+        <div className="w-10 h-5 rounded border border-[#444]" style={{ backgroundColor: '#2A2A2A' }} />
+      </td>
+
+      <td className="py-3 text-[#b8b8b8]">
+        Subtle borders and dividers
+      </td>
+    </tr>
+
+    <tr>
+      <td className="py-3 pr-4 text-[#b8b8b8]">
+        Muted foreground
+      </td>
+
+      <td className="py-3 pr-4 font-mono" style={{ color: '#9CA3AF' }}>
+        \#9CA3AF
+      </td>
+
+      <td className="py-3 pr-4">
+        <div className="w-10 h-5 rounded" style={{ backgroundColor: '#9CA3AF' }} />
+      </td>
+
+      <td className="py-3 text-[#b8b8b8]">
+        Secondary text, captions
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Usage Guidelines
+
+* **Preferred placement**: Use the lime wordmark or logomark on dark backgrounds (`#111111` or darker).
+* **Minimum clear space**: Maintain at least the height of the "/" slash mark as clear space on all sides.
+* **Do not** recolor, rotate, distort, add effects to, or place on busy/patterned backgrounds that reduce legibility.
+* **Token icons**: Use the circle variant for general token listings. Use the square variant where a non-circular format is required.
+* **Attribution**: When referencing Baseline, link to [baseline.markets](https://baseline.markets).
+
+
+# Links (/docs/resources/links)
+
+| Resource                     | Link                                                                                                       |
+| :--------------------------- | :--------------------------------------------------------------------------------------------------------- |
+| Website                      | [baseline.markets](https://baseline.markets/)                                                              |
+| X                            | [@baselinemarkets](https://twitter.com/baselinemarkets)                                                    |
+| Discord                      | [discord.gg/baseline](https://discord.gg/baseline)                                                         |
+| GitHub                       | [github.com/0xbaseline](https://github.com/0xbaseline)                                                     |
+| SDK                          | [npmjs.com/package/@baseline-markets/sdk](https://www.npmjs.com/package/@baseline-markets/sdk)             |
+| Baseline DEX (CoinGecko)     | [coingecko.com/en/exchanges/baseline-ethereum](https://www.coingecko.com/en/exchanges/baseline-ethereum)   |
+| Baseline DEX (GeckoTerminal) | [geckoterminal.com/eth/baseline-ethereum/pools](https://www.geckoterminal.com/eth/baseline-ethereum/pools) |
+| Baseline DEX (Dexscreener)   | [dexscreener.com/ethereum/baseline](https://dexscreener.com/ethereum/baseline)                             |
+
+
+# LLMs.txt (/docs/resources/llms-txt)
+
+Baseline provides [llms.txt](https://llmstxt.org/) endpoints so that LLMs, AI agents, and other tools can consume our documentation programmatically.
+
+## Endpoints
+
+| Endpoint                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [`/llms.txt`](https://www.baseline.markets/llms.txt)                                   | Overview of Baseline, key concepts, FAQ, and a linked index of all documentation pages |
+| [`/docs/llms-full.txt`](https://www.baseline.markets/docs/llms-full.txt)               | Full text of every documentation page in a single file                                 |
+| [`/docs/{slug}.md`](https://www.baseline.markets/docs/contracts/cli.md)                | Markdown for a single doc page (preferred; returns 200)                                |
+| [`/docs/{slug}.mdx`](https://www.baseline.markets/docs/contracts/cli.mdx)              | Same markdown body via legacy suffix                                                   |
+| [`/docs/llms.mdx/{slug}`](https://www.baseline.markets/docs/llms.mdx/how-it-works/blv) | Internal processed markdown path (same content)                                        |
+| [`/blog/llms.txt`](https://www.baseline.markets/blog/llms.txt)                         | Blog index with post titles, dates, and descriptions                                   |
+| [`/blog/llms-full.txt`](https://www.baseline.markets/blog/llms-full.txt)               | Full text of every blog post                                                           |
+
+## Usage
+
+Start with `/llms.txt` for an overview and index. Use `/docs/llms-full.txt` to ingest all documentation at once, or fetch individual pages via `/docs/{slug}.md` when you only need specific topics.
+
+You can also request the normal page URL with `Accept: text/markdown` to receive markdown without guessing a suffix.
+
+All markdown endpoints return `text/markdown` with a 1-hour cache (`Cache-Control: public, max-age=3600`).
+
+
+# Migration FAQ (/docs/resources/migration-faq)
+
+Frequently asked questions about the Baseline Mercury migration (April 20, 2026).
+
+## What is Baseline and what is \$B?
+
+The Baseline protocol is pioneering the concept of Token-Owned Liquidity where tokens automatically manage their liquidity to grow value over time. Baseline tokens come with their [own AMM](https://x.com/BaselineMarkets/status/2044809031026614723) and bonding curve that gives every token a floor price and features such as staking to earn trading fees, borrowing with no expiration, and leveraging without liquidation.
+
+\$B will be the ecosystem token that accrues value from the Baseline protocol.
+
+***
+
+## What is Mercury and why is there a migration?
+
+Mercury is the new Baseline protocol upgrade. It upgrades the AMM curve and pool architecture while keeping the same core mechanics: token-owned liquidity, BLV floor, and DeFi utilities (stake, borrow, multiply). All supported tokens migrate from the legacy deployment into Mercury on April 20.
+
+***
+
+## How are \$YES and \$B related?
+
+\$YES is being migrated from Base L2 to Ethereum Mainnet L1 and rebranded as \$B token. All balances will transfer 1:1. Borrowed positions and looped positions will be combined into a single Credit position (collateral balances summed, debt summed).
+
+**NO ACTION REQUIRED**. Just check your wallets when the migration is finished.
+
+***
+
+## When is the migration starting?
+
+Migration will start at \~06:00 UTC on April 20, 2026
+
+***
+
+## What does the migration process look like?
+
+The migration process will follow the following steps:
+
+1. Pause the legacy pool for each token.
+2. Snapshot the token balances, including spot, collateral and debt positions across borrows and loops.
+3. Migrate the balances to Mercury.
+4. Deploy and unlock the pool for each token.
+5. Tokens are tradable.
+
+During migration, tokens will be paused and not be tradable. We will also sunset [https://legacy.baseline.markets](https://legacy.baseline.markets) in preparation for the new Baseline Terminal.
+
+***
+
+## How long will the migration take?
+
+We will start at \~06:00 UTC on April 20, 2026 and aim to finish within a few hours. Please check Discord for updates: [https://discord.com/invite/baseline](https://discord.com/invite/baseline)
+
+***
+
+## What tokens are migrating and in what order?
+
+A: We will migrate tokens in the following order on April 20th: BLT, FLAPPY, AI, BSR,\$YES. ONYX will be migrated on April 22nd.
+
+***
+
+## Do I need to claim anything after migration?
+
+No. All spot balances, credit positions, and loop positions are migrated automatically. Just check your wallet at [app.baseline.markets/portfolio](https://app.baseline.markets/portfolio) once migration is complete.
+
+***
+
+## When will trading start?
+
+Once the tokens are migrated and deployed, we will do quick verification checks & unlock. Tokens will become instantly tradable.
+
+***
+
+## I hold BLT, FLAPPY, AI, BSR, YES or ONYX. What happens to my positions?
+
+All supported tokens are migrating. Spot balances transfer 1:1. Credit and loop positions carry over with the same economics. No action required before migration. After migration, check [app.baseline.markets/portfolio](https://app.baseline.markets/portfolio) for your updated positions.
+
+**NO ACTION REQUIRED**. Just check your wallets when the migration is finished.
+
+***
+
+## Will the floor price (BLV) change?
+
+No. The pool reserves that back the floor are migrated to Mercury as part of the same process. Your floor price carries over at its current level. The BLV on Mercury will reflect the same reserve-to-supply ratio as the legacy pool at the time of migration.
+
+***
+
+## Will the token contract address change?
+
+Yes. Mercury uses new contract deployments, so all token and pool addresses will change. We will publish a single source-of-truth post with all new addresses once migration is complete. Update any watchlists, bots, or dashboards using old addresses.
+
+***
+
+## Where can I check my positions?
+
+All information for your wallets will be available at [app.baseline.markets/portfolio](https://app.baseline.markets/portfolio) after migration.
+
+***
+
+## Can I get liquidated if I borrow or use leverage on the new Mercury upgrade?
+
+No. Baseline Mercury has no liquidations. Borrow and leverage positions do not expire and accrue no interest. Opening a credit position (by borrowing or leveraging) costs a one-time 1% origination fee. Repaying debt and unlooping have no fee.
+
+***
+
+## I borrowed and also looped on the old protocol. What does it mean that loops and borrowed balances are combined into a single Credit balance?
+
+On legacy YES, borrowing and looping were tracked in two different modules (Credit facility and Loop facility). Migration does not change the economics: your collateral and debt are carried over 1:1. On Mercury, that exposure is shown as one Credit position: a single collateral figure and a single debt figure instead of separate Credit vs Loop lines. Your net position is preserved. If you used both, you will see the totals combined in [app.baseline.markets/portfolio](https://app.baseline.markets/portfolio) after migration.
+
+***
+
+## How can I launch a Baseline token?
+
+Chat with us in Discord: [https://discord.com/invite/baseline](https://discord.com/invite/baseline)
+
+
+# Terms of Service (/docs/resources/tos)
+
+Last Updated: Feb 21, 2025
+
+These terms of use are entered into by and between you and the Baseline Markets (including all affiliates and subsidiaries,
+collectively referred to as, "Baseline Markets," "we," "us," or "our"). The following terms and conditions, together with any
+documents they expressly incorporate by reference (collectively, these "Terms of Use"), govern your access to and use of
+baseline.markets, including, but not limited to, any content, functionality, and services offered on or through baseline.markets
+(collectively, the "Website"). Please read the Terms of Use carefully before you start to use the Website. By using the Website or
+by clicking to accept or agree to the Terms of Use when this option is made available to you, you accept and agree to be bound and
+abide by these Terms of Use. If you do not agree to these Terms of Use, you must not access or use the Website. We may revise and
+update these Terms of Use from time to time in our sole discretion. All changes are effective immediately when we post them. Your
+continued use of the Website following the posting of revised Terms of Use means that you accept and agree to the changes. You are
+expected to check this page frequently so you are aware of any changes, as they are binding on you.
+
+## Prohibited Uses
+
+You may use the Website only for lawful purposes and in accordance with these Terms of Use. You agree not to use the Website:
+
+In any way that violates any applicable federal, state, local, or international law or regulation (including, without limitation,
+any laws regarding the export of data or software to and from the United States or other countries);
+
+For the purpose of exploiting, harming, or attempting to exploit or harm minors in any way by exposing them to inappropriate content,
+asking for personally identifiable information or otherwise;
+
+To send, knowingly receive, upload, download, use, or re-use any material which does not comply with these Terms of Use;
+
+To transmit, or procure the sending of, any advertising or promotional material without our prior written consent, including any
+"junk mail", "chain letter", "spam", or any other similar solicitation;
+
+To impersonate or attempt to impersonate Baseline Markets, a contractor of Baseline Markets, another user, or any other person or
+entity (including, without limitation, by using e-mail addresses or screen names associated with any of the foregoing); and
+
+To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of the Website, or which, as determined by us,
+may harm Baseline Markets or users of the Website or expose them to liability.
+
+Additionally, you agree not to: Use the Website in any manner that could disable, overburden, damage, or impair the Website or
+interfere with any other party's use of the Website, including their ability to engage in real time activities through the Website;
+
+Use any robot, spider, or other automatic device, process or means to access the Website for any purpose, including monitoring or
+copying any of the material on the Website;
+
+Use any manual process to monitor or copy any of the material on the Website or for any other unauthorized purpose without our
+prior written consent;
+
+Use any device, software or routine that interferes with the proper working of the Website; Introduce any viruses, trojan horses, worms, logic bombs, or other material which is malicious or technologically harmful;
+
+Attempt to gain unauthorized access to, interfere with, damage, or disrupt any parts of the Website, the server(s) on which the
+Website is stored, or any server, computer or database connected to the Website;
+
+Attack the Website via a denial-of-service attack or a distributed denial-of-service attack; and otherwise attempt to interfere with
+the proper working of the Website.
+
+## Reliance on Information Posted
+
+The information presented on or through the Website is made available solely for general information purposes. We do not warrant the
+accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk.
+We disclaim all liability and responsibility arising from any reliance placed on such materials by you or any other visitor to the
+Website, or by anyone who may be informed of any of its contents.
+
+The Website may include content provided by third parties, including materials provided by third-party licensors, syndicators,
+aggregators, and/or reporting services. All statements and/or opinions expressed in these materials, other than the content provided
+by Baseline Markets, are solely the opinions and the responsibility of the person or entity providing those materials. These materials
+do not necessarily reflect the opinion of Baseline Markets. We are not responsible, or liable to you or any third party, for the content
+or accuracy of any materials provided by any third parties.
+
+## Changes to the Website
+
+We may update the content on the Website from time to time, but its content is not necessarily complete or up-to-date. Any of the material
+on the Website may be out of date at any given time, and we are under no obligation to update such material.
+
+All information we collect on the Website is subject to our Privacy Policy. By using the Website, you consent to all actions that may
+be taken by us with respect to your information in compliance with the Privacy Policy.
+
+You may link to our homepage, provided you do so in a way that is fair and legal and does not damage our reputation or take advantage
+of it, but you must not establish a link in such a way as to suggest any form of association, approval or endorsement on our part
+without our express written consent.
+
+If the Website contains links to other sites and resources provided by third parties, these links are provided for your convenience
+only. This includes links contained in advertisements, including banner advertisements and sponsored links. We have no control over
+the contents of those sites or resources, and accept no responsibility for them or for any loss or damage that may arise from your
+use of them. If you decide to access any of the third party websites linked to the Website, you do so entirely at your own risk and
+subject to the terms and conditions of use for such Website. We reserve the right to withdraw linking permission without notice.
+
+## Disclaimer of Warranties
+
+You understand that we cannot and do not guarantee or warrant that files available for downloading from the internet or the Website
+will be free of viruses or other destructive code. You are responsible for implementing sufficient procedures and checkpoints to
+satisfy your particular requirements for anti-virus protection and accuracy of data input and output, and for maintaining a means
+external to our site for any reconstruction of any lost data. WE WILL NOT BE LIABLE FOR ANY LOSS OR DAMAGE CAUSED BY A DISTRIBUTED
+DENIAL-OF-SERVICE ATTACK, VIRUSES, OR OTHER TECHNOLOGICALLY HARMFUL MATERIAL THAT MAY INFECT YOUR COMPUTER EQUIPMENT, COMPUTER
+PROGRAMS, DATA, OR OTHER PROPRIETARY MATERIAL DUE TO YOUR USE OF THE WEBSITE OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE
+WEBSITE OR TO YOUR DOWNLOADING OF ANY MATERIAL POSTED ON IT, OR ON ANY WEBSITE LINKED TO IT. YOUR USE OF THE WEBSITE, THEIR
+CONTENT AND ANY SERVICES OR ITEMS OBTAINED THROUGH THE WEBSITE IS AT YOUR OWN RISK. THE WEBSITE, THEIR CONTENT AND ANY SERVICES OR
+ITEMS OBTAINED THROUGH THE WEBSITE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER
+EXPRESS OR IMPLIED. NEITHER Baseline Markets NOR ANY PERSON ASSOCIATED WITH Baseline Markets MAKES ANY WARRANTY OR REPRESENTATION
+WITH RESPECT TO THE COMPLETENESS, SECURITY, RELIABILITY, QUALITY, ACCURACY, OR AVAILABILITY OF THE WEBSITE. WITHOUT LIMITING THE
+FOREGOING, NEITHER Baseline Markets NOR ANYONE ASSOCIATED WITH Baseline Markets REPRESENTS OR WARRANTS THAT THE WEBSITE, THEIR
+CONTENT OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE WEBSITE WILL BE ACCURATE, RELIABLE, ERROR-FREE OR UNINTERRUPTED, THAT DEFECTS
+WILL BE CORRECTED, THAT THE WEBSITE OR THE SERVER(S) THAT MAKES THEM AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS OR
+THAT THE WEBSITE OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE WEBSITE WILL OTHERWISE MEET YOUR NEEDS OR EXPECTATIONS.
+Baseline Markets HEREBY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING
+BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, AND FITNESS FOR PARTICULAR PURPOSE. SOME JURISDICTIONS
+DO NOT ALLOW EXCLUSION OF WARRANTIES OR LIMITATIONS ON THE DURATION OF IMPLIED WARRANTIES, SO THE ABOVE DISCLAIMER MAY NOT APPLY
+TO YOU IN THEIR ENTIRETIES, BUT WILL APPLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.
+
+## Limitation on Liability
+
+IN NO EVENT WILL Baseline Markets, ITS AFFILIATES OR THEIR LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS, OFFICERS, OR
+DIRECTORS BE LIABLE FOR DAMAGES OF ANY KIND, UNDER ANY LEGAL THEORY, ARISING OUT OF OR IN CONNECTION WITH YOUR USE, OR INABILITY
+TO USE, THE WEBSITE, ANY WEBSITE LINKED TO THEM, ANY CONTENT ON THE WEBSITE OR SUCH OTHER WEBSITE OR ANY SERVICES OR ITEMS OBTAINED
+THROUGH THE WEBSITE OR SUCH OTHER WEBSITE, INCLUDING ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES,
+INCLUDING BUT NOT LIMITED TO, PERSONAL INJURY, PAIN AND SUFFERING, EMOTIONAL DISTRESS, LOSS OF REVENUE, LOSS OF PROFITS, LOSS OF
+BUSINESS OR ANTICIPATED SAVINGS, LOSS OF USE, LOSS OF GOODWILL, LOSS OF DATA, AND WHETHER CAUSED BY TORT (INCLUDING NEGLIGENCE),
+BREACH OF CONTRACT OR OTHERWISE, EVEN IF FORESEEABLE. THE FOREGOING DOES NOT AFFECT ANY LIABILITY WHICH CANNOT BE EXCLUDED OR
+LIMITED UNDER APPLICABLE LAW WHICH MAY INCLUDE FRAUD.
+
+## Indemnification
+
+You agree to defend, indemnify, and hold harmless Baseline Markets, its affiliates, licensors, and service providers, and its and
+their respective officers, directors, employees, contractors, agents, licensors, suppliers, successors, and assigns from and against
+any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising
+out of or relating to your violation of these Terms of Use or your use of the Website, including, but not limited to, any use of the
+Website content, services and products other than as expressly authorized in these Terms of Use or your use of any information
+obtained from the Website.
+
+## Governing Law and Jurisdiction
+
+All matters relating to the Website and these Terms of Use and any dispute or claim arising therefrom or related thereto
+(in each case, including non-contractual disputes or claims), shall be governed by and construed in accordance with the internal
+laws of the Cayman Islands without giving effect to any choice or conflict of law provision or rule (whether of the Cayman Islands
+or any other jurisdiction).
+
+Any dispute arising out of or in connection with the Website and these Terms of Use, including any question regarding its existence,
+validity or termination, shall be referred to and finally resolved by arbitration under the rules of the London Court of International
+Arbitration ("LCIA"), which rules are deemed to be incorporated by reference into this clause. The number of arbitrators shall be one.
+The seat, or legal place, of arbitration shall be London, United Kingdom. The language to be used in the arbitration shall be English.
+You and Baseline Markets agree to submit all Disputes between you and Baseline Markets to individual binding arbitration. "Dispute"
+means any dispute, claim, or controversy between you and Baseline Markets that relates to the Website and these Terms of Use.
+
+If a Dispute must be arbitrated, you or Baseline Markets must start arbitration of the Dispute within one (1) year from when the
+Dispute first arose. If applicable law requires you to bring a claim for a Dispute sooner than one (1) year after the Dispute first
+arose, you must start arbitration in that earlier time period. Baseline Markets encourages you to tell us about a Dispute as soon as
+possible so we can work to resolve it. The failure to provide timely notice will bar all claims.
+
+In any Dispute, the arbitrator will award to the prevailing party, if any, the costs and attorneys' fees reasonably incurred by the
+prevailing party in connection with those aspects of its claims or defenses on which it prevails, and any opposing awards of costs and
+legal fees awards will be offset.
+
+Any breach by you of these Terms of Use could cause Baseline Markets irreparable harm for which it has no adequate remedies at law.
+Accordingly, Baseline Markets is entitled to seek specific performance or injunctive relief for any such breach. Nothing in this
+section will preclude Baseline Markets from seeking specific performance or injunctive relief from a court of appropriate jurisdiction.
+
+## Waiver and Severability
+
+No waiver by Baseline Markets of any term or condition set forth in these Terms of Use shall be deemed a further or continuing
+waiver of such term or condition or a waiver of any other term or condition, and any failure of Baseline Markets to assert a right
+or provision under these Terms of Use shall not constitute a waiver of such right or provision.
+
+If any provision of these Terms of Use is held by a court or other tribunal of competent jurisdiction to be invalid, illegal, or
+unenforceable for any reason, such provision shall be eliminated or limited to the minimum extent such that the remaining provisions
+of the Terms of Use will continue in full force and effect.
+
+## Entire Agreement
+
+The Terms of Use, our Privacy Policy and other terms and conditions applicable at the time you access the Website constitute
+the sole and entire agreement between you and Baseline Markets with respect to the Website and supersede all prior and
+contemporaneous understandings, agreements, representations and warranties, both written and oral, with respect to the Website.
+
+
+# Capital Formation Theory (/docs/theory/capital-formation)
+
+This page archives the theoretical framework for understanding how Baseline fits into broader capital formation patterns.
+
+## Why Token Markets Are Broken
+
+In traditional markets, these four components are owned by separate entities with conflicting incentives:
+
+* **Fundraising**: Capital forms off-market through private rounds, or IPOs managed by banks
+* **Market structure**: Market makers are third-party intermediaries providing liquidity for self-interested reasons
+* **Price discovery**: Exchanges match orders without knowledge of the underlying capital structure, creating disconnected price signals
+* **Balance sheet**: Balance sheets are opaque and controlled by management, or through offchain accounting and corporate filings
+
+Capital formation in crypto has evolved through several phases:
+
+| Era                          | Mechanism                    | Problem                                |
+| ---------------------------- | ---------------------------- | -------------------------------------- |
+| **ICOs**                     | Crowdsales with no liquidity | No price discovery mechanism           |
+| **Traditional AMMs**         | xy=k pools, LP tokens        | Value extraction, impermanent loss     |
+| **Protocol-Owned Liquidity** | Bonds, DAO-owned LP          | Vague definition, varied goals         |
+| **Token-Owned Liquidity**    | Baseline                     | Native balance sheets, designed growth |
+
+Each attempt merged some components, but with limited success:
+
+* ICOs disconnect fundraise from liquidity bootstrapping. Projects raise capital, but still depend on professional market makers or exchanges to facilitate liquidity and trading
+* AMMs provided a 24/7 liquidity solution with bonding curves, but require projects to rent liquidity via pool2 incentives, adding downward pressure on the token's price through continued emissions
+* AMMs provide no backing guarantees, and perform poorly at price discovery, creating volatility and easy manipulation. Any value accrual is extracted by professional traders, leaving nothing for the token itself. The token price ends up looking like a pump-and-dump, losing trust with community and hurting the project's brand reputation
+
+This explains why [over 85% of tokens](https://x.com/mementoresearch/status/2003089388511604744) trade below their launch price.
+
+## The Four Components Framework
+
+Every market, whether stocks, bonds, or tokens, operates through four interconnected components:
+
+1. **Fundraising** is where money enters the system. In traditional markets, this happens through IPOs, private rounds, or bond issuance. In crypto, it's presales, ICOs, or fair launches.
+
+2. **Balance Sheet** is where value is stored and accounted for. In traditional markets, this is done offchain in corporate filings and accounting departments. In crypto, this is done onchain either through multisigs or DAOs.
+
+3. **Market Structure** defines liquidity depth, where it concentrates, how much supply should be sold (or be bought back), and encodes rules for updating based on order flows. In traditional markets, this is done through large exchanges (e.g. NYSE, NASDAQ) and order books. In crypto, this can be done through Centralized Exchanges (CEX) and order books, or through Decentralized Exchanges (DEX) and Automated Market Makers (AMMs) and liquidity pools.
+
+4. **Price Discovery** is the trade-by-trade process of finding what buyers will pay and sellers will accept. Prices, and thereby volatility, emerge from the interaction of supply available for sale, demand wanting the asset, and the available market structure to support the trade. In traditional markets, this is done with the help of professional market makers (i.e. Citadel). In crypto, this is still done with the help of professional market makers (i.e. Wintermute), but increasingly through algorithmic market makers (i.e. Baseline).
+
+## How Components Interact
+
+These four components are tightly coupled and influence each other continuously:
+
+* Fundraising enables an initial market structure to emerge
+* Through liquidity bootstrapping, and a pricing mechanism, the market structure facilitates price discovery
+* Through marginal price, liquidity depth, and slippage, price discovery either begets more liquidity, or depletes it, thereby influencing the market structure
+* Through trading activity thanks to a well-designed market structure, the balance sheet is strengthened or weakened, and the market structure is updated accordingly
+* As balance sheet grows baseline value, and book value, the token becomes more valuable, attracting more fundraising
+* As price discovery happens, market cap increases, and healthy liquidity depth attracts more fundraising
+
+When these components work together, markets are stable and efficient. When they're misaligned, markets become chaotic.
+
+## How Baseline Unifies the Framework
+
+Baseline combines fundraising, balance sheet, market structure, and price discovery into a unified system called [Token-Owned Liquidity](/docs/how-it-works/tol):
+
+1. **Token owns Market Structure (Baseline Market Maker)**: Through the [Baseline Market Maker (BMM)](/docs/how-it-works/bmm), the token manages its own liquidity using a custom bonding curve. Unlike Uniswap's constant-product formula that spreads liquidity thin, BMM creates capital-efficient markets that take into account circulating supply and price.
+
+2. **Token owns Balance Sheet (Baseline Value)**: Through the [Baseline Value (BLV)](/docs/how-it-works/blv), reserves back a guaranteed floor price that can only increase. Unlike traditional tokens with no backing, BLV is intrinsic value guaranteed by the token.
+
+3. **Token guides Price Discovery**: Because the token controls its own liquidity, it sets the depth, slippage, and marginal price of the token. Furthermore, since it's circulating supply aware, it can adjust liquidity to optimize for value accretion.
+
+4. **Trading activity strengthens the system**: Through fee capture and floor growth, every trade increases the token's value. By owning the liquidity, the token owns all trading fees, making it a revenue-generating asset. The fees go to raising BLV over time, and increasing the token's book value.
+
+
+# Token-Owned Liquidity (TOL) (/docs/theory/tol)
+
+Token-Owned Liquidity (TOL) means the **token itself owns and manages its liquidity position**. Instead of renting liquidity from external market makers or incentivizing mercenary liquidity providers, the token maintains its own market.
+
+This is Baseline's answer to the capital formation problem: balance sheets should be **native to the market**.
+
+## Why TOL Matters
+
+Historically, tokens externalized liquidity management in a variety of ways:
+
+* **Professional market makers**: Projects partner with professional market makers to manage their liquidity pool. The terms of the deal are signed off-chain and are often expensive, requiring projects to give up a percent of their supply to the market maker, either at the time of the deal, or structured as call options.
+* **Initial Exchange Offerings (IEOs)**: Projects partner with centralized exchanges to list their token. This creates a dependency on the exchange for liquidity and trading. These deals are often slow and, even worse, require projects to give up a percent of their supply to the exchange.
+* **Rented liquidity**: Projects incentivize transient liquidity with token emissions that get farmed and dumped. Pool2 farming, popular in DeFi summer, is a prime example.
+* **Automated Liquidity Management (ALM)**: Projects use automated liquidity management services to manage their liquidity pool. These services are a combination of rented liquidity and professional market making, suffering from the same issues.
+
+In all cases, externalizing liquidity management makes liquidity an ongoing cost to the project, and ensures that any value built up through trading gets extracted by third parties.
+
+Projects that have tried to internalize liquidity management quickly realized the challenge of working with AMMs. For example, poorly configured xy=k curves quote price per token that vastly undervalues the token in low float scenarios. Launching the pools yourself runs the risk of selling supply for cheap or getting supply sniped. In all cases, the project is forced to pay a premium in form of opportunity cost, that may be difficult to recover from.
+
+Token-Owned Liquidity solves these issues by internalizing the responsibilities of liquidity management, and aligning the rules to token value.
+
+| Aspect             | Rented Liquidity      | TOL (Baseline)           |
+| ------------------ | --------------------- | ------------------------ |
+| **Ownership**      | Market makers         | Token itself             |
+| **Costs**          | Ongoing payments      | None                     |
+| **Fee Capture**    | Lost to third parties | Revenue-generating asset |
+| **Floor Price**    | None                  | Guaranteed BLV           |
+| **Sustainability** | Mercenary             | Structural               |
+
+<Callout type="info">
+  **Key Insight:** Whereas traditional launchpads let you launch tokens, Baseline lets you launch tokens that grow in value over time. This is uniquely possible because the token owns its liquidity.
+</Callout>
+
+## How TOL Works
+
+Token-Owned Liquidity uses circulating supply, pool inventory and total supply to maintain an internal balance sheet, with assets and liabilities tracked onchain.
+
+### Supply Accounting
+
+The token's total supply is split into pool inventory and circulating supply:
+
+$$
+x + c = X_{total}
+$$
+
+Where:
+
+* $x$ = pool inventory (tokens owned by protocol)
+* $c$ = circulating supply (tokens held by users)
+* $X_{total}$ = total supply
+
+Pool inventory is an asset (disposable, no liabilities) while circulating supply is a liability (must be redeemable at [BLV](/docs/how-it-works/blv)).
+
+### Reserve Accounting
+
+The reserves in the liquidity pool are split into backing reserves and buffer reserves:
+
+$$
+y = y_{backing} + y_{buffer}
+$$
+
+Where:
+
+* $y_{backing}$ = backing reserves (guarantee redemption at floor)
+* $y_{buffer}$ = buffer reserves (enable price discovery)
+
+The protocol treats backing reserves as non-negotiable assets that must be allocated to buyback the entire circulating supply at the floor price.
+
+The buffer reserves are the speculative portion, allocated intelligently to support price discovery above the floor.
+
+<img src="/assets/reserves-curve.png" alt="Reserves Curve showing backing and buffer reserves" loading="lazy" style={{ width: '100%', maxWidth: '800px', margin: '1.5rem auto', display: 'block' }} />
+
+The x-axis represents pool inventory and y-axis represents total reserves. The blue area represents the backing reserves required to buyback circulating supply at the floor. The green area represents the buffer reserves available for price discovery. The sum of both areas equals total reserves.
+
+### Baseline Value (BLV)
+
+The Baseline Value (BLV) is the guaranteed floor price, defined as backing reserves divided by circulating supply:
+
+$$
+P_{blv} = \frac{y_{backing}}{c}
+$$
+
+BLV is the minimum price at which any holder can exit, regardless of market conditions. Learn more about [BLV](/docs/how-it-works/blv).
+
+### Book Price
+
+The book price is total reserves divided by circulating supply:
+
+$$
+P_{book} = \frac{y}{c}
+$$
+
+Book price represents the total value backing each circulating token, including both guaranteed floor and speculative buffer.
+
+## Benefits of TOL
+
+* **Transparency**: All liquidity, reserves, and accounting are onchain and verifiable. No off-chain deals or hidden terms.
+* **Guarantees**: Every token has a guaranteed floor price (BLV) that can only increase. Holders always have an exit.
+* **Programmability**: Liquidity rules are encoded in smart contracts, enabling composability with other DeFi protocols like borrowing and leverage.
+* **Revenue-generating**: Trading fees flow to the token's balance sheet, increasing BLV over time. Your token becomes a revenue-generating asset instead of paying market makers to provide liquidity.

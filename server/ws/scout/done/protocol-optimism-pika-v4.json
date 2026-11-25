@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-pika-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1216,
+ "chain": "optimism",
+ "slug": "pika-v4",
+ "name": "Pika V4",
+ "category": "Derivatives",
+ "tvl_usd": 86818,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1216,
+ "run_id": "d292f248c0764f46bac76d09402d05f6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "liquidatePositions (50% USDC bounty to msg.sender) reverts '!liquidator' from a fresh address on both PikaPerpV4 vaults (0x9b86B2Be.., 0x8c9b6a4a..); distribute*Reward revert '!dist' (fixed distributor); 0 reward events in 7d (blocks 159598672 2026-11-16 -> 159901072 2026-11-23; control: 207 PositionLiquidated since block 133000000, last 2026-09-01 by whitelisted keeper 0x8123e5bd, paid 0-5.46 USDC/call, 238k-492k gas).",
+  "kb": [
+   "attempts:3945"
+  ],
+  "run_id": "d292f248c0764f46bac76d09402d05f6",
+  "at": 1795401467
+ }
+}

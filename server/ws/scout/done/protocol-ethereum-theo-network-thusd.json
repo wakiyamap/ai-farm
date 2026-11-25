@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-theo-network-thusd",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 69,
+ "chain": "ethereum",
+ "slug": "theo-network-thusd",
+ "name": "Theo Network thUSD",
+ "category": "RWA",
+ "tvl_usd": 138582841,
+ "url": "https://app.theo.xyz/",
+ "github": null,
+ "listed_days_ago": 69,
+ "run_id": "8eafed5a199a438b858e33281d5c1f28",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: thUSD reward entries all role-gated - minter.mint/redeem onlyRole(MINTER_ROLE) run solely by one protocol EOA 0x09ec7c2d4955525237b843f5338dd7982b5553b6 (0 calls/7d, no-topic scan; control 82 thUSD Transfers; last call 2026-11-04), sthUSD.setYield gated to yieldDistributor 0x5a69fb3e.. (last push 2026-11-08, 383.23 thUSD pending); sthUSD 7d = 6 initiateRedeem + 1 deposit by user EOAs (sample 7 of 7), 0 claims; stranger gross 0 USD, gas 0.041 USD/call (118,339 gas @ 0.2 gwei, ETH 1749.74 coins.llama.fi 11:36 UTC).",
+  "kb": [
+   "attempts:2890",
+   "protocols:1308"
+  ],
+  "run_id": "8eafed5a199a438b858e33281d5c1f28",
+  "at": 1795174738
+ }
+}

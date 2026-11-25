@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-woofi-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1727,
+ "chain": "base",
+ "slug": "woofi-swap",
+ "name": "WOOFi Swap",
+ "category": "Dexs",
+ "tvl_usd": 274356,
+ "url": "https://woofi.com",
+ "github": null,
+ "listed_days_ago": 1727,
+ "run_id": "6175f513604a4eb9a5c5319edb6b7e83",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Pool 0x5520385b (Base, quoteToken=USDC, holds $166.5k USDC of $274k TVL, active: 172 WooSwap logs/2.8h): only stranger-callable payout fn is claimFee() (eth_call from stranger ok) but it pays WooFeeManager 0xc45B55, not the caller, and unclaimedFee()=0; 0 calls in last 7 days, last daily series ended 2026-09-01 at $1.36 USDC/day gross vs gas 77,264 @0.009 gwei (~$0.002+L1); oracle postPrice/postState onlyAdmin (MM roles); v2.5 fees auto-collect in-swap - no keeper bounty.",
+  "kb": [
+   "attempts:2525",
+   "protocols:1025"
+  ],
+  "run_id": "6175f513604a4eb9a5c5319edb6b7e83",
+  "at": 1795096266
+ }
+}

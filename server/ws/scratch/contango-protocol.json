@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "contango_v2",
+ "status": "dead_end",
+ "checked": "Lean post-sunset build. Core proxy 0x6Cae28b3D09D8f8Fc74ccD496AC986FC84C0C24E (impl 0x555d00bbB3c8C4DADd698Aed2e5cfdc1d37d7B29, verified via ERC1967 slot latest; from DefiLlama adapter projects/contango-v2/index.js) has NO liquidate/accrue/keeper fn: trade/tradeOnBehalfOf are user actions, claimRewards is owner-permissioned (eth_call from fresh addr reverts Unauthorised 0xae10e1de), createInstrument/setClosingOnly/pause/unpause role-gated (OPERATOR/EMERGENCY_BREAK/RESTARTER). The only keeper-pay path is OrderManager 0xa64f0dbb10c473978c2efe069da207991e8e3cb3 (impl OrderManagerArbitrum 0x1c8df1873a54b6807c530e683b7d7019b5b1aa21, verified): execute(orderId,execParams) pays msg.sender keeperReward = gasCost*(basefee+min(gasTip,txTip))*gasMultiplier/1e4 in the cashflow token (OrderManager.sol L235), but with onlyRole(BOT_ROLE). Router 0xa6a147946facac9e0b99824870b36088764f969f is user plumbing (deposit/trade/linked orders). 7d eth_getLogs on core: 6 txs / 20 logs, all user tradeOnBehalfOf + PositionDonated routed via multicall 0xac9650d8, 0 RewardsClaimed; OrderManager 0 OrderExecuted in 7d and 0 OrderPlaced in last ~7M blocks (~20d). Protocol is winding down (TVL ~505k, instruments have closingOnly flag)."
+}

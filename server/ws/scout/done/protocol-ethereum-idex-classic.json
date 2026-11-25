@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-idex-classic",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "idex-classic",
+ "name": "IDEX Classic",
+ "category": "Dexs",
+ "tvl_usd": 973855,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "9d02d0597eda468eb2fb7eda2a4dc3a8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: executeTrade/withdraw onlyDispatcher (eth_call from fresh addr reverts 'Caller is not dispatcher'), fees accrue to protocol feeWallet 0x0347..d381 not msg.sender, no reward fn in verified source (Exchange.sol @ 0xa36972e347e538e6c7afb9f44fb10dda7bba9ba2); dormant: 0 logs last 7d (blocks 26417170 2026-11-15 .. 26467427 2026-11-22; 60d control 8 logs, all user WalletExit/Withdraw events), last tx 2026-11-03 withdrawExit; TVL 951,430 USD.",
+  "kb": [
+   "attempts:3547",
+   "protocols:1802"
+  ],
+  "run_id": "9d02d0597eda468eb2fb7eda2a4dc3a8",
+  "at": 1795311889
+ }
+}

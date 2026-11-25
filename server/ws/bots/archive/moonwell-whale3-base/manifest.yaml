@@ -1,0 +1,87 @@
+id: moonwell-whale3-base
+author: earner/qwen3.8-flash-next
+chains: [base]
+strategy: >
+  Moonwell (Base) covered-combo liquidation, lean 10-min poll: watch the repeat-default
+  whale borrowers (mUSDC borrow + mcbBTC/mUSDC/mWETH collateral) with getAccountLiquidity
+  via one Multicall3 tryAggregate per cycle; on shortfall, flash-loan 300 USDC from Morpho
+  (0 fee), liquidateBorrow, redeem seized collateral, swap to USDC on PancakeV3, revert
+  unless the executor ends with more USDC than it started (NO_PROFIT guard).
+copied_from: >
+  bots/archive/moonwell-whale-base (its executor MoonwellWhale.sol + incumbent captures
+  ledger moonwell_core.liquidate_borrow: whale 0x7b6300131a4f4002545ff420ba5100d4a8779223
+  captures 56505061-56727680, repay 16.5-140.8 USDC, windows 3.3-6.5 h per attempts:1074).
+capital_usd: 120
+principal_usdc: 0
+allowed_contracts: []
+max_loss_per_tx_usd: 18
+max_loss_guarantee: >
+  One tx through the executor (MoonwellWhale.sol): repay+seize+redeem+swap are atomic and
+  the contract reverts unless balAfter >= balBefore + minProfit + 1 (USDC 6-dec balance
+  comparison, scratch/moonwell-whale3-base/contracts/src/MoonwellWhale.sol NO_PROFIT guard);
+  worst case is gas: MAX_GAS_LIMIT 2,200,000 x MAX_FEE_CAP_WEI 2 gwei = 0.0044 ETH at
+  signing time, well under 18 USD at any plausible ETH price.
+expected_value: >
+  Whale 0x7b63: 5 captures in 17 h windows over ~1.5 days (blocks 56505061-56727680),
+  repay 16.5-140.8 USDC, gross ~10% bonus ~39 USD/30d (attempts:1074/1107); mUSDC-collateral
+  whale 0x57a3e737: 5 captures 56758447-56789577, repay 18-2226 USDC (2851.8 USDC sum,
+  short-window candidate - not counted in EV until a >=2-block window is measured). Base
+  gas cents. MEASURED DEAD lens 2026-11-13 run 53819ee5 (attempts:1110): mcbBTC market cash
+  measured 2-92,923 raw8 at every sampled block of the five measured windows (92 raw8 at
+  both first-shortfall blocks 56420372/56455792) and 470 raw8 at head, >=10x below the
+  whale seize quotas 1.2M-10.6M raw8 - no send can succeed on the mcbBTC leg, the paper
+  sim logs NO_REDEEM reverts; the ~repay/11 whale gross is locked in held mToken by the
+  cash cap (incumbent Redeem cap 40,188 raw8 ~ 0.56 USD per capture), not paid in cash.
+executor: "scratch/moonwell-whale3-base/contracts/out/MoonwellWhale.sol/MoonwellWhale.json"
+executor_args: "0x000000000000000000000000fbb21d0380bee3312b33c4353c8936a0f13ef26c000000000000000000000000bbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000792f465e0434fb1028ea3bfeb05240cb839c4e040000000000000000000000004a7af46bc8abc00048c6c7920a1488daf568366c000000000000000000000000784e539f15ca2d19449a6311c5dab6cf37d8f1ba0000000000000000000000004dbdcb087992404ea9b14fa83cc695b02797f39a000000000000000000000000b90fe999be6869af0afc557dccfbe169ea3403d6000000000000000000000000dfe5f275020def30993f042174fc2d335678b626000000000000000000000000257fcbae4ac6b26a02e4fc5e1a11e4174b5ce395"
+executor_note: >
+  Constructor addresses in ABI order (comptroller, morpho, usdc, p0, p1, p2, p3, p4, p5, p6):
+  0xfbb21d0380bee3312b33c4353c8936a0f13ef26c (Moonwell core comptroller, getAccountLiquidity),
+  0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb (Morpho Blue, 0-fee flashLoan),
+  0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 (USDC),
+  0x792f465e0434fb1028ea3bfeb05240cb839c4e04 (P0 PancakeV3 WADO/WETH),
+  0x4a7af46bc8abc00048c6c7920a1488daf568366c (P1 PancakeV3 WETH/USDC),
+  0x784e539f15ca2d19449a6311c5dab6cf37d8f1ba (P2 PancakeV3 cbBTC/USDC fee100, token0=USDC),
+  0x4dbdcb087992404ea9b14fa83cc695b02797f39a (P3 PancakeV3 EURC/WETH),
+  0xb90fe999be6869af0afc557dccfbe169ea3403d6 (P4 XRP/WETH),
+  0xdfe5f275020def30993f042174fc2d335678b626 (P5 AERO/cbBTC, added for the 10-arg ctor),
+  0x257fcbae4ac6b26a02e4fc5e1a11e4174b5ce395 (P6 cbETH/WETH, added for the 10-arg ctor).
+  Owner = bot wallet at promotion (msg.sender; the fork instance was deployed by the farm
+  fork deployer 0xfffffffffffffffffffffffffffffffffffffffe - paper sims call from it).
+  Paper runtime = fork eth_getCode of this deployment (executor-runtime.hex, 10092 bytes;
+  the archived 8-arg runtime was 9402 bytes - IMMUTABLE_CHECKS offsets re-measured).
+fork_evidence: >
+  No positive-delta success proof yet (lead 72 blocked lens, attempts:1107). Measured this
+  session on the shared base fork (lease 09:2x-10:1xZ run ecde30a1, released; harness
+  scratch/mw3/proof2.py, runtime scratch/mw3/runtime.hex, deploy args
+  scratch/mw3-executor-args.hex): reset 56482155 -> executor deployed
+  0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352, whale 0x7b63 shortfall 1583.45 USD at reset
+  56776412 (getAccountLiquidity word parse) but mcbBTC getCash 92 raw8 at reset 56482155
+  vs the ~109000 raw8 seize quota -> the atomic liquidation reverts NO_REDEEM there;
+  reset 56776412 mUSDC-collateral whale 0x57a3 HEALTHY (+14.93 USD liquidity). Lens
+  RESOLVED NEGATIVE 2026-11-13 run 53819ee5 (relay block tags, no fork lease): mcbBTC
+  getCash 92 raw8 at both first-shortfall blocks 56420372/56455792, 2-92,923 raw8 at 14
+  sampled window blocks, 470 raw8 at head vs seize quotas 1.2M-10.6M raw8 (captures
+  56505061-56572770) - NO_REDEEM fires at every window block, so no positive-delta
+  success fork proof exists for the mcbBTC leg and none can (attempts:1110; ledger
+  moonwell_core.liquidate_borrow, Relay eth_call getCash 0x3b1d21a2).
+awaited_events: >
+  moonwell_core.liquidate_borrow on the mUSDC/mWETH loan markets (whale re-defaults; last
+  whale 0x7b63 capture block 56727680, head shortfall 3.80 USD so a fresh window is live
+  now; last 0x57a3 capture 56789577). Windows 3.3-6.5 h per attempts:1074.
+good_signs: >
+  heartbeat log lines with cursor advancing and scanned ~= seed candidates (4); opportunity
+  lines with shortfall_usd > 0 for the pinned whales; sim lines with a gasUsed-based net
+  gate decision; candidates seeded from SEED_WHALES on cycle 1 (no 1800-page backfill).
+bad_signs: >
+  runtime_ok: false (the deployed runtime drifted from executor-runtime.hex - sims stop);
+  scan_error every cycle (the two-market getLogs range must stay small at 10 min cadence);
+  underwater holders never reaching simulate (probe read failure); CU burn like the
+  archived ~10M CU/day stop of moonwell-whale-base.
+rpc_reads_per_min: 1
+alchemy_cu_per_day: ~250000  # 144 cycles/day x (1-2 getLogs pages + 1 multicall tryAggregate + price + head) x ~100 CU/method ~ 0.13 USD/day at 0.53/1M CU - the archived 15 s x 17-market bot burned ~10M CU/day
+legal_note: >
+  Liquidation bonus on a lending protocol, taken >= 2 blocks after the liquidatable
+  trigger (poll bot; windows are hours). No latency race at the poll cadence; flash loan
+  is 0-fee. Nothing sanctioned, no privacy pool, no sandwiching.
+expedite: false

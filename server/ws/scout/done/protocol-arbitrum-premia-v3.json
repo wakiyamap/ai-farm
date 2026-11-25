@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-premia-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1171,
+ "chain": "arbitrum",
+ "slug": "premia-v3",
+ "name": "Premia V3",
+ "category": "Options",
+ "tvl_usd": 56686,
+ "url": "https://premia.finance",
+ "github": null,
+ "listed_days_ago": 1171,
+ "run_id": "2348bc58708744f1b01d5cd57fc5fa63",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Premia V3 arbitrum (TVL $57k): permissionless settleFor/exerciseFor/settlePositionFor pay costPerHolder to caller in source, but 0 calls in 7d (blocks 524617058-526670975); 16 pools no-topic-scanned (control 94-194 logs/pool), 14 txs to active pools all router trades by EOAs, expiry settlement done by one keeper 0xcafe3438 via flash-loan trade batches, gross to caller ~2.9e-4 LINK = $0.0026 vs gas 6.39M = $0.22+ (ETH $1708, LINK $8.78 coins.llama.fi 2026-11-23T01:56Z)",
+  "kb": [
+   "attempts:3937",
+   "protocols:2085"
+  ],
+  "run_id": "2348bc58708744f1b01d5cd57fc5fa63",
+  "at": 1795399153
+ }
+}

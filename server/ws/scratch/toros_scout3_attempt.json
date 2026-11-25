@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-toros",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Toros on Optimism is 20 legacy DHEDGE v1 yield/leverage-token vaults (20 pools, $540k). No function in the pool ABI pays the caller: mintManagerFee() is callable by a stranger but mints all fee shares to the manager and DAO; execTransaction is manager/trader/owner-gated and pays no keeper; deposits/withdrawals are user-initiated with users paying their own gas. No liquidations, auctions or reward pools.",
+  "numbers": "20 pools via getManagedPools(0x813123a13d01d3f07d434673fdc89cbba523f14d) on factory 0x5e61a079A178f0E5784107a4963baAe0c5a680c6; sum totalFundValue = $540,269 (eth_call getFundSummary, 2026-11-19). Logic PoolLogic 0x692e5fb516d24724884ca1719bcc379bb5c51b66. 44 ManagerFeeMinted events in 7 days, blocks 159,430,000-159,740,442 (eth_getLogs, 20 addresses), amounts to manager e.g. 1,316 shares on 0xcc7d6ed5.. (Solana Bull 3X, tx 0x6bff6077...), caller paid 0. Gas 0.001 gwei (eth_gasPrice 0xf44eb wei) => <$0.01/call; ETH $1,806.83 (coins.llama.fi coingecko:ethereum). mintManagerFee eth_call from stranger succeeds (0x return)."
+}

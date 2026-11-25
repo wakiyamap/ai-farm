@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-avant-avusd",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only value-moving entry points on Avant avUSD (AvantMintingV2 mint/redeem) sit behind MINTER_ROLE / REDEEMER_ROLE, held in practice by one protocol relayer (0xd5456b9ab991768601bedf1159c51009d43c698d); a fresh-address eth_call reverts AccessControlUnauthorizedAccount. The savUSD ERC4626 entry points (deposit/mint/withdraw/redeem/cooldownAssets/cooldownShares/unstake) are user-driven and pay a stranger $0 - no reward, bounty or keeper-fee function exists in the core ABIs.",
+ "numbers": "7d (to block 0x5ff153d, snowtrace txlist): 66 txs to MintingV2 = 55 redeem (sel 0x95165e8b) + 11 mint (0xd48c03e5), 100% from 0xd5456b9ab991768601bedf1159c51009d43c698d (hasRole MINTER_ROLE and REDEEMER_ROLE = true). Sample 5 redeems (e.g. 0x83e65e00.., 0xd6d4bd17..): $2,300-$124,138 USDC.e moved 1:1 to the user, gross paid to caller $0. Median gasUsed 145,956 @ 9.63 gwei = $0.0105 at AVAX $7.19 (coins.llama.fi coingecko:avalanche-2). Fresh-address eth_call revert data 0xe2517d3f (AccessControlUnauthorizedAccount). TVL $92.18M."
+}

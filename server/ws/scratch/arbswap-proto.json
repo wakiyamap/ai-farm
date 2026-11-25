@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "arbswap_amm",
+ "status": "dead_end",
+ "checked": "Uniswap V2 fork on Arbitrum One (DefiLlama slug arbswap-amm; main deployment is Arbitrum Nova, deadUrl true). Factory 0xd394e9cc20f43d2651293756f8d320668e850f1b (address from DefiLlama-Adapters registries/uniswapV2.js; eth_getCode ok, allPairsLength()=76, feeTo()=0xeae69ce09d8ca7244827bed2071eac6ebfa49420 which is a codeless EOA). Router 0xd01319f4b65b79124549de409d36f25e04b3e551 (constructor args factory + WETH 0x82af49447d8a07e3bd95bd0d56f35241523fbab1), explorer source name SwapRouter - standard UniV2 router, no reward fns. Explorer sources for factory/pair/router verified but approximate (pair source event hash b3e27736 not in deployed bytecode, which carries d78ad95f = standard UniV2 Swap), so checked deployed bytecode: contains 'Arbswap' string, standard UniV2 pair surface only (mint/burn/skim/sync/swap/permit). No harvest/claim/distribute/reward/keeper function on factory, router or pairs; factory mutators (setFeeTo*, setMigrator) are role-gated; createPair callable but pays nothing. 7 d (blocks 524686718-526744491): 1905 swaps on 17/76 pairs, 1 Mint (LP add via router, not a reward), ARBS token 1 Transfer -> no chef/emissions on this chain (chef is on Arbitrum Nova). Dead end for scouts: no function anyone can call that pays the caller."
+}

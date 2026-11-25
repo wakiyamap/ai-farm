@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-ideamarket",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1792,
+ "chain": "arbitrum",
+ "slug": "ideamarket",
+ "name": "Ideamarket",
+ "category": "Derivatives",
+ "tvl_usd": 143151,
+ "url": "https://ideamarket.io",
+ "github": null,
+ "listed_days_ago": 1792,
+ "run_id": "dfc0bdcf3ce4465bb672cf297e41084a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Callable-but-pays-nobody: exchange 0x15ae0559 withdrawTradingFee/PlatformFee/TokenInterest are open (eth_call from stranger ok) but pay stored owners not caller (trading-fee pot only 35.9 DAI ~$36); state 0x4e908F70 holds 143,162 DAI (~$143k, DAI $0.9999) with accrueInterest() a no-op; 0 txs in 7d on both (exchange last tx 2024-12-16, state last success accrueInterest 2026-01-12, 28.9k gas ~$0.001; gas 0.02 gwei = $0.004/100k); getLogs control empty on scout lane, zeros from explorer tx listings.",
+  "kb": [
+   "attempts:2554"
+  ],
+  "run_id": "dfc0bdcf3ce4465bb672cf297e41084a",
+  "at": 1795102368
+ }
+}

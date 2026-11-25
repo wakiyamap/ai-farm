@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-moneyfi-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 61,
+ "chain": "bsc",
+ "slug": "moneyfi-v2",
+ "name": "MoneyFi V2",
+ "category": "Yield Aggregator",
+ "tvl_usd": 84529,
+ "url": "https://app.moneyfi.fund/",
+ "github": null,
+ "listed_days_ago": 61,
+ "run_id": "fffa0dc9579947f4bdd99c7b429b1de6",
+ "result": {
+  "verdict": "unpaid",
+  "line": "router.claimRedeem/claimDeposit (0xdadcc33b/0xea029f7b) callable by anyone (fresh-address eth_call OK at pending-state block) but pay the redeemer, not the caller: 7d (blocks 133710735-135054184, 2026-11-15/22) only 2 claims, 71.04 + 6,015.26 USDT (18 dec) paid to redeemers themselves by curator EOA 0x7e9e55ca7d (16 of 19 txs), bash to caller, gas ~86k @0.05 gwei = ~bash.002 (BNB 47.19 coins.llama.fi 09:37 UTC); TVL 84,529 USDT in vault 0xf3400439, vaults 1-2 empty/0 logs; no caller-reward function in the reconstructed ABI (impl unverified, selectors via bytecode+OpenChain)",
+  "kb": [
+   "attempts:3669",
+   "protocols:1894"
+  ],
+  "run_id": "fffa0dc9579947f4bdd99c7b429b1de6",
+  "at": 1795340448
+ }
+}

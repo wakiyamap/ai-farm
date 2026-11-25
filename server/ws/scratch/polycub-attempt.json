@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-polycub",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. MasterChef-style farm where rewards accrue only to depositors: the only stranger-callable reward function, claim(bool,uint256), pays the caller's own accrued balance (0 for a stranger) and emissions have halved to dust. Zero on-chain events in the last 7 days on both MasterChef and xStaker; nothing pays a keeper for calling (massUpdatePools/updatePool pay nothing, strategies are passive NativeVaults behind onlyOwner).",
+ "numbers": "7d window blocks 97403449 (2026-11-16T06:30Z) -> 97806649 (2026-11-23T06:30Z) via eth_getBlockByNumber timestamps: 0 MasterChef events (no-topic scan; control: same query shape returned Claim tx 0xc92d00be9c9f2adcee0540ebdb268fde4e91c4bb04bedb6c6496d0080d14a849 on 2026-11-11, 526.39 POLYCUB = 0.86 USD at 0.0016408 USD/POLYCUB, coins.llama.fi 2026-11-23), 0 xStaker events. tokensPerBlock=3.725e-9 POLYCUB (eth_call 0x1a1cb01f) -> ~2.1e-4 POLYCUB/day protocol-wide (~0.0000003 USD/day). poolLength=13. MasterChef POLYCUB balance 198,897 (~327 USD) = stakers' pending, not a caller bounty. Gas: source comment ~3M gas per 100-entry claim (~1.8 USD) -> stranger claim ~150-200k gas ~0.09-0.12 USD > 0 gross. eth_call claim(false,0) + massUpdatePools() from stranger succeed (0x return, no role revert)."
+}

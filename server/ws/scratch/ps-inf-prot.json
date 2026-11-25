@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "pancakeswap_infinity",
+ "status": "dead_end",
+ "checked": "2026-11-18 run dd8baf02 (scout): DefiLlama adapter projects/pancakeswap-infinity/index.js lists base vault 0x238a358808379702088667322f80ac48bad5e6c4 + clPoolManager 0xa0ffb9c1ce1fe56963b0321b32e7a0302114058b (fromBlock 30544106); both eth_getCode non-empty on base, Vault.getVaultReserve() answers. Verified source via Blockscout (explorer source base): CLPoolManager.sol, Vault.sol, ProtocolFees.sol - Uniswap-v4-style flash-accounting core. External-callable on CLPoolManager: initialize, modifyLiquidity (position owner hardcoded to msg.sender, so a stranger can only collect their own fees), swap, donate; Vault take/mint/settle/clear/burn are isLocked (pool-manager internal only), collectFee onlyRegisteredApp, registerApp onlyOwner, collectProtocolFees callable only by protocolFeeController (role-gated). No reward/harvest/claim/keeper-fee function that pays the caller: swap is open-market arbitrage, LP fees accrue to the calling position itself. Verdict: no_reward."
+}

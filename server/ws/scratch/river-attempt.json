@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-river-omni-cdp",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Open-entry liquidations (LiquidationManager.liquidate/liquidateTroves on core diamond 0x07Bb...A4Ec) pay the caller a fixed 2e18 sUSDX debt gas-comp + coll gas-comp, but today they revert 'TroveManager: nothing to liquidate' from a stranger (callable, not role-gated) and the system holds 3 troves total (1 WBTC-TM, 1 BTCB-TM, 0 SolvBTC-TM); collectInterests pays the reward manager, not the caller. 7-day sampling found no transaction touching these contracts.",
+ "numbers": "3 troves total across 3 trove managers (getTroveOwnersCount 1/1/0, blocks ~134.34M, 2026-11-18); getEntireSystemColl BTCB-TM = 5.6e15 wei (0.0056 BTCB); debtGasCompensation = 2e18; liquidateTroves from 0xdeadbeef reverts 'nothing to liquidate'; 0 txs to 4 core contracts in 31 sampled blocks of ~2.68M (7d, 0.226 s/block, eth_getBlockReceipts because bsc getLogs lane spent: 'all providers failed: public'); TVL candidate 47.6M USD across 12 chains. Sources: rpc.py bsc eth_call/eth_getBlockReceipts, DefiLlama adapter satoshi-protocol/index.js, Sourcify chain 56 full match, github satoshi-protocol/satoshi-core src/core/{LiquidationManager,TroveManager}.sol"
+}

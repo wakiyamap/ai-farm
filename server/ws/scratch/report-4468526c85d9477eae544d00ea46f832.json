@@ -1,0 +1,12 @@
+{
+  "run_id": "4468526c85d9477eae544d00ea46f832",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane queue walk + exhaustion check #12 with a fresh top-50 ledger-actor vs actors-table coverage diff (no target taken)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1350"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "No unmeasured leads and every open measurement request from the last 3 decisions is answered (item 7 attempts:1342, bridge-vs-bridge 1344, lead 191 item (a) 1348; item (b) is due after 2026-11-16 17:45Z with the series). Fresh coverage diff: 28 top-50 ledger actors (3+ active days/7 d) missing from the actors table, all 28 classified into closed classes (uniswapx lead 166, felix lead 149, reserve lead 19, firepit lead 105, harvest leads 115/165, liquidations) so none warrants a new request; diff recorded so the next session does not re-run it. 0 farm relay CU, 0 fork, 0 tx."
+}

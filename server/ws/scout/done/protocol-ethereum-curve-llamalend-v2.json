@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-curve-llamalend-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 159,
+ "chain": "ethereum",
+ "slug": "curve-llamalend-v2",
+ "name": "Curve LlamaLend V2",
+ "category": "Lending",
+ "tvl_usd": 30001799,
+ "url": "https://www.curve.finance/lend/ethereum/markets/",
+ "github": null,
+ "listed_days_ago": 159,
+ "run_id": "1c4eb84105cb4d2489f35e7d7df03ac2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only controller.liquidate() pays a stranger (no role gate, fresh-address eth_call reverts state reason on all 8 controllers; factory 0x8f6B56ec market_count()=8), but 0 Liquidate events in 7d (blocks 26407020-26457485; Borrow control 52) and users_to_liquidate()=0 on all 8; collect_fees() pays the factory fee_receiver not the caller; markets grew 5->8 since 11-07 but new collateral is WOUSD x2 + wstGBP vs crvUSD, still stable-on-stable; gross 0, gas ~1.17 USD/1M gas (0.67 gwei x ETH 1747.44 coins.llama.fi 13:57Z).",
+  "kb": [
+   "attempts:2933",
+   "protocols:62"
+  ],
+  "run_id": "1c4eb84105cb4d2489f35e7d7df03ac2",
+  "at": 1795183151
+ }
+}

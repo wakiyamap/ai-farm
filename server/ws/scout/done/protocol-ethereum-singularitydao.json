@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-singularitydao",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1685,
+ "chain": "ethereum",
+ "slug": "singularitydao",
+ "name": "SingularityDAO",
+ "category": "Yield",
+ "tvl_usd": 367283,
+ "url": "https://singularitydao.ai",
+ "github": [
+  "Singularity-DAO"
+ ],
+ "listed_days_ago": 1685,
+ "run_id": "eed872f96258435bbea13bfeaf195889",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: forges' forgeFunction/startForging/withdrawFee onlyRole(BLACK_SMITH) (fresh-address eth_call reverts AccessControl), farm addRewards/extendPool onlyOwner, open fns are user self-claims; 7d (blocks 26,415,359->26,469,444): 0 forge txs, 1 farm tx (0x76de583a withdrawAndHarvest self-claim); all 8 farm pools' reward epochs ended <= block 21.7M (2025-01-26) so harvest pays 0; pot 3,826,808 SDAO = 10,543 USD (SDAO 0.002755, coins.llama.fi) unaccruing; gas ~0.04 USD/150k.",
+  "kb": [
+   "attempts:3447"
+  ],
+  "run_id": "eed872f96258435bbea13bfeaf195889",
+  "at": 1795290543
+ }
+}

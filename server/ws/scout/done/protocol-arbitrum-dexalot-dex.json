@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-dexalot-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1364,
+ "chain": "arbitrum",
+ "slug": "dexalot-dex",
+ "name": "Dexalot DEX",
+ "category": "Dexs",
+ "tvl_usd": 242556,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 1364,
+ "run_id": "bfeb392bcb4f4df297feb8b0397d5708",
+ "result": {
+  "verdict": "role_gated",
+  "line": "MainnetRFQ 0x010224949cca211fb5ddfedd28dc8bf9d2990368 (TVL $180,735 api.llama.fi) pays no caller: 63 SwapExecuted/7d (USDT<->USDC, $425,597 vol, max $40,000, 52 takers, aggregators pay for their own RFQ swaps, bound to quoted taker); claimBalance REBALANCER_ADMIN_ROLE (9/7d, $160,182 to swapSigner 0x589e8e6a90db021a19eda84b940dcf7701c7b2d6); removeFromSwapQueue permissionless but pays the trader, 0 SwapQueue/XChainFinalized events 7d; gas $0.025/call (0.02 gwei, ETH $1,774.13 coins.llama.fi)",
+  "kb": [
+   "attempts:2342",
+   "protocols:881"
+  ],
+  "run_id": "bfeb392bcb4f4df297feb8b0397d5708",
+  "at": 1795055361
+ }
+}

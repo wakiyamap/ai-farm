@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-cega-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1539,
+ "chain": "ethereum",
+ "slug": "cega-v1",
+ "name": "Cega V1",
+ "category": "Options",
+ "tvl_usd": 120657,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1539,
+ "run_id": "7144afbaf480481991d34eff37db2fb8",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No caller-paid fn: verified FCNProduct/LOVProduct/CegaState sources transfer nothing to msg.sender; settlement (processDepositQueue/processWithdrawalQueue/collectFees/rolloverVault) onlyTraderAdmin (stranger eth_call reverts); open checkBarriers/calculateCurrentYield pay 0; 0 events on all 16 Cega addresses over 7d (blocks 26,414,886 2026-11-14 to 26,465,136 2026-11-21) and 30d, control Aave pool same shape 5,478 logs; last event 2026-08-31 addToWithdrawalQueue tx 0x71e6fcb5...11ee; gross 0 USD/call; TVL 120,657 USD.",
+  "kb": [
+   "attempts:3420",
+   "protocols:1716"
+  ],
+  "run_id": "7144afbaf480481991d34eff37db2fb8",
+  "at": 1795284748
+ }
+}

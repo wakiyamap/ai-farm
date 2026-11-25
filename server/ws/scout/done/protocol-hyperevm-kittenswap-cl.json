@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-kittenswap-cl",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 588,
+ "chain": "hyperevm",
+ "slug": "kittenswap-cl",
+ "name": "Kittenswap CL",
+ "category": "Dexs",
+ "tvl_usd": 595001,
+ "url": "https://kittenswap.finance",
+ "github": null,
+ "listed_days_ago": 588,
+ "run_id": "0ffe15a1fec64c3288cf808cb800c4e9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Legacy Velodrome-style UniV3 fork (CLFactory 0x2E08F5Ff...BDCaF, 221 pools, docs + deleted llama adapter 78997386): reward functions callable but pay 0 to strangers - pool updateRewardsGrowthGlobal reverts 'NG' (gauge-only), NFP collect is NFT-owner gated, gauge periodFinish 1752105600 (2025-07-10, emissions dead 16 mo), 0 RewardPaid + 0 Deposit on 5 sampled gauges over blocks 25,566,296-51,557,116 (~300 d, control NFP 3,230/239 same shape); KITTEN $0.00109, gas 0.1 gwei x 150k ~ $0.001 - nothing pays an unrelated caller",
+  "kb": [
+   "attempts:1957",
+   "protocols:563"
+  ],
+  "run_id": "0ffe15a1fec64c3288cf808cb800c4e9",
+  "at": 1794969387
+ }
+}

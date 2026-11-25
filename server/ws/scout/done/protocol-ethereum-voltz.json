@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-voltz",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1463,
+ "chain": "ethereum",
+ "slug": "voltz",
+ "name": "Voltz",
+ "category": "Derivatives",
+ "tvl_usd": 153398,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1463,
+ "run_id": "d594b763eccb430e8711b56d4e089a15",
+ "result": {
+  "verdict": "no_reward",
+  "line": "All 58 ethereum pools matured by 2023-07-31; liquidatePosition (only fn paying msg.sender) reverts closeToOrBeyondMaturity (0x53adea9c eth_call, fresh addr); 7d (blocks 26414248-26464648, 11-14 to 11-21): 232 engine logs = 58 settles + 58 margin-withdraws + 116 PositionUpdate, 0 liquidations; 5/5 sample settle txs all EOA 0x7ff4f8fe via periphery settlePositionAndWithdrawMargin paying owners' own margin, caller reward 0; TVL 150.6k USD residual margin",
+  "kb": [
+   "attempts:3390",
+   "protocols:1695"
+  ],
+  "run_id": "d594b763eccb430e8711b56d4e089a15",
+  "at": 1795278858
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-lodestar-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. claimComp(address) is public (eth_call from a fresh address succeeds, no role gate) and pays the recipient argument, but 0 claims in the last 7d (0 in 95d) and the entire reward pot held by the comptroller is 1.128 LODE of unpriced LODE, so a claim pays far below gas. LiquidateBorrow is callable but 0 events in 7d on all 15 markets; protocol TVL 36,959 USD (Compound v2 fork, ~3.3 yr old listing).",
+  "numbers": "claims 7d = 0 LODE Transfers from 0xa86dd95c210dd186fa7639f93e4177e97d057576 (eth_getLogs blocks 524623001@2026-11-16T02:13Z to 526677097@2026-11-23T02:13Z, window from block timestamps; same-shape control Borrow topic0 from cEther receipt = 6 logs); 95d claims = 0; pot = 1.128 LODE (balanceOf on 0xF19547f9ED24aA66b03c3a552D181Ae334FBb8DB, symbol/decimals read on chain); LODE usd = unpriced (coins.llama.fi current and 2026-11-16..23 historical return {}, 2026-11-23T02:15Z; last known price 0.0816 USD at ts 1719000111 = 2024-06-22); claimComp gas = 1,624,147 (eth_estimateGas from fresh caller) x 0.02 gwei (eth_gasPrice 0x1312d00) = 0.0000325 ETH = ~0.055 USD (ETH 1705.84 USD, coins.llama.fi 2026-11-23T02:21Z); LiquidateBorrow 7d = 0 events on 15 markets; emissions nonzero e.g. cEther compSupplySpeeds 0.4139 LODE/block"
+}

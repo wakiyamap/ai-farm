@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-joe-v2-1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1298,
+ "chain": "arbitrum",
+ "slug": "joe-v2.1",
+ "name": "Joe V2.1",
+ "category": "Dexs",
+ "tvl_usd": 1040013,
+ "url": "https://lfj.gg/arbitrum/trade",
+ "github": null,
+ "listed_days_ago": 1298,
+ "run_id": "917bcf7aa86644439449fbdae7e06748",
+ "result": {
+  "verdict": "no_reward",
+  "line": "LBFactory 0x8e42f2F4101563bF679975178e880FD87d3eFd4e + verified LBPair impl 0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f, 533 pools (getNumberOfLBPairs); no open function pays the caller (swap/flashLoan/mint/burn/increaseOracleLength are user actions, flashLoan caller PAYS); collectProtocolFees role-gated to FeeBank 0x60233142befce7d4ed73e7793ead2d6190fccaab (reverts 0x3e24df14 from fresh address, 0 collections in 7d on 32 sampled pools); 74 Swap events 7d across 32 sampled pools (73 on one DAI/USDC pool); gas ~bash.005/call @ 132,533 gas x 0.02 gwei x ETH ,781.85 (coins.llama.fi).",
+  "kb": [
+   "attempts:2311",
+   "protocols:852"
+  ],
+  "run_id": "917bcf7aa86644439449fbdae7e06748",
+  "at": 1795049393
+ }
+}

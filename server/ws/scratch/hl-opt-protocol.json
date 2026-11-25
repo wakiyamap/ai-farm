@@ -1,0 +1,6 @@
+{
+  "chain": "optimism",
+  "protocol": "hyperlane",
+  "status": "dead_end",
+  "checked": "Addresses from hyperlane-registry chains/optimism/addresses.yaml. Mailbox proxy 0xd4C1905BB1D26BC93DAC913e13CaCC278CdCC80D (impl 0xF00824861e4bFE5dfc769295A50006BA203bBC29, verified 'Mailbox' on optimism blockscout); eth_getCode non-zero; beneficiary() getter answers on IGP. IGP 0xD8A76C4D91fCbB7Cc8eA795DFDF870E48368995C (impl 0x69d1a90f1a6ce003e993678ac8d19717454d1467); StaticProtocolFee 0xD71Ff941120e8f935b8b1E2C1eD72F5d140FF458; StorageGasOracle 0x27e88AeB8EA4B159d81df06355Ea3d20bEB1de38. Mailbox.process is external payable, no role, but source shows NO transfer to msg.sender (it records deliveries[id].processor and forwards msg.value to the recipient) - relayers are paid off-chain. IGP.claim()/claimToken() and StaticProtocolFee.collectProtocolFees() are permissionless but sweep the whole balance to a FIXED beneficiary 0xa7ECCDb9BE08178F896C26B7bbd8c3d4E844d9bA (EOA, Hyperlane ops; setBeneficiary is onlyOwner). Warp routes are standard HypERC20 routers (registry warpRouteConfigs.yaml), no keeper functions. Sources: blockscout getsourcecode, hyperlane-registry raw YAML, mailbox ProcessId logs via relay."
+}

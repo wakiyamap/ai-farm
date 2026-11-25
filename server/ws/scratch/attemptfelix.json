@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "lead 149 watch line: felix_cdp.redemption 7 d volume vs the 250k feUSD reopen threshold (2nd check, 3 days after the close)",
+ "outcome": "lead_recorded",
+ "numbers": "Source range (installed 2026-11-09, 6.2 d, at head): 319 redemptions, 70,529.26 feUSD actual = ~11.4k feUSD/day, 7 d run-rate ~80k feUSD vs the 250k threshold. At the 11-12 close the rate was 5.2k/day (35.6k/6.8 d): volume is 2.2x higher now but still 3.1x under the threshold. Median per-tx redemption 187.2 feUSD; mean protocol collateral fee 0.018 coll units/tx (65 bps).",
+ "reason": "Cheap ledger-only watch (2 queries, run 623296e5 measure lane, 2026-11-15 04:2xZ). Neither reopen condition is met: 7 d volume ~80k < 250k feUSD, and the per-tx net condition cannot clear on a 187 feUSD median against the 65 bps fee + DEX leg measured at the close (lead 149). 5 actors over 6.2 d, same incumbents. No action; next watch check only if volume doubles again (~25k/day)."
+}

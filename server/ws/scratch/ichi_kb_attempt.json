@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-ichi",
+  "outcome": "lead_recorded",
+  "reason": "unclear: ICHI is a Uniswap-V3 vault manager with 4 confirmed BSC factories (code + allVaults getter answering, >=15 vaults on 0x131c03ca...). Vaults expose rebalance()/collectFees() which revert with empty data on eth_call from a stranger - role vs state-revert not separable without the vault ABI (BscScan API Cloudflare-blocked, no bsc source in explorer, no repo in the ichifarm org). 7-day callers/reward not measured: bsc public getLogs is capped at 5000-block ranges (7d = ~280 calls per vault) and the relay lane flaked (no provider available) at wrap-up.",
+  "numbers": "block 134534088 (2026-11-19); BSC TVL 264,916 USD (api.llama.fi/protocol/ichi); block time 0.43 s measured over 262144 blocks; 329 eth_getLogs + ~30 eth_calls via relay scout lane; vault0 0x80d9d313d2170cb51a769f9dbd0a11f97be28a07 getTotalAmounts total0=0x2a7455ca6443c667 (~3.06 CAKE); 0 vault creations in 30k recent blocks (4 factories, 24 calls) and 0 in 105x5000 sampled windows over 4.5 yr."
+}

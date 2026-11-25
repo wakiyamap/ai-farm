@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-gyroscope-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1422,
+ "chain": "optimism",
+ "slug": "gyroscope-protocol",
+ "name": "Gyroscope Protocol",
+ "category": "Dexs",
+ "tvl_usd": 46300,
+ "url": "https://app.gyro.finance/",
+ "github": null,
+ "listed_days_ago": 1422,
+ "run_id": "a4605d81731247b788392db021165099",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Gyro on optimism = 36 E-CLP pools (factories 0x9b683ca2 (24 v2, PoolCreated logs) + 0x22625eED (12 v3, getPools())); no caller-paid function exists (v2 mutators owner/pauseManager/ERC20, v3 view/onlyVault, factory create pays 0); 7d: 4 pool Transfers on 28 sampled pools (control WETH 7208 in 2000 blk), TVL 46.3k USD, gas/call ~0.0002 USD",
+  "kb": [
+   "attempts:3999",
+   "protocols:2134"
+  ],
+  "run_id": "a4605d81731247b788392db021165099",
+  "at": 1795412442
+ }
+}

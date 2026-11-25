@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "actor-bsc-0xc240396344528e3d382ed09877af10e2f25931bd",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The candidate is itself one of the UniswapX BSC RFQ desks (appears as exclusiveFiller in other desks' fills, lead 166): its fills are cosigned-quote flow, and its executor contract only accepts its own whitelisted operator EOAs. In-tx surplus is real but small (~$0.5 median per fill, 7-fill sample) because the spread is priced into the RFQ quote, not left on-chain; a fresh address picking the same call pays the 25 bps exclusivity override for orders that were quoted to this desk. Consistent with lead 166 (bsc fills land pre-decayStartBlock, ~88 pct exclusiveFiller==filler, stranger margin median ~0).",
+  "numbers": "37 fills over 2026-11-06..11-14 (ledger actor_daily, uniswapx.fill; ~4-5/day; source head 2026-11-15 11:54Z). Gross in-tx surplus per fill (7-receipt sample, candidate token deltas, non-stable tokens priced at in-tx FX): $0.30, 0.42, 0.50, 0.51, 0.57, 1.25, 2.66 -> median ~$0.51, mean ~$0.89. Gas 385k-1,085k gasUsed at ~0.069 gwei effectiveGasPrice = $0.016-0.044/fill (BNB $589.34 coins.llama.fi 2026-11-17). Est net ~$3.5/day at ~4.3 fills/day. 0x router fee ~6 bps paid in-token to 16575aada6. 12+ distinct fillers on the reactor over 7d (top 383 fills vs our 35)."
+}

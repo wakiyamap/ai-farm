@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-quickswap-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: QuickSwap V3 (Algebra fork) on Polygon has no caller-paid keeper function. The only permissionless reward-shaped fn is FarmingCenter.claimReward(rewardToken,to,...) which pays msg.sender's OWN accrued farming balance: eth_call from a fresh address returns 0 (nothing accrues without a farm position). collectRewards/exitFarming are gated by _isApprovedOrOwner of the deposit NFT; pool-level collect(recipient) just withdraws LP fees, no bounty for the caller. Sample of last ~20 FarmingCenter txs (Oct 19 - Nov 19, explorer txs): all position owners (mostly 0xd285cb6300b826bd67199bf9f9a1181b38ea116e) collecting their own rewards. Same shape as quickswap_v4/base dead_end (protocols:477).",
+  "numbers": "TVL $2.75M; fresh-address eth_call claimReward = 0 (block latest, tx via eth_call); gas 284.8 gwei (eth_gasPrice 2026-11-19) x ~200k gas = ~0.0005 POL = ~$0.00004 at POL $0.08263 (coins.llama.fi polygon:0x...1010); FarmingCenter tx sample 20 of ~20 recent (explorer txs 0x7F281A8cdF66eF5e9db8434Ec6D97acc1bc01E78)"
+}

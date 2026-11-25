@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-tori-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 147,
+ "chain": "ethereum",
+ "slug": "tori-finance",
+ "name": "Tori Finance",
+ "category": "Basis Trading",
+ "tvl_usd": 77421780,
+ "url": "https://tori.finance/",
+ "github": null,
+ "listed_days_ago": 147,
+ "run_id": "0f162167348a4627bd704d41b612d501",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only reward fn is transferInRewards (distributor 0xa0C49fFa...CD375 OnlyOperator, vault 0x28083998...5F5815 REWARDER_ROLE); 7d: 21 pushes = 127,220 trUSD (~18.2k/day, trUSD 18d self-minted synthetic $, unpriced), all from Tori operator EOA 0xa2adcd94...f006, caller gross 0 USD, gas 76,538 @0.55 gwei = 4.2e-5 ETH = $0.07 (ETH 1730.50 coins.llama.fi 2026-11-20T13:45Z); permissionless strUSD ops (deposit/mint/unstake/cancelCooldown, PendleYTLock.claimPendleYield) pay 0 to caller; redeem reverts OperationNotAllowed (7d cooldown on)",
+  "kb": [
+   "attempts:2928"
+  ],
+  "run_id": "0f162167348a4627bd704d41b612d501",
+  "at": 1795182637
+ }
+}

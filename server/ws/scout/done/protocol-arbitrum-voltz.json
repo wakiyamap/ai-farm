@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-voltz",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1465,
+ "chain": "arbitrum",
+ "slug": "voltz",
+ "name": "Voltz",
+ "category": "Derivatives",
+ "tvl_usd": 53370,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1465,
+ "run_id": "b7b7e63c2a244f4c9742c942c88769c8",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: all 13 Voltz arb IRS pools matured <= 2023-08-31 (factory 0xda66a7584da7210fd26726EFb12585734F7688c1, full-range IrsInstance logs); only caller-paid fn liquidatePosition reverts on all 13 engines from a fresh address (12x closeToOrBeyondMaturity 0x53adea9c, 1x Paused); 7d window blocks 524669489-526726351: 43 txs, all settlePositionAndWithdrawMargin by user EOAs (172 engine logs, topic0 from receipt; control USDC.e 958 logs/13k blocks), gross to strangers 0, TVL 53,370 USD.",
+  "kb": [
+   "attempts:4015",
+   "protocols:2146"
+  ],
+  "run_id": "b7b7e63c2a244f4c9742c942c88769c8",
+  "at": 1795415372
+ }
+}

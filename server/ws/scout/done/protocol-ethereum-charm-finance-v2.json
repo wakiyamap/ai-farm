@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-charm-finance-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1084,
+ "chain": "ethereum",
+ "slug": "charm-finance-v2",
+ "name": "Charm Finance V2",
+ "category": "Liquidity Manager",
+ "tvl_usd": 254019,
+ "url": "https://alpha.charm.fi/vaults",
+ "github": null,
+ "listed_days_ago": 1084,
+ "run_id": "4a6e2c374b40411d986f97c428152d58",
+ "result": {
+  "verdict": "unpaid",
+  "line": "AlphaProVault rebalance() is anyone-callable (delegate==0 vaults, eth_call OK from fresh addr) but pays the caller 0 USD: 7 rebalances in 7 d (blocks 26,412,875-26,463,133, Snapshot topic0 from verified source) across 103 vaults / 254k USD TVL, all sent by one manager EOA 0xba887c8e..., gas 782k-1.20M (0.46-11.11 USD at paid gasPrice, ETH 1638.54 coins.llama.fi); collectProtocol/collectManager revert 'governance'/'manager' from a stranger",
+  "kb": [
+   "attempts:3297",
+   "protocols:1617"
+  ],
+  "run_id": "4a6e2c374b40411d986f97c428152d58",
+  "at": 1795260604
+ }
+}

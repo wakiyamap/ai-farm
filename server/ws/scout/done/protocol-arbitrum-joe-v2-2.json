@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-joe-v2-2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 885,
+ "chain": "arbitrum",
+ "slug": "joe-v2.2",
+ "name": "Joe V2.2",
+ "category": "Dexs",
+ "tvl_usd": 33556,
+ "url": "https://lfj.gg/arbitrum/trade",
+ "github": null,
+ "listed_days_ago": 885,
+ "run_id": "8dfdc0270a2d48cabf65c88f368419e7",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Joe V2.2 live on arbitrum (LBFactory 0xb43120c4...Fe0c, verified impl 0x7a5b4e30...2797, 113 pools) but no function pays a stranger: swap/mint/burn/flashLoan are user actions, collectProtocolFees onlyProtocolFeeRecipient (fresh eth_call reverts 0x3e24df14), increaseOracleLength callable by anyone, succeeds, pays 0 (no transfer in source); 7d (blocks 524561242 ts1794775886..526614463 ts1795380686, 2026-11-15..22): 326 logs, all Swap topic0 0xad7d6f97ab, 4 active pools of 113; TVL 34,418 USD (api.llama.fi 2026-11-22)",
+  "kb": [
+   "attempts:3854",
+   "protocols:2029"
+  ],
+  "run_id": "8dfdc0270a2d48cabf65c88f368419e7",
+  "at": 1795381004
+ }
+}

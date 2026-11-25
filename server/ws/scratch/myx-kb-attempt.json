@@ -1,0 +1,8 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-myx-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only reward-paying entry points on the BSC deployment (StakerV2.distribute and StakerV2.settleRewards, both onlyDistributor) revert for a stranger, HyperVault exposes only deposit/withdraw and the Pool's non-admin functions are user LP actions, so nothing pays a caller. The deployment is also dormant: no events at all on the four protocol contracts for the last ~127 days and TVL is only 38,956 USD, so there is no reward flow to take.",
+ "numbers": "eth_call from 0x1111...1111: settleRewards(address,address) on 0x36f4b2e82355020181a4583507375F0c606d61F9 (impl 0x3984ac3ada0d959ac30e2a46967a2c7298ef3909, StakerV2.sol) -> revert 'Not reward distributor'; distribute(uint256,address[],uint256[]) -> revert (both onlyDistributor per Sourcify source). Activity, no-topic eth_getLogs on 0x22cEc08111BBae24D0b80BDA2a6503EaB9BA704b, 0xD986676EB65bFDB3160303f81FB81607a055c7Bd, 0x36f4b2e82355020181a4583507375F0c606d61F9, 0xbb33D58DDd186F46Cab05F7B30848d89dF71C4E9: 7 d window blocks 133788731 (2026-11-15) to 135132183 (2026-11-22, ts 1795374397) = 0 logs; four more 30-day windows back to ~127 d = 0 each; next older window 104988731-110748731 = 2,543 logs, last log block 110143664 (~2026-07-15). Control same shape no topics: WBNB 0x55d398326f99059fF775485246999027b3197955 blocks 135168100-135168220 = 7,432 logs (bsc getLogs works, zeros are real). Gross per call: none, no calls in 7 d; gas not measured (nothing to call). TVL 38,956 USD (candidate payload / api.llama.fi myx-finance, 2026-11-22). Addresses from the DefiLlama adapter + on-chain ADDRESS_PROVIDER 0x1848effa -> 0xb1274e310910b35f211362dd92e208f4d5293ff0.",
+ "bot_id": null
+}

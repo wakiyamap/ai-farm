@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-avant-avusd",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 543,
+ "chain": "avalanche",
+ "slug": "avant-avusd",
+ "name": "Avant avUSD",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 92176936,
+ "url": "https://app.avantprotocol.com/products",
+ "github": null,
+ "listed_days_ago": 543,
+ "run_id": "23a8246f436e492787fb08608fa53543",
+ "result": {
+  "verdict": "role_gated",
+  "line": "AvantMintingV2 0xcb43..A49c mint/redeem gated by MINTER_ROLE/REDEEMER_ROLE (fresh-address eth_call reverts AccessControlUnauthorizedAccount 0xe2517d3f); last 7d 66 txs (55 redeem 0x95165e8b + 11 mint 0xd48c03e5) all from one protocol relayer 0xd5456b9a99..698d which is paid bash per call (median gas 145,956 @ 9.63 gwei = bash.01 at AVAX .19, coins.llama.fi); sample 5 redeems move ,300-24,138 USDC.e 1:1 to users; savUSD 0x06d4..219E ERC4626 unstake/cooldown are permissionless but pay a stranger bash (rewards vest in the exchange rate; Season-1 points closed 2026-05-15).",
+  "kb": [
+   "attempts:1896",
+   "protocols:521"
+  ],
+  "run_id": "23a8246f436e492787fb08608fa53543",
+  "at": 1794955227
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-scrubvault",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only keeper-style functions on the vault (daily value-update 0xd7779e98, processDeposits(uint256[]) 0x2dd2f137, 0x10b7dac9) revert from a fresh address with AccessControlUnauthorizedAccount / OwnableUnauthorizedAccount; the sole caller in 7 d is the team strategy EOA, and its daily call pays itself nothing (no token transfer in the receipt - the AUM lives off-chain on CEX/DEX and the call just records it). No reward, claim, harvest or bounty function exists to pay a stranger.",
+ "numbers": "7 d window blocks 524397644 (ts 1794727913, 2026-11-15) to 526493858 (ts 1795344296, 2026-11-22), timestamps from eth_getBlockByNumber: 7 txs total on vault 0x439a923517c4dfd3f3d0abb0c36e356d39cf3f9d, all 0xd7779e98 from 0xd47d2f1543cdae1284f20705a32b1362422cb652 (strategy(), full explorer txs listing back to 2026-11-02); 0 user txs, so 0 strangers paid. Gross per keeper call = 0 USDC (receipt 0x30ac7d6a7609dadbab6052db91b8075e77fc93fb4df2659383f089d4d68b9241: 1 event, no transfer; control: processDeposits receipt 0x515e621f... shows USDC+share Transfers fine). Gas: 41,130 gas x 0.02 gwei eff = 8.2e-7 ETH = 0.0014 USD (ETH 1707.59 coins.llama.fi ts 1795344015). totalVaultValue 64,037.47 USDC (0xaf88d065e77c8cc2239327c5edb3a432268e5831, 6 decimals). Impl 0xfabbb804506bcc3cfa65f47480de2c63cebe697a unverified; ABI from bytecode + 4byte."
+}

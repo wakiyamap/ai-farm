@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-tprotocol-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: The verified V1 contracts contain no function that pays a stranger for maintenance. The only fee claim is role gated and sends funds to a fixed collector; redemption only returns the caller's own position.",
+  "numbers": "5 audited contracts verified by nonempty eth_getCode and responding getters on Ethereum, 2026-11-23 21:10-21:13 UTC: pool 0xD38e031f4529a07996aaB977d2B79f0e00656C56, token 0x07Ac55797D4F43f57cA92a49E65ca582cC287c27, Treasury 0xa01D9bc8343016C7DDD39852e49890a8361B2884, Vault 0x7C92EC6E0b7e1fb3E2bBbCbf5ACE74C2b9bC9407, Helper 0xEFaAA84A52397db8AC60F049da06B23E9073d55e. Etherscan verified pool implementation wTBTPoolV2Permission.sol lines 406-429 and 482-580: caller bounty 0 functions; claimManagementFee onlyRole(POOL_MANAGER_ROLE), redeemUnderlyingTokenById only recorded user. Fresh-address eth_call claimManagementFee: missing role; redeemUnderlyingTokenById(0): revert 105. Gross stranger payout: 0 by contract logic; no 7-day call count or USD pricing needed because no qualifying function. Audit address source: https://cert-api.salusec.io/api/v1/salus/contract/certificate/full/2023/TProtocol_audit_report_2023-05-24.pdf."
+}

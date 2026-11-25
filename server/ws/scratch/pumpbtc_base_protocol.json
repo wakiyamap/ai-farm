@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "pumpbtc",
+ "status": "dead_end",
+ "checked": "PumpStaking(cbBTC) proxy 0x1fCca65fb6Ae3b2758b9b2B394CB227eAE404e1E (ERC1967, impl 0xdba4c35012ad6b1ad329524c087c0d0510a86bed from the ERC1967 slot; Blockscout 503 + etherscan not_on_plan, so impl matched by bytecode: 16,532 bytes contains every selector of contracts/PumpStaking.sol on github.com/pumpbtc/pumpBTC-contract) + pumpBTC OFT token 0xF469fBD2abcd6B9de8E169d128226C0Fc90a012e. Addresses from docs pumpbtc.gitbook.io/pumpbtc/key-address (Base section); DefiLlama adapter pulls its owner list from dashboard.pumpbtc.xyz which is 410 Gone. eth_getCode non-0x both; getters answer: token name()='pumpBTC', staking totalStakingAmount()=70,435,175 (8dec). eth_call from fresh addr: stake reverts 'ERC20: transfer amount exceeds allowance' (anyone-callable, pays nothing); claimAll/claimSlot/unstakeRequest/unstakeInstant revert 'PumpBTC: only allow stake at first' (onlyAllowStake=true, pool in stake-only mode); collectFee reverts OwnableUnauthorizedAccount 0x118cdaa7; deposit/withdraw are onlyOperator. User functions (stake mint, claim/unstake transfers) pay only msg.sender's own stake; no function pays a caller who is not a staker."
+}

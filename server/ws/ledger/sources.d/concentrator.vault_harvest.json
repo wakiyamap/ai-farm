@@ -1,0 +1,27 @@
+{
+  "id": "concentrator.vault_harvest",
+  "protocol": "concentrator",
+  "kind": "harvest_bounty",
+  "chains": {
+    "ethereum": [
+      "0xc8fF37F7d057dF1BB9Ad681b53Fa4726f268E0e8",
+      "0x3Cf54F3A1969be9916DAD548f3C084331C4450b5",
+      "0xD6E3BB7b1D6Fa75A71d48CFB10096d59ABbf99E1",
+      "0x50B47c4A642231dbe0B411a0B2FBC1EBD129346D",
+      "0x59866EC5650e9BA00c51f6D681762b48b0AdA3de"
+    ]
+  },
+  "event": "Harvest(uint256,address,address,uint256,uint256,uint256)",
+  "indexed": [
+    "pid",
+    "caller",
+    "recipient"
+  ],
+  "data": [
+    "rewards",
+    "platformFee",
+    "harvestBounty"
+  ],
+  "actor_field": "recipient",
+  "topic0": "0x7f335cc9a8cd67791036a4f16368d3aec8d7ae507522515a165038ad70fc8b57"
+}

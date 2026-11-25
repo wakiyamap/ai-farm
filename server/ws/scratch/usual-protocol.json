@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "usual",
+  "status": "measured",
+  "checked": "Identity from official tech docs (usual.money -> tech.usual.money contract-deployments + protocol-contracts pages), not memory: USD0 0x73A15FeD60Bf67631dC6cd7Bc5B6e8da8190aCF5, bUSD0 (formerly USD0++) 0x35D8949372D46B7a3D5A56006AE77B215fc69bC0, USD0a 0x2e7fC02bE94BC7f0cD69DcAB572F64bcC173cd81, USUAL 0xC4441c2BE5d8fA8126822B9929CA0b81Ea0DE38E; all 40-hex, eth_getCode>0 (1129-byte proxies) verified on ethereum run f6dd7225 2026-11-12. Mechanism per docs: RWA-collateralized stablecoin (DaoCollateral mints/redeems USD0 vs USYC at exchange rate), USD0++/bUSD0 liquid bond redeemable from USD0 at a dynamic utilization-dependent redemption fee (peg mechanism, Liquity-style per lead 117 class list), SwapperEngine matches USDC-USD0 orders at oracle price (no caller fee). Transfer density at head 26396649 over 20000 blocks: 119 USD0++ / 944 USD0 logs - venue active (attempt 979). Ledger sources do not track this protocol yet."
+}

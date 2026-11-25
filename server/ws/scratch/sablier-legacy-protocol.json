@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "sablier_legacy",
+  "status": "dead_end",
+  "checked": "Sablier v1 on ethereum: two escrow contracts from DefiLlama adapter (0xA4fc358455Febe425536fd1878bE67FfDBDEC59a v1.0.0, 0xCD18eAa163733Da39c232722cBC4E8940b1D8888 v1.1.0); both eth_getCode non-0x, nextStreamId() answers (5582 and 105528). Verified source from etherscan: withdrawFromStream and cancelStream both require onlySenderOrRecipient modifier (confirmed by eth_call revert from random address: 'caller is not the sender or the recipient of the stream'). takeEarnings(address,uint256) in v1.0.0 is onlyOwner. No stranger-payable function exists. 0 events on both contracts in last 7d (blocks 0x1931b96-0x193e073, ts 1794719387-1795324187; control: 3 WithdrawFromStream events found in blocks 0x1920000-0x1931b96 confirming topic0 0x36c3ab43... correct)."
+}

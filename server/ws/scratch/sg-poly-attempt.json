@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-stargate-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the Stargate V1 Router on Polygon has no function that pays a caller reward - user ops (addLiquidity/swap/instantRedeemLocal/redeemLocal/redeemRemote/sendCredits) pay the caller their own funds and the caller pays gas, and the retry-path functions (retryRevert/revertRedeemLocal/clearCachedSwap) redeliver a stuck message to its original receiver for $0 while callDelta rebalances and pays nobody. All Pool state fns are onlyRouter; Bridge fns are onlyRouter/endpoint/owner. Identical design and verdict to stargate_v1 arbitrum (protocols:1005) and base (protocols:1010).",
+  "numbers": "Router 0x45A01E4e04F14f7A4a6702c74187c5F6222033cd (verified source, factory()=0x808d7c71ad2ba3fa531b068a2417c63106bc0949); 5 pools (ids 1 USDC.e, 2 USDT, 3 DAI, 16 miMATIC, 20 WETH/etherToken 0x1b815d120b3ef02039ee11dc2d33de7aa4a8c603). 7d router traffic (blocks 97,187,520-97,590,720, Blockscout API 2026-11-19): 141 txs = 139 instantRedeemLocal + 2 swap, 127 unique callers, 0 retryRevert/clearCachedSwap/callDelta. eth_call callDelta(1,false) from fresh 0x1111..11 succeeds (0x) - callable, pays 0. Gas per call $0.0037 (sample instantRedeemLocal 0xe1dbaa81...: 139,948 gas @ 320.29 gwei = 0.0448 POL; POL $0.0815 coins.llama.fi 2026-11-19 12:37Z). TVL reported 492,399 USD. getLogs for Revert/CachedSwapSaved over 403k blocks refused on scout lane (public node caps ranges at 100 blocks); method-complete tx list used instead."
+}

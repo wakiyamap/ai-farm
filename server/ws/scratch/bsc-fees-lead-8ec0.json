@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "target": "topic-net leftovers on bsc: KeeperBountyPaid 0xbc40aeed9cd632e551792a4ccabd594370b56040 (0.1 USDT per call) and TriggerFeePaid 0xd4de54140e7858d276c0982b4ae6ec0c58526bdd (0.0002 BNB)",
+  "status": "dead_end",
+  "next_steps": "CLOSED 2026-11-19 by attempts:2339. TriggerFeePaid entry 0x7fedff4e rejects a fresh caller for missing AccessControl role (parent-block debug_traceCall; scratch/bsc-trigger-stranger-trace.json), and its 0.0002 BNB fee went to a contract rather than tx sender in the original trace. KeeperBountyPaid harvest is open and pays the caller 0.1 USDT, proven by original/fresh parent-block traces, but a complete 7-day emitter/topic scan (269 requests, positive control at block 134404421) found only 7 calls, 0.7 USDT gross/week to 3 caller EOAs. The sample call cost about 0.048 USD gas. Reopen only if the harvest fee increases materially or frequency rises by >10x; then verify a full same-tx USDT-to-USDC or native profit route."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-stellar-blend-pools",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 899,
+ "chain": "stellar",
+ "slug": "blend-pools",
+ "name": "Blend Pools",
+ "category": "Lending",
+ "tvl_usd": 34961,
+ "url": "https://www.blend.capital",
+ "github": null,
+ "listed_days_ago": 899,
+ "run_id": "f9906d21c2444df2bf6c33c440f9dd56",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Blend v1 family (17 pools from DefiLlama adapter, TVL 34,961 USD): source audit (blend-contracts main, pool 1.0.0) shows no fn pays an external caller - update_status/bad_debt/gulp_emissions/new_*_auction are no-auth but credit the pool, submit/claim are user actions, admin fns role_gated; 7d window ledgers 65493645-65614605 (2026-11-15T14:51Z-2026-11-22T14:53Z) had 1 event across all 17 pools (USDC control positive) = user withdraw_collateral tx cbb9416d..; 0 liquidations/auctions; XLM 0.1277 USD coins.llama.fi t=1795359165.",
+  "kb": [
+   "attempts:3752"
+  ],
+  "run_id": "f9906d21c2444df2bf6c33c440f9dd56",
+  "at": 1795359457
+ }
+}

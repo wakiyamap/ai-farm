@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "honeyswap",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter: registry registries/uniswapV2.js entry 'honeyswap' polygon factory 0x03daa61d8007443a6584e3d8f85105096543c19c (eth_getCode non-empty; allPairsLength()=355 matches 355 PairCreated logs). Verified source DXswapFactory.sol (Honeyswap = DXswap/Uniswap V2 fork). Factory functions: createPair (trade, no pay), setFeeTo/setFeeToSetter/setProtocolFee/setSwapFee/setHalfFeeToken (feeToSetter-gated). Pair: mint/burn/swap (trade/LP ops, caller pays gas, protocol pays nothing), skim(to) callable by anyone (eth_call from fresh address returns 0x) but excess balance over reserves = 0 on the 6 busiest pairs. 1Hive HoneyFarm 2021 program (1Hive/honeyswap-farm addresses.json polygon farm 0x62d7e2484fcfc6752b9473260efe1b86cabac34e, claimer 0xB4252EE3503C39C08DC429B4081Cd0100187a721): HNY balance 0.00 each (HNY 0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b, symbol+decimals read on chain). No reward/claim/keeper function in the adapter's contracts."
+}

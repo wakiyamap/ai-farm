@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-wan-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Ethereum lock 0xfceaaaeb8d564a9d0e71ef36f027b9d162bc334e (CrossProxy -> CrossDelegateV7 impl 0x86ec03f7bafab24f69ebc456cc429b6f389ea4e4, unverified). The keeper functions smgRelease/smgMint revert 'caller is not authorized' from a stranger; only Wan's storeman relayer 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7 calls them (30/30 release sample, 7/7 mints in 7d). The stranger-callable smgWithdrawHistoryFee pays 0: storeman fee pot getStoremanFee('Aries_072')=0, and release fees go straight to partner 0x34d7ece3a2846dc90a763f42f46898f94bfcbabd (getPartners()[2]) in the same tx. Same dead end as the five sibling chains already recorded.",
+ "numbers": "7d = blocks 26414782 (2026-11-14 17:41 UTC) to 26465059 (2026-11-21 17:46 UTC), no-topic eth_getLogs scan on the lock = 764 logs: 352 smgRelease txs (topic0 74a78f7a from the scan), 352 companion 9b6eb2ca, 38 userLock, 8 userBurn-family, 7 smgMint txs; caller = 0xd1eb8e69.. in 30/30 release + 7/7 mint sample. One smgRelease: gas 218,535 @ 0.1764 gwei = 0.065 USD (ETH 1676.39 USD coins.llama.fi ts 1795283424); pays caller 0 USD (receipt 0xe5138d2d..: USDC 38.05 to partner 0x34d7ece3.., 18,987.80 to recipient; USDC 6 decimals decoded); gross reward to a stranger 0. getStoremanFee=0 (eth_call)."
+}

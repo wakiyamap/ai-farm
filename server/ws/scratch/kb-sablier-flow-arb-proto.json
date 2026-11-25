@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "sablier_flow",
+ "status": "dead_end",
+ "checked": "4 flow contracts from the Envio index the DefiLlama adapter queries (https://indexer.hyperindex.xyz/53b7e25/v1/graphql, category=flow, chainId=42161): 0x87cf87ec5de33deb4a88787065373563ba85ee72, 0x18a12a7035aa56240bcd236bc019aa245dcc015a, 0xf0f6477422a346378458f73cf02f05a7492e0c25, 0xa70b8555157500b11f41a37dd93f4b4e997d583d; all 4 eth_getCode non-0x, name() = 'Sablier Flow NFT' answers on each. Verified source (Etherscan, SablierFlow.sol + ISablierFlow.sol): the only stranger-callable money-moving functions are withdraw/withdrawMax, which pay the stream recipient argument (to must be the NFT owner, else caller must be owner or approved); deposit/refund/pause/void/restart/adjustRatePerSecond are sender/recipient-gated. eth_call from fresh address: withdraw(11,to=owner,1) succeeds (returns 1, protocolFee 0), withdraw(11,to=stranger,1) reverts SablierFlow_WithdrawalAddressNotRecipient (0x4208ab4c). No keeper fee or bounty exists: protocolFeeAmount is deducted from the recipient's amount and was 0 in all 7-day events. 6 withdrawals in the last 7 days, all self-claims, 0 USD to strangers. Same verdict as ethereum (attempt 3102)."
+}

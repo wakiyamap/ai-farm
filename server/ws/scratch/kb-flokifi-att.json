@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-flokifi-locker",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The vault functions that move value (vest, partialVest, extendLock, collectV3PositionFees, unlock) all revert 'Vault:onlyKeyHolder:UNAUTHORIZED' when called from a fresh address, so only the VaultKey ERC721 holder can call and they pay that holder, not a stranger. The protocol pays fixed USDT lock fees to itself (docs), not caller rewards; factory 0x8b0185533313fcb4cb94e4c4d000b5c7b4def9b8 saw 0 events in two 100k-block windows (head and 7 days ago) so it is quiet too.",
+  "numbers": "vault 0xBb0265021e03a048A6E8DcF249CD5067f35dB45D vest() 0x458efde3 from 0xdEaD revert Vault:onlyKeyHolder:UNAUTHORIZED; 0xB774D5dB955940fb116731b4f16E5F4aDB85CE4b extendLock/collectV3PositionFees same revert; V3 diamond 0x3261BcfA1DC72d56e48328E16Aa5c37756e1d7B4 vest -> 'Diamond: Function does not exist'; factory 0x8b0185533313fcb4cb94e4c4d000b5c7b4def9b8 + VaultKey 0x50f1b3066656a8eb61847662b587373b4b4823fe; eth_getLogs 0 factory events in 20x5000 at head 134431495 and 0 in 20x5000 ending head-700000; control USDC 0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d 58,620 Transfers in 3x5000 (same shape); 527 vaults, TVL 8,200,588 USD (DefiLlama)",
+  "bot_id": null
+}

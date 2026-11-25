@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-baseline-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the only anyone-callable reward path on the Baseline Mercury relay is BController.claimPoolFees(bToken): callable by a fresh address (eth_call ok) but it pays 0 to the caller; all of the creator fee is sent to the pool's fixed feeRecipient 0x7e26173192d72fd6d75a759f888d61c2cdbb64b1 (REPPO's team). Staking yield goes only to stakers via BStaking.claim (needs staked REPPO); a fresh address claims 0. No keeper incentive exists for anyone else.",
+  "numbers": "7d to 2026-11-18 (relay 0xc81fd894c0ace037d133af4886550ac8133568e8, eth_getLogs 56,057,402..59,117,402, 4044 logs, 61x50k windows): claimPoolFees 6 calls, all from 0x5996b5c566680c0257a9b683807813dea98cf39e, gross to feeRecipient 6,656.9 VIRTUAL = $2,860 at $0.4296 (coins.llama.fi), protocol share 0, gross to caller $0, gas 86,024/call @ 0.006 gwei eth_gasPrice = 5.2e-7 ETH (<$0.002); creatorClaimable now 2.27 VIRTUAL (~$0.97). Staking Claim events 54 = 1,279.94 VIRTUAL = $550/7d to ~10 staker EOAs (max single 256.08 VIRTUAL = $110, tx 0xb69cbf8d...); Liquidate events 0. One active pool only (REPPO/VIRTUAL)."
+}

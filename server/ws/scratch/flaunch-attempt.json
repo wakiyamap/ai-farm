@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-flaunch",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Flaunch (Base launchpad, Uniswap v4 hook) has no publicly callable function that pays the caller or a recipient argument: fees are collected automatically inside swaps, treasury actions are creator-gated, FeeEscrow.withdrawFees pays only balances[msg.sender], flETH.harvest() pays a fixed yieldReceiver (and currently reverts from a stranger with ETH_TRANSFER_FAILED). Verdict no_reward.",
+  "numbers": "TVL $1,256,831 (candidate) ~= underlyingETHBalance 703.5 ETH x $1811.11 ETH/USD (coins.llama.fi, 2026-11-18). flETH accumulated yield 0.1827 ETH = $331 owed to yieldReceiver 0xa5e76f79b7e05602c09e56f4ccad9c3507b3f471, not the caller. Base gasPrice 0.006 gwei (eth_gasPrice) -> ~$0.003 per 250k-gas call. Blockscout tx list for the flETH vault over the last ~5 days (control: transfers/withdraws visible in same list) shows only user deposit/withdraw from 0x08eb627c...: 0 harvest() calls in 7 days. Sources: DefiLlama adapter projects/flaunch/index.js, flayerlabs/flaunchgg-contracts README + verified sources on Base explorer."
+}

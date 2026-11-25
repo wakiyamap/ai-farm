@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "Liquity v1 LUSD public redemption arbitrage (legacy TroveManager, non-liquidation breadth)",
+  "outcome": "review_fix",
+  "bot_id": "lusd-redemption-ethereum",
+  "reason": "Review cbd90bc236e54493af03ef4deb9dd0c8: fix. Executor sends profit as USDT to bot wallet, but gate/watchdog/sweep count only USDC/native (decision 2026-11-11-executor-bots-funds). Submitted success tx 0x032581144b391b0d2eb93ee86f667e8d3aa5fc0bfa41c1ddc6abc84738c308a7 used 327,764 LUSD, while bot.js sends 3,000; no proof at live size. Bot expected-gross formula ignores redemption fee and can send loss-making attempts: at premium 1.0814 and 5% fee, 1.0814*0.95-1.045=-0.01767 USDT/LUSD before swap fees. README counts 48-second minimum / ~150-second median windows for 240-second polling and has no per-occurrence net-after-gas table, so EV is unverified. Current ledger source liquity_v1.redemption has only two rows, not the claimed ten. See bots/paper/lusd-redemption-ethereum/review.md.",
+  "numbers": "Static manifest PASS. 2 eth_call x 500 CU x 360 polls/day=360,000 CU/day=$0.191/day at $0.53/M CU; + submitted 25,000 hint CU=$0.204/day. Ledger query SELECT COUNT(*),MIN(block),MAX(block) FROM events WHERE source_id='liquity_v1.redemption' yielded 2,26383264,26410255 at 2026-11-14 04:12 UTC. Paper logs idle only since 2026-11-14 03:46:54Z."
+}

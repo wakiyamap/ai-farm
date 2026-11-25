@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-rocifi-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The two keeper-ish functions (PoolInvestor.collect, RociPayment.liquidateLoans) are onlyRole-gated to single whitelisted EOAs (address-book roles), both revert from a fresh address, and the protocol is fully idle: 0 logs from all 9 protocol contracts in the last 7 days, TVL flat $27.8k with 0 borrowed, so no interest accrues for anyone. Last activity anywhere: payment contract tx 2026-09-14 (withdrawl by user), liquidator/collector EOAs last active March 2023.",
+  "numbers": "7d window blocks 97406253 (2026-11-16 07:40 UTC) to 97809453 (2026-11-23 07:40 UTC), eth_getLogs address-filter on 9 protocol addresses (no topic0): 0 logs. Control same run+shape: USDC.e 40741 logs/200 blocks, WETH 3088/3000 blocks. TVL 27818 USD, borrowed 0 (api.llama.fi/protocol/rocifi-v1, 2026-11-23). RevenueManager 0x10C9F64289cc5114E8854Cc216aD75a0d19d60b5 holds 21396.61 USDC.e (0x2791bca1f2de4661ed88a30c99a7a9449aa84174, 6 decimals read on chain; usd ~21.4k at ~1:1, unpriced otherwise) but only ROLE_ADMIN can withdraw it (withdrawToken). Payment contract last tx ts 1789391128 = 2026-09-14 (explorer txs, ~70 d before now 1795419648); collector EOA last collect() tx ts 1679216674 = 2023-03-19; liquidator EOA last liquidateLoans tx ts 1676970067 = 2023-02-21. eth_call collect([],\"\") and liquidateLoans([],\"\") from 0x1111...1111 both revert (role). Selectors: collect 0x866aa4ad, liquidateLoans 0xff961637, addressList 0xb810fb43 (cast sig)."
+}

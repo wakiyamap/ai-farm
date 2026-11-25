@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-stoneusd",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the only BSC contract of STONEUSD is the StakeStone USD ERC-20 token; its whole callable surface is ERC-20 + role-gated mint + self-burn + a whitelist/blacklist registry, and no function that anyone can call pays the caller. The token is also nearly idle.",
+  "numbers": "token 0x8B4E28607bdcacBf937f81F29E3DAFe7Bc1D7c0b, totalSupply 129,350.69 (api.llama.fi 2026-11-17, TVL $134,434); 21 dispatch selectors from 6,807 B of runtime code (no reward fn); eth_call mint(addr,uint) from fresh addr reverts AccessControlUnauthorizedAccount (role 0x9f2df0fe = DEFAULT_ADMIN_ROLE); accessRegistry 0x8449e6886bf865d522e10cc420f92b980c6b223d; 0 Transfer logs in 4x5,000-block windows at ~1h/1d/3.5d/7d before block 134,196,788 vs control USDC 35,079 in same window (eth_getLogs, research lane)"
+}

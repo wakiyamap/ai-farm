@@ -1,0 +1,11 @@
+# Phase 14a: the Claude reviewer (reviews bots built by Codex), 90 minutes after the last run ended.
+[Unit]
+Description=Farm paper reviewer on Claude (paper-reviewer-claude)
+
+[Timer]
+OnActiveSec=10min
+OnUnitInactiveSec=90min
+Unit=agent@paper-reviewer-claude.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "actor-bsc-0xd3e8b276455ee1481d83d0d0cac2753de276f6a9",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the actor is a self-operated UniswapX dutch-fill conduit, not a paid keeper - the reactor pays no reward and the contract's token in == out exactly in every fill (balance never changes); the value capture is a 0.2-1.9% spread fee skimmed to the operator's own ERC-4337 wallet 0x500368ecf9046e546219a13ec421354cc99c8fda, i.e. its own funds and its own RFQ-style business. Activity is also sporadic: 10 fills over Nov 6-12 then 0 fills Nov 13-17.",
+ "numbers": "10 fills 2026-11-06..12 (ledger actor_daily uniswapx.fill bsc; 1/3/4/2 per day on Nov 6/9/10/12) then 0 fills in blocks 133733425-134027074 (eth_getLogs with same-shape control returning other fillers). Fill sizes ~$90-30k USDT legs, one $419k outlier (fee 936 USDT on 0xf556044b). Fee skim 0.2-1.9% of order size to 0x500368ec... in all 10 fills; est ~$10-17/fill-day typical. Gas 350k-1.34M gas at 0.1 gwei = $0.02-0.08/call (BNB $590.63, coins.llama.fi 2026-11-17). Reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 Fill event = Fill(bytes32,address,address,uint256)."
+}

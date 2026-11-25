@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "veno_finance",
+  "status": "dead_end",
+  "checked": "Cronos liquid-staking protocol's ethereum contracts from DefiLlama adapter projects/venofinance/index.js (module venofinance; adapter path veno-finance is 404). Three ERC1967 proxies, all eth_getCode non-empty, one getter each answers (2026-11-21): zkCRO 0x28Ff2E4dD1B58efEB0fC138602A28D5aE81e44e2 (impl 0x34b35bed5aced7c4472de906912acb3e4c4616a5, verified source ZkCro.sol; totalPooledCro 133.37M CRO), ybETH 0x76bf2D1e6dFda645c0c17440B17Eccc181dfC351 (impl 0xc0c23f557e0e9cc324e2817f26fffcca4952d6a2, verified source YbEth.sol; totalPooledEth 303.12 ETH), ybUSD 0xFA59075DfCE274E028b58BdDFcC3D709960F594a (impl 0xd501a4d2141799f3228c40af972df622c632b7ce, verified source YBUSD.sol, an sDAI vault; totalUsdValue 2.6047M). Every reward/maintenance function is role-gated: accrueReward, withdraw, setUnbondingBatchStatus, pauseDueSlashing = ROLE_BOT; slash = ROLE_SLASHER (ybETH) / admin (zkCRO). eth_call accrueReward(uint256,string) from fresh 0x1111...1111 reverts custom 0xe2517d3f(caller, role 0x5bf81cab...) = AccessControl missing role. Open functions are user ops only (stake/unstake/deposit/redeem; unbond needs the user's own unbond NFT and its fee goes to the treasury). No open function pays anything to the caller."
+}

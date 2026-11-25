@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-mayan-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 256,
+ "chain": "arbitrum",
+ "slug": "mayan-bridge",
+ "name": "Mayan Bridge",
+ "category": "Bridge",
+ "tvl_usd": 29213,
+ "url": "https://mayan.finance/",
+ "github": null,
+ "listed_days_ago": 256,
+ "run_id": "6689d0d2843d4adc869869f913e72728",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Mayan Swift refundOrder on SwiftSource 0x40fF...2960 (arbitrum): 24 calls / 7 d (blocks 524441672-526498900; control OrderUnlocked 3156), stranger EOA 0x04d9634d took 23 of 24 and holds 11.25 USDC unclaimed in FeeManager 0x54914A...D88; gross to callers 3.354 USD = 0.48 USD/day (2.4246 USDC + 0.6156 USDT0 + 0.000184 WETH), median 0.0048 USD max 0.982 per call vs gas 0.0102 (275k-331k at 0.020 gwei, ETH 1708.67 coins.llama.fi), 9 of 24 gross > gas; old Swift 0xC38e4e6A dormant; lead kept blocked_infra per attempts:2984 (needs an off-chain Wormhole VAA)",
+  "kb": [
+   "attempts:3702",
+   "leads:400",
+   "protocols:1921"
+  ],
+  "run_id": "6689d0d2843d4adc869869f913e72728",
+  "at": 1795346773
+ }
+}

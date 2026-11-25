@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-gammaswap-open-interest",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 947,
+ "chain": "arbitrum",
+ "slug": "gammaswap-open-interest",
+ "name": "GammaSwap Open Interest",
+ "category": "Options",
+ "tvl_usd": 30792,
+ "url": "https://app.gammaswap.com/",
+ "github": null,
+ "listed_days_ago": 947,
+ "run_id": "87900b25145f4d2b8e3892e98b3f0ccd",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only liquidate/liquidateWithLP pay the caller on the 52 GammaPools (factory 0xfd513630f697a9c1731f196185fb9eba6eaac20b) and both revert 0xd891a1b7 NotLiquidator() from a fresh address - LIQUIDATOR immutable = 0x0832daea5b80e3e4fdc39bfb42c55eb11f0223e4, not a whitelist. 7 d = blocks 524,569,573 (2026-11-15T21:35Z)..526,628,116 (2026-11-22T22:03Z): 79 logs / 35 txs / 4 addresses, 0 liquidations, 29 of 35 from GammaSwap's own keeper 0x820c5a8b37b37274bb8418e854c44a13451fff32; stranger gross 0 USD vs gas 0.026 USD (759k x 0.02 gwei, ETH 1714.65); TVL 31,390 USD.",
+  "kb": [
+   "attempts:3881",
+   "protocols:2048"
+  ],
+  "run_id": "87900b25145f4d2b8e3892e98b3f0ccd",
+  "at": 1795385995
+ }
+}

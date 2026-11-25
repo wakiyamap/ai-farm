@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-peakdefi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "peakdefi",
+ "name": "PEAKDEFI",
+ "category": "Yield",
+ "tvl_usd": 110212,
+ "url": "",
+ "github": [
+  "PeakDeFi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "0f6d021196ff430e807e3a6bac6be229",
+ "result": {
+  "verdict": "unpaid",
+  "line": "peakdefi: 2 fund proxies 0x07cD/0xC120 hold 110,225 USDC; only public keeper fn nextPhase() mints 1 RepToken only if caller already holds RepToken (stranger paid 0 USD); 0 nextPhase calls in 7d (blk 26,418,023 11-15 to 26,468,289 11-22, ChangedPhase topic0 from tx 0x26e3590f receipt; control 3 logs Oct 9-Nov 7, last caller manager 0x9cc423e8); gas 118,176x0.055gwei=0.011 USD at ETH 1,659 (llama 11-22); both funds mid-Manage till ~Dec 4/Dec 25, stranger nextPhase eth_call reverts on timing",
+  "kb": [
+   "attempts:3588"
+  ],
+  "run_id": "0f6d021196ff430e807e3a6bac6be229",
+  "at": 1795322213
+ }
+}

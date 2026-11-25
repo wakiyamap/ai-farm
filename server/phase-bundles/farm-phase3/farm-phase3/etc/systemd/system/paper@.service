@@ -1,0 +1,28 @@
+# One paper (simulation) bot. Started only through paper-ctl.
+[Unit]
+Description=Farm paper bot (%i)
+After=rpc-relay.service
+Requires=rpc-relay.service
+StartLimitIntervalSec=10min
+StartLimitBurst=5
+
+[Service]
+Type=exec
+User=farmbot
+Group=farm
+WorkingDirectory=/srv/farm/ws/bots/paper/%i
+ExecStart=/srv/farm/ws/bots/paper/%i/run.sh
+Environment=RPC_RELAY_URL=http://127.0.0.1:8545 RPC_LANE=paper BOT_ID=%i BOT_MODE=paper
+Environment=HOME=/srv/farm/ws/bots/paper/%i/state PATH=/opt/node/bin:/usr/local/bin:/usr/bin:/bin
+Restart=on-failure
+RestartSec=20
+UMask=0007
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/srv/farm/ws/bots/paper/%i/logs /srv/farm/ws/bots/paper/%i/state
+MemoryMax=2G
+CPUQuota=100%
+TasksMax=256
+SyslogIdentifier=paper-%i

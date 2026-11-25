@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-uncx-network-v4",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 138,
+ "chain": "ethereum",
+ "slug": "uncx-network-v4",
+ "name": "UNCX Network V4",
+ "category": "Token Locker",
+ "tvl_usd": 1627664,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 138,
+ "run_id": "ba44cf47a4594e9a981d4b620c197b2c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "3 UniV4 lockers from adapter projects/unicrypt-v4 (0x147aeca..ff403f8 V3, 0x30529a..f023 V2, 0x6a76da..40ef V1), all verified 0.8.26: collect/unlockLiquidity/relock/migrate require lock.owner (collect also one AUTO_COLLECT_ACCOUNT 0xd45dd91df475bfd944335160f538c1a14888dc1c), eth_call from fresh addr reverts NotOwner() 0x30cd7471; only lockNFTPosition is open but CHARGES flatFee 0.1 ETH; 7d (blocks 26407498-26457898, no-topic getLogs) = 4 txs all lockNFTPosition by end users, 0 paid to anyone.",
+  "kb": [
+   "attempts:2924"
+  ],
+  "run_id": "ba44cf47a4594e9a981d4b620c197b2c",
+  "at": 1795181729
+ }
+}

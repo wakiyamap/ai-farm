@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-tenderize-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1022,
+ "chain": "ethereum",
+ "slug": "tenderize-v2",
+ "name": "Tenderize V2",
+ "category": "Liquid Staking",
+ "tvl_usd": 119025,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1022,
+ "run_id": "60063268cfd340a2b790827f1379a81b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "rebase() is anyone-callable (eth_call from fresh addr ok; 226,458 gas = bash.05 at 0.1366 gwei) but pays caller bash (fee minted to registry.treasury, Tenderizer.sol L148-156); 0 calls across all 34 Tenderizer clones in 7d (blocks 26,412,582-26,462,829 = 11-14..11-21; control same shape 90d = 15 logs, all user ops, newest 26,337,188 = 11-03); ethereum TVL 06,253, largest clone 82,046 POL @ bash.07435 = ,100.",
+  "kb": [
+   "attempts:3278",
+   "protocols:1603"
+  ],
+  "run_id": "60063268cfd340a2b790827f1379a81b",
+  "at": 1795257007
+ }
+}

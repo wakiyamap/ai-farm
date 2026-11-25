@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-termfinance-parity",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. TermFinance Parity is three plain MetaMorphoV1_1 ERC-4626 vaults on Morpho (~245k USD total, 239.8k in pcHYUSDC); no function anyone can call pays the caller or a recipient for free: maintenance (reallocate, updateWithdrawQueue, submitCap, ...) is allocator/curator/owner-gated and pays nothing even when called, and the only unrestricted non-ERC20 fn skim(address) pays skimRecipient which is 0x0, so it reverts. All three vaults are fully dormant: 0 events in the last 7 days.",
+  "numbers": "pcHYUSDC 0xF1CfaA17d21B399F122B8615FAc12F95766eBed3 totalAssets 239,767.90 USDC (6 dec, asset() read on chain); pcUSDC 0x10Becd2559671b36E9D43C8cE6c0B86E16C59420 5,538.81 USDC; pcETH 0xB7fC92B6ddc6612623812106e5B7532D3a48420B 0.007157 ETH. 7-day no-topic getLogs 3 addresses blocks 26406021-26456165 = 0 logs (no-topic scan, so no topic0 assumption; control same shape 25666500-25666700 = 6 logs); last tx to vaults block 25666610 2026-08-02 (explorer txs). eth_call from 0x...dEaD: reallocate reverts 0xf7137c0f (NotAllocatorRole), skim reverts 0xd92e233d (ZeroAddress), skimRecipient()=0x0. Prices coins.llama.fi ts 1795179229: USDC 0.99985, ETH 1742.53. No candidate function, so no gross/gas to report."
+}

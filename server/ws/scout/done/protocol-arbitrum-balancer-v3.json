@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-balancer-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 705,
+ "chain": "arbitrum",
+ "slug": "balancer-v3",
+ "name": "Balancer V3",
+ "category": "Dexs",
+ "tvl_usd": 322625,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": 705,
+ "run_id": "7f536973fed24fada910ae8598a589fc",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: Balancer V3 arbitrum has no caller-reward fn; the only permissionless settle fn ProtocolFeeController.collectAggregateFees (0x4638ab64..) pays caller $0 (fees -> DAO treasury 0x9ff471f9.., pot 0.118 RETH ~$214), last called 2025-04-18; Vault alive but swappers pay: 59 Swap + 8 Removals + 0 Adds in 7d (blocks 522839210-525258410, 1inch/0x aggregators); 211,959 gas x 0.02 gwei = $0.008/call (ETH $1813.65 coins.llama.fi)",
+  "kb": [
+   "attempts:2044"
+  ],
+  "run_id": "7f536973fed24fada910ae8598a589fc",
+  "at": 1794986769
+ }
+}

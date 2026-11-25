@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-kvants",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 365,
+ "chain": "base",
+ "slug": "kvants",
+ "name": "Kvants",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 64998,
+ "url": "https://kvants.ai",
+ "github": null,
+ "listed_days_ago": 365,
+ "run_id": "e4efa9961b33450887f0e64dd53870dc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Kvants Base = one idle Enzyme Onyx vault 0xfb48..539e (TVL 66,787 USD DefiLlama 2026-11-22): all settlement functions (updateShareValue 0x189ee485, executeDepositRequests 0xcdbeb6f6, claimFees) are onlyAdminOrOwner, revert 0x7b034dab from a fresh address; 0 events in 7 d (blocks 57,773,342 2026-11-15 -> 60,797,343 2026-11-22; control 214 logs since creation 41,799,158 2026-02-06); last vault tx 2026-02-07, last share-value update 2026-03-31; gross 0 USD/call, no keeper reward anywhere.",
+  "kb": [
+   "attempts:3718"
+  ],
+  "run_id": "e4efa9961b33450887f0e64dd53870dc",
+  "at": 1795350090
+ }
+}

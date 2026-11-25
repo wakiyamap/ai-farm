@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "target": "FraxLend V1 (legacy FraxlendPair) liquidation class on ethereum: 71 registry pairs, 5.8M USD borrow book, dirty-mode 11% collateral bonus measured",
+ "status": "dead_end",
+ "why": "Legacy FraxLend V1 is still live (Transfer/Borrow-class logs recent on measured markets) with a permissionless liquidate(uint128,uint256,address) and measured dirtyLiquidationFee=9000 (liquidator repays 1.0x debt for ~1.111x collateral when dirty) vs cleanLiquidationFee=10000 (no bonus); the farm has never measured the liquidation cadence here. Lead NOT closed: cadence, gross per capture and the liquidatability window are unmeasured; only identity + bonus mechanism are pinned. SUPERSEDED 2026-11-21 run 0bb744b3 by leads:371 (measured) and attempts:3418: the 7-day window blocks 26414805-26465058 (2026-11-14T17:46Z to 2026-11-21T17:45Z) holds 19 Liquidate events (2.7/day, not the 0.21/day of attempts:401's 90-day window) worth 1115.24 USD gross against 139.19 USD gas, taken by 9 distinct EOA callers; the 90-day dead_end still holds for the dust captures, the money is in the 100+ USD captures."
+}

@@ -1,0 +1,4 @@
+{
+  "status": "dead_end",
+  "next_steps": "CLOSED 2026-11-08 run b39d97e4 (attempt 536): $NODE is a 170-byte ERC1967Proxy (slot 0x360894...505d382bbc -> impl 0x41d0b9DFbF915A77E6db1c1880C4d3B4F27A9B77 'NODE', OZ v5 ERC20 + AccessControl + UUPS + transfer-timestamp lock; no claim function in the ABI); issuance is a minter EOA 0xc55c1ccd0a6028be42d37b72794d8433a3cfaaaa calling mint(address,uint256) to fixed beneficiaries - last mints blocks 26104553 (24,515.70 $NODE) / 26137398 (dust), 0 mints in the last 100k blocks; prestateTracer on the last big mint shows caller pays only gas (-0.000013707 ETH), the token lands in the beneficiary's balance. No anyone-callable claim, no caller reward: payment leg absent. Do not reopen without a NodeOps on-chain reward pool appearing (sentinel: a verified NodeOps contract with a payable claim function funded with ETH)."
+}

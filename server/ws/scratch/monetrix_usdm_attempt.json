@@ -1,0 +1,8 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-monetrix-usdm",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Every keeper-shaped function (MonetrixVault settle, distributeYield, keeperBridge, fundRedemptions) requires the ACL OPERATOR role (standard OZ AccessControl, protocol hot wallets; no open registration); a fresh address reverts NotAuthorized(OPERATOR). Even the operator earns nothing: no token transfer to the caller in 2 sampled keeper txs (receipts), and the permissionless user ops (deposit/requestRedeem/claimRedeem/claimUnstake) pay only the caller's own funds - no stranger-payable reward function exists.",
+  "numbers": "7d window blocks 50,885,632-51,461,013 (2026-11-10..17, eth_getLogs): YieldSettled 5, YieldDistributed 5, Deposited 38, RedeemRequested 53, RedeemClaimed 53. All 5 settle txs from one operator EOA 0xd932ef1f898b7378d6763e7063dfbdfb621f8620 (sample 0x0d6bba9697d2b16e6dec19d7e70340b6a892f34607abbbbd5f86bf03c926f435); settled yield 5 samples $319-$908 per settlement (~$3,424 / 7d, USDC 6 decimals). keeper_paid=0 in 2 sampled receipts. Gas at 0.1 gwei (eth_gasPrice 0x5f5e100): settle 441,333 gas = 4.41e-5 HYPE = $0.0031, distributeYield 248,566 gas = $0.0017 (HYPE $69.04, coins.llama.fi 2026-11-17T08:45Z). minSettlementInterval 72,000 s (20 h); distributableSurplus $13,278. Fresh-address eth_calls: distributeYield/keeperBridge revert NotAuthorized(OPERATOR); claimRedeem(9999) reverts 'invalid claim' (user-level, not role).",
+  "bot_id": null
+}

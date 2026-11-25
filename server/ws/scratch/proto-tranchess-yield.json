@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "tranchess_yield",
+  "status": "dead_end",
+  "checked": "Scout 2026-11-20 run 648207c0 (candidate protocol-bsc-tranchess-yield). DefiLlama child protocol parent#tranchess; adapter module = projects/tranchess/index.js (protocol API tvlCodePath), i.e. SAME contract set as KB protocols:267 (tranchess, measured dead_end 2026-11-16, attempts:1410): 19 BSC funds (BTC/ETH/BNB V2 + 16 V3), 23 BISHOP/QUEEN swaps, escrow 0x95A2bBCD64E2859d40E2Ad1B5ba49Dc0e1Abc6C2, token 0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6 (eth_getCode non-0x, ERC20). Fresh checks today: (1) settlement still frozen - currentDay() (0x5c9302c9) on BTC V2 fund 0x2f40c245c66C5219e0615571a526C93883B456BB = 1783087200 = 2026-07-03 14:00 UTC, 140 d behind head. (2) Swap entry points (Tranchess/contract-core contracts/swap/StableSwapV2.sol, BishopStableSwapV2): buy/sell/addLiquidity/removeLiquidity* are user ops; sync() and collectFee() are anyone-callable (no modifier) - eth_call from fresh address 0x...dEaDBeEf on 0x999DB223F0807B164b783eE33d48782cc6E06742 both return ok (0x, no role revert), but source: sync() pays nobody, collectFee() sends totalAdminFee to feeCollector, never msg.sender. Fund settle() anyone-open, pays caller nothing (fees to fee wallet), frozen protocol-wide since 2026-07-03. Verdict unpaid: callable entry points pay a stranger 0."
+}

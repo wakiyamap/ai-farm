@@ -1,0 +1,90 @@
+FAIL /srv/farm/ws/bots/archive/aave-watcher-base/manifest.yaml
+  ERROR `executor` must be ONE plain path ending in .json, nothing else (got 'scratch/aave-executor-base/contracts/out/AaveLiquidator.sol/AaveLiquidator.json (v4, forge'...); move prose to `executor_note` (wiki pitfalls/manifest-path-scalar.md)
+  warn  bot.js:83: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+FAIL /srv/farm/ws/bots/archive/morpho-watcher-base/manifest.yaml
+  ERROR `executor` must be ONE plain path ending in .json, nothing else (got 'scratch/morpho-executor-base/contracts/out/MorphoLiquidator.sol/MorphoLiquidator.json (for'...); move prose to `executor_note` (wiki pitfalls/manifest-path-scalar.md)
+  warn  bot.js:84: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+FAIL /srv/farm/ws/bots/archive/aave-watcher-arbitrum/manifest.yaml
+  ERROR constructor takes 2 arg(s) (address, address) but `executor_args` is missing or not 0x-hex (use `cast abi-encode`; an owner arg that must be the bot wallet is better as owner = msg.sender, since the gate deploys from the bot wallet)
+  warn  bot.js:101: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+FAIL /srv/farm/ws/bots/archive/cv3-buy-watcher-ethereum/manifest.yaml
+  ERROR `executor` must be ONE plain path ending in .json, nothing else (got 'scratch/cv3-eth/contracts/out/Cv3Sniper.sol/Cv3Sniper.json (creation hex scratch/cv3-eth/c'...); move prose to `executor_note` (wiki pitfalls/manifest-path-scalar.md)
+FAIL /srv/farm/ws/bots/archive/aave-watcher-ethereum/manifest.yaml
+  ERROR `executor` must be ONE plain path ending in .json, nothing else (got 'scratch/aave-watcher-ethereum/contracts/out/AaveEthLiquidator.sol/AaveEthLiquidator.json ('...); move prose to `executor_note` (wiki pitfalls/manifest-path-scalar.md)
+  warn  bot.js:83: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+FAIL /srv/farm/ws/bots/archive/gmx-liquidation-arbitrum/manifest.yaml
+  ERROR `executor` must be ONE plain path ending in .json, nothing else (got 'scratch/gmx-exec/contracts/out/GmxLiquidationAdapter.sol/GmxLiquidationAdapter.json (forge'...); move prose to `executor_note` (wiki pitfalls/manifest-path-scalar.md)
+  ERROR bot has an `executor` but no code file mentions `EXECUTOR_ADDR` or `executor.json`: live, read the executor address from env EXECUTOR_ADDR (fallback state/executor.json); the gate refuses the promote otherwise
+FAIL /srv/farm/ws/bots/archive/aave2-dust-ethereum/manifest.yaml
+  ERROR `executor` must be ONE plain path ending in .json, nothing else (got 'scratch/aave2-dust/contracts/out/AaveDustBatch.sol/AaveDustBatch.json (constructor args: p'...); move prose to `executor_note` (wiki pitfalls/manifest-path-scalar.md)
+  ERROR bot has an `executor` but no code file mentions `EXECUTOR_ADDR` or `executor.json`: live, read the executor address from env EXECUTOR_ADDR (fallback state/executor.json); the gate refuses the promote otherwise
+FAIL /srv/farm/ws/bots/archive/compound-accrue-ethereum/manifest.yaml
+  ERROR `executor` must be ONE plain path ending in .json, nothing else (got 'scratch/compound-accrue-ethereum/contracts/out/AccrueKeeper.sol/AccrueKeeper.json with con'...); move prose to `executor_note` (wiki pitfalls/manifest-path-scalar.md)
+OK   /srv/farm/ws/bots/live/franken-dutch-ethereum/manifest.yaml
+OK   /srv/farm/ws/bots/live/gearbox-v3-watcher-ethereum/manifest.yaml
+  warn  bot.js:76: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+FAIL /srv/farm/ws/bots/archive/moonwell-whale-base/manifest.yaml
+  ERROR `executor_args` holds 8 words, constructor has 10 static inputs
+  warn  bot.js:150: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  executor has setup-style functions (setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+FAIL /srv/farm/ws/bots/archive/reserve-folio-dtf-ethereum/manifest.yaml
+  ERROR `executor` file does not exist from /srv/farm/ws: bots/paper/reserve-folio-dtf-ethereum/FolioBidV3.json
+OK   /srv/farm/ws/bots/archive/morpho-watcher-ethereum/manifest.yaml
+  warn  bot.js:117: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  executor has setup-style functions (setCollateralAllowed, setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+FAIL /srv/farm/ws/bots/archive/overlayer-deposit-ethereum/manifest.yaml
+  ERROR bot has an `executor` but no code file mentions `EXECUTOR_ADDR` or `executor.json`: live, read the executor address from env EXECUTOR_ADDR (fallback state/executor.json); the gate refuses the promote otherwise
+FAIL /srv/farm/ws/bots/archive/moonwell-whale-base-2/manifest.yaml
+  ERROR `executor_args` holds 8 words, constructor has 10 static inputs
+  warn  bot.js:155: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  executor has setup-style functions (setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+FAIL /srv/farm/ws/bots/archive/reserve-dutch-ethereum/manifest.yaml
+  ERROR `executor_args` holds 2 words, constructor has 3 static inputs
+  ERROR bot has an `executor` but no code file mentions `EXECUTOR_ADDR` or `executor.json`: live, read the executor address from env EXECUTOR_ADDR (fallback state/executor.json); the gate refuses the promote otherwise
+FAIL /srv/farm/ws/bots/archive/reserve-dutch-ethereum-v2/manifest.yaml
+  ERROR `executor` file does not exist from /srv/farm/ws: bots/paper/reserve-dutch-ethereum-v2/contracts/out/ReserveDutch.sol/ReserveDutch.json
+FAIL /srv/farm/ws/bots/archive/moonwell-maero-base/manifest.yaml
+  ERROR `executor` file does not exist from /srv/farm/ws: bots/paper/moonwell-maero-base/MoonwellWhale.json
+  warn  bot.js:154: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+FAIL /srv/farm/ws/bots/archive/moonwell-whale2-base/manifest.yaml
+  ERROR `executor` file does not exist from /srv/farm/ws: bots/paper/moonwell-whale2-base/MoonwellWhale.json
+  warn  bot.js:154: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+OK   /srv/farm/ws/bots/archive/morpho-watcher2-ethereum/manifest.yaml
+  warn  bot.js:138: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  executor has setup-style functions (setCollateralAllowed, setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+OK   /srv/farm/ws/bots/archive/morpho-ses-ethereum/manifest.yaml
+  warn  bot.js:22: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+OK   /srv/farm/ws/bots/archive/morpho-watcher3-ethereum/manifest.yaml
+  warn  bot.js:138: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  executor has setup-style functions (setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+FAIL /srv/farm/ws/bots/archive/reserve-dutch-ethereum-v3/manifest.yaml
+  ERROR `executor` file does not exist from /srv/farm/ws: bots/paper/reserve-dutch-ethereum-v3/contracts/out/ReserveDutch.sol/ReserveDutch.json
+FAIL /srv/farm/ws/bots/archive/blur-refi-taker-ethereum/manifest.yaml
+  ERROR `executor` file does not exist from /srv/farm/ws: bots/paper/blur-refi-taker-ethereum/contracts/out/BlurRefiTaker.sol/BlurRefiTaker.json
+OK   /srv/farm/ws/bots/archive/morpho-farmband-base/manifest.yaml
+  warn  executor has setup-style functions (setCollateralAllowed, setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+OK   /srv/farm/ws/bots/archive/aave-watcher2-ethereum/manifest.yaml
+  warn  bot.js:83: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+OK   /srv/farm/ws/bots/archive/morpho-cbbtc-poll-base/manifest.yaml
+  warn  executor has setup-style functions (setCollateralAllowed, setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+OK   /srv/farm/ws/bots/archive/morpho-farmband2-base/manifest.yaml
+  warn  executor has setup-style functions (setCollateralAllowed, setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+OK   /srv/farm/ws/bots/archive/moonwell-whale3-base/manifest.yaml
+  warn  bot.js:157: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  executor has setup-style functions (setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+  warn  Base bot without principal_usdc: principal must come from a flash loan
+OK   /srv/farm/ws/bots/live/morpho-nextblock-ethereum/manifest.yaml
+  warn  bot.js:190: EXECUTOR_ADDR falls back to a hard-coded address; in live mode exit with a clear message when it is unset instead (phase 11c; multi-chain bots read EXECUTOR_ADDR_<CHAIN>)
+  warn  executor has setup-style functions (setPoolAllowed) but no code file logs `executor armed`: send every owner/setup tx at live startup, log each, then log `executor armed` (also when the constructor already did all setup); never defer setup to the first opportunity (wiki pitfalls/executor-setup-at-startup.md)
+OK   /srv/farm/ws/bots/archive/aave-pricefeed-ethereum/manifest.yaml
+OK   /srv/farm/ws/bots/archive/lusd-redemption-ethereum/manifest.yaml
+14/32 ok

@@ -1,0 +1,12 @@
+{
+  "run_id": "009e2ade35f440a38f4fb9bfce09ddc2",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-ethereum-hakutora",
+  "outcome": "scouted",
+  "kb_rows": ["protocols:1465", "attempts:3087"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "role_gated: Hakutora is a Morpho vault curator - 6 MetaMorpho-fork vaults (totalAssets own read 2026-11-20: 10,420,115 USDC + 4,886,006 USDT + 2,512.52 DAI + 0.51 BTC = 15.31M USD) plus a 0.78-share hsUSDf wrapper; the only keeper-shaped function reallocate reverts NotAllocatorRole (0xf7137c0f) from a fresh address and pays 0 - 0 events in 7 d (blocks 26409127-26459385; 461 logs, no unknown topic0), 2 in 90 d by curator EOA 0x182f3956 in tx 0xdfd3d398cc0175ce5b070970031befce47d90185b8a6a34d9e79f1d3cebfba28, gas 163,184 = 0.053 USD, no transfer to caller); 7 d traffic is only user Deposit/Withdraw (hUSDC 6/35, hUSDT 6/9)."
+}

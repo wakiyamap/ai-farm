@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-rhino-fi",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The rhino.fi Arbitrum contract (DVFDepositContract 0x6475f3ab... behind proxy 0x10417734...) only pays out via withdrawV2-style functions gated by an `authorized` whitelist; eth_call withdrawV2 from a fresh address reverts 'UNAUTHORIZED'. The sole 7-day caller is rhino's own signer 0x7401e624f0e74d041f2d8a6f1429d8eaa51e208f, which pays the user recipient (its own bridge flow), not itself - no function pays a stranger anything. Public deposit functions pay nobody.",
+  "numbers": "7d eth_getLogs on 0x10417734001162Ea139e8b044DFe28DbB8B28ad0 (blocks 523667065-525718493): 4636 BridgedWithdrawal (all by 0x7401...e208f), 2854 BridgedDepositWithId. Sample withdrawV2 payouts to recipients (token read from log): 5.00 USDT (0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9, 6 dec), 59.99 / 520.00 / 1932.85 USDC.e (0xaf88d065e77c8cc2239327c5edb3a432268e5831, 6 dec). Gas per call 81011 gas * 22.0 gwei = 0.00000178 ETH = $0.003 (ETH $1763.02, coins.llama.fi 2026-11-19 ts 1795119959). Caller reward $0 < gas. Escrow holds 155551 USDC.e + 169790 USDT + 6.57 ETH (~$347k) at 2026-11-19."
+}

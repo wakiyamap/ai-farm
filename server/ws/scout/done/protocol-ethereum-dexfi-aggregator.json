@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-dexfi-aggregator",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "dexfi-aggregator",
+ "name": "DexFi Aggregator",
+ "category": "Yield Aggregator",
+ "tvl_usd": 215582,
+ "url": "https://dexfi.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "3ecc256dc98548a98c1cd1d8f1525983",
+ "result": {
+  "verdict": "unpaid",
+  "line": "factory 0x4c1a8a..e550a, 28 vaults; 7d blocks 26416640 (11-14 23:40Z)->26466832 (11-21 23:41Z), no-topic scan of all 28 vaults: 27 Harvested/15 txs, fees 0.10835 WETH $182.04, keeper debt 0.02739 WETH $46.03, max fee $17.82; callers DexFiKeeper 0xfc9cac..70d4 subs 0xfffffee6d1 (10/12) + 0xc3e0e451 (2) -> harvester 0xe92a4f..eeb6 25, zapper 0x35ef0ecb 2; harvest(uint256) permissionless (fresh-addr eth_call ok, blacklist 0) but pays caller $0: fee->treasury 0xb56bda..bd3f, paidDebt->keeper 0xfc9cac..70d4; 1,830,560 gas = $0.37-3.45; publish Ownable-only, DexFiKeeper.execute onlySub",
+  "kb": [
+   "attempts:3524",
+   "attempts:3525",
+   "protocols:1787"
+  ],
+  "run_id": "3ecc256dc98548a98c1cd1d8f1525983",
+  "at": 1795305611
+ }
+}

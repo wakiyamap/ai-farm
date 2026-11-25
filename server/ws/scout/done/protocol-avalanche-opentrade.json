@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-opentrade",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 710,
+ "chain": "avalanche",
+ "slug": "opentrade",
+ "name": "OpenTrade",
+ "category": "RWA",
+ "tvl_usd": 143342158,
+ "url": "https://www.opentrade.io",
+ "github": null,
+ "listed_days_ago": 710,
+ "run_id": "12df3ce7f4464ebc8b2f808d634eca0e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All pool maintenance is role-gated and pays the caller 0: dailyInterestAccural (PoolFlex, onlyAutomationOrAdmin; fresh-EOA eth_call reverts NotPoolAdmin 0x058a2da8) and setExchangeRateDynamic/Compounding (PoolControllerDynamic, reverts NotAuthorized 0xea8e4eb5) are run daily by one protocol EOA 0xc18496783ddb433e5972e889f8ef13b269d514c7 (sample of 329 txs over 7d: 21 accruals on 3 pools, 308 exchange-rate updates); gross per call to caller 0 vs gas 400k x 11.25 gwei = 0.0045 AVAX = $0.032 (AVAX $7.197, coins.llama.fi).",
+  "kb": [
+   "attempts:2049"
+  ],
+  "run_id": "12df3ce7f4464ebc8b2f808d634eca0e",
+  "at": 1794988397
+ }
+}

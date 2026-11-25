@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-opentrade",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: every callable maintenance function (PoolFlex.dailyInterestAccural, PoolControllerDynamic.setExchangeRateDynamic/Compounding) is behind AUTOMATION_ROLE/POOL_ADMIN (fresh-EOA eth_call reverts NotPoolAdmin 0x058a2da8 / NotAuthorized 0xea8e4eb5), and none pays the caller anything (source has no transfer to msg.sender; keeper receipts show no payout). Maintenance is done daily by one protocol-owned EOA 0xc18496783ddb433e5972e889f8ef13b269d514c7; lenders are a KYC whitelist, so even deposits are not open to strangers.",
+  "numbers": "7-day keeper sample (snowtrace txlist of 0xc1849678...ddb, 11-10..11-17): 329 txs = 168 setExchangeRateDynamic (2 targets), 140 setExchangeRateCompounding (~14 PoolControllerDynamic), 21 dailyInterestAccural (3 pools incl XTBT 0xad6605f4..., XEVT 0xbfdef5e3...); reward per call to caller = 0; accrual gas 400,000 x 10.1-11.3 gwei = 0.0045 AVAX = $0.032 (AVAX $7.197, coins.llama.fi 2026-11-18); txs 0x3b8095d0d81e04af..., 0x02dbfa709ba2579f..., 0x3236ede9ba5117a8..."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-cryptex-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: No stranger liquidation payout or other vault activity was observed in seven days, and a fresh caller's sampled liquidation pays zero WETH. The source permits liquidations, so an unsampled position may still become eligible.",
+  "numbers": "7 d: blocks 26430685 (2026-11-16 22:49:11 UTC) to 26480927 (2026-11-23 22:49:11 UTC); six VaultHandlers, VaultLiquidated event 0 and all topics 0, topic0 derived with cast keccak, no-topic scan; same-shape USDC control 2005 logs in blocks 26480926-26480927. Sample of 20 of 952 vault IDs; sampled WETH vault 0xc2Ba6... id 1 liquidationReward=0 WETH (collateralContract()=0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2, decimals()=18); fresh caller eth_call liquidateVault(1,0) succeeds, gross=0 WETH=$0. Estimated gas 167361 at eth_gasPrice 0.952857649 gwei = $0.2723 using ETH $1707.2973 from coins.llama.fi at 2026-11-23 22:50:13 UTC. Source: DefiLlama adapter cryptex-finance/index.js; verified Etherscan source for 0xc2Ba6B8E0EE3cf48B045D966F1dCda767df74833; RPC relay calls in scratch/cryptex-*.py/json. 7 d actual callers=0, actual gross=0, actual gas=not applicable."
+}

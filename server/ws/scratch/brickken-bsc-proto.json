@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "brickken",
+ "status": "dead_end",
+ "checked": "STO/RWA launchpad. Factory 0xCe4529Fe88df480BD777d3e32dfD7032e6C685ff from DefiLlama adapter (projects/brickken/index.js, bsc config); eth_getCode non-empty, idSTOs()=32, stoEscrows(1..32) read via eth_call. Source: GitHub Brickken/protocol-public contracts/sto/ (STOEscrowUpgradeable.sol + STOEscrowManagedUpgradeable.sol + STOFactoryUpgradeable.sol); bscscan/etherscan/blockscout APIs key-blocked, so verified against deployed state by eth_call. Payout function getTokens(uint256,address) (redeem/refund, pays onBehalfOf) reverts from a fresh address with custom error 0xaafefe9b UserIsNotWhitelisted -> whitelist-gated caller; buyToken is callable but the caller PAYS (invests); finalizeIssuance/partialWithdraw are admin/withdraw-role gated. No reward/bounty/keeper/fee-to-caller function found in the STO escrow or factory source. Issuance states (issuances(issuanceIndex) on all 32 escrows, block 134,356,794): escrow 0x227a149c9b321e5377e242ff52275a0974baa738 ACTIVE 2026-08-31 to 2026-12-01 raised 0; escrow 0x7bf2d9bacc83ca0e188bc0e81c02fa8b79221cab ROLLBACK raised 92000e18 (~$92k, ended 2026-09-12, investors refund via getTokens); the rest WITHDRAWN or never started (idx=0). Base-chain sibling verdict matches (attempts:2215)."
+}

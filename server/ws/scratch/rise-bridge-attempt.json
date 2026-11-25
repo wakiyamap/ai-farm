@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-rise-bridge",
+  "outcome": "lead_recorded",
+  "reason": "unclear: the protocol's Ethereum-side contracts are not resolvable from public sources, so no address could be confirmed with eth_getCode and no callable reward function could be tested. RISE is Ethereum L2 chainId 4153; its ~$124k TVL sits on Ethereum as WETH, but the escrow address is not published in docs, the DefiLlama adapter code is not public, and no RISE-chain bridge contract is found on Ethereum Blockscout.",
+  "numbers": "TVL 120550 USD Ethereum (api.llama.fi/protocol/rise-bridge currentChainTvls, 2026-11-20); chainId 4153 (ethereum-lists/chains/_data/chains/eip155-4153.json); DefiLlama-Adapters main tree grep: no rise-bridge/rise projects folder, no rise-bridge entry in registries/sumTokens.js; portal.risechain.com bundle: defineChain id 4153, lzEid 30101 (Ethereum), 30184 (Base), 30110 (Arbitrum); RISE explorer search q=bridge: BridgeableReceiptToken 0x01a358b61a11828305f37aEEC11Ba86422183871, no smart contract named Bridge; eth.blockscout.com search q=RISE Bridge: 0 items (200 OK)."
+}

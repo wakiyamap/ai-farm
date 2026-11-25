@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "kogefarm",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/kogefarm + kogecoin/vault-contracts@main vaultaddresses: ~220 Polygon jars (Yearn-style pass-through ERC20, verified source vaultBase.sol via explorer; e.g. 0x992Ae1912CE6b608E0c0d2BF66259ab1aE62A657, eth_getCode non-0x, balance() answers). 20 jars queried via eth_call balance(): biggest funded jar 0xECbCe31d1723611Db11358a186B9328ce65D78cc = 4,776.17 am3CRV (18 decimals, token() read on chain), dust. Deployed strategy (0x7c94529c7aa0b8cea32115273267f4de731000b7, verified StrategyBase.sol): harvest() require(msg.sender==tx.origin||owner||strategist||multiHarvest) = any EOA; eth_call from 0x0000000000000000000000000000000000000dEa returns 0x (succeeds); caller paid 0 (CRV->MATIC->USDC, performance fee keepFXS to strategist, rest re-liquided). getHarvestable() unimplemented view (reverts). KogeChef MasterChef 0x6275518a63e891b1bC54FEEBBb5333776E32fAbD: deposit/withdraw pay only caller's own accrued KOGE. Zero 7-day activity anywhere (explorer txs, same listings returned older rows): MasterChef last tx block 80356526 2025-12-15, biggest jar last tx block 59465362 2024-07-17, strategy last harvest() 2022-05-16 by keeper 0x85cf0915c8d3695b03da739e3eaefd5388eb5eef. TVL $135k (candidate)."
+}

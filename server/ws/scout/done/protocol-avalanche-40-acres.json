@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-40-acres",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 578,
+ "chain": "avalanche",
+ "slug": "40-acres",
+ "name": "40 Acres",
+ "category": "Lending",
+ "tvl_usd": 1436967,
+ "url": "https://www.40acres.finance/",
+ "github": [
+  "40-Acres"
+ ],
+ "listed_days_ago": 578,
+ "run_id": "50b87bf98b9a41d39f852ba624409f52",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Loan.claim() (the only reward flow: gauge/brIBE ODOS-swapped to USDC, self-repays borrower debt) requires EntryPoint 0x40AC2E93...dAfc + authorized[EOA] whitelist; 242 claims in 7d all by keeper 0x4040e1de.., sample of 5: gross 3.6-68.9 USDC/claim, gas 134k-2.9M @7.5 gwei = bash.007-0.157 (AVAX 7.199 USD llama.fi); anyone-callable claimRebase/vote pay caller 0; vaults plain ERC4626 (465k+636k USDC)",
+  "kb": [
+   "attempts:1942",
+   "protocols:556"
+  ],
+  "run_id": "50b87bf98b9a41d39f852ba624409f52",
+  "at": 1794965543
+ }
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "silo_v1",
+ "status": "measured",
+ "checked": "Measured 2026-11-19 run 6575396c (attempts row below). DefiLlama adapter projects/silo (slug silo-v1): Arbitrum Main-V1 factory 0x4166487056A922D784b073d4d928a516B074b719 (eth_getCode non-0x; NewSiloCreated topic0 0x3d603ed158e689891fb302f8dcdd070ca09f651c8b61183dda2db71384cca157 from block 51894508 => 48 silos). Verified source of silo 0x5eda4bee7ba556e65bc4fb9eed5d74e61bc1f2a9 (explorer: contracts/Silo.sol + BaseSilo.sol, BUSL-1.1, solc 0.8.13 = silo-contracts v1.1 architecture). Only pays-the-caller anyone-callable function: flashLiquidate(address[],bytes) selector 0x93a94ca3, no modifier in source (liquidator seizes borrower collateral minus protocolLiquidationFee; caller must implement siloLiquidationCallback). harvestProtocolFees() 0x151541f0 callable by anyone (eth_call OK from fresh addr) but pays siloRepository.owner(), caller gets 0. accrueInterest pays nothing. Distinct product from silo_v2 on arbitrum (protocols:70, PartialLiquidation hook)."
+}

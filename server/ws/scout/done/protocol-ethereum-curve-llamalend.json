@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-curve-llamalend",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 974,
+ "chain": "ethereum",
+ "slug": "curve-llamalend",
+ "name": "Curve LlamaLend",
+ "category": "Lending",
+ "tvl_usd": 87527932,
+ "url": "https://www.curve.finance/lend/ethereum/markets/",
+ "github": null,
+ "listed_days_ago": 974,
+ "run_id": "2f71c9c5b5a64f138295ee972d23df6a",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Only paid callable fn is controller.liquidate (48 markets, factory 0xeA6876DDE9e3467564acBeE1Ed5bac88783205E0, market_count()=48, source shows collateral->msg.sender, no role gate); 7 d blocks 26411631-26462700 (11-14/21): 6 Liquidate events (topic0 from on-chain-verified ledger source, control 5/5, 28 uncovered controllers scanned +1), 3 stranger captures gross $1,074/$468/$307 vs gas $7.96/$0.17/$0.49 (prices coins.llama.fi 2026-11-21 10:09Z, crvUSD borrow) + 1 dust + 2 self-liqs; third-party ~$264/7d... ~$264 total/week-ish; class = same-block pro-bot race, lead 35 stays blocked_infra.",
+  "kb": [
+   "attempts:3273",
+   "protocols:1599",
+   "leads:35"
+  ],
+  "run_id": "2f71c9c5b5a64f138295ee972d23df6a",
+  "at": 1795256205
+ }
+}

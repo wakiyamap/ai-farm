@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-steer-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1266,
+ "chain": "base",
+ "slug": "steer-protocol",
+ "name": "Steer Protocol",
+ "category": "Liquidity Manager",
+ "tvl_usd": 2548159,
+ "url": "https://app.steer.finance",
+ "github": null,
+ "listed_days_ago": 1266,
+ "run_id": "0604e4602e314403b18178abf253726f",
+ "result": {
+  "verdict": "unclear",
+  "line": "no Base vault addresses findable: DefiLlama Base subgraph dead (deployment does not exist), Steer archive subgraph returns 0 vaults/keepers/jobs, docs+GitHub have no address table; only anchor SteerPeriphery 0x16BA7102271dC83Fff2f709691c2B601DAD7668e (code yes, nodeConfig() answers, 0 logs 7d vs WETH control 26335/2k blocks); updateInterval/tend never eth_called; TVL 2.55M USD",
+  "kb": [
+   "attempts:2299",
+   "protocols:845"
+  ],
+  "run_id": "0604e4602e314403b18178abf253726f",
+  "at": 1795047033
+ }
+}

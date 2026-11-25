@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-lombard-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 794,
+ "chain": "base",
+ "slug": "lombard-vaults",
+ "name": "Lombard Vaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 3575167,
+ "url": "https://www.lombard.finance/app/stake/?referrer=ssybnl",
+ "github": null,
+ "listed_days_ago": 794,
+ "run_id": "9de1c58593df4dba9da1f8711382a950",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BoringVault managed fund; vault 0x5401b8620E5FB570064CA9114fd1e135fd77D57c, accountant 0x28634d0c5edc67cf2450e74dea49b90a4ff93dce. updateExchangeRate is requiresAuth (fresh addr reverts UNAUTHORIZED) and pays caller 0 (no reportReward); 5 updates in last 7d (blocks 56256733..58844349) all by keeper 0xfa8af0b4a6e4e7111440dc02c85a5a823ad73452 (~112k gas, ~bash.0017 @ ETH 809.63). claimFees vault-only, vault manage requiresAuth; enter/exit/deposit are user-deposit. No fn pays a stranger.",
+  "kb": [
+   "attempts:2091",
+   "protocols:678"
+  ],
+  "run_id": "9de1c58593df4dba9da1f8711382a950",
+  "at": 1794997282
+ }
+}

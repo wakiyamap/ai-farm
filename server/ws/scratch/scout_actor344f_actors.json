@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "address": "0x344f86e9b508f36a1fac7d0a9452fd0f7e51b676",
+  "strategy": "auctioneer3 wallet of the HyperEVM Morpho liquidation wrapper (UUPS Executor proxy 0xf2314753fa7f6cdcc4d27cc6755077a68a6e2fe9): submits solvers' signed liquidate+bid bundles via execute() 0x9038624a; only 4 whitelisted auctioneer EOAs may send (NOT_AUCTIONEER); paid only the native liability refund (callback gasUsed+35,000)*tx.gasprice out of solver deposits - operator gas pass-through, bids go to oevCollector 0xcf8252e831c6b0adf7332e4ee058432b3b805309",
+  "evidence": "All 9 txs are execute() to 0xf2314753 (eth_getTransactionCount=9): 0x4178f74f0a38e81f2277ba61ee90ab30ebbc3164b1c89d9d05db2df0bfdea411, 0xc20bf3e07d8cc5c60a9de9d132a34abf291bde0b2fcfb8d027b447a3ab3d6394, 0x897ad6d833d0eaa64d718ee83bce51bd5df730f3525deefa2a598a7fab940776, 0xd9c944b73d61e020f6c75b087261e94ded3095496de722a914d462fb83fb602a, 0xc6054c17a0615acca8f1c4d45466ecfc5681d156adbbc50e9887f81555b80d3e; role from eth_call auctioneer3() on 0xf2314753 = this address (2026-11-21); Executor source explorer 0xb7ef55af1fbce2f08820baf7911c0f1825202d56; funded 0.1+11.9 HYPE 2026-11-19 by solver 0x9650630d4f5c5e436f39b6a7d36d3d0696c7b374 (txs 0xd6a2dc409272db2b514675339f6b96e7b53a3da0942a6931b307bd77d880cb69, 0xd40311e6ea4ccce4aae2444eadd2f2690dbc014f39df2309760ce7cf62b2fc53)",
+  "est_profit_usd_day": 0
+}

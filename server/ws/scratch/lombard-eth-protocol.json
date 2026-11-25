@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "lombard_vaults",
+  "status": "dead_end",
+  "checked": "BoringVault 'Lombard BTC Vault' 0x5401b8620E5FB570064CA9114fd1e135fd77D57c (eth_getCode non-0x; name()='Lombard BTC Vault'; hook()=0x2ea43384f1a98765257bc6cb26c7131debdeb9b3 answers). Addresses from DefiLlama adapter projects/lombard-vault/index.js (LBTCV comment 'vault (ETH/Base/BSC)'; projects/lombard-vaults is 404). Hook = TellerWithMultiAssetSupport (verified source, explorer) -> accountant() = 0x28634d0c5edc67cf2450e74dea49b90a4ff93dce = AccountantWithRateProviders (verified source; authority 0xa9962a5bfbea6918e958dee0647e99fd7863b95a, solmate Auth). Vault ABI (explorer): ERC20 + manage/enter/exit/setAuthority/setBeforeTransferHook only - all money paths requiresAuth. Accountant: updateExchangeRate(uint96) requiresAuth (eth_call from fresh address 0x000...0123 reverts 'UNAUTHORIZED'); claimFees(address) has no modifier but reverts unless msg.sender == vault and pays state.payoutAddress, not the caller. Teller: deposit/depositWithPermit/bulkDeposit/bulkWithdraw - investor flows, caller pays assets and gets shares, no reward to caller. Same deterministic stack as base (KB protocols:678, same vault/hook/accountant addresses, same keeper)."
+}

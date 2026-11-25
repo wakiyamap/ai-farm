@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-hyper-tokens",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 6,
+ "chain": "hyperevm",
+ "slug": "hyper-tokens",
+ "name": "Hyper Tokens",
+ "category": "Derivatives",
+ "tvl_usd": 141990,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 6,
+ "run_id": "af093f6624b24932b0abddca3ec906c5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Hyper Tokens = Ensemble VOL/iVOL 4626 vaults on hyperevm (iVOL 0x59A72A4b..43D9, VOL 0xEb22eC1b..62CC): rebalance/confirmBridge/confirmRebalance/deployCapital/payBuilderFee permissionless (fresh-EOA eth_call reverts are state errors only) but pay the caller $0 \u2014 keeperReward=0, keeperRewardRecipient unset, 0 KeeperRewarded in 7d (control: 17,430 other logs), 152 keeper txs all from one protocol EOA 0xa4181b07..007d which received $0 USDC; 29 BuilderFeePaid = $1,557.78 to fixed builder EOA, gas $0.03-0.16/call (HYPE $70.10)",
+  "kb": [
+   "attempts:1579"
+  ],
+  "run_id": "af093f6624b24932b0abddca3ec906c5",
+  "at": 1794890085
+ }
+}

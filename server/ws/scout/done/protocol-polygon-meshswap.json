@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-meshswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1657,
+ "chain": "polygon",
+ "slug": "meshswap",
+ "name": "Meshswap",
+ "category": "Dexs",
+ "tvl_usd": 208013,
+ "url": "https://meshswap.fi",
+ "github": null,
+ "listed_days_ago": 1657,
+ "run_id": "2d381ead13344c24951fe97ffb523ea6",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Meshswap polygon: claimReward()/claimReward(address)/updateMiningIndex() public on 129 pool proxies (ExchangeImpl 0xe13f021d...) but pay MESH to the LP recipient arg, not the caller; last 7d: only 2 GiveReward events totaling 7.6e-09 MESH (dust, usd unpriced; MESH price {} on coins.llama.fi) to one self-exiting LP on pool 0x05130443...3dc9 (txs 0x33d8df6b, 0x3d72d2b1, via removeLiquidityWithLimit); mined() +60,020 MESH/7d globally; TVL 207,395 USD; gas trivial but gross ~0 -> unpaid.",
+  "kb": [
+   "attempts:2484",
+   "protocols:993"
+  ],
+  "run_id": "2d381ead13344c24951fe97ffb523ea6",
+  "at": 1795085392
+ }
+}

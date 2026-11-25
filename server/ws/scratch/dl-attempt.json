@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-deeplock",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: DeepLock (BSC token locker/launchpad, TVL $1.9M) has no function that pays the caller. withdrawTokens(uint256) is public (stranger eth_call reverts 'Tokens already withdrawn', a logic revert not a role one) and pays the deposit's own tokens to its withdrawalAddress (recipient arg) - a principal redemption; the protocol pays the caller 0. Fee plumbing is Ownable: withdrawFees(address) from a stranger reverts 'Ownable: caller is not the owner' and the 88.18 BNB of accrued fees is owner's. Pool2 staking contracts pay DEEPLOCK to their own stakers. Nothing here pays a stranger.",
+  "numbers": "locker v2 0x3f4D6bf08CB7A003488Ef082102C2e6418a4551e depositId()=63993, v1 0x10dD7FD1Bf3753235068ea757f2018dFef94B257 depositId()=14 (eth_call 2026-11-19); remainingBnbFees()=88.18 BNB ~= $52.1k at WBNB $591.32 (coins.llama.fi ts 1795098514), owner 0xfaaef3baefbe893960c5364f7f7ca5da482f6792; gross to a stranger calling withdrawTokens = $0, gas price 0.05 gwei (eth_gasPrice 2026-11-19) so a ~100k-gas call costs ~$0.003 at WBNB $591.32; 7-day call count not measured: bsc eth_getLogs failed all session ('all providers failed: public: limit exceeded') and bsc public eth_call serves latest state for historical blocks (depositId identical at 0x3000000..latest = no archive), so the quiet-protocol zero is unverified"
+}

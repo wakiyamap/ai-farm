@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-venus-core-pool",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: stranger-callable classes exist but paid nobody in the last 7 days. XVS emissions are 0 on all 7 core-pool markets (pot 270.65 XVS ~$625 static, 0 granted in 35d) and claimRewardToken pays holders, not callers (same finding as BSC isolated pools attempt 2280). Liquidations: 0 LiquidateBorrow events in 7d and 0 in two older ~120d windows - the ~$1M pool generates no liquidations.",
+  "numbers": "LiquidateBorrow topic0 0xce90ba2b... on 7 vTokens: 0 events blocks 523224428-525724428 (7d), 0 in 513224428-525724428 (35d), 0 in 483724428-513224428 (~120d); control same shape 7 addrs no topics 30k blocks = 13 logs. XVS supply/borrow speeds all 0. Pot XVS.balanceOf(RD)=270.65 at XVS $2.3075 (coins.llama.fi ts 1795122190) = $624.6. eth_gasPrice 0.0202 gwei, ETH $1756.87 (coins.llama.fi ts 1795122191): a 150k-gas claim ~ $0.05, a 700k-gas liquidation ~ $0.25. getAllMarkets()=7 markets; comptroller 0x317c1A5739F39046E20b08ac9BeEa3f10fD43326."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "defi_franc",
+  "status": "measured",
+  "checked": "2026-11-21 scout. DefiLlama adapter projects/defi-franc is 404; TVL comes from the sumTokens registry (raw DefiLlama-Adapters main registries/sumTokens.js, entry defifranc) which lists owners 0x77E034c8A1392d99a2C776A6C1593866fEE36a33 (ActivePool, verified source name via etherscan) and 0xC1f785B74a01dd9FAc0dE6070bC583fe9eaC7Ab5 (DefaultPool), staking 0x8Bc3702c35D33E5DF7cb0F06cb72a0c34Ae0C56F (MONStaking) and 0x1EA48B9965bb5086F3b468E50ED93888a661fc17 (MONToken). All have code (eth_getCode non-0x). ActivePool getters borrowerOperationsAddress()=0x9eb2ce1be2dd6947e4f5aabe33106f48861dfd74 and troveManagerAddress()=0x99838142189ade67c1951f9c57c3333281334f7f answered. It is a multi-collateral Liquity fork (assets: ETH address(0) and WBTC 0x2260fac5e5542a773aa44fbcfedf7c193bc2c599; DCHF stablecoin 0x045da4bFe02B320f4403674B3b7d121737727A36, decimals()=18). TroveManager.dfrancParams()=0x6f9990b242873d7396511f2630412a3fcecacc42; DCHF_GAS_COMPENSATION(address) returns 200e18 for both assets. liquidate(address,address) external has only a troveIsActive modifier (source); eth_call liquidate from fresh address 0x...dEaD reverts 'IT' (trove inactive), no role revert. isRedemptionWhitelisted()=0 (redemptions open too, need DCHF principal)."
+}

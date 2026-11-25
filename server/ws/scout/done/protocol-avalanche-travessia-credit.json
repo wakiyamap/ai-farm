@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-travessia-credit",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 215,
+ "chain": "avalanche",
+ "slug": "travessia-credit",
+ "name": "Travessia Credit",
+ "category": "RWA",
+ "tvl_usd": 515643,
+ "url": "https://www.travessiacredit.com/",
+ "github": [
+  "RedVeil"
+ ],
+ "listed_days_ago": 215,
+ "run_id": "378de9666a9b4a8b9a6bc436bf0d7bf3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "TTV vault 0x9c3da70c...8Fd2 + loan 0xA8163782...99d4 on avalanche: accrueInterest/updateLateStatus/processAvailableWithdrawals callable by a stranger (eth_call ok) but pay caller $0 (fees mint as shares to manager/treasury); 0 txs to loan and vault in last 7d (loan 0 in 30d; USDT control same query 100 txs); gas ~$0.0065/call (120,733 gas x 7.5 gwei x AVAX $7.222 llama).",
+  "kb": [
+   "attempts:1699",
+   "protocols:377"
+  ],
+  "run_id": "378de9666a9b4a8b9a6bc436bf0d7bf3",
+  "at": 1794915795
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-3jane-lending",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 440,
+ "chain": "ethereum",
+ "slug": "3jane-lending",
+ "name": "3Jane Lending",
+ "category": "Uncollateralized Lending",
+ "tvl_usd": 13999739,
+ "url": "https://www.3jane.xyz/",
+ "github": null,
+ "listed_days_ago": 440,
+ "run_id": "a13ee097af7a4a0a8e2d33093fdea88e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Morpho-Blue credit-line fork: only permissionless fns accrueInterest/accruePremiumsForBorrowers pay $0 (feeRecipient=0x0; eth_call from stranger OK), USD3 report() reverts '!keeper', settle/closeCycle onlyOwnerOrOzd, no liquidate; 7d (blocks 26,419,958-26,460,278): 382 events (AccrueInterest 172, Withdraw 110, Supply 87, PremiumAccrued 13, no-topic-scan control), ~26 direct proxy txs all accruePremiumsForBorrowers from one keeper EOA 0x485828f6 at 1/3d, gas 632,883/call = $1.09 (1.077 gwei, ETH $1,594.65 coingecko 2026-11-20 20:47 UTC), gross $0",
+  "kb": [
+   "attempts:3047",
+   "protocols:1433"
+  ],
+  "run_id": "a13ee097af7a4a0a8e2d33093fdea88e",
+  "at": 1795207846
+ }
+}

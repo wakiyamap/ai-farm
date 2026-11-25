@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-kinetiq-kmhype",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. kmHYPE stack (EXManager 0x4ef8...4a48 + EXRouter 0x6AB3...8DD8 + BlockedWithdrawalQueue 0x2285...a4ec, all verified source) has no caller reward anywhere in src (grep reward/incentive/bounty/keeper: no hits). Public confirmWithdrawal(id,recipient) / processBlockedWithdrawals(items) / stakeFees() answer from a fresh address (eth_call) with no role revert but pay the caller 0: HYPE goes to the withdrawal recipient (own principal) and the ~0.1% unstake fee to globalConfig 0x32c0...bb0f8 exTreasury. In the last 7 days 0 stranger payments: only 2 WithdrawalConfirmed events, both self-calls; the user pays gas to move their own money.",
+  "numbers": "7d full-scan getLogs blocks 0x309251e..latest (1.02 s/block) on EXManager+queue+router: 14 logs = 1 deposit tx (4 LiveDeposited), 4 LiveWithdrawn (all hypeAmount=0, fully blocked), 4 BlockedWithdrawalQueued, 2 WithdrawalConfirmed. Confirms: 0xa43fcfcb... 1.0123 HYPE ($70.8 @ $69.96 coins.llama.fi 2026-11-17) to 0x97d78463...5e25 (= caller) + 0.001013 HYPE ($0.07) fee to treasury; 0xa2916bed... 20.1685 HYPE ($1,410.9) to 0xcd670122...6136 (= caller) + 0.0202 HYPE ($1.41) fee. 60d control scan: 285 WithdrawalConfirmed, senders are the users or the router on their behalf - no keeper ever paid. Gas: 202,432 gas for a confirm tx x 0.118 gwei (eth_gasPrice 0x70e9ac5) x $69.96 = $0.0017/call. TVL $32.9M (session context) / $34.1M (api.llama.fi). Sample of 14 of 14 events in range."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-supernova-amm",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: no open function pays a caller without a position. Minter.update_period() (public) pays 0 (emissions to team/rewards-distributor/gauges, MinterUpgradeable.sol L168-214); GaugeManager distribute/distributeFees are EPOCH_MANAGER/GAUGE_ADMIN role-gated and also pay caller 0. The only public payers are position-holder claims (claimRewards -> msg.sender, claimBribes -> veNFT owner); sample of 4 receipts from the last 24h shows gross below or at gas: 0.55 NOVA ($0.0004) and 309 NOVA ($0.22) vs $0.76 gas, and claimBribes 89.9 NOVA + 85.6 USDC ($0.15) vs $1.81 gas; one batched vault claim (0xa1559435...) paid 7.45 USDT + 39.8 of 0xe53ec727... (unpriced) vs $3.18 gas. Whole weekly emission 6.52M NOVA = $4,741/wk over 66 gauges.",
+ "numbers": "TVL $109,512 (api.llama.fi 2026-11-20); NOVA $0.000727 (coins.llama.fi ts 1795181783); ETH $1641.31 (coins.llama.fi ts 1795192815); gas 5.48 gwei (eth_gasPrice 1795192771); gas used claimRewards 84,205 / claimBribes 201,078 and 353,330 (receipts 0x05de6968..., 0x51e9d1c2..., 0xa1559435...); ~24 claimBribes/claimRewards txs to GaugeManager 0x19a41004... over ~25h (explorer txs, blocks 26448583-26456182); weekly() = 0x56429f4fa9b4060e49ec3 = 6,517,640 NOVA; 66 gauges"
+}

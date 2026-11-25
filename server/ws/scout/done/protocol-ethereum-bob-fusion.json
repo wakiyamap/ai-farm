@@ -1,0 +1,28 @@
+{
+ "id": "protocol-ethereum-bob-fusion",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 966,
+ "chain": "ethereum",
+ "slug": "bob-fusion",
+ "name": "BOB Fusion",
+ "category": "Farm",
+ "tvl_usd": 305320,
+ "url": "https://gobob.xyz",
+ "github": [
+  "bob-collective"
+ ],
+ "listed_days_ago": 966,
+ "run_id": "61bb2d7908be474a8d0153426832cb95",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: BOB Fusion = one contract, FusionLock 0x61dc14b28d4dbcd6cf887e9b72018b9da1ce6ff7 (BOB's 2024 L1 deposit lock; holdings 65.10 ETH + wstETH/WBTC/USDT/STONE = 280,627 USD TVL), withdrawal-only since 2024-05-02, deposits closed. 7 d (blocks 26,412,305-26,462,550, no-topic scan, USDC control): 1 event, WithdrawToL1 tx 0x6b028c7a paying 0.03 ETH = 49.05 USD of the caller's own deposit, gas 41,767 = 0.15 USD. 30 d: 12 withdrawals by 12 users, 1,572.80 USD gross. No reward fn; eth_call fresh address: withdrawDepositsToL1([]) ok, ([ETH]) reverts 'never deposited' -> stranger earns 0.",
+  "kb": [
+   "protocols:1589",
+   "attempts:3260",
+   "attempts:3261"
+  ],
+  "run_id": "61bb2d7908be474a8d0153426832cb95",
+  "at": 1795254227
+ }
+}

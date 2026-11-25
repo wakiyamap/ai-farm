@@ -1,0 +1,93 @@
+id: morpho-nextblock-ethereum
+author: earner/qwen3.8-flash-next
+chains: [ethereum]
+strategy: >
+  NEXT-BLOCK TRIAL bot (decisions/human/2026-11-13-blocked-infra-feed-retriage item 3): the same
+  MorphoLiquidator executor, pinned-market Multicall3 scan and same-tx wallet payout as
+  morpho-watcher3-ethereum, rebuilt to wait on the farm-feed /logs filter for the BTC/USD Chainlink
+  aggregator AnswerUpdated (impl 0x4a3411..., ~33 publications/day measured over 3 d) and run a scan
+  cycle on the wake, with a 10 min safety-poll cycle (>= 5 min per item 3); the pinned wrappers emit
+  no logs and price() reads the aggregators live (fork trace of capture 0x86e8dccc... this session),
+  so the aggregator publication is the eligibility trigger.
+copied_from: >
+  morpho-watcher3-ethereum (bots/archive, review-accepted code, executor and scan path) and its
+  proofs of record; the class actor being copied is the incumbent pinned-market liquidator lineage
+  (ledger morpho_blue.liquidate callers, e.g. whale capture 0x86e8dccc48af1873f7e6999e4684655429b4e1c8bf90ff33162620eb30459701
+  block 26384831, repaid 92,326.04 USDC).
+capital_usd: 16
+principal_usdc: 0
+allowed_contracts: []
+max_loss_per_tx_usd: 20
+max_loss_guarantee: >
+  Same mechanism as the predecessor of record (bots/archive/morpho-watcher3-ethereum manifest): the
+  whole action runs in ONE transaction through the bot-deployed MorphoLiquidator, which ends
+  liquidate() with a require(balAfter >= balBefore + minProfit) on its own USDC balance and reverts
+  otherwise, so the worst case is gas only; the bot derives maxFeePerGas per cycle from the latest
+  header (bot.js updateFeePolicy; gasLimit 460000, fee cap 17.5 gwei => <= 0.00805 ETH <= 20 USD at
+  any plausible signing-time ETH/USD) and transfers its whole loan-asset balance to the bot wallet in
+  the SAME transaction (executor Note as the predecessor: the profit is PAID to the owner wallet, no
+  value left sitting in the executor).
+expected_value: >
+  Trial class per decision 2026-11-13-next-block-feed: the 1-block captures are NOT counted in
+  expected revenue (3 captures, 4,083 USD gross over 15.7 d; the whale 26384831 with repaid
+  92,326.04 USDC is the item-3 >50 USD case). Counted EV per the README per-occurrence table
+  (review b69e96b8 fix 2: every one of the 9 counted >=2-block occurrences is net <= 0 at its
+  measured tx gas - gross 3.19 USD vs gas 23.98 USD over 15.7 d, the 2026-10 captures ran at 2.9-
+  16.6 gwei base fees; at today's ~0.16 gwei the same nine occurrences net ~2.04 USD = ~0.13
+  USD/day): counted EV = 0 USD/day, which decision 2026-11-13-blocked-infra-feed-retriage item 3
+  explicitly allows for the trial (CU <= 50k/day below). The predecessor's ~1.8 USD/day is NOT
+  carried over: it rested on 8-16-block windows its 60 s scan could catch (blocks 26372995/26372996
+  measured 100 s/112 s), which this bot's 10 min safety poll and the dormant WETH/USD feed cannot
+  reach (README table, counted column). Read cost ~0.02-0.03 USD/day (42k CU steady, ~48k first
+  day). Evidence: attempts:1053 recount + scratch/morpho-nextblock-fix/receipt_gas.json + this
+  session's trigger measurement (scratch/morpho-nextblock/agg3d.json, btcusd-any.json,
+  trace-whale.txt).
+executor: "scratch/morpho-exec3/contracts/out/MorphoLiquidator.sol/MorphoLiquidator.json"
+executor_args: "0x000000000000000000000000bbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc20000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c5990000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000088e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+executor_note: >
+  Same shrunk MorphoLiquidator artifact as the predecessor (10,273-byte deployment bytecode, fork
+  deploy gas 2,076,371 - under the 3,000,000 farm-key limit; selectors unchanged: liquidate
+  cf1f5981, isPoolAllowed d1e71c94, setPoolAllowed 1bfa59c3, owner 8da5cb5b, sweep 62c06767, MORPHO
+  3acb5624); the WBTC route is armed by the one owner init tx setPoolAllowed(0x9a772018fbd77fcd2d25
+  657e5c547baff3fd7d16, true) exactly as the predecessor bot does; minProfit is a per-call argument
+  and the send gate (expected gross > gas cap, 0.5 USD post-fee floor) is unchanged.
+fork_evidence: >
+  Re-run THIS session (run 5292c807, lease `fork lease ethereum 12` taken, used for the whole
+  sequence and released the same minute; raw output scratch/morpho-nextblock/proof-liquidate.txt;
+  rerun script for the reviewer: fork lease ethereum 15 -> fork reset ethereum 26328589 -> fork
+  deploy ethereum <this artifact> --args <executor_args> -> node scratch/morpho-eth2-proof.js
+  liquidate WETHUSDC <execAddr> -> fork release): deployed 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352
+  (deterministic from the same reset as the accepted predecessor proofs); SUCCESS tx
+  0xdb57c173c4cfa3feeec069058c796372627910b103be7e1804fdaeaeb79b0082 status 0x1 gasUsed 332505,
+  bot-wallet (owner 0xff...fe) USDC balance 0 -> 3711168: delta +3.711168 USDC POSITIVE, paid to
+  the wallet in the same tx (the executor left at ~0); REVERT tx against the now-healthy position
+  0x9168710a37954c3f26533210ca1d1b1843f898c73f4e219132e6902b96d03b2b status 0x0. Predecessor proofs
+  of the same protocol path stay on record (bots/archive/morpho-watcher3-ethereum manifest: forced-
+  high-minProfit NO_PROFIT revert 0xd0b41094..., dust success +0.158935 USDC 0x45ff8d9f..., natural
+  big case +71.731107 USDC 0xede2f12f...).
+awaited_events: >
+  BTC/USD aggregator AnswerUpdated on 0x4a3411ac2948b33c69666b35cc6d055b27ea84f1 (~33/day measured,
+  blocks 26399047-26406047; newest whale-class publication 26384830 -> captured 26384831 one block
+  later) and pinned-market Liquidate events (newest ledger captures 26391772, 26400631; the ledger
+  morpho_blue.liquidate source at head). Next 1-block capture is UNSCHEDULED; the safety poll runs
+  every 10 min regardless.
+good_signs: >
+  Paper logs: start row with runtime_ok true and feed: http://127.0.0.1:8546; feed_event rows with
+  block/updated_at/round matching a real AnswerUpdated; heartbeat feed_cursor advancing; cycles
+  every ~10 min with rpc_cycle ~5 and no overlap; on a capture: opportunity -> simulate sim_ok true
+  with positive balance delta and min_profit_onchain at the 0.5 USD + expected-fee floor; a feed
+  wake lands the scan within seconds of the feed_event row.
+bad_signs: >
+  market_state_missing rows (multicall chunks failing), sims disabled by the fail-closed runtime
+  check, a simulate that succeeds on a healthy position, a heartbeat gap > 2 x CYCLE_MS without an
+  error row, feed_error rows without a following scan cycle (the re-read is mandatory), POOL_NOT_
+  ALLOWED on a WBTC sim, or gasUsed far above the fork-measured 307k-419k range.
+rpc_reads_per_min: 1
+alchemy_cu_per_day: 42000
+legal_note: >
+  Morpho Blue liquidations: the protocol pays the liquidator a liquidation bonus (measured seize
+  factor 1.0438 = 4.38% of repaid debt at the 86% LLTV cap) through public liquidate() anyone may
+  call - an intended keeper mechanism under S; selling seized collateral on Uniswap V3 at the pool
+  spot is an AMM sale, no sandwiches or wash trades. Chainlink aggregator publication is public
+  data, no price-feed entitlement purchase. Same class as the predecessor; no new legality surface.
+expedite: false

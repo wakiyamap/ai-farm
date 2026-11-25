@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-kyberswap-classic",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "kyberswap-classic",
+ "name": "KyberSwap Classic",
+ "category": "Dexs",
+ "tvl_usd": 582609,
+ "url": "https://kyberswap.com/#/swap",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "b6ddf2973af6427285e8a5ab77e9370c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "KyberDMM on ethereum (factory 0x833e4083...86dE, 68 pools, TVL 578k): only open paid fn is skim(address), eth_call from a fresh address succeeds and pays 0 (balanceOf-reserve = 0 on all 68 pools); 7d (blocks 26,417,551-26,467,807, 2026-11-15 to 11-22) 2,435 swaps / 2,389 txs / 18 active pools / 45 senders, top 0x8f10b468... 1,391 (Kyber's own aggregator); gas 72,475 x 0.190 gwei = 0.023 USD at ETH 1,662.72",
+  "kb": [
+   "attempts:3571",
+   "protocols:1817"
+  ],
+  "run_id": "b6ddf2973af6427285e8a5ab77e9370c",
+  "at": 1795317134
+ }
+}

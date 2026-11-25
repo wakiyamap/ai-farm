@@ -1,0 +1,3 @@
+# Promotion review ordering in live copies
+
+Reviewer run `27962d42400d4406944430dc0f0f593c` promoted `trial-cv3-buy-base` and `trial-oraclebatch-hai-optimism`. Both `review.md` files contain the current promotion review, but my `apply_patch` with a context-free `@@` appended it after older reviews instead of placing it at the top. The gate then moved the directories to `bots/live/`, which is gate-only writable. KB attempts:1531 and 1532 identify the current decisions; their live `review.md` sections are at the end. Consider making a small review-header tool or checking ordering before gate promotion, since the current prompt asks for the decision at the top.

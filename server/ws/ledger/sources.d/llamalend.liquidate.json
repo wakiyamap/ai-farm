@@ -1,0 +1,41 @@
+{
+ "id": "llamalend.liquidate",
+ "protocol": "llamalend",
+ "kind": "liquidation",
+ "chains": {
+  "ethereum": [
+   "0x4f79fe450a2baf833e8f50340bd230f5a3ecafe9",
+   "0x3de37c38739dfb83b7a902842bf5393040f7bf50",
+   "0xb536fea3a01c95dd09932440ec802a75410139d6",
+   "0xeda215b7666936ded834f76f3fbc6f323295110a",
+   "0xcad85b7fe52b1939dceebee9bcf0b2a5aa0ce617",
+   "0x5756a035f276a8095a922931f224f4ed06149608",
+   "0x23f5a668a9590130940ef55964ead9787976f2cc",
+   "0x8035b16053560b3c351b665b10f6c7dbdb6a1e05",
+   "0xad444663c6c92b497225c6ce65fee2e7f78bfb86",
+   "0x09dbdeb3b301a4753589ac6df8a178c7716ce16b",
+   "0xaade9230aa9161880e13a38c83400d3d1995267b",
+   "0x413fd2511bad510947a91f5c6c79ebd8138c29fc",
+   "0x8c2537f1a5b1b167a960a14b89f7860dd5f7cd68",
+   "0x89707721927d7aaeeee513797a8d6cbbd0e08f41",
+   "0x2da313f6dcee04ba46466e100c4656618e5d3ddd",
+   "0x4f87158350c296955966059c50263f711ce0817c",
+   "0x74f88baa966407b50c10b393bbd789639effe78b",
+   "0xcf3df6c1b4a6b38496661b31170de9508b867c8e",
+   "0xc572297c5e995692b972c8eea1d12b56b6399e1e",
+   "0x6934ba5ed7b1664f9e04161d7d76291c3f9d8c21"
+  ]
+ },
+ "event": "Liquidate(address,address,uint256,uint256,uint256)",
+ "topic0": "0x642dd4d37ddd32036b9797cec464c0045dd2118c549066ae6b0f88e32240c2d0",
+ "indexed": [
+  "liquidator",
+  "user"
+ ],
+ "data": [
+  "collateral_received",
+  "stablecoin_received",
+  "debt"
+ ],
+ "actor_field": "tx_from"
+}

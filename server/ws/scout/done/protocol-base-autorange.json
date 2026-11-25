@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-autorange",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 122,
+ "chain": "base",
+ "slug": "autorange",
+ "name": "AutoRange",
+ "category": "Dexs",
+ "tvl_usd": 88569,
+ "url": "https://autorange.xyz/",
+ "github": null,
+ "listed_days_ago": 122,
+ "run_id": "31728145eda14fa9b5c0cca0db852b8a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all 6 keeper entrypoints onlyOperator on 113 base vaults (factory 0x7De099A8BdABcE2680160aF2c2bF11336f99c3F1, impl RangeVaultArbCompoundV9 0x2cfacdabd47db38fcff84ea4fb9e88f35f3b49b3); only pay = KeeperGasReimbursed to operator 0xae3921825fec520cada98eb0790bc91a61d4286b, never caller, median $0.0104 / max $0.0389 USDC = gas cost, zero premium; 7d blocks 57735591-60759641: 205 KGR / 12 vaults / 76 txs, 15/15 sampled txs from that keeper; fresh-addr rebalance reverts NotOperator",
+  "kb": [
+   "attempts:3684",
+   "protocols:1907"
+  ],
+  "run_id": "31728145eda14fa9b5c0cca0db852b8a",
+  "at": 1795343363
+ }
+}

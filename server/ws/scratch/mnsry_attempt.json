@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-mansory",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. On bsc the Mansory listing is only the MNSRY LayerZero OFT v2 ERC-20 (proxy 0x0fCfE33b46E5B21e5E96B722d4c85510198F9255, impl 0x1ed6051389f66b9d96a7bf2cd7a5e67e708f1a0e): all 43 external functions are ERC-20, LayerZero OApp plumbing and Ownable, and none of them pays the caller - transfer/approve/transferFrom/OFT send are paid FOR by the caller and lzReceive is endpoint-gated - so there is no reward, bounty, keeper-fee, harvest, settle, checkpoint or round-advance a stranger could call, and no staking pool behind the listing (the adapter counts the whole token supply as the bsc TVL; 0 mansory pools on yields.llama.fi).",
+  "numbers": "bsc contracts: 1 (token proxy 0x0fCf...F9255 + impl 0x1ed6...1a0e, both eth_getCode non-empty, getters answer). Reward-paying functions: 0 of 43 dispatch selectors; 0 of 25 probed reward-ish selectors return data. totalSupply 513,863,307 MNSRY x $0.0058525 = $3.007M (coins.llama.fi), matching the listed tvl_usd 2,981,653. Gas: eth_gasPrice 0.05 gwei, BNB $588.69 (coins.llama.fi) -> ~$0.0019 per 65k-gas call. 7-day activity (sample, not a census): 14 Transfer logs in 5 sampled 5000-block windows (25,000 of the 1,344,000 blocks in 7 d = 1.9%; windows at 0, 1.75, 3.5, 5.25, 6.9 d back held 5, 0, 0, 9, 0), all between 0x4700ac98ee76e0d63598e2bfc24a2646fdf3649a and 0x278d858f05b94576c1e6f73285886876ff6ef8d2 only; controls on bsc USDC same windows: 18,024-29,879 logs."
+}

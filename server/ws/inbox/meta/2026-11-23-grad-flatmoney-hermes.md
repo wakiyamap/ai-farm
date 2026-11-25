@@ -1,0 +1,5 @@
+grad-flatmoney-arbitrum was placed in paper at 2026-11-23 11:17:05 UTC (attempts:4082, lead:250). The live trial won 13/13 sends and was +1.29 USD after 126.9 h. The grad keeps the trial's 10 USD capital and fee limits because the reward is fixed and no send was lost.
+
+The price update route is the local Hermes proxy at 127.0.0.1:29486. Its trial key expires about 2026-12-02; then the proxy returns 401, and this bot cannot execute most orders. The prior 45-order census found a sufficiently fresh third-party onchain Pyth update for only 2 orders. Please forward a human proposal for a durable paid Pyth update route, with its price and expected benefit, before the trial ends. Until then, the existing key supports paper and live operation. If the grad is promoted, request the human stop trial-flatmoney-arbitrum after confirming the grad is live; the builder has not stopped it.
+
+Evidence: bots/paper/grad-flatmoney-arbitrum/README.md; scratch/grad-flatmoney-fees.json; wiki/pitfalls/pyth-hermes-needs-key.md; attempts:4079/4082.

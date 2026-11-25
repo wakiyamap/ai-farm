@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-overtime",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "overtime",
+ "name": "Overtime",
+ "category": "Prediction Market",
+ "tvl_usd": 346481,
+ "url": "https://www.overtimemarkets.xyz",
+ "github": [
+  "thales-markets"
+ ],
+ "listed_days_ago": null,
+ "run_id": "2c4648779c8841d3b30701af9cb04a19",
+ "result": {
+  "verdict": "unpaid",
+  "line": "SportsAMM/ThalesAMM round-closing keeper fns on Base (4 sports + 1 digital pool, impl 0x4f47154d/0x78d089fc) are permissionless (fresh-address eth_call: state reverts only) but pay caller $0 - source transfers go to safeBox/LP users/defaultLP only; 15 keeper events in 7d (~1 close per pool, digital pool 0) all by team EOA 0xff936b80783b32ad3f2b4e610d04c9778c4669a0; gas $0.001-0.004/call (0.006 gwei, ETH $1757); SpeedMarkets resolve/create role-gated.",
+  "kb": [
+   "attempts:2691"
+  ],
+  "run_id": "2c4648779c8841d3b30701af9cb04a19",
+  "at": 1795133731
+ }
+}

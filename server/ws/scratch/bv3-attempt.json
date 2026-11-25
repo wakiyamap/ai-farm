@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-balancer-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid verdict. Balancer V3 arbitrum has no caller-reward function: the only permissionless fee-settlement fn ProtocolFeeController.collectAggregateFees(pool) pays the caller $0 (fees go to DAO treasury 0x9ff471f9... and pool creators) and is dormant (last call 2025-04-18). No RewardRecycler/gauges on this chain; sweeper dormant since 2025-05. Vault still has swap flow but swappers pay fees, they are not paid.",
+  "numbers": "7d Vault events (eth_getLogs blocks 522839210-525258410, exactly 7d): 59 Swap, 8 LiquidityRemoved, 0 LiquidityAdded (same-query control returned non-zero); 2 active pools (0x5418a64e...2161 wArbWETH/RETH 46 swaps, 0x412d928c... 13). collectAggregateFees: eth_call from fresh address OK (no role revert), estimateGas 211,959 x 0.02 gwei (eth_gasPrice 0x131aa00) = 0.00000425 ETH = $0.008 at ETH $1813.65 (coins.llama.fi coingecko:ethereum); pays caller $0; fee pot 0.1179 RETH ~$214 to treasury. ProtocolFeeSwept 7d = 0, sweeper last tx 2025-05-02 (explorer txs)."
+}

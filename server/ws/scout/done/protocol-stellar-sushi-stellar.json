@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-sushi-stellar",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 193,
+ "chain": "stellar",
+ "slug": "sushi-stellar",
+ "name": "Sushi Stellar",
+ "category": "Dexs",
+ "tvl_usd": 15789218,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": 193,
+ "run_id": "0b9667399e9d4a5c9b80f5b37e2b745a",
+ "result": {
+  "verdict": "unclear",
+  "line": "Only adapter address is factory CD3K..GLYF; getEvents 0 over 7d (65493475 @2026-11-15T13:16:57Z..65613475 @2026-11-22T13:17:01Z) and 0 over full ~60d retention (factory only emits pool_created), USDC CAS3J7..OWMA control returns events; pool ids + Rust source unreachable (stellar.expert 402, DefiLlama R2 cache 404/opaque, no sushiswap stellar repo), relay getLedgerEntries rejects all LedgerKey XDR -> require_auth and paid-call check unmeasured; TVL 15.79M USD, XLM 0.1287 (coins.llama.fi 2026-11-22T13:27Z)",
+  "kb": [
+   "attempts:3731",
+   "protocols:1944"
+  ],
+  "run_id": "0b9667399e9d4a5c9b80f5b37e2b745a",
+  "at": 1795354831
+ }
+}

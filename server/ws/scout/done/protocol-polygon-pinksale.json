@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-pinksale",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1624,
+ "chain": "polygon",
+ "slug": "pinksale",
+ "name": "PinkSale",
+ "category": "Launchpad",
+ "tvl_usd": 728426,
+ "url": "https://www.pinksale.finance",
+ "github": null,
+ "listed_days_ago": 1624,
+ "run_id": "115798b8fbaf4f38ba905cc8b532e797",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PinkSale on polygon = 2 PinkLock lockers (0x5fb71Dbf..c261 137 locks, 0x6C9A0D8B..0633 9069); only paying fn unlock(uint256) is lock-owner-gated (eth_call from fresh addr reverts 'You are not the owner of this lock'); 7d (blks 97.18M-97.58M): 23 LockAdded / 7 LockRemoved, 7/7 self-claims by owners, owners got 14.65 USDT0 = $14.64 (llama $0.9989) + 376,873.49 CLK (unpriced); gas per unlock $0.0039-0.0056; no stranger bounty, launchpad factory has no published polygon address",
+  "kb": [
+   "attempts:2476",
+   "protocols:986"
+  ],
+  "run_id": "115798b8fbaf4f38ba905cc8b532e797",
+  "at": 1795082878
+ }
+}

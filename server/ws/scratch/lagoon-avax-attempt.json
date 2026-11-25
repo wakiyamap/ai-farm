@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-lagoon",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. All vault maintenance functions (settleDeposit/settleRedeem/claimSharesOnBehalf/expireTotalAssets/updateNewTotalAssets) are onlySafe/onlyValuationManager on the avalanche deployment (impl 0x33f65c8d025b5418c7f8dd248c2ec1d31881d465, version() 0.5.0); a stranger eth_call of settleDeposit reverts OnlySafe(0x...). All 16 maintenance txs of the last 7 days were the curator's own safe/EOAs and no function pays a caller (fees mint as shares to manager/protocol). Same shape as the ethereum dead_end.",
+  "numbers": "18 vaults chainId 43114 (api.lagoon.finance GraphQL); impl 0x33f65c8d025b5418c7f8dd248c2ec1d31881d465 shared, version() 0.5.0; largest vault 0xb3a2bcb30c1460d88db18b42a29fae2399952874 totalAssets 1,057,000 USDC; 7d events 55 (indexer), 7d maintenance txs 16, strangers among callers 0 (safe 0x42165bc7ee10d6194eccf225bbef199315f2d485: 6x updateNewTotalAssets 0xbcd1bf34 + 6x settleDeposit 0xd24ca58a; 0x3bd54daa848533b835abfc6ad8b1e9c66932d106 + 0xbcd31510c58c44d1ae82bc80338e9164cb7bd639: 4x router multicall via 0x9f039a8e88a3644fa916eea5562c2d91ab497b89); settleDeposit gas 142,873 (receipt 0xecdaf3d3fcd4df7b238e6e7232cff73a941ee5af08554ca4f031ad6ada17508a) x 8.1 gwei = ~0.0012 AVAX ~ $0.01 (AVAX $7.15 coins.llama.fi); gross reward per call 0"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-demeter",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1826,
+ "chain": "bsc",
+ "slug": "demeter",
+ "name": "Demeter",
+ "category": "Lending",
+ "tvl_usd": 281580,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1826,
+ "run_id": "90ef232ea7cc45548e24644bbfda3007",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Dead 2021 Compound fork (comptroller 0x3632...4379, 10 dm* markets, TVL 281.6k, borrowed 3.3k USD): no claim/reward/distribute fn in comptroller impls 0xc3f12c6f/0xc17f0cab or market impl 0x0237a987, no reward token; only accrueInterest is anyone-callable and pays 0 (liquidateBorrow un-gated, unused); last 7d all-logs query on 10 markets: 150 logs, all AccrueInterest by indexer 0xf4df4ba5 via Multicall3, 0 borrows/repays/liquidations (control returned 12); 9/10 markets untouched 219 days; gas 50 gwei x 50k ~ 0.0015 USD at BNB 586.28.",
+  "kb": [
+   "attempts:2577"
+  ],
+  "run_id": "90ef232ea7cc45548e24644bbfda3007",
+  "at": 1795107627
+ }
+}

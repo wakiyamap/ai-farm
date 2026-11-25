@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-bim-yield",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 496,
+ "chain": "base",
+ "slug": "bim-yield",
+ "name": "BIM Yield",
+ "category": "Yield Aggregator",
+ "tvl_usd": 238721,
+ "url": "https://exchange.bim.finance/",
+ "github": null,
+ "listed_days_ago": 496,
+ "run_id": "06583cf3931d4c87baea2da972803bad",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Base BIM Yield = 25 Beefy-style share vaults (impl 0xee95508e, Base TVL 36k) whose strategies expose permissionless harvest(address) 0x0e5c011e paying the caller a WETH priority fee: 35 harvests in 7d (blocks 55758817-58782817), 32 by stranger EOA 0x558079b5f12b9c8d6119bfa5e7b7a58ba05dc579, gross/call bash.00002-0.0187 (mean bash.0052) vs gas 0.83-1.48M = bash.009-0.031 (mean bash.0164 at ETH 791.89, coins.llama.fi); 7 of 32 beat gas (+bash.0036 each, strategy 0xBFeF6e2F), 7d totals gross bash.1675 vs gas bash.5262 = net -bash.36.",
+  "kb": [
+   "attempts:1864",
+   "leads:252"
+  ],
+  "run_id": "06583cf3931d4c87baea2da972803bad",
+  "at": 1794948059
+ }
+}

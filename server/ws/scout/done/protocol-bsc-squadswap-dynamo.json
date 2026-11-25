@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-squadswap-dynamo",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 606,
+ "chain": "bsc",
+ "slug": "squadswap-dynamo",
+ "name": "SquadSwap Dynamo",
+ "category": "Dexs",
+ "tvl_usd": 219357,
+ "url": "https://squadswap.com/",
+ "github": null,
+ "listed_days_ago": 606,
+ "run_id": "055815dbdc5646b09458a405c9cb7490",
+ "result": {
+  "verdict": "unpaid",
+  "line": "UniV2-fork DEX + 2 MasterChef pools on bsc (factory 0x918Adf...3DbA, MCs 0x6316f6...b82a/0x87dd4b...200f): deposit/withdraw/harvest are staker-callable but reward pot empty (SQUAD balance 0 on both MCs, mc2.harvest(0,stranger) reverts 0xc301e07e); 0 MC events in 7d (sample of 35k blocks incl. last 10k, control USDT 39982 logs/500blk), staking TVL $0, DEX vol24h $7,473 / fees $22 to LPs, gas $0.005/call (0.05 gwei, BNB $591.99).",
+  "kb": [
+   "attempts:1972"
+  ],
+  "run_id": "055815dbdc5646b09458a405c9cb7490",
+  "at": 1794971935
+ }
+}

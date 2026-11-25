@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "hourglass",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/hourglass/index.js gives factory 0x679619FA685a18782a86dD5850124A75E83daD8F and pitchFXS 0x11ebe21e9d7bf541a18e1e3ac94939018ce88f0b. Both have code; factory numberOfVersions()=9 and token totalSupply() answers. Etherscan verified factory implementation 0x54451dd2c6a0e8dd3e5a9f8caa1dc8bccb922094 and the 8 version beacon implementations with deployments (version 6 has 0 deployments): deposit/redemption only, recoverTokens restricted to REGISTRY_MANAGER (fresh eth_call reverted AccessControlUnauthorizedAccount). pitchFXS depositor()=0xdfa1f69774ad2924cebd43d75aadfb92403c5335, code present, Etherscan verified implementation 0x28fb88e578890587563dd49ae35d3422e76aae3f. It has public lockFXS() incentive, but incentiveFXS()=0 and lockIncentive()=0 at 2026-11-23 22:12 UTC; fresh eth_call lockFXS() reverts. Timestamp-confirmed 7 d blocks 26430502 (2026-11-16 22:12:35 UTC) to 26480745 (2026-11-23 22:12:35 UTC): 0 IncentiveReceived events. No-topic scan of same contract/range returned 2 Deposited events, topic0 derived from cast keccak, so event zero is controlled. Verdict unpaid."
+}

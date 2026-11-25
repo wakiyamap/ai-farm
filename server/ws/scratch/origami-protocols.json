@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "origami_finance",
+ "status": "measured",
+ "checked": "DefiLlama adapter projects/origami/index.js (github null in api.llama.fi, repo found via TempleDAO org: TempleDAO/origami-public). 7 ethereum vaults from origami-api.automation-templedao.link vault-token-balances?chain=1, all eth_getCode non-0x, name() getter answers: SKY+ Auto-Compounder 0x07c5500359161b81eb0dfff83097d5025d3cf5a2 (mgr 0xc522335fbfe21d7a7d1135eb0e016a89da49dc9e), sUSDS+SkyFarms 0x0f90a6962e86b5587b4c11ba2b9697dc3ba84800 (mgr 0x05654ff0cb3635fa5de00cc11607dbf203435c13), lov-wstETH-a 0x117b36e79adadd8ea81fbc53bfc9cd33270d845d (mgr 0xc9632e9cbdee643bc490572dd0750ea394e8e3a9), hOHM 0x1db1591540d7a6062be0837ca3c808add28844f6 (mgr 0xe6c5dc8508939b1c417f83b7fed3149ef22cf3ff), Opal weETH-a 0x489dd7f6..., PT-sUSDe-b 0x6477ce..., sUSDe-merkl-b 0xd90c7b... (Opal managers: join/exit/multicall only). Source TempleDAO/origami-public apps/protocol/contracts: claimFarmRewards(uint32[],address) on SuperSky/SuperSavingsUsds managers is permissionless and pays incentivesReceiver arg performanceFeeBps-for-caller share of harvested rewards; all other maintenance fns (hOHM sweep/syncDebtTokenSavings, collectPerformanceFees, lov rebalanceUp/Down, Opal setFees/addAdapter) are onlyElevatedAccess."
+}

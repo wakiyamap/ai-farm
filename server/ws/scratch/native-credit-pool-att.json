@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-native-credit-pool",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: the protocol's only Arbitrum contract (DefiLlama native-lend adapter vault CreditVault 0xbA1cf8A63227b46575AF823BEB4d83D1025eff09, verified source) has no function anyone can call for pay - epochUpdate is OnlyEpochUpdater (0x4bed8de4358b956727676e00c4f215f5f3b7b482), settle/repay/removeCollateral are trader/settler-only, liquidate needs the liquidators whitelist, withdrawReserve is OnlyFeeWithdrawer and pay is OnlyLpToken (all revert from fresh address 0x1111..1111 via eth_call; error selectors matched). The one permissionless fn addCollateral transfers in and pays 0. Bonus: nothing to take anyway - 0 top-level txs to the vault in the last 7 days and last successful business call was settle on 2026-06-08.",
+  "numbers": "7d txs to vault: 0 (explorer txs, etherscan, blocks 522920588-525339788); last success: settle block 471229421 ts 1780893264 by 0x129b3d9a0a6e4beab88f5cb1e57995d72a6e24f1; gross reward to stranger: 0; TVL 423,104 USD borrowed 14,325 (api.llama.fi 2026-11-18); relay scout lane spent 302854/300000 CU (getLogs untrustworthy this run)"
+}

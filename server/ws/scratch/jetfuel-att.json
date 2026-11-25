@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-jetfuel-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid - Permissionless reward-shaped functions exist (strategy harvest(); chef updatePool/massUpdatePools pay the pool not the caller) but pay a stranger 0. Chef emissions are dead: getCurrentBlockFuel()=0, pool 6 allocPoint=0, all 16 pools lastRewardBlock stuck at 8.05M-8.25M blocks (mid-2021) except pool 12 at 51.97M (~2023), so no chef call (deposit/withdraw/harvest) has touched any pool in the last 7 days. harvest() succeeds on 4 of 6 live strategies but is a no-op: debug_traceCall shows zero internal calls, caller paid 0; 2 others revert PancakeLibrary/ThugswapLibrary INSUFFICIENT_INPUT_AMOUNT. 0 logs from chef + 6 funded strategies in a 40,008-of-1,343,327 block sample of the last 7 days (control: same getLogs shape on WBNB 500-block range returns logs).",
+ "numbers": "Chef 0x86f4bc1ebf2c209d12d3587b7085aea5707d4b56 holds ~117 FUEL (empty pot). harvest() on 0x5d9ebde919f6a2b2e6e0d97d3d8e991755e7b330 (vault 0xED209733..., 75,386 LP, largest): eth_call OK from fresh addr, estimateGas 21,326 gas (~2.1e-6 BNB, < 0.01 USD), trace = no external calls, caller paid 0 USD. 7-day window blocks 133,282,755-134,626,082 (0.45 s blocks); sampled 8x5,000-block getLogs on [chef+6 strategies] = 0 logs; control WBNB chunk returns logs. Gross/call = 0 USD, gas < 0.01 USD. TVL 132,516 USD (candidate, DefiLlama). Sources: eth_call/eth_getLogs via rpc.py bsc, block 134626082, 2026-11-20T04:00Z."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-siren",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Opyn-fork options protocol (MarketsRegistry + 12 MinterAmm + Market vaults); no function pays a stranger - the only anyone-callable settle function (MinterAmm.claimAllExpiredTokens) moves expired collateral to the AMM for its LPs and pays the caller 0, all user ops pay only the holder-caller and fees go to the owner. Protocol is dormant: 0 events on all 14 addresses in the last 7 days; last event 2026-09-11.",
+  "numbers": "7d window blocks 26418326 (2026-11-15, ts 1794720719) to 26468579 (2026-11-22, ts 1795325507) from eth_getBlockByNumber timestamps; no-topic eth_getLogs over 14 protocol addresses (registry 0xb8623477ea6f...af63, 12 AMM proxies from AmmCreated logs 0xa128ec36..., vault 0x7b63ecbc...a469): 0 logs in 7d and 0 in 30d; control same shape USDC 100 blocks = 6948 logs (non-empty, query shape alive). Protocol's last log: block 25953280 (2026-09-11, LP transfer on AMM 0x25bc339170adbff2b7b9ede682072577fa9d96e8). TVL 311,748 USD (candidate row, DefiLlama 2026-11-22); vault 0x7b63ecbc...a469 USDC balance read on chain (0xa0b869...eb48 balanceOf, 6 decimals) = 2002 raw = 0.002 USDC (dust); the 311k sits in the 12 AMM proxies. Gross per stranger call of claimAllExpiredTokens = 0 (value goes to AMM LPs); gas = loop over that AMM's markets, all of it."
+}

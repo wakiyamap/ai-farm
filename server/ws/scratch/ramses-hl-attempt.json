@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-ramses-cl-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Anyone-callable keeper functions exist (voter distribute/distributeAll/poke, FeeCollector.collectProtocolFees) and are live, but the source pays RAM only to gauges (stakers), nothing to msg.sender; eth_call distribute from a fresh address confirms no role gate. One keeper EOA 0x8068e05da1cb8832fc75d263ff3dcda1bd579f0c burns gas for free; a stranger would too.",
+  "numbers": "7d window blocks 50,886,725-51,501,725 (eth_getLogs voter 0x9aab8c41...): DistributeReward 22, Poke 73, NotifyReward 1, control Voted 1,426. All 22 distribute calls from 0x8068e05da1cb8832fc75d263ff3dcda1bd579f0c, gasUsed 383k-436k per tx (receipts 0x8fb8b2f2..., 0x717ec3af...). eth_gasPrice 0x6e2276c = 0.1155 gwei; 400k gas = 4.6e-5 HYPE = $0.003 at HYPE $68.88 (coins.llama.fi coingecko:hyperliquid 2026-11-17). Gross per distribute to the caller = $0. TVL $3.21M (api.llama.fi/protocol/ramses-cl-v2). DistributeReward amounts 3.2M+ RAM units (1e18) per event go to the gauge (e.g. 0x0aea3ddeac45c9eaaea9 in tx 0x8fb8b2f2...)."
+}

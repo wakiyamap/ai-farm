@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-thesauros",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 347,
+ "chain": "arbitrum",
+ "slug": "thesauros",
+ "name": "Thesauros",
+ "category": "Yield",
+ "tvl_usd": 51628,
+ "url": "https://thesauros.io",
+ "github": [
+  "Thesauros"
+ ],
+ "listed_days_ago": 347,
+ "run_id": "ba4a3ca929a943409d4e9215ca542e68",
+ "result": {
+  "verdict": "unpaid",
+  "line": "v2 vault 0x4E5c..6378: applyFees() is stranger-callable (eth_call from 0x1111 ok) but pays 0 (fee shares minted to treasury, accrues internally on every deposit/withdraw); 0 FeesApplied/7d (control: 14 RebalanceExecuted same window); rebalance() is EXECUTOR_ROLE-gated, 8 tx/7d all from protocol EOA 0x48aee620..69c5, gas 0.009-0.047 USD (ETH 1707.76, llama 12:05 UTC), gross to caller 0; v1 vaults dormant (0 events/7d); TVL 51.6k USD.",
+  "kb": [
+   "attempts:3716",
+   "protocols:1934"
+  ],
+  "run_id": "ba4a3ca929a943409d4e9215ca542e68",
+  "at": 1795349423
+ }
+}

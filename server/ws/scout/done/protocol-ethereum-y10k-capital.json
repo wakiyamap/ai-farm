@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-y10k-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 125,
+ "chain": "ethereum",
+ "slug": "y10k-capital",
+ "name": "Y10K Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 18382663,
+ "url": "https://www.y10k.capital/",
+ "github": null,
+ "listed_days_ago": 125,
+ "run_id": "802f9ea141844daeafddbb1515d90a26",
+ "result": {
+  "verdict": "role_gated",
+  "line": "eY10K Ember ERC4626 vault 0x953972ea..Ee074 (TVL 18.38M USD, asset USDC 0xa0b8..eb48 6dec @0.99992 coins.llama.fi ts1795180945): updateVaultRate onlyRateManager, processWithdrawalRequests/collectPlatformFee onlyOperator (both protocol EOAs), revert 0x82b42900 from fresh addr; 7.5d getLogs (no-topic control, 26406427-26456555): 9 logs = 2 rate-updates, 2 deposits 370k USDC, 2 operator-withdrawals, 1 Upgraded, 2 Transfer; 0 ProcessRequestsSummary/feeCollected; no stranger paid, gross 0.",
+  "kb": [
+   "attempts:2920",
+   "protocols:1335"
+  ],
+  "run_id": "802f9ea141844daeafddbb1515d90a26",
+  "at": 1795181059
+ }
+}

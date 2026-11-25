@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-arrakis-modular",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Arrakis Modular on BSC is a managed-vault protocol: factory 0x820FB8127a689327C863de8433278d6181123982 (numOfPrivateVaults=55, numOfPublicVaults=0), vaults are depositor-whitelisted LP wrappers and rebalancing runs through per-vault modules callable only by the vault's manager. No reward/bounty/keeper/harvest/claim function pays a stranger on any of the three contract layers; the only pay-style function (withdrawManagerBalance) is role-gated (reverts 0x from a fresh address).",
+  "numbers": "55 private vaults / 0 public (eth_call numOfPrivateVaults 0xbdc82252, numOfPublicVaults 0x265e29fb, 2026-11-18); example vault 0x2df11b7b30f8dc4ae804020c3df5e53d22b24b3c, module proxy 0x21b6f4b4ddb25f657e86b2c8cea94f593a6e5436 -> beacon 0xc164893891d312876c8b0a59811db096f8a740cc -> impl 0x999b23eaa5bcf2ff246fc979c80d729812541d64 (36 selectors extracted from bytecode, 4byte.directory); 11 tested selectors incl. withdrawManagerBalance all revert 0x from fresh address 0xf324aC73933d93E1b8F4A9b6fBB2a6Da66A2b918; TVL 2.7M USD (session context); no 7-day log scan run (no candidate function to track)"
+}

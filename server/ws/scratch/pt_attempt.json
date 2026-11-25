@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-papertrade",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the callable public maintenance functions (liquidateBatch(uint256[]), requestSweep(address), finalizeSweep(address)) pay the caller 0: liquidation margin and the 2% fee go to the LP/stakers/dev recipient, not the caller (docs + receipt inspection). liquidateBatch is not role-gated (eth_call from a fresh address returns 0 with empty ids), but Papertrade runs its own liquidation keeper, 0x07626d8137ede6b922bcecf3b67f82a21100a612, which made all 37 liquidateBatch calls in the latest 200 Exchange txs (a ~7 min window); sweeps all come from 0xdf1bda875c9393a663ce69bf6a7fbaa73dfd053d. PaperStaking paperDistribute is relayer-keeper only (role_gated); claims are users paying themselves.",
+  "numbers": "Exchange liq event topic 0x0bb3f42f...: 5/11/33 events in three 2000-block slices at head (nonzero control) ~ 22/h ~ 500/day ~ 3.5k per 7d (extrapolated, bursty). gasUsed: liquidateBatch 154,481 (~$0.0012 at 0.111 gwei eth_gasPrice and HYPE $70.53, coins.llama.fi coingecko:hyperliquid 2026-11-17), requestSweep 115,703 (~$0.0009). Gross per public call $0. TVL $20.83M (api.llama.fi/protocol/papertrade currentChainTvls). Liq tx sample 0x3b0ca17139d732de6496e5b00c1320d66db8e45d1a04a773cabee6c6af0bed3a; sweep tx 0x1c2761e52bb8aceeea5ec17bcdd1e531a5191e9d66c9c404a29b32f0aec37aee."
+}

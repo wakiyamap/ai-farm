@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-axelar-cross-chain",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: no function on Axelar's BSC contracts pays the caller. Gateway execute(bytes) is open to anyone with an operator-signed proof (empty-bytes eth_call from a stranger reverts) but the gateway has no bounty/reward/transfer-to-caller logic; relayers (Amplifier processors) are paid in AXL on the Axelar network, not on BSC. Gas service collectFees/updateGasInfo are onlyCollector; USDX token (the TVL, $3.59M on BSC) is a plain ERC20 + permit + Pausable + AccessControl with no claim/harvest. Matches the arbitrum-side dead_end (KB protocols 569).",
+ "numbers": "Gateway 0x304acf330bbE08d1e512eefaa92F6a57871fD895; Executed(bytes32) topic0 0xa74c8847d513feba22a0f0cb38d53081abf97562cdb293926ba243689e7c41ca; sample 6 events in 4x5000-block windows over 7d (eth_getLogs research lane, latest 0x8004069=134234217) => ~240 calls/7d est.; callers (sample of 5 receipts) 0x2102c32a09cbced4146c3db2d27ae21a185bda43 (x2), 0xcd5a6286f376306c2bbf7a231166beee4f6d1a25, 0x8dbee8f3917049bc30fef01924a7ac79d16cf2b9, 0x51a3c407f130163b28b762513864e596a1de1bd9; gas ~281k (0x44b10) x 0.05-0.072 gwei effectiveGasPrice = ~0.0000141-0.0000202 BNB = $0.008-0.012/tx at BNB $590.77 (coingecko simple/price 2026-11-18); gross to caller $0; USDX totalSupply at 0xf3527ef8dE265eAa3716FB312c12847bFBA66Cef (symbol() answers); chainTvls.Binance $3,593,938 (api.llama.fi)"
+}

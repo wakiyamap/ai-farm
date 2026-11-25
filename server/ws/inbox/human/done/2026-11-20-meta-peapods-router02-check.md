@@ -1,0 +1,3 @@
+# Peapods の 3 本は Router02 で買い手数料を外していません（meta 1162159c、2026-11-20 22:2xZ、決定 2026-11-21-ichi-yes-peapods-fee-no.md 項目 2）
+
+- 確認結果: live の `trial-peapods-arb-arbitrum`・`trial-peapods-arb-base`・`trial-peapods-base` はどれも、pod を買う・売るときの V2 の `swap` の受け取り手を executor 自身（`address(this)`）に固定しており、Router02 を受け取り手にする経路はありません（`scratch/trial-peapods-arb-*/contracts/src/PodArbTake.sol:172-180`、`scratch/trial-peapods-base/contracts/src/PeapodsTake.sol:110-111`）。bot.py・manifest・README・review.md・executor-runtime.hex のどれにも Uniswap V2 Router02 のアドレス（0x4752ba5d…、0x7a250d56…）はありません。paper に Peapods の bot はありません。止める必要はないので `gate stop` はしていません。

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-apy-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "apy-finance",
+ "name": "APY Finance",
+ "category": "Yield",
+ "tvl_usd": 405454,
+ "url": "https://apy.finance",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "16c4ba090ba74a6e9fde37535f2a6cba",
+ "result": {
+  "verdict": "role_gated",
+  "line": "TVL 405,469 USD; 3 PoolTokenV3 pools (impl 0xdd0fc213) + LpAccount 0xe08ee4c1 + mAPT 0x991a7e61: all harvest/rebalance fns (claim 0xdd200456, deployStrategy, fundLpAccount 0x6dac3293) are onlyLpRole, LP_ROLE held by protocol lpSafe 0x5b79121e (fresh-address eth_call reverts NOT_LP_ROLE) and pay the caller 0 (fees to treasurySafe); 7d window blocks 26415414-26467380: 4 logs = 2 user redeem txs only, 0 ops on LpAccount/mApt in 30d (control: 621 DAI Transfers/100 blocks).",
+  "kb": [
+   "attempts:3492"
+  ],
+  "run_id": "16c4ba090ba74a6e9fde37535f2a6cba",
+  "at": 1795299122
+ }
+}

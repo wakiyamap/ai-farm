@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-dodo-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "dodo-amm",
+ "name": "DODO AMM",
+ "category": "Dexs",
+ "tvl_usd": 5862071,
+ "url": "https://dodoex.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "2b68379a2e2e44fb96817122e8f5da7e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "DODO v1.5 pools on bsc (DVM/DPP/DSP/GSP) expose only swaps/flashLoan(pays mtFee out, not in)/LP ops + free sync() paying 0; maintain/orderWithdraw/claimDip absent on deployed pools (fresh-EOA eth_call reverts identical to garbage-selector control 0xdeadbeef at block 134620549, pool 0x426808dd448d10eb7e4ae4b5dd4578aabbc30cd5 version()='DVM 1.0.2'); fee functions are onlyOwner/onlyMaintainer; activity control: active DPP pool 0x4976ae41... 499 logs in last 5000 blocks vs 0 on sampled DVM pools; same no_reward as arbitrum/avalanche/base dodo_amm.",
+  "kb": [
+   "attempts:2746",
+   "protocols:1187"
+  ],
+  "run_id": "2b68379a2e2e44fb96817122e8f5da7e",
+  "at": 1795145089
+ }
+}

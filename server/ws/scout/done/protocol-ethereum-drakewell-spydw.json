@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-drakewell-spydw",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 4,
+ "chain": "ethereum",
+ "slug": "drakewell-spydw",
+ "name": "Drakewell SPYdw",
+ "category": "Indexes",
+ "tvl_usd": 562226,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 4,
+ "run_id": "9000e0c93c9f43a1a3a73eeedf6f64e8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: SPYdw 0x88e570F5... (impl JSPYVault 0xd607e315) postNav/fulfillDeposit/fulfillRedeem/jusdClaim are OPERATOR_ROLE-only (fresh eth_call reverts 0xe2517d3f) and pay operatorWallet 0xada55e70, never the caller; 7d blk 26405242-26455506: 43 NavPosted all from one EOA 0x8aaccee7 (63.7k-81.1k gas = 0.05-0.12 USD each, ETH 1747.23 coins.llama.fi ts 1795168203), 0 deposits, 0 redeems; lifetime since dep blk 26336431: 2 fills, 302,812 + 300,820 USDC in, 21,997 + 21,245 USDC premium to the operator; sister USDdw 0x2B5895... legs onlyStrategy (0x82b42900) = protocols:271.",
+  "kb": [
+   "attempts:2857",
+   "protocols:1275"
+  ],
+  "run_id": "9000e0c93c9f43a1a3a73eeedf6f64e8",
+  "at": 1795168447
+ }
+}

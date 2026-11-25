@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-ichi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1823,
+ "chain": "base",
+ "slug": "ichi",
+ "name": "ICHI",
+ "category": "Liquidity Manager",
+ "tvl_usd": 1280739,
+ "url": "https://www.ichi.org",
+ "github": [
+  "ichifarm"
+ ],
+ "listed_days_ago": 1823,
+ "run_id": "197f2eaf1e9c4a709ab4a2495e0a2742",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ICHI base = 6 ICHIVault factories (Equalizer/Henjin/Hydrex/Kim/PancakeSwap/Trebleswap, 240+ vaults, TVL 1.28M USD): only stranger-callable money fn is collectFees() (fresh-addr eth_call OK), pays caller 0 - _distributeFees sends fees only to fixed ammFeeRecipient/feeRecipient/affiliate (verified source); rebalance is onlyOwner behind module 0x7d11de61..., run only by ICHI keeper EOA 0x8bc0aee1; 7d sampled scan 7x50k blocks, 89 vaults (11.6% of 3.02M blocks, control USDC >20k logs): 26 CollectFees + 61 Rebalance; standalone caller pays gas for zero return.",
+  "kb": [
+   "protocols:1057",
+   "attempts:2568"
+  ],
+  "run_id": "197f2eaf1e9c4a709ab4a2495e0a2742",
+  "at": 1795105888
+ }
+}

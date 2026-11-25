@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-youswap",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. UniV2-clone staking Pool (0x8F1c3c2D8F5675b7c521f827E3899bF76f9382F6): withdraw(uint256,uint256) is callable by anyone and pays pending YOU to the caller, but eth_call from a fresh address pays 0; deposit is 'YouSwap:FORBIDDEN' for strangers (invite gate); the Pool emitted 0 events in the last 7 days, so no stranger was paid anything. The project is dead (deadUrl true, repo last push 2021-05-25, YOU volume $10/day), so the empty claim queue is not a neglected live reward.",
+  "numbers": "7-day Pool logs = 0 of 0 (eth_getLogs scan 1,350,000 blocks = 7.0 d at ~0.45 s/block, 270 chunks, same-shape control on YOU/USDT pancake pool 0x71ef3e32838e7b30f8b23a9085ae916d7cd74842 returned 2 logs in 50k blocks); Pool YOU balance 24,158.517372 YOU (YOU decimals()=6 read on chain 0x181801F00df1BD997D38Dd579dBd44bf9b5a6d2D) ~= $127.75 at $0.005288/YOU (GeckoTerminal YOU/USDT 2026-11-20 06:01Z); gas 0.05 gwei (eth_gasPrice) x 60k = $0.0017 at BNB $571.60 (coins.llama.fi 2026-11-20 06:14Z); poolCount()=56, factory allPairsLength()=362, BSC TVL $104,109 (api.llama.fi 2026-11-20)"
+}

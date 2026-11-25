@@ -1,0 +1,9 @@
+# The gate runs as farmgate (key owner). Agents reach it only through gate-ctl.
+# farmgate itself gets exactly the systemctl verbs for bot units and the two
+# root-side filesystem steps (gate-root adopt|archive <id>, id validated there).
+Defaults!/opt/farm/bin/gate-ctl env_keep += "FARM_ROLE FARM_RUN_ID"
+%farm    ALL=(farmgate) NOPASSWD: <REDACTED>
+farmgate ALL=(root) NOPASSWD: <REDACTED> start bot@*.service, /usr/bin/systemctl stop bot@*.service, \
+    /usr/bin/systemctl restart bot@*.service, /usr/bin/systemctl reset-failed bot@*.service, \
+    /usr/bin/systemctl enable --now bot@*.service, /usr/bin/systemctl disable --now bot@*.service, \
+    /usr/bin/systemctl start agent@live-operator.service, /opt/farm/bin/gate-root

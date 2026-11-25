@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-dexalot-portfolio",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The Dexalot chain-side bridge on avalanche (PortfolioMain/PortfolioBridgeMain/MainnetRFQ) has no function that pays the caller: L1->avax withdrawal delivery goes ICM relayer -> bridge app 0x253b -> PortfolioBridgeMain.processPayload (BRIDGE_PROVIDER_ROLE, verified missing-role revert from a fresh address) -> PortfolioMain.processXFerPayload, and the funds are paid to the withdrawing trader, not the caller. The one open function, MainnetRFQ.removeFromSwapQueue (no role), also pays the trader and had 0 events in 7d. All 7d deliveries came from one whitelisted Dexalot relayer EOA (ICMApp.sol setRelayers whitelist), so strangers are not taking it and would earn nothing from the contract.",
+  "numbers": "7d (blocks 100,354,262-100,656,662): 242 PortfolioUpdated on PortfolioMain 0x1FD108cf42A59c635bD4703b8DbC8a741ff834Be = 180 DEPOSIT + 62 WITHDRAW (sample of 3 and 15 deliveries, all from 0x631b63b76b56cb7e0ff7e56032e2577300733842); SwapQueue on MainnetRFQ = 0 (control same-shape returned 242). Gas per delivery 583,861 gas @ effective 7.5 gwei = 0.00438 AVAX = $0.031 (AVAX $7.07, coins.llama.fi 2026-11-18); gross to caller $0 (tx value 0, no token transfer to caller). Selectors/topics from cast: PortfolioUpdated topic0 0x3c0255c3, processPayload 0x69ab5ae6, removeFromSwapQueue 0xd28f48d3. TVL $2,960,136 (session context)."
+}

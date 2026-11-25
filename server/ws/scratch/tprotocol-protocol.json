@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "tprotocol_v2",
+  "status": "dead_end",
+  "checked": "DefiLlama protocol API module=t-protocol-v2/index.js and adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/t-protocol-v2/index.js identify rUSTPool 0x38a1753AEd353e58c64a55a3f3c750E919915537, UniV3Manager 0x9C27F7BB05dDF33F3e1004eDC16f14d1402838Cc, STBT 0x530824DA86689C9C17CdC2871Ff29B058345b44a. Pool getter liquidatePool() gives 0x2b11279f01998587cb03e0fc18797aaa8c4300f6. All four eth_getCode nonempty and getters answer (pool usdc()/stbt()/liquidatePool(), manager token0(), STBT owner(), liquidation ustpool()). Etherscan verified rUSTPool.sol, LiquidatePool.sol, UniV3Manager.sol: claimReservesFee and feeCollect require admin; finalizeLiquidationById requires the original liquidator; public liquidateBorrow/flashLiquidateBorrow burn caller rUSTP 1:1 for STBT redemption/Curve output, with no caller bonus. On-chain redeemThreshold is 100000 STBT, above total pool debt 25105.887914 rUSTP; 100 rUSTP Curve quotes return 99.729923 USDC or 99.834334 USDT before gas. No-topic eth_getLogs on pool and liquidation pool returned 0 logs during 2026-11-16 21:02:35 to 2026-11-23 21:02:35 UTC (blocks 26430153-26480396); same-shape no-topic USDC control returned 85 logs in block 26480396. Verdict unpaid."
+}

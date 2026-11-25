@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead171",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 171,
+ "target": "slow-sweep Moonwell core base liquidation (non-liquidation breadth, crash 1-2 counted class)",
+ "run_id": "670d739cbceb4b02ba7c1142d8cd05b2",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d base: 399 Moonwell core liquidateBorrow occurrences / 324 txs / 67 non-role takers; gross = 10.0% of repaid debt (incentive 1.10 at comptroller 0xfbb21d03), 113 occurrences gross > 12 USD (largest 4,342.35, 0x0611c980 by 0x11f7af68) vs one attempt 11.65-152 USD (1.7M gas at 0.77-64 gwei winner priority, ETH 1,817) -> paid; takeable-window probe (getHypotheticalAccountLiquidity) failed the control, so the slow-sweep class still rests on attempt 1198 (1 counted capture/72 h = 0.33 USD/day).",
+  "kb": [
+   "attempts:1462",
+   "leads:171"
+  ],
+  "run_id": "670d739cbceb4b02ba7c1142d8cd05b2",
+  "at": 1794861216
+ }
+}

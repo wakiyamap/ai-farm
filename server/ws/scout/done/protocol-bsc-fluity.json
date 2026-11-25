@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-fluity",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "fluity",
+ "name": "Fluity",
+ "category": "CDP",
+ "tvl_usd": 27253,
+ "url": "",
+ "github": [
+  "fluity-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "c4b9978257df48be86f9c0bc6d2a8bef",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Liquity fork, 1 trove only (50 BNB coll vs 14,999.75 fUSD debt, ICR ~191% > MCR 110%); liquidate/liquidateTroves/batchLiquidateTroves pay msg.sender 0.5% of coll (0.25 BNB = 143 USD at BNB 571.85) + 200 fUSD but revert 'nothing to liquidate' today; 0 liquidations, 0 redemptions, 0 TroveManager logs in 7 d (blocks 133,949,547-135,293,493, control USDC 21,438 logs); all 31 protocol logs = 8 self-use txs by 4 EOAs; gas 0.011 USD at 0.05 gwei.",
+  "kb": [
+   "attempts:4141"
+  ],
+  "run_id": "c4b9978257df48be86f9c0bc6d2a8bef",
+  "at": 1795447780
+ }
+}

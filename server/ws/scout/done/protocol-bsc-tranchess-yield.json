@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-tranchess-yield",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "tranchess-yield",
+ "name": "Tranchess Yield",
+ "category": "Yield",
+ "tvl_usd": 3580247,
+ "url": "https://tranchess.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "648207c0110349f98c41452804a29210",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Same contract set as tranchess (adapter module projects/tranchess/index.js, bsc TVL 3.58M USD): fund settle() anyone-open but protocol-wide frozen, currentDay()=2026-07-03 14:00 UTC (140 d stale at 2026-11-20, BTC V2 0x2f40c245); swap sync()/collectFee() anyone-callable (eth_call ok from fresh address, 0x999DB223) but pay caller 0 (fees -> feeCollector); gross 0 USD/call vs gas",
+  "kb": [
+   "attempts:2781",
+   "protocols:1213"
+  ],
+  "run_id": "648207c0110349f98c41452804a29210",
+  "at": 1795152518
+ }
+}

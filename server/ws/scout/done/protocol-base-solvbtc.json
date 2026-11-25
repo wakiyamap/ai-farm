@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-solvbtc",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 913,
+ "chain": "base",
+ "slug": "solvbtc",
+ "name": "SolvBTC",
+ "category": "Bridge",
+ "tvl_usd": 267201,
+ "url": "https://app.solv.finance/solvbtc",
+ "github": null,
+ "listed_days_ago": 913,
+ "run_id": "1a0fac4e97ac49c3a2486eda8a80c02a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Base footprint = 2 dormant SafeL2 deposit wallets (3.46 cbBTC + 0.665 tBTC, 64k TVL, last deposit 2026-03-02) + OpenFundMarket 0xf5a24715..A3f: 7d market events = 17 (blocks 56081909-59105082, control 571/350 blocks), all 4 txs from Solv ops EOA 0x99754c36..f5ba; stranger closeCurrentRedeemSlot reverts 'OFM: only pool manager'; settlement pays 1 wei tBTC carry + 0 protocol fee to the fund, caller gets 0, gas bash.0014 (130k gas @ 0.006 gwei, ETH $1791 llama). Sample of 4 of 4 txs.",
+  "kb": [
+   "protocols:731",
+   "attempts:2160"
+  ],
+  "run_id": "1a0fac4e97ac49c3a2486eda8a80c02a",
+  "at": 1795011746
+ }
+}

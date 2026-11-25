@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-carbon-defi",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Carbon v1 CarbonController 0xC537e898CD774e2dCBa3B14Ea6f34C93d5eA45e1 has no function a stranger can call for pay: every user op is onlyProxyDelegate and the only pay-out path withdrawFees is behind ROLE_FEES_MANAGER (fresh-address eth_call reverts AccessDenied 0x4ca88867) with an empty pot; all 58 fee withdrawals in 7d pay Vortex 0xd053dcd7037AF7204cecE544Ea9F227824d79801 dust (3365 wei WETH sample) - the same route already measured under carbon_vortex lead 198. The rest is incumbent taker arbitrage (639 trades / 7d, 22 bots) where the trader pays the protocol a fee, not the other way around.",
+  "numbers": "7d window blocks 26413750 (2026-11-14 14:13 UTC) to 26464150 (2026-11-21 14:43 UTC, rpc.py eth_getBlockByNumber binary search). Fee withdrawals: 58 events topic0 0x2f4e8fcae66f01952d258445c03f43cf56d3ce389e017ecd2afa8a79e7717588 (topic0 from receipt of tx 0x72cdbd9b00f2f911.., 7d no-topic scan of controller: 1493 logs, 6 topic0s, all mapped to strategy/trade/fee events), recipient 0xd053dcd7 every time; sample amount 0x0d25 = 3365 wei WETH. accumulatedFees: WETH 0 wei, USDC 220 raw 6-dec = 0.00022 USD (eth_call 0xfcf66664). TokensTraded 639 / 22 traders, top 3 = 174/143/98 (eth_getLogs topic0 0x95f3b01351225fea0e69a46f68b164c9dea10284f12cd4a907ce66510ab7af6a). pairs() = 705. ETH TVL 479,037 USD api.llama.fi/protocols 2026-11-21."
+}

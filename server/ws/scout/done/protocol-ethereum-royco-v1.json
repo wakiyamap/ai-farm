@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-royco-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 738,
+ "chain": "ethereum",
+ "slug": "royco-v1",
+ "name": "Royco V1",
+ "category": "Yield",
+ "tvl_usd": 133584,
+ "url": "https://www.royco.org",
+ "github": null,
+ "listed_days_ago": 738,
+ "run_id": "0090ab2e00d44f8196fd09ae2b22dfaa",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Royco V1 ethereum (RecipeMarketHub 0x783251f103555068c1e9d755f69458f39ed937c0 + WrappedVaults, numMarkets 230): executeWithdrawalScript/claim/claimFees anyone-callable but dormant - 0 hub logs in 7d (blocks 26,411,365-26,464,914, Nov 14-21, no-topic scan; 4 in 90d, last Nov 8), biggest vault + boring vault 0 logs 7d; claim pays caller's own accrual only (0 for stranger, fresh-addr eth_call ok, no role revert); gas ~0.35 USD/100k (2.24 gwei, ETH 1569.81); control Dawn EntryPoint 12 logs same window.",
+  "kb": [
+   "attempts:3171",
+   "protocols:1528"
+  ],
+  "run_id": "0090ab2e00d44f8196fd09ae2b22dfaa",
+  "at": 1795232752
+ }
+}

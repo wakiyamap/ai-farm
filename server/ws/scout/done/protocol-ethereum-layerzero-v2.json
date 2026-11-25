@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-layerzero-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "layerzero-v2",
+ "name": "LayerZero V2",
+ "category": "Bridge",
+ "tvl_usd": 6759304315,
+ "url": "https://layerzero.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "559a0980bba242b18a6ef2ddf7a82c9d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: endpointV2 0x1a44..728c (103-fn ABI) pays msg.sender nothing; only payout UlnV3.withdrawFee pays fees[msg.sender] (fresh address = 0, reverts LZ_MessageLib_InvalidAmount); last 7d (blocks 26417848-26467812, 2026-11-15 to 11-22) 43 NativeFeeWithdrawn on sendUln302 = 15.2967 ETH ~25,517 USD all to LayerZero's own executor/DVN contracts (EOAs 0xe93685f3 14 tx 10.12 ETH, 0xb8ff877e 28 tx 5.17 ETH), 0 on receiveUln/endpoint (same-query control); avg 0.36 ETH=593 USD gross/call vs gas 44-49k @0.2-0.4 gwei=0.015-0.033 USD; same verdict as the 7 sibling chains.",
+  "kb": [
+   "attempts:3570",
+   "protocols:1816"
+  ],
+  "run_id": "559a0980bba242b18a6ef2ddf7a82c9d",
+  "at": 1795316829
+ }
+}

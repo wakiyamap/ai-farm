@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-ccip",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 166,
+ "chain": "hyperevm",
+ "slug": "ccip",
+ "name": "CCIP",
+ "category": "Bridge",
+ "tvl_usd": 23828487,
+ "url": "https://chain.link/cross-chain",
+ "github": null,
+ "listed_days_ago": 166,
+ "run_id": "3ca3e27af30d47dda5884db2fe6ddda6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "CCIP hyperevm Router 1.2.0 0x13b3332b66389b1467ca6ebd6fa79775ccef65ec + OffRamp 1.6.0 0x70003d849a20e33997fea69bbc8a366d6ab0e131: only public writes commit/execute, fresh-address eth_call of execute reverts UnauthorizedTransmitter (OCR transmitter role); 6.7d (blocks 50909391-51494990): 45 msg executions in 45 txs by 4 DON transmitter addresses, 2,940 commits, caller paid $0 on-chain (no value transfer in verified source; DON paid off-chain in LINK), gas $0.003-0.028/call at HYPE $68.66 (coins.llama.fi)",
+  "kb": [
+   "attempts:1668",
+   "protocols:354"
+  ],
+  "run_id": "3ca3e27af30d47dda5884db2fe6ddda6",
+  "at": 1794908806
+ }
+}

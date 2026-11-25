@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-elk",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Elk on avalanche is a vanilla Uniswap V2 fork (ElkFactory/ElkPair, verified source). Public-callable functions are createPair/mint/burn/swap/skim/sync; none pays a caller reward, setFeeTo* is feeToSetter-gated, and feeTo=0x0 so no fee pot accumulates. skim() is LP money (skim type S). No chef/farm tracked by DefiLlama yields and ELK token transfers show only swap flow. Skim excess on pairs unmeasured (relay flaky on getReserves), but skim type rules it out anyway.",
+  "numbers": "Factory 0x091d35d7F63487909C863001ddCA481c6De47091 (DefiLlama registries/uniswapV2.js; verified via routescan getsourcecode -> ElkFactory). allPairsLength()=218, feeTo()=0x0 (eth_call). 7d window blocks 100482040 (2026-11-16 13:59 UTC) -> 101170920 (2026-11-23 14:00 UTC) from eth_getBlockByNumber timestamps: 299 Swap events, 176 txs, 37/218 pairs active, 18 distinct senders (eth_getLogs on 218 pair addresses, topic0 = keccak Swap(address,uint256,uint256,uint256,uint256,address) d78ad95f..; control: same scan shape returned logs so non-zero confirmed). TVL avalanche 29,093 USD (api.llama.fi/protocol/elk 2026-11-23). ELK token 0xeEeEEb57642040bE42185f49C52F7E9B38f8eeeE owner EOA 0x6bc5fc9d...2084."
+}

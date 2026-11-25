@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "address": "0x55b3c308f22a0d12223e5b8ff595ed3e40273ad2",
+  "strategy": "Unverified liquidation/flash-swap executor contract (not an EOA): 16 keeper EOAs (0xab87977d..., 0x69c40c6e..., 0xfabaff9d..., 13 more, hardcoded whitelist in bytecode) race to call fn 0x45499ab0(compact bytes); contract executes Aave V3 liquidationCall (Pool 0x794a61358d6845594f94dc1db02a252b5b4814ad), Compound V3 absorbAndLiquidate and USDC<->USDC.e flash swaps (Uni V4 PoolManager 0x360e68faccca8ca495c1b759fd9eee466db9fb32 unlock/unlockCallback/settle, Uni V3 SwapRouter02 0x0e4831319a50228b9e450861297ab92dee15b44f, FluidDexT1 0x3c0441b42195f4ad6aa9a0978e06096ea616cda7). Liquidation bonus stays in the contract; owner() = EOA 0xf7bccadc9923ed11f4dbb637024867c7313c7eb0. A stranger calling 0x45499ab0 reverts (whitelist).",
+  "evidence": "0x8c1b7c64981aa1c8b503f65068a293e2fd6131ba1f44b90709f2090f1719c06f (Aave liq, WBTC/USDC.e, gasUsed 554770 @ 7.07 gwei = $6.12), 0xae343d5b2fe6ea97ff561a0202d16e17668dd8236307c6f13d08a67295c252d9 (Compound absorb 3 assets $3,512), 0xeefb3c122b6b063a39c583c2a0c9ed2028ae8c071964145a191a11d0541df5c3 (V4 unlock USDC->USDC.e via Fluid DEX), 0xbb6be91f1069eb99812f6a9ab03b8debd1cce348d0e774aa013baef36065ebf5 (FAILED race call, $0.005). WETH $1558.77 coins.llama.fi 2026-11-21 06:09 UTC.",
+  "est_profit_usd_day": 350
+}

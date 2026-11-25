@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-hanji-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 607,
+ "chain": "base",
+ "slug": "hanji-protocol",
+ "name": "Hanji Protocol",
+ "category": "Dexs",
+ "tvl_usd": 346257,
+ "url": "https://hanji.io",
+ "github": null,
+ "listed_days_ago": 607,
+ "run_id": "020dc4548f1046ceb8b4bddee7ba03ab",
+ "result": {
+  "verdict": "unpaid",
+  "line": "0x Onchain-CLOB on base (4 WETH/USDC LOBs + 2 LPManager proxies); transferFees/collectFees/syncYieldVaultDeposits callable by anyone (eth_call from fresh addr OK, no role revert) but pay caller 0 - fees go to admin 0xa24d2af7... (feesReceiver) + marketmaker role; fee pot 0 on 3/4 LOBs and raw 3.53e9 (~3.5 units) on 4th; gas 96k/34k gas at 0.006 gwei = <bash.001/call (ETH 803.85 coins.llama.fi); 51 OrderClaimed per 1000 blocks from ~10 taker bots via router 0x8aa40f27 (sample of 51 of >10k logs) = trading fees ~1bp to admin/MM; LPManagers 0 liquidity/fee/flashloan events in 7d",
+  "kb": [
+   "attempts:1974"
+  ],
+  "run_id": "020dc4548f1046ceb8b4bddee7ba03ab",
+  "at": 1794972822
+ }
+}

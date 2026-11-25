@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-tau-labs",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. TAU Labs on base is 12 IPOR Fusion PlasmaVaults (ERC-4626, per DefiLlama registries/curators.js). Keeper-ish functions execute/claimRewards/updateMarketsBalances carry the `restricted` modifier and revert from a fresh address with custom error 0x068ca9d8(caller); even deposit reverts (whitelisted vaults). No callable function pays a caller or recipient argument, so no stranger reward stream exists.",
+  "numbers": "12 vaults with code on base; claimRewards/execute/deposit eth_call from fresh addr all revert 0x068ca9d8 (2026-11-17, relay research, vault 0x01a6ff6eb333c1393ef424f5894b18367f1499a8); Base TVL $4,826,201 (api.llama.fi/protocol/tau-labs 2026-11-17); 0 caller-paid reward fns found in ABI (explorer source base, PlasmaVault.sol lib/ipor-fusion)"
+}

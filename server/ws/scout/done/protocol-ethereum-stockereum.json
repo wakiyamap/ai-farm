@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-stockereum",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 27,
+ "chain": "ethereum",
+ "slug": "stockereum",
+ "name": "Stockereum",
+ "category": "Launchpad",
+ "tvl_usd": 313129,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 27,
+ "run_id": "903a781db5344521a5e0a2df061bdbf8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "escrow.claim (v3 0xacefe251) pays only msg.sender's own accrued fees: 587 claims by 250 accounts in 7d = 6.59 WETH (~11.5k USD @1746, median ~4.5 USD) + 40.7 USDC; fresh-address claim reverts NothingToClaim (0x969bf728); hook.sweep is public but pays the caller 0 (18/18 sweeps ran inside claim txs); gas ~0.17 gwei (~0.04 USD/claim).",
+  "kb": [
+   "attempts:2862",
+   "protocols:1280"
+  ],
+  "run_id": "903a781db5344521a5e0a2df061bdbf8",
+  "at": 1795169513
+ }
+}

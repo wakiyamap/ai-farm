@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-keep-network",
+  "outcome": "dead_end_recorded",
+  "reason": "Verdict unpaid. KEEP Network (llama keep-network = tBTC v1 bridge + KEEP staking) has no function that pays a stranger: tBTC redeem/mint pay the caller their own tokens (BTC leg settles off-chain with the funder), KEEP staking claims pay the staker itself, faucet/grant mints are role-gated. And there is no flow to earn from: 0 txs on the tBTC token in the last 7 days (last tx 2026-11-13). The only keeper-ish tBTC v1 payer (Bridge fraud/redemption proof submission, paid from the deposit ETH fund) was not verified this session and is moot at 4.0 tBTC supply.",
+  "numbers": "TVL 633,908 USD = ETH-side 394,033 + TBTC 239,875 (api.llama.fi/protocol/keep-network, 2026-11-21) + staking 202,636; tBTC totalSupply 4.0 (eth_call 0x18160ddd on 0x8dAEBADE922dF735c38C80C7eBD708Af50815fAa, 2026-11-22); 7d window ts 1794711379-1795316179 (2026-11-15..22, from eth block timestamps via explorer listing, not block count): 0 tBTC txs, latest tx ts 1794565955 2026-11-13 (control: same explorer txs query returned 27 older rows); gas n/a (no candidate call made); contracts code!=0x: KEEP 0x85eee30c52b0b379b046fb0f85f4f3dc3009afec, tBTC 0x8daebade922df735c38c80c7ebd708af50815faa, staking holder 0xcf916681a6f08fa22e9ef3e665f2966bf3089ff1; source: legacy adapter projects/keep.js."
+}

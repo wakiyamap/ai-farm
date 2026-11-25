@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-dexalot-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1365,
+ "chain": "bsc",
+ "slug": "dexalot-dex",
+ "name": "Dexalot DEX",
+ "category": "Dexs",
+ "tvl_usd": 117673,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 1365,
+ "run_id": "2851d0fdeb40449d9ed78a4886280319",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Dexalot DEX on BSC = MainnetRFQ swap bridge (proxy 0xb45b00a5011c40d34fcadb8d54104c1461d18937, impl v1.2.8, VERSION() ok). No function pays a caller: swaps need a Dexalot-signed quote with _taker==msg.sender; claimBalance is REBALANCER_ADMIN_ROLE-gated; the only permissionless call removeFromSwapQueue pays the queued trader (0 to caller) and had 0 SwapQueue events in 7d (queue empty). 7d sample 13x5000 blocks: 9 events, all SwapExecuted user swaps via 1inch/smart wallets (1,240 USDT->USDC, tx 0x31c0fed3...). Gas ~bash.009/call (0.05 gwei, BNB 80.59 llama); TVL 73.6k.",
+  "kb": [
+   "attempts:2344"
+  ],
+  "run_id": "2851d0fdeb40449d9ed78a4886280319",
+  "at": 1795055705
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-rocksolid-network",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 377,
+ "chain": "ethereum",
+ "slug": "rocksolid-network",
+ "name": "RockSolid Network",
+ "category": "Yield",
+ "tvl_usd": 16625047,
+ "url": "https://rocksolid.network/",
+ "github": null,
+ "listed_days_ago": 377,
+ "run_id": "5c48ff4f268f440495c755e652fefb7f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "3 Lagoon v0.5.2 ERC-7540 custodial vaults (rETH 0x936facdf.., AutoPlus 0x7a12d4b7.., USDm 0xBa71097E..; TVL 16.6M USD): every state fn is onlySafe/onlyValuationManager (settleDeposit from fresh addr reverts OnlySafe(0x9ca1d6e7..)); last 25 txs 2026-11-13..20 = safe NAV-update+settle and users self-executing syncDeposit/redeem/claimSharesAndRequestRedeem - 0 functions paying a caller, gross 0 USD per call.",
+  "kb": [
+   "attempts:3008"
+  ],
+  "run_id": "5c48ff4f268f440495c755e652fefb7f",
+  "at": 1795199114
+ }
+}

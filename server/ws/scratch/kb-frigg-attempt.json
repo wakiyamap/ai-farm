@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-frigg-eco",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: no function pays a stranger caller. The only payout paths are primaryRouter user operations - buy pays ATT for USDC, sell burns ATT and pays 181.81 USDC per token to the caller itself at bond expiry (caller supplies capital/token, no bounty). Both currently revert from a fresh address (routerGater zeroed to 0x0, seeBondExpiryStatus=false). Protocol dormant: 0 tx and 0 logs in the last 7 days on router and token; last activity Jan-Feb 2023.",
+ "numbers": "7d scan blocks 0x1930d00 (2026-11-14 16:11 UTC) to 0x193d233 (2026-11-21 17:00 UTC): router 0x96418df8...b0ddbe 0 logs, ATT token 0x90D53b87...31bd 0 logs (no-topic scan; USDC control same shape 5169 logs). Last txs (etherscan): router 2023-01-13 (buy, 0.0024 ETH value), token 2023-02-14. eth_call buy and sell from fresh 0x1111..11: revert with and without value. totalSupply 1825.3215 ATT (eth_call); TVL 182532 USD = supply x 100 USD (DefiLlama 2026-11-21). Redemption price 181.81 USDC/ATT from tokenData.expiryPrice=5.5e9 read on chain (USDC 6dp, 0xA0b86991...eB48)."
+}

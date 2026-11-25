@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-estate-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 768,
+ "chain": "arbitrum",
+ "slug": "estate-protocol",
+ "name": "Estate Protocol",
+ "category": "RWA",
+ "tvl_usd": 13945569,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 768,
+ "run_id": "84cd667372be4f3e99abb8715fb0a7d3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "59 Polymath v2 property tokens (impl 0xf7d5bd49b2975cfd86dd4d721f74f71f6149259a, only module GeneralTransferManager, registry 0x096c0f11e046cd1daab53f2612512cd5cb84f325); no claim/reward/dividend fn anyone can call, createCheckpoint() reverts from fresh addr (controller-gated, currentCheckpointId=0); 0 logs on all 59 tokens in last 7d (blocks 522864308-525283508; control USDC 16008 Transfers/3000 blocks), 1 USDC touch of protocol keys in 7d; TVL 13,945,569 USD is off-chain property pricing",
+  "kb": [
+   "attempts:2077"
+  ],
+  "run_id": "84cd667372be4f3e99abb8715fb0a7d3",
+  "at": 1794994404
+ }
+}

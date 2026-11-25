@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-liquis",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Booster earmarkRewards(pid) is open to anyone (eth_call from fresh address returns true, no role gate) and pays the caller 1% of claimed oLIT, but there were 0 calls to the booster in the last 7 days (last tx block 21526389, 2025-01-01); the protocol is inactive since the Lit Protocol migration and the reward token oLIT (LIT Call Option Token) is unpriced on llama, and 5 of 6 sampled current pots are 0 (pid 0 would pay 110.5 oLIT, unpriced).",
+  "numbers": "poolLength 38, earmarkIncentive 100/10000 (eth_call); 7d window blocks 26413132 (2026-11-14) -> 26463386 (2026-11-21): 0 oLIT transfers out of booster 0x631e...DCF2 (getLogs topic1=booster; control same shape on 0x1487765-0x1487785 = 5 logs, matching receipt 0x0b94eb20); last paid calls: 0xb456cebb (2024-12-25) paid caller 0x4ad41b78 253.06 oLIT, 0x0b94eb20 (2025-01-01) 186.91 oLIT (usd: unpriced, coins.llama.fi {} for 0x627fee...8b158aa current + historical); gas used 485459 (measured receipts) x gasPrice 0xa5af40a=0.174 gwei (eth_gasPrice) = 0.0000844 ETH = 0.14 USD (ETH 1651.90, coins.llama.fi ts 1795263303); current pots debug_traceCall: pid 0 claims 11050.63 oLIT -> caller 110.51 oLIT, pid 5/12/24/30/37 claims 0"
+}

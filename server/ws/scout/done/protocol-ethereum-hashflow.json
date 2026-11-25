@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-hashflow",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1731,
+ "chain": "ethereum",
+ "slug": "hashflow",
+ "name": "Hashflow",
+ "category": "DEX Aggregator",
+ "tvl_usd": 109894,
+ "url": "https://www.hashflow.com",
+ "github": null,
+ "listed_days_ago": 1731,
+ "run_id": "3457844188924c46abb0650f72abaaaf",
+ "result": {
+  "verdict": "no_reward",
+  "line": "RFQ DEX: no reward-type function anywhere (router/factory/19 pools/SwapFacade); only callable family is tradeRFQT/RFQM needing a fresh MM-signed quote (unsigned eth_call from fresh address reverts); 7d (blocks 26415700-26465838, 11-14..11-21): exactly 1 router tx, protocol pays caller 0 USD, gas 150511 = 0.03 USD; SwapFacade last swap 2026-08-01; TVL 109.9k",
+  "kb": [
+   "attempts:3463",
+   "protocols:1745"
+  ],
+  "run_id": "3457844188924c46abb0650f72abaaaf",
+  "at": 1795293076
+ }
+}

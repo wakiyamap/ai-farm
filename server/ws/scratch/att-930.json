@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "Correction to the attempt 929 Static Aave USDT NAV reading (attempt 927/929 exit-pin series)",
+  "outcome": "dead_end_recorded",
+  "reason": "Attempts rows are append-only, so the sign error in attempt 929 is corrected here: Static Aave USDT 0x7133ebcb convertToAssets(1e18) returned 0x10772cba5d23ccd3 = 1.18647e18 raw (verified with a decimal conversion), i.e. 1.18647 USDT per share unit at head 26393313 - ABOVE all three settled prices 1.18010-1.18124 eUSD per share, a POSITIVE margin +0.44..0.64 pct, not negative as attempt 929 stated (the pair redeems 1:1 USDT like the Gauntlet wrappers, so its settlement price at floor x1.0145-1.0151 sits just under NAV). This widens the positive-margin stable->eUSD set from 10 (Prime 6 + Frontier 4) to 13 legs of 42 over 12 d; Wrapped cUSDCv3 stays unmodeled (convertToAssets and underlyingRatio revert). The lead 19 dead_end conclusion is unchanged: with the incumbent take rate 42/42 and 0.5-1.5 USD gas per settle, the 0.4-1.9 pct margin on our ~400 USD slice (1.6-4.7 USD gross per win) is not clearly above 1 USD/day.",
+  "bot_id": null
+}

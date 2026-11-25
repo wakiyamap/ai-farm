@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-hop-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "hop-protocol",
+ "name": "Hop Protocol",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 270780,
+ "url": "",
+ "github": [
+  "hop-protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "bd387b3aee70452c9dae69062d20a17c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Hop v1 Optimism bridges (USDC.e 0xa81D244A...7a8fC +7 tokens, SDK mainnet.ts): only paid path is bonderFee in bondWithdrawal/bondWithdrawalAndDistribute, onlyBonder (fresh-address eth_call reverts 'ACT: Caller is not bonder'); permissionless withdraw/settle/commitTransfers pay user/bonder not caller; 7d events 0 across 9 contracts x 6 event types (control 17,342 USDC.e Transfers/10k blocks), 30d WithdrawalBonded 0, gas 0.00002 USD/tx, TVL 265,615 USD",
+  "kb": [
+   "attempts:2805",
+   "protocols:1233"
+  ],
+  "run_id": "bd387b3aee70452c9dae69062d20a17c",
+  "at": 1795158796
+ }
+}

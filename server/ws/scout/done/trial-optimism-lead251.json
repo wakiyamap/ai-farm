@@ -1,0 +1,20 @@
+{
+ "id": "trial-optimism-lead251",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "optimism",
+ "lead_id": 251,
+ "target": "HAI OracleJob workUpdateCollateralPrice item cohort beyond the OP/RETH/TBTC/VELO batch: HAIVELOV2, HAIVELO, MOO-VELO-V2-OP-VELO, MOO-VELO-BOLD-LUSD, WSTETH, YV-VELO-MSETH-WETH",
+ "run_id": "aa8e76cbcf334a668af59e99cd2a96d7",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7 d at entry (OracleJob 0xf4f18205, ledger hai.oracle_job_reward): 2,518 rewards, 10 distinct takers; cohort = 6 hourly items (<=1,008 takes); sample of 19 txs (24 rewards, blocks 159679739-159682548): gross 0.05 HAI = 0.0621 USD (HAI 1.2426, DefiLlama) vs one attempt median 0.0504 USD (201,473-315,043 gas, ETH 1805.87) => +0.012 USD per won take; all 6 items taken exactly 3600 s after prior take = first takeable block, 18/19 at tx index 1, winner maxPriorityFee median 0.1195 gwei; slot-1 race unchanged (pitfalls/opstack-first-block-index.md) so margin is thin.",
+  "kb": [
+   "attempts:1950",
+   "leads:251"
+  ],
+  "run_id": "aa8e76cbcf334a668af59e99cd2a96d7",
+  "at": 1794967501
+ }
+}

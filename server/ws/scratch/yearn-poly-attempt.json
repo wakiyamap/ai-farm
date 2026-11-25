@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-yearn-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Yearn on polygon is 81 V3 vaults + 1 legacy v2 (kong.yearn.fi vaults/137, 286,992 USD TVL), mostly retired and idle. The only keeper-shaped entries (process_report(strategy), update_debt, buy_debt) are role-enforced: eth_call process_report(0x06eD7C..) from a fresh address reverts 'not allowed'; the vault source never transfers anything to msg.sender (fees/refunds go through the accountant). Zero revenue to be had anyway: 7-day topic-less log census over all 82 vault addresses returned 13 logs (user Transfers/Withdraws only) and 0 StrategyReported, so nobody even reports.",
+ "numbers": "TVL 286,992 USD (kong.yearn.fi/api/rest/list/vaults/137, 2026-11-20, 82 vaults; top USDC-1 0x34b9421Fe3d52191B64bC32ec1aB764dcBcDbF5e 76,089 USDC). 7d logs all 82 vaults blocks 97,339,037-97,641,437 (rpc.py polygon eth_getLogs, scratch/yearn_logs.py): 13 = 7 Transfer + 6 Withdraw, 0 StrategyReported (topic0 0x4fe9b78b/0xf106b42d/0x2fb611fa). process_report(address) 0x6ec2b8d4 from 0x1111..1111 -> revert 'not allowed' (0x08c379a0). Polygon yearn-periphery auction kicks 7d: 0 (attempts 2134)."
+}

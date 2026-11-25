@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-ccip",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 166,
+ "chain": "arbitrum",
+ "slug": "ccip",
+ "name": "CCIP",
+ "category": "Bridge",
+ "tvl_usd": 6883774,
+ "url": "https://chain.link/cross-chain",
+ "github": null,
+ "listed_days_ago": 166,
+ "run_id": "14b597401ca44b1c93f86cb53529bc6c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "CCIP arbitrum: Router 1.2.0 0x33340200b7893fc478eb2558ffc7b100e5b3869c (45 off-ramps), registry 0x39AE...751E (64 tokens), USDCTokenPoolProxy 2.0.0 0x329b...4d2b; all message/value entry points gated (applyRampUpdates/recoverTokens onlyOwner, routeMessage OnlyOffRamp, transmit on the OCR transmitter set, manuallyExecute needs the DON bundle) and none pays its caller: gross 0 USD vs gas ~0.01-0.05; 7d (blocks 524385980-524990780) 0 logs on router + USDC proxy + 4 pools vs 6 on the registry control; router last tx admin applyRampUpdates 2025-12-02.",
+  "kb": [
+   "attempts:1666",
+   "protocols:352"
+  ],
+  "run_id": "14b597401ca44b1c93f86cb53529bc6c",
+  "at": 1794907507
+ }
+}

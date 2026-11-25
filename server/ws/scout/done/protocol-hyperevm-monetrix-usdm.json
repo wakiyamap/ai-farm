@@ -1,0 +1,22 @@
+{
+ "id": "protocol-hyperevm-monetrix-usdm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 153,
+ "chain": "hyperevm",
+ "slug": "monetrix-usdm",
+ "name": "Monetrix USDM",
+ "category": "Basis Trading",
+ "tvl_usd": 2895635,
+ "url": "https://www.monetrix.xyz/",
+ "github": null,
+ "listed_days_ago": 153,
+ "run_id": "730ceeb2f5a64273a9ca1558d3b19bef",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: vault settle/distributeYield/keeperBridge/fundRedemptions all onlyOperator (OZ ACL, no open registration; fresh eth_call -> NotAuthorized(OPERATOR)). 7d (blk 50885632-51461013): 5 YieldSettled+5 YieldDistributed, all from one operator EOA 0xd932ef...8620, 19-908 yield each (~424/7d); keeper paid 0 in 2 sampled receipts; gas bash.002-0.003/call (0.1 gwei, HYPE 9.04); 38 Deposited/53 RedeemReq/53 RedeemClaimed, user ops pay only own funds.",
+  "kb": [],
+  "run_id": "730ceeb2f5a64273a9ca1558d3b19bef",
+  "at": 1794905477
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-thorchain-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "thorchain-dex",
+ "name": "THORChain DEX",
+ "category": "Dexs",
+ "tvl_usd": 119829,
+ "url": "https://thorchain.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "9424797ea15149ef95dc1cd06e1b3d4c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Base = one InboundRouter 0x00dc6100103bc402d490aee3f9a5560cbd91f1d4 (verified THORChain_RouterV6.sol, same address as avalanche): no role, no reward/claim fn, every external moves the caller's own funds (depositWithExpiry pays 0; transferOut fronted by THORNode signers who pay gas and receive 0). 7d: 675 events (Deposit 357, TransferOut 296, TransferAllowance 22, blocks 56,840,890-59,864,890); gross to caller 0, gas/call bash.0004-0.012 (receipts 0x00451b7b, 0x96aba3b0, 0x856a5072; ETH ,754.77 coins.llama.fi 1795136707); TVL 20,222.",
+  "kb": [
+   "attempts:2709",
+   "protocols:1159"
+  ],
+  "run_id": "9424797ea15149ef95dc1cd06e1b3d4c",
+  "at": 1795136963
+ }
+}

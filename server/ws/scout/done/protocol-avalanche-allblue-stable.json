@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-allblue-stable",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 374,
+ "chain": "avalanche",
+ "slug": "allblue-stable",
+ "name": "AllBlue Stable",
+ "category": "Yield",
+ "tvl_usd": 391835,
+ "url": "https://allbluedex.io",
+ "github": null,
+ "listed_days_ago": 374,
+ "run_id": "e70feaf619c44b31abbd33362a877ca2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: staking 0x00F8a3B9395B4B02d12ee26536046c3C52459674 updatePool() stranger-callable (203,529 gas = $0.011 @ 7.52 gwei, $7.15 AVAX) but pays caller $0 (fees to fixed buybackFeeReceiver); compoundReward/claimReward(bool) revert without own stake; 7d: 48 txs (17 unmint,13 withdraw,12 deposit,6 mint, 6 EOAs), 0 keeper calls; pot pendingInterest $0.48, interestPerSecond 165(6dec) ~$14.3/day to depositors; 7 minter proxies share unverified impl 0x747ad1420926e117796089956fcf07872ee4f67a; routescan+eth_call 2026-11-17",
+  "kb": [
+   "attempts:1767",
+   "protocols:426"
+  ],
+  "run_id": "e70feaf619c44b31abbd33362a877ca2",
+  "at": 1794928801
+ }
+}

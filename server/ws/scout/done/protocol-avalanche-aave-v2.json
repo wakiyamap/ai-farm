@@ -1,0 +1,26 @@
+{
+ "id": "protocol-avalanche-aave-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "aave-v2",
+ "name": "Aave V2",
+ "category": "Lending",
+ "tvl_usd": 6836662,
+ "url": "https://aave.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "660a357ea37f4a79baff9da32ba1cd8a",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7.1 d blocks 100,135,744-100,809,089: 19 LiquidationCall / 19 txs on frozen Aave V2 pool 0x4F01AeD1...A5A2C (v3 control 83) by 5 strangers (0x988a2540 8, 0x5ac9bc14 6, 0x9db94915+0x759bb40c 2, 0x6ebfb347 1); liquidator net gross median +2.56 USD/call, max +46.77, total +126.6 USD/7 d; gas median 0.10 USD (max 23.75 tip-bid), 14/17 gross>gas; only stranger-paid fn is liquidationCall (open, paused=false); thin: ~18 USD/day split 5 ways, 2 incumbents take 14/19, liquidations closed for new scouting",
+  "kb": [
+   "attempts:2650",
+   "leads:309",
+   "protocols:654"
+  ],
+  "run_id": "660a357ea37f4a79baff9da32ba1cd8a",
+  "at": 1795123863
+ }
+}

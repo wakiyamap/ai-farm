@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "actor-base-0x1da8f0817311f4e4c8a9d3fd756c8757d566e5fd",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. The contract is a brand-new (first calls 2026-11-20 ~15:17Z) Morpho Blue liquidation bot: whitelisted keeper EOAs call LIQD/LIQA on it; it batch-calls Morpho (0xBBBB...FFCb) liquidate, repays USDC, seizes cbBTC and swaps cbBTC->WETH->USDC on UniV3 in-tx, so profit = the public liquidation bonus taken in-transaction (a fresh address calling Morpho.liquidate gets the same). Caveat for builders: dense same-block competition (2 FAILED LIQDs in sample; lead 157 dead_end = latency race; lead 21 same market measured).",
+  "numbers": "eth_getLogs scan blocks 56,973,271-60,073,271 (7d, Morpho Liquidate topic0 0xa4946ede..., topic2=caller): 132 liquidations / 11 txs, ALL within 3.3h (blocks 60,001,124-60,059,659); market cbBTC/USDC 0x9103c3b4...: 125 liqs, repaid 490.9 USDC, seized 0.0088257 cbBTC, gross +5.11% = 25.1 USD over 8 txs = 3.14 USD/tx gross, 0.20 USD/liquidation. Gas per tx 492,665-1,557,905 @ 0.086-0.97 gwei = 0.14-2.2 USD (avg 0.64 USD) at ETH 1603.71 USD (coins.llama.fi ts 1795205189). ~30 inbound calls (LIQD/LIQA/rescue) in 4.7h incl 2 FAILED LIQD. est_profit_usd_day ~140 = 4h sample x6, unverified pace. Sweep fn 0x8ac7d690(USDC,9.03 USDC) by owner 0x6bc5c4a5. Control: same query shape returned 1581 Liquidate logs on the market scan."
+}

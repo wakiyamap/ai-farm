@@ -1,0 +1,5 @@
+{
+ "chain": "optimism",
+ "target": "exactly OP Mainnet MarketUSDC liquidations (open liquidate, 5 pct incentive; cheap-chain trial trial-exactly-optimism)",
+ "why": "Exactly on OP Mainnet has no firewall (the Base deployment is allowlist-gated, attempts:1726): Market.liquidate is open to anyone and paid six liquidator contracts 115 times in 7 d (14,627 USDC repaid, 5 pct incentive, 10 takes above 250 USDC, gas under 0.01 USD per take). 18 of 45 probed captures were takeable one block (2 s) before the capture, 4 of the 23 above 5 USDC; the largest taker 0x092aa488 takes in the block of the Chainlink round. Speed class, so a trial, not a counted bot. | 2026-11-19 scout recheck (attempts:2364): open access confirmed again (fresh-address liquidate reverts Auditor.InsufficientShortfall, not a role error); 7 d to block 159,730,190: 117 liquidations, 13,216 USDC repaid, gross 5 pct = 661 USD, gross>gas in 116/117 (gas p50 0.0001 USD, p90 0.68, max 42.59 at 20 gwei: winners bid priority). Flow is dust-heavy now (76/117 take under 1 USDC of debt): the money is in the burst captures like tx 0xaa54e1d5 (6,897 USDC repaid, 345 USD gross)."
+}

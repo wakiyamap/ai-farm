@@ -1,0 +1,8 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-zerobase-cedefi",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Same deterministic vault as the arbitrum deployment already ruled role_gated (KB protocols 511): depositor self-service stake/requestClaim/claim/cancelClaim/flashWithdrawWithPenalty (claim reverts unless claimItem.user == msg.sender, pays msg.sender), transferToCeffu onlyRole(BOT_ROLE), sendLpTokens only airdropAddr, setters onlyRole(DEFAULT_ADMIN_ROLE). No caller bounty exists; reward is an admin-set 3.3%/yr APY to depositors. Zero vault activity in the last 7 days on optimism, so no stranger was paid; last tx was 2026-10-12 self-service.",
+  "numbers": "TVL 8,101,216 USDT + 909 USDC (getTVL latest, block 159,677,006). 7-day eth_getLogs on vault 159374606..159677006 = 0 logs (controls same shape: 30 logs 156533600..156534200, 1 log 158123000..158130000). Sep-06 sample: 30 ClaimAssets ~12 USDT each (sum 336) paid to depositors themselves. getCurrentRewardRate(USDT)=(330,10000). Fresh-address eth_calls from 0x0000...beef: claim/cancelClaim/flash/sendLpTokens revert; transferToCeffu reverts AccessControlUnauthorizedAccount(_, BOT_ROLE). Gas on OP irrelevant (no caller reward).",
+  "bot_id": null
+}

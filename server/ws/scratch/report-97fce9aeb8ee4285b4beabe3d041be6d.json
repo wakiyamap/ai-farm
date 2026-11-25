@@ -1,0 +1,12 @@
+{
+  "run_id": "97fce9aeb8ee4285b4beabe3d041be6d",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane queue walk: 0 unmeasured leads, no one-shot leftover, no new class taken",
+  "outcome": "no_target",
+  "kb_rows": [],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Queue walk only (steps 1-5 empty, ~3 research-lane reads, 0 fork, 0 tx): 0 leads status=unmeasured; 30-min-old one-shot head sweep re-run (12:05-12:2xZ, no leftover); every fresh ledger signal classifies to a class closed today - felix_cdp new redemption actors 0xc408c434 (46 ev/2 d) + 0xbe4fb41f (20 ev/1 d) but lead 149 volume gate rechecked 11:49-12:1xZ at 55k feUSD/7d vs the 250k bar (attempts:1368), stakedao 72-actor spread rechecked same run (165), carbon_vortex bounty closed 1387, inverse/across/debridge surges closed 1386/1372/1414. NEW CHECK for human decision 2026-11-16-franken-threshold-bid s4: hub 0xDE12B620..Ca653557 eth_getLogs 26403145..head 26427640 (13:0xZ) = exactly 2 logs: the already-measured ChallengeSucceeded of challenge 11 at 26410802 (11-14 04:22:47Z, expiry+1.59h, attempts:1386) + one non-challenge config event (topic c9b570ab, 11-14 07:03Z); no ChallengeStarted (topic0 0xc4b384b2, positive control: the ledger source captured ch-11 with it) and no ChallengeAbandoned since - no franken challenge open, the s4 answer stands."
+}

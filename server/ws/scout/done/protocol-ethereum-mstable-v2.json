@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-mstable-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 399,
+ "chain": "ethereum",
+ "slug": "mstable-v2",
+ "name": "mStable V2",
+ "category": "CDP",
+ "tvl_usd": 5184180,
+ "url": "https://mstable.org/",
+ "github": null,
+ "listed_days_ago": 399,
+ "run_id": "2df5e4348a4a4d68b8d174073030aa20",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: mStable V2 = 3 dhEdge-Pool vaults (PoolFactory 0x96d33b..3d6d; 0xad0f.., 0xfec2.., 0xa652..), no public fn pays caller; mintManagerFee callable by stranger (eth_call ok) but mints shares to manager, caller 0; 0 Transfer/Deposit/ManagerFeeMinted events in 7d (blocks 26409979-26460379, 30d control returned 2, topic0 cast keccak), no vault txs since 2026-11-06, only manager relayer 0x1ec3e07f..; TVL 5.19M USD (llama 2026-11-20), gas 2.77 gwei.",
+  "kb": [
+   "attempts:3023",
+   "protocols:1416"
+  ],
+  "run_id": "2df5e4348a4a4d68b8d174073030aa20",
+  "at": 1795202309
+ }
+}

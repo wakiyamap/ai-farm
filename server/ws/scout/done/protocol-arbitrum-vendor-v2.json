@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-vendor-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1285,
+ "chain": "arbitrum",
+ "slug": "vendor-v2",
+ "name": "Vendor V2",
+ "category": "Lending",
+ "tvl_usd": 40505,
+ "url": "https://vendor.finance",
+ "github": null,
+ "listed_days_ago": 1285,
+ "run_id": "a290dd929a794a2485f32c4f0880a80d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "vendor_v2 arbitrum: only ungated fund-mover is LendingPool.collect() (eth_call from fresh addr succeeds) - it pays pool owner, caller gets 0; 0 events on all 173 pools in 7d (blocks 524655446..526688349, control USDC 23799 logs), last pool activity 2025-10-10; TVL 41,185 USD sits in 18 expired pools (ARB 87k, WETH 9.1, USDC 24.6k, 900k unpriced 0x13a7dedb).",
+  "kb": [
+   "attempts:3964"
+  ],
+  "run_id": "a290dd929a794a2485f32c4f0880a80d",
+  "at": 1795404437
+ }
+}

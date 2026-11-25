@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "chaingpt",
+  "status": "dead_end",
+  "checked": "ChainGPT Pad launchpad (DefiLlama slug chaingpt; candidate TVL 25879 USD matches DefiLlama Binance module 25881). Contracts from DefiLlama adapter projects/chaingpt/index.js. Presale pools: 148 pools from PresalePoolCreated logs of factories 0xc263365D628568C23d61BDDa24C8EB27CEF4E917 (62) and 0x5fC22396a063cabb5E09BA6ba449C9646155Ed3f (86); pool 0x15352451d9cfbf4ecdbc06a6d6e28eeb4e3a25da eth_getCode non-empty, getters token()/owner() answer (eth_call). Source not on Sourcify/bscscan-plan; ABI reconstructed from bytecode selectors + 4byte: user-driven purchase/claimTokens(address,uint256,bytes, ECDSA backend-signature)/refundRemainingTokens; owner-setters only. CGPT staking: 3 ERC1967 proxies 0x765a6ee976137801F2661c3644E1fde369A8ED18, 0x62A402DEf6Ca37E9CA7a544bE34954748088CCEE, 0x6eE8D743Eb8bEc665AaCdb535f2F100f040Ca6C5 (Binance-staking module 40504 USD); implementations verified on Sourcify: DecubateMasterChef 0x91dd202a11020a6f50c4c8328eb9bb4044412bbc (fixed-APY CGPT staking; claim/reinvest pay msg.sender's own payout) and an LP-lock staking impl 0x3ba3fccf6bcd08c6712e90ed578771b6e011ef76. No keeper/bounty function on either module."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-noxfund",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 6,
+ "chain": "bsc",
+ "slug": "noxfund",
+ "name": "NoxFund",
+ "category": "Ponzi",
+ "tvl_usd": 101786,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 6,
+ "run_id": "a081f6858e934bb28754b21529c22866",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PolyMart clone at 0x433830E36585bdACC840E1caB419C4211bBf13f5 (unverified source): public withdrawROI(uint256)/withdrawPrincipal(uint256)/withdrawReferral() pay only the caller's own accrued balance - fresh-address eth_call reverts 'NoxFund: invalid index' / 'no referral balance' (0 to strangers, rewards need a deposit, 45-day lock); holds 103,378 USDT (balanceOf blk 134,497,828), 715 participants; 7-day call counts unmeasured - scout lane CU exhausted 300,100/300,000, BSC public nodes refuse getLogs",
+  "kb": [
+   "attempts:2501"
+  ],
+  "run_id": "a081f6858e934bb28754b21529c22866",
+  "at": 1795089359
+ }
+}

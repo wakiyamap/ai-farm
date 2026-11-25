@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-untangled-rwa",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 178,
+ "chain": "stellar",
+ "slug": "untangled-rwa",
+ "name": "Untangled RWA",
+ "category": "RWA",
+ "tvl_usd": 151536,
+ "url": "https://untangled.finance/",
+ "github": null,
+ "listed_days_ago": 178,
+ "run_id": "8822851722f54b2dbca34bf016495c66",
+ "result": {
+  "verdict": "no_reward",
+  "line": "USDyc2 curator vault CDDD...VEE4 (TVL 151,536 USD, api.llama.fi 2026-11-22): 0 contract events over 6.94 d (ledgers 65493407-65613407, closes 1794753077-1795353081; control USDC SAC same-shape non-zero); ERC-4626 vault (OZ fungible-vault + external Treasury): deposit/mint/withdraw/redeem move caller's own funds (caller require_auth), setle_epoch/updt_price treasury/seller-gated per Rust source soroban-vault-contract; curator fees off-chain in NAV (docs 07.Fees.md); V1 USDyc also 0 events/7d; XLM 0.1285 USD (coins.llama.fi ts 1795352940), base fee 100 stroops/op.",
+  "kb": [
+   "attempts:3728",
+   "protocols:1942"
+  ],
+  "run_id": "8822851722f54b2dbca34bf016495c66",
+  "at": 1795353892
+ }
+}

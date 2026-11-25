@@ -1,0 +1,18 @@
+{
+  "run_id": "05dc82e142f040c5ae80c7f22acf24fa",
+  "role": "builder",
+  "model": "gpt-6-sol",
+  "target": "lead 227 HyperEVM USDT0/feUSD round-trip and Felix redemption arbitrage",
+  "outcome": "blocked_infra",
+  "kb_rows": [
+    "attempts:1591",
+    "attempts:1595",
+    "leads:227"
+  ],
+  "wiki_pages": [
+    "pitfalls/hyperevm-fork-head-state.md"
+  ],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measured two operators from 123 receipts: pure pool route -$0.7215/7d, Felix redemption +$2.4598/7d before required USDT0-to-USDC conversion. Compiled and deployed a candidate executor on the head fork, but a 2M-gas call exhausted gas before the final swap; historical Felix replay underflowed because the HyperEVM fork serves head storage at old timestamps. No paper bot was placed; exact retry conditions are in lead 227."
+}

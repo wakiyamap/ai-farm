@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-yieldflow-yield-farming",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1138,
+ "chain": "arbitrum",
+ "slug": "yieldflow-yield-farming",
+ "name": "YieldFlow Yield Farming",
+ "category": "Liquidity Manager",
+ "tvl_usd": 107954,
+ "url": "https://yieldflow.com",
+ "github": null,
+ "listed_days_ago": 1138,
+ "run_id": "0bb82202ff08461c8b7bc59aa9efdc97",
+ "result": {
+  "verdict": "unpaid",
+  "line": "publicCollect() is the only anyone-callable fn on the ~80 RangePositionManager vaults (adapter projects/yieldflow, eth_call from fresh addr ok) but pays the caller $0 - fees + masterChef ARB rewards are credited to depositors (verified source); sample of 4 of ~80 managers: 0x3c3260a7/0x4F59ec4f get ~1 publicCollect/day from operator 0x43b63ebd (last 2026-11-18; one call gross ~$1.33 = 0.00038 WETH + 5.17 ARB at coins.llama.fi, gas 6.3M = $0.22), 0x69a3e2f1 dormant since 2026-04-22, 0xe3f50A03 since 2024-05-09",
+  "kb": [
+   "attempts:2247"
+  ],
+  "run_id": "0bb82202ff08461c8b7bc59aa9efdc97",
+  "at": 1795032973
+ }
+}

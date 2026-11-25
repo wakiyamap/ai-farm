@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-re7-labs",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. DefiLlama re7-labs (Risk Curators aggregator) on optimism = morphoVaultOwner EOA 0xf86199f0...132C administering the Morpho VaultV2 0x3d63934715b6D4c4DFbBC1a00Fe2A2145079DD76 (Re7 WETH, 1114 WETH = $2.03M). The only stranger-callable state-changing functions are accrueInterest() and forceDeallocate(); both pay the caller $0 - accrueInterest mints fees to Re7's own performanceFeeRecipient (0x93db2e90...), forceDeallocate's penalty is withdrawn back to the vault. All other functions are owner/curator/allocator/sentinel gated (submit reverted from a stranger).",
+  "numbers": "Vault 0x3d63934715b6D4c4DFbBC1a00Fe2A2145079DD76 'Re7 WETH'/'Re7uWETH', asset WETH 0x4200000000000000000000000000000000000006, totalAssets 1114.10 WETH = $2,028k (WETH $1820.20 coins.llama.fi); matches candidate tvl $1,978,388. accrueInterest() eth_call from stranger 0x1111...0000 = OK (no revert); fee to recipient 0x93db2e90f8b2b073010b425f9350202330bd923E, perf fee 1e17=10%, pending perfFeeShares 6.55e14=0.000659 WETH=$1.20 (to recipient, $0 caller). forceDeallocate penalty -> address(this) (source 824-832). submit() reverted from stranger (require msg.sender==curator, source 343). Recent 10k blocks: 3 AccrueInterest, all internal to user deposit/withdraw/redeem. Gas: eth_gasPrice 1.0076 gwei, accrueInterest estGas 92441 -> $0.00017. Source: Blockscout optimism (VaultV2 v0.8.28 verified); config registries/curators.js + projects/helper/curators/configs.js."
+}

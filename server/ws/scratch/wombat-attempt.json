@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-wombat-exchange",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid — the only permissionless reward-claim on the protocol (MasterWombatV3.multiClaim at 0x62a83c6791a3d7950d823bb71a38e47252b6b6f4) is callable by anyone but pays a stranger 0 (eth_call from fresh address returns reward=0), and nobody called it: across all 21 arbitrum DLP pools the whole last 7 days held only 2 user withdrawals. Pools expose only user ops (deposit/withdraw/swap); veWom (0x488B34F7...) has no claim fn and no tx since 2026-05-26. No keeper/bounty mechanism; TVL 139k USD, protocol winding down.",
+ "numbers": "7d txs across 21 pools: 2, both withdraws (0x98ea8aad16... 2026-11-15 overnight pool; 0x95c94f8663... 2026-11-16 crossChainPool; explorer txs). MasterWombat multiClaim eth_call fresh addr: reward=0, no revert. MasterWombat last tx 2026-11-07; veWom last tx 2026-05-26; mainPool last tx 2026-09-21. TVL 139045 USD (api.llama.fi 2026-11-19). Gas: n/a, no reward tx in window. Relay note: scout-lane Alchemy budget spent (300080/300000) so arbitrum range eth_getLogs failed (public allnodes 'Archive requests require a personal token') — activity measured via explorer txs per address."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-salvor",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1018,
+ "chain": "avalanche",
+ "slug": "salvor",
+ "name": "Salvor",
+ "category": "NFT Marketplace",
+ "tvl_usd": 356930,
+ "url": "https://salvor.io",
+ "github": null,
+ "listed_days_ago": 1018,
+ "run_id": "0230c628bfd54bf9996e6c3dff553769",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Salvor avalanche: 6 open functions (0xab4f withdrawRoyaltyAmount/withdrawFailedCredits/withdrawPendingFee, 0xa512 settleAuction, 0x72b7 claimEarnings/harvestVeART) callable by a fresh address, but each pays a fixed recipient, never the caller. 8.8 d (blocks 99,886,710-100,686,710): 4 royalty payouts 0.11-2.75 AVAX ($0.8-19.3) to receivers, 2 settleAuction (~1-1.4 AVAX to seller/bidder), 183 ClaimReward, 25 lender-only ClearDebt; caller gross $0 vs gas $0.004-0.020 (52k/248k gas), pendingFee pot 0.056 AVAX ($0.39), AVAX $7.03 coins.llama.fi; 0 logs on 0x4085, 0x1425.",
+  "kb": [
+   "attempts:2212",
+   "protocols:776"
+  ],
+  "run_id": "0230c628bfd54bf9996e6c3dff553769",
+  "at": 1795024507
+ }
+}

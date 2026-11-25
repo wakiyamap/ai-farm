@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-brickken",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1027,
+ "chain": "base",
+ "slug": "brickken",
+ "name": "Brickken",
+ "category": "RWA",
+ "tvl_usd": 5103252,
+ "url": "https://www.brickken.com",
+ "github": null,
+ "listed_days_ago": 1027,
+ "run_id": "7ce188ba5c38434db8dbde0d3872a317",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: factory 0x278D7bdc2451B0Fa4087A68ce084a86cB91D4d83 + 54 STO escrows; only user fn are buyToken/getTokens (redemption), both KYC-whitelist (fresh-address eth_call reverts UserIsNotWhitelisted 0xaafefe9b), rest onlyRole; 0 reward|bounty|keeper in source; 7d = 1 tx (own escrow deploy 0xb494dc07, 2026-11-16, gas bash.011 at ETH 1766.40 coins.llama.fi), gross to strangers bash",
+  "kb": [
+   "attempts:2215",
+   "protocols:779"
+  ],
+  "run_id": "7ce188ba5c38434db8dbde0d3872a317",
+  "at": 1795025768
+ }
+}

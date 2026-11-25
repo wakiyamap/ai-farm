@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-papertrade",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 38,
+ "chain": "hyperevm",
+ "slug": "papertrade",
+ "name": "Papertrade",
+ "category": "Derivatives",
+ "tvl_usd": 20532570,
+ "url": "https://papertrade.xyz",
+ "github": null,
+ "listed_days_ago": 38,
+ "run_id": "d40c4ff5ea1e4bee9f103d526aa7308f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Exchange 0x6cd56616...d797d0a2: public maintenance fns liquidateBatch(uint256[])/requestSweep/finalizeSweep pay the caller 0 (2% liq fee goes to stakers+dev, PAPER to the liquidated trader); liq event sample 5+11+33 in 3x2000 blocks ~500/day (~3.5k/7d), all from protocol keeper 0x07626d81 (37/37 in last 200 txs); gas 154k/call ~$0.0012 (0.111 gwei, HYPE $70.53 coins.llama.fi); PaperStaking distribute relayer-only.",
+  "kb": [
+   "protocols:303",
+   "attempts:1597"
+  ],
+  "run_id": "d40c4ff5ea1e4bee9f103d526aa7308f",
+  "at": 1794893505
+ }
+}

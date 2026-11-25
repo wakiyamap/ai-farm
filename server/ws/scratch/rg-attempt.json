@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-railgun",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Railgun on Arbitrum (proxy 0xFA7093CDD9EE6932B4eb2c9e1cde7CE00B1FA4b9, impl RailgunSmartWallet 0x4799527d8b767354ffc14e849cae94a644a1f221) exposes no function that pays the caller or a recipient: shield/transact are user operations that PAY the protocol (unshieldFee() = 25/10000 to treasury 0x3b374464a714525498e445ba050b91571937bfc8), checkSafetyVectors() pays nothing, everything else is onlyOwner; Treasury spend is TRANSFER_ROLE-gated; the Rewards/Staking contracts in docs exist only on Ethereum/Polygon/BSC. Privacy pool, so out of farm scope under S regardless.",
+  "numbers": "unshieldFee() = 25/10000 (eth_call 0x053ed12a, 2026-11-19); treasury() = 0x3b37...bfc8 (eth_call 0x61d027b3); proxy impl 0x4799527d8b767354ffc14e849cae94a644a1f221 (explorer source, PausableUpgradableProxy); last 25 proxy txs (explorer txs, blocks 1795077366-1795098235, 2026-11-19) all shield/transact from user EOAs; DefiLlama tvl_usd 3,036,812 (candidate meta); no Arbitrum Rewards/Staking address in docs.railgun.org/wiki/learn/helpful-links.md"
+}

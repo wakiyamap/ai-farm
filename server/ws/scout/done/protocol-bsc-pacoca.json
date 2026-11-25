@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-pacoca",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1822,
+ "chain": "bsc",
+ "slug": "pacoca",
+ "name": "Pacoca",
+ "category": "Yield",
+ "tvl_usd": 62605,
+ "url": "",
+ "github": [
+  "Pacoca-io"
+ ],
+ "listed_days_ago": 1822,
+ "run_id": "977876c0eb3f4ff18026f65ea6e81a0d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only caller-paid fn is PacocaVault 0x16205528 harvest() (pays callFee/10000 of pending PACOCA to msg.sender): callFee=0 bps and pot empty (pendingPACOCA=0, available=0) -> 0 PACOCA = $0 gross vs ~$0.0035 gas (125,423 gas x 0.05 gwei, BNB $555.64); 0 calls in 7d blocks 133924407-135267805 (last harvest 2024-11-07; no-topic scan empty, control 6 logs on farm); 81 v2 UpgradeablePool proxies have no harvest (updateRewardPerBlock owner-gated); whole protocol 2 txs/7d.",
+  "kb": [
+   "attempts:4094",
+   "protocols:2216"
+  ],
+  "run_id": "977876c0eb3f4ff18026f65ea6e81a0d",
+  "at": 1795436129
+ }
+}

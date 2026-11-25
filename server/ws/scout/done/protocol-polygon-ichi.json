@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-ichi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1828,
+ "chain": "polygon",
+ "slug": "ichi",
+ "name": "ICHI",
+ "category": "Liquidity Manager",
+ "tvl_usd": 80777,
+ "url": "https://www.ichi.org",
+ "github": [
+  "ichifarm"
+ ],
+ "listed_days_ago": 1828,
+ "run_id": "abd16f64ef384ebca9f33ca477064a32",
+ "result": {
+  "verdict": "unpaid",
+  "line": "collectFees() on 40 QuickSwap-algebra vaults is stranger-callable (eth_call ok, gas 419k = 0.009 USD) but pays 0 to the caller (source: fees go only to ammFeeRecipient/feeRecipient/affiliate); 0 calls in 7d (blocks 97,416,763-97,819,963; all-time 16, 14 by ICHI's own multicall); rebalance onlyOwner behind Safe 0x0768a75f, run 54x/7d by ICHI's own EOA 0x8bc0aee1 paying 0.026 USD gas and taking 0; 1 share Transfer / 7d across all 135 vaults.",
+  "kb": [
+   "attempts:4095",
+   "protocols:2217"
+  ],
+  "run_id": "abd16f64ef384ebca9f33ca477064a32",
+  "at": 1795436275
+ }
+}

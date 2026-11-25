@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-bunny",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "bunny",
+ "name": "Bunny",
+ "category": "Yield",
+ "tvl_usd": 3225521,
+ "url": "https://pancakebunny.finance/",
+ "github": [
+  "PancakeBunny-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "59052c465a024068b594e40501cd38c3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "harvest() is open to anyone (eth_call from stranger ok, gas 114k = $0.003 at 0.05 gwei x $572 BNB) but pays the caller 0 (just re-stakes CAKE into MasterChef, VaultCakeToCake.sol:243); 0 Harvested logs in 7d across all 47 pools + 6 leveraged vaults and 0 Deposited on 4 jackpots (control: 801 CAKE Transfers same shape), protocol dormant at $3.2M TVL; pot openPot/closePot/harvest are onlyKeeper (stranger revert confirmed).",
+  "kb": [
+   "attempts:2732"
+  ],
+  "run_id": "59052c465a024068b594e40501cd38c3",
+  "at": 1795142662
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "penguin_finance",
+  "status": "dead_end",
+  "checked": "IglooMaster v2 (active masterchef) 0x256040dc7b3CECF73a759634fc68aA60EA0D68CB, PenguinNestsV2 0xE9476e16FE488B90ada9Ab5C7c2ADa81014Ba9Ee, NestV1 0xD79A36056c271B988C5F1953e664E61416A9820F, PEFI 0xe896CDeaAC9615145c0cA09C8Cd5C25bced6384c (addresses from DefiLlama adapter projects/penguin/index.js and GitHub README). eth_getCode non-empty; poolLength()=39, pefiEmissionPerSecond()=100e18. Source: Penguin-Finance/penguin-contracts-deployed IglooMaster.sol. harvest(pid,to) EOA-callable (eth_call from fresh EOA ok, no role revert) but pays only accrual on caller's own shares: pendingPEFI(0,fresh)=0. 7d window blocks 100483704 (2026-11-16T14:24Z)-101172569 (2026-11-23): 0 Harvest/Deposit/Withdraw events, no-topic scan 0 logs (control: WAVAX Transfer same shape 29354 logs/2 chunks). Last tx to masterChef 2026-10-29 (routescan txlist), paid ~6.5e-8 PEFI. Dead 2021-era farm (deadUrl=true, TVL 68k USD)."
+}

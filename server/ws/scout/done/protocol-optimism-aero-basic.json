@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-aero-basic",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 26,
+ "chain": "optimism",
+ "slug": "aero-basic",
+ "name": "Aero Basic",
+ "category": "Dexs",
+ "tvl_usd": 1725764,
+ "url": "https://aero.xyz/",
+ "github": null,
+ "listed_days_ago": 26,
+ "run_id": "904ebbeb11234e1a9d9b6ddc768ac006",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Aerodrome V2 Basic AMM on optimism (StablePoolFactory 0x78589E..EF2D 22 pools + Volatile 0x8E6a9F..76D2 38, DefiLlama aero-v2 adapter, both verified): only callable pay-function is pool.claimFees(address), eth_call from fresh address returns (0,0) - fees accrue to LPs, no keeper reward; 7d eth_getLogs (blocks 159344132-159646532, all 60 pools): 45 Claim events (37 LP self-claims, 8 via approveForClaim manager), >=4.6k swaps routed, gas ~0.0003 USD/call (1.03 gwei-gwei, ETH 1828.5 coins.llama.fi); PoolTape.record allowedCaller-gated, factory setters owner-gated",
+  "kb": [
+   "attempts:1593",
+   "protocols:300"
+  ],
+  "run_id": "904ebbeb11234e1a9d9b6ddc768ac006",
+  "at": 1794892634
+ }
+}

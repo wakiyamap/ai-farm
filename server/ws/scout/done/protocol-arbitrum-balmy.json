@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-balmy",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "balmy",
+ "name": "Balmy",
+ "category": "DCA Tools",
+ "tvl_usd": 25546,
+ "url": "",
+ "github": [
+  "balmy-protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "37258485d1854c7ba3e5edbb6ba0f14f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Balmy (Mean Finance DCA v2, deprecated) hub 0xA5AdC548...C345 arbitrum: swap() is public and pays the 0.6% fee (swapFee()=6000) to any reward recipient, but hub paused()=1 (0 Paused events in 90d) and Swapped=0 over 7d/90d/365d (control: no-topic 90d scan 731 logs, only Terminated 730 + Withdrew 1); 7d blocks 524751649-526809291: 30 terminate() calls, 30/30 caller==recipient (users exiting own positions), gross to a stranger 0 USD, terminate gas ~0.006 USD (0.02 gwei, WETH 1717.95 coins.llama.fi 2026-11-23T13:01Z).",
+  "kb": [
+   "attempts:4107"
+  ],
+  "run_id": "37258485d1854c7ba3e5edbb6ba0f14f",
+  "at": 1795439035
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-insurace",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. InsurAce polygon = two staking proxies only (DefiLlama adapter; pools JSON endpoint dead). Pool A 0xD2171aBb...596F -> impl StakersPoolV2 (verified): every non-onlyOwner state-changing fn sits behind modifier allowedCaller -> SecurityMatrix 0x544c42fbb96b39b21df61cf322b5edc285ee7429 whitelist of 2 project contracts (0xd50e8ce9.. = BSC pool A, 0xaa54d33d.. = BSC matrix); eth_call harvestRewards(address,address,address) from a fresh EOA reverts 'allowedCaller', from a whitelisted address it returns 0; harvestRewards pays its _to argument, not the caller. Pool B 0xE8DBB5F6..C27D = ve-INSUR lock (stake/redeem user ops, no caller-pay fn). Reward epoch also ended (rewardEndBlock 73.46M vs head 97.83M) and 7d activity is zero on both pools.",
+ "numbers": "7d window blocks 97,430,472 (2026-11-16) -> 97,834,460 (2026-11-23): 0 events on both pool proxies (no-topic scan; control USDC same shape 30,908 logs/1,430 blocks). Last tx to pool A 94,894,337 2026-06-02 (FAILED), to pool B 81,389,517 2026-01-08. rewardEndBlock 73,458,379 vs head 97,834,460 = 24,376,081 blocks ~420 d past end (1.50 s/block from timestamps); rewardPerBlock 0.034 INSUR (18 dec, getRewardToken = 0x8a0e8b4b0903929f47C3ea30973940D4a9702067). eth_call harvestRewards 0x9e9df5d7 from fresh EOA revert 'allowedCaller'; from whitelisted returns 0. Polygon TVL 25,408 USD (DefiLlama). Gas: n/a (nothing callable by a stranger)."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-usd8",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 28,
+ "chain": "ethereum",
+ "slug": "usd8",
+ "name": "USD8",
+ "category": "Insurance",
+ "tvl_usd": 140239,
+ "url": "https://usd8.fi",
+ "github": [
+  "Usd8-fi"
+ ],
+ "listed_days_ago": 28,
+ "run_id": "59f51ea8d79b4148a67b563bd0cca71f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only permissionless entry is cover-pool settleMaturedExitEpochs (0x4bF4..c1b8, 0x38F5..e902): stranger eth_call returns 0, source pays caller nothing; 7d scan blocks 0x192e96d-0x193ae4d: 0x ExitEpochSettled, 1x RewardNotified per pool (control: same scan returns logs); Treasury.harvestAndDistribute admin/timelock-gated (reverts Unauthorized from stranger; 1x/7d by admin EOA 0xb2e999d5, tx 0x40bbb3e6); claimReward/finalizeClaim pay only the caller's own balance; gross 0 USD vs ~21-40k gas.",
+  "kb": [
+   "attempts:2863",
+   "protocols:1281"
+  ],
+  "run_id": "59f51ea8d79b4148a67b563bd0cca71f",
+  "at": 1795169735
+ }
+}

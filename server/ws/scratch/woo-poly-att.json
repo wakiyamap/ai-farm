@@ -1,0 +1,8 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-woofi-earn",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. WOOFi Earn on Polygon (7 SuperCharger vaults, ~312k USD) has no public function that pays the caller: the keeper work is startWeeklySettle/endWeeklySettle and both revert 'WooSuperChargerVault: !ADMIN' from a fresh address, so only WOOFi's own ops wallet runs them; the single stranger-callable state change, WooLendingManager.accureInterest(), succeeds from a stranger but is pure bookkeeping and transfers nothing. Third chain checked after arbitrum (protocols:904) and base (protocols:905), same verdict on all three - nothing here for a bot.",
+  "numbers": "7d (blocks 97167816-97571016, 1.5 s/block, eth_getLogs 7 vault addresses, control = same shape returns 6 rows): 6 WeeklySettle events (3 start + 3 end) on the 3 live V2 vaults, 100% sent by 0x3668ba88a32332269483a0eb2406a7f8149b486d; gross to caller $0 (receipts show only the 0x1010 gas-refund log to the caller, no ERC-20); gas/call $0.019 (endWeeklySettle 0x4ed828fb, 568406 gas x 413.84 gwei), $0.014 (startWeeklySettle 0x189c0682, 406148 gas), $0.007 (MATIC vault end 0x2213e250, 206752 gas); POL $0.082184 (coins.llama.fi, ts 1795062402). accureInterest direct calls: ~1/day, all by the same ops wallet, last 26 d ago, gas 47830 = $0.0016. V1 vaults dormant (last settle ts 1767751861, ~317 d).",
+  "bot_id": null
+}

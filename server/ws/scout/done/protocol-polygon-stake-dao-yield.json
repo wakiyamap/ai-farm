@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-stake-dao-yield",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "stake-dao-yield",
+ "name": "Stake DAO Yield",
+ "category": "Yield",
+ "tvl_usd": 302053,
+ "url": "https://stakedao.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "d6b2ab6601b94d1db9f5fd2b54c6d200",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Polygon stake-dao-yield = one legacy yVault 0x7d60F21072b585351dFd5E8b17109458D97ec120 (am3CRV LP, TVL 301,742 USD): only open call earn() (eth_call from fresh addr OK, gas 80,527 = 0.0017 USD @267.8 gwei, POL 0.0784) pays 0 to caller; strategy.harvest() role-gated (revert '!authorized'), last run 2023-08-22; 0 vault txs in last 7 days (latest 2026-11-11), no earn() call since before 2026-06",
+  "kb": [
+   "attempts:2849"
+  ],
+  "run_id": "d6b2ab6601b94d1db9f5fd2b54c6d200",
+  "at": 1795167274
+ }
+}

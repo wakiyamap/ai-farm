@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-midas-capital",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Compound-fork pool set (Risedle f-token pools, 13 guard-proxy comptrollers, 80 markets, 89k USD TVL) exposes no function that pays a caller: no claim/claimComp/claimReward/claimAllRewards anywhere (custom revert 0xf9fa14c8 on the guard proxies), no reward token, accrueInterest() is publicly callable but pays 0. Protocol is effectively dead (site parked, deadUrl): 8 txs total across all 80 markets and 13 comptrollers in 7 days, all mints by one bot EOA, zero liquidations, zero claims, nobody paid.",
+ "numbers": "7d window blocks 133894000 (2026-11-16) .. 135237354 (2026-11-23, eth_getBlockByNumber timestamps). eth_getLogs 13 comptrollers: 0 logs (control same-shape USDC 0x55d39832... 22656 logs/200 blocks + relay-probe OK); 80 markets no-topic scan (sample: all 80 addresses in 3 batches of 32): 16 logs / 8 txs, 7 = 0x438059a38b1009ab7407ce170b2c53a9bf8c368f -> 0x020681263ccad840502e893e9d55e18c8f6b5d44 mint(address,uint256) (txs e.g. 0x3e37b9d44d2c914da06b9d... 2026-11-20). fWBNB market 0xfec2b82337dc69c61195bcf43606f46e9cdd2930 getCash 1.176 WBNB ~653 USD, totalBorrows 0.0192 WBNB ~10.7 USD (WBNB 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c read from underlying(), 18 decimals, BNB 555.29 USD coins.llama.fi 2026-11-23 08:25 UTC). Gas price 0.05 gwei (eth_gasPrice 0x2faf080), 100k-gas call ~0.003 USD. TVL 88,973 USD api.llama.fi 2026-11-23."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-metronome-synth",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1404,
+ "chain": "optimism",
+ "slug": "metronome-synth",
+ "name": "Metronome Synth",
+ "category": "Synthetics",
+ "tvl_usd": 1584697,
+ "url": "https://metronome.io/",
+ "github": null,
+ "listed_days_ago": 1404,
+ "run_id": "ac5bd9147f91404a90ae9ba0db269cd7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Pool.liquidate (0x6394152946dc3E0bABAA474eE9d366ef31f959c0) is anyone-callable, pays caller 10% of repaid USD in seized collateral; 4 liquidations in 7d all taken by one third-party bot 0x597050fa (0x2c1eb700/0x2bdf8f82/0x7ed7ee7f/0xb2026868), gross $0.04-0.25/call vs gas $0.19-0.21 full tx (~$0.10 liquidate-only, 548k gas @ ~0.0001 gwei, ETH $1765 coins.llama.fi); reward pot dust: one live unhealthy position, $3.53 debt; 587 of 592 30d events were one 1.2h sweep 27d ago (~$1.3k gross); OP reward claims 7d = 4 for 0.073 OP ($0.006)",
+  "kb": [
+   "attempts:2355",
+   "protocols:893"
+  ],
+  "run_id": "ac5bd9147f91404a90ae9ba0db269cd7",
+  "at": 1795058994
+ }
+}

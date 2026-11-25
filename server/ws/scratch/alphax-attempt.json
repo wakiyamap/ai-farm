@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-alphax",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The only AlphaX contract on BSC is a custodial DEXVault proxy (0x8259f6010A030BCD54335503bA91BBA70a534Ca6, impl 0x6302e7948736baf985804f0dc6132baf6d86cc92); accounting is off-chain and every external function is a deposit (caller pays), a signature-gated 2-of-3 withdrawal that pays the user their own funds (users self-submit), or an onlyOwner admin call. No function pays a stranger anything.",
+  "numbers": "TVL 1.80M USD (DefiLlama alphax, 2026-11-18); 31 selectors on impl, 26 resolved to DEXVault/UUPS/Ownable set; sample of 2 windows of 5071 blocks @0.45 s (38 min each; 134299810-134304881 and ~672000 blocks earlier): 6 Deposit + 3 Withdraw and 1 + 1 (eth_getLogs topics keccak(Deposit(address,address,address,uint256))=0x7cfff908..., Withdraw=0x16976c97...); gas 0.6 gwei (eth_getTransactionByHash), BNB 589.09 USD (coins.llama.fi) => ~0.05 USD/withdraw tx."
+}

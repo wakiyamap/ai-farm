@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-detrade",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. DeTrade's 4 Base contracts are curated Lagoon v0.5 ERC-7540 vaults; every maintenance function (settleDeposit/settleRedeem onlySafe, updateNewTotalAssets onlyValuationManager, expireTotalAssets onlySafe) reverts for a stranger, and no function pays a caller. The curator's own Safe and EOAs pay gas to settle, and 7-day activity is too thin to earn anything.",
+  "numbers": "7d (blocks 55493495-58517495): 4 vaults, 27 logs, 9 txs (applefarm 0 logs; control = other 3 vaults returned logs in the same scan). Settle tx gasUsed 336643 @ 6 gwei = $0.004, user redeem 121836 @ 7.86 gwei = $0.002 (ETH $1835.98 coins.llama.fi, effectiveGasPrice from eth_getTransactionReceipt 0x4eda0ab0..., 0x33f159d2...). Caller reward $0. coreUsdc totalAssets 665,183.6 USDC; role reverts: expireTotalAssets -> OnlySafe(0xc6835323...) 0xfde82f1f, updateNewTotalAssets -> OnlyValuationManager(0xc68353...) 0x14c9222d, from fresh 0x4444..4444."
+}

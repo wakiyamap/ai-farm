@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-arrakis-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Arrakis V1 G-UNI vaults on optimism: the only reward function is rebalance(uint160,uint256,bool,uint256,address) whose gelatofy modifier requires msg.sender == GELATO (0x01051113d81d7d6da508462f2ad6d7fd96cf42ef) and pays its feeAmount to GELATO, not to a stranger (eth_call from fresh address reverts 'Gelatofied: Only gelato'). executiveRebalance is onlyManager; withdrawManagerBalance/withdrawArrakisBalance are anyone-callable but pay the manager/Arrakis treasuries, not the caller. Zero protocol activity besides LP mint/burn in 7 days, so no caller pays itself anything. Same verdict as ethereum arrakis_v1 (attempt 3495).",
+  "numbers": "Factory 0x2845c6929d621e32B7596520C8a1E5a37e616F09 (DefiLlama module sorbetfinance/index.js); 15 deployers, 57 pools (eth_call getDeployers/getPools). Impl 0x5c00be319ecf60ec35d00094d192e97becb4d06c ArrakisVaultV1 (blockscout source). 7d window blocks 159624839 (2026-11-16 17:00:55Z) -> 159927193 (2026-11-23 16:59:23Z): 10 logs total over 57 pools (no-topic scan, 2 getLogs calls; 4 Transfer, 2 Approval, 2 FeesEarned, 2 Burned on pools 0x38b26d26...a00e and 0x3fa8cee6...fb3f), 0 Rebalance (topic0 0xc749f9ae... from cast keccak, absent; no unknown topics in the no-topic scan). 0 rebalance callers in 7d, so gross/gas per call n/a; TVL 84,000 USD (api.llama.fi currentChainTvls 2026-11-23), sample of all 57 pools."
+}

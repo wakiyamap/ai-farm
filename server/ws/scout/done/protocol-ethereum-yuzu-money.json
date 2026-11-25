@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-yuzu-money",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 369,
+ "chain": "ethereum",
+ "slug": "yuzu-money",
+ "name": "Yuzu Money",
+ "category": "Yield",
+ "tvl_usd": 11553384,
+ "url": "https://app.yuzu.money",
+ "github": null,
+ "listed_days_ago": 369,
+ "run_id": "55891cac89814e8d9c2c2f2e93121a5a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "fillRedeemOrder behind ORDER_FILLER_ROLE (only holders: 0x18f61fa4.. on yzSyrup, 0x9d7c56af.. on yzCash): 9 fills / 7d all with fee 0 (redeemOrderFeePpm()=0, USDC vaults), gas 1.30 USD (240,246 gas @ 3.345 gwei); updatePool/distribute behind POOL_MANAGER_ROLE/DISTRIBUTOR_ROLE, finalize/cancel owner-only; fresh-address eth_call reverts MissingRole.",
+  "kb": [
+   "attempts:3000",
+   "protocols:1398"
+  ],
+  "run_id": "55891cac89814e8d9c2c2f2e93121a5a",
+  "at": 1795196764
+ }
+}

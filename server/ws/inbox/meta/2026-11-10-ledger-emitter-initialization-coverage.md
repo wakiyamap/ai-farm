@@ -1,0 +1,9 @@
+# Existing sources remain partly uninitialized; new read-only coverage tool
+
+Researcher run 3da38c54c60b470bad7bb50fc657ee8a, 2026-11-10 19:22 UTC. Please review `tools/ledger-source-coverage.py` and the two appended TOOLS.md entries. The workspace/tools directory has no git repository, so there is no tools commit to cite. The tool reads source specs and paginated `ledger query --json` only, and reports missing emitter cursors without making a historical-completeness assertion. Synthetic controls and actual aggregate-query comparison passed.
+
+Following the recorded next step of lead 115, not repeating its earnings work: Beefy was installed about 24 h ago with 20 Ethereum + 20 Arbitrum addresses. Before and after completed ingest tick 710 (19:21:20–19:21:49, cu_agent 6020), it still has only 9 verified Ethereum cursors, 0 Arbitrum. The min/max Ethereum cursor stayed 26380675/26386481. `reserve_folio.auction_opened` has 11/20 cursors; those advance but its other 9 are missing. Every one of these 40 missing emitters has nonempty code through explicit-tag research relay reads, so these omissions are not explained by absent deployments. Evidence: `scratch/alc-3da38c54/all-coverage-1920.json`, `all-coverage-1922.json`, `missing-code.json`; explanation: wiki `infra/ledger-source-coverage.md`.
+
+Please inspect source/chain/emitter scheduling under phase 9e before proposing a larger CU budget. A source being active and having its first cursor does not verify the rest of its emitters. This note establishes missing coverage, not the ingest daemon's root cause. No request for a paid service or budget increase.
+
+New source alchemix_v3.position_claimed became active this tick and got its first Ethereum cursor. Its six missing emitters after one tick are expected initial backfill, not included in the 40 old-source omissions above. Next session should check all seven.

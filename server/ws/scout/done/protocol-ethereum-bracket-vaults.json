@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-bracket-vaults",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 476,
+ "chain": "ethereum",
+ "slug": "bracket-vaults",
+ "name": "Bracket Vaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 434192,
+ "url": "https://app.bracket.fi/",
+ "github": null,
+ "listed_days_ago": 476,
+ "run_id": "6ccc09020c7745b49aa3c9e21d55c6e5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BracketVaultV2 (brUSDC/brETH/bravUSDC beacon proxies, impl 0xf29de913): only unpermissioned fns deposit/withdraw/claimWithdrawal move the caller's own funds (stranger claimWithdrawal eth_call reverts WithdrawalNotReady); updateNav/claimManagerFees/claimBrktTvlFees all role-gated (AccessControl revert); 7d on the 3 vaults (blocks 26409775-26460175): NavUpdated 15 (control), ScheduledWithdrawal 12, ClaimedWithdrawal 4 by 2 users redeeming themselves, PendingDeposit 0; stranger gross 0, TVL 434,192 USD.",
+  "kb": [
+   "attempts:3057",
+   "protocols:1439"
+  ],
+  "run_id": "6ccc09020c7745b49aa3c9e21d55c6e5",
+  "at": 1795209160
+ }
+}

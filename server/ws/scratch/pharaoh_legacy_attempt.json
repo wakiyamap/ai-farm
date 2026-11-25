@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-pharaoh-legacy",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The v1 Pharaoh (CryptoRap/Ramses-v2 lineage: factory 0xAAA16c016BF556fcD620328f0759252E29b1AB57 proxy, Voter impl 0x12c0f312..., Minter impl 0xfe0ca8fc...) exposes permissionless keeper functions - Minter.updatePeriod(), Voter.distribute/poke/updateAll all eth_call fine from a fresh address - but pay msg.sender 0: by source the emissions flow Minter->Voter->gauge with no transfer to the caller, and the emission pot itself is zero (weeklyEmission()=0). The protocol is a legacy shell: 0 direct txs to voter/minter/ve in the last 7 days (newest 2026-11-05, a vote() by an veNFT holder; last-100 voter txs 2026-03-20..2026-11-05 contain no distribute/updatePeriod at all) and all claim functions pay only LP/veNFT holders. Third sibling DefiLlama entry with the same dead-end verdict after pharaoh_v3_legacy (KB 451) and pharaoh_v3 (KB 452).",
+  "numbers": "TVL $156-168k (api.llama.fi 2026-11-18); weeklyEmission()=0 (eth_call Minter 0xAAA823aa799bda3193d46476539bcb1da5b71330); keeper eth_calls from fresh addr: updatePeriod/distribute(pool0)/poke(1)/updateAll all succeed; 0 direct txs to voter/minter/ve in 7d, newest 2026-11-05 / 2024-07-18 / 2024-02-27 (snowtrace txlist desc, 100 rows fetched each, shape returns rows); gross per keeper call $0; gas distribute(pool0) 493,530 gas = $0.026 at 7.5 gwei x AVAX $6.96 (eth_gasPrice, coins.llama.fi 2026-11-18); allPairsLength=813, voter pools=202"
+}

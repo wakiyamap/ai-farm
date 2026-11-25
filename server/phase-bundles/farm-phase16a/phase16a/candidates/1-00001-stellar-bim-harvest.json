@@ -1,0 +1,10 @@
+{
+ "id": "stellar-bim-harvest",
+ "kind": "stellar",
+ "tier": 1,
+ "age": 1,
+ "chain": "stellar",
+ "slug": "bim",
+ "name": "BIM on Stellar: public harvest or caller fee",
+ "steps": "Read the scout.md section \"Stellar\" first. Reads: curl -s -X POST 'http://127.0.0.1:8545/stellar' -H 'Content-Type: application/json' -d '<json-rpc body>'.\nQuestion: BIM (DefiLlama slug bim, about 37M USD on Stellar) also runs on Base, where the farm has a live bot (trial-bim-harvest-base) taking a public Aero strategy harvest caller fee. Does BIM on Stellar have a function anyone can call that pays the caller?\n1. Contracts: DefiLlama adapter `projects/bim/index.js` (Stellar part), BIM docs and GitHub. On the farm side: `wiki search bim` and `kb query --json \"SELECT id, target, next_steps FROM leads WHERE target LIKE '%bim%'\"` for what the Base bot calls.\n2. Source (Rust): functions like harvest, compound, rebalance, claim_rewards; who must sign (require_auth) and who receives a fee.\n3. Last 7 days of the strategy / vault contracts' events with getEvents: calls of that function, distinct callers, what the caller received (sample of at most 5 via getTransaction), fee in stroops.\n4. Verdict: pays_strangers / unpaid / role_gated / no_reward / not_found / unclear."
+}

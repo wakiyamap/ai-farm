@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "sushi_bentobox",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/sushiswap-bentobox/index.js gives polygon BentoBox 0x0319000133d3AdA02600f0875d2cf03D442C3367; eth_getCode non-empty, verified source BentoBoxV1.sol (Sushi fork, ctor arg WMATIC). Only reward-shaped public fn: harvest(address,bool,uint256) 0x66c6bb0b, no modifier - eth_call from fresh address 0x1111...1111 returns 0x (no role revert). It pays the caller NOTHING: profit is added to the vault's elastic totals (LogStrategyProfit) and the strategy's Aave rewards go to strategy address(this). Strategy contracts (WMATIC strategy 0x7166d2efffca02c6a21a235732131660c3e61f9f, WETH 0x760ef4f484ebf2668001b090291f84a3cdf2f3aa, BaseStrategy/AaveStrategy source): harvest is onlyBentoBox, safeHarvest onlyExecutor. strategyData(WMATIC) = all zeros (targetPercentage 0, dormant). yieldContract() reverted (no legacy yield in V1). Last 7 days (blocks 0x5cabfee..97576686, 403200 @1.5s): LogStrategyProfit/Invest/Divest = 0; control LogDeposit same range/shape = 3641 (query valid). Scanned 24M blocks back (~115 d): 0 LogStrategyProfit. Gas: estimateGas 43089 x gasPrice 280.8 Gwei = 0.0121 POL = $0.001 (POL $0.08245, coins.llama.fi coingecko:polygon-ecosystem-token 2026-11-19T06:45Z). TVL $294k."
+}

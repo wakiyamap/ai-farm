@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-hypersurface",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Callable-by-stranger functions exist (Auction.take/releaseExpired, HedgedPool.settleAll succeed or revert on state, not role) but nothing to collect: 0 events on every protocol contract in the last 7 days (blocks 50,895,897-51,510,660; control WHYPE Transfer OK). Auctions (the only stranger-takeable mechanism) last created May 2026; take is buying an oToken at a discount, not a payment; releaseExpired/settleAll pay the creator/holder, not the caller. Protocol dormant ~45 days (last event block 47,540,958), TVL $124k.",
+ "numbers": "7d events: 0 on HedgedPool/Auction/FeeCollector/LpManager/TradeExecutor (getLogs 0x3091ff9-latest; control 9997 logs 0x311b000-0x311c7d8). All-time: 497 events (387 ExpirySettled, 76 FeeCollected, 17 AuctionCreated, 9 AuctionTaken, 8 AuctionExpired, 0 Trade), last 47,540,958. 9 takes by 3+ EOAs, gasUsed 428,760-480,060; effGasPrice 0.16-1.64 gwei; gas/take ~0.0003-0.0008 HYPE ~ $0.02-0.05 at HYPE $69.73 (coins.llama.fi 1794923722). nextAuctionId=17, auction 16 unreleased since 2026-05-22."
+}

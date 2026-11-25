@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-derive-v3-options",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 40,
+ "chain": "ethereum",
+ "slug": "derive-v3-options",
+ "name": "Derive V3 Options",
+ "category": "Options",
+ "tvl_usd": 155995550,
+ "url": "https://app.derive.xyz",
+ "github": null,
+ "listed_days_ago": 40,
+ "run_id": "7dec1d69a02c4cd3931529ee4d0e3a49",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Derive V3 ethereum = zk-exchange escrow set (5 contracts, docs + verified sources); no function pays its caller: only free-callable WithdrawalOutbox.processQueue pays withdrawal recipients and 0 to caller (86 calls/7d blocks 26405323-26455723 by 4 EOAs 62/21/2/1, avg 1.38M gas @15.5 gwei ~8 gas vs bash caller reward; one call pays 1-17 items, e.g. 25.4k USDT+150 USDC); submitBatch gated to hot key 0x000000C88C2c8a7f8317783f2268eb2b9b41257e (1009 batches/7d); claimWithdrawalFee onlyOwner, processWithdrawal onlyKeeper.",
+  "kb": [
+   "attempts:2870"
+  ],
+  "run_id": "7dec1d69a02c4cd3931529ee4d0e3a49",
+  "at": 1795171315
+ }
+}

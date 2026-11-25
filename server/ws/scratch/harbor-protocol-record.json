@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "harbor",
+  "status": "dead_end",
+  "checked": "2026-11-22 run 8df6d733: official https://docs.harborfinance.io/tech-docs/integrators/addresses-and-abis/ maps 5 live stabilityPoolManager proxies (eth-fxusd, btc-fxusd, btc-steth, usd-steth, usd-wbtc). MINTER() on 0xE39165aDE355988EFb24dA4f2403971101134CAB returns documented minter 0xd6E2F8e57b4aFB51C6fA4cbC012e1cE6aEad989F. Verified implementation of btc-steth manager 0xdace407d79dafda98c973e4c75695155ee7c2321 is StabilityPoolManager_v2; fresh-address harvest(address,uint256) eth_call at parent 26427195 succeeds and returns 0.0411580907633996 wstETH harvested. All-five manager Harvested(uint256) scan blocks 26419880-26470280 (2026-11-15 10:43Z to 11-22 11:12Z, 7.02d) finds 2 paid calls, both btc-steth: tx 0xa80e2c21 and 0xeac7fea3. Bounties sum 0.000239659434473373 wstETH = 0.0002994220 ETH at block-specific stEthPerToken; $0.512 using 2026-11-22 DefiLlama ETH $1708.46, $0.073/day gross ceiling before gas, below $1/day. Other 4 managers zero with same-shape positive control. Current maximum bounty: 22.043445923 fxSAVE harvestable x 0.005 = 0.11021723 fxSAVE = $0.125 at fxSAVE $1.13189; no >=$10 one-shot. Raw evidence scratch/harbor-all-five-logs.json, harbor-rec1.json, harbor-rec2.json, harbor-state-*.json."
+}

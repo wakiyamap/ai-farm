@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-acryptos",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: harvest() (0x4641257d) on ACryptoS Base vaults is callable by anyone (no role gate; eth_call from 0x1111...1111 succeeds) and pays the caller in vault tokens (0.3% of pending rewards). But the protocol was hit by the 2026-11-08 depositMulti exploit and is being deprecated (per post-mortem: 'No fix or re-opening of deposits is planned'). Only 1 harvest() in the last 7 days across all 34 active vaults on Base; it paid $0.000252 gross vs $0.024 gas (net -$0.024).",
+  "numbers": "1 harvest tx in last 7d: 0x7710a6e7c3baa273a7dd8184e0eb12f45dd5ace498987783bfa948a065f6e233 (Nov 16 10:42 UTC), USDC vault 0x07667ab8a00760e801ca27534700288c528bc6da, caller 0xdb135aef1945025d7ed32095c614bd5d04b4277c, gasUsed 2,276,520, gasPrice 0.006 gwei, gross 187 raw acsUSDC = $0.000252 (vault TVL $27,260 / supply 20,090,409,911 raw, 18 dec), gas $0.024 (ETH $1759.44 DefiLlama 1795129214). Sources: api.unrekt.net/api/v2/acryptos-asset (34 active Base vaults), explorer txs + eth_getLogs on the 32 vault addresses (block range 0x3600000..latest). No LP-vault harvest in 7d; last WETH/wstETH-100 mint was 2026-11-08T16:36 (the exploit day). docs.acryptos.com/post-mortem-univ3-family-vault-exploit-2026-11-08.md."
+}

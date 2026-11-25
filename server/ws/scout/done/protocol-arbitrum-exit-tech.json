@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-exit-tech",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 613,
+ "chain": "arbitrum",
+ "slug": "exit.tech",
+ "name": "exit.tech",
+ "category": "Liquidity Manager",
+ "tvl_usd": 35832,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 613,
+ "run_id": "5d4eafdcd7c34500aca5ffd4aabdbb7f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "exit.tech GMX-v1 vesting vaults (arbitrum): entry point 0xA1506e8f078225C4F9a20Cf1f9e3660D9dA691CA + 15 ExitVault clones, 10 funded. claimRewards/updateVester/withdraw succeed from a fresh address (no role revert) but pay a stranger 0: they pay msg.sender's own accrual, now 0 GMX + 0 WETH over 11 staker-vault pairs; matchWithdrawRequest reverts RequestDoesNotExist, 0 events ever. 7d blocks 524530398-526583483: 0 logs on 15 vaults + entry point (control: 199 all-time, last 2026-05-12). Last claimRewards paid the staker 59.96 GMX = 436.37 USD, gas 0.0153 USD (GMX 7.2774, llama 18:25Z).",
+  "kb": [
+   "attempts:3811",
+   "protocols:1998"
+  ],
+  "run_id": "5d4eafdcd7c34500aca5ffd4aabdbb7f",
+  "at": 1795372742
+ }
+}

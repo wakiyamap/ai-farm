@@ -1,0 +1,19 @@
+{
+ "id": "actor-base-0xcb0c3e880194008e5641c48a6b54ccf67a9bf2a9",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "base",
+ "address": "0xcb0c3e880194008e5641c48a6b54ccf67a9bf2a9",
+ "run_id": "09ddb576a7fe47f7aa6aa7d3766d0dd7",
+ "result": {
+  "verdict": "role_gated",
+  "line": "UniswapX V3 Dutch-order RFQ filler on Base: EOA 0x5eadde9f drives executor -> V3DutchOrderReactor 0x000000008a8330b5 executeWithCallback 0x0d335884, covers on V2/V3 pools in the reactor callback, sweeps spread to treasury 0xcbb152...; 61-76 fills/day (305 fills 11-12..15 + 111 fills to 11-16 23:54Z, still active), gross mean $0.24/fill (range $0.04-0.63, sample 9 of ~416), gas $0.0067/fill, net ~$14/day; cosigned orders embed exclusiveFiller == this desk so a fresh address would not be paid -> role_gated (matches protocols 284).",
+  "kb": [
+   "attempts:1518",
+   "actors:189"
+  ],
+  "run_id": "09ddb576a7fe47f7aa6aa7d3766d0dd7",
+  "at": 1794874744
+ }
+}

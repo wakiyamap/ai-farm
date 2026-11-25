@@ -1,0 +1,26 @@
+{
+ "id": "protocol-avalanche-phuture",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1630,
+ "chain": "avalanche",
+ "slug": "phuture",
+ "name": "Phuture",
+ "category": "Indexes",
+ "tvl_usd": 26179,
+ "url": "",
+ "github": [
+  "Phuturedao"
+ ],
+ "listed_days_ago": 1630,
+ "run_id": "fa3cf94e693d4f3aa7c54fddd2df5315",
+ "result": {
+  "verdict": "role_gated",
+  "line": "reweight (the rebalance fn) needs INDEX_MANAGER_ROLE/REWEIGHT_PERMISSION on registry (eth_call from fresh addr: 'ManagedIndex: FORBIDDEN'); Orderer swaps need ORDERING_EXECUTOR_ROLE; open mint/burn/withdraw pay 0 to callers (fees 20bp/50bp flow TO the FeePool); 7d (blocks 100463734 2026-11-16 -> 101149480 2026-11-23): 10 mints = 0.29 shares ~5.4 USD, 0 burns, 0 reweights; TVL 26,179 USD, AVAX 6.73 USD, gas <0.05 USD/tx",
+  "kb": [
+   "attempts:4054"
+  ],
+  "run_id": "fa3cf94e693d4f3aa7c54fddd2df5315",
+  "at": 1795425116
+ }
+}

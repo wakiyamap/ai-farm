@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "upshift",
+ "status": "dead_end",
+ "checked": "4 proxy vaults on Base (DefiLlama adapter projects/upshift reads api.augustdigital.io tokenized_vault list, chainId 8453). eth_getCode non-0x + getters answered on all 4: TokenizedVault impl 0x8ef540b1a2e9562a8373437e99d92f71286b6d9d behind proxies 0x2c4198361F5aF870EC2bE0fffe243610cDe7F84b (getTotalAssets 1,078,190 USDC = all of the ~$1.04M TVL), 0xc1bE1621d8Db2cDC39136Ef10c046b8d67b4382a (getTotalAssets 1.0 USDC), 0xd9c51Acb69310a1eC563a59A685F3639AB5E3ca6 (0); LendingPoolv3 impl 0xf80d16c14e761281af10a15fc7128228a84d38cb behind 0x4e2D90f0307A93b54ACA31dc606F93FE6b9132d2 (getTotalLoansDeployed=10). Source: blockscout flattened TokenizedVault.sol / LendingPoolv3.sol. Anyone-callable (no role gate, eth_call from fresh addr OK): chargeManagementFee, collectFees, chargePerformanceFees, claim(y,m,d,receiver), processAllClaimsByDate. None pays msg.sender: fee transfers go to feeCollectors 0x3a3eeb72c992b1456ebb755d33e891a04fa8c677 (protocol), claims pay the redeemer his own principal. Main vault managementFeePercent=0, withdrawalFee=0, totalCollectableFees=0 on all 4. Pool liquidate(loanAddr) is onlyLoansOperator. Loan contracts (10, e.g. 0x5804f3d2faf6565b25b49755749f743557004124) unverified on blockscout."
+}

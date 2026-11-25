@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-agua",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated: the vault's only maintenance functions (setRate, setLockupPeriod, setEarlyRedemptionFee, setCap) require ADMIN_ROLE (eth_call from stranger reverts AccessControl); redemption flows (requestRedemption/redeemEarly/completeRedemption) are self-service for msg.sender with no caller reward, and completeRedemption for a stranger reverts NoActiveRequest. Nobody but users and the admin acted in 7 days; gross per-call reward to a stranger is 0.",
+ "numbers": "7d logs (no-topic scan, all logs, blocks 26405938-26456338, rpc.py ethereum eth_getLogs): 6 total = 3 Transfer + 2 EarlyRedemption (owner==receiver 0x645997a4...d5a) + 1 RedemptionRequested; lifetime: 88 Deposit, 27 EarlyRedemption, 15 RedemptionRequested, 4 RedemptionCompleted, 1 RateUpdated (block 25324859, admin 0x086eb9c2...e327 paid 0.0057 ETH LZ fee). totalAssets 10,665,943 USDC (6 decimals, ASSET()=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48), cap 14.2M USDC, lockup 5 days; gross stranger reward 0 USDC/call; gas 0.248 gwei (eth_gasPrice, ~150k gas ~ $0.10-0.15); Agua*Fuse adapters 0 logs lifetime (eth_getLogs fromBlock 0x0). Source: registries/erc4626.js, OpportunityOVault.sol via etherscan."
+}

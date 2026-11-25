@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-thena-fusion",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. THENA FUSION is an Algebra CLMM (Uniswap-V3-like) on BSC: every function anyone can call (createPool, swap, mint, collect, burn, flash) needs caller-supplied capital or pays out only the caller's own fees; config setters are owner/feeManager gated; activeIncentive()=0 on the main pool and LP farming (factory farmingAddress) is staker-claimed. No keeper/bounty function pays a stranger. Mirrors thena-integral (attempts:1869).",
+  "numbers": "Factory 0x306F06C147f064A010530292A1EB6737c3e378e4 (DefiLlama registries/uniswapV3.js 'thena-v3'); owner()=0x46f99291...630b, poolByPair(WBNB,USDT)=0xd405b976ac01023c9064024880999fc450a8668b (eth_call latest, 2026-11-19). WBNB-USDT Swap events: 8 / 5000 blocks at head 134,411,242, 22 / 5000 blocks 7 d ago, 0 / 5000 blocks 3.5 d ago (eth_getLogs, same-shape control non-zero same run; BSC block time 0.45 s measured). TVL 533,542 USD (DefiLlama). Selectors resolved via 4byte.directory from bytecode (Etherscan not_on_plan, Blockscout 402)."
+}

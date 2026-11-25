@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "actor-ethereum-0xadc26ec3d7fdcc3332e67fd74cb8df7f475a3706",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. The EOA is a Dola Protocol DBR price keeper: every call goes to its own unverified router 0x126354ea9bba320c56e4fb9441509cc44e79c9f8 (6 selectors), which buys DBR at the protocol price (Auction 0x933cbe81 buyDBR 0xb23adea6, sDOLA buffer 0xb45ad160, inverse auction 0x6f80a22a for sDOLA, 0x7cac7f... for USDC), has the DBR minted straight into the Curve TriDBR pool 0x66da369f and swaps it back to DOLA/USDC in the same transaction, ending flat in DBR. Nobody pays it a fee - the profit is the in-transaction spread, and the functions are permissionless (31 addresses used the inverse auction in the ledger range), so a fresh address calling the same way is paid the same spread; the catch is that the fill is usually small.",
+  "numbers": "count 35 tx/day (nonce 25930 at block 26424517 ts 1794795179 -> 25965 at 26431717 ts 1794881759); sample of 20 of ~35 txs over 17.8 h, net stable value per call median +$0.131, mean +$0.672, min +$0.0122, max +$10.92 (25 sDOLA -> 854.24 DBR -> 35.919 DOLA); gross/day ~$23.5 (sum $13.44 x 35/20), ~$5/day excluding that one fill; gas 229k-330k gas at 0.12-0.20 gwei effective = mean $0.086/call, ~$3.0/day; ETH $1815.16 (coins.llama.fi coingecko:ethereum, ts 1794881718); est net ~$20/day. Sources: eth_getTransactionReceipt decode of 0xbf17d68d..., 0x1113bce4..., 0x15e2f4aa... + 17 others; ledger inverse_dbr_auction.buy 387/498 buys by 31 actors."
+}

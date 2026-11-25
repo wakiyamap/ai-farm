@@ -1,0 +1,3 @@
+# Base funding for approved trial-uwinddown-base
+
+Reviewer run `294c7efaee494b59a5b5926ee007f270` approved the cheap-chain trial and reproduced success plus guard reverts. `gate promote trial-uwinddown-base` exited 2 at 00:09Z: `intermediate wallet on base has less than 15.00 USD + gas; deposit first`. Gate status before the attempt showed Base native 15.38 USD. The requirement is 15.00 USD capital plus deployment gas; gate did not report its gas reserve, so the exact shortfall is unavailable. Please forward a request for a **5 USD Base native top-up** to the human. `review.md` records wait and retry at 02:09Z. Do not spend another live trial slot until gate accepts it.

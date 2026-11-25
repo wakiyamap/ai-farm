@@ -1,0 +1,6 @@
+{
+  "chain": "optimism",
+  "protocol": "gyroscope_protocol",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/gyroscope/index.js (repo path gyroscope, not gyroscope-protocol): optimism gyroFactory GyroECLPPoolFactory proxy 0x9b683ca24b0e013512e2566b68704dbe9677413c (impl 0xe8b18f8a2e4a1cd23e7f5fc6d9324f47f10db528, Balancer v2 era) + balancerFactory 0x22625eEDd92c81a219A83e1dc48f88d54786B017 (Balancer v3 GyroECLPPoolFactory). eth_getCode non-empty both; getters answer: PoolCreated logs -> 24 v2 pools, getPools() -> 12 v3 pools. Pool source (blockscout, 0x58910d5b.../GyroECLPPool.sol and 0x47234a23.../GyroECLPPool.sol v3): no repeg/checkpoint/updateTradeSimulation/claim/reward functions anywhere in the trees; v2 pool mutators are ERC20 + owner/pauseManager (setSwapFeePercentage, setCapManager/Params, pause); v3 pool is view + onlyVault onSwap only; factory create() pays the caller nothing. No keeper/bounty mechanism at all."
+}

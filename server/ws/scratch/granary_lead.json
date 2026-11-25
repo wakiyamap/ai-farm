@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "granary_finance liquidationCall",
+ "status": "measured",
+ "why": "4 unrelated liquidator contracts took 22 liquidations in 7d: 0xcfbef4eb973d659f6ec4f998d28fef365da71974 (15), 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd (4), 0x4661f836f07c78a01d5490bff6e8587b9291c6b8 (2), 0x27ead5003b2a041c78ae174ccf5910774739ae42 (1), driven by >=3 distinct EOAs (0xfe836081738af7cc0b7c7e5edc5127a3f62602e1, 0xd9fffdf0c4b1..., 0x0771483e9ad0...). Sample paid: tx 0x78aa60c2de50af gross $2.33 (seized 0.00031587 WBTC = $19.42 vs 17.10 USDT debt).",
+ "next_steps": "Pool 0x8fd4af47e4e63d1d2d45582c3286b4bd9bb95dfe liquidationCall(address,address,address,uint256,bool). 22 calls in 7d (blocks 159612149-159914548, 2026-11-16..23): gross sum $2.65 (median $0.0065, max $2.33), gas sum $0.32 (median $0.0016, max $0.28; 700k-1M gas flash-loan bot txs; OP L1 data fee not in receipt), 22/22 calls gross>gas. CAVEAT: dust-scale and drying - market shrinking (15 Withdrawals, 0 Deposits/Borrows in 7d) and no liquidation since 2026-11-21 04:09Z; 3-4 incumbent bots already on it. Only worth a trial as a cheap sweep bot, not as expected revenue."
+}

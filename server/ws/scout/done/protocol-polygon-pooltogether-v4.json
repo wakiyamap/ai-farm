@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-pooltogether-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1117,
+ "chain": "polygon",
+ "slug": "pooltogether-v4",
+ "name": "PoolTogether V4",
+ "category": "Yield Lottery",
+ "tvl_usd": 451304,
+ "url": "https://pooltogether.com/",
+ "github": null,
+ "listed_days_ago": 1117,
+ "run_id": "1095299c48774bd18b95590b29d30ec0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PT V4 polygon (Ticket arch, 451,438 amUSDC = 451k USD): open fn PrizeDistributor.claim(address,uint32[],bytes) 0x8141BcFBcEE654c5dE17C4e2B2AF26B67f9B9056 pays payout to winner _user, 0 to caller (fresh-addr eth_call: zero-payout revert, not role-gated); 0 claims in last 7d (blocks 97,146,854-97,550,094, explorer-txs control on Ticket OK), last claim 2024-06-04 tx 0x92c5a410f7ad4650c713cf6ed915411079a2239bc707f8b2012907b5cad45e80; PrizeFlush.flush last 2024-07 pays 0; gas 276.2 gwei x 200k = 0.0045 USD (POL 0.08056 llama).",
+  "kb": [
+   "attempts:2239"
+  ],
+  "run_id": "1095299c48774bd18b95590b29d30ec0",
+  "at": 1795031125
+ }
+}

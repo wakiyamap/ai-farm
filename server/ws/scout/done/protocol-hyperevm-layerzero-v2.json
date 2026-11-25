@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-layerzero-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "hyperevm",
+ "slug": "layerzero-v2",
+ "name": "LayerZero V2",
+ "category": "Bridge",
+ "tvl_usd": 9353251,
+ "url": "https://layerzero.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "241b1b6c5f9f472f94f09267b52eb472",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only payout is UlnV3.withdrawFee on sendUln302 0xfd76d9cb..e3ca, pays fees[msg.sender] (fresh-addr eth_call(1) reverts LZ_MessageLib_InvalidAmount(1,0), fees(fresh)=0); 7d blocks 51132818-51747639: 5 NativeFeeWithdrawn = 12.94 HYPE $849.50 (HYPE $65.64, llama ts 1795156257), all to LayerZero fee EOAs 0xe93685f3 (4, $683.79) / 0xb8ff877e (1, $165.72), biggest $202.95, gas 44-49k = $0.0004-0.0012; endpointV2 0x3a73033c0b1407574c76bdbac67f126f6b4a9aa9 eid()=30367 (not 0x1a4407.. of other chains) has no paying fn; $8.96M TVL in 50 token proxies, no stranger payout.",
+  "kb": [
+   "attempts:2795",
+   "protocols:1225"
+  ],
+  "run_id": "241b1b6c5f9f472f94f09267b52eb472",
+  "at": 1795156713
+ }
+}

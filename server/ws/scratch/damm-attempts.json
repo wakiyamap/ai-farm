@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-damm-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. DAMM Capital's only Arbitrum contract is a Lagoon v0.5.0 ERC-7540 vault (DAMMstable, proxy 0xe5d6eb448ac5a762c1ebe8cd1692b9cd08025176). The settlement/valuation functions (settleDeposit, settleRedeem, expireTotalAssets, claimSharesOnBehalf, updateNewTotalAssets) are gated behind the Safe (0x1f334f5947ca5170c3e31c044e718369b62e5cb5) or the valuation manager and pay the caller nothing; everything else (deposit/redeem/claim) is a user action where the caller pays gas to move their own money. No function pays a stranger.",
+  "numbers": "7d eth_getLogs on proxy (blocks 522,457,200-524,957,200): SettleDeposit 0, SettleRedeem 2 (tx 0xb276965643143a3920c27e118dc0b9755e8ef58ca1d080f82a912d00620e76d4 gasUsed 413,125; tx 0x3101998628aad0cb7d68babab87a4e75779b1174653ba0c9f3f9b2e5ce2f6321 gasUsed 421,673; ~0.02 gwei -> ~$0.016 gas at ETH $1,833.67 coins.llama.fi 2026-11-17), DepositRequest 0, Transfer 12 (control non-zero). Settle callers 0x5822b262edda82d2c6a436b598ff96fa9ab894c4 and 0x46565eedb0bb948ae787dd105cce300f736da28e via intent executor 0x781388759eacb9892f60d77d9a99c9be2f7f4ada. eth_call from fresh 0x1111...1111: settleDeposit/settleRedeem/expireTotalAssets/claimSharesOnBehalf revert 0xfde82f1f OnlySafe(0x1f33...); updateNewTotalAssets reverts 0x14c9222d OnlyValuationManager(0x1f33...). TVL $1.47M (candidate), asset USDT0 0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9."
+}

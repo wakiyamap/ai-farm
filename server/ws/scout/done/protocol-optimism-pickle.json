@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-pickle",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "pickle",
+ "name": "Pickle",
+ "category": "Yield Aggregator",
+ "tvl_usd": 26320,
+ "url": "",
+ "github": [
+  "pickle-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "514942ca62454c368da1335fcf3f6300",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: jar.earn() and strategy.harvest() callable by anyone (eth_call from fresh addr succeeds, no modifier) but pay caller 0 (fees -> treasury, rest re-LPs); 7d (blocks 159625588 2026-11-16 -> 159927988 2026-11-23) 0 logs on 2 jars + 2 controllers + strategy (control 2 logs); last harvest 2025-02-09 (gas 4.56 USD @ETH 1759), last jar tx 2026-01-23; TVL 27,677 USD.",
+  "kb": [
+   "attempts:4171",
+   "protocols:2289"
+  ],
+  "run_id": "514942ca62454c368da1335fcf3f6300",
+  "at": 1795454910
+ }
+}

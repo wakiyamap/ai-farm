@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-tranchess-yield",
+  "outcome": "dead_end_recorded",
+  "reason": "Verdict unpaid. DefiLlama child protocol parent#tranchess using the same adapter module (projects/tranchess/index.js, tvlCodePath) and contract set as protocols:267 / attempts:1410: 19 BSC funds, 23 swaps, CHESS escrow. Re-verified 2026-11-20: settlement still frozen (BTC V2 fund 0x2f40c245 currentDay()=1783087200 = 2026-07-03 14:00 UTC, 140 d stale), and the anyone-callable swap entries sync()/collectFee() (eth_call ok from fresh address on 0x999DB223..., no role revert) pay the caller 0 per source (StableSwapV2.sol: sync pays nobody; collectFee sends admin fee to feeCollector). Fund settle() also anyone-open but caller-unpaid and frozen. No keeper pays a stranger on these contracts; a farm bot would net -gas/tx.",
+  "numbers": "TVL bsc 3.58M USD (candidate); currentDay 1783087200 (2026-07-03 14:00 UTC) at head 2026-11-20; caller reward 0 for settle/sync/collectFee; gas ~free USD on bsc but reward=0; 6 relay reads + 2 eth_calls, 0 fork",
+  "bot_id": null
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-stellar-aquarius-stellar",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 822,
+ "chain": "stellar",
+ "slug": "aquarius-stellar",
+ "name": "Aquarius Stellar",
+ "category": "Dexs",
+ "tvl_usd": 36594667,
+ "url": "https://aqua.network",
+ "github": [
+  "AquaToken"
+ ],
+ "listed_days_ago": 822,
+ "run_id": "00ff53861ad0465bb2a0ac8e38027181",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Soroban AMM, router CBQDHNBFBZYE4MKPWBSJOPIYLW4SFSXAXUTSXJN76GNKYVYPCKWC6QUK live (7d window 65494375-65614375; sample 1000 router events covering 3.9% of window = swap 930 / config_rewards 48 / deposit 10 / claim 9 / add_pool 3, est ~25.6k events/7d); every entrypoint pays only the caller acting for itself (claim pays accrued AQUA to the LP, gas 412430 stroops = 0.0053 USD at XLM 0.1277), config_rewards/add_pool are protocol admin actions; no stranger-paid keeper/bounty entrypoint; limit-order XLM executor reward (SDK 0.7) not live on mainnet (API 404 2026-11-22); Rust source not public.",
+  "kb": [
+   "attempts:3750",
+   "protocols:1954"
+  ],
+  "run_id": "00ff53861ad0465bb2a0ac8e38027181",
+  "at": 1795359239
+ }
+}

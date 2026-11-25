@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-turtle-club",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 561,
+ "chain": "ethereum",
+ "slug": "turtle-club",
+ "name": "Turtle Club",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 452153,
+ "url": "https://app.turtle.xyz/",
+ "github": [
+  "Turtle-DAO"
+ ],
+ "listed_days_ago": 561,
+ "run_id": "31cca216e6694b7fa3321f94ecaacc15",
+ "result": {
+  "verdict": "role_gated",
+  "line": "14 ethereum vaults (BoringVault tac*, MetaMorphoV1_1, Lagoon v0.5.0, Katana) all role-gated: manage requiresAuth, reallocate onlyAllocatorRole (reverts 0xf7137c0f), claimSharesOnBehalf/settle onlySafe; 7d eth_getLogs blocks 26408784-26443444 = 49 logs (tacUSD 25 Transfer + 18 Approval + 2 Exit, tacBTC 2T+1E, tacETH 1T, rest 0), no stranger paid, TVL 487k USD (llama 2026-11-20)",
+  "kb": [
+   "attempts:3098",
+   "protocols:1473"
+  ],
+  "run_id": "31cca216e6694b7fa3321f94ecaacc15",
+  "at": 1795217370
+ }
+}

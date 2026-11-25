@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "address": "0x8f3d0ac0f71105646b0db7e46731d814d5345c7d",
+  "strategy": "auctioneer4 submission wallet of the HyperEVM Morpho-liquidation OEV Executor 0xf2314753fa7f6cdcc4d27cc6755077a68a6e2fe9 (impl 0xb7ef55af, EXECUTOR_V6): submits solver-signed execute(address,bytes,bytes) 0x9038624a txs running Morpho Blue 0x68e37de8 liquidations (e.g. market 0xe7aa0468 kHYPE/USDC); one of 4 immutable auctioneer EOAs, fronts the tx gas and is repaid only the solver's gas liability; the winning bid goes to oevCollector Safe 0xcf8252e8. Operator service wallet, not a value-capturing keeper.",
+  "evidence": "tx 0x5032f29e8d86c554943f41bd7d76c1fb62134a11d38918dddd0aa6205213ee7d (success, Executed solver 0x5708aa87f297d8b32934f3f0537b55a66cf77ba9, bidPaid 15.42 HYPE to collector 0xcf8252e8, liability refund 0.004448 HYPE); 0xec12433f0fef5505458fd27428f35a96e64fdff844e29fce4bfd4b29cae543e8 (FAILED CallbackFailed 0x30b9b6dd); 0x076d5aeb1d8f9108ab4c6a7b42a53d72db9d95a909eb92261bedbebb0aa00588; auctioneer4() getter == this address on 0xf2314753 (cast sig selectors); funding txs 0x52b992e8cc36c09734cc739605346b5d1921459cb98a980084a8dde2e68b63f1 (11.8 HYPE from 0x9650630d4f5c5e436f39b6a7d36d3d0696c7b374, the top solver, 12/54 captures 7d), 2x 0.1 HYPE from auctioneer2 0x39e940dd8fdde6f07653c16bd645ad79defc022f",
+  "est_profit_usd_day": 0
+}

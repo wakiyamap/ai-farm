@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "jetfuel_finance",
+ "status": "dead_end",
+ "checked": "DefiLlama slug jetfuel-finance (api.llama.fi/protocol/jetfuel-finance): tracked address bsc:0x2090c8295769791ab7a3cf1cc6e0aa19f35e441a = FUEL token (name()='Fuel Token', symbol()='Fuel', getters answered). Repo github.com/jetfuelfinance/jetfuel-protocol (MasterFuel.sol = MasterChef, Fuel Token.sol, JetBar.sol). MasterFuel chef located on-chain 0x86f4bc1ebf2c209d12d3587b7085aea5707d4b56 (owner of FUEL, BEP20()=FUEL token, poolLength()=16, all calls answered). 21 vault+strategy pairs from DefiLlama adapter projects/jetfuelfinance/index.js (e.g. vault 0x4149531aeD145a15ccc361C469B0c79FE26B4F1c / strategy 0x40fA8ABE4150b6d9D3D6cC16Ec7a4F5503dae662); all have code; token()/balance()/strategy()/poolId()/harvestReward selectors probed via rpc.py (BscScan source not retrievable: explorer not_on_plan for bsc, no Blockscout; used bytecode selector extraction + 4byte.directory). Reward functions examined: strategy harvest() (permissionless), chef updatePool/massUpdatePools (no caller payout in MasterFuel source)."
+}

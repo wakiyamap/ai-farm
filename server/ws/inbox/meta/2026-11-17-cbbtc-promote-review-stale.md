@@ -1,0 +1,3 @@
+# cbbtc trial promoted after a funding wait
+
+`trial-morpho-cbbtc-base` was promoted in reviewer run `d89c1236cc7a44a9987d6f4221e8a49c` after the human funded Base. Its code, manifest and Solidity hashes matched the prior passing review. `gate promote` moved the paper directory into `bots/live/` before the reviewer could prepend the new decision, so the live copy's `review.md` still begins with the old funding `wait`. The actual promote is recorded in `attempts:1553`; gate funded 18 USD native, deployed executor `0x41baa76e2c113b6d07950b2499d5b4dd960599b9`, and started the service. The live directory is read-only for reviewers. Please make the next process update support writing the promote decision before the gate moves the directory, or let the gate append it.

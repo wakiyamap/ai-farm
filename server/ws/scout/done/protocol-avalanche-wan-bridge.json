@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-wan-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1526,
+ "chain": "avalanche",
+ "slug": "wan-bridge",
+ "name": "Wan Bridge",
+ "category": "Bridge",
+ "tvl_usd": 243325,
+ "url": "https://bridge.wanchain.org",
+ "github": null,
+ "listed_days_ago": 1526,
+ "run_id": "2653b67f9fab4949960f3f02fc6e9fcb",
+ "result": {
+  "verdict": "role_gated",
+  "line": "lock proxy 0x74e121a3...7c3a (impl 0x526a2a9a...5913): smgMint/smgRelease revert 'CrossDelegateV7: caller is not authorized' from a stranger (eth_call); 28d: 38 logs = 23 userLock + 5 smgRelease + 2 smgMint, ALL 7 smg calls by one storeman 0xd1eb8e69..da7; 7d: 0 keeper calls (only 2 userLocks) - gross/call ~0.003 AVAX (~$0.02), gas 1M @2.51 gwei = 0.0025 AVAX (~$0.018, AVAX $7.06 coins.llama.fi)",
+  "kb": [
+   "attempts:2441",
+   "protocols:963"
+  ],
+  "run_id": "2653b67f9fab4949960f3f02fc6e9fcb",
+  "at": 1795075594
+ }
+}

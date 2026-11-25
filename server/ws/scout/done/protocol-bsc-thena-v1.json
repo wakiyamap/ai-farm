@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-thena-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1410,
+ "chain": "bsc",
+ "slug": "thena-v1",
+ "name": "THENA V1",
+ "category": "Dexs",
+ "tvl_usd": 1252816,
+ "url": "https://thena.fi/",
+ "github": null,
+ "listed_days_ago": 1410,
+ "run_id": "247545ed9a98452a807aa4e633e428d0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Solidly-fork AMM, factory 0xafd89d21bdb66d00817d4153e055830b1c2b3970 (impl 0x879f8fd3.., 832 pairs): only anyone-callable value fns are Pair.claimFees (pays msg.sender own claimable; stranger eth_call = 0), claimStakingFees (to fixed handler) and skim (0 dust); 7d Claim scan on flagship WBNB/USDT pool 0x6be6a437..: 3 events, all self-claims 0x3e1ef8be, gross bash.002-0.006 vs gas ~bash.0035 (0.05 gwei, BNB 80.30) - nothing pays a stranger",
+  "kb": [
+   "attempts:2356",
+   "protocols:894"
+  ],
+  "run_id": "247545ed9a98452a807aa4e633e428d0",
+  "at": 1795059166
+ }
+}

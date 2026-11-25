@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-multichain",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "multichain",
+ "name": "Multichain",
+ "category": "Bridge",
+ "tvl_usd": 1657429,
+ "url": "",
+ "github": [
+  "anyswap"
+ ],
+ "listed_days_ago": null,
+ "run_id": "41351cac9f2e4ad2bd7e2833a83afd80",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: Multichain/AnySwap polygon is the dead 2022-23 MPC bridge - all bridge depositAddrs + DefiLlama EXECUTOR 0x2A038e10 are EOAs (last tx 2023-11-02), router vaults are verified AnyswapV4/V5/V6ERC20 with only user-initiated deposit/withdraw/Swapout (no reward fn in source), AnycallExecutor 0x38264FcC execute() is onlyAuthCaller; 0 logs over 7d (blocks 97337925-97640325) on 12 sampled contracts (control USDC.e 51688 logs/500 blocks); TVL 1.61M USD = legacy locked deposits users self-redeem.",
+  "kb": [
+   "protocols:1267",
+   "attempts:2846"
+  ],
+  "run_id": "41351cac9f2e4ad2bd7e2833a83afd80",
+  "at": 1795166451
+ }
+}

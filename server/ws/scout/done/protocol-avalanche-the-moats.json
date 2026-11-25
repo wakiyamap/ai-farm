@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-the-moats",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 34,
+ "chain": "avalanche",
+ "slug": "the-moats",
+ "name": "The Moats",
+ "category": "Staking Pool",
+ "tvl_usd": 547455,
+ "url": "https://moats.app/",
+ "github": null,
+ "listed_days_ago": 34,
+ "run_id": "c5832a793577406eba0d85fb557c40d5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "claimAllRewards() open to anyone but pays only the caller's own staking share (fresh-address eth_call pays $0); 7d: 72 RewardClaimed by 39 EOAs over 11/27 moats, gross $138.79 total, median $0.35, gas $0.006-$0.011/claim; all else onlyAdmin/onlyMoatManager, factory charges deployers a USDC fee - no keeper bounty",
+  "kb": [
+   "attempts:1594",
+   "protocols:301"
+  ],
+  "run_id": "c5832a793577406eba0d85fb557c40d5",
+  "at": 1794893173
+ }
+}

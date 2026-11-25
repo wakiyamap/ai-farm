@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "near_intents",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter registries/sumTokens.js 'near-intents' > ethereum lists owners 0x2CfF890f0378a11913B6129B2E97417a2c302680 (eth_getCode 0x, EOA), 0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0 (eth_getCode 0x, EOA) and MetaWallet 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd (eth_getCode has code; verified source via explorer; HOT-bridge wallet, identical contract to the one the near-intents scouts found on avalanche/arbitrum/base/bsc/optimism/polygon). Getters answer via eth_call: chainId()=1, owner()=0x88e48aeeceaafbda2640ba0f25e1fd2a79d07633. Permissionless surface: withdraw(uint128,address,address,uint128,bytes) (0xd9e7c316, needs HOT validator ECDSA signature, transfers the token to the receiver_id ARG, msg.value is booked to the owner's 'fees') and the deposit overloads (user flow, safeTransferFrom caller); withdrawToken/withdrawEth/withdrawFees/changeOwner/changeVerifyAddress are onlyOwner."
+}

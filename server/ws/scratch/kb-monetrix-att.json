@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-monetrix-mxbtc",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: every keeper-shaped function on BtcVault (settle, distributeYield, keeperBridge, convertFundingToBtc, fundRedemptions, hedge/bridge ops) is onlyOperator (shared Monetrix ACL, team bot hot wallets); eth_call from a fresh address reverts NotAuthorized 0xa78e4aa5. Open user functions (deposit, requestRedeem, claimRedeem, claimUnstake) are request-owner gated and pay only the caller's own principal - no function in the whole verified source tree transfers any reward to msg.sender, so a stranger earns nothing.",
+  "numbers": "7d to vault: 40 txs; 22 keeper calls all from operator 0x40afc30210a1f11f7cf1031c4d3ebaf5873e2510 (settle 4, distributeYield 4, bridgeYieldFromL1 4, convertFundingToBtc 4, fundRedemptions 4, bridgePrincipalFromL1 2); 18 user txs from 14 addresses (explorer txs page to 2026-10-29). Gross to caller: 0 (no msg.sender payout in BtcVault.sol). Gas: distributeYield 240,062 gas @ 0.1 gwei eff = 0.000024 HYPE = $0.0017 at HYPE $70.16 (coins.llama.fi, 2026-11-17); receipt 0x40b3137c32336c68e68203349eead88f3f38083f472557074246177e94e60b27. TVL $322,485 (DefiLlama). Vault impl 0xcd7c8539a7c00b8c74beb2b4f138655b29fa0349"
+}

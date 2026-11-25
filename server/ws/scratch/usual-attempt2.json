@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "Usual redemption-class side-read (lead 153 same session): recent USD0++ senders pinned from transfer logs",
+  "outcome": "lead_recorded",
+  "numbers": "2 tx traced to senders; same-block USD0 burns: none observed (dust 6-149 units raw only)",
+  "reason": "Measured 2026-11-12T05:0xZ run f6dd7225f7c44fa9834ae7180c323657 (this session, +4 reads after the attempt 979 census). eth_getTransactionByHash on the two sampled recent USD0++ Transfer txs: senders 0xae433718bdee0db6b93dccd99fbd8bc20eb062d8 (tx 0xdc4f60f8 block 26394868, recipient Curve-registry pool 0xb300000b72deaeb607a12d5f54773d1c19c7028d) and 0x73f7a95269d4270bd3c4c8589fa6adab5daeaadb (tx 0x8036f542 block 26392748, recipient 0x429b6057c76da68c7d6e6143dad7fb1dfa992ec9) - USD0++ is being SOLD into Curve pools by repeat senders; the same-block USD0 Transfer logs (1-block windows, canonical topic0) show only dust (raw 6-149 units), so the 944/day USD0 Transfer density is revenue-dust distribution, not redemption-size flow. A redemption-size USD0 burn was not yet observed; the redemption leg is unconfirmed while the pool-sale leg is proven active. Next steps refined on lead 153."
+}

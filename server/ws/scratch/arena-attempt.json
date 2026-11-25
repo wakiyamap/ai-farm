@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-arena-dex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Arena DEX is a vanilla UniswapV2 fork on Avalanche (ArenaFactory 0xF16784dcAf838a3e16bEF7711a62D12413c39BD1, ArenaRouter02 0xf56d524d651b90e4b84dc2fffd83079698b9066e, both verified sources via Routescan). Factory/router/pair/token sources expose no reward, claim, harvest, keeper, epoch or auction function anyone can call for pay; only skim(to), which pays whatever sits above reserves - and that is exactly zero on the main WAVAX/ARENA pair (balanceOf == reserve0).",
+  "numbers": "TVL 1,435,624 USD (DefiLlama, candidate) / currentChainTvls 1,471,044; allPairsLength()=1075 (eth_call 0x574f2ba3 on factory, 2026-11-18); main pair 0x3c5f68d2f72debba4900c60f32eb8629876401f2 reserves 0.66 WAVAX + 0.6M ARENA, skim dust 0; 0 Swap logs in 6 sampled 1026-block windows over last 7 days (control: 709 WAVAX Transfer logs same window/range 0x5ff3343-0x5ff3742); router last 100 txs span 2026-11-13..11-17 (~25 tx/day, gross unmeasured - no caller reward to measure); eth_gasPrice 7.5 gwei, WAVAX 7.26 USD (coins.llama.fi), so a 150k-gas call costs ~0.008 USD."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-nereus-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1731,
+ "chain": "avalanche",
+ "slug": "nereus-finance",
+ "name": "Nereus Finance",
+ "category": "Lending",
+ "tvl_usd": 45862,
+ "url": "https://nereus.finance/",
+ "github": [
+  "nereusfinance"
+ ],
+ "listed_days_ago": 1731,
+ "run_id": "af143c027ba84962b3e8adc3dffac32f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: liquidate() on 17 Abracadabra-fork cauldrons needs PermissionManager 0xaAd9d30E whitelist (3 liquidators, onlyOwner permit; stranger reverts 'sender is not approved as liquidator', whitelisted passes to 'all are solvent'); 0 borrow debt on all 17 (totalBorrow elastic=0), 0 liquidations / 0 caller-paid events in 7d (blocks 100467414-101154524, 28 logs / 11 txs, all self-repays 0.22-10,620 nxUSD); gas ~0.01 USD/call; no other reward fn (DISTRIBUTION_PART=0).",
+  "kb": [
+   "protocols:2192",
+   "attempts:4065"
+  ],
+  "run_id": "af143c027ba84962b3e8adc3dffac32f",
+  "at": 1795428521
+ }
+}

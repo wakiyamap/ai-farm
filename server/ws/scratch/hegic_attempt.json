@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-hegic",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. HegicStakeAndCover.claimProfit() (0x60898dfA3C6e8Ba4998B5f3be25Fb0b0b69d5D5d, ungated) paid 3 distinct EOAs their accrued USDC yield in the last 7 days (17.58 / 47.18 / 38.61 USDC, gross >> ~$0.004 gas), pool holds 1,037,114 USDC. Caveat: the payment is the claimer's own staked-HEGIC yield (LP yield-claim, not a permissionless bounty; provide() needs HEGIC + proportional USDC); no first-come contest. The 4.x herge CoverPool.claim paid 23.04 USDC on Nov 11 (8.8d ago, 0 in last 7d, pot 1,750 USDC). No liquidations, auctions or keeper fees.",
+ "numbers": "7d claimProfit calls=3 (5 in 8.2d window, blocks 523356179..525709075, Withdrawn topic0 0x91fb9d98b786c57d74c099ccd2beca1739e9f6a81fb49001ca465c4b7591bbe2); gross/call 17.58-47.18 USDC in-window, 2,905.22 max (Nov 11); gas 98,292-118,294 gas @ 0.02 gwei = 2.0-2.4e-6 ETH = $0.0036 at ETH $1,769.92 (coins.llama.fi ts 1795117854); StakeAndCover USDC balance 1,037,114.31 (0xff970a61a04b1ca14834a43f5de4533ebddb5cc8, 6dp, read 0x70a08231 latest); herge CoverPool HEGIC 388,437,690 (0x431402e8b9de9aa016c743880e04e517074d8cec 18dp) = DefiLlama HEGIC count exact; DefiLlama Arbitrum TVL 7,066,157 ts 1795111259. Sources: eth_getLogs/eth_call/eth_getTransactionReceipt via relay; deployments hegic/contracts repo packages/hardcore-beta + packages/herge deployments/arbitrum."
+}

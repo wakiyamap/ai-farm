@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-treehouse-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 799,
+ "chain": "ethereum",
+ "slug": "treehouse-protocol",
+ "name": "Treehouse Protocol",
+ "category": "DOR",
+ "tvl_usd": 41184553,
+ "url": "https://www.treehouse.finance/",
+ "github": null,
+ "listed_days_ago": 799,
+ "run_id": "31bc494d35494ac08e2846a286fe7204",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only keeper entry StrategyExecutor.executeOnStrategy (0x89f57d36) is behind owner-managed executors[msg.sender] registry (eth_call from fresh addr reverts); 7d (blocks 26410960-26461157, no-topic scan + controls): 0 strategy executions, 0 RedV2/V3 events, 7 FastlaneV2 self-redemptions (186.89 wstETH ~ 62k paid to the redeemers themselves, 0.93 wstETH fee to treasury, gas ~bash.18 at 0.556 gwei), grow LendingPoolv3 idle - no function pays a stranger",
+  "kb": [
+   "attempts:3195",
+   "protocols:1543"
+  ],
+  "run_id": "31bc494d35494ac08e2846a286fe7204",
+  "at": 1795237160
+ }
+}

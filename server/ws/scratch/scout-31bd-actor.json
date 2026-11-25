@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "address": "0xc240396344528e3d382ed09877af10e2f25931bd",
+  "strategy": "UniswapX BSC RFQ filler desk: own executor contract (owner+operator-whitelist, reactor whitelist per chain) called by operator EOA 0x942b41d990133d8d9989bf3bb2f89f9aa1d127fd via selector 0x6a147151 -> reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 execute(bytes,bytes); exits order legs via the 0x router 0x064a804e338083693b8efb4a7f440de608a72a3a (pays 0x fee wallet 16575aada6b1140f6c263f426764ffea08e3eda9 ~6 bps in-token); orders name this address as exclusiveFiller (RFQ quotes, see lead 166), so the flow is quote-driven, not open-decay competition",
+  "evidence": "Fills: 0xea47bffb30d908805cc2db901d7c6893d8a829bcae969a47cb0077171b1bddc0, 0x39892b7b34d0418f45762f8c92199b0edbef419adc949a77d902687cf31582c8, 0x6655dac11ae92ef12947d00c086c0a95d1ed10665d4e2d9659bb06dbbd5f8196, 0xfda0b2e5c6b954954809cc5e35ab6fe0687cf7ec4309e0a2a0c24371a319f394, 0xcbc7f857d1da4b02b7604386dbf31d5c032680de6902278125cb65c3e7b35bca, 0x8212d00b56a9f303296d3119589ef10430d6c7e09dbfb7c3bf10d1b6366adb02, 0x64562a8d362e568bb7bef278b1b8de91e0ca4d1a75c869510c82849b4aeee07f (sample of 7 of 37 ledger actor_daily events 2026-11-06..11-14, source head 2026-11-15 11:54Z); named exclusiveFiller: lead 166 note from run 806fb8d9 (actor 0x9335582c took orders naming 0xc2403963)",
+  "est_profit_usd_day": 3.5
+}

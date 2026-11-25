@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "myriad_markets",
+  "status": "dead_end",
+  "checked": "DefiLlama registries/sumTokens.js: bsc holder 0x39e66ee6b2ddaf4defded3038e0162180dbef340 (USDT 0x55d398326f99059fF775485246999027B3197955, decimals()=18 on chain). Proxy confirmed (eth_getCode non-0x, EIP-1967 impl 0x537dc41fbb4f9faa4b9d6f8e6c2eb9071274f72b = PredictionMarketV3_4, Sourcify exact match); getters answer: marketIndex()=283036, owner()=0x0a70f6f09caa802d8d62de9c7edace1d3b5ca160. Manager 0xbc39fa757886e8a56422abc460b1fffc70bbaec6 is an access-control registry (IPredictionMarketV3Manager: view-only). Realitio 0x5e3b51536bbf0fd94f4f9f73f3aa2a6d17f06926, treasury 0x5e3ebec100e2294c0eb2264fc96225df067aaaa3. Source read (Sourcify, contracts/PredictionMarketV3_4.sol): claimWinnings/claimLiquidity/claimFees/claimVoidedOutcomeShares pay msg.sender (own position redemption, revert '!h' for non-holders); resolveMarketOutcome callable by anyone once Realitio finalizes but transfers nothing to caller; admin* are manager-gated. No keeper bounty or reward pool exists."
+}

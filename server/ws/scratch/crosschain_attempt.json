@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-crosschain-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: harvests pay only a staker's accrued rewards; a fresh address cannot claim them. No public caller bounty or successful payout activity was found in the seven-day window.",
+  "numbers": "Window from eth_getBlockByNumber timestamps: block 26430488 at 2026-11-16T22:09:47Z to 26480731 at 2026-11-23T22:09:47Z. No-topic eth_getLogs, split into seven chunks of <=8000 blocks: 0 logs each at bridge 0xCBCe172d7af2616804ab5b2494102dAeC47B2635, reward pools 0x0BDC1f983bC82B8F6F6BCcbF9810A9cdC1FE455f, BridgeChef 0xfb9108B960502D7B827Df29391008cdF657E1569, liquidity mining pools 0x306fD816e0DeED33439Eb495F1857E1727A869D8. Same-shape no-topic USDC control 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48: 368 logs in blocks 26480727-26480731, first tx 0x7ebc50ac3cb5b57319d137c2b42a270a8158dc37132aff6f2605e4c752e5efbc. eth_call from 0x000000000000000000000000000000000000dEaD: reward-pool pendingReward(USDC, self)=0; harvest reverts 0xc52e3eff; BridgeChef harvest(0) reverts 'deposit/user not found'; liquidity-mining harvest(USDC,self) reverts 'Staker has a balance of 0'. No successful 7d calls, so gross/call and gas/call: N/A, no USD conversion. Explorer tx listings corroborate latest bridge direct tx 0x7bd2f9ee6b4cad6ab4681a53fb384c2650edb3545de3da2624be5468e572c23c at block 26193252 (2026-10-15). Sources: crosschainbridge/DefiLlama-Adapters fork, app.crosschainbridge.org live ABI, explorer tx listings, relay RPC."
+}

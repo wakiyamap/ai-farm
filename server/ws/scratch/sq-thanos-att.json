@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-squadswap-thanos",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. SquadSwap Thanos is a Uniswap-v4-fork AMM (vault + CL/Bin pool managers + hooks) on bsc; no permissionless reward/claim/harvest function exists. The only pay-a-recipient function, collectProtocolFees(address,address,uint256), reverts with custom error 0x48f5c3ed even when called by the owner, and accrued fees are dust. Everything else is user-driven swaps/liquidity, so no stranger earns a fee by calling anything.",
+  "numbers": "6 contracts confirmed non-empty via eth_getCode (rpc.py bsc). collectProtocolFees revert 0x48f5c3ed from stranger 0x1111...1111 AND from owner 0x67B636a0815b3e5f8072396253D6436A30B23Ef3 (eth_call latest). protocolFeesAccrued(0): binPM 0x7f8E5a02F9007b19408EF731982aDBbA7Ae08eB1 = 1.106e-8 BNB, clPM 0xb9A52e6b7E98Bf7E80e0BDC8cBEe97D7e1314F22 = 3.48e-6 BNB (~$0.002 at $546.12/BNB, coins.llama.fi 2026-11-20). getLogs no-topic scan blocks 134718920-134722920 (4000, ~30 min): post binPM 976 logs / 961 txs (all user swaps, EOA -> routers 0x9345ee71..., 0xe65f1199..., 0xd4a606e1...), post clPM 0 logs, pre-audit set 0-1 logs; control USDT 0x55d398...955 30,630 logs in 200 blocks. eth_gasPrice 0x2faf080 = 0.05 gwei -> ~150k-gas swap = 7.5e-6 BNB = $0.004. No verified source: explorer source bsc = etherscan not_on_plan | blockscout HTTP 404; routescan v2 404. Function surface from bytecode 4-byte selectors + 4byte.directory.",
+  "bot_id": null
+}

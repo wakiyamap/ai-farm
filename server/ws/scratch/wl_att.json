@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-waterline",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The 4 Waterline vaults are plain Morpho VaultV2 with supply-only MorphoMarketV1AdapterV2 adapters; nothing pays a stranger caller: accrueInterest() is callable by anyone but pays the caller 0 (fee shares go to the curator recipients), forceDeallocate() has no role guard but its penalty is paid BY onBehalf TO the vault (not the caller) and had 0 calls in 7d, allocate/deallocate sit behind isAllocator/isSentinel, skim() behind skimRecipient. Liquidations of the Morpho Blue positions happen on Morpho core, not on Waterline contracts.",
+  "numbers": "No-topic eth_getLogs on 4 vaults + 4 adapters, blocks 26405876-26456082 (6.8 d, control: same query returned 3527 logs incl. known Transfer/AccrueInterest): AccrueInterest 870 in 494 txs, every one of the 494 also has Deposit/Withdraw/Allocate/Deallocate (no standalone accrual keeper); Allocate 376, Deallocate 199 (senders are allocator addresses, top 0xbeef5f9f39e684cf39e0770fa57a43fa46a3beef 39); Deposit 335, Withdraw 159, Permit 8; ForceDeallocate 0 (topic0 0x257918053749d11d6dbc1a8c230f64904b73d3d1188a0b01f79ea346c457f4d2 from the verified EventsLib; no-topic scan found no unknown topic0). eth_call accrueInterest() from 0x1111...1111 succeeds (0x return, no role). forceDeallocatePenalty[adapter]=1e13/1e18 WAD = 0.001% (block latest). Gross per caller call = 0 USDC; gas ~30-60k gas on ethereum."
+}

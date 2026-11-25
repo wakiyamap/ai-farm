@@ -1,0 +1,47 @@
+# via etherscan
+constructorNone(address,address,address,address)
+DOMAIN_SEPARATOR() view -> (bytes32)
+PERMIT_TYPEHASH() view -> (bytes32)
+WNativeToken() view -> (address)
+algebraMintCallback(uint256,uint256,bytes)
+approve(address,uint256)
+balanceOf(address) view -> (uint256)
+baseURI() pure -> (string)
+burn(uint256) payable
+collect((uint256,address,uint128,uint128)) payable -> (uint256,uint256)
+createAndInitializePoolIfNecessary(address,address,uint160) payable -> (address)
+decreaseLiquidity((uint256,uint128,uint256,uint256,uint256)) payable -> (uint256,uint256)
+factory() view -> (address)
+getApproved(uint256) view -> (address)
+increaseLiquidity((uint256,uint256,uint256,uint256,uint256,uint256)) payable -> (uint128,uint256,uint256)
+isApprovedForAll(address,address) view -> (bool)
+mint((address,address,int24,int24,uint256,uint256,uint256,uint256,address,uint256)) payable -> (uint256,uint128,uint256,uint256)
+multicall(bytes[]) payable -> (bytes[])
+name() view -> (string)
+ownerOf(uint256) view -> (address)
+permit(address,uint256,uint256,uint8,bytes32,bytes32) payable
+poolDeployer() view -> (address)
+positions(uint256) view -> (uint96,address,address,address,int24,int24,uint128,uint256,uint256,uint128,uint128)
+refundNativeToken() payable
+safeTransferFrom(address,address,uint256)
+safeTransferFrom(address,address,uint256,bytes)
+selfPermit(address,uint256,uint256,uint8,bytes32,bytes32) payable
+selfPermitAllowed(address,uint256,uint256,uint8,bytes32,bytes32) payable
+selfPermitAllowedIfNecessary(address,uint256,uint256,uint8,bytes32,bytes32) payable
+selfPermitIfNecessary(address,uint256,uint256,uint8,bytes32,bytes32) payable
+setApprovalForAll(address,bool)
+supportsInterface(bytes4) view -> (bool)
+sweepToken(address,uint256,address) payable
+symbol() view -> (string)
+tokenByIndex(uint256) view -> (uint256)
+tokenOfOwnerByIndex(address,uint256) view -> (uint256)
+tokenURI(uint256) view -> (string)
+totalSupply() view -> (uint256)
+transferFrom(address,address,uint256)
+unwrapWNativeToken(uint256,address) payable
+event Approval(address,address,uint256)
+event ApprovalForAll(address,address,bool)
+event Collect(uint256,address,uint256,uint256)
+event DecreaseLiquidity(uint256,uint128,uint256,uint256)
+event IncreaseLiquidity(uint256,uint128,uint128,uint256,uint256,address)
+event Transfer(address,address,uint256)

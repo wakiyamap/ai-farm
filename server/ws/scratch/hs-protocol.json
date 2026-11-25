@@ -1,0 +1,6 @@
+{
+ "chain": "hyperevm",
+ "protocol": "hyperswap_v3",
+ "status": "dead_end",
+ "checked": "HyperSwap V3 = standard Uniswap V3 fork (HyperswapV3Factory/HyperswapV3Pool, verified source via explorer on factory 0xb1c0fa0b789320044a6f623cfe5ebda9562602e3, factory() getter on top pool returns it). Factory addr from official docs subgraph (api.subgraph.ormilabs.com .../hyperswap-v3/v0.1.2/gn, linked from docs.hyperswap.exchange); factory.owner() = 0xbc7e493fd3ed834ed563f9597aaaed94e446bbc7 (EOA). No public function pays a caller: mint/swap/burn/flash are user actions (flash CHARGES a fee, source HyperswapV3Pool.sol L776-800); collect pays only msg.sender's own position tokensOwed (positions.get(msg.sender,...)); increaseObservationCardinalityNext pays nothing. The only paying function, collectProtocol(address recipient,uint128,uint128) (selector 0x85b66729, selector via cast sig), is onlyFactoryOwner: eth_call from fresh 0x1111..1111 reverts, from owner succeeds on top pool 0x3a36b04bcc1d5e2e303981ef643d2668e00b43e7 (WHYPE/uBTC 0.3%). Note: subgraph collectProtocols entity is empty (missing handler) - on-chain eth_getLogs shows daily owner harvests. Docs token addrs 0x03832767BDf9A8EF007449942125Ad605aCfADb8 ($SWAP) and 0xF535D7406BaF7322171142BB165643821cAb01Fe (xSWAP) are tokens, not factory."
+}

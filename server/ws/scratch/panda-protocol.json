@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "panda_financial",
+  "status": "dead_end",
+  "checked": "Addresses pinned from the DefiLlama panda-financial adapter (raw.githubusercontent projects/panda-financial/index.js: REGISTRY 0x52643dCDdd95944b01f10A4949d2923a0ff69FCC deploy block 52155564, OLD_VAULT 0xf5D48b04D4529D652BFAE172E8Fb47b389Db920e) and cross-checked on-chain: registry.vaults() returns [0x61986afae9b07314d855e7c54949e30a866c93a8, 0x9af169ba394867c850f73b1262f370cd2107cc79], vault registry() getter returns the same registry, vault pool() getters return Aero pool 0x3fe04a59ebd38cf06080a6f60a98d124eb59392a (vaults 1-2) / 0x4a7af46bc8abc00048c6c7920a1488daf568366c (vault 3). Blockscout Base (browser UA header) verified sources PandaVault/PandaRegistry/PandaFeePolicyV3 read 2026-11-09. Registry getters read on-chain: keeper()=0x5fb0abf6cc6d0aa7ee1f3311b2e76d014ed3af60, feePolicy()=0xb5a0728084fa97a2407fdabc94f64755a52bb291, vaultKeeper() per vault as in reason. Class verdict in attempts:703: role-gated keeper, no permissionless caller payment, ~0.8 rebalances/day with sparse tail."
+}

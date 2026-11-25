@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-token-mill",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 495,
+ "chain": "avalanche",
+ "slug": "token-mill",
+ "name": "Token Mill",
+ "category": "Launchpad",
+ "tvl_usd": 29619,
+ "url": "https://tokenmill.xyz",
+ "github": null,
+ "listed_days_ago": 495,
+ "run_id": "4411ba649997458b9d483a7f9086ff24",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Token Mill (Trader Joe bonding-curve launchpad, avalanche): factory 0x501ee2D4...FCE4 (TMFactory, 1128 markets) + staking 0xf2c15bd1...94aa; claimFees role-gated (fresh eth_call reverts 0x0a650d33), claimReferrerFees/claimRewards pay stranger 0; 7d window blocks 100409351 (2026-11-15 17:39) to 101088045 (2026-11-22 17:04 UTC): 3 logs total on factory+staking (3 MarketCreated, 0 FeesReceived = no swaps, 0 claims) vs control 3 logs on same shape; TVL 29,619 USD (llama 2026-11-22)",
+  "kb": [
+   "attempts:3791"
+  ],
+  "run_id": "4411ba649997458b9d483a7f9086ff24",
+  "at": 1795367872
+ }
+}

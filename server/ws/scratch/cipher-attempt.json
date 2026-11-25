@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-cipher-rip",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. FriendTech clone (single verified contract Cipher) whose only public mutables are buyCores/sellCores — user trades where the caller pays in and fees flow to the owner and the subject; no function anyone can call pays a reward out, and sellCores from a stranger reverts. The protocol is also inactive: 0 Trade events in the last 7 days, last event 2026-10-22, website dead (deadUrl:true).",
+  "numbers": "Contract 0x2544a6412bc5aec279ea0f8d017fb4a9b6673dca; balance 19.857 ETH = 34,179 USD (api.llama.fi currentChainTvls 2026-11-23). 7d window blocks 524,613,717 (2026-11-16) to 526,663,089 (2026-11-23) by eth_getBlockByNumber timestamps; no-topic eth_getLogs from 524,098,421 (2026-11-14, superset) returned 0. Control same shape from block 150,000,000: 428 logs (no-topic scan: single topic0 0x2c76e7a4... = Trade, matches cast keccak; last tx 0x3a26f5f74e42328a...); 21 logs in last 90d; last event block 517,345,993 = 2026-10-22. eth_call sellCores from 0x...01 reverts 'Cannot sell the last core'."
+}

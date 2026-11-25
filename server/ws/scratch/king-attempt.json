@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-king-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. King Protocol's only ethereum contract (LRT-squared vault / KING token 0x8F08B70456eb22f6109F57b8fafE862ED28E6040, ether.fi LRT2 fork) has no public function that pays the caller: the only keeper-ish function rebalance() is rebalancer-role-gated and pays nobody (fee 0 bps to treasury multisig 0xF46D...), deposit() is depositor-whitelist-gated, redeem() just pays the redeemer their own NAV (0 fee). Strategies' deposit() is public but spends the caller's own funds. No claimable reward pot found.",
+  "numbers": "TVL 669,086 USD (api.llama.fi/protocol/king-protocol ts 1795219079). 7d window blocks 26409767 (ts 1794617711, 2026-11-13 00:55Z) .. 26460022 (ts ~1795222500) via eth_getLogs on 0x8F08..: Deposit 0, Rebalance 0, Redeem 21, Transfer 106 (Transfer control non-zero, same query shape; topic0s from repo ABI, cast keccak). eth_call from fresh 0x1111..1111: rebalance 0xe9c459ba -> revert 0x4a3c5178 OnlyRebalancer; deposit 0x98c601aa -> revert 0x0afa41a8 OnlyDepositors; redeem 0xdb006a75 1e15 -> revert 0x39996567 InsufficientShares; fee() -> treasury 0xF46D3734564ef9a5a16fC3B1216831a28f78e2B5, depositFee 0, redemptionFee 0. Addresses from DefiLlama adapter projects/king/index.js + github.com/King-Protocol/king-protocol-sc deployments/1/deployments.json (agree). Impl 0x1cB489ef513E1Cc35C4657c91853A2E6fF1957dE verified LRTSquaredCore."
+}

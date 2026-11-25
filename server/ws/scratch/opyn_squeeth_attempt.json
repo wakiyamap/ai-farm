@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-opyn-squeeth",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid - the only stranger-payable function is Controller.liquidate (pays caller +10% bonus, or 2% rescue bounty, in native ETH; caller must also hold wPowerPerp to burn), but 0 payments in the last 7 days: protocol is dormant (its single 7d log is an UpdateOperator), 0 of 440 vault ids are unsafe so nothing is liquidatable, applyFunding() pays 0, reduceDebt is owner/operator-gated (C20). 10 liquidations in 5 years of protocol history.",
+ "numbers": "7d window blocks 26414347 (2026-11-14) to 26464600 (2026-11-21) from timestamps; controller logs (no-topic scan): 1 total = UpdateOperator tx 0x4c437025076bb9749cc470280f151e45424989a0c9791b5feba218aa68438919; 0 Liquidate / 0 ReduceDebt / 0 applyFunding in 7d; isVaultSafe scan ids 1-440: 0 unsafe; all-time Liquidate count 10 (eth_getLogs since 13991213); last payout 2024-03-04 tx 0x0c6f6d6a86ae6a699a..: 7.767 ETH = $13,028 gross (ETH $1676.93 coins.llama.fi ts 1795277690), gasUsed 729,225 = $0.22 at 0.179 gwei (eth_gasPrice); controller holds 245.07 ETH, wPowerPerp supply 6001."
+}

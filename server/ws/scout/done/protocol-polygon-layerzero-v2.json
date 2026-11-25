@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-layerzero-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "layerzero-v2",
+ "name": "LayerZero V2",
+ "category": "Bridge",
+ "tvl_usd": 10115404164,
+ "url": "https://layerzero.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "af88b86fdfcf4d2dafc8178f223f06cc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "UlnV3.withdrawFee pays only fees[msg.sender] (fresh address reverts 0x34084fb8, fees=0): 7d 67 NativeFeeWithdrawn on sendUln 0x6c26c61a total 144,383 POL (~11,306 USD, POL 0.0783) avg 168.7 USD gross vs 0.0014 USD gas, all to 3 protocol-operator EOAs (0xe93685f3, 0xb8ff877e, 0xbe9eff3b), no stranger; control ExecutorFeePaid same range = 1698 logs; same verdict as the other 6 chains",
+  "kb": [
+   "attempts:2843",
+   "protocols:1264"
+  ],
+  "run_id": "af88b86fdfcf4d2dafc8178f223f06cc",
+  "at": 1795165791
+ }
+}

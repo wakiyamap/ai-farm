@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-balancer-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "balancer-v1",
+ "name": "Balancer V1",
+ "category": "Dexs",
+ "tvl_usd": 4295416,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "551dc5ce1661400eada78196fd71d0f6",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no reward fn: verified BPool.sol - only permissionless fn is gulp(address token) (eth_call from fresh addr OK, 42,010 gas ~0.06 USD, pays caller 0); admin fns need msg.sender==_controller; sample 31/395 pools, 7d (blocks 26,416,255 2026-11-14 21:24 -> 26,466,502 2026-11-21 22:35, timestamp-based): 30 pools 0 logs, 1 pool 105 LOG_SWAP by arbit bots PAYING 0.3% fee to LPs (sample swap 0x694b2d71 gas 673,485 = 0.93 USD @ ETH 1680, coins.llama.fi 22:43Z)",
+  "kb": [
+   "attempts:3503"
+  ],
+  "run_id": "551dc5ce1661400eada78196fd71d0f6",
+  "at": 1795301152
+ }
+}

@@ -1,0 +1,180 @@
+#!/usr/bin/env python3
+"""farm-relayapi: a local door to the Relay (relay.link) API that adds the human's API key.
+
+Agents call http://127.0.0.1:29485/<path> exactly as they would call https://api.relay.link/<path>;
+this service adds the `x-api-key` header and passes the answer back. They never see the key.
+Only data endpoints are passed on (quotes, chains, currencies, request history, intent status):
+a quote describes transactions but nothing here can send one. Everything else is refused.
+
+Config: the `conf` credential (/etc/farm/relayapi.json, no secrets). Key: the `key` credential
+(/etc/farm/relayapi.key, root 0600). Standard library only.
+
+  GET /health     counters (this service's own, not Relay's)
+"""
+import json
+import os
+import re
+import sys
+import threading
+import time
+import urllib.error
+import urllib.request
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+CONF = os.environ.get("FARM_RELAYAPI_CONF", "/etc/farm/relayapi.json")
+PATH_RE = re.compile(r"^/[A-Za-z0-9_\-./]{1,200}$")
+MAX_BODY = 64 * 1024
+MAX_ANSWER = 16 * 1024 * 1024
+
+
+class Refused(Exception):
+    """(status, message)"""
+
+
+class RelayApi:
+    def __init__(self, cfg, key):
+        self.cfg, self.key = cfg, key
+        self.lock = threading.Lock()
+        self.last_call = 0.0
+        self.day, self.calls_today = "", 0
+        self.stats = {"upstream_ok": 0, "upstream_error": 0, "refused": 0}
+
+    def scrub(self, data):
+        """The key never leaves this process, whatever the upstream echoes back."""
+        k = self.key.encode() if isinstance(data, bytes) else self.key
+        return data.replace(k, b"***" if isinstance(data, bytes) else "***") if self.key else data
+
+    def allowed(self, method, path):
+        if not PATH_RE.match(path) or ".." in path or "//" in path:
+            return False
+        for prefix in self.cfg.get("allow", {}).get(method, []):
+            if path == prefix or path.startswith(prefix + "/"):
+                return True
+        return False
+
+    def forward(self, method, path, query, body):
+        if not self.allowed(method, path):
+            raise Refused((403, f"{method} {path} is not passed on. Allowed: "
+                                + "; ".join(f"{m} {', '.join(p)}" for m, p in sorted(self.cfg.get("allow", {}).items()))))
+        if body is not None:
+            if len(body) > MAX_BODY:
+                raise Refused((413, f"request body over {MAX_BODY} bytes"))
+            try:
+                json.loads(body)
+            except ValueError:
+                raise Refused((400, "request body must be JSON"))
+        with self.lock:
+            today = time.strftime("%Y-%m-%d", time.gmtime())
+            if today != self.day:
+                self.day, self.calls_today = today, 0
+            limit = self.cfg.get("daily_limit", 50000)
+            if self.calls_today >= limit:
+                raise Refused((429, f"daily limit of {limit} Relay API calls reached; it resets at 00:00 UTC"))
+            wait = self.cfg.get("min_interval_s", 0.2) - (time.monotonic() - self.last_call)
+            if wait > 0:
+                time.sleep(wait)
+            self.last_call = time.monotonic()
+            self.calls_today += 1
+        url = self.cfg["upstream"].rstrip("/") + path + ("?" + query if query else "")
+        headers = {"x-api-key": self.key, "Accept": "application/json", "User-Agent": "farm-relayapi/1"}
+        if body is not None:
+            headers["Content-Type"] = "application/json"
+        req = urllib.request.Request(url, data=body, headers=headers, method=method)
+        t0 = time.monotonic()
+        try:
+            with urllib.request.urlopen(req, timeout=self.cfg.get("timeout_s", 30)) as r:
+                status, data = r.status, r.read(MAX_ANSWER)
+        except urllib.error.HTTPError as exc:                 # Relay's own 4xx / 5xx: pass it back as it is
+            status, data = exc.code, exc.read(MAX_ANSWER)
+        except Exception as exc:                              # noqa: BLE001 - network, timeout
+            self.stats["upstream_error"] += 1
+            log(method=method, path=path, ok=False, ms=int((time.monotonic() - t0) * 1000),
+                why=self.scrub(repr(exc))[:200])
+            raise Refused((502, "Relay API unreachable: " + self.scrub(str(exc) or type(exc).__name__)[:300]))
+        self.stats["upstream_ok" if status < 400 else "upstream_error"] += 1
+        log(method=method, path=path, status=status, ms=int((time.monotonic() - t0) * 1000))
+        return status, self.scrub(data)
+
+
+def log(**kw):
+    print(json.dumps(dict(ts=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), **kw)), flush=True)
+
+
+def make_handler(api):
+    class Handler(BaseHTTPRequestHandler):
+        protocol_version = "HTTP/1.1"
+
+        def log_message(self, *a):
+            pass
+
+        def send(self, status, body, ctype="application/json"):
+            if not isinstance(body, bytes):
+                body = json.dumps(body).encode()
+            self.send_response(status)
+            self.send_header("Content-Type", ctype)
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+
+        def handle_any(self, method):
+            path, _, query = self.path.partition("?")
+            try:
+                if method == "GET" and path == "/health":
+                    return self.send(200, {"ok": True, "day": api.day, "calls_today": api.calls_today,
+                                           "daily_limit": api.cfg.get("daily_limit", 50000), **api.stats})
+                body = None
+                if method == "POST":
+                    n = int(self.headers.get("Content-Length") or 0)
+                    if n > MAX_BODY:
+                        raise Refused((413, f"request body over {MAX_BODY} bytes"))
+                    body = self.rfile.read(n)
+                status, data = api.forward(method, path, query, body)
+                return self.send(status, data)
+            except Refused as exc:
+                api.stats["refused"] += 1
+                status, why = exc.args[0]
+                return self.send(status, {"error": why, "from": "farm-relayapi"})
+            except Exception as exc:                          # noqa: BLE001 - never a traceback with the key in it
+                return self.send(500, {"error": "farm-relayapi internal error: " + api.scrub(repr(exc))[:200]})
+
+        def do_GET(self):                                     # noqa: N802
+            self.handle_any("GET")
+
+        def do_POST(self):                                    # noqa: N802
+            self.handle_any("POST")
+
+        def do_PUT(self):                                     # noqa: N802
+            self.send(405, {"error": "GET and POST only", "from": "farm-relayapi"})
+        do_DELETE = do_PATCH = do_PUT
+    return Handler
+
+
+def load():
+    cred = os.environ.get("CREDENTIALS_DIRECTORY")
+    if not cred:
+        sys.exit("farm-relayapi: CREDENTIALS_DIRECTORY is not set (start it from farm-relayapi.service)")
+    conf = os.path.join(cred, "conf") if os.path.exists(os.path.join(cred, "conf")) else CONF
+    with open(conf, encoding="utf-8") as f:
+        cfg = json.load(f)
+    with open(os.path.join(cred, "key"), encoding="utf-8") as f:
+        key = f.read().strip()
+    if not key:
+        sys.exit("farm-relayapi: the key file is empty")
+    return cfg, key
+
+
+def main():
+    cfg, key = load()
+    host, port = cfg.get("listen", ["127.0.0.1", 29485])
+    if host not in ("127.0.0.1", "::1", "localhost"):
+        sys.exit("farm-relayapi: listen must be loopback")
+    if not cfg["upstream"].startswith("https://"):
+        sys.exit("farm-relayapi: upstream must be https")
+    srv = ThreadingHTTPServer((host, int(port)), make_handler(RelayApi(cfg, key)))
+    srv.daemon_threads = True
+    log(event="start", listen=f"{host}:{port}", upstream=cfg["upstream"])
+    srv.serve_forever()
+
+
+if __name__ == "__main__":
+    main()

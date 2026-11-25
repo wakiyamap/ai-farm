@@ -1,0 +1,21 @@
+{
+ "id": "trial-arbitrum-lead15",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "arbitrum",
+ "lead_id": 15,
+ "target": "aave-watcher-arbitrum v3 cross-asset fork evidence + window measurement",
+ "retries": 1,
+ "run_id": "4beac110035049668eb977ded686f978",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "arbitrum Aave v3 liquidationCall: 331 liquidations / 27 distinct takers in 7d (ledger aave_v3.liquidation); sample of 18 of 331 medians gross $67.25 (all-331 median $7.73, 197/328 priced > attempt gas, max $23,108), winner priority fee 0.018 gwei, one attempt's gas $0.025-$0.16 -> gross >> gas; window takeable->taken median 0 blocks (17/18 taken in the same block HF crossed <1) = first-block race vs R=3s",
+  "kb": [
+   "attempts:1486",
+   "leads:15"
+  ],
+  "run_id": "4beac110035049668eb977ded686f978",
+  "at": 1794866722
+ }
+}

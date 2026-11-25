@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-k3-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: K3 Capital on BSC has no contracts of its own paying strangers - it curates EulerEarn ERC4626 vaults (euler-xyz/euler-earn). Every non-deposit/withdraw function is role-gated (reallocate from a fresh address reverts NotAllocatorRole 0xf7137c0f); PublicAllocator.reallocateTo is anyone-callable but the caller pays a fee to K3, not the other way round. No reward, bounty, harvest, poke or claim function pays the caller. Vaults also near-idle: 0 events in a 60k-block sample of the last 7 days.",
+  "numbers": "3 EulerEarn vaults: 0x5685fed1 K3BUSDT 957 USDT, 0xD98b0B12 k3USDT 4167 USDT, 0x27Ec22e4 eeUSD1-K3 0.62 USD1 (eth_call totalAssets 2026-11-17); all 18872 bytes of code, asset()=0x55d398326f99059ff775485246999027b3197955, decimals 18, curator=0x5Bb012482Fa43c44a29168C6393657130FDF0506, owner=0x060DB084bF41872861f175d83f3cb1B5566dfEA3. 0 Deposit/Withdrawal/Transfer logs over 12x5000-block sample of 7d (head 134208921, 0.45 s/block); control 42601 USDT Transfers in last 500 blocks. Source: raw.githubusercontent.com/euler-xyz/euler-earn/master/src/EulerEarn.sol; adapters: raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/k3/index.js"
+}

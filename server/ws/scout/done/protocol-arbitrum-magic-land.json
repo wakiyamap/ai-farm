@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-magic-land",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "magic-land",
+ "name": "Magic Land",
+ "category": "Yield",
+ "tvl_usd": 25784,
+ "url": "",
+ "github": [
+  "magiclandfinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "6606148e6254492f876224c73182eca8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MasterChef 0x6b614684742717114200dc9f30cBFdCC00fc73Ec (MagicLand.sol, verified): only public fns updatePool/massUpdatePools pay caller 0 and now revert 'Max supply reached'; deposit/withdraw pay only msg.sender's own MAGIC; no harvest/keeper bounty; 0 logs and 0 txs in 7d (blocks 524,759,829 2026-11-16 to 526,817,400 2026-11-23, control 1 log at 513,964,020 from receipt topic0); last tx 2026-10-12 emergencyWithdraw; MAGIC 0x2c852d...0bad 0.001345 USD (coins.llama.fi ts 1795435685); gross 0 USD vs gas n/a.",
+  "kb": [
+   "attempts:4113"
+  ],
+  "run_id": "6606148e6254492f876224c73182eca8",
+  "at": 1795440797
+ }
+}

@@ -1,0 +1,5 @@
+{
+  "request": {"chain":"hyperevm","method":"eth_call","params":[{"from":"0x1111111111111111111111111111111111111111","to":"0xf9bb65e113418292d1a3555515fbd64637a0be18","data":"0xc13425740000000000000000000000006f4ecd8d74de6a1760fcf2abd0d61d55fbf78d3a00000000000000000000000061cb3b093b7125d593ccfa135c6e4e9d52d2e69700000000000000000000000000000000000000000000000000000000332410500000000000000000000000000000000000000000000000000000000000000000"},"0x30c1bc2"]},
+  "response": {"jsonrpc":"2.0","id":1,"error":{"code":-32603,"message":"Failed to call: InvalidTransaction(Revert(RevertError { output: Some(0x13790bf0) }))","data":null}},
+  "control": "At the same parent block, checkLiquidation(0x1111..., violator, collateral) returned maxRepay 858001487 and maxYield 1231878. Both vault asset() getters answer. 0x13790bf0 is E_ControllerDisabled() in the verified EVault ABI, so the bare EOA call lacks EVC controller setup; it is not an allowlist result."
+}

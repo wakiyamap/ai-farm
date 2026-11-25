@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-wombat-exchange",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1663,
+ "chain": "bsc",
+ "slug": "wombat-exchange",
+ "name": "Wombat Exchange",
+ "category": "Dexs",
+ "tvl_usd": 787902,
+ "url": "https://www.wombat.exchange/",
+ "github": [
+  "wombat-exchange"
+ ],
+ "listed_days_ago": 1663,
+ "run_id": "85c7c211277647b3808925710cd0f26a",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Near-dead AMM (788k USD bsc / 991k total TVL, api.llama.fi 2026-11-19): deployed pool class (wombat-exchange/v1-core PoolV2, 30/31 sigs matched in impl 0x342126f63e73f95ba5ed66dd162564ed881f175b dispatcher) has only user ops; role-free mintFee(address) pays feeTo not caller (8.98 USDC 18-dec pending, eth_call from fresh addr), fillPool _onlyDev (revert 0x5bf78ef4), transferTipBucket onlyOwner, no orderSwap/settle/swapBackrun selectors; 7d event counts unmeasured (bsc getLogs all-providers failed, scout lane 300k/300k CU)",
+  "kb": [
+   "attempts:2488",
+   "protocols:995"
+  ],
+  "run_id": "85c7c211277647b3808925710cd0f26a",
+  "at": 1795085858
+ }
+}

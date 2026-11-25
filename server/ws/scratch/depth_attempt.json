@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-depth",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Depth (DefiLlama Dexs, bsc, TVL 1.157M USD) is a 2021-era Alpaca-Finance/Curve fork. The only anyone-callable reward fns are vault claimAlpaca() (pays the vault, not the caller; ALPACA emissions stopped: alpacaPerBlock=0, bonusEndBlock 5,661,200) and pool send_reward_to_dao()/manually_donate() (caller gets nothing). Claimable pending ALPACA across the vaults totals ~64.7 ALPACA = 0.031 USD vs gas ~0.005 USD; farm residue 404,685 ALPACA (192 USD) is unclaimed at zero emission. Nobody touched a vault or the pool in 7 days (0 logs), so no stranger was paid.",
+  "numbers": "pool 0xc57220b65dd9200562aa73b850c06be7bd632b57 (24,386 B Vyper, admin_balances 81.9); vault 0xcB08DA2339d562b66b314d2bBfB580CB87FFBD76 pid16 pendingAlpaca 0.528, pid1 1.493, pid3 62.648 ALPACA; ALPACA 0x8f0528ce5ef7b51152a59745befdd91d97091d2f 18 dec, price 0.0004749 USD (coins.llama.fi 2026-11-20 03:01 UTC); farm 0xa625ab01b08ce023b2a342dbb12a16f2c8489a8f ALPACA bal 404,685 (=192.1 USD); 7d logs 133,275,690-134,619,690: 4,216 total (Withdraw 4,005 + Deposit 210 + EmergencyWithdraw 1, all farm, EOA-routed), 0 vault/pool logs; eth_gasPrice 0x2faf080 (0.05 gwei), BNB 571.69 USD (coins.llama.fi) => 100k-gas claim ~0.0029 USD gas; head 134,619,690"
+}

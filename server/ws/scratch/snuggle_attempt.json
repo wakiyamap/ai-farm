@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-snuggle",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated: Snuggle V2 vault (0xd3923...7470, $5.1M TVL) user functions require msg.sender == position owner (self-service, no bounty); the only automation entry points (KeepersHelper.performUpkeep, vault.executeKeeperAction) revert NotAuthorized() from a fresh address (authorizedKeepers registry, setKeeper admin-only). Nothing in the callable path pays the caller: 7d of 3,198 rebalances were all executed by one team keeper EOA 0xD3F91d...C6eC5C that receives $0 on-chain; the permissionless TreasurySplitter.distribute forwards fees to a fixed treasury, not the caller.",
+ "numbers": "7d SnuggleRebalanced (topic0 0x125c342d...): 3,198 on V2 vault (2,835 in 0x350d8b0..0x36f5d30 + 363 in 0x36f5d30..0x37e7ab0=58,659,184); 0 on V1 vault (same query shape as control). 50/50 recent KeepersHelper txs = performUpkeep from 0xD3F91d6733A73ffe344BD395AdCB5e1441C6eC5C. Gross to keeper per call = $0 (no transfer in code path). Sample keeper tx 0x9ea3a3225743eba6c61cfd9be2b64b04da5bd88b9e36046dbb577dc0a4c44132: 752,222 gas @ 0.006 gwei = 4.5e-6 ETH = $0.008 (ETH $1,819.89, coins.llama.fi WETH base 2026-11-17). V2 active positions 974 (viewHelper getActivePositionCount). eth_call executeKeeperAction(1,1) fresh addr -> revert 0xea8e4eb5 NotAuthorized()."
+}

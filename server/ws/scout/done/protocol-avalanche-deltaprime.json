@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-deltaprime",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1386,
+ "chain": "avalanche",
+ "slug": "deltaprime",
+ "name": "DeltaPrime",
+ "category": "Leveraged Farming",
+ "tvl_usd": 1549647,
+ "url": "https://deltaprime.io",
+ "github": null,
+ "listed_days_ago": 1386,
+ "run_id": "1d5d1f4aa1ae42b0a054bc86c448355b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "liquidate(bool)/snapshotInsolvency on loan diamond are onlyWhitelistedLiquidators (fresh-address eth_call reverts 0x12dcff05 OnlyWhitelistedLiquidators); fee 14%/7% goes to stability pool+treasury not caller; pool getRewards reverts (poolRewarder=0x0 on all 5 pools); 0 Liquidated events in last 7d (topic0 census blocks 100423955-100726355, control 24,748 WAVAX Transfers), 1 in 30d (tx 0x9fb0f97812c6a2388dfc7aa21e234476e3c812842ebad4353f52c18ce5355890, liquidator EOA 0xefca5f8a, gas 4.2M=$0.89 at AVAX $6.98 llama.fi)",
+  "kb": [
+   "attempts:2351",
+   "protocols:889"
+  ],
+  "run_id": "1d5d1f4aa1ae42b0a054bc86c448355b",
+  "at": 1795056980
+ }
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "llama_airforce",
+ "status": "measured",
+ "checked": "2026-11-21 run bbf7f692 scout. Contracts from DefiLlama adapter projects/llama-airforce/index.js (raw.githubusercontent): uCRV1 0x83507cc8c8b67ed48badd1f59f684d5d02884c81 (UnionVault, 13551B), uCRV2 0x4ebad8dbd4edbd74db0278714fbd67ebc76b89b7 (stkCvxCrvVault, underlying 0x62b9c7356a2dc64a1969e19c23e4f579f9810aa7=cvxCRV read on chain), uCRV3 0xde2bef0a01845257b4aef2a2eaa48f6eaeafa8b7, uFXS1 0xf964b0e3ffdea659c44a5a52bc0b82a24b89ce0e (GenericUnionVault, underlying 0xf3a43307dcafa93275993862aae628fcb50dc768), uFXS2 0x3a886455e5b33300a31c5e77bac01e76c0c7b29c, uPRISMA 0x9bfd08d7b3cc40129132a17b4d5b9ea3351464bd, uBAL 0x8c4eb0fc6805ee7337ac126f89a807271a88dd67, uCVX 0x8659fc767cad6005de79af65dafe4249c57927af (UnionPirexVault, asset pxCvx 0xBCe0Cf87F513102F22232436CCa2ca49e815C3aC). All eth_getCode nonempty via rpc.py. Verified source via explorer for uCRV1/uCRV2/uFXS1 + strategies 0x8d2aee9a (stkCvxCrvStrategy), 0xf761c009 (CvxFxsStrategy). Rebrand: source contract names are Union*/Pirex, confirming Llama Airforce = Union. Public harvest() pays msg.sender callIncentive bps of the harvested reward (source: strategy safeTransfer(_caller, incentiveAmount))."
+}

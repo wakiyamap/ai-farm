@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "silo_v1 flashLiquidate",
+ "status": "measured",
+ "why": "EOA stranger 0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3 liquidated via unverified router 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd on silo 0xa1cada48eb6be2247e35b3a0f152c255d015f256 (xUSD/WETH+USDC): tx 0x05e65899e9ae2fbc48d82a746e2d3f1ab191c28c1919e979f78db81ee56421a1 (block 524033995, 2026-11-14) seized 0.0010052 WETH = 1.81 USD, repaid 1.7338 USDC shares of debt => liquidator reward ~0.08 USD gross vs 0.037 USD gas (1,022,667 gas x 0.020142 gwei x ETH 1801.54 USD, coins.llama.fi 2026-11-19).",
+ "next_steps": "Entry point: Silo.flashLiquidate(address[] users, bytes data) sel 0x93a94ca3, no modifier (source verified), caller must implement siloLiquidationCallback and repay the debt inside it (eth_call from a plain EOA reverts). 48 silos, factory 0x4166487056A922D784b073d4d928a516B074b719; Liquidate topic0 0xf3fa0eaee8f258c23b013654df25d1527f98a5c7ccd5e951dd77caca400ef972; count 7d = 1 tx / 2-3 events (all on 0xa1cada...), 30d = 2 txs / 5 events (eth_getLogs over all 48 addresses). Cadence ~1 liquidation tx/week across the whole book, gross dust (~0.1-2 USD), net ~0.04 USD/tx on these samples; book TVL 412k USD (llama). Others already take it (EOA via router 0x5ac9bc14). Marginal: a bot needs many small silos or a bigger insolvent position to clear gas."
+}

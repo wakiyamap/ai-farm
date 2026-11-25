@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-stabil-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 472,
+ "chain": "base",
+ "slug": "stabil-finance",
+ "name": "Stabil Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 37703,
+ "url": "https://stabil.finance",
+ "github": null,
+ "listed_days_ago": 472,
+ "run_id": "dbf4f848b68c483e867602fd56df897c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Stabil = Morpho curator with ONE MetaMorphoV1_1 vault on base (AA Quad USDC, 0x3498db8AB73dab97F88dECAF95aEf2e899b42e49, 37,856 USDC); rebalance reallocate(tuple[]) is onlyAllocatorRole and the only allocator is Stabil's own 0x64d7c763..933d (fresh-addr eth_call reverts); no increaseScore/claimRewards in the Sourcify-verified ABI; sole permissionless skim() reverts (skimRecipient=0); 7 d (blocks 57850000-60874567, 7.00 d): 0 Reallocate, 0 Skim, 10 Deposit/14 Withdraw user ops paying caller 0; protocol pays itself a 9% fee",
+  "kb": [
+   "attempts:3782",
+   "attempts:3783",
+   "protocols:1977"
+  ],
+  "run_id": "dbf4f848b68c483e867602fd56df897c",
+  "at": 1795366295
+ }
+}

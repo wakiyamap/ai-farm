@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "actor-base-0x79f630cc1f3b0c686913920b39c559a5d89229ba",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: 0x79f630cc is an undeployed-verified cycle-arbitrage executor contract (selectors run/enroll/sweep/payee/lockAcquired), not a protocol paying a keeper fee. Many distinct EOAs race run() (~32% land); each success does a WETH->USDC->cbBTC->WETH cycle and the spread accrues to a FIXED payee (=deployer 0x95c05594), while the caller EOA receives 0 (pays gas only). It is the operator's own arbitrage with flash-borrowed WETH, not a public job a stranger is paid for. Latency race (dozens of callers/block) plus caller-not-paid => out of scope.",
+  "numbers": "Sample of 6 successful runs of ~11,200/day. Runs: 467 principal draws (WETH 0x498581..652b2b->cand) in blocks 60239243-60257243 (~3600s) => ~467/h ~ 11,200/day. Gross margin to contract/run: 0 to +0.000036 WETH (median ~+0.000007), avg ~$0.017 => ~$150-200/day gross arb to payee. Gas/call ~0.0000029 ETH ~$0.0045 (measured caller ETH delta incl L1 fee; base baseFee 0.0067 gwei). Success rate ~32% (8/25 recent, sample of 25). ETH $1555.48 coins.llama.fi 2026-11-21 06:15Z. est_profit_usd_day=180 is GROSS arb captured; gas is borne by callers, net-to-operator unmeasured.",
+  "bot_id": null
+}

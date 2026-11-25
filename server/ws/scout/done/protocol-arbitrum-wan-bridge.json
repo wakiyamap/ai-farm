@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-wan-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1526,
+ "chain": "arbitrum",
+ "slug": "wan-bridge",
+ "name": "Wan Bridge",
+ "category": "Bridge",
+ "tvl_usd": 493766,
+ "url": "https://bridge.wanchain.org",
+ "github": null,
+ "listed_days_ago": 1526,
+ "run_id": "6738f1780f12496d967e781162c4cf0d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Arbitrum lock 0xf7ba155556e2cd4dfe3fe26e506a14d2f4b97613 (CrossDelegateV7): smgRelease/smgMint role-gated to storeman-group relayer 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7 (stranger eth_call reverts 'CrossDelegateV7: caller is not authorized', same calldata from the relayer succeeds); 7d 46 smgRelease + 44 userLock events (eth_getLogs), all sampled calls from that one address, gross to a stranger 0 USD (getStoremanFee(Aries_072)=0), gas/release 237,096 gas @ 0.02 gwei = 0.0000048 ETH = 0.009 USD (ETH 1800.76 USD coins.llama.fi).",
+  "kb": [
+   "protocols:962",
+   "attempts:2439"
+  ],
+  "run_id": "6738f1780f12496d967e781162c4cf0d",
+  "at": 1795074901
+ }
+}

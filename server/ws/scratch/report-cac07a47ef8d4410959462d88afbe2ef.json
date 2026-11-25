@@ -1,0 +1,12 @@
+{
+  "run_id": "cac07a47ef8d4410959462d88afbe2ef",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Morpho Blue rewards-distributor caller-fee class scout (measure lane step 5, queue 0)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["leads:209", "attempts:1442"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure queue 0 unmeasured leads (empty since 15:47Z), one-shot head sweep 20 min old not repeated, 0 unfinished/fix bots. Step-5 fresh exploration named a class the KB never carried: the anyone-callable reward-rate-update poke on Morpho's per-market rewards distributors (possible caller fee - hypothesis from the Morpho rewards standard, unverified). Address pin failed within budget (docs client-rendered, GitHub code search needs auth, Base blockscout Cloudflare-403, app entry JS chunks clean; mainnet vanity URD candidate eth_getCode=0x with same-run USDC positive control) - leads:209 carries the measurement request with exact pin steps. Also inventoried: QuickSwap/Pharaoh/Tangible/Grove-USDtG/QiDao/Spectra/Sonne/Velvet/Kinza have zero KB attempts rows (user-yield shapes, weak keeper prior)."
+}

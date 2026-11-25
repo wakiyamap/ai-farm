@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-renzo",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1063,
+ "chain": "base",
+ "slug": "renzo",
+ "name": "Renzo",
+ "category": "Liquid Restaking",
+ "tvl_usd": 512968,
+ "url": "https://app.renzoprotocol.com/restake",
+ "github": [
+  "Renzo-Protocol"
+ ],
+ "listed_days_ago": 1063,
+ "run_id": "06fe3887779e4aa6abdd7d38ef80477f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Base renzo = ezETH XERC20 token only (proxy 0x2416092f...Eea5, impl 0xb370a0bd...30f7, verified); non-view ABI = ERC20/permit + mint/burn/setLockbox/setLimits; fresh-address eth_call reverts (setLockbox=IXERC20_NotFactory 0x2029e525, mint 0x0b6842aa); no caller-paid reward fn exists; supply 259.33 ezETH (~513k USD TVL); ~25 txs in last 12d, all approve() (explorer txs 54.1M-59.2M).",
+  "kb": [
+   "attempts:2220",
+   "protocols:784"
+  ],
+  "run_id": "06fe3887779e4aa6abdd7d38ef80477f",
+  "at": 1795026784
+ }
+}

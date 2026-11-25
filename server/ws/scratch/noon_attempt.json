@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-noon",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only keeper-ish function on ethereum is sUSN.rebase(uint256), gated REBASE_MANAGER_ROLE, and it pays the caller nothing: the caller transfers yield USN INTO the vault (net negative even if you had the role). Everything else (deposit/withdraw/redeem/claimWithdrawal) is user self-service paying for themselves. No function pays a stranger for calling.",
+  "numbers": "Window blocks 26409925-26460180 (2026-11-14 to 2026-11-21, timestamps from eth_getBlockByNumber). Rebase events on sUSN 0xE24a3DC889621612422A64E6388927901608B91D: 7 in 7d (topic0 0xafae32ce2847c13a56ab802c034c27d3c19f1d61be48c424c5df134145cd44d0 from verified source Rebase(uint256), matched amounts 5501.1-9334.2 USN). Caller 0x3769feb4bc0bfd6fa94982b7dc5cbb0e567f76ae via 0x2fa93fdfb729b913b9b70804db38380ff36583c4; last rebase tx 0xb890b87a22025c68b9008eef6d2ff61169e2f30ec76b504cf5b89b3096726da2 gasUsed 133176 @1.655 gwei = 0.36 USD. Gross to caller per rebase: 0 USN. Control same query shape: Deposit events 18, WithdrawalDemandCreated 4 in same window. sUSN totalAssets 35,383,780 USN; USN price 0.9981 USD (coins.llama.fi, ts 1795224162), decimals 18 read on chain. eth_call rebase(1) from 0x1111... reverts AccessControlUnauthorizedAccount (0xe2517d3f)."
+}

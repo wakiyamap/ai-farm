@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-native-credit-pool",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 907,
+ "chain": "bsc",
+ "slug": "native-credit-pool",
+ "name": "Native Credit Pool",
+ "category": "Lending",
+ "tvl_usd": 1421280,
+ "url": "https://native.org",
+ "github": null,
+ "listed_days_ago": 907,
+ "run_id": "f1e88286f2c14a7b91350e0d7ce6244e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "CreditVault 0xBA8dB0CAf781cAc69b6acf6C848aC148264Cc05d: all 9 payout fns revert role-gated from fresh 0x1111 on bsc (epochUpdate OnlyEpochUpdater; settle/removeCollateral/repay/addCollateral OnlyTrader; liquidate OnlyLiquidator; pay OnlyLpToken; withdrawReserve OnlyFeeWithdrawer; swapCallback OnlyCreditPool); no permissionless fn pays strangers; BSC TVL $343,856 (api.llama.fi 2026-11-18), gas $0.006/call (0.05 gwei x BNB $588.57); 7d counts unavailable, scout lane spent (302,954/300,000 CU).",
+  "kb": [
+   "attempts:2161",
+   "protocols:732"
+  ],
+  "run_id": "f1e88286f2c14a7b91350e0d7ce6244e",
+  "at": 1795011988
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-symmio",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 412,
+ "chain": "arbitrum",
+ "slug": "symmio",
+ "name": "SYMMIO",
+ "category": "Derivatives",
+ "tvl_usd": 316033,
+ "url": "https://www.symm.io/",
+ "github": null,
+ "listed_days_ago": 412,
+ "run_id": "372260d40c914cc99469a3d737218c4c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "SYMM Core diamond 0x8F06459f184553e5d04F07F868720BDaCAB39395 (arb, USDC collateral, TVL 316k): liquidation rewards go to the caller (liquidatorShare, LibLiquidation L112-115) but need LIQUIDATOR_ROLE/PARTYB_LIQUIDATOR_ROLE - eth_call liquidatePartyB (0x7e65a279) from fresh address reverts 'Accessibility: Must have role'; anyone-callable expireQuote/chargeFundingRate pay 0; 0 txs on the diamond in last 7d (last tx block 521252770, 2026-11-04, vs head 525098451), 29 facets / 382 selectors surveyed.",
+  "kb": [
+   "attempts:1816",
+   "protocols:457"
+  ],
+  "run_id": "372260d40c914cc99469a3d737218c4c",
+  "at": 1794936976
+ }
+}

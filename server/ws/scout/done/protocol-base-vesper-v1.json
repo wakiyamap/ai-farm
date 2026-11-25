@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-vesper-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "vesper-v1",
+ "name": "Vesper V1",
+ "category": "Yield Aggregator",
+ "tvl_usd": 5554449,
+ "url": "https://vesper.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "f7fcce8790bb42f4bdde862fbe0375ff",
+ "result": {
+  "verdict": "role_gated",
+  "line": "5 VPool proxies on Base (llama TVL 5.45M USD, 2026-11-20; impls VPool 0x67006c2e, VETH 0x097f419a): no public function pays the caller - claimAndSwapRewards/swapToCollateral/sweep are onlyKeeper (fresh-address eth_call reverts 0x82b42900; single keeper 0x3ed788455ec4cd272c578f7218bc5c5a8db3b9b6), reportEarning pool/strategy-only, and poolRewards()=0 on all 5 pools so no reward pot is attached",
+  "kb": [
+   "attempts:2706"
+  ],
+  "run_id": "f7fcce8790bb42f4bdde862fbe0375ff",
+  "at": 1795136107
+ }
+}

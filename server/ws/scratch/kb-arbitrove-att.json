@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-arbitrove",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Arbitrove's keeper-ish function rebalance() is onlyOwner on both vault contracts (verified 'Vault' source), and deposit/withdraw/claimDebt are onlyRouter user flows that pay nothing to the caller. The protocol is also dormant: 0 vault Transfer events in the last 7 days and one failed router tx since Nov 2024. Router (0xb62e...) is unverified on Etherscan, so its burn-request functions could not be source-checked, but no reward-to-caller mechanism was found.",
+ "numbers": "TVL 483,650 USD (DefiLlama candidate). Vault 0xc16ce97d...: 0 Transfer events blocks 0x1f40e826..0x1f51a826 (~1.09M blocks, ~7 days, eth_getLogs); control USDC 0xaf88d065...: 5,109 Transfer logs over 0x1f51a026..latest (same query shape). Router txs (explorer txs 0xb62e2ff301bfef96db8c1bea3c068966a58df1f9): latest 2026-11-04 FAILED (0x42d24d3951ba2d528857c7ad5e0b46caa2497e36e6f5fbf1bbf7078319fdc8c5), prior activity Sep-Nov 2024. rebalance() onlyOwner at Vault.sol:285 (impl 0xbd9f748297cf79537441ef5b388ad55d4f9bb59e)."
+}

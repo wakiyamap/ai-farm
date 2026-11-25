@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-deltaprime",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only reward-type functions are per-loan diamond liquidation (snapshotInsolvency/liquidate(bool)/clearInsolvencySnapshot) and all three revert from a fresh address with custom error 0x12dcff05 = OnlyWhitelistedLiquidators(); the whitelist is onlyOwner-managed. Worse, even a whitelisted caller earns nothing: the 14%/7% liquidation fee is routed to the stability pool and protocol treasury, not msg.sender, and no deployed contract pays msg.sender anywhere (repo grep clean; pool getRewards reverts). No harvest/keeper function that pays a stranger exists.",
+  "numbers": "7d eth_getLogs topic0: Liquidated x1 (tx 0xfbf9c16a7f52c5eae5aad9e3d4cf2dfb36abf2067f6154fddb84682030b71313), InsolvencySnapshot x4, all on loan 0x2d2a31a67d9c5d484c1b58ead1ad3e219d198dad, callers 0x6907890f8b068b0aff55853547e5d2815dcebb78 / 0x3390d219662bd73d32dbed6eee97375d471c4d95 (sample of 5 of 5). Gross paid to liquidator per liquidation: $0 (fees to stability pool 0x6b9836d18978a2e865a935f12f4f958317da4619 + treasury 0x764a9756994f4e6cd9358a6fcd924d566fc2e666). Gas per liquidation 5,562,582 @ 0.04002 gwei = 0.0002226 ETH = $0.39 (ETH $1767.73, coins.llama.fi). Factory getLoansLength 2193 loans; TVL $1.33M (DefiLlama).",
+  "bot_id": null
+}

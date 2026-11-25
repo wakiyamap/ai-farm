@@ -1,0 +1,22 @@
+{
+ "id": "protocol-ethereum-universe-xyz",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "universe-xyz",
+ "name": "Universe XYZ",
+ "category": "Yield",
+ "tvl_usd": 1912285,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "884b5ea2035f40f3a3ab3d84ba47d0df",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Universe XYZ = veXYZ staking diamond 0x7b86...2962 + Rewards 0xf306...1205: claim() public but pays msg.sender only (fresh-address eth_call reverts 'nothing to claim'); 7d window blocks 26418706-26468960: 0 claims/deposits/withdrawals on diamond and Rewards (no-topic scans, control = 13 XYZ token logs same window); pot 5,471,782 XYZ = 328 USD at measured pool price 0.00006 (Uniswap V2 XYZ/USDC last swap 2026-11-21), last claim 2026-11-03 paid staker 422,161 XYZ = 25 USD, gas ~0.02 USD (0.114 gwei); real TVL ~11.6k USD not the 1.9M listed.",
+  "kb": [],
+  "run_id": "884b5ea2035f40f3a3ab3d84ba47d0df",
+  "at": 1795330694
+ }
+}

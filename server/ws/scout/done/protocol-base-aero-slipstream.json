@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-aero-slipstream",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 58,
+ "chain": "base",
+ "slug": "aero-slipstream",
+ "name": "Aero Slipstream",
+ "category": "Dexs",
+ "tvl_usd": 94935817,
+ "url": "https://aero.xyz/",
+ "github": null,
+ "listed_days_ago": 58,
+ "run_id": "57bc3725d8884a5684f87936a0591c8b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Aerodrome CL (UniV3 fork), 4 CL factories on Base (3684+2318+22+5688 pools, e.g. 0x5e7BB104d84c7CB9B682AaC2F3d509f5F406809A); only keeper-style fn Redistributor.redistribute is onlyUpkeepOrKeeper (fresh-addr eth_call reverts 'NA' on 0xEe5b3C7b and 0x11a53f31; keeper 0x7766eb40, upkeep 0x4b364c2b) and pays its keeper 0; 7d AERO getLogs (blocks 55458671-58518823): 0 out / 0 in on Redistributor 0xEe5b3C7b (dormant), control 338 transfers/39 blocks; pool/gauge calls pay only recipient/owner, never caller; gas 150k = 0.00165 USD @0.006 gwei (ETH 1834.71, coins.llama.fi).",
+  "kb": [
+   "attempts:1602",
+   "protocols:307"
+  ],
+  "run_id": "57bc3725d8884a5684f87936a0591c8b",
+  "at": 1794894580
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-turboflow-perps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 376,
+ "chain": "bsc",
+ "slug": "turboflow-perps",
+ "name": "TurboFlow Perps",
+ "category": "Derivatives",
+ "tvl_usd": 5892213,
+ "url": "https://www.tf.xyz/",
+ "github": null,
+ "listed_days_ago": 376,
+ "run_id": "d4c4868e548b47a3be3d7e0e649c4e0d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Custodial perps DEX: only BSC contract = deposit/withdraw bridge 0x145CD0d5C3dD0eF1405dCf1b4D2BCE7c611625dB (proxy -> impl 0xe4920f7fe76aa34a0c69d2e7aef78f4179c8f9bc, 71 selectors, no reward fn); 6.8d eth_getLogs: 4947 deposits + 2058 proposal-adds + 2058 proposal-execs (9063 logs, 3 events) all sent by 3 protocol EOAs (bundler 0x2657516a, ops 0x8c267e65 / 0xbb767f12); eth_call of proposal fn 0x059e8423 from a fresh address reverts 'Illegal permissions'; gross to a stranger 0, gas 0.004-0.02 USD/call (BNB 590.14 USD, coins.llama.fi 2026-11-17)",
+  "kb": [
+   "protocols:430",
+   "attempts:1772"
+  ],
+  "run_id": "d4c4868e548b47a3be3d7e0e649c4e0d",
+  "at": 1794929954
+ }
+}

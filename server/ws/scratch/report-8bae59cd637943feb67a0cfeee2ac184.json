@@ -1,0 +1,12 @@
+{
+  "run_id": "8bae59cd637943feb67a0cfeee2ac184",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "lead 203 Tranchess BSC keeper-class scout (measurement request run as written)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1410", "leads:203", "protocols:267"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Build-lane queue 1-3 empty (franken lead 74 built 05:07Z + archived 05:12Z by corrected replay, counted EV 0; no fix bot; no census A; 09:30Z one-shot sweep clean; felix reopen re-checked 00:5xZ still 3.5x under bar). Took lead 203 at step 4: Tranchess BSC settle() is anyone-open but pays the caller nothing, and the whole protocol stopped settling - currentDay frozen 2026-07-03 on all 3 V2 funds (on-schedule 20 d earlier, control at block 103906223) and 2024-12..2026-05 on 4 sampled V3 funds; dead_end, do not build. ~30 bsc + 1 ethereum research-lane reads, 0 fork; bsc note: address filters work but wide unfiltered-size windows 400 with 'response too big' - use fixed small blocks + topics, and never type token addresses from memory (my WBNB/USDT 'controls' were wrong addresses)."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "protocol": "deri_protocol",
+ "status": "dead_end",
+ "checked": "2026-11-20 scout run e1de2403. DefiLlama adapter projects/deri/index.js lists 7 BSC pools, all with code (eth_getCode): v2-era 0x66f501dda450C8978c4A1115D7b2A7FAa7702F05 (a), 0x574022307e60bE1f07da6Ec1cB8fE23d426e5831 (b), 0x08aD0E0b4458183758fC5b9b6D27c372965fB780 (everlastingOption), 0x26bE73Bdf8C113F3630e4B766cfE6F0670Aa09cF (deriPool); v3 proxies 0x243681B8Cd79E3823fF574e07B2378B8Ab292c1E (option), 0x4ad5cb09171275A4F4fbCf348837c63a91ffaB04 (futureMain, liquidity()=233,632 BUSD = most of the 257.9k candidate TVL), 0xD2D950e338478eF7FeB092F840920B3482FcaC40 (futureInno, 10,852). futureMain implementation()=0x198d92e0208140c976d6bf4c834da1b57c720f9d (1504 bytes) exposes only 15 selectors (bytecode dispatch extract): liquidity 0x1a686502, nameId 0xc1b0844f (=keccak PoolImplementation), implementation, protocolFeeCollector, admin()/setAdmin/upgradeToAndCall/proxiableUUID + 4 views. NO liquidate/trade/addLiquidity/removeLiquidity/claim on the deployed implementation: liquidate(uint256,(bytes32,uint256,uint256,uint8,bytes32,bytes32)[]) and trade(...) eth_call from 0x...1234 revert with empty data. Source deri-protocol/deriprotocol-v3 branch main-venus (repo has no other pool repo; venus branch matches storage layout: slot1 implementation, slot2 protocolFeeCollector). The Venus-branch source HAD liquidate paying msg.sender minLiquidationReward+cut in BUSD and claimVenusLp/Trader(account), but the deployed impl is the post-sunset minimal one.",
+ "wiki_page": null
+}

@@ -1,0 +1,8 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-blur-lending",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers - the candidate's live system is Blur Blend (proxy 0x29469395eAf6f95920E59F858042f0e28D98a20B, impl 0xb258ca5559b11cd702f363796522b04d7722ea56); refinanceAuction (selector 0xa49c04be) is anyone-callable and was taken 16 times in the last 7 days by 8 stranger EOAs, gross per fill at incumbent lien size >> 0.035 USD gas. NOT a new route for the farm: this is the same protocol as KB blur_blend (id 221) and lead 148 (dead_end, closed 2026-11-12 at farm capital because the take pays as carry realized only after a later repay/seize sweep, not in-tx; whale-scale class 18.4 USD/day across 37 incumbents). Builders should not rebuild without a new mechanism.",
+ "numbers": "7d window blocks 26413808 (2026-11-14 14:25) - 26464061 (2026-11-21 14:25), eth_getLogs on 0x29469395...a20B, topic0 taken from receipts (startAuction 0xe5095dc3... from tx 0x5b6a856a..., Refinance 0x558a9295... from tx 0x2733b075...): 30 StartAuction / 16 Refinance fills (sample of 5 fills for amounts). Sample fill: tx 0x2733b075... take of 1.25 ETH lien at rate 21070/dur 9000. Gas one fill: 68,881 gas x 0.30 gwei effGasPrice (0x11cff0e3) = 0.0000207 ETH = 0.035 USD at ETH 1691.53 USD (coins.llama.fi 2026-11-21 14:25 UTC). Taker payment = lien carry realized at a later exit (30d census, lead 148 attempt 954/969: 1.13 USD/day at 0.13 ETH farm cap vs ~0.14 USD/fill gas; 18.4 USD/day total across 37 incumbents at median 0.79 ETH liens). TVL 224,900 USD (api.llama.fi protocol/blur-lending, 2026-11-21; candidate listed 255,253).",
+ "bot_id": null
+}

@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""Root-side filesystem steps for the gate (sudo from farmgate only).
+
+  gate-root adopt <id>     bots/paper/<id> -> bots/live/<id>, owned by farmgate, logs/ state/ for farmbot
+  gate-root archive <id>   bots/live/<id>  -> bots/archive/<id>[-N], read-only
+"""
+import os
+import re
+import shutil
+import subprocess
+import sys
+
+WS = "/srv/farm/ws"
+PAPER, LIVE, ARCHIVE = f"{WS}/bots/paper", f"{WS}/bots/live", f"{WS}/bots/archive"
+ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]{2,47}$")
+
+
+def die(m):
+    print(f"gate-root: {m}", file=sys.stderr)
+    sys.exit(2)
+
+
+def adopt(bot_id):
+    src, dst = f"{PAPER}/{bot_id}", f"{LIVE}/{bot_id}"
+    if not os.path.isdir(src) or os.path.islink(src):
+        die("no such paper bot")
+    if os.path.exists(dst):
+        die("already live")
+    subprocess.run(["systemctl", "stop", f"paper@{bot_id}.service"], check=False)
+    shutil.move(src, dst)
+    subprocess.run(["chown", "-R", "farmgate:farm", dst], check=True)
+    subprocess.run(["chmod", "-R", "a-w,g+rX,o-rwx", dst], check=True)
+    for sub in ("logs", "state"):
+        p = f"{dst}/{sub}"
+        os.makedirs(p, exist_ok=True)
+        subprocess.run(["chown", "-R", "farmbot:farm", p], check=True)
+        subprocess.run(["chmod", "-R", "u+rwX,g+rwX,o-rwx", p], check=True)
+    print("ok")
+
+
+def archive(bot_id):
+    src = f"{LIVE}/{bot_id}"
+    if not os.path.isdir(src):
+        die("not live")
+    dst, n = f"{ARCHIVE}/{bot_id}", 1
+    while os.path.exists(dst):
+        n += 1
+        dst = f"{ARCHIVE}/{bot_id}-{n}"
+    shutil.move(src, dst)
+    subprocess.run(["chown", "-R", "farmgate:farm", dst], check=True)
+    subprocess.run(["chmod", "-R", "a-w,g+rX,o+rX", dst], check=True)
+    print(os.path.relpath(dst, WS))
+
+
+if __name__ == "__main__":
+    if os.geteuid() != 0:
+        die("root only")
+    if len(sys.argv) != 3 or not ID_RE.match(sys.argv[2]) or sys.argv[1] not in ("adopt", "archive"):
+        die("usage: gate-root adopt|archive <id>")
+    {"adopt": adopt, "archive": archive}[sys.argv[1]](sys.argv[2])

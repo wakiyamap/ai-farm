@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-steakbank-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "steakbank-finance",
+ "name": "SteakBank Finance",
+ "category": "Liquid Staking",
+ "tvl_usd": 251113,
+ "url": "",
+ "github": [
+  "steakbankfinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "c198dc42e650480a94d2662f7a5c5018",
+ "result": {
+  "verdict": "no_reward",
+  "line": "staking proxy 0x79DB0dAa012F4b98F332A9D45c80A1A3FFaa6f9a (impl 0x06f424f8bca18421db31ed9a1eec2c88f8be7180, Sourcify full match): every state-changing fn (rebaseLBNBToBNB, batchClaimPendingUnstake, stake, unstake, accelerate, resend) starts with require(false,'') so eth_call reverts empty from a fresh address (not role-gated); rest are onlyAdmin; 0 proxy-emitted logs in 7d (270 x 5000-block windows, per-window BUSD control 667-3675) and 0 at 90/180/365/540d probes; stakingRewardVault and unstakeVault 0 BNB; TVL 424.62 BNB = 240.8k USD (BNB 567.10, coins.llama.fi ts 1795151743)",
+  "kb": [
+   "attempts:2779",
+   "protocols:1211"
+  ],
+  "run_id": "c198dc42e650480a94d2662f7a5c5018",
+  "at": 1795151964
+ }
+}

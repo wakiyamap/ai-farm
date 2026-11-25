@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "qidao liquidateVault",
+  "status": "measured",
+  "why": "Stranger 0xf7789fa997beeb4fec6ba288af857a6943743ec7 called liquidateVault 5x on WETH vault 0x062016cd29fabb26c52bab646878987fc9b0bc55 in 7d and got paid via getPaid(): 2 WETH Transfers from 0x0620 to it, 0.00007323+0.00001318 WETH (blocks 0x9825099, 0x9828c62). Largest single-liquidation extract 0.000073 WETH = $0.13 (tx 0xe29575307d66f139c21bd0ef398402eaeeeabfbd87a665cb1a3cb86ec8ee59e9). Over 30d, 5 distinct liquidator wallets (0xf778..., 0x7c59bc02..., 0x4abc89a2..., 0xaec9aad0..., 0xdc34e68a...) took 17 events totaling 0.0226 WETH.",
+  "next_steps": "Contract 0x062016cd29fabb26c52bab646878987fc9b0bc55 (and 8 other vaults; new family uses liquidateVault(uint256,uint256) at 0xc88c8ada...). stabilityPool()=0x0 so liquidateVault/buyRiskDebtVault are anyone-callable. 7d count = 5 LiquidateVault, 0 BoughtRiskyDebtVault. Gross/call 0.000001-0.000073 WETH ($0.002-0.13 at ETH $1,747.77 coins.llama.fi 2026-11-20 07:17 UTC, WETH 0x4200000000000000000000000000000000000006 decimals 18 read on-chain); gas 177,635 @ 0.0001-0.0003 gwei ~= $0.0001. BUT liquidator must front halfDebt MAI (0.0022-0.1228 MAI here) to earn only the ~10% bonus (~$0.013 on the largest), so profit is tiny dust and one wallet (0xf778...) took 5/5 in the window - low but non-zero competition. Nothing liquidatable at check time (liquidateVault(2081) from fresh address reverts 'Vault is not below minimum collateral percentage')."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-veranta",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1014,
+ "chain": "base",
+ "slug": "veranta",
+ "name": "Veranta",
+ "category": "Derivatives",
+ "tvl_usd": 11688318,
+ "url": "https://www.veranta.xyz/",
+ "github": [
+  "Avantis-Labs"
+ ],
+ "listed_days_ago": 1014,
+ "run_id": "d94f9e5db32e4ac3a38c83243413ded5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: every keeper fn on Base router 0x44914408af82bc9983bbb330e3578e1105e11d4e is onlyOperator (gov whitelist; fresh-addr eth_call executeMarketOrder reverts OnlyOperator 0x27e1f1e5), VaultManager fns onlyKeeper (single keeper 0xfbeb6cdd4e06d142cbbc448ef2684e98833241ab)/onlyGov/onlyCallbacks, claimExecFees onlyGov, exec-fee receiver one fixed wallet 0x69de6e2c142b55bc450a628b6ef4cf971814930f; protocol live (61 router events in ~3k blocks ~10 min; 71,832 MarketOrderInitiated/30d per KB census 2026-11-07) - no callable function pays a stranger",
+  "kb": [
+   "attempts:2211",
+   "protocols:775"
+  ],
+  "run_id": "d94f9e5db32e4ac3a38c83243413ded5",
+  "at": 1795024266
+ }
+}

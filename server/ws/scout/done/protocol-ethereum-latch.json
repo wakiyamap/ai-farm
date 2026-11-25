@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-latch",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 682,
+ "chain": "ethereum",
+ "slug": "latch",
+ "name": "Latch",
+ "category": "Yield",
+ "tvl_usd": 1271058,
+ "url": "https://savings.latch.io/",
+ "github": null,
+ "listed_days_ago": 682,
+ "run_id": "3537aa6c8c464220aa6ce20ad096a6bc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All 5 live contracts role-gated (DepositPool.withdraw onlyWithdrawer, eth_call from fresh addr reverts InvalidWithdrawer 0x1f75204f; StakingPool ops onlyOperator EOA 0xf2d8f582 / onlyManager; WithdrawPool.addPoolUnlocks onlyUnstaker; VaultNav.appendNav validNavUpdater); only permissionless fn is deposit() where caller PAYS LayerZero fee; 0 events on all contracts in 7d (blocks 26,410,212 11-14 -> 26,460,466 11-21; control returned 3 Deposited logs on active window); last user deposits 2026-06-30/07-05; TVL 1.27M USD, 0 USD/call to strangers.",
+  "kb": [
+   "attempts:3146",
+   "protocols:1509"
+  ],
+  "run_id": "3537aa6c8c464220aa6ce20ad096a6bc",
+  "at": 1795228368
+ }
+}

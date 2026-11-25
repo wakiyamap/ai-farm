@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-radiant-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Radiant V1 Arbitrum is an Aave v2 fork (LendingPool proxy 0x2032b9a8e9f7e76768ca9271003d3e43e1616b1f, impl 0xab843bec136e848fc47f0eb24902b61f158534d6); the only public function that pays the caller is liquidationCall (no role gate, eth_call reverts health-factor '42', not role). 0 LiquidationCall events in 7d and 30d: nothing to liquidate, so the callable pays 0. No keeper reward functions exist (RDNT rewards drip inside user txns, aToken reward claims are self-paid).",
+  "numbers": "TVL 207,763 USD (api.llama.fi/protocol/radiant-v1, 2026-11-19); LiquidationCall topic0 0xe413a321...: 0 events blocks 0x1f34a070..latest (7d, 2.02M blocks) and 0x1ecf95a5..latest (30d), eth_getLogs via relay; control same shape 799 USDC.e (0xff970a61a04b1ca14834a43f5de4533ebddb5cc8) Transfer logs in a 30k-block recent range; pool non-empty: 49 events in 0x1f4e5000..latest (incl Repay 0x4cdde6e0); registry getAddressesProvidersList() -> 0xe21b295ed46528efd5f3ef66e18bc6ad1c87f003 -> LendingPool 0x2032b9a8...; gas/USD n/a (no samples, 0 events)"
+}

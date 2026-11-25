@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-aera-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Aera V3 (Gauntlet) multi-depositor vaults on base: the only open-to-anyone paid function is the Provisioner's solveRequestsDirect (solver pockets the solverTip, paid in the order token). 703 async requests in the last 7 days across all 23 provisioners, every one with solverTip=0, so the tip pot a stranger could take was $0. All solves in the 7d window were done by one whitelisted solver EOA 0xdd998274ed12bb12d818800915cfb8f87cbc2801 via solveRequestsVault (requiresAuth, solvingGate). No new vaults created in 7d.",
+ "numbers": "23 vaults (VaultCreated logs 0x1d6b373..0x38100b6); 703 request events / 364 solved markers in 7d (eth_getLogs on 23 provisioners 0x351b356..0x38100b6, 1069 logs); solverTip nonzero count 0 of 703; sampled solve gasUsed 177074 @ 0.00558 gwei = 9.9e-7 ETH = $0.0018 (eth_gasPrice, ETH $1793.26 coins.llama.fi); gross paid to callers 7d = $0; TVL $60.7M; factory 0x29722cC9a1cACff4a15914F9bC274B46F3b90B4F; busiest provisioner 0x128afda4351dece9d51eb9d7e9c687c58cfff731 (611 requests)"
+}

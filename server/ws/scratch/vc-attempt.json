@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-vaultcraft",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. VaultCraft/Popcorn vaults on Arbitrum have open (non role-gated) reward functions - claim(address), claimProtocolFees(), takeFees(), fulfillRedeem() - but none pay the caller: claim pays its user arg, claimProtocolFees pays a fixed 0.1% to recipient 0x47fd...655e, distributeRewards pulls reward tokens FROM the caller. And the whole protocol is dormant: 0 Claimed/DistributeRewards and 0 Transfer across all 17 vaults in 7 days; reward pot empty.",
+ "numbers": "17 vaults (12 defi-db + 5 registry 0x25172C73958064f9ABc757ffc63EB859D7dc2219). TVL $512,075 = 511,964 FRAX in 0xf10878bc18193dd92f934c8a9b945c1172ccb5ca ($0.9896 coins.llama.fi 1795081977); other 16 hold ~$30k. 7d events (blocks 523,283,830-525,583,830): 0 Claimed/DistributeRewards, 0 Transfer on 17 vaults; control 11,808 USDC Transfers/4k blocks. Last tx on big vault 2025-07-09 claim paid 0 (gasUsed 55,465); last distributeRewards 2023-12-26 tx 0xbfa3c33d44c6b5ee80db2864007669cb982d6a4afd8796faa0ad43367c4db9cf; getProtocolFees()=[] and getAccruedRewards(staker)=[]. Gas 0.03 gwei x 55,465 = $0.003"
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-the-gavel-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 59,
+ "chain": "arbitrum",
+ "slug": "the-gavel-protocol",
+ "name": "The Gavel Protocol",
+ "category": "Lending",
+ "tvl_usd": 27343,
+ "url": "",
+ "github": [
+  "JamieFrame"
+ ],
+ "listed_days_ago": 59,
+ "run_id": "17c8239fc3c7431aa1316bc07486db5f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LoanProtocol 0xFCDd..fEf2 + NFTLoanProtocol 0x506e..47eb on arbitrum: finalizeAuction/markDefault/expireMarketplaceOffer/cleanStaleListing are anyone-callable (state-gated, no role revert) but pay the caller 0 - no reward/bounty/keeper fee mechanism anywhere in source; 7d (blocks 524416480-526473519): 3 finalizeAuction calls, caller gross 0 USD vs gas ~0.024 USD (703-709k gas x 0.02 gwei, ETH 1681.25 USD), callers were the lender 0x763f..cf77 and borrower 0x961e..3d52 themselves, NFT proxy 0 events, markDefault 0 calls",
+  "kb": [
+   "attempts:3665",
+   "protocols:1890"
+  ],
+  "run_id": "17c8239fc3c7431aa1316bc07486db5f",
+  "at": 1795338913
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "lydia_croesus enterStaking/leaveStaking",
+  "status": "measured",
+  "why": "Croesus MasterChef 0xFb26525B14048B7BB1F3794F6129176195Db7766 (Avalanche, pid 0 = staked LYD via ElectrumBar, allocPoint 1666). 7d (blocks 100483431-101171322, 2026-11-16 to 11-23): 27 txs from 7 distinct EOAs (0x666c6b23.. 9, 0x953c1ba7.. 8, 0x609c8738.. 5, 0x9ea6c6a8.. 2, 0xfa1f780a, 0x811ceff5, 0x0c266223) harvested 10,215,590 LYD = $476.48 gross (LYD $0.00004664 coins.llama.fi 2026-11-23T12:08), avg $17.65/tx, max $321.10 (tx 0x1b0e9e45d6b0af6f3116), example stranger 0x7ba3009d.. got 259,107 LYD = $12.09 (tx 0xb6f436141d5e993dc1b4). Gas $0.012-0.14/tx (receipt gasUsed x effectiveGasPrice x AVAX $6.968).",
+  "next_steps": "Contract 0xFb26525B14048B7BB1F3794F6129176195Db7766, functions enterStaking/leaveStaking (pid 0) and deposit/withdraw (other pids), all public (eth_call from fresh address succeeds; deposit/withdraw on pid 0 revert with 'deposit LYD by staking', logical not role). 57 harvest events / 27 txs / 7d; gross $476 / 27 tx vs gas < $0.15. CAVEAT: the reward is the caller's OWN accrued staking yield - a stranger must hold a stake to earn (buy + price-risk LYD, thin $43k TVL protocol); pot 272.6M LYD = $12,715 emitting 2 LYD/s = $8.06/day total across all stakers, so at most ~$8/day exists for the whole farm; others already take it (7 callers/7d, several compound daily). Not a free keeper bounty: treat as a staking yield, trial-grade at best."
+}

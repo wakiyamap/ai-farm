@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-idle",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "idle",
+ "name": "Idle",
+ "category": "Yield Aggregator",
+ "tvl_usd": 553538,
+ "url": "https://idle.finance",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "263888689e434ec6b932e043fa217aa7",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Idle ethereum (TVL 548,545 USD, api.llama.fi 2026-11-22): no permissionless function pays the caller \u2014 IdleTokenV3 rebalance()/openRebalance() transfer nothing to msg.sender and rebalance() reverts 'Pausable: paused' (eth_call from fresh addr, block 26467657); CDO harvest()/liquidate() are _checkOnlyOwnerOrRebalancer (keeper 0xb3c8e553); sample of 7 of 28 listed addresses shows newest external call 2026-10-10 (0xF87ec7 withdrawAA), 0 calls in 7d window blocks 26,415,848 (2026-11-15) -> 26,467,657 (2026-11-22); 0 new CDODeployed in 120d.",
+  "kb": [
+   "attempts:3561",
+   "protocols:1808"
+  ],
+  "run_id": "263888689e434ec6b932e043fa217aa7",
+  "at": 1795314660
+ }
+}

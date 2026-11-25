@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-swell-liquid-staking",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1302,
+ "chain": "ethereum",
+ "slug": "swell-liquid-staking",
+ "name": "Swell Liquid Staking",
+ "category": "Liquid Staking",
+ "tvl_usd": 19087805,
+ "url": "https://app.swellnetwork.io/",
+ "github": null,
+ "listed_days_ago": 1302,
+ "run_id": "40c71b0232bf46ceb849d1d4e31f664d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "v1 swETH (TVL 10,549 ETH = 9,255.5 swETH x 1.1397, block 26464141): only keeper fns are swETH.reprice (checkRole REPRICER, 1 member 0x289d600447a74b952ad16f0bd53b8eaaac2d2d71, 0 calls in 7d blocks 26413741-26464141, 9 in 30d, last 2026-11-13 by 0x900bb9f1) and swEXIT.processWithdrawals (checkRole PROCESS_WITHDRAWALS, 0 calls/7d, 28 requests stuck 32907<32935); eth_call from fresh addr reverts both on role; neither pays msg.sender anything (0.00 USD gross, mints go only to node operators + treasury); users still active (39 WithdrawalClaimed/7d) but pay only their own gas.",
+  "kb": [
+   "attempts:3357"
+  ],
+  "run_id": "40c71b0232bf46ceb849d1d4e31f664d",
+  "at": 1795272597
+ }
+}

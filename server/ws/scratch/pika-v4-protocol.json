@@ -1,0 +1,6 @@
+{
+  "chain": "optimism",
+  "protocol": "pika_v4",
+  "status": "dead_end",
+  "checked": "Pika V4 (DefiLlama slug pika-v4, Derivatives, tvl 86.8k USDC 2026-11-22, deadUrl true, url empty, listed 2023-07). Adapter projects/pika-v4/index.js (deleted from main 2026-06-22, read at commit 520ad17): owners 0x9b86B2Be8eDB2958089E522Fe0eB7dD5935975AB + 0x8c9b6a4a4e61F4635E8e375E05ff98Db5516d25E on optimism, tokens OP USDC. Both are PikaPerpV4.sol (verified, Blockscout via explorer source), both eth_getCode non-0x, getters answer (owner()=0xecfd15165d994c2766fbe0d6bacdc2e8dedfd210, liquidationThreshold()=8000). Reward surface: liquidatePositions(uint256[]) pays msg.sender liquidationBounty 50% of (margin-|pnl|) but require(liquidators[msg.sender] || allowPublicLiquidator) - eth_call from fresh 0x1111 reverts '!liquidator' on both vaults (whitelist, setLiquidator onlyOwner); distributeProtocolReward/PikaReward/VaultReward require msg.sender == fixed distributor address (reverts '!dist' from fresh; pays the distributor wallet, not the caller); FundingManager updateFunding gated msg.sender==pikaPerp. No public reward function exists."
+}

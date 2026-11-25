@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-balancer-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "balancer-v2",
+ "name": "Balancer V2",
+ "category": "Dexs",
+ "tvl_usd": 87824,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "b7e8368d1e394d00ba95058cff1df0bc",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: no caller pays strangers on avalanche balancer_v2 \u2014 startDistributions (only permissionless keeper fn) pays caller $0 (source: forwards to gauge) and DistributionScheduler + ProtocolFeesWithdrawer have 0 txs in entire history (routescan txlist, Vault control live); withdrawCollectedFees reverts BAL#401 from fresh address; no MerkleRedeem/Orchard on this chain; Vault 300 Swap logs / 275 txs / 17 pools in 7d (blocks 100481343 2026-11-16 to 101170272 2026-11-23) all user-driven; gas ~0.005 USD/call (7.48 gwei x 100k, AVAX 6.72 USD).",
+  "kb": [
+   "attempts:4119"
+  ],
+  "run_id": "b7e8368d1e394d00ba95058cff1df0bc",
+  "at": 1795442401
+ }
+}

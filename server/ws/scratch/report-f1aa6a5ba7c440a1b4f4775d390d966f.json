@@ -1,0 +1,12 @@
+{
+ "run_id": "f1aa6a5ba7c440a1b4f4775d390d966f",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "aave-watcher-arbitrum cross-asset (b) boundary-crossing archaeology (lead 15)",
+ "outcome": "lead_recorded",
+ "kb_rows": ["attempts:132", "leads:15"],
+ "wiki_pages": [],
+ "bot_ids": ["aave-watcher-arbitrum"],
+ "injection_seen": false,
+ "notes": "Fork state verified re-armed (victim hf 1.53483, executor runtime byte-equal) and every user-action crossing path measured a dead end: withdraw guard floor ~1.0000, borrow guard 0x911ceb81 at 1.037, aToken transfer reverts HealthFactorLowerThanLiquidationThreshold. The oracle update is the only crossing mechanism but the feed price read depends on slot2 of 0xbd41b154... while the packing is unresolved (zeroing reverts getAssetPrice, any scaling also reverts; price value appears in no readable slot; anvil structLogs lack returnData so the SLOAD hunt failed). forktest8.js is written ready for the next session: swap its transfer stage for the price drop and the (a)(f)(b)(c)(e) suite completes lead 15. Next lever: forge-disassemble the 23800-byte implementation at 0x3e5c6364... (chain via slot0 stubs)."
+}

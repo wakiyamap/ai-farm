@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-xgld",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 115,
+ "chain": "bsc",
+ "slug": "xgld",
+ "name": "XGLD",
+ "category": "Stablecoin Wrapper",
+ "tvl_usd": 1677543,
+ "url": "https://evm.unitas.so/xgld",
+ "github": null,
+ "listed_days_ago": 115,
+ "run_id": "d479a23472b14ce88dd990b52a04ee02",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only permissionless fn is claim(bytes32) (XGLDRedeemer 0x2ac5...003c / BoostProxy 0x0a4d...57b0e); fresh-address eth_call reverts InvalidRequest not role. 7d full scan (blocks 133.58M-134.08M, 101x5000): 4 Claimed events, all self-claims (caller==recipient), gross to caller 0; largest 9.08 XAUt principal. Gas/claim 92k*0.05gwei=bash.003. Mint path role-gated, docs require whitelist.",
+  "kb": [
+   "attempts:1641",
+   "protocols:336"
+  ],
+  "run_id": "d479a23472b14ce88dd990b52a04ee02",
+  "at": 1794902856
+ }
+}

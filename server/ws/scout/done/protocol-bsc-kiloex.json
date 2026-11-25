@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-kiloex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1202,
+ "chain": "bsc",
+ "slug": "kiloex",
+ "name": "KiloEx",
+ "category": "Derivatives",
+ "tvl_usd": 556118,
+ "url": "https://app.kiloex.io/#/trade",
+ "github": null,
+ "listed_days_ago": 1202,
+ "run_id": "fe6140b1054f41c187de500536ec3680",
+ "result": {
+  "verdict": "unclear",
+  "line": "KiloEx BSC = order-book perp DEX (kusd=USDT, TVL 47k llama 2026-11-18); contracts from kiloex-ts-sdk@1.1.13 addressMap[BSC]: orderBook 0x746c1802...92E2, positionRouter 0x298e94D5...5D019, perpTrade 0x7C09a8df...f0864 (eth_getCode ok, minExecutionFee()=6.8e-5 answers); execute fns take a payable _feeReceiver; orderBook.executeOrders reverts 'OrderBook: not keeper' from fresh address but positionRouter.executeIncreasePosition(bytes32,address) does not revert; 7d counts/callers/gross unmeasured: bsc getLogs 'no provider available' both lanes (control same), explorer bsc down",
+  "kb": [
+   "attempts:0"
+  ],
+  "run_id": "fe6140b1054f41c187de500536ec3680",
+  "at": 1795040003
+ }
+}

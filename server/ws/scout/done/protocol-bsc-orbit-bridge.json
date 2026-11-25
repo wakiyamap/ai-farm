@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-orbit-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1552,
+ "chain": "bsc",
+ "slug": "orbit-bridge",
+ "name": "Orbit Bridge",
+ "category": "Bridge",
+ "tvl_usd": 716487,
+ "url": "https://bridge.orbitchain.io",
+ "github": [
+  "orbit-chain"
+ ],
+ "listed_days_ago": 1552,
+ "run_id": "5df3594fc080419bbaeb01acc6e27870",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BSC vault 0x89c5..b780 (impl of orbit-chain/bridge-contract Vault.impl.sol): 7d scan blocks 133128253-134471648 = 9 user deposits + 1 self-serve withdraw (0.1 BUSD to caller, gas 241k = bash.007 at 0.05 gwei, BNB 89); withdraw pays toAddr not a caller reward; 4 Venus farms (impl 0x05df..6853) 0 events in 28d, earn() reverts 'market not listed' from a fresh addr; no stranger paid.",
+  "kb": [
+   "attempts:2451",
+   "protocols:969"
+  ],
+  "run_id": "5df3594fc080419bbaeb01acc6e27870",
+  "at": 1795077682
+ }
+}

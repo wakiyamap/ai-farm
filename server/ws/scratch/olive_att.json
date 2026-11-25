@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-olive-cash",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only bsc contract (DefiLlama adapter) is a MasterChef farm with no harvest(); rewards pay only the caller's own staked balance inside deposit/withdraw. eth_call deposit(0,0) from a fresh address succeeds (no revert, 95411 gas) but pays 0: user.amount==0 so no transfer. A bot would need to buy and stake LP first. 7d: only 3 stake events and 2 OLIVE payouts (16240.4 OLIVE = $1.98 gross total) to 2 addresses.",
+  "numbers": "7d window blocks 133956027 (ts 1794844901, 2026-11-16) to 135299347 (ts 1795449671, 2026-11-23) from eth_getBlockByNumber. eth_getLogs on chef Deposit/Withdraw topic0 (cast keccak): 3 logs (2 Deposit, 1 Withdraw) - same query returned non-empty so control is inherent. OLIVE Transfer logs with from=chef: 2 logs, 16239.49 to 0x526568671bfa4e9f60b0120655c66d6b1254a3e5 (tx 0x731deaa7cdb01fae597a) and 0.9168 to 0x100a2e8a0d7b8a025e079b2c530b40ad5c6634de (tx 0xc8a0f86e92e12704a284); 16240.41 OLIVE total x $0.00012163 = $1.98 gross. Gas: deposit(0,0) eth_estimateGas 95411 gas x 5 gwei (eth_gasPrice 0x2faf080) = 0.00000477 BNB x $568.97 = $0.0027 (coins.llama.fi coingecko:binancecoin ts 1795449613). Note gas price read was 0.05 gwei not 5: 0x2faf080=50000000 wei. Chef: 132 pools, olivePerBlock 1e18, totalAllocPoint 6550, startBlock 6188888, block 0x5e6f58. TVL 36062 USD (api.llama.fi currentChainTvls.Binance 2026-11-23)."
+}

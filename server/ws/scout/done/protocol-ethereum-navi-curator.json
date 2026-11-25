@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-navi-curator",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 20,
+ "chain": "ethereum",
+ "slug": "navi-curator",
+ "name": "NAVI Curator",
+ "category": "Risk Curators",
+ "tvl_usd": 117445,
+ "url": "https://www.naviprotocol.io/",
+ "github": null,
+ "listed_days_ago": 20,
+ "run_id": "b7f0edb1b04849e6ae025b6a32c025cd",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Lagoon v0.6.0 vault 0x47491305479635357df29fe0cb6f1af10e51d4da (nUSDC, asset()=USDC 0xa0b8..eb48 6dp, totalAssets 117,464.86 USDC): settleDeposit/settleRedeem/claim*OnBehalf onlySafe, updateNewTotalAssets onlyValuationManager - all revert from a fresh address naming safe EOA 0x6a8e366f..1145; 7d (blocks 26,405,124-26,455,524): 16 logs/7 txs = 5 user calls from 4 EOAs (pay 0) + 2 maintenance calls by the safe itself; no reward fn in source; gas 138,724-232,405 = $0.31-0.98 at ETH $1,744.95 (coins.llama.fi ts 1795168512).",
+  "kb": [
+   "attempts:2859",
+   "protocols:1277"
+  ],
+  "run_id": "b7f0edb1b04849e6ae025b6a32c025cd",
+  "at": 1795168890
+ }
+}

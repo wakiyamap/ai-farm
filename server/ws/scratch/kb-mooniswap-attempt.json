@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-mooniswap",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Mooniswap (factory 0x71CD6666064C3A1354a3B4dca5fA1E2D3ee7D303 + 549 pools, all verified source) has no public callable function that pays the caller. Pool external surface is deposit/withdraw/swap (user actions bringing capital) + rescueFunds (onlyOwner); factory is deploy/setFee(onlyOwner). Fees accrue to LPs inside pool pricing; the only third-party payout is the optional referral mint on swap (1/20 of fee in LP tokens) and it pays a swapper, not a stranger - referral=0 in samples. Protocol is winding down: repo archived 2024, factory's last tx May 2024.",
+ "numbers": "TVL 421,889 USD (api.llama.fi/protocol/mooniswap, 2026-11-21). Pools: 549 (getAllPools() at block 26466036). Swapped events 7d across all 549 pools: 1,128 (eth_getLogs blocks 26415778 [2026-11-14 21:01] -> 26466036 [2026-11-21 21:01], 18 calls x 32 addresses; topic0 from cast keccak of the source event, verified by no-topic control scan on 0x75116bd1...406ed: 256/256 logs identical topic0). Top pool 7d swaps: 261. Referral arg = 0x0 in the 5 newest of 688 Swapped logs on the 3 busiest pools (0x75116bd1, 0xbeabef3f, 0x61bb2fda). Factory last tx block 19928869 (2024-05-23, failed deploy, explorer txs)."
+}

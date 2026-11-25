@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-cover-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "cover-protocol",
+ "name": "Cover Protocol",
+ "category": "Insurance",
+ "tvl_usd": 480566,
+ "url": "",
+ "github": [
+  "CoverProtocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "bbf7723add844e648540b76f39f29ec1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "cover-core-v1 (factory 0xedfC81Bf..AccA, 39 protocols, 38 active, 54 covers, 325,955 DAI + 132,066 aEthUSDC ~458k USD) has no reward function: the only anyone-callable fns redeem* pay the caller their OWN collateral (0.1% fee to treasury), fresh-address redeemNoclaim reverts 'COVER: low covToken balance'; 7d (blocks 26416408-26466664, 2026-11-14..21): 0 transfers, 0 ClaimManagement events, control same filter 365d = 30 dust transfers (0.0006-0.89 DAI), last 2026-11-01 block 26319621",
+  "kb": [
+   "attempts:3515",
+   "protocols:1781"
+  ],
+  "run_id": "bbf7723add844e648540b76f39f29ec1",
+  "at": 1795303474
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "moonwell-whale-base EURC borrow repeat-loop borrower 0x33a7ec10 (captures 55046981/55046982/55076179/55095244): same-block eligibility window",
+  "outcome": "blocked_infra",
+  "bot_id": "moonwell-whale-base",
+  "reason": "Measured 2026-11-10 run 74a09e74 (this session; relay lane=research block-tag getAccountLiquidity probes, scratch/mw-eurc-measure.json). All four measured captures of the repeat-default borrower 0x33a7ec1055edd4cc35ef289156c7a7a078043474 crossed the liquidation line only inside the capture block: the account's end-of-block shortfall is 0 at capture-1, -51, -501, -1501 and -5001 blocks (borrow posted mid-block by the loop EOA 0x1982a4851218b58c91e41b6c47a7f453fac1e1ec; the liquidator contract 0x122905f5958f9f20cc888b3f7e2ebefe81ac428e is called with compound liquidateBorrow 0x9d9ebc2a in the same block, tx 0x0c90eba8ac18bbacf72fccdd530b944020033547b5b973fd42faffc430708845). Window 0 blocks at the last 3+ measured captures = same-block-race class (decisions 2026-11-06-no-latency-race): a poll cannot catch it; leave to the incumbent loops. mUSDC collateral cash at capture-1 (81.9/7.8/2945 USDC vs seize 332498/31642/376256 mUSDC) is cash-starved on top, consistent with the mcbBTC/mcbXRP class (attempts 630/633)."
+}

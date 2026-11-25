@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-mev-capital",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. MEV Capital's hyperevm contracts are 5 MetaMorpho V1.1 ERC4626 vaults (DefiLlama adapter projects/mev-capital/index.js); no function anyone can call pays the caller - the only public entry points are ERC4626 user ops (no reward), acceptTimelock/acceptGuardian and skim (pays skimRecipient, not caller); all admin is role-gated. Only 7-day activity is 13 allocator multicalls on the WHYPE/HYPE vaults by a registered allocator paying its own gas; 4 of 5 vaults had zero txs.",
+ "numbers": "Vaults (eth_getCode ok, totalAssets eth_call): 0xd19e3d00f8547f7d108abfd4bbb015486437b487 WHYPE 11,001 (~$768k at HYPE $69.84, coins.llama.fi 2026-11-18) ~ whole candidate TVL 751k; 0x62bbfaa81f70dfc66fc5e03d5de64ceaad8473ad HYPE V2 11.9; 0x3bcc0a5a66bb5bdceef5dd8a659a4ec75f3834d8 USDT0 11,562; 0x4851d4891321035729713d43be1f4bb883dffd34 USDC 155; 0x8e1650d3343023c527b6a6cc0c2551bb100fe22b UBTC 0. 7d txs (explorer, cutoff ts 1794355000): 13 multicall, 1 caller 0xd582ccfacffdf28b217d3323455687e246b92287 (isAllocator()=true), 0 user deposit/withdraw, 0 paid to strangers. Gas per multicall 285,255 @ 0.1 gwei (eth_gasPrice 0x5f5e100) = 2.85e-5 HYPE = $0.002. Source MetaMorphoV1_1 via explorer (etherscan)."
+}

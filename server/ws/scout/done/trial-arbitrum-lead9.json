@@ -1,0 +1,21 @@
+{
+ "id": "trial-arbitrum-lead9",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "arbitrum",
+ "lead_id": 9,
+ "target": "aave-watcher-arbitrum catchable-window measurement on next live liquidation",
+ "retries": 1,
+ "run_id": "a171994eb0bf496c9e373413f5ea8b85",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Sample of 20 of 28 same-asset liquidations in 7d on Aave v3 arbitrum pool 0x794a..14ad (28 ev/25 tx/9 takers; all-asset 331/27): gross median $0.43, top $594.41 (0x79dc0b22 blk 524262905), 14/20 gross > attempt gas $0.058 (490k gas x 0.064 gwei, ETH $1829 DefiLlama); catchable window median 0 blocks, 13/20 taken in the first takeable block and every >$100 capture taken <=1 block (~0.26 s), only <=$0.14 dust sat liquidatable 4-1024+ blocks; winner priority fee median 0.044 gwei - pays_strangers but the pollable window on the big victims is 0.",
+  "kb": [
+   "attempts:1489",
+   "leads:9"
+  ],
+  "run_id": "a171994eb0bf496c9e373413f5ea8b85",
+  "at": 1794866949
+ }
+}

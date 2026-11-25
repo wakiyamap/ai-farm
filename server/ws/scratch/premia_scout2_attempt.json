@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-premia-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Permissionless pool update and reward claim have no stranger payout. Mining claims go to the account with TVL, and fee withdrawals go to a fixed receiver; option withdrawals return position owners' funds.",
+  "numbers": "7d window blocks 26430844 (2026-11-16 23:20:59 UTC) to 26481086 (2026-11-23 23:20:59 UTC), timestamps via eth_getBlockByNumber. No-topic eth_getLogs on 9 protocol addresses: 0 events; same-shape no-topic DAI control: 179 logs in blocks 26481018-26481086. Factory getPoolList(): 7 pools. Fresh-address eth_call on first pool: update(), updateMiningPools(), claimRewards(false) completed with void 0x; withdrawFees() returned two zero amounts. Source: Etherscan PoolIO/PoolInternal verified source and DefiLlama premia adapter. Gross stranger reward: 0 token units (no bounty in code); USD/gas per reward call inapplicable."
+}

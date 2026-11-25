@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-looped-hype",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 619,
+ "chain": "hyperevm",
+ "slug": "looped-hype",
+ "name": "Looped Hype",
+ "category": "Yield",
+ "tvl_usd": 4738275,
+ "url": "https://www.loopingcollective.org/",
+ "github": null,
+ "listed_days_ago": 619,
+ "run_id": "4f2065bf79ca427baa9541945616daaf",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Paxos BoringVault stack (vault 0x5748..5562, accountant 0xcE62..01c3); no reward fn in any ABI; updateExchangeRate reverts UNAUTHORIZED from stranger, claimFees onlyCallableByBoringVault, bulkWithdraw SOLVER_ROLE; 7d (blocks 50948547-51566146): 3 rate updates by 1 keeper EOA 0x77e9..e23a, 4 manages by 1 strategist 0x9a81..616a (UltraYield), 1585 user transfers, 0 paid to strangers; keeper gas bash.001/manage (159k x 0.1 gwei, HYPE 8.55 coins.llama.fi) pays itself",
+  "kb": [
+   "attempts:1987",
+   "protocols:588"
+  ],
+  "run_id": "4f2065bf79ca427baa9541945616daaf",
+  "at": 1794975298
+ }
+}

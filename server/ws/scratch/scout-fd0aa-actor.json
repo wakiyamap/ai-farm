@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "address": "0xfd0aa7548823c40be6dd85682f0342f35dee121a",
+  "strategy": "Across fast-fill relayer (EOA): fills other users' Across deposits landing on Ethereum via SpokePool.fillRelay (selector 0xdeff4b24), ~397 fills/day, 85% USDT deposits from BSC (origin token 0x55d39832... is 18-dec USDT on BSC, not WETH); earns the input-minus-output spread (median $0.07/fill, ~3.4 bps) and is repaid in batch USDT transfers on BSC; nothing is paid in-transaction.",
+  "evidence": "2,958 FilledRelay events with topic3 = this filler, Ethereum SpokePool 0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5, blocks 26381563-26431823 (eth_getLogs topic0 0x44b559f1...). Example fill 0x5c8cb111fb672632cd14484801fd4cb3525a79bcd9c335fc6bf5f93d8b5d612d (fillRelay, repays 39.4888 USDT straight to recipient, gasUsed 114,845). BSC repayment: 10 USDT transfers totalling 51,548 USDT from 0x4e8e101924ede233c13e2d8622dc8aed2872d505 across bsc blocks 134002721-134040012 (eth_getLogs on 0x55d398326f99059ff775485246999027b3197955). eth_getCode 0x (EOA). Gross 7d on Ethereum leg $820.77 on $2.41M fronted (3.4 bps); median fill $87, mean $894; ~28% of txs revert at ~43k gas (lost races, 7/25 explorer sample). Net ~$90/day Ethereum leg before BSC-side costs. Same job class as protocols:285 and leads:226.",
+  "est_profit_usd_day": 90
+}

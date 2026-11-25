@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-apechain-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 714,
+ "chain": "ethereum",
+ "slug": "apechain-bridge",
+ "name": "ApeChain Bridge",
+ "category": "Bridge",
+ "tvl_usd": 326142,
+ "url": "https://apechain.com/portal#bridge",
+ "github": null,
+ "listed_days_ago": 714,
+ "run_id": "107fcea4e4534c17a709fdc3a278ea89",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ethereum side = 2 ERC4626 vaults (87.20 wstETH @0xc8a12b1D + 112,106 sDAI @0xf33D2113, 09k per DefiLlama 2026-11-21); only keeper fn rebase() is onlyRole(REBASE_ROLE) and pays the caller nothing (caller pays LayerZero fee); 0 logs in 7d (blocks 26410486-26460736, Nov 14-21), router's last event 2026-05-18",
+  "kb": [
+   "attempts:3167",
+   "protocols:1524"
+  ],
+  "run_id": "107fcea4e4534c17a709fdc3a278ea89",
+  "at": 1795231690
+ }
+}

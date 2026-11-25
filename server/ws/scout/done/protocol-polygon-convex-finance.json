@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-convex-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "convex-finance",
+ "name": "Convex Finance",
+ "category": "Yield",
+ "tvl_usd": 158502,
+ "url": "https://www.convexfinance.com/",
+ "github": [
+  "convex-eth"
+ ],
+ "listed_days_ago": null,
+ "run_id": "9500ad3146a441fa85468e213a2ec956",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Convex Polygon = L2 Booster port 0xF403C135... (18 pools, 17 active, TVL 152k): no function pays a caller - claimCrv reverts '!auth' from fresh addr, reward contracts' unguarded getReward pays the account's own accruals; 7d: 0 RewardPaid, 0 Deposited/Withdrawn (51d control same query: 15 claims = 6,374 USD gross to stakers, 32,377 CRV + 0.77 CVX + 127.5 crvUSD; claim gas 0.003-0.03 USD); dormant.",
+  "kb": [
+   "attempts:2828",
+   "protocols:1252"
+  ],
+  "run_id": "9500ad3146a441fa85468e213a2ec956",
+  "at": 1795163260
+ }
+}

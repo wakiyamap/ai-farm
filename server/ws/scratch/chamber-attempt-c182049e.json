@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-chamber-vaults",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Public mintManagerFee pays vault manager and DAO, while limit-order execution is keeper gated; checked swap completion pays the depositor. No public caller reward in the core Ethereum contracts inspected.",
+  "numbers": "At Ethereum head 0x19410fd (2026-11-23), factory getDeployedFunds() returned 101 vault addresses (rpc.py eth_call to 0x96D33bCF84DdE326014248E2896F79bbb9c13D6d). Live PoolLogic via factory getLogic(2): 0xad3384d295b35f12f698ae923c864b8729a06b0f, Etherscan verified source PoolLogic.sol lines 775-820 mints fee only to manager/DAO. Fresh-address eth_call to 0x95B19De479bc693721cab39Da98FfECE062f5Ea4 executeLimitOrders([]) reverted 0x66f4432e = NotAuthorizedKeeper(address). Gross to arbitrary caller: none by source; USD/gas per reward call: N/A. Sources: Chamber docs contract-addresses.md, published versions.json, explorer source, relay eth_call/getCode."
+}

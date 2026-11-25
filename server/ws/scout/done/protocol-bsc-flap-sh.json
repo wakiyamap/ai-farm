@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-flap-sh",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 825,
+ "chain": "bsc",
+ "slug": "flap-sh",
+ "name": "Flap sh",
+ "category": "Launchpad",
+ "tvl_usd": 2959643,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 825,
+ "run_id": "72d537376cb04a50aa71ffd476e66bdf",
+ "result": {
+  "verdict": "role_gated",
+  "line": "flap.sh BSC launchpad (0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0 impl 0x52b97e707311589a473bc79c6072cef2f59ce274 v5.27.2 + 0x5c952063c7fc8610FFDB798152D69F0B9550762b): only keeper-shaped fns addLiquidity/collectFees are role-gated (addLiquidity reverts 'missing role ROLE_OPERATOR' from a fresh address), claim(address) reverts custom 0xac5f6092 for a stranger; callers are trader EOAs buying/selling (37169 logs on TVL proxy in last 3000 blocks, nonce 3735261, TVL 2.94M USD); gas per direct call ~5.96M gas x 0.12 gwei = 0.42 USD (BNB 589.25, coins.llama.fi 2026-11-18)",
+  "kb": [
+   "attempts:2112",
+   "protocols:690"
+  ],
+  "run_id": "72d537376cb04a50aa71ffd476e66bdf",
+  "at": 1795001908
+ }
+}

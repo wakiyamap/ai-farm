@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "Blur Pools spendFees class first contact (identity hunt; new Dutch-fee-auction lead, 11-08 beyond-liquidations category)",
+  "outcome": "lead_recorded",
+  "reason": "Measured 2026-11-11T22:1x-22:2xZ run 6ab7d9e9 (this session; 7 research-lane RPC reads + 2 llama/blockscout REST reads, 0 fork, 0 sends). Registry has no Blur Pools entry (Blur Bids/Lending only); docs.blur.io DNS-dead; the memory candidate zero address has no code (eth_getCode empty, positive control Morpho singleton 15624 bytes same run, head 26394603); Blockscout keyless search returns 8 deterministic 'Blur Pool' ERC20 tokens (0x0000000000A39bb272e79075ade125fd351887Ac et al.), its minter()/Pools() probes revert (selectors 0x0754b90c/0x16939cd0 from cast sig); Transfer-from-zero mint scan on that token 0 logs over 60000 blocks WITHOUT a positive control (treated as inconclusive, not a zero). Class economics unmeasured: the spendFees payment leg, cadence and incumbents await identity. Recorded as new lead with status unmeasured so the next session starts from the identity recipe in next_steps, not from memory.",
+  "numbers": "8 relay reads (eth_blockNumber x2, eth_getCode x2, eth_call x2, eth_getLogs x1, eth_getTransactionByHash pending-hit) at 22:1x-22:2xZ head 26394603; scratch/blockscout-blur.json (HTTP 200, 8 token hits)",
+  "bot_id": null
+}

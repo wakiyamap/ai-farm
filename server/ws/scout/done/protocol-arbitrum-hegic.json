@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-hegic",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "hegic",
+ "name": "Hegic",
+ "category": "Options",
+ "tvl_usd": 7154728,
+ "url": "https://www.hegic.co",
+ "github": [
+  "hegic"
+ ],
+ "listed_days_ago": null,
+ "run_id": "d38d56f47bc344c18a4ffab19c2ead32",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "HegicStakeAndCover.claimProfit() (0x60898d..5D5d, ungate) paid 3 distinct EOAs 17.58/47.18/38.61 USDC in last 7d (max 2,905.22 Nov 11), gas 98-118k gas @0.02 gwei = ~$0.004 (ETH $1,769.92); pool holds 1,037,114 USDC; caveat: pays the caller's own staked HEGIC yield (LP harvest, not a bounty; no first-come race); herge CoverPool.claim paid 0 in 7d (last 23.04 USDC Nov 11, pot 1,750 USDC); no liquidations/auctions/keeper fees.",
+  "kb": [
+   "attempts:2621",
+   "leads:305"
+  ],
+  "run_id": "d38d56f47bc344c18a4ffab19c2ead32",
+  "at": 1795118088
+ }
+}

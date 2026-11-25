@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-sablier-legacy",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "sablier-legacy",
+ "name": "Sablier Legacy",
+ "category": "Payments",
+ "tvl_usd": 401939,
+ "url": "https://legacy-recipient.sablier.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "0beb0f9c8bed4f70b5ed845d5a268cce",
+ "result": {
+  "verdict": "role_gated",
+  "line": "withdrawFromStream/cancelStream require onlySenderOrRecipient (confirmed by eth_call revert); takeEarnings is onlyOwner; 0 events on both v1.0.0 and v1.1.0 in last 7d (blocks 26418070-26468470; control found 3 events in prior window confirming topic0)",
+  "kb": [
+   "attempts:3601"
+  ],
+  "run_id": "0beb0f9c8bed4f70b5ed845d5a268cce",
+  "at": 1795324661
+ }
+}

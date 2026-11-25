@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-tulipa-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "tulipa-capital",
+ "name": "Tulipa Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 35662251,
+ "url": "https://www.tulipa.capital",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "07484392cb564c6cb7cdac0551ffe4ab",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Tulipa has no own ethereum contracts (TVL 33,964,326 USD in Lagoon/Ember/BoringVault/MetaMorpho vaults it curates); keeper fns settleDeposit(uint256)/updateNewTotalAssets(uint256) on Lagoon 0xce0b790a revert from a stranger naming operator EOAs 0x4018327d/0xaa4e1057, which made 10 of 12 vault txs in 7d (ts 1789172151..1795216951) paying the caller 0; gas ~0.034 USD/150k at 0.139 gwei (ETH 1618.20 USD)",
+  "kb": [
+   "attempts:3097",
+   "protocols:1472"
+  ],
+  "run_id": "07484392cb564c6cb7cdac0551ffe4ab",
+  "at": 1795217236
+ }
+}

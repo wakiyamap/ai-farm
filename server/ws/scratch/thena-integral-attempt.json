@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-thena-integral",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. THENA Integral is the Algebra Integral AMM (cryptoalgebra) on bsc: the functions anyone can call on factory and pools (createPool, mint, burn, collect, swap, swapWithPaymentInAdvance, flash) are user actions that settle their own value and pay no reward to the caller; everything else is role-gated (POOLS_ADMINISTRATOR_ROLE setters, COMMUNITY_FEE_WITHDRAWER takes the accumulated community fee). The ALM vault layer (cryptoalgebra/AlmVault integral-1.2.2) has rebalance() behind onlyRebalancerOrRebalanceManager and collectRewards() that routes farming rewards to the vault, so no stranger is paid either. No keeper/incentive mechanism found.",
+  "numbers": "TVL 1,767,246 USD (DefiLlama, session context 2026-11-17). bsc block time measured 0.45 s (blocks 134185506->134186506 timestamps). Last 4999 blocks (134181507-134186506, ~37 min): Swap events on pool THE/WBNB 0xc268ee337543a62115d46109d6771f1cf068063b = 0, Pool creations on factory 0x30055F87716d3DFD0E5198C27024481099fB4A98 = 0; same-shape control Transfer logs on CAKE 0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82 (symbol() verified on-chain) = 813, so the zeros are real. getLogs on paper lane (research lane hit bsc public-node rate limit)."
+}

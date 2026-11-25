@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-xsigma",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1836,
+ "chain": "ethereum",
+ "slug": "xsigma",
+ "name": "xSigma",
+ "category": "Dexs",
+ "tvl_usd": 317163,
+ "url": "",
+ "github": [
+  "xSigmaLabs"
+ ],
+ "listed_days_ago": 1836,
+ "run_id": "efd2d0eb452f45b1bcab69c17f8d3a46",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Anyone-callable reward fns pay a stranger 0 USD: SigThreePoolProxy.withdraw_admin_fees() pays fee excess (1,184 DAI + USDC/USDT) to its own dead PeriodicDutchAuction and reverts now (debug_traceCall 2026-11-21); MasterChef 0 logs / auction 0 logs in 7d (blocks 26414728-26466148; control: 96 pool events on proxy), exchange2 cashback pot 1.2e-9 ETH, emission 0.69 SIG/day = 0.001 USD; gas ~0.02 USD (baseFee 0.12 gwei).",
+  "kb": [
+   "attempts:3479",
+   "protocols:1756"
+  ],
+  "run_id": "efd2d0eb452f45b1bcab69c17f8d3a46",
+  "at": 1795296602
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-dacm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 69,
+ "chain": "arbitrum",
+ "slug": "dacm",
+ "name": "DACM",
+ "category": "Risk Curators",
+ "tvl_usd": 451129,
+ "url": "https://dacm.io",
+ "github": null,
+ "listed_days_ago": 69,
+ "run_id": "5863e3d23ca3451a9adcb227c37198ed",
+ "result": {
+  "verdict": "role_gated",
+  "line": "DACM = one Lagoon ERC-7540 vault 0x018282d5b510f00dcacb8f4a81c3901d2fc9da51 on Arbitrum (451,181 USDC): settleDeposit/settleRedeem/close onlySafe, updateNewTotalAssets onlyValuationManager (all revert from fresh address); last 7d only DACM's Safe 0xbd3023f4... (5 NAV activations) and valuation manager 0xbb3b351e... (6 proposals) transacted, fees 17.28+1.92 USD/week go to feeReceiver/protocolFeeReceiver not the caller, gas 0.005 USD/call (ETH 1828 USD, coins.llama.fi), zero user deposits/redeems - no stranger paid",
+  "kb": [
+   "attempts:1614",
+   "protocols:313"
+  ],
+  "run_id": "5863e3d23ca3451a9adcb227c37198ed",
+  "at": 1794896619
+ }
+}

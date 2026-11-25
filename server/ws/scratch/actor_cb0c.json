@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "address": "0xcb0c3e880194008e5641c48a6b54ccf67a9bf2a9",
+ "strategy": "UniswapX V3 Dutch-order RFQ filler on Base: gas EOA 0x5eadde9f144368d4cbe49fc9d1b471c182fed9fd calls this executor's swap(...) (0xdcefb5f7, SwapRouter02-style array); executor calls V3DutchOrderReactor 0x000000008a8330b5d1f43a62bf4c673a49f27ba0 executeWithCallback (0x0d335884), covers input->output on Uniswap V2/V3 pools inside the reactor callback (0x585da628), delivers output to the swapper and sweeps the in-tx spread (in the fill's output token) to treasury 0xcbb152bbad8b50dd3567ed96fe1db3d0dc224903. ~60-76 fills/day, 1 fill per tx, gross ~$0.24/fill, gas ~$0.007/fill.",
+ "evidence": "txs (sample of 9 of 305 ledger-recorded fills 2026-11-12..15 + 111 fills via eth_getLogs 57769609-58415911): 0x08be598e6b24e4ae8164fecd8c615c4428583277607531226294af24fd0b2b1b (trace: reactor 0d335884, callback swap on V2 pair 0x85f1aa3a70fedd1c52705c15baed143e675cd626, sweep USDC 162309 to treasury), 0xe6fb3d397aeaa140676d6489814cb867486bb51e193881e83fb3b90ff89ddaa9, 0xe7f27c749fce183b148b35e8b7f2b83f8e309b5f1fc83886965d84eccb888a41, 0xfa02259e54a51d575fedbac2f9f6f8ef706157799170778fa8815ca2f8c8374f, 0x10bad8f387344f6f99c66749810e87f6133dc9f99b0a0cc7042fdf480760ec08. exclusiveFiller == executor embedded in order bytes (trace of 0x08be598e); matches protocols 284 / leads 219 / lead 166 RFQ findings.",
+ "est_profit_usd_day": 14
+}

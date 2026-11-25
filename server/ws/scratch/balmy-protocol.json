@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "balmy",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/meanfinance/index.js YIELD_VERSION 0xA5AdC5484f9997fBF7D405b9AA62A7d88883C345 (code present; verified on explorer as mean-finance dca-v2-core DCAHub). paused()=1, swapFee()=6000 (0.6%). The only function that pays a caller is swap() (DCAHubSwapHandler.sol): public nonReentrant whenNotPaused, transfers the swap-fee surplus as `reward` to any _rewardRecipient the caller picks - but it reverts today because the hub is paused (0 Paused events in 90d, so paused >90d). Swapped topic0 0xcd70d819eddb1c1256dfb394594df26f85cdba0554232914fe64f842bec10f83 (from verified source): 0 events in 7d, 90d and 365d; control = same-window no-topic scan of this hub returned 731 logs, topic0 census Terminated(730)+Withdrew(1), no unknown topic0. Last 7d (blocks 524751649 2026-11-16 -> 526809291 2026-11-23): 30 terminate() calls, 30/30 caller == both recipients, 29 distinct EOAs = users exiting their own positions (terminate is TERMINATE-permission gated, pays the owner, not the caller). Legacy yieldless hub 0x059d306A25c4cE8D7437D25743a8B94520536BD5: has code, 0 logs in 7d; VULN version 0x230C63702D1B5034461ab2ca889a30E343D81349: no code on arbitrum. DefiLlama deprecated:true deadUrl:true; arbitrum TVL 25.5k USD is being wound down."
+}

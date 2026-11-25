@@ -1,0 +1,18 @@
+{
+ "run_id": "10c9c891e2f54d70b659dee1fb07183f",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "aave-watcher-arbitrum cross-asset (b) fork success (lead 15)",
+ "outcome": "lead_recorded",
+ "kb_rows": [
+  "attempts:128",
+  "attempts:129",
+  "leads:15"
+ ],
+ "bot_ids": [
+  "aave-watcher-arbitrum"
+ ],
+ "injection_seen": false,
+ "notes": "Completed the eligibility half of the (b) evidence on the live arbitrum anchor: withdrew the synthetic victim through the supposed 1.0371 floor (a real floor is ~1.0000), re-measured the pool cross-asset eligibility boundary below 1.000252 (0x930bb771 HealthFactorNotBelowThreshold probes), mapped the borrow guard (0x911ceb81 CollateralCannotCoverNewBorrow) and the disabled stable borrow. (b) success itself stays open for one cheap step: anvil_setStorageAt a ~0.2% WETH price drop at the getPriceOracle mapping slot (find it with cast storage --full); forktest7.js already contains the path and the live fork state is kept (victim hf 1.000252, executor 0x14115b5f...). Registry transfer-check fallback untested until eligibility passes. Scripts forktest4..7.js + evidence v4..v7 in scratch/aave-executor-arbitrum/.",
+ "wiki_pages": []
+}

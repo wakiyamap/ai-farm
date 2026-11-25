@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-allblue-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. AllBlue V3 is a Crypto.com Coral-style concentrated-liquidity AMM (43 pools). The public payout functions are LP self-service: collect/collectReward pay msg.sender's own accrued fees/rewards (fresh-address eth_call returns 0), and the only permissionless state-advancing payout fn, collectProtocolFee, pays accrued protocol fees to a fixed recipient (masterDeployer.protocolFeeTo 0x52fb7d3ab53d5a8d348b15ea7e3f7bfe35dd35f1), not the caller, so a stranger pays gas and receives 0. No keeper/reward-distribution function pays a caller exists in the stack (factory setters are onlyManager/onlyOwner, deployPool is masterDeployer-only, depositAirdropAndReward is airdropDistributor-only).",
+  "numbers": "totalPoolsCount()=43 @block 100809563; logger 0x77c8dffe4130fe58e5c3c02a2e7ab6db7f4f474f over blocks 100020213-100809563 (7d): Collect=792, Swap~6885/day (sample of 110k blocks); collectReward(lower,upper,amount) from fresh addr on pool 0x162c79b641de90c14a8b02b061bf53d8a8cb6c01 returns 0; collectProtocolFee from fresh addr returns (5682911, 7935799) = 5.68+7.94 USDC.e (6-dec, token1 0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e) ~13.6 USD paid to protocolFeeTo, 0 to caller; gas est 160,669 x 7.52 gwei = 0.0012 WAVAX ~ $0.008 (WAVAX $6.93, coins.llama.fi 2026-11-19 21:12 UTC); pool rewardToken = WAVAX 0xab4fBa02a2905a03adA8BD3d493FB289Dcf84024"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-pancakeswap-amm-v3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1325,
+ "chain": "ethereum",
+ "slug": "pancakeswap-amm-v3",
+ "name": "PancakeSwap AMM V3",
+ "category": "Dexs",
+ "tvl_usd": 25340618,
+ "url": "https://pancakeswap.finance/swap",
+ "github": null,
+ "listed_days_ago": 1325,
+ "run_id": "4fe3f5a291fc4c0389ff973a5172ba22",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PancakeSwap V3 ethereum (factory 0x0BFb...1865, MCv3 0x556B...d59e, 95 farms): harvest/collect revert NotOwner 0x30cd7471 from fresh callers (source line 384, no signature path); Harvest 7d (blocks 26414153-26464310, topic0 from receipt): 14 events, 14/14 self-harvest EOA LPs, 275.9 CAKE = 405 USD total, avg 29 USD/call, gas 156k = 0.08 USD (CAKE 1.47, ETH 1675 coins.llama.fi); only updateLiquidity is anyone-callable and pays 0",
+  "kb": [
+   "attempts:3368",
+   "protocols:1677"
+  ],
+  "run_id": "4fe3f5a291fc4c0389ff973a5172ba22",
+  "at": 1795274625
+ }
+}

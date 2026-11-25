@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-listapie",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the only stranger-callable reward-ish function (ListaStaking.harvestVeListaRewards(uint16)) succeeds from a fresh address but pays 0 (debug_traceCall: no internal calls, veListaDistributor.getClaimable=0); everything else is role-gated (unlockVeLista Ownable, batchClaimVotingRewards OnlyBribeManager, batchHarvestDistributors custom-error revert). Protocol is nearly dead: 0 events on the ListaStaking proxy and 5 logs (3 txs, one a user self-claim) on MasterListapie in 7 days. No stranger was paid.",
+  "numbers": "7d window blocks 133801003 (2026-11-15) to 135144455 (2026-11-22), 4-chunk eth_getLogs: ListaStaking proxy 0x76865d4bfa513a3dd7f8a9977f3dd71e8ab2ca97 = 0 logs, MasterListapie 0xdd386880c277c3c27f604f4c35b029bae0340853 = 5 logs/3 txs (0xb66856d6..., 0xca79f762... via router 0xb410a575a7e3584ac952a0757abe51340c139f0d; 0x37677f31b05c929a3e2fcecb2e9f51428ad69e248cc702e2de0a2a61d57ff0cb EOA 0xf5f224836577c5f5559ee1a2ce6dd88615026b9b multiclaimSpec self-claim). Control: same-shape LISTA 0xFceB... logs scan = 7 logs/519 blocks (relay probe bsc getlogs-range 15/8 blocks). veListaDistributor LISTA balance 584,757 LISTA = ~42,615 USD at 0.07288 USD/LISTA (coins.llama.fi bsc:0xFceB31A79F71AC9CBDCF853519c1b12D379EdC46, 2026-11-22 20:51 UTC) but getClaimable(ListaStaking,90)=0. Gross to stranger per call: 0 USD. Gas BSC ~0.0003 BNB negligible. DefiLlama tvl_usd 56,903."
+}

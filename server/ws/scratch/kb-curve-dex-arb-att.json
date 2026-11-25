@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-curve-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The only function anyone can call for pay in the Curve DEX deployment on arbitrum is hooker act()/duty_act (weekly crvUSD fee-forward to L1 via LayerZero), and it pays compensation 0: the hook compensation_strategy amount=0 limit=0 and the fee_collector crvUSD pot holds raw 0. The 5+2 registry pools themselves offer no caller-paid function (claim_admin_fees donates to LPs) and there is no local minter (get_address(MINTER) reverts), so the ethereum harvest-bounty class does not exist here.",
+ "numbers": "7d blocks 523281576-525700776: Act x1 compensation 0 crvUSD (tx 0xef0c1e9f47d63c96c9ebbf2a68e43e6fc84c911ac98427389c790a2384de8f88, caller EOA 0x609c873861fe5db54ec982d476d6535c1561f94c via deployed 0x8aecd11651d67fe9b0d7d898d58f5041b7113dd6), DutyAct x1; fee_collector 0x68E7F1e30E0BC195B19C0441Cdb34c0eD513F8Dd crvUSD balance raw 0 (decimals 18 read on chain, token 0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5); gas whole act tx 1,917,440 @ 0.02 gwei = 0.0000383 ETH = $0.07 (ETH $1770.48 coins.llama.fi 2026-11-19T19:14Z), duty_act subtree 906,952 gas ~$0.03; hooker 0x7DFA49E4F5A6dEB21B1964Bf520Eeaaf1D965c24; registries 0x445fe580ef8d70ff569ab36e80c647af338db351 pool_count=5, 0x0e9fbb167df83ede3240d6a5fa5d40c6c6851e15 pool_count=2; control USDC Transfer 22,948 logs/5,800 blocks."
+}

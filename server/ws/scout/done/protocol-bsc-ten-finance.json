@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-ten-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "ten-finance",
+ "name": "TEN Finance",
+ "category": "Yield",
+ "tvl_usd": 185296,
+ "url": "https://ten.finance",
+ "github": [
+  "tenfinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "0064fe856ecb487ea96334ea743b9892",
+ "result": {
+  "verdict": "role_gated",
+  "line": "earn() (only compound fn on 19/19 active Beefy-v2 strats, MC 0x264A1b...C1A96, 105 pools) is onlyGov=true, fresh-address eth_call reverts '!gov'; its 0.8% fee pays rewardsAddress not msg.sender; lastEarnBlock max 31.6M vs block 134.6M (no earn since 2021); emissions dead (getMultiplier=0, pendingTENFI=0); last 7d: 178 MC Deposit/Withdraw events (zero-pay aggregator harvests), gross to a stranger per call = 0 USD.",
+  "kb": [
+   "attempts:2784",
+   "protocols:1216"
+  ],
+  "run_id": "0064fe856ecb487ea96334ea743b9892",
+  "at": 1795153605
+ }
+}

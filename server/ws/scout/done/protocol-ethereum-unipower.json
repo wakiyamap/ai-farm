@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-unipower",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1816,
+ "chain": "ethereum",
+ "slug": "unipower",
+ "name": "UniPower",
+ "category": "Yield",
+ "tvl_usd": 187518,
+ "url": "https://unipower.network",
+ "github": null,
+ "listed_days_ago": 1816,
+ "run_id": "2704a9aef15b4f6dbca1384545530269",
+ "result": {
+  "verdict": "unpaid",
+  "line": "no function pays a stranger: EthPrime.claimDivs (0xe40e1531) is open but pays the caller's own dividends (fresh-address eth_call: 0 ETH, gas 55714 = 0.011 USD), StaticPower withdraw/reinvest revert (onlyDivis), LiquidityVault.distributeTradingFees gated to one EOA (blobby 0xc951d346); 0 events on the 3 dapp contracts in 7 d (blocks 26415785-26466041, 2026-11-14..11-21; control: same query returned 10 POWER-token logs), last calls 2026-03-29 / 2026-02-20 / 2024-06-23; pots are depositor money: EthPrime 106.887 ETH = 179,858 USD, StaticPower 116,655 POWER = 11,339 USD.",
+  "kb": [
+   "attempts:3476",
+   "protocols:1753"
+  ],
+  "run_id": "2704a9aef15b4f6dbca1384545530269",
+  "at": 1795295476
+ }
+}

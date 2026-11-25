@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-sudoswap-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1582,
+ "chain": "ethereum",
+ "slug": "sudoswap-v1",
+ "name": "Sudoswap V1",
+ "category": "NFT Marketplace",
+ "tvl_usd": 328095,
+ "url": "https://sudoswap.xyz",
+ "github": null,
+ "listed_days_ago": 1582,
+ "run_id": "52ec2ed4d1c14ce28587147c1df543fc",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Sudoswap V1 = LSSVM AMM; factory 0xb16c1342E617A5B6E4b631EB114483FDB289c0A4 (protocolFeeMultiplier()=0.5% answers), 39,453 pools created, 4 routers. Verified source has no reward/claim/harvest/settle/epoch fn: non-view externals are only swaps (caller supplies input), pair creation, deposits; change*/withdraw*/set* all onlyOwner. 7d (blocks 26,415,030 11-14 .. 26,469,055 11-21): 0 NewPair (control: logs in 2022 windows), 0 SwapNFT* in 96-of-39,453 pool sample (topic0 from receipt; control gave 2 logs on Nov-9 pools' window); main router last tx 2026-11-09. TVL 13k.",
+  "kb": [
+   "attempts:3424"
+  ],
+  "run_id": "52ec2ed4d1c14ce28587147c1df543fc",
+  "at": 1795285738
+ }
+}

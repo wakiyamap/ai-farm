@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-bitway-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 249,
+ "chain": "bsc",
+ "slug": "bitway-earn",
+ "name": "Bitway Earn",
+ "category": "Basis Trading",
+ "tvl_usd": 32358657,
+ "url": "https://bitway.com/",
+ "github": [
+  "bitwaylabs"
+ ],
+ "listed_days_ago": 249,
+ "run_id": "be0ca4267eea4353bae947a0c0d1b6ef",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Two BSC vaults (0x5C4a...2BD1 ABS, 0xb82E...3B63 CORE, github bitwaylabs/bitway-earn Vault.sol, TVL $32.3M): all payouts (claim/cancelClaim/flashWithdrawWithPenalty) send principal+yield to msg.sender and require claimItem.user==msg.sender (fresh-address eth_call reverts), no keeper/reward function exists; 7d requestClaims=92 (85+7, lastClaimQueueID diff over blocks 132776025->134119187); sample of 4 events in ~2.1h: claims of 5.86-20.89 USDT(18dp) to depositors themselves, gas 279052 @0.052 gwei = $0.009 (BNB $593.62, coins.llama.fi).",
+  "kb": [
+   "attempts:1721",
+   "protocols:388"
+  ],
+  "run_id": "be0ca4267eea4353bae947a0c0d1b6ef",
+  "at": 1794918864
+ }
+}

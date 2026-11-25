@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "Reservoir Protocol rUSD local PSM mint/redeem arbitrage on BSC",
+  "status": "dead_end",
+  "why": "Official Reservoir address list places its PSM core on Ethereum and lists only bridged rUSD/wsrUSD tokens on BNB. At BSC head 134613592 the official rUSD token answers ERC20 getters but lacks the PSM redeem(uint256) selector and reverts to a fresh caller; the address equal to Ethereum's USDC PSM is wsrUSD on BSC. Without a verified BSC PSM, the local atomic arbitrage leg cannot be built.",
+  "next_steps": "Reopen only if Reservoir's own deployment list adds a BSC PSM with a confirmed redeem getter and usable local stablecoin liquidity. First call a known getter at the new address, then test fresh-address entry and quote a 400 USD or flash-funded same-transaction round trip. Do not use the unrelated same-name BSC token 0xa9015634...8e2a3. Evidence: attempts row from run 9a8b08bf; scratch/reservoir-addresses.md and scratch/reservoir-rusd-bsc-redeem*.json."
+}

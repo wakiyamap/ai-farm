@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-hyperlane",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 263,
+ "chain": "optimism",
+ "slug": "hyperlane",
+ "name": "Hyperlane",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 115181,
+ "url": "https://www.hyperlane.xyz/",
+ "github": null,
+ "listed_days_ago": 263,
+ "run_id": "f86f93785ccc406ba6addede67986dac",
+ "result": {
+  "verdict": "unpaid",
+  "line": "No on-chain pay to callers: Mailbox.process (896 deliveries 7d on 0xd4C1905B..CC80D, sample 12/12 from one relayer EOA 0x74cae0ec..7970c5, gas ~$0.065/call) records the processor but transfers nothing; IGP.claim() (0xD8A76C4D..995C) is permissionless but sweeps the whole pot to fixed beneficiary 0xa7ECCDb9..d9ba (Hyperlane ops) - called 2x in 7d by that beneficiary itself; pot 0.0592 ETH = $108 at ETH $1,821 (coins.llama.fi), claim gas ~$0.02; gross to a stranger: $0.",
+  "kb": [
+   "protocols:398",
+   "attempts:1733"
+  ],
+  "run_id": "f86f93785ccc406ba6addede67986dac",
+  "at": 1794921326
+ }
+}

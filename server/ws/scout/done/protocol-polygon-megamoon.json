@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-megamoon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1248,
+ "chain": "polygon",
+ "slug": "megamoon",
+ "name": "MegaMoon",
+ "category": "Luck Games",
+ "tvl_usd": 39560,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1248,
+ "run_id": "6c44d323daa24104872c89c6eeefd77d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated + dormant: lottery lifecycle (close/start/draw) is onlyOperator with no bounty, claim/deposit/withdraw are onlyMegamoonUser whitelist (fresh-addr eth_call reverts); 0 events on all 3 contracts in last 7d (blocks 97396000-97793874, 2026-11-16 to 11-23, control USDT 5683 logs/1000 blk), last tx 2024-01-02, round 415 stuck Claimable since 2023-12-13, 39,642.7 USDT idle (lottery 800 + dealer 38,837 + referral 5.4).",
+  "kb": [
+   "attempts:3955",
+   "protocols:2098"
+  ],
+  "run_id": "6c44d323daa24104872c89c6eeefd77d",
+  "at": 1795402741
+ }
+}

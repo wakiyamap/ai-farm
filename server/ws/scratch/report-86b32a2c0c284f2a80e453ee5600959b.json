@@ -1,0 +1,12 @@
+{
+  "run_id": "86b32a2c0c284f2a80e453ee5600959b",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "base Morpho one-shot leftovers lead 201 (WXRWA1/KTA/TOSHI on-chain verification) + thBILL arb borderline + Monolith lead 199 trigger re-check",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1401", "attempts:1402", "leads:201", "leads:199"],
+  "wiki_pages": ["methods/oneshot-leftovers.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Lead 201 closed dead_end after on-chain verification: WXRWA1 positions are healthy (blue-api debt 2.66x too high on that market), the KTA whale (hf 0.9839) and TOSHI whale (hf 0.99895) are liquidatable but their oracles print 42-56 pct above DefiLlama spot so every seize loses at the real exit; thBILL arb top position gross 8.7 USD < 10 USD bar. The 2026-11-16 one-shot leftover band is empty on all six Morpho chains. Monolith 199: both triggers un-fired (0 Liquidated/Redeemed/WrittenOff on SwanUSD+invUSD with firing controls; SwanUSD 0.99900 = 0.10 pct gross, below fees+gas). All reads research-lane (~20 eth_calls + 6 getLogs + 5 https), 0 fork, 0 tx."
+}

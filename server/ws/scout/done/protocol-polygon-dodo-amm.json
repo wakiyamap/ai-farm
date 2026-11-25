@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-dodo-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "dodo-amm",
+ "name": "DODO AMM",
+ "category": "Dexs",
+ "tvl_usd": 1442194,
+ "url": "https://dodoex.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "96ba6d61a0924522a6e2f4bdc22d1489",
+ "result": {
+  "verdict": "no_reward",
+  "line": "DODO AMM polygon dead_end: pools (DVM 1.x, DPP 1.x, DPPAdvanced 1.0/1.1, DSP 1.0.1, sampled via version()) have no callable pay function - maintain/orderWithdraw/claimDip revert identically to garbage 0xdeadbeef (absent), sync() ok but pays 0, ratioSync reverts NOT_OWNER, _MAINTAINER_ fixed 0x3cd6d7f5..162b42 (contract) on all pools; live chain though: 28,534 DODOSwap in 7d across 413 pools (blocks 0x5cb85bf-0x5d1d7eb) - fees go to LP value + maintainer, nothing for strangers.",
+  "kb": [
+   "attempts:2830",
+   "protocols:1254"
+  ],
+  "run_id": "96ba6d61a0924522a6e2f4bdc22d1489",
+  "at": 1795164183
+ }
+}

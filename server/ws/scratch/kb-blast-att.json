@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-blast-pre-launch-farm",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: on-chain farm is the Blast LaunchBridge proxy 0x5f6ae08b8aeb7078cf2f96afb089d7c9f51da47d (impl LaunchBridge_v3); the DefiLlama-listed address 0xb1a5700fa2358173fe465e6ea4ff52e36e88e2ad has no code on ethereum (Sepolia pre-deposit). No reward/claim/harvest function exists: the only external payout fns (emergencyWithdraw, transition) return the caller's own shares, and a fresh address's emergencyWithdraw reverts ZeroDeposit, so no stranger can earn anything. The farm's yield was off-chain Blast points (2023-24). Currently in wind-down: users redeem principal.",
+  "numbers": "7d window blocks 26412977-26463218 (2026-11-14 to 2026-11-21, timestamps from eth_getBlockByNumber). 21 emergencyWithdraw txs, 21 distinct users (all 25 last txs from explorer txs were emergencyWithdraw); Withdraw topic0 0x02f25270a4d87bea75db541cdfe559334a275b4a233520ed6c0a2429667cca94 from receipt 0xba2579e9719bf4a25cf05374e8f8d1aa12175422331fb27d12ea10e1078fa11a. Paid out in 7d: 0.4411 stETH + 138.31 DAI = ~867 USD gross (principal, not profit); sample pays 112.04 DAI, 26.27 DAI, 0.2178 stETH (~360 USD), 0.0545 stETH (~90 USD). Gas 109,247 @ 0.7265 gwei = $0.13 (tx 0xba2579e9). Holdings: totalETHBalance() 810.63 stETH, totalUSDBalance() 217,080 DAI; ETH $1653.03, stETH $1651.84 (coins.llama.fi 2026-11-21 11:37 UTC). Fresh-address eth_call emergencyWithdraw reverts 0x56316e87 (ZeroDeposit)."
+}

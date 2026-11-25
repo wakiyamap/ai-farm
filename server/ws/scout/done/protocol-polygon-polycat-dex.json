@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-polycat-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1444,
+ "chain": "polygon",
+ "slug": "polycat-dex",
+ "name": "Polycat Dex",
+ "category": "Dexs",
+ "tvl_usd": 91349,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1444,
+ "run_id": "48cfac1a31a94c1c8df8680bedd8f537",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Same protocol as protocols:1266/attempts:2845 (llama slug polycat-dex = adapter projects/polycat, VaultChef 0xBdA1f897E851c7EF22CD490D2Cf2DAce4645A904): only callable reward fn is strategy StrategyDividends.harvest() (0x640328b6, pid 259) which pays caller's own accrued PAW only (source :117; fresh-addr eth_call ok, pendingPaw=0); exact 7d window blocks 97402490-97805690 (2026-11-16..23): 0 chef txs, 0 harvests (last 2025-12-01 / 2026-04-19); PAW pot 71.4M PAW = $476 LP-dividend pool, pid 502 pot 0; gas 31208 = $0.0007.",
+  "kb": [
+   "attempts:4010",
+   "protocols:1266"
+  ],
+  "run_id": "48cfac1a31a94c1c8df8680bedd8f537",
+  "at": 1795414373
+ }
+}

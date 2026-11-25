@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-syntropia",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 399,
+ "chain": "ethereum",
+ "slug": "syntropia",
+ "name": "Syntropia",
+ "category": "Yield Aggregator",
+ "tvl_usd": 13608895,
+ "url": "https://syntropia.ai/",
+ "github": null,
+ "listed_days_ago": 399,
+ "run_id": "ce6510c019f5458790ecaa28d5b75931",
+ "result": {
+  "verdict": "role_gated",
+  "line": "3 ERC-7540 USDC vaults (impl 0xe50554ec, Mellow/Lagoon v0.5.0): settleDeposit/settleRedeem/updateNewTotalAssets/expireTotalAssets are onlySafe/onlyValuationManager, both roles = one team EOA 0x3dab62f33e7032bd33c532808092d033887eb456 (stranger eth_call reverts OnlySafe 0xfde82f1f); 7d (blocks 26408400-26458327): 7 NAV cycles + 3 SettleDeposit + 5 SettleRedeem, 100% by that EOA; payout to caller 0 (no reward code, fees minted as shares to feeReceiver); settleDeposit gas 275851 = 1.02 USD (ETH 1582 USD).",
+  "kb": [
+   "attempts:3024",
+   "protocols:1417"
+  ],
+  "run_id": "ce6510c019f5458790ecaa28d5b75931",
+  "at": 1795202433
+ }
+}

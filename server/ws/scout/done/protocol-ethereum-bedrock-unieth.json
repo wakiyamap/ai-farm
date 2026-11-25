@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-bedrock-unieth",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1314,
+ "chain": "ethereum",
+ "slug": "bedrock-unieth",
+ "name": "Bedrock uniETH",
+ "category": "Liquid Restaking",
+ "tvl_usd": 18535771,
+ "url": "https://bedrock.rockx.com/unieth",
+ "github": null,
+ "listed_days_ago": 1314,
+ "run_id": "d6d936e988b944449105603c6ea7e208",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Bedrock uniETH ethereum: only open keeper calls are the daily settlement pushBeacon() on Staking v1 0x4beFa2 (7 calls / 7 d, EOA 0x795fd9fc, 1,216,145 gas = 0.41 USD) and on StakingV2 0xe0240d05 (7 calls / 7 d, EOA 0x11ad6f62, 146,927 gas = 0.37 USD); gross paid to caller 0 (source + receipts: no transfer to msg.sender), heavier settlement fns are ORACLE_ROLE, Redeem.claim pays only the caller's own 2176 ETH claimable pot.",
+  "kb": [
+   "attempts:3364"
+  ],
+  "run_id": "d6d936e988b944449105603c6ea7e208",
+  "at": 1795273759
+ }
+}

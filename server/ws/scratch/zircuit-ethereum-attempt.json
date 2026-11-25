@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-zircuit-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: StrategyManager reporting and four vault harvest/report/auction functions require operator or keeper roles. Public bridge and vault user operations pay no arbitrary caller reward; OFT signed-fee surplus goes to the configured keeper.",
+  "numbers": "DefiLlama Ethereum adapter: 2 StrategyManagers, 2 OFT adapters; on-chain getStrategies() returns 2 vaults each (4 total). All 8 contracts have nonempty eth_getCode and answering getters. Fresh-address eth_call report() on vault 0x28966ce36d0f25858dc5d10dfc2829f05c332c49 reverts '!keeper'; reportDelta(address) on manager 0xf7E745658fa6f1fe8f2CAb47861a273991Cd3374 reverts AccessControl unauthorized. auction()=0x0 on all 4 vaults. 7-day paid-call count/gross/gas: not applicable because no eligible public reward function; no zero-activity claim. Sources: DefiLlama adapter projects/zircuit-finance/index.js, Etherscan verified source at implementations 0x0aec963ba967cd63f176f815a3737d7e7e1fe65b, 0xc6d5f878d8d865cbbf5ad69f3a501dcf5cc78632, 0x7e28319490ed729a1926e62dc528cc7d08270039, relay eth_getCode/eth_call on 2026-11-23 UTC."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-realtyx",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. RealtyX on base is one KYC-gated property token (0x7e919a97B42aF70E66dc8947C27E1a974A1c8d60, RealToken proxy impl 0xe341e5a9f2a5b611a50f8fb18c34b9fe74488c39) + a KYC store proxy; the ABI (verified source matches github HomuraAcc/The-Realtyx-Smart-Contracts 90_tokenErc20v0.1.sol) has no claim/reward/harvest/keeper function a stranger could call - mutators are all onlyRole and recipients must pass isKYCVerified. Rental yield accrues off-chain to KYC'd holders; nothing pays a caller.",
+ "numbers": "TVL ~1.02M USD (api.llama.fi 2026-11-17; candidate snapshot 549,609) in 1 property at $50. 7-day activity: 0 events (last tx block 51,715,334 = 2026-09-24, ~54 days ago; 7d window starts ~block 55.7M of latest 58,804,912). eth_getLogs control: 0 token logs in last 49k blocks vs 12,951 USDC Transfer logs same shape/range. Gas/reward per call: n/a (no callable reward function)."
+}

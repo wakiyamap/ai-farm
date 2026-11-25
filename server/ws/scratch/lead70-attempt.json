@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "target": "lead 70 dormancy gate: arbiscout name-search leg for contracts named Drift on Arbitrum",
+  "outcome": "dead_end_recorded",
+  "reason": "Measured 2026-11-08 run b39d97e4 (this session; scratch/arbiscout-drift.json + scratch/lead70-drift2.py, browser UA on arbitrum.blockscout.com/api/v2/search?q=Drift, relay research lane head 522353788). The name leg completed with a negative: search returned 40 items (37 tokens, 1 metadata_tag, 2 contracts) and neither contract is a live protocol book: 'Drift' 0xC2dA9d9EC6eaCAA33B8FcA11B7a0dEf8b1184491 is a 63-byte empty contract (code is only the constructor preamble + revert, no functions, no fallback) with 0 logs in 1M blocks (~11.6 d), and 'DriftCar' 0xa42232A9dD84409B3169092A5F34B55B4Fba7203 (12469-byte code) also has 0 logs in 1M blocks (positive control: same relay lane, topic-only Transfer query on head-2000..head returned 'logs matched by query exceeds limit of 10000', so Arbitrum log indexing answers; and the 63-byte 'Drift' bytecode is only the constructor preamble plus revert - it cannot emit any event). No Drift tx on Arbitrum -> the lead 70 dormancy gate stands; keep the lead dormant until a real Drift deployment shows Arbitrum activity (registry leg already closed at attempts 481)."
+}

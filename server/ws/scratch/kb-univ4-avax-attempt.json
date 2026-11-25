@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-uniswap-v4",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The Uniswap V4 PoolManager on avalanche exposes no anyone-can-call function that pays the caller: LP fees accrue to the LP's own ERC-6909 liquidity position and are withdrawn only by the LP via modifyLiquidity. The single paying function collectProtocolFees is gated to msg.sender == protocolFeeController (stranger eth_call reverts InvalidCaller 0x48f5c3ed) and protocolFeesAccrued = 0 for native/WAVAX/USDC. All 8 top-active pools are hookless, so no hook-side incentive contract either.",
+  "numbers": "PoolManager 0x06380c0e0912312b5150364b9dc4542ba0dbbc85 (adapter fromBlock 56195376; head 100631442 at check). owner 0x47eb0cf11a1626462da3c830bcde64c3f582b5a6, protocolFeeController() 0x0. eth_call collectProtocolFees(stranger,0x0,0) reverts 0x48f5c3ed = InvalidCaller() (github Uniswap/v4-core src/ProtocolFees.sol L48). protocolFeesAccrued = 0 for native, WAVAX 0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7, USDC 0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e. Swaps: sample of 5x1000-block windows spread over blocks ~100,026,643-100,631,442 (7 d), avg 41.8/1000 blk = ~25k swaps/7 d, 48 distinct pool ids; top-8 pool hooks resolved via eth_getStorageAt(keccak(poolId)+1 >> 48) = 0x0 all. Initialize last 10k blocks: 1 event, hooks 0x0. Candidate TVL $2.77M (DefiLlama); yields.llama.fi uniswap-v4 Avalanche pools: 2 listed, apyReward null."
+}

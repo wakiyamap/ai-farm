@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-uniswap-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 656,
+ "chain": "polygon",
+ "slug": "uniswap-v4",
+ "name": "Uniswap V4",
+ "category": "Dexs",
+ "tvl_usd": 13418737,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 656,
+ "run_id": "eefa4a7e0b6e415d8ac4b79996be6291",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PoolManager 0x67366782805870060151383f4bbff9dab53e5cd6; collectProtocolFees role_gated (stranger eth_call reverts 0x48f5c3ed); only permissionless payer V4FeeAdapter 0x59e84309.collect((address,uint256)[]) pays 0 to caller - all to immutable TOKEN_JAR 0xc6Ae6373CEcc9e595A6C8b9fe581925a8c84f70a; 7d (blocks 97215025-97517425) 33 FeesCollected in 2 sweep txs from keeper 0xc6055b7daa191339542de04b30797cbd537cafdf, gas bash.50/tx, gross to caller bash, accrued pot bash.007 (0.085 WPOL); POL bash.0817 coins.llama.fi.",
+  "kb": [
+   "attempts:2024",
+   "protocols:616"
+  ],
+  "run_id": "eefa4a7e0b6e415d8ac4b79996be6291",
+  "at": 1794982470
+ }
+}

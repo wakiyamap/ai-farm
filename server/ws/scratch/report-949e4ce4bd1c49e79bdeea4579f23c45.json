@@ -1,0 +1,12 @@
+{
+  "run_id": "949e4ce4bd1c49e79bdeea4579f23c45",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "morpho-watcher-ethereum lead 14: human asks 2026-11-15 (farm-path repay cap + taker tx classification, block 26413695)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1244", "leads:14"],
+  "wiki_pages": [],
+  "bot_ids": ["morpho-nextblock-ethereum"],
+  "injection_seen": false,
+  "notes": "Both human asks measured, live bot untouched. (1) The farm path repaid 397.999731 USDC because of the bot sizing constant CAPITAL_REPAID_CAP=398 USDC (bot.js:198), not the executor (per-call args, 0-fee flash loan), slippage or the seized amount; the fork (scratch/c21c/fullrepay-proof.sh, reset 26413694) nets the executor +5,207.170275 USDC with the FULL 171,751.81 USDC repay through the best UniV3 exit pool 0.3% 0x99ac8ca7 (176,959.02 out; the current 0.05% pool only pays 34,353 - full repay there reverts NO_PROFIT) vs the capped +16.12 (323x); gas 419,640 ~0.199 USD. (2) Taker tx 0xabb7ad1b landed at index 56 with effective priority 0 wei and a 4.014143561 ETH (~178.4k USD) value-only payment to the block coinbase inside the tx - type unknown per taxonomy (not P/B/O/T), builder-payment landing (D for the farm); realized residual only ~727 USD; farm pool-init tx 0xdf25a9c7... at index 169, priority 0.001 gwei (attempt 1230's 0x25ced9c8 hash was a typo)."
+}

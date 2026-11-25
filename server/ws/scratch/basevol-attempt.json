@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "protocol-base-basevol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Every reward/settlement path in BaseVol is behind a role: ClearingHouse payout functions are onlyOperator, config + claimTreasury onlyAdmin (eth_call from a fresh address reverts OnlyAdmin 0x47556579), the vault settlement onRoundSettled is onlyKeeper behind an admin-managed keeper registry, and the only permissionless calls (deposit, ERC7540 redeem/transfer) move the caller's own money. Nothing pays a stranger, and the protocol is dormant anyway (last ClearingHouse tx 2026-06-26), so no gross to price and gas is moot.",
+  "numbers": "7 d window blocks 57,764,209 (ts 1794908439, 2026-11-15) -> 60,788,209 (ts 1795512369, 2026-11-22) from eth_getBlockByNumber timestamps: eth_getLogs with no topics over 18 protocol addresses = 2 logs, both from the single tx 0xbd76a18508eb189a5429771b9b391f6a91fcba1feac6a876e29a816ea983cf99 (0x10f495d43f65ece5ce4f03dfbcb4896590c2a214 -> diamond 0xf1be2622..., selector 0x7d41c86e, self-burn of its own shares), i.e. 1 tx / 7 d, 0 stranger payments. Control, same query shape, blocks 47,700,000-47,840,000 (June): 484 logs. Last tx per explorer txs: ClearingHouse ts 1782468131 (2026-06-26), GenesisStrategy ts 1782460983 (2026-06-25), VaultManager ts 1756278655 (2025-08-27). Treasury pot: ClearingHouse treasuryAmount() = 689,107,000 raw = 689.107 USDC (token USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913, decimals() = 6 read on chain; ~689 USD at 1 USD/USDC, no feed read) but claimTreasury is onlyAdmin. TVL 351,172 USD (2026-02-02) -> 33,902 USD (2026-11-22), api.llama.fi/protocol/basevol. Gas: not measured, no callable paying function.",
+  "bot_id": null
+}

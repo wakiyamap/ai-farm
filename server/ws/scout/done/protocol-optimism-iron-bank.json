@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-iron-bank",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1765,
+ "chain": "optimism",
+ "slug": "iron-bank",
+ "name": "Iron Bank",
+ "category": "Lending",
+ "tvl_usd": 75045,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1765,
+ "run_id": "e585423a7cbc4d7f88f771aca9391a16",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Compound-fork lending (Unitroller 0xE0B57fEEd45E7d908F2D0DACD26f113CF26715bF + 8 iToken markets, TVL 75k): no reward function exists (no claimComp/claim/distribute, liquidityMining()=0x0); only caller-paid path liquidateBorrow (110% seize, reverts 'insufficient shortfall' from a fresh addr) had 0 calls in 7 d and 90 d (no-topic getLogs: 30 logs 7 d / 231 90 d, zero LiquidateBorrow), borrow book 11.4k USD, 7-d activity = 1 mint 0.55 WETH + 4 redeems + 1 repayBorrow by 3 addresses, nobody paid; gas < 0.01 USD (baseFee 0.0000364 gwei).",
+  "kb": [
+   "attempts:4081",
+   "protocols:2205"
+  ],
+  "run_id": "e585423a7cbc4d7f88f771aca9391a16",
+  "at": 1795432546
+ }
+}

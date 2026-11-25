@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-rockawayx",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated: RockawayX on BSC is one Lista MoolahVault ERC-4626 vault (0xb5a30e1fa2cf3c8dea882124b3ab5a47a27c5dd2, 'RockawayX PT Yield' / roxptUSDT, 108,653 USDT, impl 0x713a7e23...fCc95). The only keeper-style function reallocate() reverts 'not allocator or bot' from a fresh address; the single unguarded function skim(token) pays the fixed skimRecipient (curator), not the caller, and currently reverts ZeroAddress because skimRecipient = address(0). No claim/reward/harvest function exists.",
+ "numbers": "7-day eth_getLogs on the vault, blocks 132,775,207-134,119,207 (269 x 5000-block chunks at 0.45 s/block, wiki infra/bsc-head-density; head 134,119,207 @ 2026-11-17 12:25Z): 46 logs = Transfer 18, AccrueInterest 9, UpdateLastTotalAssets 9, Withdraw 7, Deposit 2, Approval 1, Skim 0. All 9 AccrueInterest are side effects of the 2 deposits / 7 withdrawals (sample tx 0xa5f5712011bd133ac33956590dd35c3e33d06e16a83459640658396504b80b1f: depositor 0xe47888506f5e21d709d9cebf9b1a6e94b42ad0cc, 0.1716 USDT; feeShares -> feeRecipient 0x4e6514b9118c64a4b3df41e03660e55d1e00b646). Gross paid to a stranger in 7d: 0 USD. Idle USDT a skim would sweep: 1.94 USDT. Gas: ~50k-gas call at 0.05 gwei (eth_gasPrice) x BNB $593.09 (coins.llama.fi 2026-11-17) = $0.0015. Control for query shape: same-address USDT token getLogs 100 blocks at head returned 10,519 logs."
+}

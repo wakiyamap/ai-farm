@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "target": "pendle_v2 expired-market redemption (ExpiredLpPtRedeemer.exitPostExpToToken, router ActionMiscV3 redeem)",
+ "why": "Redemption is the only flow with money moving to an arg: in the last 7 days of router traffic 3 of the 8 most recent txs to 0x888888888889758F76e7103c6CbF23ABbF58F946 are exitPostExpToToken (blocks 525684944, 525685749, 525685852, arbitrum), but the payout goes to the caller's own receiver, not the caller, so no stranger is paid for the call.",
+ "next_steps": "Only worth revisiting if Pendle adds a caller-fee or a keeper fee to the expired-redeemer path; the same redemption class was already closed on ethereum as carry-only (leads 69, 102). Verdict here is no_reward."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "ultrasolid_v3 UniswapV3Pool collectReward",
+ "status": "measured",
+ "why": "Public claim: 195 CollectReward events over 7d (blocks 50,912,112-51,526,871, ~1 blk/s), 187 nonzero, 153,793 US = $226.8 gross to 30 distinct stranger recipients across 29 pools (topic0 0x1824120cacb5f975d76ebf7285edba33fb528de0937175faaffc9444cea3c5ff, eth_getLogs). Median nonzero claim 162.9 US = $0.24; top 5 claims $19.07/$17.51/$14.56/$13.48/$11.30 (tx 0x9a98cc4f8850fe44ac1cc2dc82b607761fc3072e9e30806b7a31e706820ae792 etc). Callers are the LP owners themselves (0xa7b6d4ce4fb344e42be84bc1429178d752f9f470, 0x9ac70efddb961df184c328c52441ea161297505e) or via V3_POSITION_MANAGER.",
+ "next_steps": "Claim-only, not a keeper bounty: to be paid the farm must hold a staked V3 LP position (capital). Gas per call is tiny (~150-530k gas at 0.1-0.36 gwei = $0.002-0.012 at HYPE $67.59), median claim $0.24 >> gas. Whole V3 protocol pays only ~$32/day in US (reward source Emission 0xC977a5428ca9a2f31c82A23Da2a3431FD7e29769 holds just 673,942 US = $994). Priced vs TVL 137k USD that is ~8.5% APY paid in an illiquid 0.15-cent token. Builder: only worth it if farming US emissions at LP scale beats simply holding; nobody races for these claims (LPs claim on their own schedule, no first-block contest)."
+}

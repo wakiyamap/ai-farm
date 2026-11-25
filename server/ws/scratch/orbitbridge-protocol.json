@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "orbit_bridge",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter https://github.com/DefiLlama/DefiLlama-Adapters/blob/main/projects/orbitbridge/index.js identifies vault 0x1bf68a9d1eaee7826b3593c20a0ca93293cb489a and ETH/USDT/DAI/USDC/WBTC farms. Vault and each farm proxy have code; vault chain() returns ETH, farm orbitVault() returns the vault. Explorer verified vault implementation 0xc3430bc8c2c05fc6b42114bf7f82a3e2f3ee9454: withdrawals require six validator signatures, deposits and withdrawals require isActivated, now false. Vault's public executeTransaction(uint256) has no caller reward. All five farm proxies use unverified implementation 0xdbf3c7e0a1493b81b295547ae3d0711417481a55; current debug_traceCall of public earn() and rebalance() from fresh 0x...dEaD across all five shows no native call or ERC20 transfer to caller. Explorer txs lists latest direct farm transactions in 2025 or 2022; same-shape vault control lists 2026-11-21 transfers. No presently paying stranger reward found."
+}

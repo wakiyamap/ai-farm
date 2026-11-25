@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-tymio",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only keeper action on TYMIO's single arbitrum contract (PayerV3 0xB67D637B1301EEb56Dba4555bBd15Cd220F1aaD6) is executeOrders, onlyOwnerOrService: eth_call from a stranger reverts NotAllowedAddress (0x1a06d0fe); its sole caller is service EOA 0x6bd19dd6bf58fa1f2e6e6c1574c8e054c3e56690. claimOrder is public but credits order.user's internal balance, paying the caller nothing. Protocol is also very quiet (0 NewOrder in 7 days, withdrawals only).",
+ "numbers": "executeOrders 1 call last 7 days (tx 0x9685547e865ac24a0856a1a6ba57b1b189544257e3a542e62f4903ffcd45dc90, gas 376,946 @ 0.020038 gwei = $0.014 at ETH $1790.58 coins.llama.fi); 7-day logs 522937373-525337373: 12 FullWithdrawal + 2 ClaimOrder + 0 NewOrder; gross reward to a stranger caller = $0; TVL $154,168 (DefiLlama candidate data)"
+}

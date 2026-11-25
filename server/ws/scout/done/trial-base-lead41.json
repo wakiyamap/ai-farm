@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead41",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 41,
+ "target": "exactly (Que auction liquidations) on Base: 2.52M USD borrow book, scheduled liquidation-auction class",
+ "run_id": "5c8356a6295a40b69e89fce1ae67f0fb",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d base: 188 exactly MarketUSDC liquidations, 6 takers in 3 groups (2 stranger groups since Nov 12-14); sample of 20: 20/20 paid, gross@tx median $0.50 max $2,599 (repay $52.8k), winner priority fee median 0.0015 gwei; takeable->taken: 20/20 at K-1, median window 1-2 blocks (0.2-0.4s at 0.200s blocks), 6/20 >=2s, 3 >=6s (wave backlog); gas/attempt $0.012 (898k gas x 0.0071 gwei, ETH $1,820 coins.llama.fi) - gross >> gas but median window < 3s feed floor",
+  "kb": [
+   "attempts:1475",
+   "leads:41"
+  ],
+  "run_id": "5c8356a6295a40b69e89fce1ae67f0fb",
+  "at": 1794863595
+ }
+}

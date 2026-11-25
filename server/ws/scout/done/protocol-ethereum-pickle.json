@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-pickle",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "pickle",
+ "name": "Pickle",
+ "category": "Yield Aggregator",
+ "tvl_usd": 4072872,
+ "url": "",
+ "github": [
+  "pickle-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b5bb610d56e54d81adb2b13113a90cab",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Pickle ethereum (TVL 3.96M USD): only anyone-callable earning fn is jar earn() (0x0C78...A589, eth_call from fresh addr ok) - pays caller 0, gas 60678 = ~$0.013 @ baseFee 0.128 gwei, ETH $1659 (coins.llama.fi ts 1795321799); strategy harvest() reverts from stranger (harvesters whitelist, role_gated); 7d blocks 26418003->26469024 (2026-11-15->11-22): 0 logs on jar+3 strategies, DILL 2 logs (1 delegation tx), PICK 329 transfers; control USDC 204 logs/500 blk; sample of 5 contracts, addresses from pickle-finance/protocol deployments/mainnet (pfcore jar-list API unreachable).",
+  "kb": [
+   "attempts:3587",
+   "protocols:1833"
+  ],
+  "run_id": "b5bb610d56e54d81adb2b13113a90cab",
+  "at": 1795322171
+ }
+}

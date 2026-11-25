@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-renzo",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Renzo on Arbitrum is only an xERC20 wrapper (ezETH) plus an L2RateProvider proxy; no public function pays the caller (no reward/claim/distribute/keeper-fn in either ABI). Bridge mint/burn is done by Renzo's own single relayer at its own gas cost; the xRenzoDeposit depositETH path reverts (impl swapped to L2RateProvider) and has been idle since 2026-08-22.",
+  "numbers": "TVL 3.06M USD (candidate/DefiLlama); ezETH totalSupply 976.9 (eth_call 0x18160ddd @block 525397918). 7d blocks 522977918-525397918 (eth_getLogs, topic0 ddf252ad...): 904 Transfers, 13 mints, 10 burns; 13/13 mint txs from 0x74cae0ecc47b02ed9b9d32e000fd70b9417970c5. Gross per callable = 0 USD, so gross < gas (any Arbitrum call costs gas). Contracts: ezETH 0x2416092f143378750bb29b79eD961ab195CcEea5 (impl 0xb370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7), xRenzoDeposit 0xf25484650484de3d554fb0b7125e7696efa4ab99 (impl 0x5eafb1d4b5bdfafe81715eebcc7713e418c80e78 = L2RateProvider). Sources: docs.renzoprotocol.com/docs/contracts/layer-2s/arbitrum, explorer (etherscan) ABIs, DefiLlama adapter projects/renzo/index.js."
+}

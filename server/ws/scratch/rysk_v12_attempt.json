@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-rysk-v12",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Rysk V12 on HyperEVM is a centrally-operated RFQ options engine (Opyn Gamma fork): every funds-moving function (RyskHype ingresso_redeem/settle/newUserPosition/flashLoanRedeem, Controller.operate, MMarket.operate, MarginPool.farm) is gated behind the operator EOA 0x65802cc308aea8bb913882696c2df6bf23ff9e48 (or authorizedCallers/farmer, farmer=0x0). eth_call from a fresh address reverts 'bad operator' / 'C6' / 'Sender is not farmer'. No caller-paid reward exists; users pay gasFee to Rysk, and the operator (Rysk's API) pays its own gas (~0.006 USD/settle). A stranger gets paid nothing.",
+  "numbers": "TVL 26.5M USD Hyperliquid L1 (api.llama.fi 2026-11-17); fresh-address eth_call reverts on ingresso_settle/ingresso_redeem/flashLoanRedeem ('bad operator'), Controller.operate ('C6'), MarginPool.farm ('Sender is not farmer'); selfServiceAllowed=0, farmer=0x0; 25/25 latest txs to Rysk proxy from operator 0x65802cc3 (2026-11-17 15:23-19:13 UTC, explorer txs); sample settle tx 0x8c648646e6bf4755d8cf2a10b9b76a909c1db47183f69129f403dd60e468fb65 gasUsed 746736 @ 0.1107 gwei = 0.006 USD (HYPE 67.89, coins.llama.fi); MMarket USDC 124k, MarginPool USDC 4.42M (eth_call balanceOf 0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb)."
+}

@@ -1,0 +1,452 @@
+#!/usr/bin/env python3
+"""Farm dashboard: one read-only page with everything the human checks.
+
+Runs as farmgate (reads gate state) on 127.0.0.1:8090; publish it with
+Tailscale Serve. GET / renders HTML; GET /data.json returns the same data.
+Standard library only. Nothing here can change anything.
+"""
+import datetime as dt
+import glob
+import html
+import json
+import os
+import sqlite3
+import subprocess
+import sys
+import urllib.request
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+sys.path[:0] = ["/opt/farm/pylib", "/opt/farm/lib"]
+
+WS = "/srv/farm/ws"
+OPS = "/var/lib/farm/ops.db"
+LEDGER = f"{WS}/ledger/ledger.db"
+KB = f"{WS}/kb/knowledge.db"
+STATE = "/var/lib/farmgate"
+RELAY = "http://127.0.0.1:8545"
+BIND = ("127.0.0.1", 8090)
+
+
+JST = dt.timezone(dt.timedelta(hours=9))
+
+
+def jst(value, fmt="%m-%d %H:%M"):
+    """Render a UTC timestamp (ISO string, epoch, or 'MM-DDTHH:MM' fragment) in JST."""
+    try:
+        if isinstance(value, (int, float)):
+            t = dt.datetime.fromtimestamp(value, dt.timezone.utc)
+        elif isinstance(value, str) and len(value) == 11 and value[5] == "T":   # 'MM-DDTHH:MM' from substr()
+            t = dt.datetime.strptime(f"{dt.datetime.now(dt.timezone.utc).year}-{value}", "%Y-%m-%dT%H:%M").replace(tzinfo=dt.timezone.utc)
+        else:
+            t = dt.datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+            if t.tzinfo is None:
+                t = t.replace(tzinfo=dt.timezone.utc)
+        return t.astimezone(JST).strftime(fmt)
+    except (ValueError, TypeError, OverflowError):
+        return str(value)
+
+
+def q(db, sql, args=()):
+    try:
+        con = sqlite3.connect(f"file:{db}?mode=ro", uri=True, timeout=5)
+        con.row_factory = sqlite3.Row
+        rows = [dict(r) for r in con.execute(sql, args).fetchall()]
+        con.close()
+        return rows
+    except sqlite3.Error as exc:
+        return [{"error": str(exc)}]
+
+
+def units(pattern):
+    out = subprocess.run(["systemctl", "list-units", "--plain", "--no-legend", "--all", pattern],
+                         capture_output=True, text=True, check=False).stdout
+    res = []
+    for line in out.splitlines():
+        parts = line.split(None, 4)
+        if len(parts) >= 4:
+            res.append({"unit": parts[0], "active": parts[2], "sub": parts[3]})
+    return res
+
+
+def timers():
+    """next/last per timer. `systemctl show` leaves NextElapseUSecRealtime empty for
+    OnUnitInactiveSec timers (paper-reviewer, meta), so read list-timers, which resolves both."""
+    import re
+    out = subprocess.run(["systemctl", "list-timers", "--all", "--no-legend",
+                          "farm-paper-reviewer.timer", "farm-meta.timer", "farm-researcher.timer", "ledger-ingest.timer"],
+                         capture_output=True, text=True, check=False).stdout
+    stamp = re.compile(r"[A-Z][a-z]{2} (\d{4}-\d\d-\d\d \d\d:\d\d:\d\d) ([A-Z]{3,4})")
+    found = {}
+    for line in out.splitlines():
+        m = re.search(r"(\S+)\.timer", line)
+        if not m:
+            continue
+        times = stamp.findall(line)
+        def conv(i):
+            if i >= len(times):
+                return "—"
+            t, tz = times[i]
+            try:
+                d = dt.datetime.strptime(t, "%Y-%m-%d %H:%M:%S")
+                d = d.replace(tzinfo=dt.timezone.utc if tz == "UTC" else JST)
+                return jst(d.isoformat())
+            except ValueError:
+                return t
+        # the NEXT column is "-" when nothing is scheduled; then the only stamp is LAST
+        if line.lstrip().startswith("-"):
+            found[m.group(1)] = f"{m.group(1)}: next — · last {conv(0)}"
+        else:
+            found[m.group(1)] = f"{m.group(1)}: next {conv(0)} · last {conv(1)}"
+    return [found.get(t, f"{t}: off") for t in ("farm-paper-reviewer", "farm-meta", "farm-researcher", "ledger-ingest")]
+
+
+_gate_cache = {"t": 0, "v": None}
+
+
+def gate_status():
+    import time as _t
+    if _gate_cache["v"] is not None and _t.monotonic() - _gate_cache["t"] < 60:
+        return _gate_cache["v"]
+    v = _gate_status()
+    _gate_cache.update(t=_t.monotonic(), v=v)
+    return v
+
+
+def _gate_status():
+    try:
+        r = subprocess.run(["/opt/farm/bin/gate-ctl", "status"], capture_output=True, text=True, timeout=60, check=False)
+        return json.loads(r.stdout) if r.returncode == 0 else {"error": r.stderr.strip()[-300:]}
+    except (OSError, ValueError, subprocess.TimeoutExpired) as exc:
+        return {"error": str(exc)}
+
+
+def relay_health():
+    try:
+        with urllib.request.urlopen(f"{RELAY}/health", timeout=5) as r:
+            return json.loads(r.read())
+    except (OSError, ValueError) as exc:
+        return {"error": str(exc)}
+
+
+def pnl_history(days=14):
+    """Daily realized PnL from gate.log sweeps is not stored per day; use pnl.json for today
+    and the gate log for past days' sweep records."""
+    hist = {}
+    try:
+        with open(f"{STATE}/gate.log", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                if r.get("op") == "sweep" and r.get("usd") is not None:
+                    day = jst(r["at"], "%Y-%m-%d")
+                    hist[day] = hist.get(day, 0.0) + r["usd"]
+    except OSError:
+        pass
+    # today's figure comes from the sweep log too (pnl.json holds the same numbers)
+    today = dt.datetime.now(JST).date()
+    return [(str(today - dt.timedelta(days=i)), round(hist.get(str(today - dt.timedelta(days=i)), 0.0), 2))
+            for i in range(days - 1, -1, -1)]
+
+
+def sessions_today():
+    """Session reports are filed under UTC dates; show the last 20 across the two files a JST day spans."""
+    now = dt.datetime.now(dt.timezone.utc)
+    rows = []
+    for d in (now - dt.timedelta(days=1), now):
+        try:
+            with open(f"{WS}/logs/sessions/{d.strftime('%Y-%m-%d')}.jsonl", encoding="utf-8") as f:
+                for line in f:
+                    try:
+                        rows.append(json.loads(line))
+                    except ValueError:
+                        pass
+        except OSError:
+            pass
+    return rows[-20:]
+
+
+def inbox(name):
+    files = sorted(glob.glob(f"{WS}/inbox/{name}/*"), key=os.path.getmtime, reverse=True)[:10]
+    out = []
+    for p in files:
+        try:
+            with open(p, encoding="utf-8", errors="replace") as f:
+                head = f.read(400)
+        except OSError:
+            head = ""
+        out.append({"file": os.path.basename(p), "mtime": jst(os.path.getmtime(p)),
+                    "head": head.strip().splitlines()[0][:120] if head.strip() else ""})
+    return out
+
+
+def paper_bots():
+    out = []
+    for d in sorted(glob.glob(f"{WS}/bots/paper/*/")):
+        bid = os.path.basename(d.rstrip("/"))
+        st = subprocess.run(["systemctl", "show", f"paper@{bid}.service", "-p", "SubState", "--value"],
+                            capture_output=True, text=True, check=False).stdout.strip()
+        decision = "—"
+        rp = f"{d}review.md"
+        if os.path.exists(rp):
+            try:
+                import re
+                with open(rp, encoding="utf-8", errors="replace") as f:
+                    text = f.read(20000)
+                # newest entry first: "Decision: fix" or "unchanged since <run>, decision fix stands"
+                m = re.search(r"^\s*decision:\s*(promote|fix|wait|demote)\b|decision\s+(promote|fix|wait|demote)\s+stands",
+                              text, re.I | re.M)
+                if m:
+                    decision = (m.group(1) or m.group(2)).lower()
+                    if m.group(2):
+                        decision += " (unchanged)"
+            except OSError:
+                pass
+        out.append({"id": bid, "service": st or "not started", "review": decision})
+    return out
+
+
+def collect():
+    return {
+        "now": dt.datetime.now(JST).strftime("%Y-%m-%d %H:%M JST") + " (" + dt.datetime.now(dt.timezone.utc).strftime("%H:%M UTC") + ")",
+        "gate": gate_status(),
+        "relay": relay_health(),
+        "agents": units("agent@*.service"),
+        "paper": paper_bots(),
+        "live_units": units("bot@*.service"),
+        "timers": timers(),
+        "runs": [dict(r, started=jst(r["started"])) for r in q(OPS, "SELECT role, started_at AS started, service_result AS result, tokens, round(cost_usd,2) AS cost "
+                       "FROM runs ORDER BY started_at DESC LIMIT 15")],
+        "rpc": q(OPS, "SELECT lane, provider, sum(ok) ok, sum(failed) failed, sum(cu) cu, sum(cache_hits) cache FROM rpc_stats "
+                      "WHERE day=date('now') GROUP BY 1,2 ORDER BY 1,2"),
+        "ledger": q(LEDGER, "SELECT chain, protocol, count(*) n, max(block) last_block FROM events GROUP BY 1,2 ORDER BY 1,2"),
+        "ledger_runs": [dict(r, started=jst(r["started"])) for r in q(LEDGER, "SELECT started_at AS started, events, cu_seed, cu_agent FROM runs ORDER BY id DESC LIMIT 3")],
+        "kb": {t: (q(KB, f"SELECT count(*) n FROM {t}") or [{}])[0].get("n") for t in ("protocols", "actors", "leads", "attempts")},
+        "leads": q(KB, "SELECT chain, substr(target,1,60) target, status FROM leads ORDER BY updated_at DESC LIMIT 8"),
+        "sessions": sessions_today(),
+        "inbox_human": inbox("human"),
+        "inbox_meta": inbox("meta"),
+        "inbox_live": inbox("live"),
+        "pnl": pnl_history(),
+    }
+
+
+def e(x):
+    return html.escape(str(x) if x is not None else "")
+
+
+def table(rows, cols=None):
+    if not rows:
+        return "<p class='muted'>none</p>"
+    cols = cols or list(rows[0].keys())
+    h = "<table><thead><tr>" + "".join(f"<th>{e(c)}</th>" for c in cols) + "</tr></thead><tbody>"
+    for r in rows:
+        h += "<tr>" + "".join(f"<td>{e(r.get(c))}</td>" for c in cols) + "</tr>"
+    return h + "</tbody></table>"
+
+
+def badge(ok, text):
+    cls = "ok" if ok else "bad"
+    icon = "●" if ok else "▲"
+    return f"<span class='badge {cls}'>{icon} {e(text)}</span>"
+
+
+def sparkline(series, w=320, h=48):
+    vals = [v for _, v in series]
+    if not vals:
+        return ""
+    lo, hi = min(min(vals), 0), max(max(vals), 0)
+    span = (hi - lo) or 1
+    pts = []
+    for i, (_, v) in enumerate(series):
+        x = 4 + i * (w - 8) / max(len(series) - 1, 1)
+        y = 4 + (hi - v) * (h - 8) / span
+        pts.append(f"{x:.1f},{y:.1f}")
+    zero_y = 4 + (hi - 0) * (h - 8) / span
+    return (f"<svg viewBox='0 0 {w} {h}' width='{w}' height='{h}' role='img' aria-label='daily realized PnL, 14 days'>"
+            f"<line x1='4' y1='{zero_y:.1f}' x2='{w-4}' y2='{zero_y:.1f}' class='zero'/>"
+            f"<polyline points='{' '.join(pts)}' class='line'/>"
+            + "".join(f"<circle cx='{p.split(',')[0]}' cy='{p.split(',')[1]}' r='3' class='dot'/>" for p in pts[-1:]) + "</svg>")
+
+
+def render(d):
+    g = d["gate"]
+    gate_ok = "error" not in g
+    frozen = g.get("frozen", True)
+    halted = g.get("halted", True)
+    live = g.get("live", {}) if gate_ok else {}
+    relay = d["relay"]
+    research_cu = relay.get("alchemy_cu_today", {}).get("research", 0) if "error" not in relay else "?"
+    tiles = [
+        ("Capital at risk", f"${g.get('capital_usd', '?')}", f"of ${g.get('max_capital_usd', '?')}", gate_ok),
+        ("Today's loss", f"${g.get('daily_loss_usd', '?')}", f"limit ${g.get('max_daily_loss_usd', '?')}", gate_ok and not frozen),
+        ("Live bots", str(len(live)), "promotions " + ("FROZEN" if frozen else "open"), not frozen),
+        ("Signer", "HALTED" if halted else "ready", "gate stop --all" if halted else "", not halted),
+        ("Alchemy CU today", f"{sum(relay.get('alchemy_cu_today', {}).values()) if 'error' not in relay else '?'}",
+         f"research {research_cu}", "error" not in relay),
+    ]
+    tile_html = "".join(
+        f"<div class='tile'><div class='label'>{e(t)}</div><div class='value {'' if ok else 'bad'}'>{e(v)}</div><div class='sub'>{e(s)}</div></div>"
+        for t, v, s, ok in tiles)
+    live_rows = [{"bot": k, "service": v.get("service", "").replace("ActiveState=", "").replace(" SubState=", "/"),
+                  "address": v.get("address", "")[:10] + "…", "balances_usd": json.dumps(v.get("balances_usd", {}))} for k, v in live.items()]
+    agents = [{"unit": a["unit"].replace("agent@", "").replace(".service", ""), "state": f"{a['active']}/{a['sub']}"} for a in d["agents"]]
+    sessions = [{"role": s.get("role"), "outcome": s.get("outcome"), "target": str(s.get("target", ""))[:50], "notes": str(s.get("notes", ""))[:90]} for s in d["sessions"]]
+    pnl_total = round(sum(v for _, v in d["pnl"]), 2)
+    inbox_h = d["inbox_human"]
+    inbox_m = d["inbox_meta"]
+    inbox_l = d["inbox_live"]
+
+    return f"""<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farm</title><meta http-equiv="refresh" content="30">
+<style>
+:root{{--bg:#fafaf9;--fg:#1c1917;--muted:#78716c;--line:#e7e5e4;--card:#fff;--ok:#15803d;--bad:#b91c1c;--accent:#44403c}}
+@media (prefers-color-scheme:dark){{:root:not([data-theme=light]){{--bg:#0c0a09;--fg:#f5f5f4;--muted:#a8a29e;--line:#292524;--card:#1c1917;--ok:#4ade80;--bad:#f87171;--accent:#d6d3d1}}}}
+*{{box-sizing:border-box}}body{{margin:0;padding:16px;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}}
+h1{{font-size:18px;margin:0 0 4px}}h2{{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:22px 0 8px}}
+.muted{{color:var(--muted)}}.tiles{{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}}
+.tile{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}}.label{{font-size:12px;color:var(--muted)}}
+.value{{font-size:24px;font-weight:600;margin:2px 0}}.value.bad{{color:var(--bad)}}.sub{{font-size:12px;color:var(--muted)}}
+table{{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px}}
+th,td{{text-align:left;padding:6px 9px;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-word}}th{{color:var(--muted);font-weight:500;font-size:12px}}
+tr:last-child td{{border-bottom:0}}.badge{{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;border:1px solid var(--line)}}
+.badge.ok{{color:var(--ok)}}.badge.bad{{color:var(--bad)}}.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}}
+svg .line{{fill:none;stroke:var(--accent);stroke-width:2}}svg .zero{{stroke:var(--line);stroke-width:1}}svg .dot{{fill:var(--accent)}}
+pre{{font-size:12px;white-space:pre-wrap;color:var(--muted);margin:0}}
+</style></head><body>
+<h1>Farm <span class="muted" style="font-weight:400;font-size:13px">{e(d['now'])} · refreshes every 30 s</span>
+<button id="copy" class="badge" style="float:right;cursor:pointer;background:var(--card);color:var(--fg)" title="brief.txt をクリップボードへ">Copy for Claude</button>
+<a class="muted" href="/brief.txt" style="float:right;font-size:12px;font-weight:400;margin:4px 10px 0 0">brief.txt</a></h1>
+<script>
+document.getElementById('copy').onclick=async function(){{
+  const b=this;b.textContent='…';
+  try{{const t=await (await fetch('/brief.txt',{{cache:'no-store'}})).text();
+      await navigator.clipboard.writeText(t);b.textContent='Copied '+(t.length/1024).toFixed(0)+' KB';}}
+  catch(e){{b.textContent='Copy failed — open brief.txt';}}
+  setTimeout(()=>b.textContent='Copy for Claude',4000);
+}};
+</script>
+{"" if gate_ok else f"<p class='badge bad'>▲ gate unavailable: {e(g.get('error'))}</p>"}
+<div class="tiles">{tile_html}</div>
+
+<div class="grid">
+<section><h2>Realized PnL, 14 days (total ${e(pnl_total)})</h2>{sparkline(d['pnl'])}
+<p class="muted" style="font-size:12px">{e(d['pnl'][0][0])} → {e(d['pnl'][-1][0])}; today {e(d['pnl'][-1][1])}</p></section>
+<section><h2>Inbox: human ({len(inbox_h)})</h2>{table(inbox_h, ['mtime','file','head'])}</section>
+</div>
+
+<h2>Live bots</h2>{table(live_rows)}
+<div class="grid">
+<section><h2>Paper bots</h2>{table(d['paper'])}</section>
+<section><h2>Agents</h2>{table(agents)}<p class="muted" style="font-size:12px">{'<br>'.join(e(t) for t in d['timers'])}</p></section>
+</div>
+
+<h2>Session reports (latest 20)</h2>{table(sessions)}
+<h2>Recent runs</h2>{table(d['runs'])}
+
+<div class="grid">
+<section><h2>Inbox: meta ({len(inbox_m)})</h2>{table(inbox_m, ['mtime','file','head'])}</section>
+<section><h2>Inbox: live ({len(inbox_l)})</h2>{table(inbox_l, ['mtime','file','head'])}</section>
+</div>
+
+<div class="grid">
+<section><h2>RPC today</h2>{table(d['rpc'])}</section>
+<section><h2>Ledger</h2>{table(d['ledger'])}{table(d['ledger_runs'])}</section>
+</div>
+<div class="grid">
+<section><h2>KB</h2><p>{' · '.join(f"{e(k)} {e(v)}" for k, v in d['kb'].items())}</p>{table(d['leads'])}</section>
+</div>
+<p class="muted" style="font-size:12px;margin-top:24px">Read-only. To act: ssh, then <code>gate …</code> / <code>paper …</code>. Emergency: <code>gate stop --all</code>.</p>
+</body></html>"""
+
+
+def read_text(path, limit):
+    try:
+        with open(path, encoding="utf-8", errors="replace") as f:
+            t = f.read(limit + 1)
+    except OSError as exc:
+        return f"(unreadable: {exc})"
+    return t if len(t) <= limit else t[:limit] + "\n… (cut)"
+
+
+def brief(d):
+    """Plain-text situation report for pasting into a chat with Claude."""
+    g = d["gate"]
+    L = [f"# Farm brief {d['now']}", ""]
+    if "error" in g:
+        L.append(f"gate: ERROR {g['error']}")
+    else:
+        L.append(f"capital ${g.get('capital_usd')} / ${g.get('max_capital_usd')} · daily loss ${g.get('daily_loss_usd')} / ${g.get('max_daily_loss_usd')} · "
+                 f"frozen={g.get('frozen')} halted={g.get('halted')} · live bots {len(g.get('live', {}))}")
+        for k, v in g.get("live", {}).items():
+            L.append(f"  live {k}: {v.get('service', '')} balances {json.dumps(v.get('balances_usd', {}))}")
+    r = d["relay"]
+    L.append("alchemy CU today " + (json.dumps(r.get("alchemy_cu_today")) if "error" not in r else f"relay ERROR {r['error']}"))
+    L += ["", "## Paper bots"]
+    for b in d["paper"]:
+        L.append(f"- {b['id']}: {b['service']}, review={b['review']}")
+    L += ["", "## Agents"]
+    for a in d["agents"]:
+        L.append(f"- {a['unit']}: {a['active']}/{a['sub']}")
+    L += [f"- {t}" for t in d["timers"]]
+    L += ["", "## Recent runs (JST)"]
+    for x in d["runs"]:
+        L.append(f"- {x['started']} {x['role']}: {x['result']} tokens={x.get('tokens') or ''} cost={x.get('cost') or ''}")
+    L += ["", "## Session reports (latest 20, oldest first)"]
+    for x in d["sessions"]:
+        L.append(f"- [{x.get('role')}/{x.get('model')}] {x.get('outcome')} — {x.get('target')}")
+        if x.get("notes"):
+            L.append(f"    {x['notes']}")
+        if x.get("bot_ids"):
+            L.append(f"    bots={x['bot_ids']} kb={x.get('kb_rows')}")
+    for name, full in (("human", True), ("meta", False), ("live", True)):
+        rows = d[f"inbox_{name}"]
+        L += ["", f"## inbox/{name} ({len(rows)})"]
+        for x in rows:
+            L.append(f"- {x['mtime']} {x['file']}: {x['head']}")
+            if full:
+                L.append(read_text(f"{WS}/inbox/{name}/{x['file']}", 6000).rstrip())
+                L.append("")
+    L += ["", "## Latest review decisions"]
+    for b in d["paper"]:
+        head = read_text(f"{WS}/bots/paper/{b['id']}/review.md", 1500).rstrip()
+        L.append(f"### {b['id']}")
+        L.append(head)
+        L.append("")
+    L += ["## RPC today"]
+    for x in d["rpc"]:
+        L.append(f"- {x['lane']}/{x['provider']}: ok {x['ok']} failed {x['failed']} cu {x['cu']} cache {x['cache']}")
+    L += ["", "## KB leads (recent)"]
+    for x in d["leads"]:
+        L.append(f"- {x['chain']} {x['status']}: {x['target']}")
+    return "\n".join(L) + "\n"
+
+
+class H(BaseHTTPRequestHandler):
+    def log_message(self, *a):
+        pass
+
+    def do_GET(self):
+        try:
+            d = collect()
+            if self.path.startswith("/data.json"):
+                body, ctype = json.dumps(d, default=str, indent=1).encode(), "application/json"
+            elif self.path.startswith("/brief.txt"):
+                body, ctype = brief(d).encode(), "text/plain; charset=utf-8"
+            else:
+                body, ctype = render(d).encode(), "text/html; charset=utf-8"
+            self.send_response(200)
+        except Exception as exc:  # the page must never go blank
+            body, ctype = f"<pre>dashboard error: {html.escape(repr(exc))}</pre>".encode(), "text/html"
+            self.send_response(500)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+
+if __name__ == "__main__":
+    print(f"farm-dash: http://{BIND[0]}:{BIND[1]}/", file=sys.stderr)
+    ThreadingHTTPServer(BIND, H).serve_forever()

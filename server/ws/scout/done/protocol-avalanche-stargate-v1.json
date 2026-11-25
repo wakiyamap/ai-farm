@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-stargate-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1700,
+ "chain": "avalanche",
+ "slug": "stargate-v1",
+ "name": "Stargate V1",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 866588,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 1700,
+ "run_id": "e4343d3a956c46c9b770427c491c5f0e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Stargate V1 avax (router 0x45A01E4e...33cd, factory 0x808d7c71...0949, 6 pools, verified source read): the only permissionless keeper call callDelta(poolId,bool) succeeds from a fresh address and pays $0 (no transfer); retryRevert/clearCachedSwap pay the message's own recipient; fee pots 222.86 USDC.e + 3,593.49 USDT.e + 8.62 FRAX + 0.03 USDT.e (~$3,825) are protocolFeeOwner-only, mintFeeOwner=0x0; 7d state delta 100110649->100767315: totalLiquidity -55.15 USDC.e / -7.27 USDT.e, 0 keeper calls; gas $0.0062 per 116,151-gas call (7.5 gwei x AVAX $7.1285, coins.llama.fi 12:16Z).",
+  "kb": [
+   "attempts:2509",
+   "protocols:1011"
+  ],
+  "run_id": "e4343d3a956c46c9b770427c491c5f0e",
+  "at": 1795091536
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "grvt_bridge",
+  "status": "dead_end",
+  "checked": "DefiLlama slug grvt-bridge (module grvt-io/index.js, TVL 37.8M USD on Ethereum 2026-11-21; listed address 0xad29f2723fcdbcf665f210f25e06f97477e417cf is just the GRVT ERC-20 token, plain admin-less ERC20, verified source GRVTToken.sol). Real contracts found via Blockscout mainnet name search (no adapter file in the GitHub mirror): GRVTBridgeProxy 0x8bc3249fEc4f61440Af91Ea2F3506F156039297C (zkSync-Gateway/NTV proxy-bridging; role-free entrypoints deposit()/claimFailedDeposit() move user's own funds, pay no reward; all config setters onlyOwner) and GRVTL1TreasuryVault 0x1f9D91f85fdeC6A2dE1AE0612CbD0242D4CdacCF (holds the tracked yield TVL SGHO/USDY/USDT/axlAmber; every external mutator gated onlyVaultAdmin / onlyAllocator / onlyYieldHarvesterOrAdmin / onlyRebalancer - harvest exists but is a role, proceeds go to yieldRecipient). eth_getCode non-empty + getters answer on token; verified sources read 2026-11-21 via explorer. 7.3d no-topic getLogs (blocks 0x192C7D9..26460408) on vault+4 proxies = 0 events, control GRVTToken same range = 1009. Verdict role_gated: see attempts:3143."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-bitwise",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 75,
+ "chain": "ethereum",
+ "slug": "bitwise",
+ "name": "Bitwise",
+ "category": "Risk Curators",
+ "tvl_usd": 2150043,
+ "url": "https://app.morpho.org/curator/bitwise",
+ "github": null,
+ "listed_days_ago": 75,
+ "run_id": "53ad6275a98a4fc8837b40c23b985534",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Bitwise = 2 plain Morpho VaultV2 vaults (PAPY 0xB344e331 .97M AUSD, rwaAUSD  dead): role-free fns accrueInterest + forceDeallocate pay the caller bash (1% penalty on forceDeallocate goes to the vault, e.g. 153,468 AUSD exit paid 1,534 AUSD penalty, tx 0x7c03c973); 5 forceDeallocate calls / 7 d all by exiting users (senders 0xaf85af28, 0x944a50), gas ~322k = bash.065 (0.116 gwei, ETH 745.81); allocate/deallocate are allocator/sentinel role-gated",
+  "kb": [
+   "attempts:2894",
+   "protocols:1312"
+  ],
+  "run_id": "53ad6275a98a4fc8837b40c23b985534",
+  "at": 1795175859
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-yieldseeker",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 229,
+ "chain": "base",
+ "slug": "yieldseeker",
+ "name": "YieldSeeker",
+ "category": "Yield Aggregator",
+ "tvl_usd": 846984,
+ "url": "https://yieldseeker.xyz",
+ "github": null,
+ "listed_days_ago": 229,
+ "run_id": "c97079a4e1c64f5e82265d24eebd9248",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all harvest fns (executeViaAdapter -> Merkl/Moonwell claim, ERC4626 deposit/redeem) are onlyExecutors = EntryPoint | owner | single AGENT_OPERATOR 0xfbd0a364 (stranger eth_call reverts Unauthorized 0x8e4a23d6); only permissionless fn syncFromFactory() called 18x in 7d pays $0; sample 5 of 25 wallet USDC-outflow txs/7d all from operator + 2 bundler EOAs; Base gas 0.006 gwei, ~$0.0005/50k-gas call (ETH $1,819.68 coins.llama.fi)",
+  "kb": [
+   "attempts:1706",
+   "protocols:381"
+  ],
+  "run_id": "c97079a4e1c64f5e82265d24eebd9248",
+  "at": 1794916995
+ }
+}

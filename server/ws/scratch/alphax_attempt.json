@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-alphax",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward — AlphaX arbitrum is a custodial DEX vault (DEXVaultV1): deposits are made by users, withdrawals (signed 2-of-3 by the protocol) pay the user recipient; no function in the verified source pays the caller (no reward/claim/keeper/fee logic). 100% of the last 7 days' withdrawals were submitted by one protocol EOA that pays its own gas (~$0.008/call), so no stranger is ever paid.",
+  "numbers": "Proxy 0xEc0377A6Bc71c4A28288A5CfD307b80c53A7E1e1 (impl 0x3afa86022a76e8ca6db1b530a93e33de2081428e, verified). 7d eth_getLogs blocks 522,937,670-525,356,870: 305 Deposit + 130 Withdraw; withdrawals 130/130 from 0xf5cb7c01e56b0565ea27727a4aff0b97dd1c7c1f; out USDT 55,557 + USDC 31,064 (~$86.6k), in USDT 76,291 + USDC 26,882 (~$103k); withdrawERC20 gas 212,272 @ 0.02 gwei = $0.008 at ETH $1795.54 (coins.llama.fi); vault TVL $482k (USDT 334,412 + USDC 147,915) matches DefiLlama 481,678. Old proxy 0x552E7A55802f3350C707a243E402aa50Eda9D286 dormant since 2025-03-20 (~$5.8k USDT)."
+}

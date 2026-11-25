@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "mint_club_v2",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/mint-club-v2/index.js (raw GitHub) gives Base contracts: bond/MINT 0xc5a076cad94176c2996B32d8466Be1cE757FAa27 (verified as MCV2_Bond) and staking v1 0x364e0f814a2c5524d26e82937815c574f8bB86C1, v1.1 0x3460E2fD6cBC9aFB49BF970659AfDE2909cf3399, v1.2 0x9Ab05EcA10d087f23a1B22A44A714cdbBA76E802 (verified Stake.sol, all three same design). eth_getCode non-empty for all 4; poolCount()=223 on v1.2; getter claim(uint256) eth_call succeeds. Every external state-changing function is self-service: stake/unstake/emergencyUnstake/claim pay msg.sender; createPool pays creationFee to an owner-set protocolBeneficiary; cancelPool is creator-only; bond createToken/createMultiToken/mint/burn are user curve buys/sells. claim(poolId) pays only the caller's own accrued rewards (a fresh-address eth_call claim(0) succeeds, pays 0x); claim fee goes to protocolBeneficiary. RewardClaimed topic0 0x39ff35f451926ff5cd1926ae40ef218b8613cc15a7e9b567cbdecdfa65861b7f sampled over 7 days (6x50k-block windows, public node 50k range cap): 22 events, 6 distinct stakers, all claiming their own rewards. No keeper/bounty/distribute function that pays a stranger caller."
+}

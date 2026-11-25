@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-chamber-vaults",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Chamber Vaults (ex-dHEDGE, same codebase as arbitrum/base records) on HyperEVM has one anyone-callable maintenance fn, PoolLogic.mintManagerFee(), but it pays the caller 0 - fee shares go to the factory DAO and the pool manager. 8 calls in 7d by EOAs (mostly callers prepping their own deposit/withdraw), only 1 minted anything (504.74 shares -> DAO 50.47 + manager 454.27, caller 0), other 7 had available=0. Deposit/withdraw PAYS fees (user actions); execTransaction is role-gated; no harvest/claim/liquidate/auction/checkpoint fns.",
+  "numbers": "factory 0x615037C2Df6FA97634c5aD2d8144708b9dd3B176, 31 vaults (getDeployedFunds), TVL 1,773,892 USD (llama ts 1795147271), 96% in vault 0xce508465b243216fcf372d3146fd62e8f7a7b8e2 (getFundSummary fundValue 1,702,581.84, USDC 0xb88339cb7199b77e23db6e890353e22632ba630f 6dec read on chain); 7d eth_getLogs blocks 51,128,000-51,747,056 (31 vault addrs): 8 ManagerFeeMinted + 7 Deposit (tx 0x60a09036da9a0d6516d38428c4f3fd402ae7d9b72e4f6a29b57d65cf0cc49c8d = the only non-zero mint); mintManagerFee eth_call from 0x1111..1111 succeeds, estimateGas 522,310; gasUsed 523k-1,228k x effGasPrice 0.1-2.34 gwei = 0.004-0.024 USD per call at HYPE 65.56 (coins.llama.fi ts 1795155620); poolLogic 0xb577f6a5e6fc90c2a8761ed303f717b6570d15c4 verified source (hyperevm etherscan)"
+}

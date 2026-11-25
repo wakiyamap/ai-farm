@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-sodax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 102,
+ "chain": "base",
+ "slug": "sodax",
+ "name": "SODAX",
+ "category": "Bridge",
+ "tvl_usd": 46629,
+ "url": "https://www.sodax.com/",
+ "github": null,
+ "listed_days_ago": 102,
+ "run_id": "c1ef6c21691f45b1b81efab81b5dd33a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "SODAX base = SpokeAssetManager 0x348BE44F.. + ConnectionV3 0x4555aC13.. (Sonic hub bridge): only keeper job recvMessage->verifyMessage gated by require(executors[tx.origin]) (stranger eth_call reverts 'unauthorized executor', registered relayer's replay 'Message already processed'); 47 recvMessage in 7d (blocks 57731202-60755202), 47/47 by whitelisted EOA 0xa4026a97.., caller paid $0.00 on-chain (gas $0.003 @ 186949 gas, ETH 1709.85 llama 11-22 10:03); fees sit in ConnectionV3 (0.0 ETH), leave only via onlyOwner withdrawFee; 70 Message events/7d.",
+  "kb": [
+   "attempts:3678",
+   "protocols:1901"
+  ],
+  "run_id": "c1ef6c21691f45b1b81efab81b5dd33a",
+  "at": 1795341984
+ }
+}

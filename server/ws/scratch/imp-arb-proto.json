@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "impermax_v2",
+ "status": "dead_end",
+ "checked": "2026-11-23 run 89bba266 (scout). Tarot-style lending (DefiLlama adapter projects/impermax, slug impermax-v2). 3 arbitrum factories from adapter config: 0x8C3736e2FE63cc2cD89Ee228D9dBcAb6CE5B767B, 0x9708e0b216a88d38d469b255ce78c1369ad898e6, 0x97bc7fefb84a4654d4d3938751b5fe401e8771c2 - all eth_getCode non-empty, allLendingPoolsLength() eth_call = 25/26/45 = 96 lending pools. Sources: github Impermax-Finance/impermax-x-uniswapv2-core Borrowable.sol (liquidate(borrower,liquidator) external, no role modifier; Borrow/Liquidate event decls) and StakedLPTokenSolidlyBase1 verified on etherscan for vault 0x699c5e23357ab1bf658bd0b38070d746e37671f3 (reinvest() external with only require(msg.sender==tx.origin) i.e. EOA-callable; bounty = 2% of accrued rewards safeTransferred to caller in rewardsToken). 7d+ event scan blocks 524394974-526817336 (2026-11-15 to 11-23): Liquidate 0, Borrow 2 (same-shape control, topic0s from the same Borrowable.sol that matches the Borrow emitter), Reinvest 14 events from 14 vaults by 2 external keeper EOAs. TVL 34,297 USD."
+}

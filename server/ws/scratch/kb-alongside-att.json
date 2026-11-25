@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-alongside",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: the only permissionless entry point on the AMKT index is InvokeableBounty.fulfillBounty (rebalance swap, bounty = spread in the quote), but all 7 historical fulfills enforced a designated fulfiller (non-zero fulfiller field, BountyInvalidFulfiller reverts others) and the last fulfill was ~2025-01-06, 10.5 months ago; the set active bounty is already completed (completedBounties=true) so nothing is claimable now. Every other function on Vault/Issuance/IndexToken is onlyOwner or a role. Protocol idle: $364k TVL.",
+  "numbers": "7d window blocks 26414290 (2026-11-14) -> 26464428 (2026-11-21) from eth_getBlockByNumber timestamps: BountyFulfilled 0 on 0xe13ee5... (topic0 cast keccak BountyFulfilled(((address,uint256)[],address,uint256,bytes32),bool) = 0xf39c68fc...; no-topic control scan on same contract+window = 0 logs). Full history eth_getLogs from creation block 18460699 (2023-10-29): 7 fulfills total, blocks 18470753..21567256 (~monthly/quarterly through 2025-01-06), fulfiller always designated: 0xaeb9ef94, 0xf2bd8213, 0x5ae65506 (x3), 0x386f09fb, 0xef9615be; last fulfill tx 0x29b6522394773ea48c890ac395ff9746d6107909299752ef99a97604ff35de5b gasUsed 803,739, sent by EOA 0x3361d390 to fulfiller contract 0xef9615be; eth_call fulfillBounty from fresh address reverts (completedBounties[activeBounty()]=true). TVL 363,710 USD (DefiLlama candidate)."
+}

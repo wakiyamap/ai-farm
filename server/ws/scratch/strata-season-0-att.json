@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-strata-season-0",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. pUSDe Points Farm vault (proxy 0xA62B204099277762d1669d283732dCc1B3AA96CE, impl pUSDeVault 0x7fe8d7efe89b240b7f2879eebf488152f647b851) has no reward function a stranger can call: only ERC4626 deposit/mint/withdraw/redeem are permissionless and they pay the caller back their own principal 1:1 (convertToAssets(1e18)=1e18); all transition fns are onlyOwner. Reward is off-chain Strata Points. Vault active (20 txs/7d) but zero to takers.",
+  "numbers": "totalAssets 115,978 USDe (eth_call 0x01e1d114 @block 26458928; USDe 18dec 0x4c9edd5852cd905f086c759e8383e09bff1e68b3, held as eUSDe 0x90d2af7d622ca3141efa4d8f1f24d86e5974cc8f). 7d no-topic getLogs 26408528-26458928: 31 logs, 20 txs (16 Transfer, 7 Withdraw, 6 Approval, 2 Deposit), all Withdraws receiver==owner, max 1,866 USDe (0xc10e8ddc3ef25c...). redeem(0) from fresh address succeeds, returns 0. Gross to a stranger per call: 0 USD. Gas: 0.756 gwei (eth_gasPrice) x ETH $1,596.67 (coins.llama.fi WETH, ts 1795209294) => redeem ~60-90k gas ~= $0.07-0.11; full sample user tx 145,566 gas = $0.17 (0x83d616db7b07eb...)."
+}

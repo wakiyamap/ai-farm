@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "lockon",
+  "status": "dead_end",
+  "checked": "Set Protocol v2 fork. DefiLlama adapter projects/lockon/index.js gives polygon controller 0x153e739B8823B277844Ad885A30AC5bD9DfB6E83 (has code, getSets() = 3 SetTokens: LOCKON Balance 0xbe9a09dff5aef8d7411d799bbbaee2e471e30f63, Passive 0xd32dfefd9d00f772db460a3b542f0a736d80662f, Active 0xadb6d62e142a2f911fb3c9ca1c1d0fe5d9437252). Verified sources on explorer: each set has modules BasicIssuanceModule x3 (0x3b2a94ad.., 0xe6f4a718.., 0x6f0790c9..), TradeModule 0x6cc11e2de10f7539bfd38b49549957a9081c3b01, PositionUnitAdjusterModule 0x8c2e0399291d6225517a873de04ab92c2c95f06b. Only active BIM is 0x6f0790c9 (only one with 2025-26 traffic). Source review: BIM.issue/redeem(setToken,qty,to) have no role modifier (anyone callable) and pay the caller nothing - caller transfers components in, protocol takes a fee from the set token to feeRecipient 0x017efe77240b268d1011405a777bfaa3f3af2b1e (controller.feeRecipient()). TradeModule.trade and PositionUnitAdjusterModule.adjustDefaultPositionUnits are onlyManagerOrOperator. Manager = Safe 0xed79321d6199df783b5b14a8c3a617cbd5ce3736 (last execTransaction Oct 2025); operator 0x38350b623713ae24884a7b2396c4d903fc9136ae runs weekly adjust + trades. No reward/bounty/claim function anywhere: no_reward."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-goose",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 732,
+ "chain": "bsc",
+ "slug": "goose",
+ "name": "Goose",
+ "category": "CeDeFi",
+ "tvl_usd": 5352728,
+ "url": "",
+ "github": [
+  "GooseFarmLabs"
+ ],
+ "listed_days_ago": 732,
+ "run_id": "563dec2e75b241fbba7517068ba4c156",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BSC USDVault 0x0874f961178879cdbde3500544c49f864f232899 (USDT, TVL 5.36M = 4,873,240 lp x 1.099246): all 22 selectors match GooseFarmLabs repo - callable-by-anyone fns (deposit/withdraw/redeem/unLockDeposit/redeemAndUnLockDeposit) move the caller's own USDT and pay the caller 0, the rest is onlyOwner/onlyManager; 0 events in last 7 days (sample of all 269x5000-block chunks; control 19,395 USDT Transfers/300 blocks), eventId 447 unchanged over 7d, last event 2026-10-27, lpToken price unupdated since 2025-10-10; gas ~100k x 0.05 gwei = 0.003 USD (BNB 592.39, coins.llama.fi).",
+  "kb": [
+   "attempts:2058",
+   "protocols:645"
+  ],
+  "run_id": "563dec2e75b241fbba7517068ba4c156",
+  "at": 1794990601
+ }
+}

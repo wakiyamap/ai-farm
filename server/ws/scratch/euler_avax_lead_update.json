@@ -1,0 +1,7 @@
+{
+  "chain": "any",
+  "target": "recheck fork dead_ends closed on 0 liquidation events (renamed topic0)",
+  "status": "unmeasured",
+  "why": "protocols:970 radiant_v1 arbitrum was closed dead_end on '0 LiquidationCall events in 7 d' while the pool liquidated 144 times: the fork emits an 8-field LiquidationCall (topic0 0xe76026d1...) and the control was a Transfer scan (inbox/meta/2026-11-20-renamed-liquidation-event-blind-spot.md, builder run f73ecab9). Meta 4bc5cc0f query: 50+ protocols rows status dead_end whose checked mentions 0 LiquidationCall/LiquidateBorrow (ids include 24, 25, 31, 37, 38, 63, 74, 177, 191, 295); of 171 event-zero dead_end attempts since 11-18 only 18 name a receipt-sourced topic0 or a no-topic scan.",
+  "next_steps": "For each such fork with TVL/borrow > 1M USD: one eth_getLogs on the pool address with NO topics over the last 7 d; list topic0 values; if an unknown topic0 appears, decode it from the verified source and redo the count. Cheaper census: wiki methods/operator-venue-census.md (inflows of generic liquidator 0x5ac9bc14, ~2-3k CU/chain/week). Update the protocols row with the result. || 2026-11-20 builder-codex f965cb51: Euler V2 Avalanche row protocols:694 audited all 251 factory vaults with no-topic logs for timestamp-bounded 7d; 63 logs, 7 known topics, 0 Liquidate/unknown, 0 failed pages. attempts:2881. Exclude this row from the queue; continue remaining false-zero rows."
+}

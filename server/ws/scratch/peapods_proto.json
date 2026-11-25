@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "peapods_finance",
+ "status": "measured",
+ "checked": "DefiLlama adapter projects/peapods-finance/index.js gave Base contracts: indexManagerV3 0x556059e80CB0073D4A9547081Cf0f80cBB94ec30, indexManagerV2 0x0Bb39ba2eE60f825348676f9a87B7CD1e3B4AE6B, leverageManager (beacon) 0x31E35550b15B2DFd267Edfb39Dd9F3CD1c6ab82D (impl 0x817e65a2075410334d8f0f6776fbb0dd8ba40edb), PEAS 0x02f92800F57BCD74066F5709F1Daa1A4302Df875. allIndexes() on V3 returns 24 pods (getter answered; eth_getCode non-0x on all three). leverageManager.lendingPairs(index) (0x47efda2a) resolved a non-zero LVF FraxlendPair for all 24. Source of pair 0xc5a8d866888363c624fec1dc7bc5538f39aee3b8 (Blockscout): FraxlendPair.sol/FraxlendPairCore.sol - liquidate(uint128,uint256,address) is external nonReentrant, no role modifier; dirtyLiquidationFee=9000, cleanLiquidationFee=10000, LIQ_PRECISION=1e5 (9%/10% bonus), protocolLiquidationFee ~1% of collateral. eth_call liquidate(1,far,fresh-borrower) from 0x1111...1111 reverts BorrowerSolvent() (0x75e595fa) = access open, not role_gated. addInterest(bool) is public but pays the protocol (feesShare), not the caller."
+}

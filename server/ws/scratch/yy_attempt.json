@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-yield-yak-staked-avax",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only stranger-callable reward-class function is Portal.claimFee(planetId,claimerId) (no role modifier in verified source), but it transfers the fee AVAX to claimerId's maintainer, never to msg.sender, and the accumulated-fee pot is empty: eth_call from a fresh address reverts 'StakeUtils: fee and surplus should be bigger than zero'. claimSurplus is role-gated ('sender not maintainer'), reportOracle is oracle-only. Nothing was paid to anyone in 7 days: 0 FeeClaimed/SurplusClaimed/OracleUpdate/OperatorActivated events; the whole protocol is dormant.",
+  "numbers": "7d scan 2026-11-19 blocks 100020649-100736649 (72 x 10k chunks, 0 errors): FeeClaimed 0, SurplusClaimed 0, OracleUpdate 0; control WAVAX Transfer same shape latest 10k blocks = 8165 logs (rpc.py avalanche). Fresh-address eth_call claimFee reverts (accumulatedFee=0 for operator 0xf138e6...34aa0 and for planet id 0x6529...f38); planetClaimableSurplus=0; unclaimedFees(pool)=388.2 AVAX but not claimable (per-claimer fee 0). claimSurplus eth_call reverts 'sender not maintainer'. TVL cross-check: supply 46407.82 gAVAX x pricePerShare 1.14118 = 52,960 AVAX x $7.056 (coins.llama.fi 2026-11-19) = $373.7k vs listed $381k. Gas: eth_gasPrice 7.5 gwei -> claimFee ~100k gas ~= $0.005. getMaintainerFromId(planet 0x6529...f38) = EOA 0xdcedf06fd33e1d7b6eb4b309f779a0e9d3172e44 (no code)."
+}

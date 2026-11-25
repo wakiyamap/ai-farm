@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead31",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 31,
+ "target": "Compound v3 whale absorb+buy slice route on cUSDCv3-base (only gross>gas class on Base; reactive residue route closed by attempt 294)",
+ "run_id": "167f268d7f9249ca90356a886bb7df4b",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d cUSDCv3-base 0xb125e668: 91 absorb events/27 txs/4 takers; sample 12 of 27: 4 whale absorbs 5.2k-19.2k USD collateral, taker gross 124/166/338/547 USD (buy ~97 pct of oracle), fresh slices re-taken by 3 other strangers at +0..+2 blocks for 40-83 USD; takeable->taken 10-685 blocks after last independent feed update (median 91 blk=18 s; 3/5 whales >=18 s, outside R=3s; feed now updates ~every 9 min, 318/1069 same-block premise stale); winner tips 0.53-15 gwei; one attempt ~1.5M gas ~0.30 USD at current gas (ETH 1819.92 coins.llama.fi) << gross.",
+  "kb": [
+   "attempts:1473",
+   "leads:31"
+  ],
+  "run_id": "167f268d7f9249ca90356a886bb7df4b",
+  "at": 1794863101
+ }
+}

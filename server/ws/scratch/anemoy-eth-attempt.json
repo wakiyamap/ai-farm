@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-anemoy-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Anemoy LTF on ethereum is the Centrifuge V3 KYC fund: Tranche 0x8c21...4b86 + AsyncVault 0xfe69...d77a + AsyncRequestManager 0xf482...61ae + FullRestrictions hook. Every callable function pays the investor (controller/receiver), not the caller; no reward/keeper/bounty function exists in the verified sources; the memberlist blocks strangers (isPermissioned(stranger)=false). 7d activity is 6-7 investor txs only, zero paid to strangers. Matches the base-side scout verdict (protocols:635).",
+  "numbers": "7d window blocks 26410386 (2026-11-14T02:58Z) - 26460640 (2026-11-21T02:58Z), timestamps from eth_getBlockByNumber. No-topic eth_getLogs: Tranche 8 logs/6 txs (Transfer topic0 = cast keccak Transfer(address,address,uint256)), Vault 5 logs/5 txs, ARM 0 logs (no-topic scan; control same-run 8/5 on Tranche/Vault). One mint 2,762,064 shares (~$3.1M at pricePerShare 1.1229 USDC, read on chain); redeem flow 445,000 shares. TVL 25.9M USDC (totalSupply 23.14M shares x 1.1229). Gas 98,070-454,013 per tx @ 0.16-1.40 gwei = $0.03-1.03 (ETH $1,616.87 coins.llama.fi ts 1795230054). Fresh-address requestDeposit reverts 0xf4d678b8 InsufficientBalance(); isPermissioned(0x...00beef)=false.",
+  "bot_id": null
+}

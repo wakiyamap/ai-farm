@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-pooltogether-v5",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. PoolTogether V5 on OP Mainnet shut down 2026-11-05 (PrizePool 0xF35fE10f... shutdownAt 1793840736, isShutdown true) and the only function anyone can call that pays out is withdrawShutdownBalance(vault, recipient), which pays msg.sender's own accrued TWAB share: eth_call from a fresh address returns 0, so no stranger is paid. Other reward paths are gone or fee-paying: Claimer.claimPrizes charges a fee (caller-side, VRGDA) and last ran 2026-09-03, 0 claims in 7 days; yield liquidation pairs have had no swap since 2024-07/2025-09. The 7-day activity is users withdrawing their own WETH, not a keeper job. Corroborates protocols:670 (legality dead_end) and the sibling scout run on base (same shutdown).",
+  "numbers": "7d window 2026-11-11..11-18: 85 txs to PrizePool 0xF35fE10ffd0a9672d0095c435fd8767A7fe29B55, 100% withdrawShutdownBalance, >=20 distinct senders (Blockscout tx listing); sample of 5 of 85 (highest gas) gross 4e-6..4.15e-4 WETH = $0.01-0.73 (ETH $1,759.64, Blockscout historic rate), gas 308k-343k gas @ effectiveGasPrice 0.0001009 gwei = $0.00003-0.00006 (eth_getTransactionReceipt); fresh-address eth_call of withdrawShutdownBalance returns 0; claimer 0x0b5a1dc536d5a67c66d00b337e6b189385bd8438 last tx 2026-09-03; 97 vaults across 5 factories (totalVaults 10+6+15+19+47, eth_call); TVL 819,257 USD (session context)"
+}

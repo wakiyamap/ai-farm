@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-d2-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. D2 Finance is an ERC-4626 custody-model vault system (23 vaults on arbitrum, only 2 implementations: VaultV0 / VaultV1Whitelisted). Every state-changing function is gated: startEpoch and whitelist setters onlyOwner, custodyFunds/returnFunds onlyTrader, deposit/mint/withdraw/redeem onlyWhitelisted plus an epoch-phase time gate; there is no reward, claim or keeper-fee function in the source at all, so a stranger is never paid. A fresh-address eth_call reverts '!trader' (custodyFunds) and '!funding' (deposit). Activity is near-dormant: 0 txs in the last 7 days on the three funded vaults (last calls 2026-11-03, 2025-03-12, 2024-12-09 via explorer txs).",
+ "numbers": "23 vaults on arbitrum per DefiLlama module adapter projects/d2finance/index.js; all 23 eth_getCode non-empty and totalAssets() answers on all 23 (eth_call 2026-11-18, latest block 525322639). TVL arbitrum 8.85M USD (api.llama.fi). Funded vaults by totalAssets raw: 0x291344FB 1.34e15, 0xB0730A 4.15e14, 0x5f44A7 5.9e11; 9 vaults at 0. Gated functions: 6 onlyOwner/onlyTrader + 4 onlyWhitelisted (source VaultV1Whitelisted.sol lines 131-213, explorer 0x27D22Eb71f00495Eccc89Bb02c2B68E6988C6A42). Gross to a stranger caller = 0 USD (no reward function), so gross > gas impossible. 7-day tx count on the 3 funded vaults = 0 (explorer txs; control: same query returns older rows)."
+}

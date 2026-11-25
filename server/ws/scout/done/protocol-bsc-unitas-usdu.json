@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-unitas-usdu",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 514,
+ "chain": "bsc",
+ "slug": "unitas-usdu",
+ "name": "Unitas USDu",
+ "category": "Basis Trading",
+ "tvl_usd": 36043715,
+ "url": "https://app.unitas.so",
+ "github": null,
+ "listed_days_ago": 514,
+ "run_id": "7522871c7afa48d7876399b02c33fdad",
+ "result": {
+  "verdict": "role_gated",
+  "line": "UnitasMintingV2 0xbB98...82A mint/redeem onlyRole(MINTER/REDEEMER)+server-signed order (fresh addr eth_call reverts AccessControl); 18 sampled of ~150 est/7d events ALL from one protocol router 0xe9e8...84ae; caller paid $0 (collateral->order.beneficiary, redeems 1:1; gross $5-332k/call, median ~$10k) vs gas $6.48 (219k gas @0.05gwei, BNB $592.56 llama); sUSDu yield=ERC4626 rate 1.1088 by donation, no claim fn; TVL 35.63M supply, 31.10M staked.",
+  "kb": [
+   "attempts:1882",
+   "protocols:509"
+  ],
+  "run_id": "7522871c7afa48d7876399b02c33fdad",
+  "at": 1794951719
+ }
+}

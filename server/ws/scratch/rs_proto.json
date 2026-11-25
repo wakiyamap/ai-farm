@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "radioshack",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/radioshack/index.js (github radioshackswap, repo contracts@master: plain UniswapV2 fork + RadioStaking.sol). Contracts confirmed on bsc via rpc.py eth_getCode (all non-0x) and getters at block 134514641 (2026-11-19): factory 0x98957ab49b8bc9f7ddbCfD8BcC83728085ecb238 (11287 B; feeTo()=0xdead, feeToSetter()=0x50ea8ade6514e05d44c0304f9fd063f81b52371b, allPairsLength()=182, minter()/treasury() revert) = plain UniV2Factory, no caller-paid fn; sRADIO vault 0xACc89554Fb28A94e5578d8A1B04E88Aa7788D261 (name()='Staked RadioShack Token', radio()=0x30807D3b851A31d62415B8bb7Af7dCa59390434a; enter/leave pay msg.sender own principal, 1:1-ish lock, holds 85.2M RADIO); MasterChef-like farm 0x68b761d63e488c1d7c5f282c9b7d9a9791c17d3a (name() reverts, owner()=0x50ea8...team, poolLength()=4, poolInfo(0..3) returns lastReward as unix timestamp: pool0 lpToken=RADIO allocPoint=4000 last 2026-01-14T15:33Z, pool1 lpToken=0x208717fba937a35a06b4f602f752098338b49aba last 2023-03-19, pools 2-3 allocPoint=0 last 2022-11-18). Chef holds 5.86M RADIO (decimals 18 read on chain) = 221 USD at RADIO 0.00003768 USD (coins.llama.fi, 2026-11-19T13:56Z). No keeper/minter; pair skim() exists but is dust. Nothing paid a stranger in 7d: chef pools untouched since 2026-01-14 (state read)."
+}

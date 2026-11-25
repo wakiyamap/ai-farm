@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-wepiggy",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "wepiggy",
+ "name": "WePiggy",
+ "category": "Lending",
+ "tvl_usd": 63606,
+ "url": "https://www.wepiggy.com/",
+ "github": [
+  "WePiggy"
+ ],
+ "listed_days_ago": null,
+ "run_id": "0b2403957df5496eb4016160095847dd",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "liquidateBorrow on the 7 pToken markets (Cream fork, no modifier; fresh eth_call err 3 = allowance) called 85x/7d by 12 strangers (blocks 159625674-159928074 = 2026-11-16 to 2026-11-23, topic0 from own PEther.sol:482, no-topic scan 829 logs/85 txs): total gross 235.75 USD vs gas 91.46 USD; one address 0xd9fffdf0 took 233.42 gross / 91.10 gas (net +142.32; top call 117.01 gross vs 46.84 gas, tx 0xe7f6e17a..., repaid 1,464 USDT) by bidding 19-21 gwei vs median 0.0000445; median call is 0.001 USD dust; penalty 8 pct read on chain (liquidationIncentiveMantissa 1.08e18).",
+  "kb": [
+   "attempts:4175",
+   "leads:438"
+  ],
+  "run_id": "0b2403957df5496eb4016160095847dd",
+  "at": 1795455927
+ }
+}

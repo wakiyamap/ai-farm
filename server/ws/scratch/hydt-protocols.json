@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "hydt_protocol",
+  "status": "dead_end",
+  "checked": "Run b2adeb0d9a71 scout 2026-11-23. Contracts from DefiLlama adapter projects/hydt/index.js (github/url empty on llama API); all Sourcify exact_match (sourcify.dev/server/v2). Earn 0x8e48d5b2Ac80d9861d07127F06BbF02F73520Ced, Farm 0x4590BaD61aE62ACFF33032e3Bf64b52b7264A779, Reserve 0xc5161aE3437C08036B98bDb58cfE6bBfF876c177, sHYDT 0xab4f1Bb558E564ae294D45a025111277c36C89c0, HYDT 0x9810512be701801954449408966c630595d0cd51 (18 dec, name()=\"High Yield Dollar Stable Token\"), Farm.poolLength()=3, HYGT reward token 0x100995a7e5ffd8ee60cc18a10c75cee8c572c59b (from Farm.HYGT()). Control 0x73210fBe16461929735Eb7ea114924A6eAf7573c found from Reserve Out-event caller (not in adapter). All 5 adapter addresses eth_getCode non-empty. Full verified source read: MasterChef-style self-claim only - Farm.deposit/withdraw/withdrawRewards and Earn.stake/claimPayout mint rewards to msg.sender from its own accrual (no maker/keeper bonus); public Farm/Earn updatePool/massUpdatePools transfer nothing; Reserve.withdraw and Control.execute(uint8) are onlyRole(CALLER_ROLE) (holder = Control). No liquidation, auction, epoch or claim-for-others function anywhere in the suite."
+}

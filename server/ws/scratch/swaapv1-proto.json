@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "swaap_maker_v1",
+ "status": "dead_end",
+ "checked": "Swaap Maker V1 = Swaap V1 market-neutral AMM (swaap-labs/swaap-core-v1, Balancer-v1-style fork, pragma 0.8.12). DefiLlama adapter projects/swaap/index.js reads pools from Goldsky subgraph swaapv1/1.0.0 (direct query now 404); TVL 83,995 USD (api.llama.fi 2026-11-22). 3 'Swaap Pool Token' (SPT) pools found via polygon.blockscout.com/api/v2/search?q=swaap: 0x7f5f7411c2c7eC60e2db946aBbe7DC354254870B (getTokens()=WETH 0x7ceb23fd.., USDC.e 0x2791bca1.., WBTC 0x1bfd6703..), 0xeaAbEF7ac0D2f268B1200D7a616F7cef5843e5A3, 0xf8EBE445d045792E2e959a6b25bB0B94585cf2E8 (tokens 0x7abb53..,0xc66d45..,0x8fe41f..). eth_getCode not 0x for all 3; name()='Swaap Pool Token' answered. Explorer-verified source 'Pool' (0.8.12) matches repo. External surface = AMM ops only (joinPool/exitPool/joinswap/exitswap/swapExactAmountIn|OutMMM), gulp(address), finalize, ownership; bind/rebind/unbind/setSwapFee gated to controller (getController()=0x25785484c74a86341c46809492261b9d95bd775c, EOA) or factory; Factory.collect(address erc20) is _onlySwaapLabs_. No function pays the caller."
+}

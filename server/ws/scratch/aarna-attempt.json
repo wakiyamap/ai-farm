@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-aarna-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The Aarna ATV vaults are stranger-callable only for deposits/withdrawals (user actions, not paid); every maintenance/fee function requires a specific role. The fee-bearing entrypoints AtvManager.rebalance()/rebalanceUnderlyingTokens() pay rebalfee to msg.sender but require msg.sender==rebalanceController (0x980d9fbb, owner-set); vault updatePoolData needs aFiManager (revert AB30), swap needs aFiOracle, pauseUnpauseDeposit needs the oracle/pause-controller (revert AB32), atvPTmax settleQueue needs the safeWallet (revert 0xd7fed6bd). No reward/bounty/incentive function exists in verified source (grep).",
+  "numbers": "TVL 111370 USD (candidate). 7 vault/manager/storage contracts confirmed non-0x via eth_getCode. 7-day window blocks 26409824 (2026-11-14) to 26460080 (2026-11-21), 50256 blocks (from eth_getBlockByNumber timestamps): explorer txs listing per contract shows only 1 tx in window (a user approve on ATV-111 2026-11-20), no paid keeper/rebalance/settle call. Last real activity 2025-05/2025-10 on managers. Gas: eth_gasPrice 0.11 gwei; WETH $1620.02 (coins.llama.fi ts 1795223688); updateTVL() 148739 gas = ~$0.027. rebalfee()=5e20 read on-chain (source: a cap validated against the redemption fee, not a per-call payout) and only the single rebalanceController address can call. Sources: verified source via explorer (AFiBase.sol, AtvManager.sol, BaseVault.sol); eth_call from fresh addr 0x1111..1111 (reverts AB30/AB32/0xd7fed6bd).",
+  "bot_id": null
+}

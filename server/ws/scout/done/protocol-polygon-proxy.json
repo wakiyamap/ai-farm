@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-proxy",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1769,
+ "chain": "polygon",
+ "slug": "proxy",
+ "name": "Proxy",
+ "category": "Bridge",
+ "tvl_usd": 16952980,
+ "url": "",
+ "github": [
+  "Proxy-Protocol"
+ ],
+ "listed_days_ago": 1769,
+ "run_id": "5c33b2aa3fa4470d84014ee4ec810034",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PRXYStaking 0x015CEe3a...rebase() is the only open-callable keeper fn (no role, source L680-701): pays caller 0 (OHM-v2 index growth to stakers), now reverts 'Pausable: paused' (PRXY token paused()=1); claim(address) open but pays recipient's own stake; BTCpx custodial wrapper pays no caller; staking txs 7d=0 (Blockscout, last 2025-02-06, last 10 all isError; control: PRXY token had txs 2026-11-08..13); gross 0 USD/call; TVL 16.6M = custodial WBTC, staking TVL 0.",
+  "kb": [
+   "attempts:2549",
+   "protocols:1045"
+  ],
+  "run_id": "5c33b2aa3fa4470d84014ee4ec810034",
+  "at": 1795100985
+ }
+}

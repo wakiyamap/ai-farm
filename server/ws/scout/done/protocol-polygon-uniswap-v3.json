@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-uniswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "polygon",
+ "slug": "uniswap-v3",
+ "name": "Uniswap V3",
+ "category": "Dexs",
+ "tvl_usd": 21497262,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "222d3924e29f43859b519e89675fab33",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No callable Uniswap V3 function on polygon pays a stranger: pool collect pays only caller's own fees (0xb6e5..0fcb WMATIC/USDC 0.05%, source msg.sender), createPool pays 0 (PoolCreated 0/656k blocks), Staker RewardsClaimed 0/656,212 blocks 96920744-97576956 (~11.4 d) with control 23 Swap logs in 2k-block window, collectProtocol owner-gated; gas ~$0.0002/call (POL 0.0824 coins.llama.fi).",
+  "kb": [
+   "attempts:2418",
+   "protocols:948"
+  ],
+  "run_id": "222d3924e29f43859b519e89675fab33",
+  "at": 1795071039
+ }
+}

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/srv/farm/ws/bots/paper/trial-peapods-base/bot.py", line 264, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/srv/farm/ws/bots/paper/trial-peapods-base/bot.py", line 244, in main
+    log('start',mode=MODE,executor=EXEC if MODE=='live' else PAPER_EXEC,
+TypeError: log() got multiple values for argument 'event'

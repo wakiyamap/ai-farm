@@ -1,0 +1,20 @@
+{
+ "id": "trial-polygon-lead349",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "polygon",
+ "lead_id": 349,
+ "target": "set_protocol (TokenSets) SetTokens other than ETH2x-FLI-P on Polygon: SWAVE, CMI, IAD issue / redeem at NAV versus their DEX pools",
+ "run_id": "d099be6171a54dbfaea65f1798b1427f",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7 d (blocks 97,287,152-97,690,351, 11-14 06:03 to 11-21 06:03 UTC): 13 atomic NAV redeem takes (SWAVE 8, CMI 5), 2 distinct takers (0xc3afb378, 0xde0a99fb), sample 13 of 13; gross median 0.1465 USDC.e = 0.146 USD (range 0.129-0.301, USDC.e 0.9995 llama 05:57Z), winners' priority-fee median 90.1 gwei, takeable->taken median 3,836 blocks / min 111 (pool had 25 swaps in 7 d, no first-block race), one attempt gas 0.012-0.015 USD << gross, observed arb gas median 0.422 POL = 0.030 USD; IAD 8 redeems all inventory, 0 atomic; class total gross about 2.1 USD/7 d",
+  "kb": [
+   "attempts:3211",
+   "leads:349"
+  ],
+  "run_id": "d099be6171a54dbfaea65f1798b1427f",
+  "at": 1795241743
+ }
+}

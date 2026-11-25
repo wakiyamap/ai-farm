@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-k3-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "k3-capital",
+ "name": "K3 Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 19305803,
+ "url": "https://k3.capital",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "add34c9f5bd842b38451eaab646b7d48",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: K3 owns no ethereum contracts, the 17.84M USD TVL (llama 2026-11-20) is curated third-party vaults (Euler Earn, Mellow+Symbiotic, Upshift v2, Symbiotic); 7d blocks 26409176-26459434 (11-13 to 11-20): 44 logs/31 txs all user redeem/transfer (sample of 6 of ~28 vaults), 0 RewardsPushed/WithdrawalProcessed; role-free calls (claim/instantRedeem/pushIntoSymbiotic/collectFees, eth_call from fresh addr) pay a stranger 0.00 USD gross, gas 0.027 USD (138,783 gas @ 0.1185 gwei, ETH 1618.41 USD); mirrors k3 dead_ends on arb/bsc/hyperevm/optimism",
+  "kb": [
+   "attempts:3091",
+   "protocols:1467"
+  ],
+  "run_id": "add34c9f5bd842b38451eaab646b7d48",
+  "at": 1795216078
+ }
+}

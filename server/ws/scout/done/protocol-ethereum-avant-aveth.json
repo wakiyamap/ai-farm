@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-avant-aveth",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 390,
+ "chain": "ethereum",
+ "slug": "avant-aveth",
+ "name": "Avant avETH",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 22013730,
+ "url": "https://app.avantprotocol.com/?ref=defillama",
+ "github": null,
+ "listed_days_ago": 390,
+ "run_id": "c98801275bb648658ad3d2f9d8fde38c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: mint/redeem behind MINTER_ROLE/REDEEMER_ROLE (relayer 0xaf6fd55a), transferInRewards behind REWARDER_ROLE (controller 0xdb87e930), completeMint/Burn behind SERVICE_ROLE - fresh-addr eth_calls all revert MissingRole (0xe2517d3f); 7d: ~10 mint/redeem + 4 transferInRewards (explorer txs sample of 25), nothing paid to strangers, gas 1.30 gwei (block 0x193b80b).",
+  "kb": [
+   "attempts:3010"
+  ],
+  "run_id": "c98801275bb648658ad3d2f9d8fde38c",
+  "at": 1795199725
+ }
+}

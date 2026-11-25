@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-bearnfi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "bearnfi",
+ "name": "BearnFi",
+ "category": "Yield",
+ "tvl_usd": 594912,
+ "url": "https://www.bearn.fi/",
+ "github": [
+  "bearn-defi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "1a827df79f99452791aa7394769ff5c4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "bVault strategies' earn()/farm() are stranger-callable (eth_call OK 23/54 from fresh addr; notPublic=0, no role) but pay the caller 0 (fee->operator per BvaultsStrategy.sol); 0 earns in last 7d - max lastEarnBlock 128,546,570 = 31.4d before head 134,613,804 (2026-11-20), last keeper 0x5057c51325b7a5cd52aa698669cd0cb8c0b00ba5 tx 0x3c65847c... gas 1,474,902 x 0.05 gwei x BNB 571.82 USD = 0.042 USD cost vs 0 USD reward; bDollar Treasury/Boardroom onlyOperator/user-claims, comptroller borrowed=0; TVL 594,912 USD mostly BDO holdings, DefiLlama snapshots empty since 2025-09-20",
+  "kb": [
+   "attempts:2729",
+   "protocols:1173"
+  ],
+  "run_id": "1a827df79f99452791aa7394769ff5c4",
+  "at": 1795141579
+ }
+}

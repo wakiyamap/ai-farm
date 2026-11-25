@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-otsea",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 883,
+ "chain": "ethereum",
+ "slug": "otsea",
+ "name": "OTSea",
+ "category": "Dexs",
+ "tvl_usd": 337738,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 883,
+ "run_id": "fb881caed6284a93a849ea622b5ce587",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only anyone-callable reward driver is OTSeaRevenueDistributor 0x34bc...a7ff distribute() - fresh eth_call succeeds, pays caller 0 (balance 0 ETH; last distribution block 20788438 2024-09-20, 0.0736 ETH; 100.43 ETH/32 epochs); staking distribute()/skipEpoch() role_gated (0x82b42900); claims pay only the caller's own credit (revert NoRewards/0xd9b91419; last 5 Claimed 0-9e-18 ETH); 0 logs on all 3 contracts in 7 d (26411589-26461843, 11-14 to 11-21; control WETH 2076/60 blocks); last market tx 2025-09-15; gas 89659=0.20 USD (1.348 gwei, WETH 1636.59)",
+  "kb": [
+   "attempts:3226"
+  ],
+  "run_id": "fb881caed6284a93a849ea622b5ce587",
+  "at": 1795245559
+ }
+}

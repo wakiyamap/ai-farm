@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "curve_llamalend",
+ "status": "measured",
+ "checked": "2026-11-21 run 2f71c9c5 scout: DefiLlama adapter projects/llamalend-curve (raw.githubusercontent; candidate slug curve-llamalend) factory 0xeA6876DDE9e3467564acBeE1Ed5bac88783205E0, eth_getCode nonempty, market_count()=48 (0xfd775c78), all 48 controllers(i) enumerated on relay. Only paid anyone-callable function (source 'crvUSD Controller.vy' from Etherscan for 0xeda215b7...): liquidate(user,min_x,use_eth) 0xbcbaf487 @external no access control, collateral AMM->msg.sender (line: transferFrom(COLLATERAL_TOKEN, AMM.address, msg.sender, xy[1])), fresh-address eth_call reverts with state reason not role. Fees go to fee_receiver (CollectFees), not callers. 7 d (blocks 26411631-26462700, 2026-11-14/21): 6 Liquidate events across all 48 controllers (topic0 0x642dd4d3... from ledger source verified on-chain; ledger's 20-address subset gave 5, control getLogs on the 4 emitters returned 5/5; 28 controllers outside the subset scanned separately, 1 extra event). Prior deep slices: protocols row llamalend (id 32) + lead 35: same-block race, blocked_infra."
+}

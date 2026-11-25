@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-meson",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 931,
+ "chain": "bsc",
+ "slug": "meson",
+ "name": "Meson",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 102175,
+ "url": "https://meson.fi/home",
+ "github": [
+  "MesonFi"
+ ],
+ "listed_days_ago": 931,
+ "run_id": "5f86dc3638484135b791cda6151d66bc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Single vault 0x25aB3Efd52e6470681CE037cD546Dc60726948D3 (proxy -> impl 0x685ffe830e9d8b510df67d5d7453535456fa3bcc, 20,239B, getSupportedTokens()=16) on bsc; HTLC LP model: bondSwap/lock/release/executeSwap only for registered LP pool owner/authorized addresses, fees accrue to pool (withdrawServiceFee owner-gated); no stranger-paid function; 7d counts unmeasured - bsc eth_getLogs failed all lanes 'all providers failed: public: limit exceeded' (control eth_getBlockReceipts 0x801c400: 102 receipts, 0 to vault); TVL 102,175 USD",
+  "kb": [
+   "attempts:2173"
+  ],
+  "run_id": "5f86dc3638484135b791cda6151d66bc",
+  "at": 1795015282
+ }
+}

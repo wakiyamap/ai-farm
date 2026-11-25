@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-ankr",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "ankr",
+ "name": "Ankr",
+ "category": "Liquid Staking",
+ "tvl_usd": 100632,
+ "url": "https://www.ankr.com/",
+ "github": [
+  "Ankr-network"
+ ],
+ "listed_days_ago": null,
+ "run_id": "c969876fbb1b415e9f4f2100e02df913",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ankrAVAX/aAVAXc (token 0xc334..., pool 0x7baa..., bond 0x6c6f...): role-less claim/claimCerts/claimCertsFor/manualServeClaim redeem the caller's own AVAX, pay 0 reward (fresh-addr revert 'Cannot claim more than have'); serveClaims/claimToIntermediary/updateRatio onlyOperator; 7d: 1 pool tx (0xbc4a5e38 claimCerts 52.09 certs -> 74.05 AVAX pending, 0 paid), 0 bond txs, 0 AVAX paid to strangers; pool liquid 2.004 vs 74.05 AVAX pending; gas 220k@7.5gwei=0.00165 AVAX=$0.011 (AVAX $6.90 llama 2026-11-19).",
+  "kb": [
+   "attempts:2646",
+   "protocols:1116"
+  ],
+  "run_id": "c969876fbb1b415e9f4f2100e02df913",
+  "at": 1795123383
+ }
+}

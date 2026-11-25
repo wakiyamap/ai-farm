@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-caviar-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Verified factory and pair offer only NFT fractionalization, AMM trades and liquidity redemption; emergency close/withdraw are owner-only. No permissionless reward function exists.",
+  "numbers": "0 eligible caller-reward functions in Etherscan verified Caviar.sol and Pair.sol; 2 owner-only emergency functions (close, withdraw). Factory 0xa964d6e8d90e5cd12592a8ef2b1735dae9ba0840 and pair 0x77c337720f4cc389c98da98aca6065cd859d0672 code/getters verified via rpc.py; Create receipt tx 0x1db309b1e8cf8fa1d6b66048b7f592b01ae8e8e1e14ca67abc2e6344afc88e20. Fresh-address eth_call close() -> Close: not owner. Seven-day count/gross/gas in USD: N/A, as no eligible function exists."
+}

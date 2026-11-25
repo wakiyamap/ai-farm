@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-balancer-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid verdict. Balancer V3 on optimism has no caller-reward function: the only permissionless settle-class fn ProtocolFeeController.collectAggregateFees(pool) (eth_call from fresh address succeeds, no role revert) pays the caller $0 — verified source routes collected fees to the PFC itself (pool creator + DAO treasury 0x9ff471f9f98f42e5151c7855fd1b5aa906b1af7e). Same ABI family as the arbitrum dead_end (run 7f536973, same day). The chain is also barely alive: 498 swaps in 7d all on one rETH-Aave wETH pool with $3.02 total swap fee, 0 liquidity adds/removes in 60d, and collectAggregateFees itself last called 2025-08-27.",
+  "numbers": "7d Vault logs blocks 159391160-159694168: 498 Swap + 104 Wrap + 72 Unwrap, 0 LiquidityAdded/Removed (control: same-shape Swap query returns 498); single active pool 0x870c0af8a1af0b58b4b0bd31ce4fe72864ae45be (rETH-Aave wETH); 7d pool swap fee sum(Swap.swapFeeAmount)=0.001674 ETH=$3.02 (ETH $1806.67 coins.llama.fi 1794987510); pool protocol fee pot getProtocolFeeAmounts=$6.84 -> DAO/creator; collectAggregateFees 7d calls=0, last 2025-08-27 tx 0xe65c2f34d2748c6c1ec555d001fd84e8ab66c48a19f7239e0e479b64f7c84d91; gas 281,690 gas x ~0.001 gwei = $0.0005 exec; gross to caller $0. TVL $257k (api.llama.fi). 89 pools ever registered (PoolRegistered scan from factory creation block 133969412)."
+}

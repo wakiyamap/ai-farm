@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-sushiswap-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. SushiSwap V3 on arbitrum is a plain Uniswap V3 fork: verified pool ABI (UniswapV3Pool) and factory ABI and the periphery NonfungiblePositionManager (38 fns, 0 reward-like) have no public callable function that pays the caller or a recipient argument (no poke/claim/harvest/incentive; collect pays the LP's own fees, collectProtocol is owner-only). The DEX is live but every caller is a taker paying LPs, not a stranger being paid.",
+  "numbers": "PoolCreated 1,387 ever, 3 in last 8M blocks (eth_getLogs 0x4870000..525479973, topic0 0x783cca1c). 4 WETH/USDC.e pools (fee 100/500/3000/10000); swaps per 10k-block window across 7 samples = 179/115/45/32/144/45/365 (sample of 7 windows, ~1.75h); main pool 0xf3eb87c1 2,677 swaps / ~200k blocks (~5h), top caller 0x278d858f 1,769x; LP mints 2 in same window via vault StrategyPassiveManagerUniswap. Gas 0.02002 gwei (eth_gasPrice), ETH $1,772.45 (coins.llama.fi 2026-11-19) => ~$0.005 gas/swap. TVL $786,051 (candidate). Factory 0x1af415a1 getter feeAmountTickSpacing(3000)=60 OK; NPM 0xF0cBce19 + SwapRouter 0x8A21F676 factory()=0x1af415a1 OK."
+}

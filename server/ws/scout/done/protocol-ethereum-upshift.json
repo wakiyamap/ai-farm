@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-upshift",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 714,
+ "chain": "ethereum",
+ "slug": "upshift",
+ "name": "Upshift",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 333763093,
+ "url": "https://app.upshift.finance",
+ "github": null,
+ "listed_days_ago": 714,
+ "run_id": "63e0169c3f584d9a9fc26d5d726a6fe4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "45 Upshift tokenized vaults on ethereum (79.6M api.llama.fi 2026-11-21): anyone-callable hooks (chargeManagementFee/collectFees/claim/processAllClaimsByDate, eth_call from fresh addr OK) pay the caller 0 - 7d (blocks 26410480-26460734, top 14 vaults ~30M) 31 ManagementFeeCharged + 18 FeesCollected + 98 WithdrawalProcessed, all to feeCollectors (0xd71a48f7/0xbe6b7dca) and 84 redeemers; callers = Upshift operator 0xe0b7deab...058c79 + 2 bots; gas bash.028/call (114,865 gas @ 0.15 gwei, ETH 607 coins.llama.fi). Same unpaid as avalanche/base/hyperevm.",
+  "kb": [
+   "attempts:3165",
+   "protocols:1522"
+  ],
+  "run_id": "63e0169c3f584d9a9fc26d5d726a6fe4",
+  "at": 1795231618
+ }
+}

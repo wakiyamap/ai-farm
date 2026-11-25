@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-cobraswap",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward - PancakeV2 fork (factory 0x3165d94dd2f71381495cb897832de02710a0dce5, 56 pairs): all callable functions are user-driven (createPair/mint/burn/swap by the LP or trader) or role-gated setters (setFeeTo/setFeeToSetter behind feeToSetter 0xb39f3c914800a9830a7d7497305017f719c7d9ef); no function anyone can call that pays the caller. Its reward mechanism (COBRA emissions) is dead too: 0 COBRA mints in 30 d. A chef/farm contract was not located on-chain (explorer tool not_on_plan on bsc, Sourcify file endpoints 404, no GitHub repo), but with 0 emissions even a live harvest would pay 0.",
+ "numbers": "Factory allPairsLength()=56 (eth_call 2026-11-23). COBRA mints (Transfer topic0 from receipt-consistent cast keccak, topic1=0x0): 0 in 7 d (fromBlock 0x7fc799b=133,946,491, 2026-11-16T14:50Z, to 135,289,721 2026-11-23) and 0 in ~30 d (fromBlock 0x7b7d000); control same shape CAKE 0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82 7 d = 766 logs. 7 d COBRA Transfers: 14 (all of them), ~17-77k COBRA each, via pair 0x1011d0abd6fd3965d34a56f7c1789a19fdd9cf67. Gross per hypothetical caller reward: 0 (no such function); gas n/a. TVL 39,951 USD (api.llama.fi 2026-11-23); COBRA usd: unpriced (no price used)."
+}

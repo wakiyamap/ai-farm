@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-stonedefi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1780,
+ "chain": "bsc",
+ "slug": "stonedefi",
+ "name": "StoneDefi",
+ "category": "Yield Aggregator",
+ "tvl_usd": 36792,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1780,
+ "run_id": "e0ae0b76fdd74507b7b19be99af887a9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Yearn V2 fork (Vyper yVault proxies, no harvest() in impl 0x0F9F..B26A4) + StoneBank stBNB staker: rebaseSTBNBToBNB callable by anyone but reward pot is 0 BNB (eth_call reverts 'stakingRewardVault has no BNB'; batchClaim queue empty headerIdx=tailIdx=10) and 0 events from all 13 contracts in 7d (blocks 133916235-135259629, 2026-11-16..23; control: same 13-address no-topic scan = 86 logs over 90d, last 2026-09-27)",
+  "kb": [
+   "attempts:4077"
+  ],
+  "run_id": "e0ae0b76fdd74507b7b19be99af887a9",
+  "at": 1795432167
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-javsphere",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 971,
+ "chain": "base",
+ "slug": "javsphere",
+ "name": "Javsphere",
+ "category": "Derivatives",
+ "tvl_usd": 36744,
+ "url": "https://javsphere.com/",
+ "github": [
+  "Javsphere"
+ ],
+ "listed_days_ago": 971,
+ "run_id": "cb16127bc8884f3b82ea104daa952a73",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LeverageX diamond 0xBF35e427...a1b3 on Base: triggerOrder and claimPendingTriggerRewards(uint8) callable by anyone, but a fresh address's claim reverts NoPendingTriggerRewards (0xf056e5d5, pot 0) and trigger fees are split only over gov-registered triggers (isValidTrigger false); 0 collateral transfers in/out of the diamond over 7 d (blocks 57852332 2026-11-15 to 60998060 2026-11-22; same-shape control 116 USDC logs), gas ~0.002 USD/call (0.006 gwei, ETH 1721.50 USD coins.llama.fi 2026-11-22 23:36 UTC)",
+  "kb": [
+   "attempts:3901",
+   "protocols:2061"
+  ],
+  "run_id": "cb16127bc8884f3b82ea104daa952a73",
+  "at": 1795390746
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-native-credit-pool",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Native Credit Pool on base is a CreditVault (0x74a4Cd023e5AfB88369E3f22b02440F2614a1367) funding whitelisted market-maker traders; every value-moving external function reverts from a stranger address (settle/repay/removeCollateral need trader-or-settler, liquidate needs owner-whitelisted liquidator AND a protocol-signer EIP-712 signature, epochUpdate an epochUpdater EOA, withdrawReserve the feeWithdrawer, pay the LP tokens, swapCallback the RFQ pool). The only permissionless path (addCollateral) makes the caller pay in, earning nothing. No register/bond function exists to acquire a role on-chain.",
+ "numbers": "0 calls in last 7d: last inbound vault tx 2026-09-20 block 51546970 (explorer txs, blockscout); 0 events in 6 sampled 50k-block windows (~300k blocks, latest 59100862) vs control USDC Transfer 19,961 logs in 500 blocks. TVL $479k, borrowed $6.3k, allLPTokens 6 (api.llama.fi + allLPTokens(0..5) eth_call, 2026-11-18). 8/8 state functions revert from 0x...dEaD via eth_call. gross n/a (nothing pays a caller), gas n/a."
+}

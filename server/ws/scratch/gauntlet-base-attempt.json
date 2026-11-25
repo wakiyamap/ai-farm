@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-gauntlet",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Gauntlet on base is a set of Morpho v1.1 MetaMorpho curator vaults (biggest: Gauntlet USDC Prime 0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61, $396M) plus 17 Aera AeraVaultV2 vaults. Every value-moving fn is behind a role: reallocate (the rebalance keeper fn) is onlyAllocatorRole and reverts from a stranger; skim sends to skimRecipient (not caller); Aera claim() reverts Aera__NoClaimableFeesForCaller for a stranger (pays feeRecipient only). No function pays a caller a reward on base.",
+  "numbers": "reallocate 7d = 115 ReallocateSupply events (fromBlock 0x353a3a0, head 58837322), all from one whitelisted allocator 0xffd6bf4906a6bce134b70dd74afe01c917b9119b (isAllocator()=1); pays caller 0; last tx 0xb39f59a9 gasUsed 470665, base gasPrice 0.006 gwei x ETH $1824 = ~$0.005/call. Source: MetaMorpho.sol (blockscout) and AeraVaultV2.sol; vault list from api.morpho.org/graphql + DefiLlama adapter."
+}

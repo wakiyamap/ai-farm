@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-tizi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 196,
+ "chain": "base",
+ "slug": "tizi",
+ "name": "Tizi",
+ "category": "Yield Aggregator",
+ "tvl_usd": 226565,
+ "url": "https://tizi.money/",
+ "github": [
+  "tizimoney"
+ ],
+ "listed_days_ago": 196,
+ "run_id": "1804f5089610458196bbd024830c355f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All 4 value-moving fns role-gated on base: TiziDollar.updateYield onlyAdmin (1 call/7d by admin 0x9270b2c5, tx 0x7438251c, +245.66 TD to stakers, caller paid 0, gas 2.13M=bash.023; stranger eth_call reverts 'Not authorized'); DepositHelper.fulfillNFT onlyAdmin (0/7d); MainVault.harvest onlyManager; MainTokenStats.strategiesStats onlyAdmin. Open fns pay only caller's own funds: StakedTD.claim 1/7d (381.46 TD own principal, gas bash.002); DepositHelper 0 logs at all in 7d (control: same shape got logs on TD/StakedTD). netAsset 226,741 TD, TVL 26.6k.",
+  "kb": [
+   "attempts:1689"
+  ],
+  "run_id": "1804f5089610458196bbd024830c355f",
+  "at": 1794912971
+ }
+}

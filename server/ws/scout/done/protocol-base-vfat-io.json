@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-vfat-io",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 916,
+ "chain": "base",
+ "slug": "vfat.io",
+ "name": "vfat.io",
+ "category": "Yield Aggregator",
+ "tvl_usd": 15424309,
+ "url": "https://vfat.io/yield",
+ "github": null,
+ "listed_days_ago": 916,
+ "run_id": "2a9b7e6869e34c098f722890ec096fe0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "vfat.io on Base = vfat.tools Sickle fork (factory 0x71d234a3..., registry 0x2ef5eafa...): wallet multicall gated by registry.isWhitelistedCaller (fresh-addr eth_call reverts CallerNotWhitelisted), registry writes onlyAdmin except free setReferralCode (0 calls last 7d, latest 2026-11-06), factory deploy() public but pays caller bash (~1.5/day, 25 txs sample, estimateGas 142,879 = ~bash.013 at 0.05 gwei, ETH 1782.20 coins.llama.fi); no keeper/task reward module in verified source; TVL 15.13M USD",
+  "kb": [
+   "protocols:735",
+   "attempts:2164"
+  ],
+  "run_id": "2a9b7e6869e34c098f722890ec096fe0",
+  "at": 1795012690
+ }
+}

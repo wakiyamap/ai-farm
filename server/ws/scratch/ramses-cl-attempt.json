@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-ramses-cl",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Minter.update_period and Voter.distributeAll/distributeFees are role-free (eth_call from a fresh 0x1111 address succeeds, only a timestamp gate), but verified sources (Minter impl 0xf29f1c04..., Voter impl 0xadf8c1d9...) show the caller is paid nothing: weekly RAM goes to gauges, growth to RewardsDistributor, 2M RAM/week incentives to CommandCenter; no Velodrome-style 3-token rebase reward exists. One keeper EOA (0x1a69e4b9...) runs the weekly mint piggybacked on its own voter.reset and pays gas for free, same pattern as hyperevm ramses_legacy_v2.",
+  "numbers": "1 Mint event last 7d (eth_getLogs, tx 0x2d08f115b1a0369ef30ece3ecd9ae668c9d1e659d7108a2d71e136b917cd487f, block 0x1f371ae8); payment to caller 0; weekly()=261,286.53 RAM = $43.6/week total at RAM $0.000167 (coins.llama.fi 2026-11-18); trigger tx gasUsed 23,352,221 = $0.83 at 0.020 gwei / ETH $1772.54 (eth_gasPrice + coins.llama.fi); no-op update_period eth_estimateGas 31,679 gas = $0.001; TVL $100k"
+}

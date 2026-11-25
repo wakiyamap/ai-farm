@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-mstable-cdp",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "mstable-cdp",
+ "name": "mStable CDP",
+ "category": "CDP",
+ "tvl_usd": 2674707,
+ "url": "https://mstable.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "569d70c0ee7e4e21a1e77ba00c47f203",
+ "result": {
+  "verdict": "unpaid",
+  "line": "mStable V1 (mUSD deprecated impl + feeders, TVL 2.67M USD): stranger-callable Unliquidator.claimAndDistributeRewards/distributeRewards (0xc643b9d6..) + PAaveIntegration.claimRewards pay the treasury Safe, never the caller; pots empty (stkAAVE 0, WCOMP 0, eth_call reverts 'No rewards to send'); 0 calls / 0 DistributedRewards events in 7d (blocks 26,408,066-26,467,977, topic0 from receipt, USDC control 19,576 logs); last call 2026-03-16 moved 328.94 WCOMP = 5,517 USD to treasury, gas 65,439 = 0.012 USD.",
+  "kb": [
+   "attempts:3575",
+   "protocols:1821"
+  ],
+  "run_id": "569d70c0ee7e4e21a1e77ba00c47f203",
+  "at": 1795318941
+ }
+}

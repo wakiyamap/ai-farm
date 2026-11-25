@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "rhino.fi",
+  "status": "dead_end",
+  "checked": "Bridge escrow on Polygon per docs (https://docs.rhino.fi/general/contract-addresses.md): proxy 0xBA4EEE20F434bC3908A0B18DA496348657133A7E (TransparentUpgradeableProxy via explorer), impl DVFDepositContract 0x7d40f6955af1316c2b67ec1d00e86c208db3e69d (verified source via explorer). eth_getCode non-empty; owner()=0x249aabb1d67a76404cc1197fa37adaf358b1e212 answers. Same contract as Arbitrum (attempt 2632): every payout fn (withdrawV2, withdrawV2WithNative, withdrawNativeV2, withdrawWithData, swapWithData, removeFunds) is _isAuthorized-gated; eth_call withdrawV2 from fresh addr reverts 'UNAUTHORIZED'. Only non-gated fn, withdrawVmFunds(address), succeeds from a stranger but sends VM balance to owner (DepositContract), caller gets 0. 7-day-ish window blocks 97519829-97640781 (~2.8d): 836 BridgedWithdrawal logs / 836 txs; explorer sample of 25 txs: 22x withdrawV2 from signer 0x7401e624f0e74d041f2d8a6f1429d8eaa51e208f, 2x withdrawWithData from 0x51497124089abdec0d3749d6db082f66ca03750a (both authorized()=true), 1x user depositWithId. Payout goes to user recipient, never the caller. No keeper reward anywhere."
+}

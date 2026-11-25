@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-wan-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1529,
+ "chain": "ethereum",
+ "slug": "wan-bridge",
+ "name": "Wan Bridge",
+ "category": "Bridge",
+ "tvl_usd": 485661,
+ "url": "https://bridge.wanchain.org",
+ "github": null,
+ "listed_days_ago": 1529,
+ "run_id": "164905d3a9354284b25208a035af9600",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Ethereum lock 0xfceaaaeb8d564a9d0e71ef36f027b9d162bc334e (CrossDelegateV7): smgRelease/smgMint revert 'caller is not authorized' from a stranger; 7d (blocks 26414782-26465059, 2026-11-14/21): 352 smgRelease + 7 smgMint all by relayer 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7 (30/30+7/7 sample); stranger-callable smgWithdrawHistoryFee pays 0 (getStoremanFee('Aries_072')=0, fees go to partner 0x34d7ece3.. in-tx); gas 218,535 @ 0.176 gwei = 0.065 USD, gross to caller 0.",
+  "kb": [
+   "attempts:3416"
+  ],
+  "run_id": "164905d3a9354284b25208a035af9600",
+  "at": 1795283819
+ }
+}

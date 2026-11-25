@@ -1,0 +1,26 @@
+{
+ "id": "protocol-optimism-infinite-trading-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 779,
+ "chain": "optimism",
+ "slug": "infinite-trading-protocol",
+ "name": "Infinite Trading Protocol",
+ "category": "AI Agents",
+ "tvl_usd": 35803,
+ "url": "https://www.infinitetrading.io/",
+ "github": [
+  "InfiniteTradingProtocol"
+ ],
+ "listed_days_ago": 779,
+ "run_id": "f01cf04ed7ee437092f63fdca87ba870",
+ "result": {
+  "verdict": "unpaid",
+  "line": "harvest()/harvest(address) permissionless on 6 Velodrome BeaconProxy vaults (stranger eth_call returns 0x; impl 0x36471C8330d4F3527997CC9B379cbF862eD42944); caller fee paid in ITP (call share 1e15/1e18 of 10% fee): 7d blocks 159586968-159889368 (2026-11-15/22) ChargedFees 7, StratHarvest 45 by EOA 0xe6c312d6 only; max gross 1.72e16 ITP = 0.0000813 USD/call vs gas 655k = 0.0011-0.0039 USD (ITP 0.004725, ETH 1711.80 coins.llama.fi 2026-11-22T20:08Z); class gross 0.000026 USD/day; Aero vaults openHarvest=false (keeper-gated)",
+  "kb": [
+   "attempts:3841"
+  ],
+  "run_id": "f01cf04ed7ee437092f63fdca87ba870",
+  "at": 1795378308
+ }
+}

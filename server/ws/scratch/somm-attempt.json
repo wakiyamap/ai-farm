@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-sommelier",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated - Sommelier on arbitrum is two Cellar v2.5 vaults; the only keeper-style function callOnAdaptor is _onlyOwner (owner 0xee75ba2c81c04dca4b0ed6d1b7077c188fede4d2) and reverts from a stranger address, and the contract has no reward/bounty/payment-to-caller logic at all (no payable fns, no 'reward' in src/base). 0 rebalance (AdaptorCalled) events in the last 7 days on either cellar, so even the owner's automation is rarely active.",
+  "numbers": "TVL 2026-11-19: USD cellar 21,261.79 USDC totalAssets; ETH cellar 53.83 ETH (~96,980 USD at 1,801.33 USD/ETH, coins.llama.fi WETH arbitrum) => ~118k USD, matches candidate 119k. 7d AdaptorCalled events: 0 (blocks 522944148-525544148, same-shape control Transfer = 4 logs). callOnAdaptor([]) from stranger: execution reverted (eth_call). Source: DefiLlama adapter cellar-constants.js + Etherscan verified Cellar.sol."
+}

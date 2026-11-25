@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-ordernchaos",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1581,
+ "chain": "arbitrum",
+ "slug": "ordernchaos",
+ "name": "OrderNChaos",
+ "category": "Algo-Stables",
+ "tvl_usd": 36333,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1581,
+ "run_id": "ab072df1c856485491dcee7f31ee12e0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Open callables exist but pay nobody: Market.lowerAndAdjust (eth_call ok from fresh addr, no payment logic, gas 49,248 = 0.017 USD @ 0.02 gwei) and StakePool.claim/claimFor pay prCHAOS to the staker only, pool empty (userInfo 0, pendingRewards 0); 0 txs / 0 logs on the 4 proxies in 7d (blocks 524693267 2026-11-16 -> 526749776 2026-11-23; control 2 logs from 521000000, topic0 from receipt), last protocol tx 2026-11-05, last claim 2025-04-12; TVL 36,333 USD is idle USDC/USDT/DAI in the Market proxy.",
+  "kb": [
+   "attempts:4040"
+  ],
+  "run_id": "ab072df1c856485491dcee7f31ee12e0",
+  "at": 1795421962
+ }
+}

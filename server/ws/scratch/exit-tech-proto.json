@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "exit_tech",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/exit-tech/index.js (raw.githubusercontent, 2026-11-22): factory/entry point 0xA1506e8f078225C4F9a20Cf1f9e3660D9dA691CA, event ExitVaultDeployed(uint256,address,address,uint256,uint256,uint256,string) fromBlock 306470740. eth_getCode non-empty (ERC1967/beacon proxy); getBeaconImplementation() = 0xc80b917df2564b3606c66ffb742f1e1589cad51f answers. Full verified source via `explorer source arbitrum` on both (ExitVault.sol 591 lines, ExitVaultEntryPoint.sol 208, TokenVester.sol 254, ExitVaultStorage.sol 255, solc 0.8.25). 15 vaults deployed (ExitVaultDeployed topic1; 2025-02-21 .. 2025-04-10, none since); getVaultInfo() shows 10 still have supply (max 37.02 GMX shares). No role-gate on claimRewards()/updateVester()/withdraw(): eth_call from 0x1111...1111 succeeds on all 8 open vaults, but they pay a 0-share caller 0 (claimRewards returns early). matchWithdrawRequest from a stranger reverts RequestDoesNotExist (0xe06f976a); WithdrawRequestCreated/Matched/Invalidated: 0 events ever on the 15 vaults. GMX v1 vesting mechanics: rewards (esGMX vest + staked GMX/GLP WETH + extGMX) are claimed by _updateVester() and split staker/owner/treasury - the caller is never paid."
+}

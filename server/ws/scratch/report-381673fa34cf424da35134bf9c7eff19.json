@@ -1,0 +1,12 @@
+{
+  "run_id": "381673fa34cf424da35134bf9c7eff19",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Measure-lane board walk #6: request-exhaustion re-check + full-chain ledger-top and class-coverage sweep (no target taken; waited for the 13:10Z researcher batch, none landed in-session)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1302"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Zero pending measurement requests (KB leads; newest 188 dead_end); bsc ledger space = closed uniswapx class only, polygon/avalanche/optimism zero ledger footprint (1-5 events); the one apparently un-mined class found (uniswap_protocol_fees.released, Released(uint256,address,address[]) TokenJar/Firepit emitters, ~7/day on ethereum+base+arbitrum) is already covered by leads 105/124 (dead_end); felix_cdp.redemption runs 50/day on hyperevm but its lead-149 reopen was re-checked today (1287); franken ChallengeStarted still 1 event (num 11, 2026-11-13), waiting bot correct. Waited through 13:14Z for the researcher batch: nothing landed; lead 117 is being fork-proven by build run 0c6c4884 (attempt 1303). 0 relay reads, 0 fork, 0 https - all local ledger + KB. Next real input: the late researcher batch or lead 117's build outcome."
+}

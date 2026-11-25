@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-binance-staked-eth",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The only BSC contract of the protocol is the WBETH token proxy 0xa2E3356610840701BDf5611a53974510Ae27E2e1 (impl 0xfe928a7d8be9c8cece7e97f0ed5704f4fa2cb42a, Binance FiatToken/StakedTokenV1 lineage). Function surface is plain ERC20 plus role-gated mint/burn ('FiatToken: caller is not a minter') and oracle-gated updateExchangeRate ('StakedTokenV1: caller is not the oracle'); no wrap/unwrap and no reward/claim/distribute/harvest/checkpoint/epoch function that pays the caller exists. Staking yield accrues to holders via exchangeRate (1.111074 ETH/WBETH), not to keepers. No one gets paid to call anything.",
+ "numbers": "totalSupply 190,896 WBETH x exchangeRate 1.111074 = ~212k ETH (~$385M TVL, eth_call at block 134409515); 7-day activity: 3 sampled 5000-block windows of 0.45s blocks (sample of ~2h of 168h): 0/6/116 logs, all Transfer + 1 Approval, 0 Mint, 0 Burn; callers = Binance hot wallets (0xb028522b0914e29da2dd4e58521103de8cc5de41); gas 0.05 gwei (eth_gasPrice) x ~50k gas = ~3e-6 BNB ~= $0.0018 at BNB $583.83 (coins.llama.fi 2026-11-19); control: 10589 USDT Transfer logs in a 150-block window proves the getLogs shape"
+}

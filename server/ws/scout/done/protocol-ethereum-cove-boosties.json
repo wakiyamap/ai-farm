@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-cove-boosties",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 931,
+ "chain": "ethereum",
+ "slug": "cove-boosties",
+ "name": "Cove Boosties",
+ "category": "Yield Aggregator",
+ "tvl_usd": 249900,
+ "url": "https://www.cove.finance",
+ "github": null,
+ "listed_days_ago": 931,
+ "run_id": "b8073d23c8d84085bfe4b90546d8613c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "claimRewards(addr,receiver) on 26 Cove gauges is role-free (fresh-address eth_call no revert) but COVE emissions ended 2025-05-30 (getRewardData periodFinish=lastUpdate=1748573879): 0 logs on all 26 gauges in 7d (blocks 26411891-26462273; controls: USDC 200blk same shape 16955 logs, same gauges 365d 20 logs, last activity block 25036773 2026-05-06), claimableReward(fresh)=0; DYFIRedeemerV2.massRedeem pays caller leftover ETH but 0 calls in 365d, dYFI held 0.05 (dust); TVL 235k USD.",
+  "kb": [
+   "attempts:3246"
+  ],
+  "run_id": "b8073d23c8d84085bfe4b90546d8613c",
+  "at": 1795250568
+ }
+}

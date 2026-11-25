@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-rhino-fi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "rhino.fi",
+ "name": "Rhino.fi",
+ "category": "Bridge",
+ "tvl_usd": 1170380,
+ "url": "https://rhino.fi",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "51a0d2d3637a4881a8db4d27c323b0c9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "DVFDepositContract 0xBA4EEE20F434bC3908A0B18DA496348657133A7E (impl 0x7d40f695...): every payout fn reverts UNAUTHORIZED from a fresh address; 836 BridgedWithdrawal logs / 836 txs over blocks 97519829-97640781 (~2.8d) all called by rhino's own authorized signers 0x7401e624f0e74d041f2d8a6f1429d8eaa51e208f / 0x51497124089abdec0d3749d6db082f66ca03750a paying user recipients; only stranger-callable withdrawVmFunds pays caller $0; gas $0.0026 (98759 gas @ 330 gwei, POL $0.0784).",
+  "kb": [
+   "attempts:2848",
+   "protocols:1269"
+  ],
+  "run_id": "51a0d2d3637a4881a8db4d27c323b0c9",
+  "at": 1795166831
+ }
+}

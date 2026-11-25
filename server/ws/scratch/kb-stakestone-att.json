@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-stakestone-berachain-vault",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated - the only keeper-like entry point (round advance rollToNextRound) and all asset management calls are AccessControl-gated (VAULT_OPERATOR_ROLE / ASSETS_MANAGEMENT_ROLE); the publicly callable claim path (claimRedeemRequest) is self-service and pays the redeemer their own STONE, 0 to a stranger. Nothing in the vault pays a caller, so no farm opportunity on ethereum.",
+  "numbers": "Contracts: ETHVault 0x8f88aE3798E8fF3D0e0DE7465A0863C9bbB577f0 (StoneBeraVault), BTCVault 0xf401Cc9f467c7046796D9A8b44b0c1348b4DEec7 (SBTCBeraVault), source verified via explorer. withdrawToken STONE 0x7122985656e38bdc0302db86685bb972b145bd3c (18 dec, read on chain). Fresh-address eth_call: rollToNextRound -> AccessControlUnauthorizedAccount 0xe2517d3f (both vaults); claimRedeemRequest -> NoClaimableRedeem 0x228c8359; cancelRequest -> NoRequestingShares 0x04b26983. 7d window blocks 26410251 (2026-11-14) to 26460506 (2026-11-21), no-topic eth_getLogs (control: non-empty): 15 logs total, ETHVault only: RedeemClaimed x9, RedeemRequested x5, RedeemCancelled x1, RollToNextRound 0; BTCVault 0. Sampled claim gross 0.047/0.243/0.005 STONE (txs 0xdb8f4766..., 0xee9094f0..., 0xcf88cbe9...) = ~82/423/8 USD at STONE 1739.72 USD (coins.llama.fi, 2026-11-21 02:21 UTC). Gas: eth_gasPrice 0.42 gwei, 100k-gas call ~ 4.2e-5 ETH ~ 0.07 USD at ETH 1620.69 USD (coins.llama.fi same time). DefiLlama TVL 2.08M USD (api.llama.fi 2026-11-21)."
+}

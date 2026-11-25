@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "usdt0",
+  "status": "dead_end",
+  "checked": "Bridge escrow (LayerZero OFT). Docs (https://docs.usdt0.to/technical-documentation/deployments) list exactly 3 Ethereum contracts: OFT Adapter 0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee (proxy, impl 0xcd979b10a55fcdac23ec785ce3066c6ef8a479a4 via ERC1967 slot), OFT Adapter IOTA Lockbox 0xAEf027F94008430BF4Fc27FFABB49ea6F1dd3414 (beacon proxy), admin Safe 0x4DFF9b5b0143E642a3F63a5bcf2d1C328e600bf8. No separate USDT0 token on Ethereum (issuing chain; native USDT 0xdac17f958d2ee523a2206206994597c13d831ec7 is the locked asset; token() getter confirms, decimals()=6 read on chain; USDT.balanceOf(adapter)=3,699,457,342 matches the 3.61B TVL). Verified-ABI function list (explorer, impl 0xcd979b10...): send (payable, caller PAYS the LayerZero fee), lzReceive/lzReceiveAndRevert/lzReceiveSimulate (OnlyEndpoint: eth_call from fresh addr reverts 0x91ac5e4f = OnlyEndpoint(caller); endpoint()=0x1a44076050125825900e736c501f859c50fe728c), owner/admin only: setDelegate, setPeer, setEnforcedOptions, setMsgInspector, setPreCrime, transferOwnership/renounce. No reward/claim/distribute/harvest/settle/redeem-queue function anyone can call for pay."
+}

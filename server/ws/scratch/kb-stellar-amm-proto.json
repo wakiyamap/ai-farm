@@ -1,0 +1,6 @@
+{
+  "chain": "any",
+  "protocol": "stellar_amm",
+  "status": "dead_end",
+  "checked": "Native SDEX AMM, not a deployed protocol. DefiLlama adapter projects/stellar-amm/index.js (raw.githubusercontent, 2026-11-22) sums per-asset liquidity_pools_tvl from https://storage.googleapis.com/defillama-stellar-tvl/stellar-tvl-raw.json into each asset's token contract id (methodology: 'Total value of assets in Stellar native AMM liquidity pools'); no protocol contract in the adapter. api.llama.fi/protocol/stellar-amm: github null, url = developers.stellar.org SDEX liquidity-pools docs. Control: getEvents on top pool asset AQUA CAUIKL3IYGMERDRUN6YSCLWVAKIFG5Q4YJHUKM4S4NJZQIA3BAS6OJPK returns transfer events (ledger 65613400 @ 2026-11-22T13:10:46Z, relay getLatestLedger 65,613,573 @ ~13:22Z). No Soroban contract and no require_auth: SDEX pools are core ledger entries traded via core operations (ManageSellOffer/ManageBuyOffer/PathPaymentStrict*/LiquidityPoolDeposit/Withdraw); the caller pays fees and receives no protocol payout."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-sodax",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. SODAX spoke on BSC (Connection 0xA143488c.., AssetManager 0x348BE44F..) exposes only user-pays functions (sendMessage, transfer) plus a signature-gated recvMessage delivery anyone can call; in 7 days there were 21 events total, ALL outbound user deposits (3 sendMessage, 7 via PancakeSwap router, 11 AssetManager.transfer) and ZERO inbound recvMessage deliveries, and no sampled tx sent any token/BNB to tx.from. Nothing pays a caller on this spoke; the relayer is SODAX-operated (api.sodax.com/v1/relay).",
+  "numbers": "7d blocks 0x7fae7a6-0x7fdd763 (41x5000 eth_getLogs, research lane): 21 Connection events (topic0 0x0fcc8c44), 0 AssetManager events (control: same shape returned Connection logs in-run); txs/sel: 3x 0x6ea9cec9, 7x 0xb05beaa0 to router 0xe77e9642.., 11x 0xc6b4180b; 8 distinct caller EOAs; gasUsed 57k-411k/call at 0.05 gwei = $0.002-0.014 (BNB $592.81, coins.llama.fi); gross to caller = $0 (no transfer to tx.from in 5 sampled receipts of 21); AM holds 303.7 BNB + 299.9k bnUSD + 9.6k USDC(18dp) + misc; Intent Filler 0x1D6182aa 0 logs 7d"
+}

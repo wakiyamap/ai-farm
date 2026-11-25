@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-tangible-rwa",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The only public pay-the-caller function on Polygon is CaviarChef harvest(address)/withdrawAndHarvest at 0x83C5022745B2511Bd199687a42D27BEFd025A9A9 (impl 0xd52e7030): no role gate (eth_call from fresh address succeeds), but it redeems only the caller's own accrued shares - pendingReward for a stranger = 0. 0 Harvest events in the last 7 days (same-shape control over block range 96,665,972-96,685,972 returns the 2026-11-03 event, tx 0xf954603bd6003bff3e878404b4c08c0c89e81c2292079b669703a43019cfe8b0). Reward pot is empty: rewardPerSecond = 226,119 wei-shares/s (~$2e-8/day total across 2,882 staked Caviar shares). The v1 marketplace factory has had no tx since 2022-11; USDR/TNGBL activity is only user approvals/transfers.",
+ "numbers": "Last sample call (2026-11-03, tx 0xf954...e8b0, harvester 0x3ee4c95498f62a706f8720f5f7465310f9d4e2ee): Harvest event amount 3.12e-10 wUSDR shares = $3.1e-10 gross. Gas: ~150k gas x 278.7 gwei (eth_gasPrice 0x40e423a675) = 0.0418 POL x $0.0826 (coins.llama.fi 2026-11-19) = $0.0035/call. 7-day Harvest events: 0 (eth_getLogs from block 97,025,403 = ~7d+ back, to latest 97,573,323; control returns 1 event in a Nov-3 range). rewardPerSecond 0x37347 = 226,119 wei/s; chef staked 2,882 Caviar (balanceOf 0x288231c3ee948c5c4623). Polygon TVL 41.2M USD (DefiLlama currentChainTvls)."
+}

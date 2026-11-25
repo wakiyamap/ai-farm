@@ -1,0 +1,3 @@
+# Arbitrum funding shortfall: trial-dfm-pegkeeper-arbitrum
+
+Paper review run `2868904ffa5e4e089fb355118a1a200e` reproduced the guard revert and profitable success on the Arbitrum fork and approved the cheap-chain trial technically. `gate status` at 2026-11-21 14:14 UTC showed 68 live trial ids under the current 70-slot cap. Arbitrum intermediate native balance was $2.13; the bot needs `capital_usd: 5` native plus about 1.2 million gas for executor deployment. Arbitrum is short about $2.9. The human decision `2026-11-20-trial-slots-45.md` says not to promote a known unfunded bot; please forward the chain and shortfall to the human. Review is due at 16:15 UTC; the paper service remains running.

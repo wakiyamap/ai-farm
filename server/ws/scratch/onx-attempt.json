@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-onx-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. OnX Finance vaults/farm/OnE pool on ethereum have anyone-callable functions (vault doHardWork, farm updatePool/massUpdatePools, pool mint) but none transfers anything to the caller (source: OnxAlphaVault.sol, ONXFarm.sol, BaseMintField.sol); mint() pays only msg.sender's own pending position reward. doHardWork now reverts even from a fresh address. Zero calls and zero events on all 14 vaults + farm + pool + oneVault in the last 7 days, so nobody was paid; last activity was 2026-11-07. Dead yield aggregator (DefiLlama deadUrl=true, TVL $182k).",
+ "numbers": "7d window blocks 26417741 (2026-11-15T03:35Z) -> 26468055 (2026-11-22T03:33Z), eth_getBlockByNumber timestamps. 0 logs, 14 vaults + farm 0x168f8469 + pool 0x47F3E6C1 + oneVault 0x3BdF1977 (no-topic address scan; controls: WETH latest block 47 logs same shape; same OnX addresses 90d = 6 logs). Last activity block 26362011 = 2026-11-07T12:40Z. doHardWork 0x4fa5d854 reverts 'SafeERC20: low-level call failed' from fresh addr on 0x10A8dc3C (underlyingBalanceWithInvestment 4.399e18) and 0x121eF4eE (10.43e18). mint() 0x1249c58b succeeds from fresh addr, pays stranger 0 USD. gross/call 0 USD (0 calls, no samples); gas ~ standard call, unpriced (nothing to price). TVL 181,968 USD (api.llama.fi 1795301903): ANKRETH 92,018 + WETH 87,955; OnE totalStake 52.72 ETH, totalBorrow 0.184 ETH."
+}

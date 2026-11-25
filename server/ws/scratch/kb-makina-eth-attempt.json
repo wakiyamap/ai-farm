@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-makina",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: Makina v2 hub machines on ethereum are the same role-gated family as base (protocols:428). The only keeper-shaped entry, Machine.updateTotalAum, is onlyAccountingAuthorized and restrictedAccountingMode==1 on all 13 machines (stranger eth_call reverts 0x5c427cd9); even authorized callers are paid 0 - fees are minted as shares to the machine's feeManager. deposit/redeem require msg.sender to be the depositor/AsyncRedeemer contracts; finalizeRequests is onlyMechanic and claimAssets pays only the NFT holder. No reward/bounty/incentive function exists.",
+  "numbers": "13 machines from MachineCreated on HubCoreFactory 0x8d28A69328561eF9F171c58996fEcB9F494e070c (eth_getLogs from 23426666); Machine impl 0x6a759cae19aa25b41237089eb0bbbc4473bfb996 verified; restrictedAccountingMode()=1 on all 13; 7d eth_getLogs blocks 26401666-26462146: TotalAumUpdated 44, Deposit 36, Redeem 54 (134 logs); updateTotalAum callers 0x425bbc2cff0c7e7960baa9bac2f0cb67b41d3bef x30, 0x283504f935274046827e023fafc74b328c9c06f1 x8, 0x5eeb22910a5c84ea193d7a4c03f532f636c7f611 x6; busiest machine 0xd2f644d0418126ffcc8f16840ed5d52aa62fd4eb lastTotalAum 8485417916094 units of USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 (6 decimals read on chain) = ~8.49M USDC; gross paid to caller per updateTotalAum call: 0 (fee shares go to feeManager, MachineUtils.manageFees)."
+}

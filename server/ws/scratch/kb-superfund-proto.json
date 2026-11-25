@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "superfund",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter (projects/superfund/index.js) tracks one vault 0x10076ed296571ce4fde5b1fdf0eb9014a880e47b on Base; eth_getCode non-empty (EIP-1167 minimal proxy, impl 0x6104c0f2a7750f1b143dab49752e19da43dec34a); getters answer: totalAssets() 59,184.98 USDC (asset()=0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 USDC). Blockscout base 503 all session, so ABI reconstructed from 148 implementation selectors (4byte + cast) matching Superlend/superkat EulerEarn source (eulerEarnVaultModule, withdrawalQueueModule, harvest, gulp, updateInterestAccrued, rebalance). withdrawalQueue() = 10 strategy contracts on Base; strategy harvest() reverts from fresh address (vault-gated). Protocol is Superlend's EulerEarn-fork vault (twitter SuperlendHQ, URL dead)."
+}

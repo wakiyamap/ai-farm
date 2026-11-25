@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-index-coop",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "index-coop",
+ "name": "Index Coop",
+ "category": "Indexes",
+ "tvl_usd": 157102,
+ "url": "https://www.indexcoop.com/",
+ "github": [
+  "SetProtocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "4eaca2c6fa9c420995af32305adefe51",
+ "result": {
+  "verdict": "unpaid",
+  "line": "10 SetV2 SetTokens, all coded (adapter projects/indexcoop): no paid anyone-callable poke. rebalance() on per-set AaveV3LeverageStrategyExtension is onlyEOA+whitelist (anyoneCallable=false 3/3; 79 leverage events 7d, all from 3 keeper EOAs, pays caller 0); accrueFee anyone-callable (eth_call fresh addr OK) pays caller 0 (10 FeeActualized 7d in 1 batch 0x6acb0e22; fee 0.25%/yr to manager 0x5afd5af1); 17 issue/redeem 7d = NAV-arb venue, no protocol payment; poke gas 775k-1.07M gas = bash.03-0.04 @0.02 gwei, ETH 1757 USD",
+  "kb": [
+   "attempts:2627",
+   "protocols:1101"
+  ],
+  "run_id": "4eaca2c6fa9c420995af32305adefe51",
+  "at": 1795119508
+ }
+}

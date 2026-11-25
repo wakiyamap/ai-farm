@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-sperax-usd",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1776,
+ "chain": "arbitrum",
+ "slug": "sperax-usd",
+ "name": "Sperax USD",
+ "category": "Yield Aggregator",
+ "tvl_usd": 503923,
+ "url": "http://sperax.io",
+ "github": null,
+ "listed_days_ago": 1776,
+ "run_id": "1cac615c35214251809f3ce523c1c083",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "collectInterest(address) on the 4 Sperax USDs strategies is permissionless and pays msg.sender 10 bps of collected interest: 34 pays in 27 txs in 7d (blocks 523600701-525648991) by 7 independent strangers (4 EOAs, 3 contracts); gross 0.369 USD/7d (USDC+USDT+USDCe, 6-dec, event token topic) vs gas 0.311 USD (ETH 1808.84, coins.llama.fi 15:05Z), 21/27 txs gross>gas but every winner nets only ~0.01 USD - whole protocol yields ~0.06-0.11 USD/wk net; pot lingers (aave checkInterestEarned 9.1 USD uncollected), no race, but far below a bot's overhead.",
+  "kb": [
+   "attempts:2550",
+   "leads:302"
+  ],
+  "run_id": "1cac615c35214251809f3ce523c1c083",
+  "at": 1795101400
+ }
+}

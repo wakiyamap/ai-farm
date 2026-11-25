@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-qidao",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "qidao",
+ "name": "QiDao",
+ "category": "CDP",
+ "tvl_usd": 125179,
+ "url": "https://app.mai.finance",
+ "github": [
+  "0xlaozi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "062e9008ce044f1793f005ab9612eb2b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidateVault public (stabilityPool=0x0 on all 4 avax vaults) but 0 LiquidateVault events in 7d blocks 100511935-100814335 and 0 in 30d/90d full scans (control USDC.e same shape = 11,890 logs); checkCost>0 on 0 of ~340 vault IDs probed, totalBorrowed all vaults 21,009 MAI (20,264 in one non-liquidatable whale), gross 0 vs 0.014 USD gas (8.07 gwei, WAVAX 6.95 coins.llama.fi 2026-11-19).",
+  "kb": [
+   "attempts:2664",
+   "protocols:1127"
+  ],
+  "run_id": "062e9008ce044f1793f005ab9612eb2b",
+  "at": 1795127622
+ }
+}

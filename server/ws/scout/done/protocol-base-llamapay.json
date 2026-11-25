@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-llamapay",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1677,
+ "chain": "base",
+ "slug": "llamapay",
+ "name": "LlamaPay",
+ "category": "Payments",
+ "tvl_usd": 33361,
+ "url": "https://llamapay.io",
+ "github": [
+  "LlamaPay"
+ ],
+ "listed_days_ago": 1677,
+ "run_id": "8b1351b95c94416cabbad5291228611e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: withdraw(address,address,uint216) permissionless on all 29 base stream contracts (factory 0x09c39B83..., fresh-addr eth_call no revert) but pays the recipient arg, never the caller (token.safeTransfer(to), no fee or pot); 7d census blocks 58151027 (11-16) to 61172772 (11-23) timestamp-derived: 8 Withdraws on 1 contract (USDC 6d), 9.42-126.49 USDC each = 416.49 gross; 7/8 self-claims, 1 third-party caller got 0; gas 73-90k = 0.0008 USD (0.005 gwei, ETH 1729.79 llama 09:22 UTC); vesting claim role_gated",
+  "kb": [
+   "attempts:4057",
+   "protocols:2183"
+  ],
+  "run_id": "8b1351b95c94416cabbad5291228611e",
+  "at": 1795426123
+ }
+}

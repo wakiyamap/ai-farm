@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-ring-few",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 991,
+ "chain": "ethereum",
+ "slug": "ring-few",
+ "name": "Ring Few",
+ "category": "Bridge",
+ "tvl_usd": 19894107,
+ "url": "https://ring.exchange/#/earn",
+ "github": null,
+ "listed_days_ago": 991,
+ "run_id": "3ef1c542270d4a9e9f4263f62d57e28e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Pure 1:1 wrapper (FewFactory 0x7D86..64DD, 86 fw tokens, verified source): every callable fn (createToken, wrap/unwrap/wrapTo/unwrapTo, burn) pays 0, mint/burnFrom role-gated ('Caller is not a minter' from fresh addr); 7d blocks 26,412,535-26,462,792: 11,450 Wrap/Unwrap events (topic0 matched live), 128 senders, 0 paid; 2x createToken by operator 0xeb85b790 at 1.67M gas (~0.44 USD) for 0 return; same dead_end as bsc/hyperevm.",
+  "kb": [
+   "attempts:3275"
+  ],
+  "run_id": "3ef1c542270d4a9e9f4263f62d57e28e",
+  "at": 1795256363
+ }
+}

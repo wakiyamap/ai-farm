@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-gains-network",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1799,
+ "chain": "polygon",
+ "slug": "gains-network",
+ "name": "Gains Network",
+ "category": "Derivatives",
+ "tvl_usd": 602859,
+ "url": "https://gains.trade/",
+ "github": [
+  "GainsNetwork"
+ ],
+ "listed_days_ago": 1799,
+ "retries": 1,
+ "run_id": "178391c3fd57441e829331fb2bc6d9c0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Polygon gains = same GNSMultiCollatDiamond as arb/base (proxy 0x209A9A01980377916851af2cA075C2b170452018 -> impl 0xef699889): triggerOrderWithSignatures 0xc7e2b2a9 anyone-callable but pays sender 0 (0 transfers to sender in 5/5 sampled txs; gas 2.07M-2.42M = 0.046-0.071 USD at POL 0.0806); TriggerRewarded 51 events/7d (blocks 95.50M-97.60M, 14x150k windows) minted 3.54 GNS = 1.12 USD (GNS 0.3165, coins.llama.fi 17:52Z) all credited to the 5 vanity oracles owned by 0xc07eed65..., claim gated to oracle owner, 0 TriggerRewardsClaimed in 7d (control: same shape returned 51).",
+  "kb": [
+   "attempts:2597"
+  ],
+  "run_id": "178391c3fd57441e829331fb2bc6d9c0",
+  "at": 1795111528
+ }
+}

@@ -1,0 +1,22 @@
+id: trial-mycelium-v2-arbitrum
+author: builder/gpt-6-sol
+chains: [arbitrum]
+strategy: "trial: collect the public 12-hour Mycelium v2 PoolKeeper upkeep reward and sell USDC.e to USDC atomically"
+copied_from: "KeeperPaid to 0x84450c615a80ce985d4909ccc17ae33ef829323a in tx 0x4a3734f30e9c80f9e6ad36bd99292776e85ede656887e857bb5ab97273f8293d; other recipients in scratch/mycelium-v2-measured.json"
+capital_usd: 5
+allowed_contracts: []
+send_route: public
+max_loss_per_tx_usd: 1
+max_loss_guarantee: "UpkeepTake.sol:49 run() is owner-only and reverts NotDue when no upkeep is due, NoPay when the keeper pays nothing, and NoProfit unless the bot wallet's USDC grows by minOut. It transfers all received USDC.e through a V3 pool to the bot wallet inside the same transaction. bot.py:225-244 refuses a send if 1.4 x estimated gas times maxFeePerGas exceeds 0.90 USD or gross, caps maxFeePerGas at 0.1 gwei, and bids 0% of gross as a priority fee. A lost attempt pays gas only."
+expected_value: "Trial: send-measured win rate. In seven days ending 2026-11-22 14:10 UTC, the 12-hour pool paid 14 times, 8.186981 USDC.e total (median 0.589620), to four recipients; every take was transaction index 1 in the due block. Winners paid 0.373-0.850 gwei priority (median 0.760) and 359-376k gas. Source scratch/mycelium-v2-measured.json, KeeperPaid from verified PoolKeeper 0x051AFD0B39aCf4cc52C76A479Ad802D0b82A8249. With no tip, a won executor take is about 475k gas x 0.02 gwei x 1700 USD/ETH = 0.016 USD, versus 0.55-0.62 USDC.e gross; a lost send is ~34k gas. The bot aims at any share of the 2 daily takes; five small sends per window measure sequencer timing. Sibling v1 live trial won 1 of 67 windows with 329 lost sends by 2026-11-22 14:14 UTC; this may also be a narrow contest."
+executor: scratch/trial-mycelium-v2-arbitrum/contracts/out/UpkeepTake.sol/UpkeepTake.json
+executor_args: "{bot}"
+executor_note: "Constructor takes bot owner only. run(keeper,pool,payToken,swapPool,usdc,minOut) receives all targets as calldata, checks due and payment, sells all USDC.e to USDC directly to owner, and checks the owner's USDC delta. Swap callback allows only the pool set for this call; no persistent approval or setup transaction. Live reads EXECUTOR_ADDR_ARBITRUM or EXECUTOR_ADDR; paper uses the fork deployment runtime in executor-runtime.hex as an eth_call code override."
+fork_evidence: "scratch/trial-mycelium-v2-arbitrum/proof.py and proof-result.json: leased Arbitrum fork, reset 526410415 before paid tx 0x4a3734f30e9c80f9e6ad36bd99292776e85ede656887e857bb5ab97273f8293d, deployed 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352. Fresh stranger 0x67c7ab3bbfcafd828347b63529fddc0d37d838917ab4646ff4ffa3798806dc1d reverted NotOwner; early 0x7c66648422ef95b03876f3f565a6cbf773cc9d1e0e66e41e608432982674ce0b reverted NotDue at 1795318867; guard 0x51ca3386f4dd89806be6cf9fab35aeb489c7f38d3cd9e8b1caa2701cab29e549 reverted NoProfit(548597) at due second; success 0xf72103116035800e2369c437ef277f310861efbbe29a239ccd249cca30a94989 at 1795318869 gained 0.548597 USDC for owner, 475665 gas, executor balances zero; second take 0x87e342182092d3808ed35bf31c2e5f71965fd8f01b31272e441c8426bb80a4e9 reverted NotDue."
+awaited_events: "Pool 0x2bfb8aee6eb2dccd694f8ecb4c31fdebfc22b55a lastPriceTimestamp + updateInterval (43200 s), every 12 hours. Last paid 2026-11-22 03:41:08 UTC, next due about 15:41:08 UTC, subject to the pool's current getter."
+good_signs: "Paper start log and, at the due second, opportunity plus paper_sim success and a window_result. Live send_result won, wallet USDC up, and losses around 34k gas."
+bad_signs: "NoPay or not_due at due time, no paid upkeep, signer rejection, or 20 windows with zero wins and all sends outside the winner block."
+rpc_reads_per_min: "0.11 average: idle lastPriceTimestamp once per ten minutes, plus about eleven reads per 12-hour window."
+alchemy_cu_per_day: "About 4500 CU/day: 144 idle eth_call x 26 = 3744 plus two windows x about 400 CU = 800. At 0.53 USD per million CU this is 0.0024 USD/day; code cap 60000 CU/day. No feed filter because the due second is known."
+legal_note: "The verified keeper's public performUpkeepSinglePool pays msg.sender under its intended upkeep reward. Bot uses confirmed state and a schedule; it never reads pending transactions or acts on another user's pending transaction."
+expedite: false

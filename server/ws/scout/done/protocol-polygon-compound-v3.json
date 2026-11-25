@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-compound-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1524,
+ "chain": "polygon",
+ "slug": "compound-v3",
+ "name": "Compound V3",
+ "category": "Lending",
+ "tvl_usd": 3597347,
+ "url": "https://www.compound.xyz/",
+ "github": null,
+ "listed_days_ago": 1524,
+ "run_id": "ed1796791054412db212c42df823c84e",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "cUSDCv3 0xF25212E6...46445 buyCollateral (4-arg, no role gate: fresh-addr eth_call reverts only on ERC20 pull): 7 d blocks 97,175,741-97,578,941 = 5 absorb txs, 17 buys by 8 bot contracts, paid $57,251, gross $3,683 spot-vs-paid (coins.llama.fi; 5 largest samples gross $82-$1,533), gas $0.02-132.68/call at POL $0.0822; cUSDTv3 0 events; incumbent 0x10e3c6c0 takes next-block txidx 0 but was absent for the 2026-11-18 sale (0x5ac9bc14 took $82); lead 236 + trial bot trial-cv3-buy-polygon already live on this route",
+  "kb": [
+   "attempts:2438",
+   "leads:236"
+  ],
+  "run_id": "ed1796791054412db212c42df823c84e",
+  "at": 1795074845
+ }
+}

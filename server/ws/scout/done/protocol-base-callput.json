@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-callput",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 238,
+ "chain": "base",
+ "slug": "callput",
+ "name": "CallPut",
+ "category": "Options",
+ "tvl_usd": 188971,
+ "url": "https://callput.app",
+ "github": [
+  "alanxxzero"
+ ],
+ "listed_days_ago": 238,
+ "run_id": "4fc718caa824418da41b8028e0e62aa1",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: addOptions 'only keeper or admin' (keeper 0xDBd30f.. runs every few min, pays 0, no bonus in code), withdrawFees 'only fee distributor', updatePendingAmount anyone-callable pays 0; only payout SettleManager.settlePosition is holder-gated (fresh-addr revert 'No position to settle'): 18 settles 7d, sample gross $49.95/$49.54/$0/$432.55/$1383.54 own redemption USDC, gas ~0.6-1.16M gwei $0.01 (baseFee 5e6 wei, ETH $1816.73 llama)",
+  "kb": [
+   "attempts:1720",
+   "protocols:387"
+  ],
+  "run_id": "4fc718caa824418da41b8028e0e62aa1",
+  "at": 1794918785
+ }
+}

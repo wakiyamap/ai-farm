@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-pendle-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "pendle-v2",
+ "name": "Pendle V2",
+ "category": "Yield",
+ "tvl_usd": 6550028,
+ "url": "https://pendle.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "a56d979c2dda497d8c208a7459a7081a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "redeemMarketReward (gaugeController 0x704478Dd) callable by anyone, pays msg.sender's own accrued PENDLE = 0 to a stranger; gauge path live on bsc unlike arbitrum/base: 8 MarketClaimReward in 7d (blocks 133291623-134633957, 269-chunk getLogs scan, control 29,300 WBNB logs), all to PLP-clisBNB-15APR2027, 215.36 PENDLE = 288.4 USD but only as stakers' own LP yield via router (4 distinct EOA callers, gas 473k = 0.013 USD/call @0.05 gwei); pot 10,455 PENDLE (~14k USD); externalRewardsDistributor.claim 0 events in 7d; no expiredRedeemer; TVL 6.55M.",
+  "kb": [
+   "attempts:2766"
+  ],
+  "run_id": "a56d979c2dda497d8c208a7459a7081a",
+  "at": 1795150763
+ }
+}

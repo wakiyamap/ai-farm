@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-sodex-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 317,
+ "chain": "polygon",
+ "slug": "sodex-bridge",
+ "name": "SoDEX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 40916,
+ "url": "https://ssi.sosovalue.com",
+ "github": null,
+ "listed_days_ago": 317,
+ "run_id": "e2e63728751649abb74f7d62a1215c87",
+ "result": {
+  "verdict": "not_found",
+  "line": "No contracts on polygon: DefiLlama registry (sumTokens.js 'sodex', no adapter) lists only 2 custody EOAs 0x72b2f19f..+0x00b7aF08.., eth_getCode=0x both (rpc.py polygon 2026-11-22); their balances 28,129.38 USDC + 11,657.50 USDT + 999.93 USDC ~= reported TVL 40,916; last-7d explorer txs show only operator custody transfers, nothing callable -> same dead_end as arbitrum/bsc/base/ethereum/hyperevm.",
+  "kb": [
+   "attempts:3715",
+   "protocols:1933"
+  ],
+  "run_id": "e2e63728751649abb74f7d62a1215c87",
+  "at": 1795349123
+ }
+}

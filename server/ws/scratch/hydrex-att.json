@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-hydrex-omni",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers first. VoterV5 (proxy 0xc69E3eF39E3fFBcE2A1c570f8d3ADF76909ef17b) public claim functions paid EOA lock owners over the last 7 days; the largest observed single claimBribes paid 890.20 USDC vs $0.018 gas. Second note: payouts accrue only to a locked+delegated HYDX position (a fresh caller's replay reverts 0xe433766c), so it is a yield-style claim needing capital, not a keeper bounty; poke() and reset() pay the caller nothing.",
+  "numbers": "7d (2026-11-10..17, Base Blockscout v2 filter=to): 245 Voter txs, 181 distinct callers - 71 claimBribes (69 ok), 56 claimFees (55 ok), 8 claimRewards, 93 vote, 10 poke, 7 reset. Sample of 10 claimBribes: gross $0..890.20 USDC (median ~$10), gas used 0.13M-1.94M = $0.001-$0.02 at 0.006 gwei (eth_gasPrice) with ETH $1797.61 (coins.llama.fi 2026-11-17). claimRewards pays oHYDX 0.8-2.7; Distributor 0x8604d646... claimMultiple 26 calls / 4.4d pays LP campaign rewards. Source: docs.hydrex.fi + repo RichJamo/hydrex-periphery + verified sources on Base Blockscout. TVL $240k."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-biswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1232,
+ "chain": "bsc",
+ "slug": "biswap-v3",
+ "name": "Biswap V3",
+ "category": "Dexs",
+ "tvl_usd": 312276,
+ "url": "https://biswap.org/pool",
+ "github": null,
+ "listed_days_ago": 1232,
+ "run_id": "b600f747d5ae4a0793fed55dc39f3941",
+ "result": {
+  "verdict": "unpaid",
+  "line": "chef 0xf1be26c617f4fd808f2de640536ceba321279b92 (farmsContract of factory 0x4d175f2cfe3e2215c1b55865b07787b751cedd36): harvestMasterChef() callable by anyone (eth_call from fresh addr, no role revert) but pays caller 0 - debug_traceCall shows BSP + BSP-MOCV3 pulled from inner MasterChef 0x97df059ccb...pid1 to the chef itself; gas 138554 = ~0.008 USD (BNB 577.52 @0.1gwei, coins.llama.fi); 7d count/gross unmeasured (bsc eth_getLogs dead on spent scout lane, control failed too); pool layer standard UniV3 (collect owner-gated); TVL 312k USD",
+  "kb": [
+   "attempts:2285",
+   "protocols:834"
+  ],
+  "run_id": "b600f747d5ae4a0793fed55dc39f3941",
+  "at": 1795043212
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-reserve-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "reserve-protocol",
+ "name": "Reserve Protocol",
+ "category": "Indexes",
+ "tvl_usd": 3612021,
+ "url": "https://reserve.org",
+ "github": [
+  "reserve-protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "8db2eae60dfe41c2a49e05021ba75f9f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Reserve BSC = one CMC20 Folio 0x2f8a339b5889ffac4c5a956787cda593b3c36867 (v5.0.0, nextAuctionId 36, 3.55M USD); bid() is open to anyone (eth_call from fresh addr reverts Folio__AuctionNotOngoing, not role) but 0 AuctionBid and 0 AuctionTrustedFillCreated in the last 7 days (blocks 133,289,961-134,634,689, 137x5000 getLogs, control 423 Transfers same shape); no auction ran (~monthly, nonce 14 ended 11-10); trusted CoW fills take lots at ~zero edge, public dust ~3.5 USD gross/month, gas/call ~0.004 USD (0.05 gwei, BNB 566.46)",
+  "kb": [
+   "attempts:2767",
+   "protocols:1205"
+  ],
+  "run_id": "8db2eae60dfe41c2a49e05021ba75f9f",
+  "at": 1795150835
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-iotube",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1766,
+ "chain": "bsc",
+ "slug": "iotube",
+ "name": "ioTube",
+ "category": "Bridge",
+ "tvl_usd": 160859,
+ "url": "https://iotube.org",
+ "github": null,
+ "listed_days_ago": 1766,
+ "run_id": "614ecbd2300248b4a80bb19e99468340",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no function pays the caller on any of the 5 bsc contracts (tokenSafe 0xFBe9...CE4B, tokenList 0x0d79...3b34, cashier 0x797f...a1ca depositFee=0, validator 0x1164...3123 numOfPairs=2, witnessList 0x8119...EE3F): deposit/depositTo are user-funded (protocol keeps fee), submit() is public but mints to the bridge recipient not the caller (stranger eth_call reverts 'insufficient witnesses'), all else onlyOwner; TVL 160,859 USD; 7d event counts unmeasured - bsc relay providers dead mid-scan (scout lane 301,302/300,000 CU)",
+  "kb": [
+   "attempts:2547",
+   "protocols:1044"
+  ],
+  "run_id": "614ecbd2300248b4a80bb19e99468340",
+  "at": 1795100436
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-arrakis-modular",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 754,
+ "chain": "arbitrum",
+ "slug": "arrakis-modular",
+ "name": "Arrakis Modular",
+ "category": "Liquidity Manager",
+ "tvl_usd": 4637225,
+ "url": "https://arrakis.finance/",
+ "github": null,
+ "listed_days_ago": 754,
+ "run_id": "f5980e36d57c4c2c9d274645dfb9ffbc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: rebalance = module.swap() onlyManager (eth_call from fresh addr reverts OnlyManager, manager 0x2e6e879648293e939aa68ba4c6c129a1be733bda); no reward/claim fn in any ABI (1 public + 36 private vaults, 2 module impls via registry 0x791d75f87a701c3f7dffcec1b6094db22c779603); sampled modules 0 events over 7d (LogSwap 0/30d public module 0x06aad5a5..., HotSwap 0/7d pool 0xc4c855...; control USDC getLogs 26441 logs)",
+  "kb": [
+   "attempts:2073",
+   "protocols:658"
+  ],
+  "run_id": "f5980e36d57c4c2c9d274645dfb9ffbc",
+  "at": 1794992668
+ }
+}

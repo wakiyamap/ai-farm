@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-olive",
+  "outcome": "lead_recorded",
+  "reason": "unclear: Olive's live vault-list API returned HTTP 500, so the complete current contract set cannot be checked. Six historical Ethereum vaults have only keeper-gated round operations or a public closeRound() without a caller reward in verified source; no seven-day payment figure is inferred.",
+  "numbers": "6 distinct historical Ethereum vaults from DefiLlama polysynth adapter revision 2eab725b; 6/6 nonempty eth_getCode and answering totalBalance() via rpc.py, 2026-11-23. Two verified implementations: 0xaef1e04359f3cd66fe47959d2777aadec83d65c9, 0x3612a56f50b767a4ba1d09395d8a6cdb377ff5a4. Fresh-address eth_call: theta rollToNextOption() !keeper, theta closeRound() Round closed, Kiko close() !keeper, Kiko borrow() unauthorised. Current adapter API HTTP 500; 7-day count/gross/gas: unmeasured, not zero."
+}

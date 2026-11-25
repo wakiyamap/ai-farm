@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-unsheth",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: no function in the unshETH contract set pays a caller reward - V2 LSDVault is owner/admin/zap-gated, exit() is a holder redemption, token is a plain ERC20, Darknet is a view oracle. The only open call, V1 synchronize(), transfers nothing and reverts 'Already synchronized' today. All recent activity is VDAMM swaps where the taker pays fees to the protocol, not the reverse.",
+  "numbers": "TVL $143k (candidate). 7d window blocks 0x1930c08 (2026-11-14T15:22Z) to 0x193d0d4 (2026-11-21T15:47Z), timestamps from eth_getBlockByNumber. No-topic eth_getLogs across vaults+token+VDAMM+Zap: 12 logs (11 VDAMM SwapLsdToLsd + 1 Approval), 0 on both vaults, in-scan control returns the VDAMM logs. VDAMM swap sizes ~0.8-1.2 ETH each (sample of 5 of 11), fees paid 0.0002-0.0022 ETH/call, routed via 0xd1c6aca7ea7ed44e1873dafa054c28ceb690c7eb. WETH $1681.68 coins.llama.fi fetched 2026-11-21; gas 0.157 gwei (eth_gasPrice), ~$0.04 per 150k-gas call. Zap last tx ts 1766439875 (2025-12-23); V2 vault last tx exit() ts 1791194555 (2026-10-06)."
+}

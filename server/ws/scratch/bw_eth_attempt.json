@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-blackwing",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Blackwing's ethereum footprint is one deposit vault (proxy 0xc6aDE8A68026d582AB37B879D188caF7e405dD09, implementation byte-identical to the verified BlackwingVault on arbitrum) whose only permissionless functions are deposit/withdraw of the caller's own assets; the NoopDeployer's deploy() reverts '1' and totalDeployedAmount = 0, so assets sit idle and the protocol pays no caller. Third chain checked (arbitrum KB 2188, bsc KB 2189) with the same result.",
+  "numbers": "7 d blocks 26410941 (2026-11-14 04:50 UTC) - 26462466 (2026-11-21 09:05 UTC): BalanceChange events = 1 (no-topic control scan, only topic0 0xd34c461d...; 1 withdrawal 0.049995 WETH $81.33 by 0xbbc0cbeff7549e6b8ea7217b19eebd8b2f1031f3, 0 deposits). Withdrawal gas 111,229 x 0.797329585 gwei = 0.0000887 ETH = $0.144 (WETH $1,626.7758 coins.llama.fi ts 1795251887). Gross paid to caller per call: $0. ethereum TVL $128,565 (api.llama.fi ts 1795247051). eth_call from fresh address: NoopDeployer.deploy(WETH,1e18) reverts '1', totalDeployedAmount(WETH)=0, vault withdrawBlockWait()=0 (getter answers)."
+}

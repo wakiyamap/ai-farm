@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-superform",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 954,
+ "chain": "polygon",
+ "slug": "superform",
+ "name": "Superform",
+ "category": "Yield Aggregator",
+ "tvl_usd": 142906,
+ "url": "https://app.superform.xyz",
+ "github": [
+  "superform-xyz"
+ ],
+ "listed_days_ago": 954,
+ "run_id": "cc47776f4b34432cb78bf275240141ef",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Polygon Superform v1 = same role-gated stack as arbitrum: factory 0xD85ec15A count=62, CSR 0x3721b0e1 processPayload/updateWithdrawPayload/proposeRescue revert NOT_PRIVILEGED_CALLER 0xc2703cd6 from fresh addr; open finalizeRescueFailedDeposits/forwardDustToPaymaster pay depositors/paymaster not caller; 0 txs to CSR in last 7d (all 24 recent processPayload from one relayer 0x23c658fe, last 2026-10-27); SuperVaults not on polygon; TVL 142,906 USD.",
+  "kb": [
+   "attempts:2187",
+   "protocols:755"
+  ],
+  "run_id": "cc47776f4b34432cb78bf275240141ef",
+  "at": 1795018302
+ }
+}

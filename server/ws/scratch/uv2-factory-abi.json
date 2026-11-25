@@ -1,0 +1,11 @@
+# via etherscan
+constructorNone(address)
+allPairs(uint256) view -> (address)
+allPairsLength() view -> (uint256)
+createPair(address,address) -> (address)
+feeTo() view -> (address)
+feeToSetter() view -> (address)
+getPair(address,address) view -> (address)
+setFeeTo(address)
+setFeeToSetter(address)
+event PairCreated(address,address,address,uint256)

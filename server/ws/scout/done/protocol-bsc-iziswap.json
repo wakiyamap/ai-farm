@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-iziswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1595,
+ "chain": "bsc",
+ "slug": "iziswap",
+ "name": "iZiSwap",
+ "category": "Dexs",
+ "tvl_usd": 107590,
+ "url": "https://izumi.finance/trade/swap",
+ "github": null,
+ "listed_days_ago": 1595,
+ "run_id": "9cefd0ecf41e4604b71240fe1d818fb5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "iZiSwap BSC managers 0x93C22Fbeff4448F2fb6e432579b0638838Ff9581 + 0xBF55ef05412f1528DbD96ED9E7181f87d8C9F453: every paying fn (collect(recipient,lid), decLiquidity, burn, collectLimOrder) is gated by ERC721 owner-or-approved (checkAuth) - fresh-address eth_call reverts; 7-day sample of 4x5000-block chunks on both managers and the 2 USDT/WBNB pools = 0 logs (WBNB control non-empty); collect gas ~100k x 0.05 gwei x BNB $590.49 = ~$0.003; no stranger keeper reward exists.",
+  "kb": [
+   "attempts:2459"
+  ],
+  "run_id": "9cefd0ecf41e4604b71240fe1d818fb5",
+  "at": 1795079663
+ }
+}

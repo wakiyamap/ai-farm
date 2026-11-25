@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-tau-labs",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 336,
+ "chain": "ethereum",
+ "slug": "tau-labs",
+ "name": "TAU Labs",
+ "category": "Risk Curators",
+ "tvl_usd": 5026841,
+ "url": "https://www.628labs.xyz/",
+ "github": null,
+ "listed_days_ago": 336,
+ "run_id": "0cdbcd0f587f4b1db57b06b1d823498d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "13 ethereum IPOR Fusion PlasmaVaults (registries/curators.js, all with code; ethereum TVL 5,005,359 USD api.llama.fi 2026-11-20); execute/claimRewards/updateMarketsBalances role-restricted: eth_call from fresh 0x1111..1111 reverts AccessManagedUnauthorized 0x068ca9d8 on 12 of 13; no ABI function pays a caller (fees to fee accounts); explorer txs sample 0xb0f56bb0 25 txs/5d, 20 from keeper EOA 0x046b91794da429dae94fd4269957674eb2e2237f; execute gas 2,130,343 = $2.96 at ETH $1,631.03 vs $0 gross; same as base (attempts:1753).",
+  "kb": [
+   "attempts:2993",
+   "protocols:1393"
+  ],
+  "run_id": "0cdbcd0f587f4b1db57b06b1d823498d",
+  "at": 1795195053
+ }
+}

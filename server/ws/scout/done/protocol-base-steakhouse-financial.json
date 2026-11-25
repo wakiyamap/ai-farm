@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-steakhouse-financial",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "base",
+ "slug": "steakhouse-financial",
+ "name": "Steakhouse Financial",
+ "category": "Risk Curators",
+ "tvl_usd": 1284290591,
+ "url": "https://www.steakhouse.financial/",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "a9d0382bc7e34934b0302781d075e5c1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: 16 Morpho VaultV2 vaults ($1.264B Base TVL), no custom code; only open fn accrueInterest() (eth_call from 0x1111.. = 0x on 4/4 vaults; 119,080 gas = $0.0013 at 0.006 gwei, ETH $1,824.16) pays caller 0 - 0.5% perf-fee shares (2,175.5 shares ~ $2,210 in 7d, 1,176 AccrueInterest events on the 25.93M USDC vault 0xBeEfF0be...39e) go to fixed performanceFeeRecipient 0x255c7705...; allocate/deallocate/setMaxRate need isAllocator, forceDeallocate penalty to the vault; grep reward|feeToCallers|incentive|bounty in verified source = 0",
+  "kb": [
+   "protocols:532",
+   "attempts:1911"
+  ],
+  "run_id": "a9d0382bc7e34934b0302781d075e5c1",
+  "at": 1794958340
+ }
+}

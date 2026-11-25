@@ -1,0 +1,39 @@
+# Monolith
+
+> Monolith protocol documentation
+
+- [Introduction](https://docs.monolith.market/index.md): Welcome to Monolith — The Decentralized Stablecoin-as-a-Service Protocol
+- [Why Monolith](https://docs.monolith.market/overview/why-monolith.md): Understanding the problems Monolith solves and what makes it different
+- [Overview](https://docs.monolith.market/protocol/overview.md): Deep dive into Monolith protocol mechanics, economics, and technical specifications
+- [Stablecoin Factory](https://docs.monolith.market/protocol/stablecoin-factory.md): How stablecoins are created in the Monolith protocol
+- [DAO](https://docs.monolith.market/protocol/dao.md): Optional per-market DAO governance for Monolith instances
+- [Paid vs Free Debt](https://docs.monolith.market/protocol/paid-vs-free-debt.md): Understanding the difference between paid (non-redeemable) and free (redeemable) debt positions.
+- [Redemptions](https://docs.monolith.market/protocol/redemptions.md): How users can redeem stablecoins for collateral
+- [Interest Rate Controller](https://docs.monolith.market/protocol/interest-rate-controller.md): How interest rates are determined and controlled
+- [Immutability Deadline](https://docs.monolith.market/protocol/immutability-deadline.md): Time‑locked switch that permanently disables sensitive controls, making an instance credibly neutral after launch.
+- [Peg Stability Module](https://docs.monolith.market/protocol/peg-stability-module.md): Direct convertibility between Coin and a reference asset to cushion the peg and provide exit liquidity.
+- [Liquidations](https://docs.monolith.market/protocol/liquidations.md): How unhealthy positions are force-repaid
+- [Bad Debt Socialization](https://docs.monolith.market/protocol/bad-debt-socialization.md): How irrecoverable losses are redistributed across borrowers when a loan is written off
+- [Overview](https://docs.monolith.market/security/overview.md): Security audits, bug bounty program, and risk disclosures for the Monolith protocol
+- [Audits](https://docs.monolith.market/security/audits.md): Security audit history for the Monolith protocol
+- [Bug Bounty](https://docs.monolith.market/security/bug-bounty.md): Report security vulnerabilities and earn rewards
+- [Risks](https://docs.monolith.market/security/risks.md): Understanding the risks involved with using Monolith
+- [Safe Harbor](https://docs.monolith.market/security/safe-harbor.md): SEAL Whitehat Safe Harbor Agreement
+- [Overview](https://docs.monolith.market/developers/overview.md): Technical documentation, contract addresses, and integration guides for developers
+- [Contract Addresses](https://docs.monolith.market/developers/contract-addresses.md): Deployed Monolith contract addresses
+- [Integration Guide](https://docs.monolith.market/developers/integration-guide.md): How to integrate with Monolith contracts from Solidity and JavaScript
+- [Overview](https://docs.monolith.market/reference/overview.md): Complete API reference for all Monolith smart contracts with detailed function specifications
+- [Factory](https://docs.monolith.market/reference/Factory.md): Contract factory for deploying Monolith protocol components
+- [Lender](https://docs.monolith.market/reference/Lender.md): Core lending pool contract for the Monolith protocol
+- [Coin](https://docs.monolith.market/reference/Coin.md): ERC20 stablecoin implementation
+- [Vault](https://docs.monolith.market/reference/Vault.md): ERC4626 vault implementation for yield farming
+- [InterestModel](https://docs.monolith.market/reference/InterestModel.md): Dynamic interest rate calculation for borrowing
+- [Lens](https://docs.monolith.market/reference/Lens.md): Read-only helper contract for simulating and querying Monolith state
+- [Metadata](https://docs.monolith.market/reference/Metadata.md): Singleton contract for per-instance branding and display metadata
+- [General FAQ](https://docs.monolith.market/faq/general.md): Frequently asked questions about Monolith
+- [Deployer FAQ](https://docs.monolith.market/faq/deployer.md): Frequently asked questions for instance deployers
+- [Borrower FAQ](https://docs.monolith.market/faq/borrower.md): Frequently asked questions for borrowers
+- [Holder & Staker FAQ](https://docs.monolith.market/faq/holder-staker.md): Frequently asked questions for Coin holders and Vault stakers
+
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-stabl-fi-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1453,
+ "chain": "polygon",
+ "slug": "stabl.fi-v1",
+ "name": "Stabl.fi V1",
+ "category": "Yield",
+ "tvl_usd": 59355,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1453,
+ "run_id": "d5d8a2877eb2437aa30ef00fdece0ee8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Stabl.fi V1 = 1 polygon contract (vault 0xd1bb7d35db39954d43e16f65f09dd0766a772cff, TVL 59.4k USDC): only state-advancing fn rebase(uint256) reverts 'Caller is not the Governor' from a stranger (rebaseManagers = gov EOA only), swapAsset reverts '!VAULT', no claim/reward fn in the 64-selector surface; 0 vault events in 7 d (blocks 97403025-97806232, control 73 logs on 2023-05 window), last tx 2025-03-04, rebase loop dead since 2023-05-02.",
+  "kb": [
+   "attempts:4013",
+   "protocols:2144"
+  ],
+  "run_id": "d5d8a2877eb2437aa30ef00fdece0ee8",
+  "at": 1795415008
+ }
+}

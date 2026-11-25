@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "benddao_ape_staking",
+  "status": "dead_end",
+  "checked": "BendDAO APE Staking = official ApeCoinStaking 0x5954aB967Bc958940b7EB73ee84797Dc8a2AFbb9 (verified source via explorer; eth_getCode ok, pools(0) getter answers: 142.3M APE solo-staked) + BendDAO wrappers: BendStakeManager proxy 0x9d1833becb105405a8305F775F0aF3157d12B33c (impl 0xcd14883141ca0832544227db2874a4c5557f9085), BendCoinPool 0x86862445f58F50382c421a7bceCBcd971cc25367 (impl 0x449cb9995162ead92b2ed1e83a85c3fb51c3ac39, plain ERC4626, no keeper fn), BendNftPool 0x9Da9571389BA2316ad98f695210aD5fB0363cDEd, NftVault 0xaAa2DA255DF9Ee74C7075bCB6D81f97940908A5D. Addresses from DefiLlama adapter projects/benddao-ape-staking + benddao/helper/address.js. Open fns (claimApeCoin/claimSelf*/claimBAYC/MAYC/BAKC, updatePool) pay only msg.sender's own position (source: addressPosition[msg.sender], _claimNft reverts CallerNotOwner); a stranger calling is paid 0. BendStakeManager claimApeCoin/claimBayc/claimMayc = onlyWithdrawStrategyOrBot, compound/compoudNftPool = onlyBot (botAdmin 0xef9237cf77c276e8d2ef74cdc94d859f375e1ee1); eth_call compoudNftPool from fresh addr reverts 'BendStakeManager: caller is not bot admin'. Reward time-ranges expired: pool0 lastRewardedTs stuck 2024-11-19, pool1 (BAYC) 2025-04-15. Verdict unpaid."
+}

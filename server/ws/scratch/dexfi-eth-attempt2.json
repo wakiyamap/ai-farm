@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-dexfi-aggregator (gas correction to attempts:3524)",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid (same verdict as attempts:3524, which it corrects on one figure). One vault.harvest(uint256) from a fresh address estimates 1,830,560 gas (eth_estimateGas, vault 0xb5c9da174e4086e8682c60d22d452bfb6678ecec, from 0x111111111111111111111111111111111111c0ff) = 0.00022-0.00205 ETH = $0.37-$3.45 at the observed 0.12-1.12 gwei and $1680.20/WETH, against $0 paid to the caller.",
+  "numbers": "eth_estimateGas 0x1beea0 = 1,830,560 gas; live keeper harvest txs 1,168,241-4,687,008 gas and $0.30-$8.77 (sample of 12 of 15 receipts, 7 of the 15 txs batch 2-3 vaults); WETH $1680.20 coins.llama.fi ts 1795305001; 7 d gross fee pot 0.10835 WETH ($182.04) over 27 Harvested, all of it to fixed treasury/keeper addresses.",
+  "bot_id": null
+}

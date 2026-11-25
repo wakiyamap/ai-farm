@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-strato-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. STRATO Bridge's Base footprint is a user-facing Permit2 DepositRouter v3.0.0 (0xcca91fb6...) plus a custodial Gnosis Safe (0x8c458f86...): the callable functions deposit/depositETH/depositWithAction charge the caller (the depositor), everything else is onlyOwner, and STRATO->Base releases are custodial Safe ops by team EOAs (one 3.00 USDC payout in 7d). No function pays msg.sender or a recipient argument. Same architecture and verdict as ethereum (attempts:2885) and hyperevm (attempts:1607).",
+  "numbers": "7d window blocks 57723956 (2026-11-15 09:32 UTC)..60748859 (2026-11-22 09:35 UTC, from timestamps): 37 deposit events (36 DepositRouted topic0 0x55426533... + 1 DepositRoutedWithAction 0xf3abd696..., topics from the verified router ABI) by 25 distinct senders, gross 1,588.67 USDC + 0.0199 ETH (~$34 at ETH $1,689.84, coins.llama.fi 2026-11-22T09:40Z). Safe outflow 7d: 1 USDC Transfer = 3.00 USDC, 0 cbBTC; control same-shape USDC Transfer query = 167 logs / 1,000 blocks. Custody: 33,584.63 USDC + 17.1167 ETH (~$28,930, same price source) + 5.00 cbBTC (8 dec read on-chain). Deposit gas 60,134 @ baseFee 0.005 gwei ~ $0.0005 (tx 0x7ef68971..., block 60660609). Sources: rpc.py eth_getLogs/eth_call, explorer source base (DepositRouter.sol, SafeProxy), Cirrus chains[8453]/assets registries, DefiLlama adapter."
+}

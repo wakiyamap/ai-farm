@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "synthetix_legacy",
+  "status": "measured",
+  "checked": "2026-11-16 run bad5cb16 (lead 210): the Synthetix 2.x (legacy synths) mainnet deployment is a living fossil. FeePool proxy 0xb440DD674e1243644791a4AdfE3A2AbB0A92d309 -> impl 0x83105D7CDd2fd9b8185BFF1cb56bB1595a618618 (final 2.102.1 source: no initializeFeePeriod, no REWARD_FOR_NEW_PERIOD; feePeriodDuration()=604800 responds). The weekly fee-period close ran (Chainlink Automation upkeep, 1 block after each 7-d boundary) until 2026-03-12 and is now permanently broken: allNetworksSnxBackedDebt reads the ExtAggregatorIssuedSynths ReadAggregator proxy 0xbcf5792575ba3a875d8c406f4e7270f51a902539 which is decommissioned (decimals() reverts), so closeCurrentFeePeriod reverts and no new fee period can ever open (claimFees by stakers was not measured this session). OP Mainnet leg (ProxyFeePool 0x4a16A42407AA491564643E1dfc1fd50af29794eF) last closed 2026-03-05 via the bridge relay (closeSecondary = onlyRelayer, never anyone-callable). SNX price 0.1478 USD (CoinGecko). Address source: npm synthetix@2.102.1 publish/deployed/{mainnet,mainnet-ovm}/deployment.json (github Synthetixio/synthetix 404s from this host). AddressResolver 0x823bE81bbF96BEc0e25CA13170F5AaCb5B79ba83 (explorer-verified name). See attempts:1445."
+}

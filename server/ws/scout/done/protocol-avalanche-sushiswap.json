@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-sushiswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "sushiswap",
+ "name": "SushiSwap",
+ "category": "Dexs",
+ "tvl_usd": 45519,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "a46cd11e34804ff5b6e1bd8becebe8a2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: SushiSwap avalanche = plain Sushi V2 AMM (routescan-verified UniswapV2Factory 0xc35DADB65012eC5796536bD9864eD8773aBc74C4, 555 pairs, 5,519 TVL is LP reserves); no public function pays the caller - skim(address) pays balance-reserve = 0 on all 6 sampled pairs of 555 (skim type); 7d (blocks 100484770-101173627, 2026-11-16/23) no-topic scan of factory+6 pairs: 4 logs only (2 EOA swaps 2026-11-21, 0 PairCreated, 0 skim excess); gas ~45k gwei-call = bash.002 (7.5 Gwei, AVAX .03)",
+  "kb": [
+   "attempts:4132",
+   "protocols:2253"
+  ],
+  "run_id": "a46cd11e34804ff5b6e1bd8becebe8a2",
+  "at": 1795445503
+ }
+}

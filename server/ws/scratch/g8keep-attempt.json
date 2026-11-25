@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-g8keep",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. g8keep launchpad factory has no function anyone can call that pays the caller: deployToken is a user action where the caller pays the protocol (1% g8keepFee), and all fee collection (sellTokens, withdrawToken, withdrawETH) is onlyOwner. Protocol also dormant: zero factory txs since 2025-01-13.",
+  "numbers": "TokenDeployed last 7d: 0 (eth_getLogs blocks 55900345-59000345; same-shape control returned logs on factory at block 25007167 and on USDC over 2k blocks). Last factory tx: block 25007167, ts 1736803681 = 2025-01-13 (explorer txs). Owner 0x28253c1a76256bf1d9095587826afcc5705af98a via owner() eth_call. TVL 116557 USD (candidate, DefiLlama)."
+}

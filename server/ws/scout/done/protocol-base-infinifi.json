@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-infinifi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 536,
+ "chain": "base",
+ "slug": "infinifi",
+ "name": "infiniFi",
+ "category": "Yield",
+ "tvl_usd": 329560,
+ "url": "https://infinifi.xyz",
+ "github": [
+  "InfiniFi-Labs"
+ ],
+ "listed_days_ago": 536,
+ "run_id": "1c19b27cc43d4cdebd57065ae9dd23d0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Base infiniFi: farm.claimRewards (0xe190febc, rewardContract=0), rebalancer.singleMovement (0xcc579008) and outpost.processMessage (0xdcdb0957) all revert UNAUTHORIZED from a fresh address; 7d: accounting/farm 0 txs (last 2026-07-24), gateway 9 user txs, outpost 10 processMessage txs all by OUTLAND_KEEPER 0x612d2350 paying 0 (gas 57,430 @ 0.0062 gwei = $0.0006, ETH $1803 coingecko); TVL $329,560 (farm assets 338,887 USDC)",
+  "kb": [
+   "attempts:1893",
+   "protocols:518"
+  ],
+  "run_id": "1c19b27cc43d4cdebd57065ae9dd23d0",
+  "at": 1794954143
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "trial-arbitrum-lead57",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. All 19 liquidations in 7 d paid the liquidator a 2-10 pct penalty bonus (min 2 pct of debt, measured 2.0-2.1 pct at E-1 in 4 sample txs), gross up to ~$2,160 (2-10 pct of $21,624 cost) vs one-attempt gas $0.05-0.07 - strangers (6 distinct liquidators) take it today. Caveat for builders: the big gross is captured in the same block the position crosses liquidatable (0-block latency race, 5/10 sample); only the small tail ($0.01-$0.44) waits 1-32+ blocks (267 ms/block), which a feed-watching trial bot can take profitably after R=3 s.",
+  "numbers": "7 d: 19 events, 6 distinct liquidators, liquidatorCost sum $31,499 (ledger revert_lend.liquidate, verified cursor 524863165); gross floor 2 pct = $630/7d = ~$90/day vs $5.4/day 2026-11-07. Sample of 10 (5 largest + 5 others): median blocks takeable->taken 0 (0,0,0,0,0,1,6,>=32,>=32,0); median winner priority fee 0.008 gwei (max 0.018); gross per event $0.01-$432 (>=2 pct x cost for same-block ones; exact liqValue-liqCost for delayed ones: $0.16, $0.22, $0.44, $0.01). One attempt: 615k-1,013k gas, 0.02-0.045 gwei eff = $0.049-0.083 L2 (ETH $1,833.62 coins.llama.fi 2026-11-16) + L1 data fee ~$0.01-0.02. Sources: eth_call loanInfo 0x8349d6be at E-1 (layout debt,fullValue,collateralValue,liqCost,liqValue, deployed ABI); receipts 0x242a4d38, 0x88d136d0, 0x5d197140, 0x17e1c5b3, 0xfa9ee550, 0xfe6fedf3, 0x58b85144, 0x089350e7, 0x4f2faac7, 0xdb4f1482."
+}

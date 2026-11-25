@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-revert-lend",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. V3Vault 0x36aeae0e411a1e28372e0d66f02e57744ebe7599 (Revert Lend Base USDC) paid 17 liquidations in the last 7 days to 6 independent keepers (5 contracts + 1 EOA); liquidate() is fully open (fresh-address eth_call reverts NotLiquidatable, not a role error). Pay = debt x 2-10 pct penalty as raw Uniswap v3 pool tokens that need a swap; the 5 largest grossed 44-75 USD against 3-35 USD gas, the other 12 were smaller (debt 5-643 USD, 4 of them under 20 USD grossing cents). Thin but real; same mechanism as the live arbitrum trial (lead 57).",
+  "numbers": "17 Liquidate events blocks 55,800,000-58,820,676 (7 d, eth_getLogs topic0 0xed06e984..., all 17 decoded); takers 0x3c3fc218... x8, 0x5ac9bc14... x4, 0xa7b0498f... x2, 0x3895e33b (EOA) x1, 0x59b043a4... x1, 0x6bcb1ae7... x1; top-5 gross USD (tokens at liquidation-ts prices, coins.llama.fi, minus debt): 75/64/49/46/44 (penalty 2.0-2.6 pct); gas per liq tx 713k-960k gas x 2.2-20 gwei eff = 3.1-35.1 USD at ETH 1830 USD (eth_getTransactionReceipt); vault totalAssets 371,459 USDC, llama Base TVL 1,927,817 USD (incl. LP collateral); old vault 0x22ce292d882c7799183949509b011512352454cb totalAssets 0."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-arrakis-modular",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 754,
+ "chain": "base",
+ "slug": "arrakis-modular",
+ "name": "Arrakis Modular",
+ "category": "Liquidity Manager",
+ "tvl_usd": 12092580,
+ "url": "https://arrakis.finance/",
+ "github": null,
+ "listed_days_ago": 754,
+ "run_id": "124f46b041ac475480eda98f33ae89b4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: rebalance(...) on the UniV4StandardModule (impl 0x53f9fb26, 5 of 6 base vaults) is onlyManager - fresh-address eth_call reverts OnlyManager (manager 0x2e6e8796); only stranger-callable money fn withdrawManagerBalance() pays the manager and returns (0,0); HOT ALM hotSwap is signature-gated and the caller pays. Dormant: 0 events in 6x10k-block windows of the 3.024M-block 7d span (6 vaults+6 modules+ALM), latest vault tx 2025-08-03; TVL 12.09M USD, gas 0.006 gwei = 1.63 USD/150k (ETH 1810.71).",
+  "kb": [
+   "attempts:2074",
+   "protocols:660"
+  ],
+  "run_id": "124f46b041ac475480eda98f33ae89b4",
+  "at": 1794993963
+ }
+}

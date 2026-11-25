@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-squadswap-dynamo",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. SquadSwap Dynamo is a PancakeSwap-fork DEX on BSC: UniV2 factory + two MasterChef staking pools. No keeper-bounty function exists; the reward functions are staker-claim style (mc1 auto-harvests on deposit/withdraw; mc2 harvest(uint256,address)) and pay 0 to a stranger. Both MCs hold SQUAD balance 0 (empty reward pot), mc2 poolInfo(0) all-zero, and mc2.harvest(0,stranger) eth_call reverts (custom err 0xc301e07e, no position). Zero masterchef events over the last 7 days on any sampled window.",
+  "numbers": "MCs 0x6316f6a2029532E7F088459987F50Ed4B122b82a & 0x87dd4bC5dbDdcB7734A5FE1e01359dCDa180200f; SQUAD 0x2d2567Dec25C9795117228AdC7Fd58116d2E310c; factory 0x918Adf1f2C03b244823Cd712E010B6e3CD653DbA. poolLength()=1 each. SQUAD bal of both MCs = 0. mc2.harvest(0,stranger) reverts 0xc301e07e. MC 7d events: 0 in last 10k blocks (134227461-134237461) + 0 in 5x5000-block windows at 1/2/3/5/7d ago (~192k blk/day measured via block timestamps). Control USDT 0x55d3...7955 Transfer same lane returned 39982 logs/500blk (getLogs works). Gas 0.05 gwei x BNB $591.99 = ~$0.005/150k-gas call. DEX vol24h $7473, fees24h $22.4 (to LPs), staking TVL $0 (api.llama.fi). Sources: DefiLlama adapter projects/SquadSwap-Dynamo/index.js; eth_call/eth_getLogs via research lane 2026-11-18.",
+  "bot_id": null
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-bifi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "bifi",
+ "name": "BiFi",
+ "category": "Lending",
+ "tvl_usd": 106461,
+ "url": "https://bifi.finance/",
+ "github": [
+  "bifrost-platform"
+ ],
+ "listed_days_ago": null,
+ "run_id": "4d6c06078d57450d9e9320243efefc74",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MarketManager 0x8010f9e1 interestUpdateReward() is the only open-to-anyone paid fn: pays blocks-since-last x 0 BiFiB/block (getInterestUpdateRewardPerblock=0), last called block 5,418,546 vs head 134,615,822 (0 calls in 7d, 4+ yrs), now reverts 'emergency' breaker; rest role-gated (updateRewardParams onlyOperators, partialLiquidationUser onlyLiquidationManager); borrows 7 pools ~82k USD (USDC 66.3k, USDT 11.2k, DAI 3.6k), pot 13.73M BiFiB, gross/call 0 USD",
+  "kb": [
+   "attempts:2731"
+  ],
+  "run_id": "4d6c06078d57450d9e9320243efefc74",
+  "at": 1795142526
+ }
+}

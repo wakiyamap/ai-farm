@@ -1,0 +1,8 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-deltaprime",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only reward-paying entry points are the loan-diamond liquidation pair snapshotInsolvency()+liquidate(bool), both onlyWhitelistedLiquidators (owner-managed whitelist): eth_call liquidate(false) from a fresh address reverts 0x12dcff05 OnlyWhitelistedLiquidators. Even for whitelisted liquidators the 14%/7% tier fee goes to stability pool + treasury, not the caller (SmartLoanLiquidationFacet._distributeLiquidationFee). Pool getRewards() reverts on all 5 pools because poolRewarder()==address(0). Nothing else anyone can call pays out.",
+  "numbers": "7d Liquidated+InsolvencySnapshot events = 0 (eth_getLogs topic0 census over blocks 100423955-100726355, 34 chunks; control: same shape returned 24,748 WAVAX Transfers in one 9k chunk). 30d = 1 liquidation: tx 0xfbab56de... (snapshot) + 0x9fb0f97812c6a2388dfc7aa21e234476e3c812842ebad4353f52c18ce5355890 block 100332156 (~10d ago), liquidator EOA 0xefca5f8a23c2606d14dcedc2b1abfa4ca5c7dde7, account 0x137c86ab8a8767dc452c2fccf62fdb8523267c37; batch tx gasUsed 4,195,603 x 30.44 gwei = 0.128 AVAX = $0.89 at AVAX $6.98 (coins.llama.fi 2026-11-19). Gross to stranger $0. getLoansLength()=5268 loans. TVL $1,549,647 (session candidate).",
+  "bot_id": null
+}

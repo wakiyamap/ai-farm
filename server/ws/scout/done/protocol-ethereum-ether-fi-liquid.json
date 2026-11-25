@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-ether-fi-liquid",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 959,
+ "chain": "ethereum",
+ "slug": "ether.fi-liquid",
+ "name": "ether.fi Liquid",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 297270675,
+ "url": "https://www.ether.fi",
+ "github": null,
+ "listed_days_ago": 959,
+ "run_id": "cf59ff4e40b447d6a1fe3558f046401d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 11 Veda BoringVault+Accountant pairs (adapter projects/etherfi-liquid); the only keeper function updateExchangeRate(uint96) reverts 'UNAUTHORIZED' from a fresh address (RolesManager 0x402dff43); 39 updates in 7d (blocks 26412190-26462464, 5/11 accountants active, 15 batch txs all from one keeper 0x43e9fa7a via 0x41dfc5); caller paid 0 on chain (claimFees is vault-only and pays payoutAddress); gas ~0.05-0.09 USD/batch at 0.162 gwei, ETH 1628.84 USD.",
+  "kb": [
+   "attempts:3254"
+  ],
+  "run_id": "cf59ff4e40b447d6a1fe3558f046401d",
+  "at": 1795252330
+ }
+}

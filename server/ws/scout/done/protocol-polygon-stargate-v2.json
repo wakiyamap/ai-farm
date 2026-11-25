@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-stargate-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 873,
+ "chain": "polygon",
+ "slug": "stargate-v2",
+ "name": "Stargate V2",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 97481,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 873,
+ "run_id": "fd1b9a05464f4619b11dd708b309eacf",
+ "result": {
+  "verdict": "unpaid",
+  "line": "retryReceiveToken (0xa88835d7) is the only permissionless value-moving fn on the 2 Polygon pools (0x9Aa0.. USDC.e tvl 16,075 USDC.e ~16.1k USD; 0xd47b.. USDT tvl 72,875 ~72.8k USD): pays the stuck receiver their own funds, $0 to msg.sender; 0 UnreceivedTokenCached and 0 direct retries in 7d (blocks 97379000-97784886, control OFTReceived 22 in same shape); fresh-address eth_call reverts 0xaba8b6ef (not role-gated); all else onlyCaller(treasurer/planner/tokenMessaging/creditMessaging)/onlyOwner; a real pool tx costs $0.0045 gas.",
+  "kb": [
+   "attempts:3851"
+  ],
+  "run_id": "fd1b9a05464f4619b11dd708b309eacf",
+  "at": 1795380377
+ }
+}

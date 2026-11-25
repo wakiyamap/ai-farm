@@ -1,0 +1,22 @@
+{
+ "id": "protocol-bsc-solv-basis-trading",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1144,
+ "chain": "bsc",
+ "slug": "solv-basis-trading",
+ "name": "Solv Basis Trading",
+ "category": "Basis Trading",
+ "tvl_usd": 163903242,
+ "url": "https://solv.finance/",
+ "github": null,
+ "listed_days_ago": 1144,
+ "run_id": "cc4ac27a28db4735ac90d83fac83e5e1",
+ "result": {
+  "verdict": "unclear",
+  "line": "BSC TVL $158.9M (api.llama.fi 2026-11-18) sits in 3 SolvBTC voucher tokens (Trading Vault 0x53E63a31... 2,531 units = the bulk, JUP 2.59, HYBRID 0); impl 0xa45716a26274d4c5f12ced534fb6b1fa9ef7acf8 (9,968 B) exposes only ERC20+roles+blacklist+oracle+burn - no reward/claim fn; fee-market 0xaE050694... (8 pools, revenueRatio 0.10-0.50) has no public ABI (bscscan v1 HTML, etherscan v2 + blockscout need keys, sourcify null) and 17/17 probed selectors revert; all bsc eth_getLogs failed (public lane limit, USDT control too) so no 7-day caller/gross/gas - missing market ABI + log access.",
+  "kb": [],
+  "run_id": "cc4ac27a28db4735ac90d83fac83e5e1",
+  "at": 1795033897
+ }
+}

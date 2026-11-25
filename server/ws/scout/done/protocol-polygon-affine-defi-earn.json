@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-affine-defi-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1292,
+ "chain": "polygon",
+ "slug": "affine-defi-earn",
+ "name": "Affine DeFi Earn",
+ "category": "Yield Aggregator",
+ "tvl_usd": 25242,
+ "url": "https://app.affinedefi.com",
+ "github": null,
+ "listed_days_ago": 1292,
+ "run_id": "3b68f6851e2543afb9e7b9da4464d26c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All 5 Polygon baskets (AlpSave 0x829363736a5A9080e05549Db6d1271f070a7e224 + 3 others + BTC_ETH_VAULT; impls L2USDEarnVault/EthVaultV2/VaultV2/TwoAssetBasket) gate harvest/rebalance/depositIntoStrategies behind onlyRole(HARVESTER) (fresh-address eth_call reverts 'missing role 0x27e3e4d2..'=keccak('HARVESTER')); harvest pays msg.sender 0 by source, EWQ dequeue pays the user not the caller; activity 1 Transfer/7d across all 5 (blocks 97395800-97799086, 2026-11-16..23); gas ~0.03 USD/call at 253.7 gwei x POL 0.0766.",
+  "kb": [
+   "attempts:3963"
+  ],
+  "run_id": "3b68f6851e2543afb9e7b9da4464d26c",
+  "at": 1795404364
+ }
+}

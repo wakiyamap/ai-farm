@@ -1,0 +1,26 @@
+id: whype-gap-elysium
+author: earner/qwen3.8-flash-next
+chains:
+  - elysium
+strategy: "holding-frame mean reversion of Elysium pool A (USDC/WHYPE UniV3-style) vs the HyperCore reference: buy WHYPE with USDC when the pool trades <= -1% under the Hyperliquid HYPE 1m reference, sell back in the SAME pool at -0.1% (take), -5% reference stop, or 24 h."
+copied_from: "none (new-chain gap measurement, run 14ef1f66 attempt 1276); incumbent router 0x9ee35bf1bd... (40-digit form not re-verified) not closed the band (attempt 1276: only 2% of samples within 0.1%)"
+capital_usd: 25
+principal_usdc: 20
+allowed_contracts: []
+send_route: public
+holding_usd: 20
+holding_max_hours: 24
+max_loss_per_tx_usd: 1
+max_loss_guarantee: "buy reverts unless the same-pool exit quote of the received WHYPE >= minExitUsdc (WhypeGap.sol GUARD_EXIT, guard at require(q >= minExitUsdc)); sell reverts below minUsdcOut (MIN_USDC); exitAll has no min (frame exit by design) and the worst case is slippage on <= 20 USDC against 59.6k USDC pool depth (< 0.03% price impact + 0.115% fee); price risk between the two txs is the holding frame (<= holding_usd 20, bot stop at -5%)."
+expected_value: "attempt 1276 recorded 12.79 USD per 100 USD in 26.5 h (12 round trips) = ~2.3 USD/day at 20 USD size; recomputation of the same saved series this session reproduces the 12 trips and 21 min median hold but totals -5.86 USD/100, so EV is UNCONFIRMED (0 to 2.3 USD/day at 20 USD) and the paper window decides. Single choppy downtrend day sample (HYPE -5.7%); baseline also drifted -0.86% -> ~-1.24% during today's paper window (entry line recalibration is the promotion question, README)."
+executor: scratch/whype-gap-elysium/contracts/out/WhypeGap.sol/WhypeGap.json
+executor_args: ""
+executor_note: "Constructor takes no arguments; bot = msg.sender at deploy (the gate). Working capital and the WHYPE position stay in the executor; only exitAll() pays USDC to the wallet. Pool A embeds a swap hook (0xc0ed888a) that (a) STATICCALLs the chain sentinel address 0x...64 (mainnet code 0xfe; reset forks need anvil_setCode 0x64 0x435f5260205ff3 or every swap reverts invalid-opcode) and (b) reverts with IG unless gasleft >= 250000 at afterSwap (slot 2 hi32), so every gas limit for this pool is estimateGas + 1M floor (bot.py gas_limit_for). Direct pool.swap from a fresh contract works (the earlier router-gate reading was the 0x64 fork artifact; the winner router itself calls pool.swap directly), so the buy/sell legs need no router ABI."
+fork_evidence: "proof.sh (scratch/whype-gap-elysium/, one script: lease -> reset head-5 -> setCode 0x64 -> deploy -> fund -> every case -> release), re-run GREEN 2026-11-15 10:07Z on elysium fork gen 58, executor 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352 (paper override hex re-pinned from its eth_getCode): buy 20 USDC -> 0.2986 WHYPE status 0x1 tx 0xbf73b1b2af33465f45f71d21547e317b888807cfe99480845a1da6939d2685db (~388k gas); GUARD_EXIT revert tx 0x71de9c7dcb9a0ce36f5a3f9337c4d4ed85522167b547a904803cad2275d1cacd; sell status 0x1 tx 0x5bceda91e661755653608df16b641d54927a8f57f5444e794dcf6fe7bd829769 -> 19.9554 USDC, WHYPE zero; buy2 0x0ef370c28ad5a84b334b4962d5565c5638f7f7762ca8c0f4f19b14be219c03c9 then exitAll WITH position tx 0x731834809d37eb5cc18c650219b93da0cb5e572d14ae0b0e06a2dc0af0a8ccea paid 39.91029 USDC to the wallet, executor left 0 USDC 0 WHYPE; exitAll empty no-revert tx 0x66efde11e5fe7d316b74cfe6391f6078f6c414b428b41ad85b7f4d49e636952a; stranger sell reverts tx 0x9e8bdac2824f8b475420749ad71532f3a64a66d013559f212c2a7de91da7ffa2; both allowances 0 at the end. quoteExit guard math also mainnet-proven by override eth_call (0.31 WHYPE -> 19.996316 USDC exact, attempt 1284)."
+awaited_events: "pool A slot0 gap <= -1% vs the Hyperliquid HYPE 1m reference; measurement saw 151 gap<=-0.5% episodes in 26.5 h (median duration minutes), entry band fired 12 times at <= -1%."
+good_signs: "logs/bot.jsonl heartbeats with price 59-69 and gap around the -0.86% baseline; sim_buy/sim_* records alternating with hold times of minutes; exec_quote_exit_usdc consistent (within 0.2%) with price x held_whype; no reference_error/poll_error streaks."
+bad_signs: "price decode outside 55-75 or implausible-error spam (pool or token change); gap stuck near 0 (the -0.86% baseline disappeared => entry line must be recalibrated before promotion); sim round trips all negative after the fee."
+rpc_reads_per_min: 6
+alchemy_cu_per_day: "~26k CU (8640 slot0 eth_call/day at 3 CU) ~ 0.014 USD at 0.53 USD/1M CU; Hyperliquid info API ~1700 POSTs/day (external, no CU)"
+legal_note: "plain arbitrage of a public pool against a public reference price; no sandwiching, no bug exploitation"
+expedite: false

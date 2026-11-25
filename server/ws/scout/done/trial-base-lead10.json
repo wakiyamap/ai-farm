@@ -1,0 +1,21 @@
+{
+ "id": "trial-base-lead10",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 10,
+ "target": "aave_v3 catchable-class share: interest-bleed vs oracle-update liquidations",
+ "retries": 1,
+ "run_id": "6aa8c76da4b34c5894d31999557b81c2",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "base aave_v3 7d: 253 liquidations, 30 distinct takers; sample of 20: median takeable->taken 0 blocks (16/20 in-block oracle races, parent HF 1.00009-1.011), only 4/20 poll-catchable and all small (max 2.69 USD gross, windows 0.6s/1.6s/4.3h/42h at 0.2s blocks); median winner prio 15 gwei; gross median 0.82 USD, max 24,801 (blk 57518883); attempt gas 99,842 = $0.001-0.01 (base fee 0.005 gwei) - catchable class pays above gas but is dust, big gross is 0-window races.",
+  "kb": [
+   "attempts:1492",
+   "leads:10"
+  ],
+  "run_id": "6aa8c76da4b34c5894d31999557b81c2",
+  "at": 1794867741
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-radiant-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1338,
+ "chain": "ethereum",
+ "slug": "radiant-v2",
+ "name": "Radiant V2",
+ "category": "Lending",
+ "tvl_usd": 160307,
+ "url": "https://radiant.capital/#/markets",
+ "github": null,
+ "listed_days_ago": 1338,
+ "run_id": "1b892dc430f94301aff69c0e309ebba8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only reward fn is BountyManager 0x73E40889 executeBounty/claim (public, whitelistActive=false) but a fresh caller reverts Ineligible() (needs 1e19 locked dLP in MFD 0x28e395a5 + emissions eligibility) and is paid in vesting RDNT: 0 RDNT out of it in 7 d (control: same-shape scan = 106 RDNT Transfers) and 0 in 30 d; base bounty 100 RDNT = 0.0377 USD vs 0.091 USD gas, whole bounty reserve 228,348 RDNT = 86.05 USD; Aave-v2-fork pool 0xa950974f = 18 logs in 7 d (blocks 26413948-26464348), 0 liquidations, TVL 160,307 USD, sunset 2026-05-01.",
+  "kb": [
+   "attempts:3370",
+   "protocols:1679"
+  ],
+  "run_id": "1b892dc430f94301aff69c0e309ebba8",
+  "at": 1795275252
+ }
+}

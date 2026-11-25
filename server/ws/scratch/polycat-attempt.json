@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-polycat",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. VaultChef farm (0xBdA1f897E851c7EF22CD490D2Cf2DAce4645A904) is a pure vault: deposit/withdraw/withdrawAll pay only the caller's own position; the one permissionless reward function, strategy StrategyDividends.harvest() at 0x640328b6bb1856ddb6a7d7bb07e5e1f3d9f50b94, pays only the caller's accrued pendingPaw (fresh address = 0, eth_call succeeds). No keeper bounty exists. Zero harvest calls in 7 days (last block 79742001, ~354d ago, and that one paid 0 PAW). The protocol's single 7-day tx was a user's withdrawAll of their own position.",
+ "numbers": "7d chef txs: 1 (0x6767eee070eb14da54dc175e5af1537ded080f4b6009336501010190c2756e07, withdrawAll pid 259: 6441 PAW=$0.04 + 22.78 FISH=$0.12 own principal, gas 188703=$0.0004); 7d harvest() calls on pid259 strat: 0 (control: explorer txs lists back to block 79742001 ts 1764589040); pendingPaw(fresh)=0; PAW pot in strat 71.4M PAW=$479; prices coins.llama.fi @1795162076 (PAW $0.0000067, FISH $0.005245), POL $0.0785 @1795166192, gasPrice 27.5 gwei; poolLength=503, sampled pids 0/200/320 strategies have no code"
+}

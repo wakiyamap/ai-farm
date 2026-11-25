@@ -1,0 +1,26 @@
+{
+ "id": "protocol-optimism-superform",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 954,
+ "chain": "optimism",
+ "slug": "superform",
+ "name": "Superform",
+ "category": "Yield Aggregator",
+ "tvl_usd": 130907,
+ "url": "https://app.superform.xyz",
+ "github": [
+  "superform-xyz"
+ ],
+ "listed_days_ago": 954,
+ "run_id": "b6a76bd18e9e4e9aacefb951f848446a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "CSR.processPayload role-gated (fresh-addr eth_call reverts NOT_PRIVILEGED_CALLER 0xc2703cd6, CORE_STATE_REGISTRY_PROCESSOR_ROLE); only caller 0x23c658fe050b4eaeb9401768bf5911d11621629c, 0 calls last 7d (last 2026-11-06, 492374 gas = bash.009/call); open fns pay others (dust->PayMaster, finalizeRescueFailedDeposits->depositors); Router 4 user withdrawals in 7d; 87 forms, TVL 30,907",
+  "kb": [
+   "attempts:2185"
+  ],
+  "run_id": "b6a76bd18e9e4e9aacefb951f848446a",
+  "at": 1795018014
+ }
+}

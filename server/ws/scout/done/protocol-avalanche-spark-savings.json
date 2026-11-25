@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-spark-savings",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 430,
+ "chain": "avalanche",
+ "slug": "spark-savings",
+ "name": "Spark Savings",
+ "category": "Yield",
+ "tvl_usd": 126122,
+ "url": "https://spark.finance/",
+ "github": null,
+ "listed_days_ago": 430,
+ "run_id": "42f8d172e2b549bbb977ae1d89f0bdd1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "spUSDC SparkVault 0x28B3a8fb..a43d (impl 0xc2c0582d..7f12 verified): only anyone-can-call fn is drip(), pays caller $0 (no transfer in source; vsr=1e27 so accrual 0%); 7d Drip=3 all inside user redeem() txs by 3 distinct EOAs, standalone drips 0, Deposits 0 (Routescan, blocks 100282991-100585391, same-shape controls non-zero); standalone drip gas 42,105 @ 7.5 gwei = ~$0.002 (AVAX $7.09 coins.llama.fi); TVL ~$122k.",
+  "kb": [
+   "attempts:1825",
+   "protocols:467"
+  ],
+  "run_id": "42f8d172e2b549bbb977ae1d89f0bdd1",
+  "at": 1794939075
+ }
+}

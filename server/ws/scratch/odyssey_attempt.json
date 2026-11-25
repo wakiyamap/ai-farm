@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-odyssey-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only anyone-callable action function on Odyssey positions is updateSnapshot() (fee-snapshot checkpoint, 1-week cooldown per position); it pays the caller 0 (no transfer to msg.sender). collectPendingFees is gated to registry keepers (getKeepers() is empty) or the position owner, and pays a fixed protocol feeCollector, not the caller. Everything else is onlyOwner user actions. Zero calls of any kind to all 32 positions in the last 7 days.",
+  "numbers": "32 positions (25 open), registry 0xee156d8ea7b96a5524ccc3cf9283ab85e80e9534, impl SynthStrategy 0xf8a2c22cb08fb3d0ef7f4593790ba7e19ab12a0b; 7d window blocks 55731647-58755647 (Nov 10-17 2026): 0 events, 244 getLogs pages x 8 addrs (control USDC same shape 5761 logs/488 blocks); updateSnapshot() from stranger: succeeds, 336907 gas ~= $0.003 (0.005 gwei baseFee x ETH $1787.39 coins.llama.fi); collectPendingFees from stranger reverts SenderCanNotCollectFee (0x904e494c); TVL $621,396 (DefiLlama 2026-11-17)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-silo-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 675,
+ "chain": "avalanche",
+ "slug": "silo-v2",
+ "name": "Silo V2",
+ "category": "Lending",
+ "tvl_usd": 1247344,
+ "url": "https://app.silo.finance",
+ "github": null,
+ "listed_days_ago": 675,
+ "run_id": "c94c8b394a624200925c275d1e31ac3a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidationCall 0x00a718a9 on the PartialLiquidation hooks (fee 4%, hook 0x56f8a702..., onlyAllowedOrPublic) is the only anyone-callable pays-the-caller function; 0 LiquidationCall events chain-wide in 7d (64 x 10k-block topic-only scan of blocks 100,000,376-100,635,407, same-run control 29,186 Transfer logs/10k) and 0 logs of any kind from the 4 avax silos + hook in 7d; borrowed book 219,816 USD (llama), gas ~0.027 USD/call (7.5 gwei x 500k, AVAX 7.1797) - nobody was paid.",
+  "kb": [
+   "attempts:2031",
+   "protocols:623"
+  ],
+  "run_id": "c94c8b394a624200925c275d1e31ac3a",
+  "at": 1794984062
+ }
+}

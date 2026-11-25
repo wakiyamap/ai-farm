@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "address": "0xd38a5a7c3cec073884be9561b12d327236bde02f",
+  "strategy": "Runs several arbitrage executors; newest 0x1b8e9476 buys feUSD, redeems Felix WHYPE/kHYPE collateral, swaps it and pays WHYPE to an EOA.",
+  "evidence": "Alchemy alchemy_getAssetTransfers external from actor blocks 51482971-52097790 (2026-11-17 06:12:24 to 2026-11-24 06:12:23 UTC): 290 calls, 34 to 0x1b8e94763019968d1a3b8d586c5ef96d8ac3a9f6. Felix ledger source felix_cdp.redemption has 4 distinct redemption txs / 8 branch logs, 2033.464 feUSD redeemed, all 2026-11-24. Receipts 0xe99db0985005ead7b95e31c96604bf5979cc87015fab3c4935e8b2c39b4061c7, 0x2b49c3a6b8017d5c1b2f54aecdd748ea17820a2baac2fb8cb9f29c014ad598df, 0x7bca4338916e02b73b753603fb65d1ff2b021a3b224527b66e7b6ec7cf0f85e2 show WHYPE payout to 0xa9dd620fc1b6316ce75c8059aaed1f5fa5e0cefb (eth_getCode 0x), 0.003525/0.004868/0.017415 WHYPE. Gas 0.001320/0.002209/0.006981 HYPE. WHYPE 0x5555555555555555555555555555555555555555 symbol and decimals() on chain = WHYPE/18; HYPE $64.08 coins.llama.fi coingecko:hyperliquid timestamp 1795500610. Other executors make actor-wide profit unmeasured.",
+  "est_profit_usd_day": null
+}

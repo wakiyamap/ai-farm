@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-pinkswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "pinkswap",
+ "name": "PinkSwap",
+ "category": "Dexs",
+ "tvl_usd": 426005,
+ "url": "",
+ "github": [
+  "pinkmoonfinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "64f734927574496984645740ecbeb05e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PinkSwap = UniV2-fork DEX (factory 0x7D2Ce25C...Ea54, 168 pairs) + Pancake-v1 MasterChef 0xe9816766...C595 (poolLength 7) paying PINKS (~5.24e-11 USD, pair-priced): only anyone-callable fns are massUpdatePools/updatePool (pay 0; gas 130,184 = 0.0037 USD) and deposit/withdraw (pay msg.sender); 7d chef events = 0 over blocks 133290000-134633649 (281x4800-blk chunks, control PancakeV2 factory same shape = 83 logs), last pool touch block 123333930 ~2026-09-22.",
+  "kb": [
+   "attempts:2765",
+   "protocols:1203"
+  ],
+  "run_id": "64f734927574496984645740ecbeb05e",
+  "at": 1795150488
+ }
+}

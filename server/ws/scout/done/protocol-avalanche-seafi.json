@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-seafi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1000,
+ "chain": "avalanche",
+ "slug": "seafi",
+ "name": "SeaFi",
+ "category": "Yield",
+ "tvl_usd": 208735,
+ "url": "https://seafi.app",
+ "github": [
+  "SeaFi-Labs"
+ ],
+ "listed_days_ago": 1000,
+ "run_id": "c41452f3862d4fb8910dc22feb0e1012",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: no permissionless paying fn on SeaFi's 2 Avalanche vaults (AVAX 0x3621...Ace8d = WAVAXVaultV2, GGP 0xdF34...EbD8) - all 5 keeper fns revert from a fresh address and pay the caller 0 anyway (share-price accrual); AVAX updateRewards ran 303x in 7d from one keeper 0x804c...b6b5 holding REWARDS_SYNCER (nonce 32269->32572; sample of 100 of ~303), gross 0 USD vs gas 0.0028 USD/call (53,691 gas x 7.5 gwei, AVAX 6.985 USD); vault 27,484 AVAX = 191,974 USD.",
+  "kb": [
+   "attempts:2205",
+   "protocols:771"
+  ],
+  "run_id": "c41452f3862d4fb8910dc22feb0e1012",
+  "at": 1795023105
+ }
+}

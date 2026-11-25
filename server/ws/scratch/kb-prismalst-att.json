@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-prismalst",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - protocol is in full sunset: 0 open troves across all 5 collaterals (sunsetting()=true each), so the permissionless keeper functions on LiquidationManager 0x5de309dfd7f94e9e2a18cb6ba61ca305abf8e9e2 (liquidate / liquidateTroves / batchLiquidateTroves, no role gate) have nothing left to pay. 0 protocol events in the last 7 days; the last LiquidationManager event was 2024-09-18. Sunset blocks new troves, so liquidations can structurally no longer arise - not a temporarily-empty pot.",
+  "numbers": "7d window blocks 26413145 (2026-11-14) -> 26463398 (2026-11-21) (from timestamps, 12 s blocks): 0 logs over 8 core contracts (5 TroveManagers + LiquidationManager 0x5de309df + BorrowerOperations 0x72c59034 + StabilityPool 0xed8b26d9), no-topic scan; same-shape control since 0x16aa390 (~2025-08) returns 30 logs, latest block 26282445 (2026-10-27). LM 32 logs ever, latest block 20759996 = 2024-09-18 19:04 UTC (eth_getBlockByNumber). eth_call liquidateTroves from 0x1111111111111111111111111111111111111111 reverts 'TroveManager: nothing to liquidate' (state, not role). gross/call 0 (no liquidatable trove); gas: base fee 0.155 gwei, ETH 1655.79 USD (coins.llama.fi 2026-11-21 12:24 UTC) -> reverted attempt <0.01 USD. TVL 225,261 USD (api.llama.fi/protocol/prismalst, 2026-11-21). Debt token mkUSD 0x4591dbff62656e7859afe5e45f6f47d3669fbb28 (symbol read on chain, 18 decimals)."
+}

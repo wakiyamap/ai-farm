@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-saturn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 220,
+ "chain": "bsc",
+ "slug": "saturn",
+ "name": "Saturn",
+ "category": "Stablecoin Wrapper",
+ "tvl_usd": 1448800,
+ "url": "https://app.saturn.credit/",
+ "github": null,
+ "listed_days_ago": 220,
+ "run_id": "d0329c6b6ea3474984e6b8cfb6bf5a8b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BSC footprint = satUSDT vault 0x87e01662febb5145ff648c1fa7b73d81519d9c66 (Lista MoolahVault impl 0x713a7e23cff5016a479b079e48b575818a3fcc95), 1,439,139 USDT; no stranger-paid fn: skim() pays fixed skimRecipient=0x0 so reverts ZeroAddress, reallocate role-gated ('not allocator or bot'), rest ERC4626 user ops; 4x5000-block sample of 7d = 2 EOA txs (0x27ca7c3d, 0x31cc0a54), control 4259 USDT logs/50 blocks",
+  "kb": [
+   "attempts:1701",
+   "protocols:379"
+  ],
+  "run_id": "d0329c6b6ea3474984e6b8cfb6bf5a8b",
+  "at": 1794916232
+ }
+}

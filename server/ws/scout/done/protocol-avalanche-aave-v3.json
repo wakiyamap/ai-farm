@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-aave-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1691,
+ "chain": "avalanche",
+ "slug": "aave-v3",
+ "name": "Aave V3",
+ "category": "Lending",
+ "tvl_usd": 232498298,
+ "url": "https://aave.com",
+ "github": null,
+ "listed_days_ago": 1691,
+ "run_id": "5ecc2c8f1b6c49eebba29fdbe3db36d2",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "liquidationCall on Pool 0x794a61358D6845594F94dc1DB02A252b5b4814aD is the only anyone-callable pay function (69-fn impl ABI, no emitHAT/claim): 84 LiquidationCall in 7 d (blocks 100,099,069-100,758,017), 13 liquidators (0x2c08916e 38, 0x777-network 0x777e0fc6 26), gross +62 to +4,157 USD on 10 of 84 samples (median ~460, coins.llama.fi at block ts) vs gas 0.23-0.67 USD/tx (one 293 USD gas-war outlier); no role gate (fork proof attempts:1929 +47.73 USDC); lead 258 already measured with paper bot trial-aave-avalanche; relay scout lane spent, reads via Routescan API.",
+  "kb": [
+   "attempts:2496"
+  ],
+  "run_id": "5ecc2c8f1b6c49eebba29fdbe3db36d2",
+  "at": 1795087835
+ }
+}

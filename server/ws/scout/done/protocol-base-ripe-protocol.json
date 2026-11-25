@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-ripe-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 292,
+ "chain": "base",
+ "slug": "ripe-protocol",
+ "name": "Ripe Protocol",
+ "category": "Lending",
+ "tvl_usd": 70359,
+ "url": "https://www.ripe.finance/",
+ "github": [
+  "Ripe-Foundation"
+ ],
+ "listed_days_ago": 292,
+ "run_id": "ea911c0a5fe84767816d6b497f7ca3ad",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Teller.liquidateUser is permissionless and mints keeper fee 0.61-5.59 GREEN (~0.6-5.6 USD, min 1 GREEN) to msg.sender vs ~0.02 USD gas on base, but 0 LiquidateUser events in the 7d window (blocks 57,763,222 2026-11-15 11:43 -> 60,789,273 2026-11-22; 19 lifetime, last 2026-11-15 01:40, callers EOA keepers 0x1278c1e4/0x8b5541a6/0xf5e85494) and 0/53 borrowers liquidatable now (totalDebt 19,643 GREEN)",
+  "kb": [
+   "attempts:3712"
+  ],
+  "run_id": "ea911c0a5fe84767816d6b497f7ca3ad",
+  "at": 1795348728
+ }
+}

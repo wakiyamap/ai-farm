@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-uniswap-v3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1492,
+ "chain": "ethereum",
+ "slug": "uniswap-v3",
+ "name": "Uniswap V3",
+ "category": "Dexs",
+ "tvl_usd": 698668468,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1492,
+ "run_id": "b5628ca33b2c4a5fb2285d08afa6b546",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No function pays a stranger: pool.collect pays msg.sender's own accrued fees, NPM.collect is NFT-owner-gated (stranger eth_call reverts 'Not approved'), pool.collectProtocol onlyFactoryOwner (stranger reverts 0x); fee collection is LP self-service: 2166 NPM Collect/24h blocks 26457445-26464859 (topic0 0x40d0efd1 cast keccak, confirmed by no-topic scan), sample collect gas 184,793 @ 0.139 gwei = 0.043 USD (WETH 1683.41 coins.llama.fi 17:08Z).",
+  "kb": [
+   "attempts:3405",
+   "protocols:1706"
+  ],
+  "run_id": "b5628ca33b2c4a5fb2285d08afa6b546",
+  "at": 1795281465
+ }
+}

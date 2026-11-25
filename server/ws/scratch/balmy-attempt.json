@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-balmy",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - Balmy (Mean Finance DCA v2) is deprecated on arbitrum. The one pay-the-caller function, swap() (public, pays the 0.6% swap-fee surplus to any _rewardRecipient), reverts because the hub is paused()=1, and Swapped events are 0 over the last 7d (also 0 over 90d and 365d). The only 7d activity is users self-terminating positions (30 calls, 30/30 caller==recipient), which returns the owner's own funds, so no stranger is paid anything.",
+  "numbers": "Hub 0xA5AdC5484f9997fBF7D405b9AA62A7d88883C345 (DefiLlama meanfinance adapter YIELD_VERSION), verified dca-v2-core source. 7d window blocks 524751649 (ts 1794833447, 2026-11-16T12:50Z) -> 526809291 (ts 1795438312, 2026-11-23T12:51Z) via eth_getBlockByNumber. paused()=1; Paused events 90d (from 0x1dd00000): 0 -> paused >90d. swapFee()=6000 of 10000*100 = 0.6%. Swapped (topic0 0xcd70d819... from verified source) count: 0 / 7d, 0 / 90d, 0 / 365d (from 0x19000000). Control no-topic scan of same hub over 90d: 731 logs, topic0 census Terminated 730 + Withdrew 1, no unknown topic0. 7d: 30 terminate() (0x72ada4c5), 29 distinct EOAs, 30/30 sender==recipientUnswapped==recipientSwapped. terminate gas limit 0x2a4e5=173k; arbitrum gasPrice 20000000 wei (0.02 gwei) => ~3.5e-6 ETH ~ 0.006 USD at WETH 1717.95 USD (coins.llama.fi, 2026-11-23T13:01Z). Gross per call paid to a stranger in 7d: 0 (no Swapped events)."
+}

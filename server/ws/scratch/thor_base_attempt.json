@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-thorchain-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Base has exactly one THORChain contract, InboundRouter 0x00dc6100103bc402d490aee3f9a5560cbd91f1d4 (verified source THORChain_RouterV6.sol v6.1, same address as the avalanche router). Every external function moves the CALLER's own funds (depositWithExpiry in; transferOut/batchTransferOut/transferOutAndCall(V2) push to `to`, the signer fronts the money and pays the gas): nothing pays the caller and there is no owner/role/whitelist, no claim or reward function, no reward pot on Base - THORChain rewards are RUNE on THORChain L1. Same verdict as avalanche (protocols:1132, attempts:2672).",
+ "numbers": "7d events (eth_getLogs blocks 56,840,890-59,864,890, head 59,864,890): Deposit 357, TransferOut 296, TransferAllowance 22 (675 total, ~96/day). Gross to caller 0. Gas per call (receipts): transferOut 66,539 @0.1 gwei = $0.012 (0x00451b7b), 37,854 @0.1 gwei = $0.0066 (0x96aba3b0, moved 5.183 ETH ~ $9,095 to recipient), depositWithExpiry 37,821 @0.0054 gwei = $0.0004 (0x856a5072); ETH $1,754.77 coins.llama.fi ts 1795136707. eth_call transferOut from stranger reverts 'TC:eth amount mismatch' (economic, not role-gated). TVL base $120,222 (api.llama.fi 2026-11-20)."
+}

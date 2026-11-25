@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-uniswap-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 656,
+ "chain": "arbitrum",
+ "slug": "uniswap-v4",
+ "name": "Uniswap V4",
+ "category": "Dexs",
+ "tvl_usd": 33863122,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 656,
+ "run_id": "f4b72592834a42df84785034333a847c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "No caller-paid function on Arbitrum V4: the only open claim-style fn is the fee adapter collect() 0x6b3c0456.. (267 FeesCollected / 14 txs in 7d, blocks 523.20M-525.24M, all from keeper 0x16f09eaa..) which forwards ~,600/tx to a hard-coded TOKEN_JAR 0x95e337c5.. - gross to caller bash vs gas bash.62-0.68/tx; PoolManager.collectProtocolFees is controller-gated (InvalidCaller 0x48f5c3ed from a stranger), donate/clear onlyWhenUnlocked, LP collect self-service (PositionManager onlyIfApproved).",
+  "kb": [
+   "attempts:2012",
+   "protocols:608"
+  ],
+  "run_id": "f4b72592834a42df84785034333a847c",
+  "at": 1794980586
+ }
+}

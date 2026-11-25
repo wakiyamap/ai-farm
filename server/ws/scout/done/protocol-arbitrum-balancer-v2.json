@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-balancer-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "balancer-v2",
+ "name": "Balancer V2",
+ "category": "Dexs",
+ "tvl_usd": 920332,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "87f9f85c537b477ab1913cdd38336aee",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: no caller-paid fn on V2-arb - fee route ProtocolFeesWithdrawer.withdrawCollectedFees authorizer-gated (eth_call from fresh addr reverts, dormant since 2022-05-18), linear pools have no manageFreeUnderlying (verified ABI), 4 merkle distributors 0 Claimed in 7d; Vault 7d = 5,451 swaps / 5,253 txs / 138 pools with swappers paying LPs (top caller via CoW settlement 0x6A000F20..1068); gas 0.02 gwei.",
+  "kb": [
+   "protocols:1085",
+   "attempts:2608"
+  ],
+  "run_id": "87f9f85c537b477ab1913cdd38336aee",
+  "at": 1795114325
+ }
+}

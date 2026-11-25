@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-superform",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only keeper job that moves funds, CoreStateRegistry.processPayload, is gated by CORE_STATE_REGISTRY_PROCESSOR_ROLE (eth_call from fresh address reverts NOT_PRIVILEGED_CALLER 0xc2703cd6) and is run solely by the protocol EOA 0x23c658fe050b4eaeb9401768bf5911d11621629c. The two permissionless functions pay someone else, not the caller: forwardDustToPaymaster sends dust to the PayMaster contract, finalizeRescueFailedDeposits pays the depositors. Same profile as the Arbitrum dead_end (protocols:750).",
+ "numbers": "getSuperformCount()=87 (factory 0xD85ec15A9F814D6173bF1a89273bFB3964aAdaEC, eth_call latest block 0x984f8e2=159709410); processPayload callers last 7d = 0 (last call ts 1794020423 = 2026-11-06, block 159210823, receipt 0x6dc80a19...65f8; control: same explorer-txs query shape returned 4 Router user txs in the 7d window); one processPayload costs 492,374 gas @ 0.010 gwei = 4.92e-6 ETH = $0.0087 (ETH $1765.59, CoinGecko 2026-11-18); Router 7d: 4 txs (0x407c7b1d singleDirectSingleVaultWithdraw), 3 EOAs, user-funded; TVL $130,907 (session context); SuperVaults: aggregator 0x10AC0b33e1C4501CF3ec1cB1AE51ebfdbd2d4698 code=0x on OP."
+}

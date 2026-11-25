@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "lisaster",
+  "status": "dead_end",
+  "checked": "lisAster (Lista DAO ASTER aggregator, TVL ~$2.9M). Contracts (DefiLlama adapter projects/lis-aster + MINTER role lookup + verified sources via explorer proxy): LisAster token proxy 0xa17A497D20cC143508FE3b63578b13ba6b9c9f06 (impl 0x4183b7045cac1b56bc9cb3e694d1f551a84314b7, mint/burn onlyRole(MINTER), totalSupply 5,143,273); AsterVault proxy 0xb3df1b695d720ddc5906005dd5448db160687c42 (impl 0x5f97a18f317abe825cf1023ff61452e4d387a12b, deposit(uint256,address) permissionless, pays nothing); LisAsterStaking proxy 0x3D786C991452Cb7634D02b351374CB0aCC69fD71 (impl 0x2d0a2d15ce64afa586fceca4e8156087b6e4c3eb, plain stake/stakeFor/unstake, no reward fn); AsterRewards proxy 0x935e18a52e24746ff7b4d307012d8a82c2ab5a23 (notifyRewards/distributeRewards onlyRole(BOT), eth_call from fresh addr reverts AccessControl err 0xe2517d3f; pendingAster()=0; feeRate 10%); LisAsterDistributor proxy 0xee545e1db73c3fff0fe81bad7673054706507168 (impl 0x3aa47844fb47fc65f82b55e2f9a2dec219aa49bb). Source repo github.com/lista-dao/lista-new-contracts master src/lisaster. External dep: AstherusVault BSC 0x128463A60784c4D3f46c23Af3f65Ed859Ba87974 (not lisAster)."
+}

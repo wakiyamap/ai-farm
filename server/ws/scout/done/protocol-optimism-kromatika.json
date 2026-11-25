@@ -1,0 +1,26 @@
+{
+ "id": "protocol-optimism-kromatika",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1739,
+ "chain": "optimism",
+ "slug": "kromatika",
+ "name": "Kromatika",
+ "category": "Dexs",
+ "tvl_usd": 1001677,
+ "url": "https://app.kromatika.finance/limitorder#/pool",
+ "github": [
+  "Kromatika-Finance"
+ ],
+ "listed_days_ago": 1739,
+ "run_id": "7230cf2724544807844aa4f3c9ae5715",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Kromatika OP: keeper fn is monitor.performUpkeep (pays KROM monitorFee to msg.sender, last batch 948 paid 462 KROM = $1.43, gas ~$0.001) but require(msg.sender==keeper) single EOA 0x3510..ce66 - stranger eth_call reverts; and dormant: 0 BatchProcessed and 0 manager logs in last 7d (blocks 159443964-159746364, 31-slice scan, control hit at block 147347768), last batch 2026-02-05, last manager tx 2026-11-05.",
+  "kb": [
+   "attempts:2532"
+  ],
+  "run_id": "7230cf2724544807844aa4f3c9ae5715",
+  "at": 1795097683
+ }
+}

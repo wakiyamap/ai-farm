@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-forest-road-vault",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. No function anyone can call pays the caller: the scheduled keeper action RedemptionQueue.closeEpoch is SETTLEMENT_KEEPER_ROLE-gated and pays 0 (keeper 0xd355effb157c59ccd0adf2b4beb78d83bed3cead bears the gas itself), and the permissionless maintenance entries (attest, checkpointAccrual, markPastDue, liquidate) transfer nothing to the caller anywhere in contracts/src. A stranger paying gas to call anything earns nothing back; the protocol pays users redemption principal, not callers.",
+ "numbers": "closeEpoch: 4 calls / 7d (EpochClosed logs blocks 26405178-26455578; control 95 USDfr Transfers same shape), all keeper 0xd355effb...; gross to caller 0 USD/call; gas 3,223,715 @ 1.284383164 gwei = 0.00414 ETH = 7.22 USD (ETH 1744.55 USD coins.llama.fi ts 1795168803; tx 0xaabfd91513f726d0218e3204e13b37b7640b8a102efe87ebc1fe00efe8feca9a). Settlements distributed 9.4+202.7+410.3+176.7 = 799 USDfr (18 decimals read on chain). TVL 503k USD. eth_call fresh addr: closeEpoch reverts 0xe2517d3f AccessControlUnauthorizedAccount; checkpointAccrual(32) OK (0 processed). 0 external calls in 7d to ReserveManager/DefaultManager/MtmAtomicExecutor (explorer txs; control: RedemptionQueue same query returns txs)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-gains-network",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Gains Network on Base is the new gTrade architecture: USDG GToken vault 0xad20523A7dC37bAbc1CC74897E4977232b3D02e5 (489k USDC-denominated USDG) + GNSMultiCollatDiamond trading diamond 0x6cD5aC19a07518A8092eEFfDA4f1174C72704eeb (openTrade, triggerOrderWithSignatures 0xc7e2b2a9). The anyone-callable trigger pays no stranger: 309 TriggerRewarded events in 7d minted 38.96 GNS total (~$12.3 at GNS 0.3167) but the GNS is credited to the 5 registered price oracles, not the sender - same verified code as arbitrum (attempts:2032 UNPAID). Vault has no keeper incentive: distributeReward pulls from the caller, refill/deplete are GNS mint/burn peg swaps, forceNewEpoch (anyone) pays 0; only 17 user USDG transfers in 7d. A stranger calling trigger would pay ~$0.01 gas for $0.",
+  "numbers": "TVL 909,230 USD (candidate). USDG totalSupply 489,453 (eth_call latest 59560771). TriggerRewarded topic0 0x82bfbe6a...f2da: 309 events blocks 56460771-59560771 (62x50k windows, 0 fails); sum per*oracles=38.959 GNS, median 0.012623 GNS/oracle, oraclesCount=5; GNS 0.3167 USD coins.llama.fi 2026-11-19T15:44Z. Sample trigger txs from 0x2a3021ea2fb3434d5bcf76c92837a750845a2379 / 0x3b1ae4a6f8fbbe7659f0b0351e73436598cf2887, gasPrice 0xa7d8c0 = 0.011 gwei. USDG 7d Transfer logs: 17 (control shape non-zero)."
+}

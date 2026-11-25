@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-axelar",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: no function on Axelar's Arbitrum gateway pays the caller. execute(bytes) is open to anyone holding an Amplifier-signed proof but is pure delivery (pays 0 on-chain); the only pot, the AxelarGasService (0.0931 ETH, ~$167), pays its owner/collector roles, not strangers (collectFees from a stranger reverts). Rewards for processors are AXL on the Axelar consensus chain. Matches attempts:1963 on the same contracts (sibling candidate axelar-cross-chain); independently re-measured.",
+  "numbers": "412 gateway Executed events in 7d (eth_getLogs blocks 0x1f2ded30..0x1f52d730 on gateway 0xe432150cce91c13a887f7D836923d5597adD8E31, topic0 0xa74c8847d513feba22a0f0cb38d53081abf97562cdb293926ba243689e7c41ca); gross to caller 0 USD (receipt 0xce968d245d8ae58da378e5370c9920124ca6674e660a7bf96682cdca013e95d0: 0 transfers to caller; gateway native balance 0x0); caller gas ~286,047 x 0.021 gwei (eth_gasPrice 0x1324640) = ~$0.011/tx at ETH $1798.52 (coins.llama.fi coingecko:ethereum 2026-11-19); gas service 0x2d5d7d31F671F86C782533cc367F14109a082712 balance 0.09308863 ETH = ~$167, collectFees onlyOwner; TVL $245,272 (candidate, DefiLlama)"
+}

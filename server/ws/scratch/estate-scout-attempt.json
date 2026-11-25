@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-estate-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Estate Protocol on Arbitrum is 59 Polymath v2 security tokens (rent tokens, TVL 13.9M priced off-chain); the token ABI (impl 0xf7d5bd49b2975cfd86dd4d721f74f71f6149259a) has no public function that pays a caller - no claim/reward/dividend fn, only module is GeneralTransferManager, createCheckpoint() reverts from a fresh address (controller-gated, currentCheckpointId=0). Whole protocol is dormant: 0 logs of any kind on all 59 tokens in the last 7 days (blocks 522864308-525283508; control USDC 16008 Transfer logs/3000 blocks), and 1 USDC touch of protocol addresses in 7d.",
+  "numbers": "59 registered tokens (registry 0x096c0f11e046cd1daab53f2612512cd5cb84f325, topic 0x71f31ac7); 7d logs on tokens = 0 (eth_getLogs, control 16008); USDC 7d: 0 out / 1 in vs protocol keys 0x2a43cb48..., 0x77c37713...; createCheckpoint(0xff0b9c90) eth_call revert from 0x1111...1111; currentCheckpointId=0; last admin mint 2026-03-24 (tx on 0xd59d60828bfc97baa1b996be13facd62a274652b); TVL 13,945,569 USD (session context / api.llama.fi)"
+}

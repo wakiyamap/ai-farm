@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-chamber-vaults",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Chamber Vaults (dHEDGE V2) on OP Mainnet has no function that pays a stranger caller. mintManagerFee() is the only anyone-callable fee fn (stranger eth_call succeeds) but mints fee shares only to DAO + pool manager - caller gets 0; deposits/withdrawals pay entry/exit fees the other way (depositor -> manager/DAO). Same verdict as arbitrum (protocols:1087), base (1136), hyperevm (1223).",
+  "numbers": "factory 0x5e61a079A178f0E5784107a4963baAe0c5a680c6, 778 vaults (getDeployedFunds), poolLogic 0x692e5fb516d24724884ca1719bcc379bb5c51b66 (verified source). 7d (blocks 159476513-159778913): factory PoolEvent 181 logs/108 txs/17 active vaults (control); ManagerFeeMinted across all 778 vaults = 73 events / 13 vaults; all 73 emitting txs selector-checked: 38 withdrawSafe, 14 initWithdrawal, rest relay/aggregator ops, 0 external mintManagerFee. 35 distinct callers. Caller payout 0 USD; gas ~0.001-0.003 USD per 1.5M-gas tx (effGasPrice 1,032 wei, L1 fee 3.8e-7 ETH; ETH 1741.35 coins.llama.fi ts 1795157106). llama tvl 1,876,464."
+}

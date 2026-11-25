@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "yieldflow_yield_farming",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/yieldflow/index.js lists ~80 RangePositionManager vaults on arbitrum (Uniswap V3 position managers, verified source on etherscan, 2 versions). Only unguarded function is publicCollect() (external nonReentrant, no role): eth_call from fresh 0xf39F address returns (amount0,amount1) on both 0x69a3e2f167B35c88C9778F59Ce8C1fFc546c8078 and 0x3c3260a79a50ECD154d2e2F00C857A06dD0e5619 - no role revert. Source (RangePositionManager.sol v2, 52k chars, and v1, 44k chars) shows collected fees + masterChef ARB rewards are credited to depositor (userMapping) balances and feeReceiver, NOT to msg.sender. moveRange/increaseLiquidityAuto gated by _operatorAddresses[msg.sender]; userCollect pays the caller only if it is a depositor. Sample of 5 of ~80 managers via explorer txs: 0x3c3260a7... and 0x4F59ec4f... active with ~1 publicCollect/day all by operator 0x43b63ebd7e07bcfa28c91651c6db87f2b2d435a5 (last tx 2026-11-18); 0x69a3e2f1... dormant since 2026-04-22; 0xe3f50A03... since 2024-05-09. TVL $108k (DefiLlama candidate data). No payment to strangers -> dead_end."
+}

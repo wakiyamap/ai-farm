@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-hop-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "hop-protocol",
+ "name": "Hop Protocol",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 106140,
+ "url": "",
+ "github": [
+  "hop-protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "a08fbdf98d7445a9ae27d5e504311ed4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Hop v1 Base bridges (USDC.e 0x46ae..b5C61, ETH 0x3666..f18a, HOP 0xe22D..6F52): only caller-paid fn is bonderFee in onlyBonder bondWithdrawal/bondWithdrawalAndDistribute (fresh-address eth_call reverts 'ACT: Caller is not bonder'; whitelisted bonders 0xa6a6..203e / 0x710b..d564 getIsBonder=true); 7d getLogs blocks 56.69M-59.71M: 0 WithdrawalBonded/Withdrew/TransferSent/TransfersCommitted on all 3 (control same shape: 17 Withdrew + 252 TransfersCommitted wider window; last Withdrew 2026-10-22); gross to stranger 0 USD, gas ~0.0016 USD (0.006 gwei, ETH 1756.04 llama 2026-11-20).",
+  "kb": [
+   "attempts:2690",
+   "protocols:1146"
+  ],
+  "run_id": "a08fbdf98d7445a9ae27d5e504311ed4",
+  "at": 1795133395
+ }
+}

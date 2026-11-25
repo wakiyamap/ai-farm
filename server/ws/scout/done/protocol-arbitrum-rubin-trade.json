@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-rubin-trade",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 142,
+ "chain": "arbitrum",
+ "slug": "rubin-trade",
+ "name": "Rubin Trade",
+ "category": "Derivatives",
+ "tvl_usd": 55150,
+ "url": "https://rubin.trade",
+ "github": null,
+ "listed_days_ago": 142,
+ "run_id": "58adf2754c574e0d9af0f838e5b023e5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Single bridge contract 0x26206BFdEE32128739f08Aa12f57505A3a4CcaaF on Arbitrum (Rubin = Cosmos chain); bridgeWithdrawalV2 callable by anyone (fresh-address eth_call reverts WithdrawalAlreadyProcessed, no role) but pays USDC to the user, $0 to caller: 7d (blocks 524,431,140 2026-11-15 -> 526,487,791 2026-11-22) 54 withdrawal-execution txs worth 39,128 USDC (sample of 5: 1,670-2,267 gross) all run by the 3 validator EOAs at ~128k gas = $0.004 each; 8 deposits; no harvest/reward/claim function - dead_end.",
+  "kb": [
+   "attempts:3682",
+   "protocols:1905"
+  ],
+  "run_id": "58adf2754c574e0d9af0f838e5b023e5",
+  "at": 1795343014
+ }
+}

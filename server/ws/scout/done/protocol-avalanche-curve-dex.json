@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-curve-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "curve-dex",
+ "name": "Curve DEX",
+ "category": "Dexs",
+ "tvl_usd": 1990999,
+ "url": "https://curve.finance",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "135310cee7234805b802604ca05f084b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Curve avalanche: 176 pools across 4 registries (Main 5, StableFactory 114, CryptoSwap 2, SS-NG 55; pool_count eth_call 2026-11-19) are exchange-only - harvest/claim/checkpoint/poke revert on sample pool 0x30df229c2ac7 (A(), get_virtual_price() control answer); gauges pay stakers' own accrual; hooker/fee-collector compensation (the only Curve caller-paid class, cf arbitrum) not deployed here (curvefi/docs: avalanche has fees/fee-receiver 0x06534b0Bf7fF378f162d4f348390bDa53b15fa35 only); no caller-paid function, 0 gross vs ~0.026 USD gas (7.55 gwei x 500k, AVAX 6.898 coins.llama.fi).",
+  "kb": [
+   "attempts:2654"
+  ],
+  "run_id": "135310cee7234805b802604ca05f084b",
+  "at": 1795124658
+ }
+}

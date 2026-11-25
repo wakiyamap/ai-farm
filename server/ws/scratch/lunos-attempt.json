@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-lunos",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Inspected the old and USDM insurance pools and veUNO yield distributor. Public harvest/checkpoint calls pay the staker or caller's own stake yield; insurance payout and rollover require roles. No intended stranger bounty was found. A possible old-pool accounting bug was reported privately and was not tested on mainnet.",
+  "numbers": "Window from Ethereum block 0x1934d46 (2026-11-16 23:10:11 UTC) to 0x1941188 (2026-11-23 23:10:11 UTC), timestamps via eth_getBlockByNumber. eth_getLogs: Harvest(address,address,uint256) topic 0xa0306f61d3fafe13787b78e276cb6b644382854a66cb46daae14227d3ec26797 on old SSIP 0xa476b3F7333796D4565a3D3666D54cF8557F0169 = 0, on USDM SSIP 0x19a41cc53c93a004afdbcc76d458f0cb57a865b4 = 0; YieldCollected(address,uint256,address) topic 0x3998039806f6db7e5d83a5371638cc47dd2e9ae500d5d561d95ec6381f53e3cd on 0x0F8862fF7275620bBCc111908E47bAC5feC05b31 = 0. No-topic scan of each target over same window = 0 unknown events. Control: same-shape eth_getLogs on USDC Transfer at block 0x1941188 returned 398 logs, first tx 0xa31fade318a164e5b553f73bbad7db4945fe5d4fa4655b0b484defd004d71589. Fresh-address eth_call getYield() returned 0; harvest(address) calls returned empty void data. Gross outsider bounty 0; gas USD not applicable (0 paid calls). Explorer tx lists latest old-pool interaction at block 18716960, USDM at 22489139, distributor at 24035092, all before window."
+}

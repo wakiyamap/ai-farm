@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "extra_finance_xlend",
+ "status": "measured",
+ "checked": "2026-11-18 run 5b1ffe03 scout. Aave V3 fork (DefiLlama registry registries/aave.js 'extra-xlend' base dataHelper 0x1566DA4640b6a0b32fF309b07b8df6Ade40fd98D, verified = AaveProtocolDataProvider source). ADDRESSES_PROVIDER() 0x1e35e657d469f134ea9cfe52e28949586f1a9c29 (eth_getCode non-0x), getPool() -> Pool 0x09b11746DFD1b5a8325e30943f8b3D5000922e03 (getReservesList() returns 32 reserves). Base TVL $1.008M, borrowed $451k (llama currentChainTvls). Interface from the protocol's own verified source: rebalanceStableBorrowRate + swapBorrowRateMode commented out, no public mintToTreasury (V3 style). Only stranger-payable keeper function = liquidationCall: 7 LiquidationCall events in last 7 days (blocks 56757757-58096109), all via router 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd (contract, unverified) driven by >=6 distinct EOAs incl. same-block FAILED competing attempts -> open, not role-gated."
+}

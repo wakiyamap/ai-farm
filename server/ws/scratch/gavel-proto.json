@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "the_gavel_protocol",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/the-gavel-protocol/index.js gives two arbitrum proxies: 0xFCDd6Ef75638D8D19ad634004C234Ad18751fEf2 (LoanProtocol, ERC1967, impl 0xfdaf4f783a29b55186ab6152f317c8998ad72fda verified on etherscan) and 0x506e414c7D39639B2E9E318C46eD378AD51147eb (NFTLoanProtocol, impl 0xd02e03340e46e9417511dd6d327acd6f48827958 verified). Both eth_getCode non-empty; getter getLoan(61) answers. Source read in full (LoanProtocol.sol 145k chars, NFTLoanProtocol.sol, ListingService.sol from github.com/JamieFrame/The-Gavel-Protocol): zero occurrences of reward/bounty/incentive/keeper - no keeper-reward mechanism exists. Caller-callable fns finalizeAuction, markDefault, expireMarketplaceOffer, cleanStaleListing pay the caller 0 (transfers go to borrower/pendingRefunds to buyer); claimExpiredAuction/claimCollateral are party-gated (Unauthorized for strangers). No-topic eth_getLogs scan of both proxies, blocks 524416480-526473519 (2026-11-15 to 2026-11-22): ERC20 proxy 20 logs (CollateralDeposited 4, AuctionCreated 4, BidPlaced 4, AuctionFinalized 3, LoanRepaid 5), NFT proxy 0; all 5 topic0 matched declared events (no-topic scan control)."
+}

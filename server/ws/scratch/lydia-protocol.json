@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "lydia",
+  "status": "measured",
+  "checked": "UniV2-fork DEX + Croesus MasterChef farm. Addresses from DefiLlama registry (registries/uniswapV2.js 'lydia' avax) and github.com/lydiafinance/contracts-deployed README. Factory 0xe0C1bb6DF4851feEEdc3E14Bd509FEAF428f7655: eth_getCode ok, allPairsLength()=141 (getter answers), 0 PairCreated logs in 7d (no-topic scan, blocks 100483431-101171322 = 2026-11-16 to 2026-11-23). Router 0xA52aBE4676dbfd04Df42eF7755F01A3c41f28D27: 5 txs in 7d (routescan txlist) - DEX dormant. Croesus MasterChef 0xFb26525B14048B7BB1F3794F6129176195Db7766: code ok, deployed ABI from routescan matches lydiafinance/lydia-farm MasterChef.sol; enterStaking(0)/leaveStaking(0) eth_call from fresh address succeed (permissionless, no role gate). 57 Deposit(0x90890809)/Withdraw(0xf279e6a1) logs in 7d, 27 txs, 7 sender EOAs; 10.22M LYD paid to callers = $476.48; gas $0.012-0.14/tx. lydPerSec()=2 LYD, chef LYD balance 272.6M = $12,715 (LYD 0x4C9B4E1AC6F24CdE3660D5E4Ef1eBF77C710C084, decimals 18 read on-chain, $0.00004664 coins.llama.fi 2026-11-23)."
+}

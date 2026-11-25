@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-woofi-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1727,
+ "chain": "avalanche",
+ "slug": "woofi-swap",
+ "name": "WOOFi Swap",
+ "category": "Dexs",
+ "tvl_usd": 515609,
+ "url": "https://woofi.com",
+ "github": null,
+ "listed_days_ago": 1727,
+ "run_id": "53c09d0c4afc4929b92ec719a9637a39",
+ "result": {
+  "verdict": "role_gated",
+  "line": "WOOFi Swap avalanche = pure SPMM stack (router 0x4c4AF8DB..., pool 0x5520385b..., oracle WooracleV2_2 0x2A375567..., CrossRouterV5 0xB84aEfEF...): only keeper work postPrice is onlyAdmin (stranger eth_call reverts 'WooracleV2_2: !Admin'), claimFee callable by anyone but pays feeAddr not caller (unclaimedFee()=0); 7d txs pool/router/oracle 0 (router last tx 2026-11-07 block 99707188, same-shape control returns rows), gas 100k x 7.5 gwei = 0.0053 USD (AVAX 7.127, coins.llama.fi ts 1795094716) vs 0 gross \u2014 nothing for strangers.",
+  "kb": [
+   "attempts:2522"
+  ],
+  "run_id": "53c09d0c4afc4929b92ec719a9637a39",
+  "at": 1795094874
+ }
+}

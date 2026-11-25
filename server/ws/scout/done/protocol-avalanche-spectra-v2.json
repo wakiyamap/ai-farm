@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-spectra-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 894,
+ "chain": "avalanche",
+ "slug": "spectra-v2",
+ "name": "Spectra V2",
+ "category": "Yield",
+ "tvl_usd": 263663,
+ "url": "https://app.spectra.finance/fixed-rate",
+ "github": null,
+ "listed_days_ago": 894,
+ "run_id": "c9ce51aed0d74c98b5004aa8380da902",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PT.claimRewards is role-gated (reverts 0x068ca9d8 CallerNotRole from a fresh addr) and claimFees feeCollector-only (0x5c427cd9): 0 FeeClaimed in 7d, fee pots 2.14e12 mevUSDC-wei (~25k USD) / 3.75e17 / 3.6e9. Anyone-callable claimYield/redeem pay only own yield (returns 0 from fresh addr): 4 self-claims in 7d (blocks 100,027,975-100,668,344) gross 7.4k-15.5k USD mevUSDC @0.0119288 (coins.llama.fi) vs gas 169.5k-1.41M gas @7.6-8.5 gwei = 0.010-0.076 USD (AVAX 7.095). FactorySNG proxy 0x64FCC3A02eeEba05Ef701b7eed066c6ebD5d4E51, registry 0x786da12e9836a9ff9b7d92e8bac1c849e2ace378 pTCount=29.",
+  "kb": [
+   "attempts:2156",
+   "protocols:728"
+  ],
+  "run_id": "c9ce51aed0d74c98b5004aa8380da902",
+  "at": 1795010811
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-meson",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Meson on BSC is one HTLC swap-bridge vault (0x25aB3Efd...48D3, proxy -> impl 0x685ffe...3bcc); its reward functions (bondSwap/lock/release/executeSwap) are reserved for registered LP pools (owner/authorized addresses, LP signs every swap) and accrued service fees go back to the pool owner via withdrawServiceFee - no callable function pays a stranger. Fee/spread income accrues only to LPs who first deposit liquidity on >=2 chains.",
+  "numbers": "TVL 102,175 USD (candidate, DefiLlama). Proxy code 802B, impl 20,239B, getSupportedTokens() = 16 tokens (eth_call 0xd3c7c2c7, block latest ~0x801c42c, 2026-11-18). 7-day call count unknown: bsc eth_getLogs error 'all providers failed: public: limit exceeded' on scout+research lanes; control eth_getBlockReceipts(0x801c400) = 102 receipts, 0 to vault. bondSwap(1,0) eth_call from 0x0000..b0b5 reverts 'Swap does not exist'. Sources: relayer.meson.fi/api/v1/list, raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/meson/index.js, docs.meson.fi (LP + solidity pages), 4byte.directory on impl bytecode."
+}

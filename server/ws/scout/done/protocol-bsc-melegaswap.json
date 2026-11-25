@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-melegaswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 976,
+ "chain": "bsc",
+ "slug": "melegaswap",
+ "name": "Melegaswap",
+ "category": "Dexs",
+ "tvl_usd": 90432,
+ "url": "https://www.melega.finance/",
+ "github": null,
+ "listed_days_ago": 976,
+ "run_id": "58ae2095d553493bbbb5a05d9c3bc70c",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "bsc melegaswap vault 0xb2d57B1A...A21C harvest() is open to any EOA and pays caller 0.25% callFee of harvested MARCO: 159 Harvest events in 7d (blocks 133824487@2026-11-15 to 135167937@2026-11-22), 4 EOA callers (97/59/2/1, top two hold zero vault shares), gross 2.98-84.14 MARCO/call (median 40.5 = $0.0068 at MARCO $0.000168 coins.llama.fi), gas 178,552 @ 0.05 gwei = $0.005 (BNB $558), 157/159 gross>gas, total keeper pay 8,755 MARCO = $1.47/7d - real but dust; notContract blocks contract executors.",
+  "kb": [
+   "attempts:3902",
+   "leads:418"
+  ],
+  "run_id": "58ae2095d553493bbbb5a05d9c3bc70c",
+  "at": 1795390989
+ }
+}

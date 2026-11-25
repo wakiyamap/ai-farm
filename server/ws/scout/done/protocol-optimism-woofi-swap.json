@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-woofi-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1727,
+ "chain": "optimism",
+ "slug": "woofi-swap",
+ "name": "WOOFi Swap",
+ "category": "Dexs",
+ "tvl_usd": 505342,
+ "url": "https://woofi.com",
+ "github": null,
+ "listed_days_ago": 1727,
+ "run_id": "acadedd45e804d15857dc2d0281fee38",
+ "result": {
+  "verdict": "unpaid",
+  "line": "SPMM v2 stack on optimism (router 0x4c4A..6fB7, pool 0x5520..9FA4, oracle 0xA433..75127): keeper work is role-gated (postPrice reverts !Admin, distributeFees !admin, crossRouter.claimFee !feeRecipient); the only stranger-callable payout pool.claimFee() sends the whole unclaimedFee to feeAddr (WooFeeManager) and unclaimedFee()=0 USDC now, so a stranger earns 0 vs ~0.21 USD gas (77,264 gas @ 0.0015 gwei, ETH 1807.39 llama); 7d activity: router 1 user swap, pool/oracle/rebate 0 txs (pool last touched 2026-09-01, oracle 2026-05-22) - nobody paid.",
+  "kb": [
+   "protocols:1028",
+   "attempts:2528"
+  ],
+  "run_id": "acadedd45e804d15857dc2d0281fee38",
+  "at": 1795096859
+ }
+}

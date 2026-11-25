@@ -1,0 +1,27 @@
+{
+ "id": "protocol-stellar-defindex",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 284,
+ "chain": "stellar",
+ "slug": "defindex",
+ "name": "DeFindex",
+ "category": "Yield Aggregator",
+ "tvl_usd": 18069649,
+ "url": "https://www.defindex.io/",
+ "github": [
+  "paltalabs"
+ ],
+ "listed_days_ago": 284,
+ "run_id": "e1b464eb01854371a5e9352dbe4548ee",
+ "result": {
+  "verdict": "unpaid",
+  "line": "14 Soroban share-vaults (api.defindex.io/vault/discover; e.g. CCA2ZJP5BVRXYTQH4FAGHCAUMRYCXVC4CRYC2NXHWMR7TIVX36U7F5HR)+factory; defindex-io/stellar-contracts vault/src/lib.rs: deposit/withdraw require_auth on caller's own addr (l.239/301), fee ops role-gated (Manager/RebalanceManager/VaultFeeReceiver l.440/850/976/1043), no plant/harvest/reward fn. 7d no-topic getEvents 65493643(11-15)->65613643(11-22): 1000-event sample largest vault + 190-event all-vault tip = only deposit/withdraw/mint/burn, 0 caller-paid events; XLM 0.1285 (coins.llama.fi 11-22T13:45Z).",
+  "kb": [
+   "attempts:3734",
+   "protocols:1946"
+  ],
+  "run_id": "e1b464eb01854371a5e9352dbe4548ee",
+  "at": 1795355610
+ }
+}

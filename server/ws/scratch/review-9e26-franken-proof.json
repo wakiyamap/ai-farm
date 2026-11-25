@@ -1,0 +1,42 @@
+== SUCCESS reset 24776369 (challenge 5 open, Dutch price fully decayed: offer 0)
+generation 22
+executor 0x8f7a45ebde059392e46a46dcc14ab24681a961ea
+Warning: Found unknown `run_profile` config for profile `default` defined in foundry.toml.
+price(5) at reset: 0x0000000000000000000000000000000000000000000000000000000000000000 (expect 0)
+Warning: Found unknown `run_profile` config for profile `default` defined in foundry.toml.
+Warning: Found unknown `run_profile` config for profile `default` defined in foundry.toml.
+ "status": "0x1",
+   "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+   "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+   "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+   "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+   "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+   "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+   "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+   "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+   "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+ "transactionHash": "0x993cd1228f15df927a32311bbfe07f9586f2a0d4915f971ba45cb4bbab6840c4",
+ "gasUsed": "0x2201a",
+Warning: Found unknown `run_profile` config for profile `default` defined in foundry.toml.
+Warning: Found unknown `run_profile` config for profile `default` defined in foundry.toml.
+Warning: Found unknown `run_profile` config for profile `default` defined in foundry.toml.
+executor WETH before 0x0000000000000000000000000000000000000000000000000000000000000000 after 0x0000000000000000000000000000000000000000000000000000000000000000 (expect 0 after atomic payout)
+owner WETH before 0x000000000000000000000000000000000000000000000000000000174876e800 after 0x0000000000000000000000000000000000000000000000000163458fa600e800 (expect delta 100000000000000000 = 100000000000000000)
+executor ZCHF after 0x0000000000000000000000000000000000000000000000000000000000000000 (expect 0: the offer paid was zero)
+runtime 0x608060405234801561000f575f80fd5b5060043610610060575f3560e01c80631101c2b2146100645780632ae6f78b1461007957806336
+runtime bytes 5426
+== NO_PROFIT reset 24762025 (one block past challenge start: hub price not decayed, offer != 0)
+generation 23
+Warning: Found unknown `run_profile` config for profile `default` defined in foundry.toml.
+price(5) 0x000000000000000000000000000000000000000000464f733baa0ae675000000 (nonzero -> the same bid calldata must revert NoProfit)
+Warning: Found unknown `run_profile` config for profile `default` defined in foundry.toml.
+ "status": "0x0",
+ "transactionHash": "0xb52d4ffe43f80a987f523c6b82f54d043829e5831c8e9cf0569b521c99233ef4",
+ "gasUsed": "0xa33a",
+Warning: Found unknown `run_profile` config for profile `default` defined in foundry.toml.
+owner WETH after revert 0x000000000000000000000000000000000000000000000000000000174876e800 (expect unchanged 0x000000000000000000000000000000000000000000000000000000174876e800)
+== NO_CHALLENGE reset 24776371 (challenge 5 already settled)
+generation 24
+ "status": "0x0",
+ "transactionHash": "0x9b994c204c622f32d18918dc89742372264da67ab025c4089a486b9187802d19",
+ "gasUsed": "0x867a",

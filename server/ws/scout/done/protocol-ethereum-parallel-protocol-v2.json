@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-parallel-protocol-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "parallel-protocol-v2",
+ "name": "Parallel Protocol V2",
+ "category": "CDP",
+ "tvl_usd": 287999,
+ "url": "https://mimo.capital",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "ebc1d7186a204125a5b564b875edf2a2",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "PAR VaultsCore 0x173AE628...674b liquidate/liquidatePartial permissionless, pays 5% bonus in collateral: 17 liquidations in 7d (blocks 26417908-26468173, 2026-11-15 to 11-22; paUSD core 0 with same query) by 8 distinct liquidators, gross 0.39-4.75 PAR = $0.43-5.21/call (debtRepaid 7.8-95 PAR, 817 PAR total = ~$45/week) vs lean-call gas ~$0.08-0.30 (observed full bot txs $0.11-5.50); both active vaults (76 WETH, 417 WBTC) revert healthy on 11-22 - transient, price-driven, dust-sized.",
+  "kb": [
+   "attempts:3586",
+   "leads:388"
+  ],
+  "run_id": "ebc1d7186a204125a5b564b875edf2a2",
+  "at": 1795321803
+ }
+}

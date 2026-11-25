@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-voltz",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. All 58 Voltz IRS pools on ethereum matured by 2023-07-31 (IrsInstance factory logs); the only function that pays its caller, MarginEngine.liquidatePosition (liquidatorReward to msg.sender), permanently reverts closeToOrBeyondMaturity (0x53adea9c, eth_call from fresh address). Last 7 days show only wind-down withdrawals: users settling their own positions via periphery, nothing pays the caller.",
+  "numbers": "58 margin engines (factory 0x6a7a5c3824508D03F0d2d24E0482Bea39E08CcAF, topic0 0xe134804702afa0f02bd7f0687d4c2f662a1790b4904d1c2cd6f41fcffbfc05c3 full scan 0xe36d0a..26464648), all termEnd <= 2023-07-31. 7d window blocks 26414248 (2026-11-14 15:54 UTC) - 26464648 (2026-11-21 16:23 UTC): 232 engine logs = 116 PositionUpdate + 58 PositionSettlement + 58 PositionMarginUpdate, 0 PositionLiquidation (no-topic scan of all 58 engines returned exactly 3 topic0s, all decoded from this contract's verified IMarginEngine, no unknown topic0; control: same batched topic-getLogs shape for PositionSettlement returned 58). 5/5 sample settle txs from EOA 0x7ff4f8fe1dbbba8dc27103359bf96e97a4d44114 via periphery 0x07ced903 settlePositionAndWithdrawMargin(0xc19be595), 15 distinct position owners paid their own margin, caller reward 0. liquidatePosition eth_call from 0x1111..1111 on 0x33ba6a0b reverts 0x53adea9c closeToOrBeyondMaturity. Protocol TVL ethereum 150,607 USD (api.llama.fi, 2026-11-21)."
+}

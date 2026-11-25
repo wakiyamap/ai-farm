@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-camelot-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Camelot V3 on Arbitrum is an Algebra AMM core v1.9 CL DEX (factory 0x1a3c9B1d2F0529D97f2afC5136Cc23e58f1FD35B, NFPM 0x00c7f3082833e796A5b3e4Bd59f6642FF44DCD15, SwapRouter 0x1F721E2E82F6676FCE4eA07A5958cF098D339e18, from docs.camelot.exchange). Verified-source sweep: every external function is either onlyOwner / onlyFactoryOwner / farmingAddress-gated, or a user action (createPool, mint, collect, burn, swap, flash) that pays the LP/recipient/borrower and nothing to the caller. factory.farmingAddress() = 0x0, so no incentive layer is configured (setIncentive uncallable). Same pattern as camelot-v4 (attempts:1578).",
+  "numbers": "TVL 2,440,467 USD (DefiLlama camelot-v3, 2026-11-19). NFPM totalSupply 48,838 positions (eth_call). Activity control: 152 Swap events on a sample of 2 pools (0xb1026b8e..., 0x4b0495c5...) in one 10k-block (~42 min) window ending block 525,479,204; SwapRouter txs within minutes (0x11d83e9b...59e9, gasUsed 532,039). 0 Pool creations in last 7 days (getLogs 0x1f336a24..latest; V4-factory same-shape control also 0). No reward function exists, so no per-call gross/gas to quote."
+}

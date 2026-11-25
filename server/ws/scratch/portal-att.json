@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-portal",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid — the only stranger-payable mechanism on the Wormhole Portal token bridge on Base is completeTransfer(bytes), which sends the VAA's arbiter/relayer fee to msg.sender (source comment 'The msg.sender gets paid the associated fee'); not role-gated (eth_call from a fresh address reverts 'transfer already completed', not a role error). But the fee is 0 in every sampled call: 0 of 10 direct redemptions carried a fee and in 10/10 recipient == caller (users redeem their own transfers; Base gas ~$0.003-0.01, so nobody pays a stranger to do it). No reward pot to drain.",
+ "numbers": "TransferRedeemed(uint16,bytes32,uint64) topic0 0xcaf280c8cfeba144da67230d9b009c8f868a75bac9a528fa0474be1ba317c169 on 0x8d2de8d2f73F1F4cAB472AC9A881C9b123C79627: 1,696 events in last 7d (eth_getLogs blocks 56,480,385-59,510,385, 49k-block chunks). Sample 15 of 1,696: 10 direct completeTransfer(bytes) (sel 0xc6878519), fee_norm=0 in 10/10, recipient==caller in 10/10; 5 via wrapper/relayer contracts (0x36025e751e7b6599152da9cc2b38a5c4225b450e, 0x346ec0fadbf97cc3a5e2fbdaa7e4d10503f1052e, 0x428e8cc9efedf9b115e0e4c850704c30c660c849). Direct-call gas ~263,500 gas, effectiveGasPrice 0.006-0.02 gwei = 1.6e-6 ETH ~ $0.003-0.01 at ETH $1804.19 (coins.llama.fi ethereum, ts 1795093199)."
+}

@@ -1,0 +1,13 @@
+[Unit]
+Description=Farm port rules (keep earner and bots away from local services)
+Wants=network-pre.target
+Before=network-pre.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/nft -f /etc/farm/farm.nft
+ExecStop=/usr/sbin/nft delete table inet farm
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-yo-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The two Arbitrum contracts (yoUSD and yoUSD Edge, both YoVault proxies, impl 0xc84a6e01bff58996540f1abc22355a9dfe0d78dc) have no function that pays a caller: fulfillRedeem/cancelRedeem/manage revert Unauthorized from a fresh address (requiresAuth + RolesAuthority 0x9524e25079b1b04d904865704783a5aa0202d44d), fulfillRedeem pays the withdrawing user not the caller, and the only open function requestRedeem is self-service (fresh caller reverts InsufficientShares). $YO rewards go through Merkl and are claimed on Base only per docs. Nothing to earn as a stranger keeper on Arbitrum.",
+  "numbers": "7d log scan blocks 523168175-525214798 (eth_getLogs, research lane): Edge vault 150 RedeemRequest (149 from one address 0xf1eee0957267b1a4..., all instant=true), yoUSD 29 RedeemRequest + 1 RequestFulfilled (tx 0x08fde5a6442bb7a622442f5ac751776753f45a10f734edfa4fddbd7f045db6c6: operator 0x0439e941841f97dc1334d1a433379c6fcdcc2162 paid receiver 0xcb332a38a9770a99e0f986eb821f37190ad8cff3 32,133.12 USDC gross, caller reward 0). Gross to a stranger caller: $0.00; gas per call ~0.02 gwei x ~150k gas = ~$0.005 (eth_gasPrice 0x1312d00, ETH $1802 coins.llama.fi 2026-11-18). TVL arbitrum $592k (api.llama.fi). Edge owner 0x67b6f699f1c8040414032a3c2c88a54db144fcd2."
+}

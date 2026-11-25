@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-pooltogether-v4",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. PoolTogether V4 on polygon (cross-chain Ticket architecture, ~451k USD in Aave v2 amUSDC). The only open reward-ish function is PrizeDistributor.claim(address,uint32[],bytes): no access modifier, but it pays the whole payout to the _user winner and 0 to the caller; eth_call from a fresh address reverts zero-payout (not role-gated). Zero claims in the last 7 days and none since 2024-06-04; prize pool now only sees user withdrawFrom. Aave claimRewards is onlyManagerOrOwner.",
+  "numbers": "PrizeDistributor 0x8141BcFBcEE654c5dE17C4e2B2AF26B67f9B9056: 0 claim txs last 7d (blocks 97,146,854-97,550,094; explorer txs newest-first, control on Ticket 0x6a304dFdb9f808741244b6bfEe65ca7B3b3A6076 returns 2026-11-18 txs); last claim tx 0x92c5a410f7ad4650c713cf6ed915411079a2239bc707f8b2012907b5cad45e80 at 2024-06-04 (block 57,763,717, EOA self-claim). TVL 451,438.72 amUSDC held by ATokenYieldSource 0xD4F6d570133401079D213EcF4A14FA0B4bfB5b9C (eth_call balanceOf 2026-11-18) = DefiLlama 451,304. Gas 276.2 gwei (eth_gasPrice) x 200k = 0.055 POL = 0.0045 USD; POL 0.08056 USD coins.llama.fi 2026-11-18."
+}

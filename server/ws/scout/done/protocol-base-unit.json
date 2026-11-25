@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-unit",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 640,
+ "chain": "base",
+ "slug": "unit",
+ "name": "Unit",
+ "category": "Bridge",
+ "tvl_usd": 960478,
+ "url": "https://hyperunit.xyz/deposit",
+ "github": null,
+ "listed_days_ago": 640,
+ "run_id": "abc53ac670ab46e98c4dddd8b856e6d4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "MPC custodial bridge: only Base contract is Treasury 0x749b898E (EIP-7702, verified) with one fn batchTransfer gated to hardcoded fee-payer EOA 0x2fB00942 (stranger eth_call reverts 'Unauthorized'); last 7d: 18 calls, all by that EOA, pass-through 176,051 VIRTUAL = $77,005 gross (median $19, max $26,948) to withdrawing users, caller paid $0, gas $0.0007/call; treasury holds 2.16M VIRTUAL = $946,869 ~ DefiLlama Base TVL $954,886",
+  "kb": [
+   "attempts:1999"
+  ],
+  "run_id": "abc53ac670ab46e98c4dddd8b856e6d4",
+  "at": 1794977944
+ }
+}

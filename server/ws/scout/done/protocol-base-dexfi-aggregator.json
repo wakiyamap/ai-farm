@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-dexfi-aggregator",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "dexfi-aggregator",
+ "name": "DexFi Aggregator",
+ "category": "Yield Aggregator",
+ "tvl_usd": 639821,
+ "url": "https://dexfi.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "7071920411dc409ea41e345bffaec2a0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Vault.harvest(uint256) stranger-callable (factory 0xcb34f261a5284554bb9fea8aa12a0578c4ba3fc6, 1946 vaults, eth_call from fresh addr OK, blacklist 0) but caller is paid 0: WETH feeAmount+paidDebt always go to fixed treasury 0x6af0c089... + keeper 0xb034f984... (debug_traceCall from 0xc0ffee: no transfer to caller). 7d: 9068 Harvested events (topic0 0x2a86a2da..e4f2), 8977 by registered harvester 0x55ad99b7...; median fee 0.019 USD... ",
+  "kb": [
+   "attempts:2680"
+  ],
+  "run_id": "7071920411dc409ea41e345bffaec2a0",
+  "at": 1795131552
+ }
+}

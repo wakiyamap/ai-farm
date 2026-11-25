@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-deri-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "deri-protocol",
+ "name": "Deri Protocol",
+ "category": "Options",
+ "tvl_usd": 44248,
+ "url": "https://deri.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "2352ba177a2e4972b4b1d4ae6365d4bd",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Deri v3 futureMain pool 0xDE3447Eb..CeE8 (impl 0x1629d77f..3f24, v3.0.2): liquidate(pTokenId,oracleSigs) is open to anyone (privileger 0x0) and pays msg.sender 50% of leftover margin capped 500 USDC, but 0 calls in the last 7 days (blocks 524,755,777-526,813,274, WETH same-shape control 5+; no open positions, liquidate reverts 'NP'); prior 30d: 47 txs all liquidate, 42 ok by 4 stranger EOAs, 5-of-42 sample paid 5.63/0.30/0.84/7.02/29.09 USDC gross vs gas 0.017-0.041 USD (500k gas @ 0.02-0.048 gwei, ETH 1719.82 USD 13:13Z); last paid liquidation 2026-11-10.",
+  "kb": [
+   "attempts:4110"
+  ],
+  "run_id": "2352ba177a2e4972b4b1d4ae6365d4bd",
+  "at": 1795440214
+ }
+}

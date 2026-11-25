@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-kaio",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. KAIO (ex-Libre Capital) on polygon is the same 5 LibreReceiptToken UUPS proxies as the avalanche dead_end (attempts:2011): only mint/burn change state, both onlyOwner (stranger mint reverts OwnableUnauthorizedAccount), transfers hard-revert, and no reward/claim/settle function exists, so nothing can pay a stranger. Deployment is dormant: 1 Transfer in the last year, 0 in the last 7 days.",
+  "numbers": "5 proxies all code!=0x (708B ERC1967 -> impl 0x8b37f32749cf339f39bcf5cff2c880d342ddf64b, verified LibreReceiptToken); only UMA has supply 2,058.235 shares (~258k USD, matches tvl 258,197); owner 0x55413c13dce4b03dee20ec1dd8351691f0c50bdd = EOA; eth_getLogs 5 addresses blocks 81,749,295-97,517,295 (1 yr): 1 log (burn tx 0xe0647cc6d74c00e0fb72e6ac43ccb67aa69affc0c84e0c9230f14e0fabbc2812, 2026-05-01); 7d (97,214,895-97,517,295): 0; 30d: 0; control USDC 37,932 logs/2,000 blocks (relay polygon, 2026-11-18)"
+}

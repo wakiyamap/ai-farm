@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-hop-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "hop-protocol",
+ "name": "Hop Protocol",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 159913,
+ "url": "",
+ "github": [
+  "hop-protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "9c593f3ec4b14243aa5da3156b83bc0e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Hop v1 Polygon bridges (6 tokens + CCTP, e.g. USDC.e 0x25D8039b...E6aE8) pay the caller only the bonderFee in bondWithdrawal/bondWithdrawalAndDistribute, both onlyBonder (whitelist 0xa6a688F1...9203e, getIsBonder true, fresh EOA reverts); 0 events of any type on all 7 bridges in 7d (blocks 97,334,831-97,637,231; control 7,748 USDC.e Transfers in 160 blocks), last activity 2026-10-25 user self-withdrawal on ETH bridge; gas 141,557 @ 279.96 gwei = 0.0031 USD (POL 0.0787, coins.llama.fi 2026-11-20); TVL Polygon 157,100 USD",
+  "kb": [
+   "attempts:2833",
+   "protocols:1256"
+  ],
+  "run_id": "9c593f3ec4b14243aa5da3156b83bc0e",
+  "at": 1795164697
+ }
+}

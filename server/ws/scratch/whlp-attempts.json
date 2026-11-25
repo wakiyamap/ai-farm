@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-wrapped-hlp",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. All four hyperevm contracts (BoringVault, Accountant, AtomicQueueUCP, Depositor) have no anyone-can-call function that pays the caller: Accountant.updateExchangeRate reverts UNAUTHORIZED from a stranger and is called only by 0x1755397b; queue solve() is behind the owner-toggled isApprovedSolveCaller whitelist; vault enter/exit/manage are requiresAuth; the depositor's deposit pays the user, not the caller.",
+  "numbers": "7d (blocks 50906275-51518694, eth_getLogs on queue 0x228C44Bb4885C6633F4b6C83f14622f37D5112E5, control: same query shape on accountant returned 21 events): 47 AtomicRequestFulfilled, 12 of them wHLP->USDT0, all in 12 txs from one whitelisted EOA 0x7933cd3b (router 0x4dfa7088). Fills price within 0.02-0.1% of accountant NAV rate 1.1638, solver gross margin over the 10 fill txs whose NAV I could read = $0.04 total (largest fill 258k shares / $296k). Solve tx gas 233.8-247.5k @ 0.1 gwei = 2.3-2.5e-5 HYPE = $0.0016-0.0017 at HYPE $67.47 (coins.llama.fi, ts 1794930915). updateExchangeRate 21 calls / 7d, every 6h, by 0x1755397bec366a1e1160d8ae0106c60e7e344b56. TVL $1.08M (DefiLlama)."
+}

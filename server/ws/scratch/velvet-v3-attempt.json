@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-velvet-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: claimRewardTokens is restricted to the rebalancer role on both sampled Ethereum portfolio versions. The public fee-charge path pays only preset treasuries, so no stranger-paid keeper action was identified.",
+  "numbers": "Factories 0x7c530c9ED5E734964453Ce62Ae9C4e31a247738B portfolioId=14 and 0xEADd9EEF6F21EaE3d0f1c6031F0F455522a081C2 portfolioId=69, latest eth_call 2026-11-23 20:29 UTC. Sample of 2 portfolios from 83 total. Both fresh-caller claimRewardTokens eth_call revert 0x7f3d3344 (CallerNotRebalancerContract). Public fee function caller reward=0 by verified FeeModule source; gross/gas USD per caller-rewarding call=N/A; 7-day count=N/A because no eligible function. Sources: DefiLlama velvet-capital-v3 adapter; Etherscan verified Portfolio and FeeModule source; relay eth_call."
+}

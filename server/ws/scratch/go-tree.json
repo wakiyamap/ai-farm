@@ -1,0 +1,1884 @@
+{
+  "sha": "851c1226cbd3b90df13b4c461416a16c3a147f99",
+  "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/851c1226cbd3b90df13b4c461416a16c3a147f99",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c52e32f315061bc2c943d7a6bd92adbd22b9cf8c",
+      "size": 26,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/c52e32f315061bc2c943d7a6bd92adbd22b9cf8c"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "94a9ed024d3859793618152ea559a168bbcbb5e2",
+      "size": 35147,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/94a9ed024d3859793618152ea559a168bbcbb5e2"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a595cc3c2367a5b93589fff437b4090fe85d101",
+      "size": 79,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/8a595cc3c2367a5b93589fff437b4090fe85d101"
+    },
+    {
+      "path": "auction",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "49f73777fcd6ab123886f1a6d47cf55af1186e67",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/49f73777fcd6ab123886f1a6d47cf55af1186e67"
+    },
+    {
+      "path": "auction/auction.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "821aae6dce5518ac29627d1a9d7b4a3abff39958",
+      "size": 20227,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/821aae6dce5518ac29627d1a9d7b4a3abff39958"
+    },
+    {
+      "path": "azure-pipelines.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1338bf3a5fed9be4d03975bd5b0631b7360ce6b",
+      "size": 1412,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a1338bf3a5fed9be4d03975bd5b0631b7360ce6b"
+    },
+    {
+      "path": "contracts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "464273e13d519592d58a2aa5d7ef74bdae150e94",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/464273e13d519592d58a2aa5d7ef74bdae150e94"
+    },
+    {
+      "path": "contracts/rocket-storage.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "174c7a8a58e7a414c42f839000de29a3b6233ddf",
+      "size": 38933,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/174c7a8a58e7a414c42f839000de29a3b6233ddf"
+    },
+    {
+      "path": "dao",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "377eb229091dcce17372b38e149bdfba57b9bbd2",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/377eb229091dcce17372b38e149bdfba57b9bbd2"
+    },
+    {
+      "path": "dao/claim.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0fd704e97315406349e32603f59e29d2ac8e6397",
+      "size": 843,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/0fd704e97315406349e32603f59e29d2ac8e6397"
+    },
+    {
+      "path": "dao/proposal-payload.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aeb201e73fe4d0c3071e63518703b748fac1a0b3",
+      "size": 1849,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/aeb201e73fe4d0c3071e63518703b748fac1a0b3"
+    },
+    {
+      "path": "dao/proposals.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3245beb09eaec73cfaae60c3eaad4d70ae66652e",
+      "size": 19666,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/3245beb09eaec73cfaae60c3eaad4d70ae66652e"
+    },
+    {
+      "path": "dao/protocol",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c1b97b9116718b67d85954cb67cf27add45dac63",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/c1b97b9116718b67d85954cb67cf27add45dac63"
+    },
+    {
+      "path": "dao/protocol/dao.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "541bccb66a21e76a793e91a653972b41e10df787",
+      "size": 425,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/541bccb66a21e76a793e91a653972b41e10df787"
+    },
+    {
+      "path": "dao/protocol/proposal.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc2cffaa3181d391c5047c374fa9c4108e1b69d3",
+      "size": 27910,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/bc2cffaa3181d391c5047c374fa9c4108e1b69d3"
+    },
+    {
+      "path": "dao/protocol/proposals.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38b564c3c2c3877f692b2105dda0f3bf1706f295",
+      "size": 21185,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/38b564c3c2c3877f692b2105dda0f3bf1706f295"
+    },
+    {
+      "path": "dao/protocol/verify.go",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "a00962e75c01a6e12eff82cced473cd728af8cf8",
+      "size": 19259,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a00962e75c01a6e12eff82cced473cd728af8cf8"
+    },
+    {
+      "path": "dao/security",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "75c1e040b9a07050aefbbf57675baf5fcb1d49b9",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/75c1e040b9a07050aefbbf57675baf5fcb1d49b9"
+    },
+    {
+      "path": "dao/security/actions.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e49f86b743b4162a4dc09e0f33b7dc8b94ae14e6",
+      "size": 4794,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/e49f86b743b4162a4dc09e0f33b7dc8b94ae14e6"
+    },
+    {
+      "path": "dao/security/proposals.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9087eee9a90ad4fb7406825c1497ad9c672fb2e",
+      "size": 6979,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a9087eee9a90ad4fb7406825c1497ad9c672fb2e"
+    },
+    {
+      "path": "dao/security/security.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "056fdf479f874b69f1ac89b9e5c003c5ba8fc82b",
+      "size": 7674,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/056fdf479f874b69f1ac89b9e5c003c5ba8fc82b"
+    },
+    {
+      "path": "dao/trustednode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "99cf0a8446c01c85e38c7671ccd2b7069c19b88b",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/99cf0a8446c01c85e38c7671ccd2b7069c19b88b"
+    },
+    {
+      "path": "dao/trustednode/actions.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90924c266cac34964909f6fcc6972ac96cb94c46",
+      "size": 5727,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/90924c266cac34964909f6fcc6972ac96cb94c46"
+    },
+    {
+      "path": "dao/trustednode/dao.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "194d9db635ece1919c162c6d30487ebf5559b5c7",
+      "size": 12352,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/194d9db635ece1919c162c6d30487ebf5559b5c7"
+    },
+    {
+      "path": "dao/trustednode/proposals.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53d3e0904e0e0d61e7231ba01571825727aa649b",
+      "size": 14259,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/53d3e0904e0e0d61e7231ba01571825727aa649b"
+    },
+    {
+      "path": "deposit",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "51548cc85a2937e62c62a89a890ac77bbe0410a4",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/51548cc85a2937e62c62a89a890ac77bbe0410a4"
+    },
+    {
+      "path": "deposit/deposit.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83e88467cca08ffba8c9699d184781151196a584",
+      "size": 3219,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/83e88467cca08ffba8c9699d184781151196a584"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "04167a751453024d632ff9bf90976b8fac83468b",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/04167a751453024d632ff9bf90976b8fac83468b"
+    },
+    {
+      "path": "docs/docgen.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06f77312e10cca68c32520c993332288bcbb963a",
+      "size": 2692,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/06f77312e10cca68c32520c993332288bcbb963a"
+    },
+    {
+      "path": "go.mod",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5c67df2fa9d6653add02298088e546b8be28562",
+      "size": 3258,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/b5c67df2fa9d6653add02298088e546b8be28562"
+    },
+    {
+      "path": "go.sum",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6758191ab6665d5da9e0aaf8ceb25f1d6402211d",
+      "size": 28527,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/6758191ab6665d5da9e0aaf8ceb25f1d6402211d"
+    },
+    {
+      "path": "legacy",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "26c0e821c92c31c2ceef9cfc74a1117c91b85da1",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/26c0e821c92c31c2ceef9cfc74a1117c91b85da1"
+    },
+    {
+      "path": "legacy/v1.0.0",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "31fd15fc0bc4cbe6c23b079e382e30da67a33486",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/31fd15fc0bc4cbe6c23b079e382e30da67a33486"
+    },
+    {
+      "path": "legacy/v1.0.0/minipool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ba1a26e7262d7a22f27996b84577ce0e2f25dfbc",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/ba1a26e7262d7a22f27996b84577ce0e2f25dfbc"
+    },
+    {
+      "path": "legacy/v1.0.0/minipool/minipool.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb7acc3bb8a13c0ac4391fe3683278de847f0af2",
+      "size": 20530,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/cb7acc3bb8a13c0ac4391fe3683278de847f0af2"
+    },
+    {
+      "path": "legacy/v1.0.0/rewards",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2e8b4733aa796eb82438ef2c140399b513da36cd",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/2e8b4733aa796eb82438ef2c140399b513da36cd"
+    },
+    {
+      "path": "legacy/v1.0.0/rewards/node.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ec782c651910ba9a58d5547e4d432dc450e90ad",
+      "size": 5394,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/6ec782c651910ba9a58d5547e4d432dc450e90ad"
+    },
+    {
+      "path": "legacy/v1.0.0/rewards/rewards.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f25d1d5b0a9f6d607f9f5099d2ce317a63db35ea",
+      "size": 7099,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/f25d1d5b0a9f6d607f9f5099d2ce317a63db35ea"
+    },
+    {
+      "path": "legacy/v1.0.0/rewards/trusted-node.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bb1144d2c281a137fc604ab387ffec60922de1e",
+      "size": 5845,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/9bb1144d2c281a137fc604ab387ffec60922de1e"
+    },
+    {
+      "path": "legacy/v1.0.0/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "18c265fed83b7335cd182b407262a043b5f6e475",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/18c265fed83b7335cd182b407262a043b5f6e475"
+    },
+    {
+      "path": "legacy/v1.0.0/utils/address_generation.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f738113c91e0ce681ad8fb0b80a2b0db3adddcff",
+      "size": 2854,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/f738113c91e0ce681ad8fb0b80a2b0db3adddcff"
+    },
+    {
+      "path": "legacy/v1.1.0-rc1",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e499ec0b8a43aff2d5b9156b89f571edf13962b0",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/e499ec0b8a43aff2d5b9156b89f571edf13962b0"
+    },
+    {
+      "path": "legacy/v1.1.0-rc1/rewards",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3aab93a81dda2ffe82f698d5ad6ed0f62f4325a1",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/3aab93a81dda2ffe82f698d5ad6ed0f62f4325a1"
+    },
+    {
+      "path": "legacy/v1.1.0-rc1/rewards/rewards.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f1f9b99323b7c2531cc9b7fd5322f338ee0a347",
+      "size": 12254,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/9f1f9b99323b7c2531cc9b7fd5322f338ee0a347"
+    },
+    {
+      "path": "legacy/v1.1.0",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1455c53828502548cf0a93f28e64e689cf9cb1c3",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/1455c53828502548cf0a93f28e64e689cf9cb1c3"
+    },
+    {
+      "path": "legacy/v1.1.0/minipool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "90caacc52efda47aa518614e850a564b21ef4bdd",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/90caacc52efda47aa518614e850a564b21ef4bdd"
+    },
+    {
+      "path": "legacy/v1.1.0/minipool/factory.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32c31fb7f1f47f8950fe1862099dbd6e506714ac",
+      "size": 1285,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/32c31fb7f1f47f8950fe1862099dbd6e506714ac"
+    },
+    {
+      "path": "legacy/v1.1.0/minipool/queue.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ba0605df936f693345cc7fe51e397292192259a",
+      "size": 9777,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/3ba0605df936f693345cc7fe51e397292192259a"
+    },
+    {
+      "path": "legacy/v1.1.0/network",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0307c9ff80ca24e49f45c86e473969f20f4032f9",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/0307c9ff80ca24e49f45c86e473969f20f4032f9"
+    },
+    {
+      "path": "legacy/v1.1.0/network/prices.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a947e2e26f35cacabb70649ece24e984615179b",
+      "size": 4156,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/3a947e2e26f35cacabb70649ece24e984615179b"
+    },
+    {
+      "path": "legacy/v1.1.0/node",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5c3f7a74c3c0b1f4cd01c1ff33d9f3858839d7ad",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/5c3f7a74c3c0b1f4cd01c1ff33d9f3858839d7ad"
+    },
+    {
+      "path": "legacy/v1.1.0/node/deposit.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5a171eb130bea81b686b0ddda0f5eee08de8065",
+      "size": 2891,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/f5a171eb130bea81b686b0ddda0f5eee08de8065"
+    },
+    {
+      "path": "legacy/v1.1.0/node/staking.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29dc307b68d316b78fd07fa5d9efcc6ae01aac3a",
+      "size": 8889,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/29dc307b68d316b78fd07fa5d9efcc6ae01aac3a"
+    },
+    {
+      "path": "legacy/v1.1.0/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4d3680c6249bb84ad3062a34d4c7ae513e07649d",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/4d3680c6249bb84ad3062a34d4c7ae513e07649d"
+    },
+    {
+      "path": "legacy/v1.1.0/utils/address_generation.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1faa9a47210ea90a34d5621d8e85d8ad2d529f29",
+      "size": 2664,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/1faa9a47210ea90a34d5621d8e85d8ad2d529f29"
+    },
+    {
+      "path": "legacy/v1.2.0",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8cf7a16f647d577d2759e3666b0742ff6a8a1400",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/8cf7a16f647d577d2759e3666b0742ff6a8a1400"
+    },
+    {
+      "path": "legacy/v1.2.0/network",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6cd9ad84683c8e7bddbb6235092add6e8372b99b",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/6cd9ad84683c8e7bddbb6235092add6e8372b99b"
+    },
+    {
+      "path": "legacy/v1.2.0/network/balances.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c3b044e1d2622d1e67d60238706530b0d1888a7",
+      "size": 6065,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/9c3b044e1d2622d1e67d60238706530b0d1888a7"
+    },
+    {
+      "path": "legacy/v1.2.0/network/prices.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "287658b227f63d74c2fee34e19c3217aac24c03b",
+      "size": 3467,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/287658b227f63d74c2fee34e19c3217aac24c03b"
+    },
+    {
+      "path": "minipool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "25979d59971600f54e82e1605bad12314fea13f9",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/25979d59971600f54e82e1605bad12314fea13f9"
+    },
+    {
+      "path": "minipool/bond-reducer.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db4e186c4916c2d48e2654a96623cbe8a7860e4b",
+      "size": 6540,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/db4e186c4916c2d48e2654a96623cbe8a7860e4b"
+    },
+    {
+      "path": "minipool/factory.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cd1800c35e28ea5743fb2127280c6062582b244",
+      "size": 1092,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/3cd1800c35e28ea5743fb2127280c6062582b244"
+    },
+    {
+      "path": "minipool/minipool-constructor.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5c7f4afd3b087e6478d261d8530c8a6f98e67e3",
+      "size": 2793,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/b5c7f4afd3b087e6478d261d8530c8a6f98e67e3"
+    },
+    {
+      "path": "minipool/minipool-contract-v2.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f050dac3b7fea8e1959437bcce39ee493db3b5ed",
+      "size": 22613,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/f050dac3b7fea8e1959437bcce39ee493db3b5ed"
+    },
+    {
+      "path": "minipool/minipool-contract-v3.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4f900e84d722d55805ce87addd078d3ff2dc837",
+      "size": 24373,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/e4f900e84d722d55805ce87addd078d3ff2dc837"
+    },
+    {
+      "path": "minipool/minipool-interface.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d87722fbc214f880c7d0a4775c100151a6511a00",
+      "size": 5021,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/d87722fbc214f880c7d0a4775c100151a6511a00"
+    },
+    {
+      "path": "minipool/minipool.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9cc191009987b8b79d107ee4ddf5201a7b3ecbcc",
+      "size": 21261,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/9cc191009987b8b79d107ee4ddf5201a7b3ecbcc"
+    },
+    {
+      "path": "minipool/queue.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b83ddae7ad5b075bb20e6f21c86b0f739a458ec",
+      "size": 4285,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/4b83ddae7ad5b075bb20e6f21c86b0f739a458ec"
+    },
+    {
+      "path": "minipool/status.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44eb2ab996ea37bcb96d2cb12bd317dc2b569d93",
+      "size": 1444,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/44eb2ab996ea37bcb96d2cb12bd317dc2b569d93"
+    },
+    {
+      "path": "network",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f13c5458d7d98b6187430bc48a41c1d03a0978b5",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/f13c5458d7d98b6187430bc48a41c1d03a0978b5"
+    },
+    {
+      "path": "network/balances.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "681438fc87370a6889c0b9c01bd8869e4c7b5b57",
+      "size": 8679,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/681438fc87370a6889c0b9c01bd8869e4c7b5b57"
+    },
+    {
+      "path": "network/fees.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2eded9586c1216374eef3f740fa5cd9983e2f5f",
+      "size": 1868,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a2eded9586c1216374eef3f740fa5cd9983e2f5f"
+    },
+    {
+      "path": "network/penalties.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cfa539f15b9d49d23ccea8adb0a34a00e8bec2d",
+      "size": 1429,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/3cfa539f15b9d49d23ccea8adb0a34a00e8bec2d"
+    },
+    {
+      "path": "network/prices.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ba071bbd8b2207b26de5adc6d4064be3861d2e6",
+      "size": 6459,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/4ba071bbd8b2207b26de5adc6d4064be3861d2e6"
+    },
+    {
+      "path": "network/voting.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bfd8c3a11a038512cdd76528a4a881116b7faa24",
+      "size": 8329,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/bfd8c3a11a038512cdd76528a4a881116b7faa24"
+    },
+    {
+      "path": "node",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a68fa61e698e9f5d559a667ebb6fc4e643075bd7",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/a68fa61e698e9f5d559a667ebb6fc4e643075bd7"
+    },
+    {
+      "path": "node/deposit.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57bd2f87551901dbcde68725fbcd986eb72d107b",
+      "size": 8478,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/57bd2f87551901dbcde68725fbcd986eb72d107b"
+    },
+    {
+      "path": "node/distributor.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e914aba5e8c0f799a06d38e70617bbf2509416ed",
+      "size": 3282,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/e914aba5e8c0f799a06d38e70617bbf2509416ed"
+    },
+    {
+      "path": "node/node.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "494f30a2a65c760719eb995a9dbcc5356aee82b5",
+      "size": 26018,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/494f30a2a65c760719eb995a9dbcc5356aee82b5"
+    },
+    {
+      "path": "node/staking.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1cfa1e13936d668a332502417dde2f825a859fd",
+      "size": 10408,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a1cfa1e13936d668a332502417dde2f825a859fd"
+    },
+    {
+      "path": "rewards",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ab7a232cfcb6d9ae08ac10e0ee35e6fbd07d76c7",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/ab7a232cfcb6d9ae08ac10e0ee35e6fbd07d76c7"
+    },
+    {
+      "path": "rewards/distributor-mainnet.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4395c7eafde8b9d1d56b531e9414a3099f10256",
+      "size": 3915,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a4395c7eafde8b9d1d56b531e9414a3099f10256"
+    },
+    {
+      "path": "rewards/rewards.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "352ad108f1a8dba493d1491156cb0c485fdb3ffa",
+      "size": 11980,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/352ad108f1a8dba493d1491156cb0c485fdb3ffa"
+    },
+    {
+      "path": "rocketpool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "adb954cd6fef3b87b33d9af05b465f57f0f3c217",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/adb954cd6fef3b87b33d9af05b465f57f0f3c217"
+    },
+    {
+      "path": "rocketpool/abi.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46e17a014f9b15937aa8fae571fe7ac07b6c76a0",
+      "size": 1686,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/46e17a014f9b15937aa8fae571fe7ac07b6c76a0"
+    },
+    {
+      "path": "rocketpool/contract.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "598ed41401041a2202a31208e7cfdef10ef05eea",
+      "size": 6765,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/598ed41401041a2202a31208e7cfdef10ef05eea"
+    },
+    {
+      "path": "rocketpool/ec-interface.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e44a2377d46474395c5205a1bf6388a85e05f6f",
+      "size": 4545,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/5e44a2377d46474395c5205a1bf6388a85e05f6f"
+    },
+    {
+      "path": "rocketpool/rewards.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85204074fec4166e889b705ba6f78957a51d6dd5",
+      "size": 1066,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/85204074fec4166e889b705ba6f78957a51d6dd5"
+    },
+    {
+      "path": "rocketpool/rocketpool.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59e6c72d19799d042e2bc31855f191e8b90fe43e",
+      "size": 8750,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/59e6c72d19799d042e2bc31855f191e8b90fe43e"
+    },
+    {
+      "path": "rocketpool/v1.0.0-manager.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8f7084f44a79600fe17da96c1f43bbf3ea4dfe2",
+      "size": 5536,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a8f7084f44a79600fe17da96c1f43bbf3ea4dfe2"
+    },
+    {
+      "path": "rocketpool/v1.1.0-manager.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "162484d8d0c094bab469697d684cafbfa99135d5",
+      "size": 5421,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/162484d8d0c094bab469697d684cafbfa99135d5"
+    },
+    {
+      "path": "rocketpool/v1.1.0-rc1-manager.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43f6dd5400acb8c1fbc72671f55c794cc673637e",
+      "size": 3057,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/43f6dd5400acb8c1fbc72671f55c794cc673637e"
+    },
+    {
+      "path": "rocketpool/v1.2.0-manager.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6291dc899cea21cffcd2bbb6659acc1870dd475e",
+      "size": 3411,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/6291dc899cea21cffcd2bbb6659acc1870dd475e"
+    },
+    {
+      "path": "rocketpool/version-interface.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c78f27d520981e987a02dbf906edf5566e29472b",
+      "size": 2030,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/c78f27d520981e987a02dbf906edf5566e29472b"
+    },
+    {
+      "path": "rocketpool/version-manager.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4f52e0975c6edf4cb605b919d5f482ea1c53ff1",
+      "size": 3238,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/d4f52e0975c6edf4cb605b919d5f482ea1c53ff1"
+    },
+    {
+      "path": "settings",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cae4bd5a7f3b4a47d2b24b9db21d9a1e9ba83328",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/cae4bd5a7f3b4a47d2b24b9db21d9a1e9ba83328"
+    },
+    {
+      "path": "settings/protocol",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bfb7098859eae16cd4970aac895badf6d0fa7437",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/bfb7098859eae16cd4970aac895badf6d0fa7437"
+    },
+    {
+      "path": "settings/protocol/auction.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ba9d33347a4feeab0dc6c8586264e4ca3e6dd3c",
+      "size": 10815,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/6ba9d33347a4feeab0dc6c8586264e4ca3e6dd3c"
+    },
+    {
+      "path": "settings/protocol/deposit.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d816c8b19333c20e9ffde961597be8c1f56a014",
+      "size": 9993,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/9d816c8b19333c20e9ffde961597be8c1f56a014"
+    },
+    {
+      "path": "settings/protocol/inflation.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb4dfb5acc7e29947653039b4de4d56d509d47d8",
+      "size": 2026,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/eb4dfb5acc7e29947653039b4de4d56d509d47d8"
+    },
+    {
+      "path": "settings/protocol/minipool.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7aa4e523cb1b95009f9883d94833f8423a307103",
+      "size": 9835,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/7aa4e523cb1b95009f9883d94833f8423a307103"
+    },
+    {
+      "path": "settings/protocol/network.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1baebf6142403cc0c6977ca18642eba85ab31a9d",
+      "size": 21726,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/1baebf6142403cc0c6977ca18642eba85ab31a9d"
+    },
+    {
+      "path": "settings/protocol/node.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "992e36760b2fd77053c3d8ef566e21b41b883568",
+      "size": 9903,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/992e36760b2fd77053c3d8ef566e21b41b883568"
+    },
+    {
+      "path": "settings/protocol/proposals.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b3eaa13538269c2479b7fb30a6579a9cb389bc4",
+      "size": 14852,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/3b3eaa13538269c2479b7fb30a6579a9cb389bc4"
+    },
+    {
+      "path": "settings/protocol/rewards.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d62c2279102bfb5aed64172f74a7351080a42d5",
+      "size": 5469,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/4d62c2279102bfb5aed64172f74a7351080a42d5"
+    },
+    {
+      "path": "settings/protocol/security.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16c277d12ec3daeba9f2ea93e3d7981e5fece823",
+      "size": 7912,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/16c277d12ec3daeba9f2ea93e3d7981e5fece823"
+    },
+    {
+      "path": "settings/security",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4962cbce35d8c89280388f84065177210ebc5092",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/4962cbce35d8c89280388f84065177210ebc5092"
+    },
+    {
+      "path": "settings/security/auction.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57771ee0f7cd5548059131a6f948591a6eacaed8",
+      "size": 1634,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/57771ee0f7cd5548059131a6f948591a6eacaed8"
+    },
+    {
+      "path": "settings/security/deposit.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ce4b2540a7712350bb5356c82469036305d39ed",
+      "size": 1662,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/8ce4b2540a7712350bb5356c82469036305d39ed"
+    },
+    {
+      "path": "settings/security/minipool.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5e9fe0760757f5bcde4f03cc5d2831057b16286",
+      "size": 1812,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a5e9fe0760757f5bcde4f03cc5d2831057b16286"
+    },
+    {
+      "path": "settings/security/network.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8bbcc161e94a01c2768fe25ed432d7c26046a21f",
+      "size": 1717,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/8bbcc161e94a01c2768fe25ed432d7c26046a21f"
+    },
+    {
+      "path": "settings/security/node.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "07036c91759d13b32aa09f6d9955ecb927367375",
+      "size": 3106,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/07036c91759d13b32aa09f6d9955ecb927367375"
+    },
+    {
+      "path": "settings/trustednode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1f6ecca4684b1943c36ed8ac63c2728984a95ea2",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/1f6ecca4684b1943c36ed8ac63c2728984a95ea2"
+    },
+    {
+      "path": "settings/trustednode/members.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "043ffbe6fa36579d6e4ab294fb992714b73e6976",
+      "size": 8906,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/043ffbe6fa36579d6e4ab294fb992714b73e6976"
+    },
+    {
+      "path": "settings/trustednode/minipool.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e98e806acee3af0e662a7aabc28ba48ba460fe7",
+      "size": 6931,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/6e98e806acee3af0e662a7aabc28ba48ba460fe7"
+    },
+    {
+      "path": "settings/trustednode/proposals.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3fb61fd897d2d13ce9c16f206b921bc52c6b771",
+      "size": 6658,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/e3fb61fd897d2d13ce9c16f206b921bc52c6b771"
+    },
+    {
+      "path": "settings/trustednode/rewards.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1381aa910c25625837205f80490f6319c1bf88a7",
+      "size": 1159,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/1381aa910c25625837205f80490f6319c1bf88a7"
+    },
+    {
+      "path": "storage",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f53941e853e5f73bd2c44f722e121fb669678f63",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/f53941e853e5f73bd2c44f722e121fb669678f63"
+    },
+    {
+      "path": "storage/address-queue-storage.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "506e17226b7fe4a379213547dfa542387319c838",
+      "size": 2177,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/506e17226b7fe4a379213547dfa542387319c838"
+    },
+    {
+      "path": "storage/rocket-storage.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02566a540852cf07d14b95587684b31288885182",
+      "size": 3142,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/02566a540852cf07d14b95587684b31288885182"
+    },
+    {
+      "path": "test.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "8dbf2e3ded7cf91097506aff77188ebefb51ce89",
+      "size": 2522,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/8dbf2e3ded7cf91097506aff77188ebefb51ce89"
+    },
+    {
+      "path": "tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bc9949b37487b75ead3985a152d1ba25751490f2",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/bc9949b37487b75ead3985a152d1ba25751490f2"
+    },
+    {
+      "path": "tests/auction",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "38d9373a43377410735aeb2abd75e5b26da30d71",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/38d9373a43377410735aeb2abd75e5b26da30d71"
+    },
+    {
+      "path": "tests/auction/auction_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f8940d85a8f02b44c91a6a5878bddf1a364d338",
+      "size": 10921,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/9f8940d85a8f02b44c91a6a5878bddf1a364d338"
+    },
+    {
+      "path": "tests/auction/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b0e624b55e5134727669bdffb511daaf3461b9a",
+      "size": 1627,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/4b0e624b55e5134727669bdffb511daaf3461b9a"
+    },
+    {
+      "path": "tests/config.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38b17b9508df9919eaa242c53388db1240c54364",
+      "size": 2076,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/38b17b9508df9919eaa242c53388db1240c54364"
+    },
+    {
+      "path": "tests/dao",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f774101eaffbe49e5a41a6a6690e99caf44823c0",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/f774101eaffbe49e5a41a6a6690e99caf44823c0"
+    },
+    {
+      "path": "tests/dao/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b8ec249591eda1cd924a1b4b8705ffc5ba689b7",
+      "size": 1502,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/4b8ec249591eda1cd924a1b4b8705ffc5ba689b7"
+    },
+    {
+      "path": "tests/dao/proposals_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "31fdbe60135128ea5092302f301cf7365efd88a8",
+      "size": 7383,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/31fdbe60135128ea5092302f301cf7365efd88a8"
+    },
+    {
+      "path": "tests/dao/trustednode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d20b24a88045f00c1115929a688e78da541327eb",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/d20b24a88045f00c1115929a688e78da541327eb"
+    },
+    {
+      "path": "tests/dao/trustednode/dao_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "752914252673ddabfce4b72d85d747a8fd7910b8",
+      "size": 6176,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/752914252673ddabfce4b72d85d747a8fd7910b8"
+    },
+    {
+      "path": "tests/dao/trustednode/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7241547548c5df124e294b428933fd1643a11241",
+      "size": 1513,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/7241547548c5df124e294b428933fd1643a11241"
+    },
+    {
+      "path": "tests/dao/trustednode/proposals_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29da3e73268f08fba8bbc06d9a93f61104ac833e",
+      "size": 11076,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/29da3e73268f08fba8bbc06d9a93f61104ac833e"
+    },
+    {
+      "path": "tests/deposit",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1b76ea218a77f4ac74622653e935cbf0fc97ecde",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/1b76ea218a77f4ac74622653e935cbf0fc97ecde"
+    },
+    {
+      "path": "tests/deposit/deposit_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad2362ebb63dc9e7eddf288664a6f85d635804b1",
+      "size": 2704,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/ad2362ebb63dc9e7eddf288664a6f85d635804b1"
+    },
+    {
+      "path": "tests/deposit/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20dd37c8dbc82b925554196671f4267ac6218039",
+      "size": 1099,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/20dd37c8dbc82b925554196671f4267ac6218039"
+    },
+    {
+      "path": "tests/minipool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b1a6ed1a520f2b3b89d59177d5efc58e7d449cd2",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/b1a6ed1a520f2b3b89d59177d5efc58e7d449cd2"
+    },
+    {
+      "path": "tests/minipool/contract_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "679354d7ea44671797703aedf44a1d738dd89124",
+      "size": 21672,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/679354d7ea44671797703aedf44a1d738dd89124"
+    },
+    {
+      "path": "tests/minipool/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "038ea510e168cf5250b2aa787eeb2ff7423533a1",
+      "size": 1360,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/038ea510e168cf5250b2aa787eeb2ff7423533a1"
+    },
+    {
+      "path": "tests/minipool/minipool_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82b48b9a9324a2fbbe0b5b88c58792e4d54d53c2",
+      "size": 4510,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/82b48b9a9324a2fbbe0b5b88c58792e4d54d53c2"
+    },
+    {
+      "path": "tests/minipool/queue_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b94f588752a2c582f6b478f1f0d7d40740efd17f",
+      "size": 7724,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/b94f588752a2c582f6b478f1f0d7d40740efd17f"
+    },
+    {
+      "path": "tests/minipool/status_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c22a4c880039c0464da7129066e5353699909e3c",
+      "size": 2141,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/c22a4c880039c0464da7129066e5353699909e3c"
+    },
+    {
+      "path": "tests/network",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6caca9d11c8981999aa05ac9d4d5340456301e9d",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/6caca9d11c8981999aa05ac9d4d5340456301e9d"
+    },
+    {
+      "path": "tests/network/balances_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fbe6d0008d24307acd2c032c81f2cbe766efe56",
+      "size": 2346,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/7fbe6d0008d24307acd2c032c81f2cbe766efe56"
+    },
+    {
+      "path": "tests/network/fees_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d879188d624f2367c86a818bf5efaa927127a77c",
+      "size": 2638,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/d879188d624f2367c86a818bf5efaa927127a77c"
+    },
+    {
+      "path": "tests/network/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "854951708a34ff346248595ed68cb635f0e8372f",
+      "size": 1242,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/854951708a34ff346248595ed68cb635f0e8372f"
+    },
+    {
+      "path": "tests/network/prices_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b676709c30e153784525e442f0632c328d2e7a0",
+      "size": 1442,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/7b676709c30e153784525e442f0632c328d2e7a0"
+    },
+    {
+      "path": "tests/node",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "56dcb1a0e2fd6be0b8aeab50d5bf0d4967b32577",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/56dcb1a0e2fd6be0b8aeab50d5bf0d4967b32577"
+    },
+    {
+      "path": "tests/node/deposit_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad6077a6a86ee0613f3d0abeeb3175814784a87c",
+      "size": 1524,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/ad6077a6a86ee0613f3d0abeeb3175814784a87c"
+    },
+    {
+      "path": "tests/node/distributor_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "426f1c0d6950d84eec15b4af03f7d7883e28008f",
+      "size": 610,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/426f1c0d6950d84eec15b4af03f7d7883e28008f"
+    },
+    {
+      "path": "tests/node/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d12f5f1a730f16855077f77bd5b992f6e6992957",
+      "size": 1116,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/d12f5f1a730f16855077f77bd5b992f6e6992957"
+    },
+    {
+      "path": "tests/node/node_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b822b8122610f584bc9d00ea1dda274fb90b2918",
+      "size": 4752,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/b822b8122610f584bc9d00ea1dda274fb90b2918"
+    },
+    {
+      "path": "tests/node/staking_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00aa3b85cd51586a858adf2cc3c28a4130b6c9ca",
+      "size": 9181,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/00aa3b85cd51586a858adf2cc3c28a4130b6c9ca"
+    },
+    {
+      "path": "tests/rewards",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c2812bd6a4a2f6d0bb317e328ca4acd454c331a1",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/c2812bd6a4a2f6d0bb317e328ca4acd454c331a1"
+    },
+    {
+      "path": "tests/rewards/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "920876ef1a99506e3efd8312f623f2a833d7f738",
+      "size": 1124,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/920876ef1a99506e3efd8312f623f2a833d7f738"
+    },
+    {
+      "path": "tests/rewards/node_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c1d5c45c84329ca18c7270c207f013dab57528e",
+      "size": 5471,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/0c1d5c45c84329ca18c7270c207f013dab57528e"
+    },
+    {
+      "path": "tests/rewards/trusted_node_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d6d341f94b4242bd30d88aa02bf6f3c3db97087",
+      "size": 3954,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/4d6d341f94b4242bd30d88aa02bf6f3c3db97087"
+    },
+    {
+      "path": "tests/rocketpool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cfda5e23b803fd7d095d28e17230f4ad44d45416",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/cfda5e23b803fd7d095d28e17230f4ad44d45416"
+    },
+    {
+      "path": "tests/rocketpool/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c4da11e8dfa64686010954c671b488cb240603a",
+      "size": 674,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/0c4da11e8dfa64686010954c671b488cb240603a"
+    },
+    {
+      "path": "tests/rocketpool/rocketpool_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c23c15be414b47bb65c073a2cbfd02c59e739bb",
+      "size": 3974,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/4c23c15be414b47bb65c073a2cbfd02c59e739bb"
+    },
+    {
+      "path": "tests/settings",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9f401a7db22208e9b434c7fc2fb4d4dd96631840",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/9f401a7db22208e9b434c7fc2fb4d4dd96631840"
+    },
+    {
+      "path": "tests/settings/protocol",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8e5208fe984d3488a7a336a356fa86d35e146f17",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/8e5208fe984d3488a7a336a356fa86d35e146f17"
+    },
+    {
+      "path": "tests/settings/protocol/auction_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8295925d46f8af3800eb8ee6db45ddc3f340cbc8",
+      "size": 3142,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/8295925d46f8af3800eb8ee6db45ddc3f340cbc8"
+    },
+    {
+      "path": "tests/settings/protocol/deposit_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0077b106e71e73c9d61ccdee21d27cedbb6542ef",
+      "size": 2463,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/0077b106e71e73c9d61ccdee21d27cedbb6542ef"
+    },
+    {
+      "path": "tests/settings/protocol/inflation_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b3d3e9954908e9fb54b595c836d6a7b0bbcfb2c",
+      "size": 1213,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/2b3d3e9954908e9fb54b595c836d6a7b0bbcfb2c"
+    },
+    {
+      "path": "tests/settings/protocol/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d2ba8039e57930dbd19deb108330347c957d90c",
+      "size": 876,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/8d2ba8039e57930dbd19deb108330347c957d90c"
+    },
+    {
+      "path": "tests/settings/protocol/minipool_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e0d1197602aacbfd332e38c839b4e4e4f7e3e3f",
+      "size": 2952,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/8e0d1197602aacbfd332e38c839b4e4e4f7e3e3f"
+    },
+    {
+      "path": "tests/settings/protocol/network_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abffda72964a39471d74ad2293bb4d987702496b",
+      "size": 4487,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/abffda72964a39471d74ad2293bb4d987702496b"
+    },
+    {
+      "path": "tests/settings/protocol/node_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac4dd796152bc07177ad20293956e55d4bb4acba",
+      "size": 2051,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/ac4dd796152bc07177ad20293956e55d4bb4acba"
+    },
+    {
+      "path": "tests/settings/protocol/rewards_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce567ca3b1478ee7a33573a5e863e6d7b0323542",
+      "size": 1776,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/ce567ca3b1478ee7a33573a5e863e6d7b0323542"
+    },
+    {
+      "path": "tests/settings/trustednode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a50ec6b2a248e9665f60fd087332a55c87f5542f",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/a50ec6b2a248e9665f60fd087332a55c87f5542f"
+    },
+    {
+      "path": "tests/settings/trustednode/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1727002a9bd701b2954d9f2f0c0d49428bcdac86",
+      "size": 1267,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/1727002a9bd701b2954d9f2f0c0d49428bcdac86"
+    },
+    {
+      "path": "tests/settings/trustednode/members_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a881706a3cec340c4d90f2cc26f8c44a96ac1c05",
+      "size": 5910,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a881706a3cec340c4d90f2cc26f8c44a96ac1c05"
+    },
+    {
+      "path": "tests/settings/trustednode/proposals_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d391ab32bbf874f26a0c08125ee3e0f80fcb100f",
+      "size": 5949,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/d391ab32bbf874f26a0c08125ee3e0f80fcb100f"
+    },
+    {
+      "path": "tests/testutils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1f21052c24b2b7151b1c370fcac723412b430702",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/1f21052c24b2b7151b1c370fcac723412b430702"
+    },
+    {
+      "path": "tests/testutils/accounts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1c0b2452425bbca10cf0cba2b722df21e075b4ee",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/1c0b2452425bbca10cf0cba2b722df21e075b4ee"
+    },
+    {
+      "path": "tests/testutils/accounts/accounts.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1c8f9c17881c8c88c76ae44c3ceaa5cce2bf761",
+      "size": 1038,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/b1c8f9c17881c8c88c76ae44c3ceaa5cce2bf761"
+    },
+    {
+      "path": "tests/testutils/auction",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9438892b3f42027f4605a79ca206c17647c60272",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/9438892b3f42027f4605a79ca206c17647c60272"
+    },
+    {
+      "path": "tests/testutils/auction/auction.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f9427a5464dd3326ded472674dbc841a5eb7c33",
+      "size": 2451,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/4f9427a5464dd3326ded472674dbc841a5eb7c33"
+    },
+    {
+      "path": "tests/testutils/dao",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e6cb8b4a0edb39604b3625030ea0e273ce6a8400",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/e6cb8b4a0edb39604b3625030ea0e273ce6a8400"
+    },
+    {
+      "path": "tests/testutils/dao/proposals.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b687a2166c4247f9ec171a12e0fd80e13e681e55",
+      "size": 1415,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/b687a2166c4247f9ec171a12e0fd80e13e681e55"
+    },
+    {
+      "path": "tests/testutils/evm",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6053f6f5d432ccb9ec3c4f83b593f8636dd55650",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/6053f6f5d432ccb9ec3c4f83b593f8636dd55650"
+    },
+    {
+      "path": "tests/testutils/evm/mining.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d80324f3987644f682c25e2378fd49ccceaa3f2",
+      "size": 826,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/3d80324f3987644f682c25e2378fd49ccceaa3f2"
+    },
+    {
+      "path": "tests/testutils/evm/snapshots.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5eba8090eb5526d91e8e0d0fcdb62f69242e15e",
+      "size": 813,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a5eba8090eb5526d91e8e0d0fcdb62f69242e15e"
+    },
+    {
+      "path": "tests/testutils/minipool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6675f3de23181d1d9618c4ac836ff4463ba9a2ca",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/6675f3de23181d1d9618c4ac836ff4463ba9a2ca"
+    },
+    {
+      "path": "tests/testutils/minipool/minipool.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30680106e4d66a98d9cb19199ff6d76049353c18",
+      "size": 3616,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/30680106e4d66a98d9cb19199ff6d76049353c18"
+    },
+    {
+      "path": "tests/testutils/node",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5625e9fb058832da7da48ec86d801fb4beefd30d",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/5625e9fb058832da7da48ec86d801fb4beefd30d"
+    },
+    {
+      "path": "tests/testutils/node/deposit.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6bd05aa7213467522a07821bbd1a50b1e8a9419",
+      "size": 3006,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a6bd05aa7213467522a07821bbd1a50b1e8a9419"
+    },
+    {
+      "path": "tests/testutils/node/node.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dcaf52ab29316296809571163739bfc02731b523",
+      "size": 2300,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/dcaf52ab29316296809571163739bfc02731b523"
+    },
+    {
+      "path": "tests/testutils/node/staking.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70ef91dae1b2ebda0a553d49127c2fb74ff14148",
+      "size": 1013,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/70ef91dae1b2ebda0a553d49127c2fb74ff14148"
+    },
+    {
+      "path": "tests/testutils/tokens",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "de34a76866b0739ffaecdf151d4f31d4a3528d97",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/de34a76866b0739ffaecdf151d4f31d4a3528d97"
+    },
+    {
+      "path": "tests/testutils/tokens/reth",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f525e802b2ee38de0ba911ee58a4d310979881ca",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/f525e802b2ee38de0ba911ee58a4d310979881ca"
+    },
+    {
+      "path": "tests/testutils/tokens/reth/reth.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d73b5170fedbded417666280a9870d9334ed895",
+      "size": 658,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/2d73b5170fedbded417666280a9870d9334ed895"
+    },
+    {
+      "path": "tests/testutils/tokens/rpl",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "910bb87313e4db680138c4b3c42b1581da87d0b2",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/910bb87313e4db680138c4b3c42b1581da87d0b2"
+    },
+    {
+      "path": "tests/testutils/tokens/rpl/rpl.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "443d20a76e7c209a199cb5a913220812548c12d7",
+      "size": 1472,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/443d20a76e7c209a199cb5a913220812548c12d7"
+    },
+    {
+      "path": "tests/testutils/validator",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c818521d64eb077be564f809ab570bb957a1e20c",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/c818521d64eb077be564f809ab570bb957a1e20c"
+    },
+    {
+      "path": "tests/testutils/validator/deposit-data.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ddd1faa0d1b0a51f478114379f32c41219e1fdb7",
+      "size": 1853,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/ddd1faa0d1b0a51f478114379f32c41219e1fdb7"
+    },
+    {
+      "path": "tests/tokens",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "67948f9a53549cf58d3994ffd234c4659600e9d3",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/67948f9a53549cf58d3994ffd234c4659600e9d3"
+    },
+    {
+      "path": "tests/tokens/main_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54e00526d309b9aa005ebd990d19afec1f29b2fc",
+      "size": 1360,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/54e00526d309b9aa005ebd990d19afec1f29b2fc"
+    },
+    {
+      "path": "tests/tokens/reth_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "915b86878b0df57cb5c3ca552342c82d11278989",
+      "size": 6574,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/915b86878b0df57cb5c3ca552342c82d11278989"
+    },
+    {
+      "path": "tests/tokens/rpl_fixed_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a7f1bbdcd6960c23afde4b145831c65a57a0344",
+      "size": 3840,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/3a7f1bbdcd6960c23afde4b145831c65a57a0344"
+    },
+    {
+      "path": "tests/tokens/rpl_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c785a85a168724d8373e79a02ac1b64e0660269",
+      "size": 5683,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/4c785a85a168724d8373e79a02ac1b64e0660269"
+    },
+    {
+      "path": "tests/tokens/tokens_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d6d3c1f6030874c59dc526409f127fe15482561",
+      "size": 1676,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/2d6d3c1f6030874c59dc526409f127fe15482561"
+    },
+    {
+      "path": "tests/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b5f8ebe51508461d03e9b2c5f037ff07bb039980",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/b5f8ebe51508461d03e9b2c5f037ff07bb039980"
+    },
+    {
+      "path": "tests/utils/eth",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9a47ea8df7e37765d4a4b89b187e8c8f358b5ea3",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/9a47ea8df7e37765d4a4b89b187e8c8f358b5ea3"
+    },
+    {
+      "path": "tests/utils/eth/transactions_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c99e6248534094d06b099d54fb5a220da82112b",
+      "size": 1569,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/1c99e6248534094d06b099d54fb5a220da82112b"
+    },
+    {
+      "path": "tests/utils/eth/units_test.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "afea60810d450249d07e7898f9ca66bcc4e60cdb",
+      "size": 981,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/afea60810d450249d07e7898f9ca66bcc4e60cdb"
+    },
+    {
+      "path": "tests/utils/stage4_bootstrap.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fc7d7ecfc0fa6ab158c5ffbe0924c7ed7d8ff26",
+      "size": 1137,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/3fc7d7ecfc0fa6ab158c5ffbe0924c7ed7d8ff26"
+    },
+    {
+      "path": "tokens",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2e6161963fc33ce38ed50cd906517f3763d241c6",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/2e6161963fc33ce38ed50cd906517f3763d241c6"
+    },
+    {
+      "path": "tokens/reth.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a65a57b4ba2d00606a3434f6e42e8fcabc97286e",
+      "size": 6925,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/a65a57b4ba2d00606a3434f6e42e8fcabc97286e"
+    },
+    {
+      "path": "tokens/rpl-fixed.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bebbad1e352d32ab986bc2c969e34cec67f88322",
+      "size": 4098,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/bebbad1e352d32ab986bc2c969e34cec67f88322"
+    },
+    {
+      "path": "tokens/rpl.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "80314e2a44c76861321951c4a0ba8a44c7143501",
+      "size": 6026,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/80314e2a44c76861321951c4a0ba8a44c7143501"
+    },
+    {
+      "path": "tokens/tokens.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "340b76c952deb7adca2e8f501281fd8b01a493fd",
+      "size": 5268,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/340b76c952deb7adca2e8f501281fd8b01a493fd"
+    },
+    {
+      "path": "types",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "17b0e513e4967161c967ea7246c6ebdfe12fec86",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/17b0e513e4967161c967ea7246c6ebdfe12fec86"
+    },
+    {
+      "path": "types/beacon.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a476a88ada108a7930e14ef9ebe1a57ae0e4804",
+      "size": 2739,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/8a476a88ada108a7930e14ef9ebe1a57ae0e4804"
+    },
+    {
+      "path": "types/dao.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d387ff6b6ba3127cbee634a76525c185378f033",
+      "size": 2895,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/0d387ff6b6ba3127cbee634a76525c185378f033"
+    },
+    {
+      "path": "types/minipool.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03a7bd17b21f4c713ff1c33ccdd119cb68553b25",
+      "size": 2263,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/03a7bd17b21f4c713ff1c33ccdd119cb68553b25"
+    },
+    {
+      "path": "utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a6fafb24a39cb86374f11e1acdc477cbf54c37c2",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/a6fafb24a39cb86374f11e1acdc477cbf54c37c2"
+    },
+    {
+      "path": "utils/address_generation.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5720b7880e96dcbaa939c742600f475f2bb467c3",
+      "size": 497,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/5720b7880e96dcbaa939c742600f475f2bb467c3"
+    },
+    {
+      "path": "utils/deposit_retrieval.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d23f7d47272affb94680607953b45051a432510c",
+      "size": 4253,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/d23f7d47272affb94680607953b45051a432510c"
+    },
+    {
+      "path": "utils/eth",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ae05a8bca7b076b7d5a04c1c395dcbd7bfda28e1",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/ae05a8bca7b076b7d5a04c1c395dcbd7bfda28e1"
+    },
+    {
+      "path": "utils/eth/erc20.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb85ac69c8c3f6370fd3c1efdf7a97c800795ff3",
+      "size": 4450,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/fb85ac69c8c3f6370fd3c1efdf7a97c800795ff3"
+    },
+    {
+      "path": "utils/eth/logs.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54c7c95f48870353eaedee0980af00980c76f3b1",
+      "size": 3815,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/54c7c95f48870353eaedee0980af00980c76f3b1"
+    },
+    {
+      "path": "utils/eth/transactions.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad6fc53fbb65e6bf15f2d51c4853affab536dc75",
+      "size": 3007,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/ad6fc53fbb65e6bf15f2d51c4853affab536dc75"
+    },
+    {
+      "path": "utils/eth/units.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1278f83eee5f0857974d2fe7d8525a2f15f3c35f",
+      "size": 1883,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/1278f83eee5f0857974d2fe7d8525a2f15f3c35f"
+    },
+    {
+      "path": "utils/json",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "523b221e9192780152f4dd71af320736f129e34e",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/523b221e9192780152f4dd71af320736f129e34e"
+    },
+    {
+      "path": "utils/json/json.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec15a007b2af8dbbe40b866b61ebbd582489544e",
+      "size": 322,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/ec15a007b2af8dbbe40b866b61ebbd582489544e"
+    },
+    {
+      "path": "utils/multicall",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "15c5340c8d8d24d838b2b5bd66e47e82fa08ac8f",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/15c5340c8d8d24d838b2b5bd66e47e82fa08ac8f"
+    },
+    {
+      "path": "utils/multicall/abi.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5bbaf033d06316a9172976676d9179da2e557388",
+      "size": 5413,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/5bbaf033d06316a9172976676d9179da2e557388"
+    },
+    {
+      "path": "utils/multicall/balances.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81fb7e26d8236eccae4cf2b722e548ba12cfcec0",
+      "size": 2459,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/81fb7e26d8236eccae4cf2b722e548ba12cfcec0"
+    },
+    {
+      "path": "utils/multicall/multicaller.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec03c5e27e7432a4d5afeab83062c6377fce9429",
+      "size": 3483,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/ec03c5e27e7432a4d5afeab83062c6377fce9429"
+    },
+    {
+      "path": "utils/state",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "520d01013610f402e87ee597e476cc77b89a86bb",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/520d01013610f402e87ee597e476cc77b89a86bb"
+    },
+    {
+      "path": "utils/state/common.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c4f8350105cc9caca7b5fa028bf83b5dd6fc8c1",
+      "size": 488,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/5c4f8350105cc9caca7b5fa028bf83b5dd6fc8c1"
+    },
+    {
+      "path": "utils/state/contracts.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "616774c1fde7addef200fe6d41fe8af8eb077422",
+      "size": 7795,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/616774c1fde7addef200fe6d41fe8af8eb077422"
+    },
+    {
+      "path": "utils/state/minipool.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "813c8f5964e7c29ad2e9ed45f4824813456bb9c3",
+      "size": 22074,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/813c8f5964e7c29ad2e9ed45f4824813456bb9c3"
+    },
+    {
+      "path": "utils/state/network.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18ac814e5d875d34b9398b6c5a2b8834e154a141",
+      "size": 12528,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/18ac814e5d875d34b9398b6c5a2b8834e154a141"
+    },
+    {
+      "path": "utils/state/node.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b252039c74ee94fcfaccf5b63938ead45cb2f95d",
+      "size": 14168,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/b252039c74ee94fcfaccf5b63938ead45cb2f95d"
+    },
+    {
+      "path": "utils/state/odao.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "133f4e5f86e55f0e09a2334bbcb8ef27835ee2f8",
+      "size": 6039,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/133f4e5f86e55f0e09a2334bbcb8ef27835ee2f8"
+    },
+    {
+      "path": "utils/state/pdao.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f2dd82083d4cab3c08092fb69846df3d04649da",
+      "size": 8530,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/0f2dd82083d4cab3c08092fb69846df3d04649da"
+    },
+    {
+      "path": "utils/strings",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ed0470478f2fea770a5b39d1ba2599939d8bc69c",
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/trees/ed0470478f2fea770a5b39d1ba2599939d8bc69c"
+    },
+    {
+      "path": "utils/strings/sanitize.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ac8904f3a32116815b9f37f93875dcedc02b8e9b",
+      "size": 240,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/ac8904f3a32116815b9f37f93875dcedc02b8e9b"
+    },
+    {
+      "path": "utils/version-checker.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efb319ea39b00671833df0cce8ac7f24a7a9045f",
+      "size": 1304,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/efb319ea39b00671833df0cce8ac7f24a7a9045f"
+    },
+    {
+      "path": "utils/wait.go",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b32541eb97ee8dd3b6a399cc89910f523d2d641",
+      "size": 1162,
+      "url": "https://api.github.com/repos/rocket-pool/rocketpool-go/git/blobs/2b32541eb97ee8dd3b6a399cc89910f523d2d641"
+    }
+  ],
+  "truncated": false
+}

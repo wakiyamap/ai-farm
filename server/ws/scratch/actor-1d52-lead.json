@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "uniswapx_v3dutchorderreactor fill (Arbitrum): keep the spread filling public V3 Dutch orders",
+  "status": "measured",
+  "why": "Filler 0x1d52f9dc2bbee56fc81a70247c2b93030285c3b7 (gas EOA 0x6ce9efddac8e3a97d55cad8028c4693893ac8571) filled 20 public orders in 7d from 16 distinct swappers, mean spread ~$0.70/fill, gas ~$0.017/fill, est ~$2/day. Other fillers win the same reactor too (0x225a38bc71102999dd13478bfabd7c4d53f2dc17, 0x302649ccdfc232ee49a28755c8a6c06e707b7d15, 0xd767473b74397fa9c1e7a2bdb210020c648a6836 seen in one 20k-block window) -> open auction, a fresh address is paid the same spread.",
+  "next_steps": "Contract V3DutchOrderReactor 0xb274d5f4b833b61b340b654d600a864fb604a87c on arbitrum (verified source name V3DutchOrderReactor, permit2 0x000000000022D473030F116dDEE9F6B43aC78BA3). 7d count 20 fills (2.9/day) via eth_getLogs topic Executed(address,address,address,uint256) topic2=filler, blocks 522783818-524861943. Gross spread mean ~$0.70/fill (sample of 10 of 20 receipts, range $0.00-$1.94; token flows valued with coins.llama.fi prices 2026-11-16, ETH $1826). Gas ~350-410k @ ~0.021 gwei = ~$0.017/call. Order flow is mostly tokenized stocks (MSTRx, GOOGLx, COINx, AAPLs, AALs) vs USDC/USDT. Total reactor throughput ~130 fills/day all-fillers (control: 9 Executed per 20k blocks) so the candidate wins only ~2% - the auction is watched by faster fillers; a farm bot needs quote freshness, but sizes are small ($10-$1000) so a modest quote can still win. Trial candidate."
+}

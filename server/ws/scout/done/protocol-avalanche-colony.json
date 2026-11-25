@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-colony",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1802,
+ "chain": "avalanche",
+ "slug": "colony",
+ "name": "Colony",
+ "category": "Yield",
+ "tvl_usd": 150343,
+ "url": "",
+ "github": [
+  "colonyLab"
+ ],
+ "listed_days_ago": 1802,
+ "run_id": "ae0a5a11e36d494fa47532cff0944188",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Colony StakingV3 0x62685d3EAacE96D6145D35f3B7540d35f482DE5b (avalanche): only callable pay-fns are claimAllRewards/claimReward paying the caller's own accrued CLY-staking yield - 7 self-claims in 7d (100 RewardClaimed events), gross $0.5-125.5 per claim tx (USDC/WAVAX/JOE/ATF/SUZ @llama 1795103260; CLY unpriced, +1.6-192 CLY) vs gas $0.07 (943,624 gas @ 11.25 gwei, 0.0106 AVAX); fresh-addr caller paid 0 (stakeBalance 0, eth_call succeeds); claimRewardFor/claimAllRewardsFor onlyRole(CLAIM_MANAGER_ROLE); nests and colonyDex dead since 2024-04 / 2025-10.",
+  "kb": [
+   "attempts:2558",
+   "protocols:1052"
+  ],
+  "run_id": "ae0a5a11e36d494fa47532cff0944188",
+  "at": 1795103590
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-722-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 60,
+ "chain": "base",
+ "slug": "722-capital",
+ "name": "722 Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 298850,
+ "url": "https://722.capital/",
+ "github": null,
+ "listed_days_ago": 60,
+ "run_id": "f1f7735b21b447cc9f553566629dc1d6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Two Lagoon v0.5.x vaults on Base: 722Capital-ETH 0xFCE2064B4221C54651B21c868064a23695E78f09, 722Capital-USDC 0xB09F761Cb13baCa8eC087Ac476647361b6314F98 (impl 0x45b69691..96d50). settleDeposit/settleRedeem onlySafe, updateNewTotalAssets onlyValuationManager: all revert from a fresh address; no reward fn in ABI, fees mint to curator feeReceiver. 7d: 17 logs / 4 txs (blocks 55.50M->58.52M), callers = user 0xe812c091.. + curator EOAs via routers, gross to caller $0, USDC vault totalAssets 21,843 USDC; same-shape control returns 17.",
+  "kb": [
+   "attempts:1612",
+   "protocols:311"
+  ],
+  "run_id": "f1f7735b21b447cc9f553566629dc1d6",
+  "at": 1794896084
+ }
+}

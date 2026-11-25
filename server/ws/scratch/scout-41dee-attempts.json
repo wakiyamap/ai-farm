@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "actor-bsc-0x41dee1855293e4450cd67459047f372d4d818143",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers first, but the smallest stranger desk of this class yet (lead 166, dead_end). The candidate is an EIP-1967-proxy smart account (impl 0xc97c266b) filling UniswapX V3 Dutch orders on V3DutchOrderReactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 (address from lead 166 / Uniswap README BNB table): gas EOA 0x5002302a570f516500757102f1bae141f4d46dee multicalls (0x91d9e40d) into it, it calls reactor execute 0x0d335884 and keeps the in-tx spread in the proxy - all 3 receipts show positive ERC-20 deltas staying in the candidate. A fresh address would be paid the same spread, but volume is minute: 3 fills in the 10 d the ledger covered (0.29/day), net ~$0.05/day.",
+  "numbers": "3 fills 0x024e883b/0x08fb13a9 (Nov 11) + 0xa6436932 (Nov 6) (sample of 3 of 3 ledger-covered); gross/call $0.087, $0.344, $0.104 (net ERC-20 deltas per receipt: +0.000247 AAPLx; +0.1928 USDC +0.00043 AAPLx; +0.0572 tUSDT 0x55d39832 +0.00088 0xe42cfb20) = $0.53 total; gas 381,719/581,490/719,335 @ 0.0505 gwei (eth_getTransactionByHash) = $0.011-0.021/call (BNB $590.33, AAPLx $350.95, coins.llama.fi 2026-11-18); net ~$0.48 / 10 covered days ~= $0.05/day; eth_getLogs Fill scan blocks 134216612-134227132 (2026-11-18): 0 fills by this desk vs control 14 by 5 other desks (reactor alive)"
+}

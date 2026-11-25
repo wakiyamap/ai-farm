@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-block-analitica",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "base",
+ "slug": "block-analitica",
+ "name": "Block Analitica",
+ "category": "Risk Curators",
+ "tvl_usd": 7322552,
+ "url": "https://blockanalitica.com/",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "061c1a6e500f487e8d12b0143c51de4f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Block Analitica is a Morpho+Summer risk curator, not a stranger-reward protocol: on Base its 4 MetaMorpho vaults + 3 FleetCommanders expose rebalance (onlyKeeper, fresh-addr revert 0xa41a3a04) and reallocate (onlyAllocatorRole, revert 0xf7137c0f); the one public fn tip() pays the tipJar 0xad30bc7e (curator), not the caller, at tipRate 0; 0 rebalances/reallocates in 7d (control: 460 vault logs/3d, 5 FC logs/3d).",
+  "kb": [
+   "attempts:1906"
+  ],
+  "run_id": "061c1a6e500f487e8d12b0143c51de4f",
+  "at": 1794957405
+ }
+}

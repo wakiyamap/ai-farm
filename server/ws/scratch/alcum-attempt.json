@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-alcum",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. All state-changing functions of Alcum's 3 contracts (xCUP ERC4626 vault, SettlementEngine, EpochManager) are behind AccessControl roles or onlyOwner, and the reward-looking ones (nextEpoch epoch advance, recordEpochRevenue, settleEpochRevenue, distributeRevenueToVault) are held by the team Gnosis Safe 0x7491ce0b1f00715879702737768e2804809895d0 only; a stranger eth_call nextEpoch reverts AccessControlMissingRole. No function pays the caller anyway - revenue is minted as CUP into the vault for xCUP holders, msg.sender gets nothing. Protocol near-dormant: 0 logs on all 3 contracts in the last 7 days, last epoch opened 2026-08-15 and left overdue ~67 days.",
+  "numbers": "TVL 238,719 USD (llama candidate 2026-11-20). 3 proxies + impls verified on etherscan; nextEpoch from 0xdead reverts 0xe2517d3f (AccessControlMissingRole, role EPOCH_MANAGER_ROLE d1f93295); epochDuration 2,592,000 s, currentEpochId 9, epochStart 1786834671 (2026-08-15), timeLeft 0. EpochStarted count lifetime = 9 (topic0 29db3deb..., taken from receipts), none in last 7 d; 7-day no-topic eth_getLogs on the 3 proxies = 0 logs (control: same shape, vault, blocks 24904192-24928768 = 6 logs). SettlementEngine lifetime log scan = 39 logs, all pre-2026-08-15, all sent by Safe 0x7491ce0b (EOA executor 0x8f2544a5). Epoch-8 record: netRevenue 0, isSettled true (epochRevenues(8) eth_call). Gross to caller 0 USD, so gas (not measured, nothing pays) is moot."
+}

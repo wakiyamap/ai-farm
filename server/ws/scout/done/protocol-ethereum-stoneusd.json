@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-stoneusd",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 287,
+ "chain": "ethereum",
+ "slug": "stoneusd",
+ "name": "STONEUSD",
+ "category": "CeDeFi",
+ "tvl_usd": 1667776,
+ "url": "https://www.stakestone.io/",
+ "github": null,
+ "listed_days_ago": 287,
+ "run_id": "abe329ec103e40b7a4e9d4f2ecf7b2da",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Only ethereum contract 0x6A6E...721e is a plain ERC-20 (verified Token.sol: ERC20+AccessControl, mint=MINTER_ROLE, burn=self); no callable function pays a reward. TVL 1,604,710.84 STONEUSD @ $1.0393 = $1.67M. 7-day no-topic scan (blocks 26,400,105-26,460,601) = 4 logs (3x Transfer 0.01 + 1 Approval); control USDC same shape 100 blocks = 13,101 logs.",
+  "kb": [
+   "attempts:2976",
+   "protocols:1379"
+  ],
+  "run_id": "abe329ec103e40b7a4e9d4f2ecf7b2da",
+  "at": 1795192614
+ }
+}

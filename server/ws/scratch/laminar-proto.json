@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "laminar",
+  "status": "dead_end",
+  "checked": "Laminar = Uniswap V3 fork CLMM DEX on HyperEVM (DefiLlama slug laminar, tvlCodePath registries/uniswapV3.js, factory 0x40059A6F242C3de0E639693973004921B04D96AD from registries/uniswapV3.js line 848; docs.laminar.xyz contract pages). Factory verified on Etherscan as LaminarV3Factory; owner() answered 0xe61c7e773fcc8222833130c83df40b1390d8b591. 156 pools via PoolCreated scan from block 592235 (topic0 from ILaminarV3Factory source). V2 factory 0x8f45c2143a875de1e31b1c3f523b4c6529e11615 has 0 PairCreated all-time (unused). Periphery: NonfungiblePositionManager 0xfdf8b1f915198ed043ee52ec367c3df8ed5c9d79, SwapRouter 0x7d39aE50f97012C5d550240267dbC28355F625A0. No keeper/reward/incentive/liquidation functions anywhere: pool collect is keyed to msg.sender's position (fresh-address eth_call returns (0,0)); NFT manager collect is isAuthorizedForToken (owner/approved); collectProtocol + setDefaultProtocolFee are owner-only. README: 'no longer under active development'. Verdict no_reward (scout protocol-hyperevm-laminar, 2026-11-22)."
+}

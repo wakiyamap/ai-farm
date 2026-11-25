@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-fuel-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "fuel-bridge",
+ "name": "Fuel Bridge",
+ "category": "Bridge",
+ "tvl_usd": 6627118,
+ "url": "https://app.fuel.network/bridge",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "3cc779eae7344847b01389125fc8aee4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Fuel canonical bridge (portal 0xAEB0c00D...65DDf FuelMessagePortalV3, gateway 0xa4cA04d0...3F67, state 0xf3D20Db1...f130): only permissionless action relayMessage pays the caller 0 - 8 relays in 6.85 d (blocks 26,418,049 2026-11-15 -> 26,467,201 2026-11-22) by 5 distinct EOAs (3 self-relays), gross 0 ETH / 0 USD, gas 184k-307k = 0.05-1.12 USD at ETH 1680.73 (coins.llama.fi 2026-11-22T01:00Z); commit (55 txs/7 d, all 0x83dc5850...) is onlyRole(COMMITTER_ROLE)",
+  "kb": [
+   "attempts:3539",
+   "protocols:1795"
+  ],
+  "run_id": "3cc779eae7344847b01389125fc8aee4",
+  "at": 1795309696
+ }
+}

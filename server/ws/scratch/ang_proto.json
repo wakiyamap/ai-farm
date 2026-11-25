@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "angstrom",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter (projects/angstrom/index.js) lists one contract on ethereum: Uniswap v4 hook 0x0000000aa232009084bd71a5797d089aa4edfad4 (eth_getCode non-empty; getter extsload(uint256) 0x7cf98081 answers). Etherscan-verified source = src/Angstrom.sol of SorellaLabs/angstrom (Sorella Labs v4-hook Angstrom, listed Jul 2025). Only value-moving entry, execute(bytes) 0x1828e0e7, is gated by the _isNode registry (mapping slot 1): eth_call from fresh 0xdead reverts NotNode() (0x5cd26b68); storage check gives _isNode=1 for the 3 callers and 0 for the control. Registry owner-curated: hook toggleNodes is onlyController; ControllerV1 0x1746484ea5e11c75e009252c102c8c33e0315fd4 (code non-empty) addNode/removeNode are _checkOwner, totalNodes()=3. All fee withdrawals (pullFee, collect_unlock_swap_fees -> UnlockSwapFeeCollector NotOwner) are onlyController, so bundle/unlock-swap fees accrue to the controller/LP side, not to the caller. deposit/withdraw/invalidateNonce/compose pay nothing. Settlement runs as a first-price solver auction on the controller/CISO side (competitive MEV), not a permissionless keeper bounty."
+}

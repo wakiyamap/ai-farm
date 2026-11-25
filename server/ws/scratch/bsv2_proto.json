@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "baseswap_v2",
+  "status": "dead_end",
+  "checked": "BaseSwap V2 (DefiLlama slug baseswap-v2, TVL $472k, deadUrl=true) is a plain PancakeSwap-V2 fork on Base. Factory 0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB (from DefiLlama registry uniswapV2.js key 'baseswap'; verified source name PancakeFactory, solc 0.5.16): allPairsLength()=8306, feeTo()=0x463112327576814f80da8d3632f7bad23c853a29 (treasury, fees accrue internally via pricePerShare, no claim function). Setters setFeeTo/setFeeToSetter are owner/setter-gated; createPair is the only open factory fn and pays the creator 0 (PairCreated 7d = 0, chunks 56251701-59275701). Pair = PancakePair (e.g. WETH/USDC 0xab067c01c7f5734da168c699ae9d23a4512c9fdb): open fns mint/burn/swap are user-driven (2,662 Swap events 7d on that pair, callers are aggregators: 0x Router 0x0000000071727de22e5e9d8baf0edac6f37da032, Permit2Proxy 0x8eed5e28216c0bc6f817df40ae6ca11c2294cc1c); skim(to) pays the caller any balance-above-reserves excess but Skim 7d = 0 on the top pair and excess = 0 on all 3 top pairs (WETH/USDC, WETH/USDT 0xe8e3ed..., WETH/cbBTC 0x940ba0...); sync pays nothing. Registry entry has no staking/farm TVL for this slug (MasterChef is a separate entry). No keeper/reward function anyone can call: verdict no_reward."
+}

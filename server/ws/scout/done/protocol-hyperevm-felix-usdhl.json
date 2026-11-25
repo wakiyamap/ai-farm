@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-felix-usdhl",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 496,
+ "chain": "hyperevm",
+ "slug": "felix-usdhl",
+ "name": "Felix USDhl",
+ "category": "Yield",
+ "tvl_usd": 356070,
+ "url": "https://www.usefelix.xyz?ref=4BF702FF",
+ "github": null,
+ "listed_days_ago": 496,
+ "run_id": "1c9bc0fcfd974cebac3a335e43317ce1",
+ "result": {
+  "verdict": "no_reward",
+  "line": "USDHL stablecoin wrapper (proxy 0xb50a96253abdf803d85efcdce07ad8becbc52bd5, 327,573 USDHL, holds 356,108 M backing = 356,043 USD TVL) exposes only Hyperliquid-L1 ERC-20 glue: claim/poke/sync/harvest/mint/redeem/owner probes from fresh addr revert, totalSupply/symbol/balanceOf return; impl 0x9f834dd.. only owner/upgradeTo; all 120 calls in ~8.7 d = 108 approve + 12 transfer + 0 keeper; HYPE rewards paid off-chain monthly by operator, nothing pays a caller.",
+  "kb": [
+   "attempts:1863",
+   "protocols:493"
+  ],
+  "run_id": "1c9bc0fcfd974cebac3a335e43317ce1",
+  "at": 1794947446
+ }
+}

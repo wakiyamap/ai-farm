@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-revert-lend",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 544,
+ "chain": "base",
+ "slug": "revert-lend",
+ "name": "Revert Lend",
+ "category": "Lending",
+ "tvl_usd": 1918247,
+ "url": "https://revert.finance/#/ref/w6vno3",
+ "github": null,
+ "listed_days_ago": 544,
+ "run_id": "884890f8448d4f2fa94bea8f308afffc",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "V3Vault 0x36aeae0e411a1e28372e0d66f02e57744ebe7599 liquidate(): 17 liqs/7d (blocks 55.8M-58.82M) taken by 6 independent keepers (0x3c3fc218 x8, 0x5ac9bc14 x4, 0xa7b0498f x2, +3 singles incl EOA 0x3895e33b); top-5 gross 44-75 USD = debt x 2.0-2.6 pct penalty paid in raw pool tokens (WETH/USDC/cbBTC, swap needed) vs 3.1-35.1 USD gas (713k-960k gas @ 2.2-20 gwei, ETH 1830 USD coins.llama.fi); 12 more at debt <=643 USD; fresh-address eth_call reverts NotLiquidatable (no role gate); 371k USDC lends, llama Base TVL 1.93M; old vault 0x22ce292d... totalAssets 0.",
+  "kb": [
+   "attempts:1898",
+   "leads:256"
+  ],
+  "run_id": "884890f8448d4f2fa94bea8f308afffc",
+  "at": 1794955558
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-defi-saver-asset-management",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "defi-saver-asset-management",
+ "name": "Defi Saver Asset Management",
+ "category": "CDP Manager",
+ "tvl_usd": 192591371,
+ "url": "https://defisaver.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "134cace26c1a4ef6a3622f075832e282",
+ "result": {
+  "verdict": "role_gated",
+  "line": "executeStrategy is BotAuth-whitelist gated (stranger eth_call reverts 0x75e5153c BotNotApproved): 303 calls in 7d (blocks 26416491 2026-11-14 to 26466746 2026-11-21), all from 6 whitelisted DFS keeper EOAs, stranger=0; gross to caller 0 USD (0/4 sampled receipts pay the keeper; fees go to DFS FeeReceiver), caller gas 1.83M-4.31M = 0.66-34.00 USD/call (ETH 1680.67 coins.llama.fi ts 1795303811). TxSaverExecutor same pattern (BotAuthForTxSaver, 1 whitelisted caller, 45/50 recent txs, 0 paid).",
+  "kb": [
+   "attempts:3518",
+   "protocols:1784"
+  ],
+  "run_id": "134cace26c1a4ef6a3622f075832e282",
+  "at": 1795304395
+ }
+}

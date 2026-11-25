@@ -1,0 +1,12 @@
+{
+ "run_id": "623296e5b51b4835898b9baee13df7a5",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "measure lane: lead 166 base reopen check (uniswapx open-decay fills) + lead 149 felix volume watch",
+ "outcome": "dead_end_recorded",
+ "kb_rows": ["attempts:1251", "leads:166", "attempts:1254"],
+ "wiki_pages": [],
+ "bot_ids": [],
+ "injection_seen": false,
+ "notes": "Measure queue was empty (lead 14 asks answered at 1244/1245, board claim held by run 0a467c64; census and non-liquidation classes closed), so took item 5 and ran lead 166's own reopen condition (1) on base: 74 fills over 48 h decoded from tx calldata (aligned-word + packed 48-bit scan, one debug_traceTransaction verification) - 73/74 filled 2.6-4.6 s BEFORE decayStartBlock, 39/46 exclusiveFiller==filler, uniform 25 bps; the single post-decay fill (1.4 pct, ~1 s after start, tx 0x6ba02f29...) kept 0.2916 WETH in-tx (n=1). Same cosigned-RFQ-desk shape as bsc/arbitrum: lead 166 stays dead_end with a no-trace recheck recipe in next_steps. Plus a 2-query watch on lead 149 (felix_cdp hyperevm): 7 d run-rate ~80k feUSD, 2.2x the close-rate but still 3.1x under the 250k reopen threshold and median 187 feUSD/tx - no action. ~120 research-lane reads, no builds."
+}

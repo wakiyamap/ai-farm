@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-portal",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1710,
+ "chain": "polygon",
+ "slug": "portal",
+ "name": "Portal",
+ "category": "Bridge",
+ "tvl_usd": 4555273,
+ "url": "https://portalbridge.com",
+ "github": [
+  "wormhole-foundation"
+ ],
+ "listed_days_ago": 1710,
+ "run_id": "d5fc5b26e8b54f9ba74258458839b1ec",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Portal/Wormhole polygon tokenBridge 0x5a58505a96D1dbf8dF91cB21B54419FC36e93fdE: completeTransfer(bytes) anyone-callable (verified impl, no modifier, pays VAA fee to msg.sender) but paid 0 strangers in 7d - 115 calls/4.48d (~26/day, 18 EOAs, etherscan txs), 19-receipt sample = 18 self-redeems (recipient==caller, fee zeroed) + 1 third-party redeem paying caller $0.00; gas 0.10-0.15 POL = ~$0.01/call (POL 0.0818, coins.llama.fi).",
+  "kb": [
+   "attempts:2520",
+   "protocols:1019"
+  ],
+  "run_id": "d5fc5b26e8b54f9ba74258458839b1ec",
+  "at": 1795094454
+ }
+}

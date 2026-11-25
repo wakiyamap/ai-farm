@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-railgun",
+  "outcome": "lead_recorded",
+  "reason": "Unclear: no Railgun contract address could be pinned on polygon. The only address the sources give (DefiLlama /address 0xe76c6c83af64e4c60245d8c7de953df673a7a33d) has no code on polygon (eth_getCode=0x, balance 0, no Etherscan creation tx, 0 txs). Polygon TVL 453,408 USD is reported but not attributed to any contract we could confirm. Also the current v13 contract code exposes no anyone-pays function anyway (only shield/transact; fee setters onlyOwner), so even with the address the expected verdict is no_reward; re-check needs the real polygon address (Blockscout was Cloudflare-403, GitHub API rate-limited this session).",
+  "numbers": "eth_getCode(0xe76c6c...a33d, polygon, latest)=0x; eth_getBalance=0; explorer creation/txs polygon: 'No data found' (via etherscan 2026-11-19); polygon TVL 453408 USD (api.llama.fi/protocol/railgun, 2026-11-19, currentChainTvls.Polygon); Railgun-Privacy/contract@main pushed 2026-08-15; docs.railgun.org/wiki sitemap: no addresses page; relay polygon healthy (control: 0x92A9C92C215092720C731c96D4Ff508c831a714f = 'RAIL Polygon' token, code present, symbol() answers)."
+}

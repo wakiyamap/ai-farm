@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-rnt-lend",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only anyone-callable paying function on this Aave v3.2 fork is liquidationCall (reverts error '45' HEALTH_FACTOR_NOT_BELOW_THRESHOLD from a fresh address, no ACLManager in LiquidationLogic -> not role gated), but it pays 0 now: 0 LiquidationCall events in the last 7 days and no liquidatable position (sample borrower HF 1.217).",
+  "numbers": "9 LiquidationCall events in the whole pool life (deploy block 63679510 = 2024-10-30 -> head 97456676); latest 2026-10-30 (18 days ago), 5 in a 2026-10-12..30 burst. Liquidators (all non-farm EOAs/contracts): 0xae753596529d95dec5ee39c20fad20865abc5e90 x5, 0x01f9869d4acda0f7811d514ab2d4bd51562ea7a3, 0x3aa40ed5fecd13232f60a4874eabba5d930ce8ab, 0x48141c561c7cbc57. Sample gross per call (debtToCover USDT 6dp x 10% bonus, liquidationBonus 11000 bps from data provider 0x5542ac41138f6a52a13c644f1db56bada71a4021): $36.5->$3.65, $85.68->$8.57, $176.7->$17.67, $2000->$200, $2024->$202. Gas ~500k gas x 276 gwei (eth_gasPrice, head 97456676) = 0.138 POL x $0.0808 (DefiLlama coins.llama.fi polygon:0x...1010) = $0.011/call. Event topic0 0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286 (keccak of LiquidationCall(address,address,address,uint256,uint256,address,bool) from verified source); 0 logs in blocks 96730852..97456676. TVL $21,277,078."
+}

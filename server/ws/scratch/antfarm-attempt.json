@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-antfarm-finance",
+  "outcome": "lead_recorded",
+  "reason": "unclear: Verified factory pair templates show only LP dividend claims and no caller bounty; fresh caller gets zero. Staking contract is unverified, so its full method set and seven-day payout history remain unresolved.",
+  "numbers": "Factory 0xE48AEE124F9933661d4DD3Eb265fA9e153e32CBe allPairsLength()=39 at latest on 2026-11-23 21:10 UTC. pair[0]=0x59540c3d75d70cc4cf822c7581b888390effa92a; eth_call claimDividend(dead,0) from 0x000000000000000000000000000000000000dEaD returned 0. Staking 0x6142b36B3dD1812993C2ecaa300b962A7Da0A900 eth_call claimableRewards(dead)=0; claimStakingRewards() from dead reverted NullAmount(); withdrawTotalTokenBalance(ATF) from dead reverted Ownable. Seven-day call count, gross and gas: unmeasured because staking source/ABI unavailable."
+}

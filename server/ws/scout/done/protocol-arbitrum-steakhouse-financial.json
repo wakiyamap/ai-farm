@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-steakhouse-financial",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "arbitrum",
+ "slug": "steakhouse-financial",
+ "name": "Steakhouse Financial",
+ "category": "Risk Curators",
+ "tvl_usd": 89530467,
+ "url": "https://www.steakhouse.financial/",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "ba901c1c81f941489cac956734dac9af",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Steakhouse Arbitrum = 6 standard Morpho curated vaults (USDG Pro 0xbeeFf72B77e7584a450E887125F25E8D8819016a 0.6M, HY Turbo USDC 0xBEEFFF13 totalAssets 172.4M, +4 small); only permissionless state-changing fn is accrueInterest() (role-open, eth_call from fresh addr ok) which pays the caller 0 (fee shares minted to fixed recipients, VaultV2.sol:636); 1072 AccrueInterest events last 7d across the vaults (block 522744788-525163988, eth_getLogs; sample caller 0x5afe2414f865cbc5ff4e25979996c5b1252e0002, gasUsed 256350 @0.02 gwei ~bash.016); no stranger paid -> unpaid.",
+  "kb": [
+   "attempts:1903"
+  ],
+  "run_id": "ba901c1c81f941489cac956734dac9af",
+  "at": 1794956922
+ }
+}

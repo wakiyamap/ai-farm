@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "actor-arbitrum-0x5bb9ece5e30beb69553eaee25d0598e3bf928140",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Atlas smart-wallet liquidator on Aave v3 Arbitrum: keeper EOAs submit via Atlas router 0x8ad1ae9d, the wallet repays USDC/USDT and receives WETH collateral at 4.5-5.25% bonus in the same transaction (callTracer confirms liquidationCall 0x00a718a9 into pool 0x794a6135...). A fresh funded address making the same call would be paid; the wallet itself is only the capital holder and pays no gas. Activity began 2026-11-08 (0 events since ledger coverage start 2026-10-26) - a new entrant in a market led by two bigger Atlas wallets.",
+  "numbers": "11 liquidations 2026-11-08 22:46 .. 2026-11-15 21:45 UTC (1.4/day, ledger aave_v3.liquidation, sample of 11 of 11); gross $623.43 total = $56.7/call mean, range $1.56-131.42 (LiquidationCall debtToCover/liquidatedCollateralAmount x coins.llama.fi coingecko:ethereum price at each ts); effective bonus 4.50-5.25% on $34-2918 debts; tx gas 1,294,725-1,878,180 @ 0.038-0.039 gwei = $0.09-0.13/tx at ETH $1832.24 (coins.llama.fi), paid by 6 distinct keeper EOAs (10 of 11 receipts); wallet USDC balance 0 (capital in module 0x33690097f6), ETH swept to owner 0xab6deeaf17 (0.0031 and 0.0438 ETH in two traced txs)"
+}

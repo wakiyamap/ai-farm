@@ -1,0 +1,32 @@
+{
+  "id": "alchemix_v3.position_claimed",
+  "protocol": "alchemix_v3",
+  "kind": "maturity_redemption",
+  "chains": {
+    "ethereum": [
+      "0x073598132f37756a7E665FB52f1757463120bd3C",
+      "0x2584E8b0616b3E750492c9629a3b27679C410cb9"
+    ],
+    "base": [
+      "0x5B1c7180C630d3B2b6782Df70f43aE5Ea80425ba"
+    ],
+    "arbitrum": [
+      "0x2584E8b0616b3E750492c9629a3b27679C410cb9",
+      "0x693b7594Ae0633d9c5574D0da46a040f92F5b281"
+    ],
+    "optimism": [
+      "0x2584E8b0616b3E750492c9629a3b27679C410cb9",
+      "0x693b7594Ae0633d9c5574D0da46a040f92F5b281"
+    ]
+  },
+  "event": "PositionClaimed(address,uint256,uint256)",
+  "topic0": "0xa0072561602a3dec7db4fa75e5871b06cdcf77aca29c04974c9b9db6feead157",
+  "indexed": [
+    "claimer"
+  ],
+  "data": [
+    "myt_shares_raw",
+    "synthetic_returned_raw"
+  ],
+  "actor_field": "claimer"
+}

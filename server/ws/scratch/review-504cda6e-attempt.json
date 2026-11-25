@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "aave-pricefeed-ethereum pre-capture execution review",
+  "outcome": "review_fix",
+  "bot_id": "aave-pricefeed-ethereum",
+  "reason": "Follow-up replay now confirms three historical candidates next block, but executor_sim_ok_block is null in every counted pre-capture window (26372987, 26384827, 26399074). The current receiveAToken=false route has a Pool-side 0xb629b0e4 failure at the two estimated profitable decision blocks. bot.js still falls back from EXECUTOR_ADDR to a hard-coded address; README lacks seconds per occurrence. Prove a working atomic route at a pre-capture block and remove the fallback before promotion.",
+  "numbers": "README 30-day submission table: nominal size-capped upper bound (12.50-1.16)+0.64+1.83+2.23=16.04 USD/16.1 d=0.996 USD/day; replay_scheduler at 19:18-19:20Z has 0 executable captures, so current route EV=0. The two estimated decision-block nets are 0.703+0.822=1.525 USD/16.1 d=0.095 USD/day. Estimated live reads 0.482-0.914M CU/day = 0.26-0.48 USD/day."
+}

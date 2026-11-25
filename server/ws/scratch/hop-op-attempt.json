@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-hop-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Hop v1 L2 bridges on Optimism (8 token bridges + CCTP, addresses from hop-protocol/hop SDK mainnet.ts) pay the caller only the bonderFee inside bondWithdrawal/bondWithdrawalAndDistribute, both onlyBonder (eth_call from fresh address reverts 'ACT: Caller is not bonder'; addBonder onlyGovernance). Permissionless withdraw/settleBondedWithdrawal(s)/commitTransfers pay the user or credit the bonder, never the caller. Protocol is also near-dormant on Optimism: 0 bridge events in the last 7 days (control 17,342 USDC.e Transfers), 0 WithdrawalBonded in 30 days, last L2->L1 send was a user's own 2026-11-11 tx.",
+  "numbers": "7d events (blocks 159,477,393-159,779,793, 2026-11-13..11-20, all 6 bridge event types x 9 contracts) = 0 each; 30d WithdrawalBonded 0, Withdrew 16 (last 2026-10-25), TransferFromL1Completed 3 (last 2026-11-09); single 9.8d-window TransferSent tx 0x4655a06db511e09b20560460b08566ac6d992819965c135549cfe9bbaa62346d gasUsed 121,579 @ 0.000106268 gwei = 0.00002 USD (ETH 1744.95 coins.llama.fi 2026-11-20 07:10Z); USDC.e bridge minBonderBps 0, minBonderFeeAbsolute 0, pendingAmountForChainId(1) 0; TVL 265,615 USD (api.llama.fi 2026-11-20)"
+}

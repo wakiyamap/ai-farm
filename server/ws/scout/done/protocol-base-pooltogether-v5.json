@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-pooltogether-v5",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1117,
+ "chain": "base",
+ "slug": "pooltogether-v5",
+ "name": "PoolTogether V5",
+ "category": "Yield Lottery",
+ "tvl_usd": 247112,
+ "url": "https://pooltogether.com/",
+ "github": null,
+ "listed_days_ago": 1117,
+ "run_id": "bc29c509d75947918582849fede3a9cc",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PrizePool 0x45b2010d...3732cb isShutdown()=true since 2026-11-03; only open pay-the-caller fn is Claimer.claimPrizes (0xcdce635b/0x5ffeee76, no role - eth_call from fresh addr OK, VRGDA fee up to 1% of prize to any recipient): 0 ClaimedPrize in last 7d (61x50k getLogs chunks 56,168,685-59,192,685, control: same pool shape returns 5 ContributePrizeTokens in newest chunk; same query shape returned logs on WETH), Claimers last tx 2026-09-04 (callers 0x4cf84c..60, 0x9ae7b8..41 relayers), gas ~0.003 USD/300k (0.006 gwei, ETH 1760.12 coins.llama.fi).",
+  "kb": [
+   "attempts:2234",
+   "protocols:795"
+  ],
+  "run_id": "bc29c509d75947918582849fede3a9cc",
+  "at": 1795030092
+ }
+}

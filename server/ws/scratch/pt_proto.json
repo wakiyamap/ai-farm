@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "papertrade",
+  "status": "dead_end",
+  "checked": "Exchange proxy 0x6cd5661646289fb6e65ea5c032310fded797d0a2 (verified KFCBundler proxy on Etherscan via explorer tool; implementation 0x0a44049dbbb6b4762a6ba37aa0f7548c0b4a3723 not source-verified, 102 dispatcher selectors extracted from bytecode, 24KB). Docs docs.papertrade.xyz contract-addresses/architecture/liquidations/deposits + unofficial SDK nirholas/papertrade-sdk docs/PROTOCOL.md. Opens/closes go only through BatchExecutor 0x233ff29b239abc1d7748605da9b205c3e008626e (relayer keys only). Public maintenance paths on Exchange: liquidateBatch(uint256[]) 0x599dc539, requestSweep(address) 0xe0189108, finalizeSweep(address) 0x6d142da1 - eth_call liquidateBatch([]) from fresh address 0x...0042 returns 0 (no role revert). PaperStaking 0xaad6c7b0cc3014fc80ffedae0ed7ce5967b0f016 claim is by the user; paperDistribute is relayer-keeper only (docs). No liquidator/caller reward: 2% liquidation fee splits half stakers / half dev fee recipient (docs learn/liquidations, learn/staking-dividends); receipt of liq tx 0x3b0ca17139d732de6496e5b00c1320d66db8e45d1a04a773cabee6c6af0bed3a shows only PAPER mint to liquidated trader + Exchange accounting events, nothing to caller."
+}

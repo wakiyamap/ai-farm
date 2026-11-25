@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-stargate-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1703,
+ "chain": "ethereum",
+ "slug": "stargate-v1",
+ "name": "Stargate V1",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 1782928,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 1703,
+ "run_id": "dabb6be9fdad4067afe260425b8fcb58",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: router 0x8731d54E...1e98 runtime code byte-identical to audited Arbitrum router (protocols:1005) - the 8 anyone-can-call fns (swap/redeemRemote/redeemLocal/instantRedeemLocal/sendCredits/retryRevert/clearCachedSwap/callDelta) pay the user/_to their own funds, $0 to caller; 0 router events in 7d (blocks 26415525-26465780 = 2026-11-14..11-21 by timestamp; same-shape 35d control returns 39 logs, last event 2026-10-31), so no stranger was paid; 13 pools verified via factory 0x06d5...173e; fee withdraws role-gated; TVL 1.72M USD.",
+  "kb": [
+   "attempts:3457",
+   "protocols:1742"
+  ],
+  "run_id": "dabb6be9fdad4067afe260425b8fcb58",
+  "at": 1795292199
+ }
+}

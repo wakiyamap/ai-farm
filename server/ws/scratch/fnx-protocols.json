@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "finnexus",
+ "status": "dead_end",
+ "checked": "FinNexus Options (Phoenix Finance, 2020-21). No DefiLlama adapter in DefiLlama-Adapters tree (main, 2026-11-22); addresses from Phoenix-Finance/FinNexusOptionSubgraph subgraph.yaml. 3 pools + 3 managers on ethereum, all verified: OptionsPool proxies 0xed54fb841a62a69d4935303706d1dad7dc87b360 (FNX), 0x940c33cF45Ec52aA3e8d9E58af01437131e2FA1e (FRAX), 0xe12a03aea96dc56fb8007ec54fcfbdd61965d925 (USDC); OptionManagerV2 proxies 0xfdf252995da6d6c54c03fc993e7aa6b593a57b8d, 0xa2904fd151c9d9d634dfa8ecd856e6b9517f9785, 0x120f18f5b8edcaa3c083f9464c57c11d81a9e549 (impl 0x6bc5d80d534e214ab23d698849164be95c09b05d, verified source on Etherscan). Collateral pools 0x919a35a4f40c479b3319e3c3a2484893c06fd7de (7.27M FNX 18dec), 0x6f88e8fbf5311ab47527f4fb5ec10078ec30ab10 (169,328 FRAX 18dec), 0xff60d81287bf425f7b2838a61274e926440ddaa6 (4,713 USDC + 8,000 USDT, read 2026-11-22). Functions buyOption/exerciseOption/redeemCollateral/addCollateral have no role gate (only nonReentrant/notHalted/InRange); sellOption is require(false). Payments are the user's own redemption (holder receives settlement), no keeper/reward bounty exists; last txs 2021 (pools) / Jul-Aug 2024 (managers, redeemCollateral + one FAILED exercise)."
+}

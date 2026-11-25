@@ -1,0 +1,6 @@
+{
+ "chain": "avalanche",
+ "protocol": "complus_network",
+ "status": "dead_end",
+ "checked": "Uni v2 fork + MasterChef. Addresses from protocol GitHub READMEs (complusnetwork/complus-v2-core-ava, complus-master-ava; org last pushed 2021) and cross-checked on-chain: factory 0x5C02e78A3969D0E64aa2CFA765ACc1d671914aC0 (feeTo()=0x9309eC83...Maestro answers), router 0x78c18E6BE20df11f1f41b9635F3A18B8AD82dDD1, COM token 0x3711c397B6c8F7173391361e27e67d72F252cAad, SudoSu MasterChef 0xa329D806fbC80a14415588334ae4b205813C6BB2 (routescan getsourcecode status 1, matches repo SudoSu.sol), XCom 0xa238B49BFc48E47533CF7b5488f8C9dA0EFbc843, Maestro 0x9309eC8333a65C58B319F4405E199463A2e5c91A. All six eth_getCode non-0x via relay. SudoSu getters answer: poolLength=20, comPerBlock=0.011 COM (18 dec), startBlock=203619, bonusEndBlock=232419 (2021). No keeper/bounty mechanism in the repo: SudoSu updatePool/massUpdatePools pay caller 0 (mint COM to contract/dev); deposit/withdraw pay only the staking caller; Maestro.convert pays hardcoded xcom recipient; XCom enter/leave pay only token holders. DefiLlama adapter is registries/uniswapV2.js (generic), no project adapter (404)."
+}

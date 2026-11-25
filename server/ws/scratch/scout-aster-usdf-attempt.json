@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-aster-usdf",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only reward-dispensing keeper function is dispatchReward(uint256) on the asUSDF staking proxy 0xdB57a53C428a9faFcbFefFB6dd80d0f427543695 (impl 0x29f30635...1662f); eth_call from a fresh address reverts AccessControlUnauthorizedAccount(REWARD_ROLE) and the sole role member is the protocol router 0x56f966fd...5d02. All observed dispatch calls (3 sampled txs) come from one keeper EOA 0xb4aacda6...d8ae which PUSHES yield USDF into the pool and receives no token transfer in return - the keeper pays gas for free. USDF mint/redeem itself is custodial (BOT_ROLE mint, USDT to Ceffu); no stranger-payable reward/bounty function exists.",
+  "numbers": "dispatchReward count ~100 in 7 days (4 hits in 10x5000-block random windows of 1.31M blocks, eth_getLogs topic0 0x788448e32ff4408de40ea93cdb828754d4033100f53ea9b8a04fb45f5cdfca03 on 0xdb57...3695, ~14/day); last dispatch 2026-11-18 04:22 UTC tx 0xf55950985bc96f32c7a8cc6e3566aebbda5aacb55ca5a18685b39c317b2a6896 moved 180.95 USDF into pool, other samples 0.744/0.707 USDF; caller paid 0 USDF (0 of 3 txs contain a Transfer to caller); gas 83,817 gas x 0.05 gwei = 4.19e-6 BNB = $0.0025 (BNB $592.39, coins.llama.fi); TVL 111.7M USD (api.llama.fi)"
+}

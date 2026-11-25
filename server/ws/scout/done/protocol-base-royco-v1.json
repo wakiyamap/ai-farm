@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-royco-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 741,
+ "chain": "base",
+ "slug": "royco-v1",
+ "name": "Royco V1",
+ "category": "Yield",
+ "tvl_usd": 44777,
+ "url": "https://www.royco.org",
+ "github": null,
+ "listed_days_ago": 741,
+ "run_id": "797f2435b7f04742b22fb5f36582abf7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Royco V1 base (RecipeMarketHub 0x783251f103555068c1e9d755f69458f39ed937c0 + 17 WrappedVaults): 0 logs in 7d (blocks 57,906,587-60,930,588) on hub, all 17 vaults, VaultMarketHub, PointsFactory, vault factory (control USDC 40,641 logs/5k blocks); claim(to)/claimFees(to) stranger-callable but pay the recipient arg and rewards(0) reverts on all 4 funded vaults = empty pot; executeWithdrawalScript reverts NotOwner() for a stranger; gross/call 7d 0 USD vs gas 0.001 USD/100k (0.006 gwei, ETH 1712.75); hub last event block 48,018,296 (2026-06-30, 145d); 27.82 WETH (47,655 USD) idle.",
+  "kb": [
+   "attempts:3834"
+  ],
+  "run_id": "797f2435b7f04742b22fb5f36582abf7",
+  "at": 1795377602
+ }
+}

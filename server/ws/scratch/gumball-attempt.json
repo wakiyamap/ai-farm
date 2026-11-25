@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-gumball-protocol",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers: GBT.treasurySkim() is callable by anyone (no role gate; eth_call from fresh addr succeeds) and pays msg.sender 0.1% of the accumulated WETH fee pot. GBT22 0x9e133b...fc76e9 pot = 48.0658 WETH, so one call pays the caller $85.1 gross vs $0.008 gas. A stranger was also paid in 7d via XGBT.getReward() ($0.28 gross vs $0.004 gas, tx 0x1f4b04...7587, 2026-11-18). Caveat: 0 skims in 7d (last 2026-07-27) and the pot is one-shot - the pool is dead (2 Sell events in 7d across all 8 allowed GBTs), refill negligible; other 7 pots ~0.003 WETH total.",
+  "numbers": "pot GBT22 48.0658 WETH; reward/call 0.048066 WETH = $85.1 (ETH $1769.75 coins.llama.fi 2026-11-19); skim gas 233,958 @ 0.02 gwei = $0.008 (tx 0xeff42de1f713e528dfc0baa653ffe6636d7befa466a3880444d5fafc2fd5025e); Skim events 7d = 0 on 8 allowed GBTs, 123 all-time (eth_getLogs topic0 0x7460d2216ad827491779b20c9921030f955ee2e6f588f0b64b75c4cd031096bf); getReward 7d = 1 claim $0.28 gross, 30d = 15 claims 0.039 WETH $69 (RewardPaid topic0 0x540798df...); Buy/Sell 7d = 2; factory 0xf5cfBaF55036264B902D9ae55A114d9A22c42750 totalDeployed()=33, 8 allowed"
+}

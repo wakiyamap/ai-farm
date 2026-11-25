@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-axelar",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1482,
+ "chain": "ethereum",
+ "slug": "axelar",
+ "name": "Axelar",
+ "category": "Bridge",
+ "tvl_usd": 108004730,
+ "url": "https://axelar.network",
+ "github": null,
+ "listed_days_ago": 1482,
+ "run_id": "288fbee699664368890f4eb8e36a1dec",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: AxelarGateway 0x4F4495243837681061C4743b74B3eEdf548D56A5 execute(bytes) is open to anyone (eth_call of a real input from a stranger succeeds) but pays the caller 0 - 930 Executed events / 778 txs in 7d (blocks 26414423-26464660, 2026-11-14 to 11-21), sample of 11: all 5 callers repeat processor EOAs, 0/11 receipts had a transfer to caller, avg gas 0.000133 ETH = $0.22/call (ETH $1679.87 coins.llama.fi); the only pot, AxelarGasService 0x2d5d7d31F671F86C782533cc367F14109a082712, holds 0.065 ETH (~$110) but collectFees from a stranger reverts NotCollector",
+  "kb": [
+   "attempts:3392",
+   "protocols:1697"
+  ],
+  "run_id": "288fbee699664368890f4eb8e36a1dec",
+  "at": 1795279262
+ }
+}

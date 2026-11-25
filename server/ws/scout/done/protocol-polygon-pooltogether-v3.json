@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-pooltogether-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "pooltogether-v3",
+ "name": "PoolTogether V3",
+ "category": "Yield Lottery",
+ "tvl_usd": 60665,
+ "url": "https://pooltogether.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "22f23e16a1ed4d85a3be3a335a0f856e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "2 live V3 pools hold 60,753 USD (54,463 USDC.e + 6,290 USDC via accountedBalance); open fns startAward/completeAward/cancelAward are stranger-callable (startAward passes from fresh addr, eth_estimateGas 335,537 units = 0.007 USD at 277.8 gwei / POL 0.0777) but pay the caller 0 - prize goes to ticket holders; 0 strategy events and 0 Awarded pool events in 60d, tokenListener/faucet forwarders 0 events in 7d; 7d window blocks 97432368-97835469: 9 txs, all user withdrawals, 0 deposits.",
+  "kb": [
+   "attempts:4187",
+   "protocols:2305"
+  ],
+  "run_id": "22f23e16a1ed4d85a3be3a335a0f856e",
+  "at": 1795459384
+ }
+}

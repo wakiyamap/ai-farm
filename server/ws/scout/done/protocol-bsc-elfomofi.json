@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-elfomofi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "elfomofi",
+ "name": "ElfomoFi",
+ "category": "Dexs",
+ "tvl_usd": 534736,
+ "url": "https://elfomo.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "53059ea0a6c6467585ca1b5a7637edf9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "bsc VaultsManager 0xe34c..6106 = verified base source (bytecode diff: constants only, refToken=BSC USDT 18dec); only stranger-callable fn claim(uint256) pays request.user, never the caller (source L120-131); nextRequestId()=1 => 0 requests ever, claim(0) reverts RequestNotFilled; 7d scan (blk 133.28M-134.62M, 269x5000-blk chunks, 0 errors) found 1 manager event total (weekly syncFees tx 0x76f160ca.. from EOA 0x0cbe43d9.. via vault proxy 0xa7a2ba99..), 0 claims/deposits; gross to stranger $0, gas ~50k x 0.05 gwei = ~$0.0015 (BNB $574 llama); TVL 535,170 USD (llama 2026-11-20)",
+  "kb": [
+   "attempts:2750",
+   "protocols:1188"
+  ],
+  "run_id": "53059ea0a6c6467585ca1b5a7637edf9",
+  "at": 1795145878
+ }
+}

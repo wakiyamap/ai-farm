@@ -1,0 +1,651 @@
+#!/usr/bin/env python3
+"""JSON-RPC relay for the farm.
+
+  POST http://127.0.0.1:8545/<chain>?lane=<live|paper|research>
+
+- Routes to Alchemy while the lane's daily compute-unit budget lasts, then to
+  public endpoints. The live lane is always tried on Alchemy first.
+  eth_sendRawTransaction is sent to Alchemy only, never to a public node.
+- Caches read-only results per block, so parallel earners asking the same
+  question cost one upstream call.
+- Refuses anything that is not a plain read: sending transactions is the
+  gate's job, not the relay's.
+- Writes per-provider statistics to ops.db for the researcher and dashboard.
+
+Standard library only. Config: /etc/farm/relay.json; key: /etc/farm/alchemy.key.
+"""
+import collections
+import datetime as dt
+import http.server
+import json
+import os
+import socketserver
+import sqlite3
+import sys
+import threading
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+
+CONFIG_PATH = "/etc/farm/relay.json"
+KEY_PATH = "/etc/farm/alchemy.key"
+DB_PATH = "/var/lib/farm/ops.db"
+
+LANES = ("live", "paper", "research", "fork", "scout", "watch")     # fork, scout: 15c; watch: 15e
+MAPPED_ONLY = ("fork", "scout")     # given by relay.json lane_by_user, never by asking (15c)
+
+
+def peer_user(client, server_port, paths=("/proc/net/tcp", "/proc/net/tcp6")):
+    """Unix user name of the process at the other end of a loopback TCP connection, or None.
+    The client's own socket row has local port = its port and remote port = ours (15c)."""
+    import pwd
+    try:
+        cport = int(client[1])
+    except (TypeError, ValueError, IndexError):
+        return None
+    for path in paths:
+        try:
+            with open(path, encoding="ascii", errors="replace") as f:
+                next(f, None)
+                for line in f:
+                    p = line.split()
+                    if len(p) < 8:
+                        continue
+                    try:
+                        lport = int(p[1].rsplit(":", 1)[1], 16)
+                        rport = int(p[2].rsplit(":", 1)[1], 16)
+                    except (IndexError, ValueError):
+                        continue
+                    if lport == cport and rport == server_port:
+                        try:
+                            return pwd.getpwuid(int(p[7])).pw_name
+                        except (KeyError, ValueError):
+                            return None
+        except OSError:
+            continue
+    return None
+
+
+def mapped_lane(user, asked, lane_by_user):
+    """The lane a request uses (15c): the user's lane from lane_by_user if it has one, else what it
+    asked for - except fork and scout, which only lane_by_user hands out (else research)."""
+    m = lane_by_user.get(user) if user else None
+    if m in LANES:
+        return m
+    return "research" if asked in MAPPED_ONLY else asked
+
+
+def cycle_from_db(db, allowance, cycle_day=1, now=None):
+    """This Alchemy billing cycle as the relay counted it (rpc_stats), like farm-dash (15c)."""
+    import sqlite3 as _sq
+    now = now or dt.datetime.now(dt.timezone.utc)
+    day = max(1, min(int(cycle_day), 28))
+    y, m = now.year, now.month
+    if now.day < day:
+        y, m = (y, m - 1) if m > 1 else (y - 1, 12)
+    ny, nm = (y, m + 1) if m < 12 else (y + 1, 1)
+    start = dt.datetime(y, m, day, tzinfo=dt.timezone.utc)
+    end = dt.datetime(ny, nm, day, tzinfo=dt.timezone.utc)
+    try:
+        con = _sq.connect(f"file:{db}?mode=ro", uri=True, timeout=5)
+        try:
+            rows = con.execute("SELECT lane, sum(cu), min(day) FROM rpc_stats WHERE provider='alchemy' AND day>=? "
+                               "GROUP BY 1", (start.strftime("%Y-%m-%d"),)).fetchall()
+        finally:
+            con.close()
+    except _sq.Error as exc:
+        return {"error": str(exc)}
+    lanes = {r[0]: int(r[1] or 0) for r in rows}
+    total = sum(lanes.values())
+    since = start
+    firsts = [r[2] for r in rows if r[2]]
+    if firsts:
+        try:
+            since = max(start, dt.datetime.strptime(min(firsts), "%Y-%m-%d").replace(tzinfo=dt.timezone.utc))
+        except ValueError:
+            pass
+    days = (now - since).total_seconds() / 86400
+    proj = round(total + total / days * (end - now).total_seconds() / 86400) if total and days >= 0.5 else None
+    # 15e: the cycle average lags a jump in use; project from the recent pace too (today so far,
+    # scaled to a day once 2 h have passed, or yesterday, whichever is higher)
+    pace = None
+    try:
+        con = _sq.connect(f"file:{db}?mode=ro", uri=True, timeout=5)
+        try:
+            per_day = dict(con.execute("SELECT day, sum(cu) FROM rpc_stats WHERE provider='alchemy' AND day>=? GROUP BY 1",
+                                       ((now - dt.timedelta(days=1)).strftime("%Y-%m-%d"),)).fetchall())
+        finally:
+            con.close()
+        elapsed = (now - now.replace(hour=0, minute=0, second=0, microsecond=0)).total_seconds() / 86400
+        rates = []
+        if elapsed >= 2 / 24 and per_day.get(now.strftime("%Y-%m-%d")):
+            rates.append(per_day[now.strftime("%Y-%m-%d")] / elapsed)
+        if per_day.get((now - dt.timedelta(days=1)).strftime("%Y-%m-%d")):
+            rates.append(per_day[(now - dt.timedelta(days=1)).strftime("%Y-%m-%d")])
+        pace = max(rates) if rates else None
+    except _sq.Error:
+        pass
+    proj_recent = round(total + pace * (end - now).total_seconds() / 86400) if pace else None
+    worst = max([p for p in (proj, proj_recent) if p] or [0]) or None
+    share = round(worst / allowance, 3) if worst and allowance else None
+    return {"since": since.strftime("%Y-%m-%d"), "ends": end.strftime("%Y-%m-%d"), "cu": total, "lanes": lanes,
+            "allowance": allowance, "projected_cu": proj, "pace_cu_per_day": round(pace) if pace else None,
+            "projected_cu_recent": proj_recent, "projected_share": share,
+            "alert_85": bool(share and share > 0.85)}
+
+# Alchemy compute units per method (docs.alchemy.com/reference/compute-unit-costs).
+# Unknown methods are charged DEFAULT_CU; the daily total is reconciled against
+# the Alchemy dashboard by the human, not by the relay.
+CU = {
+    "eth_blockNumber": 10, "eth_chainId": 0, "eth_gasPrice": 10, "eth_maxPriorityFeePerGas": 10,
+    "eth_feeHistory": 10, "eth_call": 26, "eth_estimateGas": 20, "eth_getBalance": 20,
+    "eth_getCode": 20, "eth_getStorageAt": 20, "eth_getTransactionCount": 20,
+    "eth_getBlockByNumber": 20, "eth_getBlockByHash": 20, "eth_getBlockReceipts": 20,
+    "eth_getTransactionByHash": 20, "eth_getTransactionReceipt": 20, "eth_getLogs": 60,
+    "debug_traceTransaction": 40, "trace_block": 20, "trace_transaction": 20,
+    "alchemy_getAssetTransfers": 120,
+}
+DEFAULT_CU = 30
+
+# Only read methods pass. Anything that signs, sends, or touches node state is refused.
+SEND_METHODS = {"eth_sendRawTransaction"}
+ALLOWED_METHODS = set(CU) | {"eth_getBlockTransactionCountByNumber", "eth_getTransactionByBlockNumberAndIndex",
+                             "net_version", "web3_clientVersion", "eth_syncing", "alchemy_getTokenBalances",
+                             "alchemy_getTokenMetadata", "debug_traceCall", "trace_call", "eth_simulateV1"}
+
+# Results that are immutable once the block is final, cached by (chain, method, params, block)
+CACHE_TTL = {
+    "eth_getBlockByNumber": 600, "eth_getBlockByHash": 3600, "eth_getTransactionByHash": 3600,
+    "eth_getTransactionReceipt": 3600, "eth_getBlockReceipts": 3600, "eth_getLogs": 120,
+    "eth_getCode": 3600, "eth_call": 3, "eth_getBalance": 3, "eth_getStorageAt": 3,
+    "eth_chainId": 86400, "eth_blockNumber": 1, "eth_gasPrice": 2, "trace_block": 3600,
+    "debug_traceTransaction": 3600, "trace_transaction": 3600,
+}
+# Block tags that move with the chain: a result keyed on them is only valid for about a block.
+MOVING_TAGS = {"latest", "pending", "safe", "finalized"}
+MOVING_TTL = 1
+
+
+def moving_ttl(method, params, ttl):
+    """Cap the TTL when the request names a moving block tag (or omits the block, which means latest)."""
+    if not ttl:
+        return ttl
+    def has_tag(x):
+        if isinstance(x, str):
+            return x in MOVING_TAGS
+        if isinstance(x, dict):
+            return any(has_tag(v) for v in x.values())
+        if isinstance(x, list):
+            return any(has_tag(v) for v in x)
+        return False
+    if has_tag(params):
+        return min(ttl, MOVING_TTL)
+    if method == "eth_getLogs" and params and isinstance(params[0], dict) and "blockHash" not in params[0] \
+            and "toBlock" not in params[0]:
+        return min(ttl, MOVING_TTL)                       # no toBlock = up to latest
+    if method in ("eth_getCode", "eth_getBalance", "eth_getStorageAt", "eth_call") and len(params) < (
+            3 if method == "eth_getStorageAt" else 2):
+        return min(ttl, MOVING_TTL)                       # block omitted = latest
+    return ttl
+
+
+# Results a public node returns when it lacks the state or the receipt (pruned, lagging or broken
+# node) and that look identical to a real "no code / void / unknown tx". On a public provider they
+# are verified with the next provider before being trusted, and they are never cached.
+SUSPECT_EMPTY = {"eth_getCode": ("0x",), "eth_call": ("0x",),
+                 "eth_getTransactionReceipt": (None,), "eth_getBlockReceipts": (None, [])}
+
+
+def suspect_empty(method, body):
+    return method in SUSPECT_EMPTY and "error" not in body and body.get("result") in SUSPECT_EMPTY[method]
+
+
+def is_revert(err):
+    msg = str(err.get("message", "")).lower()
+    return err.get("code") == 3 or "revert" in msg
+
+
+MAX_BODY = 1 << 20
+MAX_RESPONSE = 32 << 20     # upstream reply we are willing to buffer and relay
+
+
+def utc_day():
+    return dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+
+
+class Stats:
+    """Per-day counters, flushed to ops.db every 30 s."""
+
+    def __init__(self):
+        self.lock = threading.Lock()
+        self.counts = collections.Counter()   # (day, chain, lane, provider, outcome) -> n
+        self.cu = collections.Counter()       # (day, chain, lane, provider) -> cu
+        self.latency = collections.Counter()  # (day, chain, lane, provider) -> ms total
+        self.cache_hits = collections.Counter()
+
+    def record(self, chain, lane, provider, outcome, cu, ms):
+        with self.lock:
+            key = (utc_day(), chain, lane, provider)
+            self.counts[key + (outcome,)] += 1
+            self.cu[key] += cu
+            self.latency[key] += ms
+
+    def alchemy_cu_today(self, lane):
+        day = utc_day()
+        with self.lock:
+            return sum(v for (d, _c, l, p), v in self.cu.items() if d == day and l == lane and p == "alchemy")
+
+    def flush(self):
+        with self.lock:
+            counts, cu, lat, hits = dict(self.counts), dict(self.cu), dict(self.latency), dict(self.cache_hits)
+        con = sqlite3.connect(DB_PATH, timeout=10)
+        try:
+            con.executescript("""
+            CREATE TABLE IF NOT EXISTS rpc_stats (
+              day TEXT, chain TEXT, lane TEXT, provider TEXT,
+              ok INTEGER DEFAULT 0, failed INTEGER DEFAULT 0, refused INTEGER DEFAULT 0,
+              cu INTEGER DEFAULT 0, latency_ms INTEGER DEFAULT 0, cache_hits INTEGER DEFAULT 0,
+              PRIMARY KEY (day, chain, lane, provider)
+            );""")
+            keys = set(cu) | {k[:4] for k in counts} | set(hits)
+            with con:
+                for key in keys:
+                    con.execute(
+                        "INSERT OR REPLACE INTO rpc_stats VALUES (?,?,?,?,?,?,?,?,?,?)",
+                        (*key, counts.get(key + ("ok",), 0), counts.get(key + ("failed",), 0),
+                         counts.get(key + ("refused",), 0), cu.get(key, 0), lat.get(key, 0), hits.get(key, 0)))
+        finally:
+            con.close()
+
+    def load_today(self):
+        """Restore today's Alchemy spend after a restart so the budget survives."""
+        try:
+            con = sqlite3.connect(f"file:{DB_PATH}?mode=ro", uri=True, timeout=10)
+        except sqlite3.Error:
+            return
+        try:
+            rows = con.execute("SELECT day, chain, lane, provider, ok, failed, refused, cu, latency_ms, cache_hits "
+                               "FROM rpc_stats WHERE day=?", (utc_day(),)).fetchall()
+        except sqlite3.Error:
+            rows = []
+        finally:
+            con.close()
+        with self.lock:
+            for day, chain, lane, prov, ok, failed, refused, cu, lat, hits in rows:
+                key = (day, chain, lane, prov)
+                self.counts[key + ("ok",)] += ok
+                self.counts[key + ("failed",)] += failed
+                self.counts[key + ("refused",)] += refused
+                self.cu[key] += cu
+                self.latency[key] += lat
+                self.cache_hits[key] += hits
+
+
+class Cache:
+    def __init__(self):
+        self.lock = threading.Lock()
+        self.data = {}
+
+    def get(self, key):
+        with self.lock:
+            item = self.data.get(key)
+            if item and item[0] > time.monotonic():
+                return item[1]
+            self.data.pop(key, None)
+            return None
+
+    def put(self, key, value, ttl):
+        with self.lock:
+            if len(self.data) > 50000:
+                now = time.monotonic()
+                self.data = {k: v for k, v in self.data.items() if v[0] > now}
+            self.data[key] = (time.monotonic() + ttl, value)
+
+
+class Relay:
+    def __init__(self, config, alchemy_key):
+        self.chains = config["chains"]                  # name -> {"alchemy": slug, "public": [urls]}
+        self.budget = config["alchemy_daily_cu"]        # lane -> cu/day
+        self.lane_by_user = config.get("lane_by_user") or {}                  # unix user -> lane (15c)
+        self.monthly_cu = int(config.get("alchemy_monthly_cu", 95_200_000))   # 15c
+        self.cycle_day = int(config.get("alchemy_cycle_day", 1))
+        self._cycle = None
+        self.timeout = config.get("timeout_s", 15)
+        self.key = alchemy_key
+        self.private_send = config.get("private_send") or {}   # chain -> url (12b)
+        self.stats = Stats()
+        self.stats.load_today()
+        self.cache = Cache()
+        self.cooldown = {}                              # url -> monotonic time until retry
+        self._heads = {}                                # chain -> (block, monotonic)
+
+    HISTORY_DEPTH = 800     # public nodes keep roughly the last ~1000 blocks of state
+
+    def head_block(self, chain):
+        """Recent head per chain, refreshed at most every 30 s (cheap: cached eth_blockNumber)."""
+        h = self._heads.get(chain)
+        if h and time.monotonic() - h[1] < 30:
+            return h[0]
+        try:
+            r = self.call(chain, "research", "eth_blockNumber", [], 0)
+            n = int(r["result"], 16)
+        except Exception:
+            return h[0] if h else None
+        self._heads[chain] = (n, time.monotonic())
+        return n
+
+    def is_historical(self, chain, method, params):
+        """A read pinned to a block older than what public nodes can serve."""
+        # Only STATE reads need an archive node; blocks, receipts and logs are served from history by anyone.
+        tags = []
+        if method in ("eth_call", "eth_getBalance", "eth_getCode", "eth_getStorageAt", "eth_getTransactionCount",
+                      "eth_estimateGas"):
+            tags = [x for x in params if isinstance(x, str) and x.startswith("0x") and len(x) <= 18]
+        elif method in ("debug_traceCall",) and len(params) >= 2 and isinstance(params[1], str) and params[1].startswith("0x"):
+            tags = [params[1]]
+        if not tags:
+            return False
+        head = self.head_block(chain)
+        if head is None:
+            return False
+        try:
+            return min(int(t, 16) for t in tags) < head - self.HISTORY_DEPTH
+        except ValueError:
+            return False
+
+    def providers(self, chain, lane, method="", params=None, route=None):
+        """Ordered list of (name, url) to try."""
+        spec = self.chains[chain]
+        public = [("public", u) for u in spec.get("public", [])]
+        alchemy = [("alchemy", f"https://{spec['alchemy']}.g.alchemy.com/v2/{self.key}")] if self.key else []
+        spent = self.stats.alchemy_cu_today(lane)
+        if method in SEND_METHODS:
+            if route == "private":
+                # 12b: the private route and nothing else. No fallback: a transaction meant to
+                # stay out of the public mempool is dropped, never published, when this fails.
+                url = self.private_send.get(chain)
+                return [("private", url)] if url else []
+            # Public sends go to Alchemy only (no reason to show calldata to a public node
+            # anywhere). No Alchemy = no broadcast.
+            return alchemy
+        if lane == "fork" and alchemy:
+            # 15i: the fork lane reads through Alchemy only, whatever the block and with no daily cap
+            # (decision 2026-11-20). Public nodes cannot serve a fork (arbitrum: 403 on any non-latest
+            # block; bsc: recent state only), and is_historical() missed anvil's reads, so 15h fell
+            # through to public nodes. Alchemy is the only provider, so the 15h cooldown exception
+            # and the 429 rewrite apply to every fork read.
+            return alchemy
+        if method.startswith(("debug_", "trace_", "alchemy_")) or method == "eth_simulateV1":
+            # public nodes don't serve these; always try Alchemy first (still within budget accounting)
+            return alchemy + public
+        if lane == "live":
+            return alchemy + public
+        if params is not None and alchemy and self.is_historical(chain, method, params):
+            # archive state: public nodes answer with missing trie node / stale zeros
+            return alchemy + public
+        if spent < self.budget.get(lane, 0):
+            return public + alchemy          # paper and research: public first, Alchemy as fallback
+        return public
+
+    def cycle(self):
+        """cycle_from_db, cached for 2 minutes (15c)."""
+        if self._cycle and time.monotonic() - self._cycle[0] < 120:
+            return self._cycle[1]
+        v = cycle_from_db(DB_PATH, self.monthly_cu, self.cycle_day)
+        self._cycle = (time.monotonic(), v)
+        return v
+
+    def call(self, chain, lane, method, params, req_id, allow_send=False, route=None):
+        if method in SEND_METHODS and allow_send:
+            if route not in (None, "private"):
+                return {"jsonrpc": "2.0", "id": req_id,
+                        "error": {"code": -32602, "message": f"unknown send route {route!r}; nothing was sent"}}
+            if route == "private" and not self.private_send.get(chain):
+                self.stats.record(chain, lane, "private", "refused", 0, 0)
+                return {"jsonrpc": "2.0", "id": req_id,
+                        "error": {"code": -32000,
+                                  "message": f"no private send route for {chain}; nothing was sent"}}
+        elif method not in ALLOWED_METHODS:
+            self.stats.record(chain, lane, "none", "refused", 0, 0)
+            return {"jsonrpc": "2.0", "id": req_id,
+                    "error": {"code": -32601, "message": f"{method} is not allowed through the relay"}}
+        cu = CU.get(method, DEFAULT_CU)
+        ttl = moving_ttl(method, params, CACHE_TTL.get(method))   # "latest" was cached for up to 600 s
+        ckey = (chain, method, json.dumps(params, sort_keys=True, separators=(",", ":"))) if ttl else None
+        if ckey:
+            hit = self.cache.get(ckey)
+            if hit is not None:
+                self.stats.cache_hits[(utc_day(), chain, lane, "cache")] += 1
+                return {"jsonrpc": "2.0", "id": req_id, "result": hit}
+
+        payload = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
+        last_error = "no provider available"
+        limited = False                               # 15h: a provider answered with a rate limit
+        provs = self.providers(chain, lane, method, params, route)
+        fallback, suspects = None, []                 # unverified empty answer and who gave it
+        for i, (name, url) in enumerate(provs):
+            more = i + 1 < len(provs)
+            if self.cooldown.get(url, 0) > time.monotonic() and not (
+                    method in SEND_METHODS or (lane == "fork" and name == "alchemy" and not more)):
+                continue                              # 15h: sends and a fork's last provider: try anyway
+            t0 = time.monotonic()
+            try:
+                # Public nodes behind Cloudflare return 403 to the default Python-urllib agent.
+                req = urllib.request.Request(url, data=payload, headers={
+                    "Content-Type": "application/json", "Accept": "application/json",
+                    "User-Agent": "farm-rpc-relay/1.0"})
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    raw = resp.read(MAX_RESPONSE + 1)
+                if len(raw) > MAX_RESPONSE:
+                    # Too big to relay (e.g. eth_getLogs over a wide range). Every provider would
+                    # answer the same, so tell the caller to narrow the request and leave the
+                    # provider's health alone.
+                    self.stats.record(chain, lane, name, "refused", cu if name == "alchemy" else 0,
+                                      int((time.monotonic() - t0) * 1000))
+                    return {"jsonrpc": "2.0", "id": req_id,
+                            "error": {"code": -32000,
+                                      "message": f"response larger than {MAX_RESPONSE >> 20} MiB; "
+                                                 "narrow the block range or filter"}}
+                body = json.loads(raw)
+            except urllib.error.HTTPError as exc:
+                ms = int((time.monotonic() - t0) * 1000)
+                self.stats.record(chain, lane, name, "failed", cu if name == "alchemy" else 0, ms)
+                try:                                          # keep the provider's reason (e.g. Alchemy's
+                    detail = exc.read(600).decode("utf-8", "replace")   # "invalid params" text) for the caller
+                except Exception:
+                    detail = ""
+                if self.key:
+                    detail = detail.replace(self.key, "<key>")
+                detail = " ".join(detail.split())[:400]
+                last_error = f"{name}: HTTP {exc.code}" + (f" {detail}" if detail else "")
+                if exc.code == 429:
+                    self.cooldown[url] = time.monotonic() + 10
+                    limited = True                    # 15h
+                continue
+            except (urllib.error.URLError, TimeoutError, ValueError, OSError) as exc:
+                ms = int((time.monotonic() - t0) * 1000)
+                self.stats.record(chain, lane, name, "failed", 0, ms)
+                self.cooldown[url] = time.monotonic() + 30
+                last_error = f"{name}: {exc}"
+                continue
+            ms = int((time.monotonic() - t0) * 1000)
+            err = body.get("error") or {}
+            msg = str(err.get("message", "")).lower()
+            if err and (err.get("code") in (-32005, 429, -32029, -32601) or "not supported" in msg
+                        or "method not found" in msg or "does not exist" in msg or "unavailable" in msg):
+                # rate limit or unsupported method at this provider: try the next one
+                self.stats.record(chain, lane, name, "failed", cu if name == "alchemy" else 0, ms)
+                self.cooldown[url] = time.monotonic() + 10
+                last_error = f"{name}: {body['error'].get('message')}"
+                limited = limited or err.get("code") in (-32005, 429, -32029)    # 15h
+                continue
+            if name != "alchemy" and more:
+                if err and not is_revert(err):
+                    # public-node quirks (-32602 Variadic / string length, "specify an address",
+                    # range caps): let the next provider answer instead of failing the call
+                    self.stats.record(chain, lane, name, "failed", 0, ms)
+                    last_error = f"{name}: {err.get('message')}"
+                    continue
+                if suspect_empty(method, body):
+                    self.stats.record(chain, lane, name, "ok", 0, ms)
+                    fallback, suspects = body, suspects + [url]
+                    continue
+            self.stats.record(chain, lane, name, "ok", cu if name == "alchemy" else 0, ms)
+            if suspects and not suspect_empty(method, body):
+                for u in suspects:                        # that node answered empty for real state
+                    self.cooldown[u] = time.monotonic() + 300
+                print(f"rpc-relay: {chain} {method}: public node(s) returned empty, next provider did not; "
+                      f"cooling down {len(suspects)} for 300 s", file=sys.stderr, flush=True)
+            body["id"] = req_id
+            if ckey and "result" in body and body["result"] is not None and not suspect_empty(method, body):
+                self.cache.put(ckey, body["result"], ttl)
+            return body
+        if fallback is not None:
+            fallback["id"] = req_id
+            return fallback
+        if limited and lane == "fork":
+            # 15h: anvil's RPC client retries code 429 with backoff; -32000 fails the fork's call
+            return {"jsonrpc": "2.0", "id": req_id,
+                    "error": {"code": 429, "message": f"rate limited, retry: {last_error}"}}
+        return {"jsonrpc": "2.0", "id": req_id,
+                "error": {"code": -32000, "message": f"all providers failed: {last_error}"}}
+
+
+class Handler(http.server.BaseHTTPRequestHandler):
+    relay = None
+    protocol_version = "HTTP/1.1"
+    allow_send = False      # True only on the farmgate unix socket
+
+    def log_message(self, fmt, *args):  # keep the journal quiet; stats go to ops.db
+        pass
+
+    def send_json(self, code, obj):
+        data = json.dumps(obj).encode()
+        self.send_response(code)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
+
+    def do_GET(self):
+        if self.path == "/health":
+            day = utc_day()
+            spend = {lane: self.relay.stats.alchemy_cu_today(lane) for lane in LANES}
+            self.send_json(200, {"ok": True, "day": day, "alchemy_cu_today": spend,
+                                 "budget": self.relay.budget, "chains": sorted(self.relay.chains),
+                                 "cycle": self.relay.cycle(), "lane_by_user": self.relay.lane_by_user})
+        elif self.path.startswith("/lane"):
+            asked = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query).get("lane", ["research"])[0]
+            self.send_json(200, {"user": self.peer(), "asked": asked, "lane": self.peer_lane(asked)})
+        else:
+            self.send_json(404, {"error": "use POST /<chain>?lane=<lane>"})
+
+    def peer(self):
+        """Unix user of this connection, looked up once per connection (15c)."""
+        if not hasattr(self, "_peer_user"):
+            ca = self.client_address
+            self._peer_user = (peer_user(ca, self.server.server_address[1])
+                               if isinstance(ca, tuple) and ca and ca[0] != "unix" else None)
+        return self._peer_user
+
+    def peer_lane(self, asked):
+        if self.allow_send:                           # the farmgate send socket: unchanged
+            return asked
+        return mapped_lane(self.peer(), asked, self.relay.lane_by_user)
+
+    def do_POST(self):
+        parsed = urllib.parse.urlparse(self.path)
+        chain = parsed.path.strip("/")
+        lane = urllib.parse.parse_qs(parsed.query).get("lane", ["research"])[0]
+        lane = self.peer_lane(lane)                  # the unix user decides fork / scout (15c)
+        route = urllib.parse.parse_qs(parsed.query).get("route", [None])[0]   # send socket only (12b)
+        if chain not in self.relay.chains or lane not in LANES:
+            return self.send_json(404, {"error": f"unknown chain or lane; chains={sorted(self.relay.chains)} lanes={LANES}"})
+        length = int(self.headers.get("Content-Length", 0))
+        if length > MAX_BODY:
+            return self.send_json(413, {"error": "body too large"})
+        try:
+            body = json.loads(self.rfile.read(length))
+        except ValueError:
+            return self.send_json(400, {"jsonrpc": "2.0", "id": None,
+                                        "error": {"code": -32700, "message": "parse error"}})
+        batch = isinstance(body, list)
+        reqs = body if batch else [body]
+        if len(reqs) > 50:
+            return self.send_json(400, {"error": "batch too large (max 50)"})
+        out = []
+        for r in reqs:
+            if not isinstance(r, dict) or not isinstance(r.get("method"), str):
+                out.append({"jsonrpc": "2.0", "id": None, "error": {"code": -32600, "message": "invalid request"}})
+                continue
+            out.append(self.relay.call(chain, lane, r["method"], r.get("params", []), r.get("id"),
+                                       allow_send=self.allow_send,
+                                       route=route if self.allow_send else None))
+        self.send_json(200, out if batch else out[0])
+
+
+class Server(socketserver.ThreadingMixIn, http.server.HTTPServer):
+    daemon_threads = True
+
+
+class UnixHandler(Handler):
+    """Same API over a unix socket whose permissions admit only farmgate; sends allowed."""
+    allow_send = True
+
+    def address_string(self):
+        return "unix"
+
+
+class UnixServer(socketserver.ThreadingMixIn, socketserver.UnixStreamServer):
+    daemon_threads = True
+    allow_reuse_address = True
+
+    def get_request(self):
+        sock, _ = self.socket.accept()
+        return sock, ("unix", 0)
+
+
+def main():
+    with open(CONFIG_PATH, encoding="utf-8") as f:
+        config = json.load(f)
+    key = ""
+    try:
+        with open(KEY_PATH, encoding="utf-8") as f:
+            key = f.read().strip()
+    except OSError:
+        print("rpc-relay: no Alchemy key; public endpoints only", file=sys.stderr)
+    relay = Relay(config, key)
+    Handler.relay = relay
+
+    def flusher():
+        while True:
+            time.sleep(30)
+            try:
+                relay.stats.flush()
+            except sqlite3.Error as exc:
+                print(f"rpc-relay: stats flush failed: {exc}", file=sys.stderr)
+    threading.Thread(target=flusher, daemon=True).start()
+
+    send_sock = config.get("send_socket", "/run/farm-relay/send.sock")
+    try:
+        os.makedirs(os.path.dirname(send_sock), exist_ok=True)
+        if os.path.exists(send_sock):
+            os.unlink(send_sock)
+        usrv = UnixServer(send_sock, UnixHandler)
+        os.chmod(send_sock, 0o660)
+        import grp
+        os.chown(send_sock, -1, grp.getgrnam("farmgate").gr_gid)
+        threading.Thread(target=usrv.serve_forever, daemon=True).start()
+        print(f"rpc-relay: send socket {send_sock} (farmgate only)", file=sys.stderr)
+    except (OSError, KeyError) as exc:
+        print(f"rpc-relay: send socket disabled: {exc}", file=sys.stderr)
+
+    bind = (config.get("bind", "127.0.0.1"), config.get("port", 8545))
+    print(f"rpc-relay: listening on {bind[0]}:{bind[1]} chains={sorted(relay.chains)} key={'yes' if key else 'no'}",
+          file=sys.stderr)
+    Server(bind, Handler).serve_forever()
+
+
+if __name__ == "__main__":
+    main()

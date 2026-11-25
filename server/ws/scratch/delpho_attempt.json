@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-delpho",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. liquidate(address) on DelphoStableManager is permissionless (no role modifier; eth_call from a fresh address reverts DSM_NO_ACTIVE_POSITION, not an auth error) and pays the caller min(1% of debt, 50 USDV). 5 liquidations in the last 7 days (all of them so far), gross $74.6 total, $2.08-$50 per call, gas $0.017-$0.024 per call, one EOA keeper took all. Bursty (single price-move window 2.4 days ago) and the fee lands as a collateral credit in the caller's vault account on the fallback path, not a token transfer.",
+  "numbers": "7d liquidations: 5 (events 0x7ce9d8cd on 0xf296cc9c08a92e86b1c3a04b10ccf711d996ea50, blocks 51267373-51274754, getLogs from block 45570000). Fees $2.08/$7.12/$7.64/$7.79/$50.00 = $74.64 (1% of debt 208.50/711.93/764.43/779.23/9083.23 USD, cap 50). Gas 2.39M-3.49M gas x 0.1 gwei = $0.017-$0.024 at HYPE $69.75 (coins.llama.fi 2026-11-17). liquidatorRewardBps=100, maxLiquidatorFee=50e6 (config providers 0xeC88...757f, 0x5663...D93C). Liquidator EOA 0xaa992ee8818e3356a86dd9d4f4c6feb0092c8a4e. Source: explorer hyperevm impl 0xaad3d267c0cfde31885c774f623a6ae43108e7e7."
+}

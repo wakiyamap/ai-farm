@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-gauntlet",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "polygon",
+ "slug": "gauntlet",
+ "name": "Gauntlet",
+ "category": "Risk Curators",
+ "tvl_usd": 792040,
+ "url": "https://www.gauntlet.xyz",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "3f720d70a3994459a54953e57735d85d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Gauntlet polygon = 4 Morpho MetaMorphoV1_1 curator vaults ($792k, biggest Compound USDC 0x781FB7F6... $457k): reallocate/setSupplyQueue gated onlyAllocatorRole (stranger eth_call reverts 0xf7317c0f), only anyone-callable skim() pays caller $0 (0 Skim events 90d, control 7 Withdraws in 7d); 7d = 7 user redeems + allocator EOA 0x9e98f285..., strangers paid $0.00, gas $0.001 (279 gwei x POL $0.0825).",
+  "kb": [
+   "attempts:1926",
+   "protocols:543"
+  ],
+  "run_id": "3f720d70a3994459a54953e57735d85d",
+  "at": 1794961949
+ }
+}

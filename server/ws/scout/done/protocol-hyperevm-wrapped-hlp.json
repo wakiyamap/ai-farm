@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-wrapped-hlp",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 385,
+ "chain": "hyperevm",
+ "slug": "wrapped-hlp",
+ "name": "Wrapped HLP",
+ "category": "Yield",
+ "tvl_usd": 1079947,
+ "url": "https://www.loopingcollective.org/wrapped-hlp",
+ "github": null,
+ "listed_days_ago": 385,
+ "run_id": "39ff9496212c4c6e8693136730ea6669",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: vault 0x1359b052 + accountant 0x470bd109 + queue 0x228c44bb + depositor 0x340c9f61 on hyperevm; updateExchangeRate reverts UNAUTHORIZED from a stranger (21 calls/7d, every 6h, by 0x1755397bec366a1e1160d8ae0106c60e7e344b56), queue solve() is owner-whitelist-only (12 wHLP->USDT0 fills/7d, all via whitelisted 0x7933cd3b, solver gross margin vs NAV bash.04 total, gas ~250k = bash.0017/tx at HYPE 67.47 USD)",
+  "kb": [
+   "attempts:1778",
+   "protocols:435"
+  ],
+  "run_id": "39ff9496212c4c6e8693136730ea6669",
+  "at": 1794931340
+ }
+}

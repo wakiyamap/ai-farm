@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-uniswap-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "avalanche",
+ "slug": "uniswap-v2",
+ "name": "Uniswap V2",
+ "category": "Dexs",
+ "tvl_usd": 118076,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "dff7ed2475114e97856e19bead7a53e2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no pay-the-caller function: standard UniswapV2Factory 0x9e5A..799C (allPairsLength 12264, feeTo 0x0) + Router02 0xf1d7..bcf9 + standard UniswapV2Pair (routescan sources); only open pay fn is pair.skim(address) (eth_call from stranger OK, pays stranded tokens only = 0 today); activity near-dormant: 6 Swap / 7d, 0 Mint/Burn on the 2 best candidate pairs (getLogs 40x10k blocks 100339293..100738903), swap gross ~0.017 WAVAX ~$0.12 vs ~$0.02 gas (AVAX $7.04 coins.llama.fi); TVL $118k / 12,264 pairs.",
+  "kb": [
+   "attempts:2404"
+  ],
+  "run_id": "dff7ed2475114e97856e19bead7a53e2",
+  "at": 1795067915
+ }
+}

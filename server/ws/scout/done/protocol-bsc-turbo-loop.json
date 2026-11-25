@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-turbo-loop",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 179,
+ "chain": "bsc",
+ "slug": "turbo-loop",
+ "name": "Turbo Loop",
+ "category": "Yield",
+ "tvl_usd": 3384218,
+ "url": "https://turboloop.io",
+ "github": null,
+ "listed_days_ago": 179,
+ "run_id": "8b6ca41b5e274152a114f7efb5da0106",
+ "result": {
+  "verdict": "unpaid",
+  "line": "calculateDailyRewards(uint256) on TURBOLOOP 0xc90E5785...A76D is anyone-callable (eth_call from stranger ok, not role-gated) but pays caller 0: 7d sample of 8x5000-block getLogs windows found 629 DailyRewardsBatchProcessed txs (1 window) all from one EOA 0x23deb6de..bec63 paying ~$0.45 gas/call (13.85M gas @0.055 gwei, BNB $587.63) for $0 gross; TVL $3.36M USDT (DefiLlama 2026-11-17)",
+  "kb": [
+   "attempts:1679",
+   "protocols:362"
+  ],
+  "run_id": "8b6ca41b5e274152a114f7efb5da0106",
+  "at": 1794911504
+ }
+}

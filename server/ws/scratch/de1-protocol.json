@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "de1",
+  "status": "dead_end",
+  "checked": "DEX aggregator (rebranded OpenOcean). Adapter: DefiLlama projects/openocean.js (slug de1 per api.llama.fi; api 404 on projects/de1) -> AMM factory 0xd76d8c2a7ca0a1609aea0b9b5017b3f7782891bf + OPEN staking 0x44eB0f1ce777394564070f9E50dD8784FCDB7e6a/0x9029fdfae9a03135846381c7ce16595c3554e10a. Router from openocean-finance/OpenOceanExchangeV2 README: 0x6352a56caadC4F1E25CD6c75970Fa768A3304e64 (proxy; ERC1967 slot -> impl 0x86f2058ba5e1466260055d1f3dab38b15f98be09, Sourcify match 2026-06-04; all eth_getCode non-0x). Limit order (limit-order-protocol-v2 README): 0xA8A0213bb2ce671E457Ec14D08EB9d40E6DA8e2d. Router function surface (deployed dispatcher via 4byte + repo OpenOceanExchange.sol): swap/simpleSwap + Permit2 getters + owner-only admin - no caller-paid function. 7d (blocks 134484626-135291026): 2795 Swapped (topic0 from own logs, 752 distinct senders) = user swap traffic; limit order 0 logs (dead). Verdict no_reward: nothing anyone can call that pays the caller."
+}

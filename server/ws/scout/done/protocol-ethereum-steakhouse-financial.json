@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-steakhouse-financial",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "steakhouse-financial",
+ "name": "Steakhouse Financial",
+ "category": "Risk Curators",
+ "tvl_usd": 714896165,
+ "url": "https://www.steakhouse.financial/",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "d9df39d3a1894a398308bebdd1a7f144",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Ethereum Steakhouse = 33 Morpho VaultV2 + owner-held Morpho vaults + 4 Mellow vaults, all standard code: accrueInterest() callable by anyone (523 AccrueInterest events / 321 txs in 7d, keepers 0xedb6e2e8/0xbe0b4077/0x5eeb2291) pays the caller 0 (fee shares to fixed recipients), gas ~0.08 USD (271,181 gas @ 0.183 gwei, ETH 1624.08 USD coins.llama.fi); Mellow rebalance() role_gated (AccessControlUnauthorizedAccount), pushRewards + DVV submit pay 0 with 0 events in 7d",
+  "kb": [
+   "attempts:3095",
+   "protocols:1470"
+  ],
+  "run_id": "d9df39d3a1894a398308bebdd1a7f144",
+  "at": 1795216494
+ }
+}

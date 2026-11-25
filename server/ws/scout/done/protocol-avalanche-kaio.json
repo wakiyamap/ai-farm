@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-kaio",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 656,
+ "chain": "avalanche",
+ "slug": "kaio",
+ "name": "KAIO",
+ "category": "RWA",
+ "tvl_usd": 2999758,
+ "url": "https://www.kaio.xyz/",
+ "github": null,
+ "listed_days_ago": 656,
+ "run_id": "3b6574a55997456ebcb780757ab9928b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "KAIO (ex-Libre Capital) avalanche = 6 receipt-token ERC1967 proxies to LibreReceiptToken 0x8b37f327..f64b: only owner-mint/burn (mint from stranger reverts OwnableUnauthorizedAccount 0x118cdaa7), transfers revert; 0 logs in 7d and 30d on all 6 (control: USDC 9,181 logs/10k blk); only LDCFA live, 29,837.30 shares ~ the 2,999,758 USD TVL (NAV oracle on Optimism). No function can pay a stranger.",
+  "kb": [
+   "attempts:2011",
+   "protocols:607"
+  ],
+  "run_id": "3b6574a55997456ebcb780757ab9928b",
+  "at": 1794980236
+ }
+}

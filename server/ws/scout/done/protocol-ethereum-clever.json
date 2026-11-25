@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-clever",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1666,
+ "chain": "ethereum",
+ "slug": "clever",
+ "name": "CLever",
+ "category": "Yield",
+ "tvl_usd": 3779264,
+ "url": "https://clever.aladdin.club/",
+ "github": [
+  "AladdinDAO"
+ ],
+ "listed_days_ago": 1666,
+ "run_id": "c391681ac59c487fbe7950bd4a67c8b8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LockCVX 0x96C68D86 harvest(address,uint256) is the only permissionless reward fn (no modifier; fresh-address eth_call reverts 'Furnace: distribute zero CVX' = pot empty, not role-gated) but pays 0: 1 harvest/7d (tx 0x6174964c, 11-20, EOA keeper 0x11e91bb6) gross 7,442.24 CVX = 8,610 USD -> 5,209.57 CVX to Furnace 0xCe4dCc, 2,232.67 to platform 0xd6efa5b6, 0 to caller (bounty 0 in 19/19 harvests/90d, ~1.5/wk); gas 3,478,294 x 0.522 gwei = 3.05 USD (ETH 1681.34, CVX 1.1568 coins.llama.fi 19:25Z).",
+  "kb": [
+   "attempts:3443"
+  ],
+  "run_id": "c391681ac59c487fbe7950bd4a67c8b8",
+  "at": 1795289426
+ }
+}

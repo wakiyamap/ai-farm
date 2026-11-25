@@ -1,0 +1,19 @@
+{
+  "chain": "ethereum", "lane": "research", "run": "95b9d435a55c4bd88dfe14364145ac04", "utc": "2026-11-09T10:24-10:37Z",
+  "head": 26376737, "base_head": 55149468,
+  "scans": [
+    {"name": "AuctionOpened tail", "filter": "20 folio addresses + topic0 24c9d9f1", "range": "26376556..26376737", "logs": 0, "control": "200-block 26358400..26358600 -> 1 log at known 26358474 (same shape)"},
+    {"name": "AuctionOpened wide tail", "filter": "same", "range": "26374737..26376737", "logs": 0, "control": "as above"},
+    {"name": "TradeStarted tail", "filter": "4 AuctionBook addresses + topic0 f18b757d", "range": "26370155..26376737 (6582 blocks)", "logs": 0, "control": "26347000..26349000 -> 7 logs incl. known 26348622"},
+    {"name": "ChallengeStarted tail", "filter": "MintingHub 0xDE12B620 + topic0 c4b384b2", "range": "26327472..26376737 (49265 blocks)", "logs": 0, "control": "26327400..26327600 -> 1 log at last known 26327471"}
+  ],
+  "caller_error_note": "my first narrow TradeStarted control window (0x191d9d6..0x191da7c) was computed wrong and excluded 26348622 - the empties were a hex-arithmetic bug, not a relay bug; final scans all self-compute hex in python",
+  "ledger_side": {
+    "gearbox_v3.liquidate_credit_account": "cursor next_block 26376712 = head -> 0 events to head",
+    "reserve_folio.auction_bid": "cursor 26376712 (caught up); no new bid rows after 26374938",
+    "reserve_folio.auction_opened": "cursor 26355686 (lagging; relay tail scan above covers 26355686..head)",
+    "reserve_revenue.started": "last event 26348622; cursor lagging 26370155",
+    "inverse_finance.force_replenish": "today (ts>=1794182400): 73 events, incumbent 0x31a9dd took 73/73 = 100 pct",
+    "moonwell_core.liquidate_borrow": "latest repay>=100 USD capture: block 55115243, repay 579.65 USDC (borrow Moonwell USDC 0xedc817a2...), collateral Moonwell cbBTC 0xf877acafa28c19b96727966690b2f44d35ad5976 (mcbBTC, route ENABLED per attempt 627), liquidator 0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3; base head 55149468"
+  }
+}

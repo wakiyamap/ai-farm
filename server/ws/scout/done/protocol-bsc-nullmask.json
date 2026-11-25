@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-nullmask",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 47,
+ "chain": "bsc",
+ "slug": "nullmask",
+ "name": "Nullmask",
+ "category": "Privacy",
+ "tvl_usd": 32708,
+ "url": "https://nullmask.io",
+ "github": [
+  "nullmask-services"
+ ],
+ "listed_days_ago": 47,
+ "run_id": "d3f437a3bdd74bb29d6d6a9b877bba6c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UUPS privacy pool 0xd64EF141...91c6 (impl 0xEcf4F3b3...bDA1, ABI from app bundle): no fn pays a caller \u2014 sweepProtocolFees callable by anyone (~0.11 USD gas) but pays treasury 2.8327 BNB (1544 USD) pot (1 sweep/7d); shieldedWithdrawal role-gated to relayer 0xb3d4518c/guard 0x0558e584 (fresh addr reverts NotGuard), ~16.6k/7d extrapolated (sample 2666 of 30806 logs over blocks 133707469-133936653) at 12.44 USD gas each paying the user's own recipient, fee 0.5% to treasury",
+  "kb": [
+   "attempts:3664",
+   "protocols:1889"
+  ],
+  "run_id": "d3f437a3bdd74bb29d6d6a9b877bba6c",
+  "at": 1795338848
+ }
+}

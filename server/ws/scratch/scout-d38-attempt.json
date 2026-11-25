@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0xd38a5a7c3cec073884be9561b12d327236bde02f",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Actor uses a public Felix feUSD redemption and DEX route through a private unverified executor; sampled successful transactions pay WHYPE to its EOA. Other executor routes are not fully priced, so actor-wide profit remains unestimated.",
+  "numbers": "7 d timestamp window blocks 51482971 (2026-11-17 06:12:24 UTC) to 52097790 (2026-11-24 06:12:23 UTC), checked via eth_getBlockByNumber timestamps. Alchemy external transfers: 290 calls, 34 to Felix executor 0x1b8e9476. Ledger source felix_cdp.redemption: 4 distinct Felix redemption tx / 8 branch logs / 2033.464 feUSD, 2026-11-24. Sample of 3 of 4 successful Felix redemptions (and 10 of 34 executor calls inspected): 0xe99db098 gross 0.003525 WHYPE, gas 0.001320 HYPE, net $0.141; 0x2b49c3a6 gross 0.004868, gas 0.002209, net $0.170; 0x7bca4338 gross 0.017415, gas 0.006981, net $0.668. WHYPE 0x5555555555555555555555555555555555555555 decimals 18 from eth_call; HYPE/WHYPE $64.08 coins.llama.fi coingecko:hyperliquid timestamp 1795500610. Payout from executor to 0xa9dd620fc1b6316ce75c8059aaed1f5fa5e0cefb; eth_getCode 0x. See exact full tx hashes in actor row."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-contango-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated: the only reward-claim entry point on the Contango proxy is claimRewards(bytes32 positionId, address to), gated to the position owner (eth_call from a fresh address reverts Unauthorised(0x1111..)); there is no keeper/bounty function anyone can call for pay. No Liquidations contract is deployed on avalanche (networks.json entry has no address; AaveMoneyMarket exposes no public liquidate). Protocol is near-dormant at 155k USD TVL.",
+ "numbers": "7d (blocks 100049942-100694175, snowtrace getLogs): 2 PositionUpserted from 1 tx 0xec31443e2cc3d0ffe7bd65431771dd2fe2d62ea5ce5bb90f0c8b85b8d2bde7a9, caller=tradedBy=owner=StrategyBuilderProxy 0x5BDeB2152f185BF59f2dE027CBBC05355cc965bd; 0 RewardsClaimed (control: same shape returned the 2 events). claimRewards eth_call from 0x1111.. reverted 0xae10e1de Unauthorised. TVL 155,375 USD (DefiLlama candidate). Contracts: ContangoProxy 0x6Cae28b3D09D8f8Fc74ccD496AC986FC84C0C24E, VaultProxy 0x3F37C7d8e61C000085AAc0515775b06A3412F36b."
+}

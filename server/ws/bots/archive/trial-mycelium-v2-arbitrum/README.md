@@ -1,0 +1,11 @@
+trial: public Mycelium v2 12-hour upkeep reward on Arbitrum.
+
+The v2 `PoolKeeper.performUpkeepSinglePool(pool)` pays the caller in USDC.e when the pool's 43,200-second interval passes. The executor sells that payment to USDC in the same transaction and reverts unless the bot wallet's USDC rises by `minOut`. Its keeper and pool are call arguments. No principal is needed.
+
+Seven days ending 2026-11-22 14:10 UTC: the target pool `0x2bfb8aee6eb2dccd694f8ecb4c31fdebfc22b55a` paid 14 times for 8.186981 USDC.e total, 0.552131-0.617747 each. All 14 takes landed at transaction index 1 in the due block. Recipients were `0xdaf506b4b3bd1c0085862d3ff2055bcf20a77c01` (7), `0x84450c615a80ce985d4909ccc17ae33ef829323a` (4), `0x7323c4ed601f66a1bd418af38159d05ccb7a398a` (2), `0x6e754d1819063c7c27a9d749bf2059416a54d6a3` (1). Priority fees were 0.373-0.850 gwei, median 0.760 gwei. Data: `scratch/mycelium-v2-measured.json`, from relay `KeeperPaid` logs and receipts. Latest paid tx: `0x4a3734f30e9c80f9e6ad36bd99292776e85ede656887e857bb5ab97273f8293d` in block 526410515.
+
+The existing hourly v1 sibling won 1 of 67 live windows with 329 lost sends by 2026-11-22 14:14 UTC. This trial measures whether the 12-hour v2 contest is also accessible. It sends five zero-priority calls timed around the known due second; a lost call costs about 34k gas and a won call about 475k gas. The bot refuses to send when its gas cap reaches the expected gross, and every send is capped at 0.90 USD with `max_loss_per_tx_usd: 1`.
+
+The timer reads `lastPriceTimestamp()` once per ten minutes and simulates at the due second with a relay block-time override. No feed or per-block poll is used. Expected live read cost is about 4,500 Alchemy CU/day = 0.0024 USD/day at 0.53 USD per million CU; the code caps itself at 60,000 CU/day and sleeps until midnight UTC on exhaustion, including startup reads. Paper mode sends nothing. Live mode uses `farmbot_signer` and requires `EXECUTOR_ADDR_ARBITRUM` or `EXECUTOR_ADDR`.
+
+Fork proof: `scratch/trial-mycelium-v2-arbitrum/proof.py`, with exact hashes and wallet deltas in `proof-result.json`. It includes `NotOwner`, early `NotDue`, `NoProfit`, a positive `+0.548597 USDC` capture, and an after-take `NotDue`; the executor ends with no token or native balance.

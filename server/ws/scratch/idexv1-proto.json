@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "idex_v1",
+  "status": "dead_end",
+  "checked": "DefiLlama registry registries/sumTokens.js (raw 2026-11-22): idex-v1 ethereum TVL = native ETH held by Exchange 0x2a0c0dbecc7e4d658f48e01e3fa353f44050c208 (protocol 'address' 0xb705268213d593b8fd88d3fdeff93aff5cbdcfae is only the IDEX token, symbol() read on chain). Verified Exchange.sol source (explorer 2026-11-22, solc 0.4.16): deposit/depositToken payable anyone; withdraw(address,uint256) anyone after inactivityReleasePeriod()=240 blocks and pays msg.sender its OWN deposited balance; trade + adminWithdraw + invalidateOrdersBefore + setInactivityReleasePeriod onlyAdmin; setAdmin/setOwner onlyOwner. Trade/withdrawal fees credit feeAccount 0x034767f3c519f361c5ecf46ebfc08981c629d381 (feeAccount() getter answered), never msg.sender. No reward/bounty/claim/redemption-with-premium function exists. 7d eth_getLogs no-topic on the exchange: 13 Withdraw, 0 Trade, 0 Deposit - users redeeming their own balances (all balance-after = 0; direct calls have from == user, e.g. 0x884a92c0..). Dead custodial exchange (Kuma migration), no keeper revenue."
+}

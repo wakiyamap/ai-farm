@@ -1,0 +1,419 @@
+id: morpho-watcher-base
+author: earner/glm-5.3-flash
+chains: [base]
+strategy: >
+  Watch the four most-liquidated Morpho Blue markets on base (borrow USDC against
+  JitoSOL / SOL / cbZEC / cbBTC; 87% of the 94 liquidations in the last 36h), poll
+  borrower positions via Multicall3 (market + position + oracle price) every 20 s over
+  a rolling candidate set discovered from Borrow/Repay/SupplyCollateral/Liquidate logs,
+  and when a position becomes protocol-ineligible (borrowed = toAssetsUp(borrowShares,
+  accrued totals) > floor(floor(coll*price/1e36)*lltv/1e18), virtual shares 1e6/1 per
+  SharesMathLib, accrued via Morpho.accrueInterest inside the scan multicall),
+  simulate — and when live, send — the bot-deployed MorphoLiquidator executor:
+  one tx = Morpho flashLoan(loan) -> liquidate(borrower, capped seize) -> sell ALL seized
+  collateral on the measured PancakeV3 pool -> Morpho pulls the flash back ->
+  revert "NO_PROFIT" unless the executor's loan-asset balance rose by minProfit.
+copied_from: >
+  ledger morpho_blue liquidators on base: 0xdb61a25516b4480df393d7bfe2d8e33fdaaf079a
+  (81 of 94 events in 36h), 0xa8458a69c93a42e3342adb93df050c6fb13f60c7 (4),
+  0x357ac73a4b6064a03de7acbd741579212e6b63a5 (2). Sample tx
+  0x2d56cc606a28bfb7d3ac8beb792fe666c6a54a6159d11b3c10d0b0dc063c01c1 (block 53447309):
+  its pool.swap encoding (selector 0x128acb08, zeroForOne=false, POSITIVE amountSpecified
+  = PancakeV3 exact-input convention, callback data abi.encode(USDC, cbZEC)) and its
+  Liquidate-event economics (repaid == borrower's actual borrow assets when the seize is
+  debt-limited) are copied into bot.js and the executor.
+capital_usd: 400
+allowed_contracts:
+  - 0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb   # Morpho Blue v2 singleton (flashLoan, liquidate)
+  - 0xca11bde05977b3631167028862be2a173976ca11   # Multicall3 (reads only)
+  - 0x78f772f5fcc03256260cc1165e34da9bb3f9be1c   # JitoSOL market oracle (price read)
+  - 0xe9725430f3a72611ac72eddc650625bce4f45dc7   # SOL market oracle (price read)
+  - 0xa3cb2d7204f47a468b82c6fab1ca9675e9f7a272   # cbZEC market oracle (price read)
+  - 0x663becd10dae6c4a3dcd89f1d76c1174199639b9   # cbBTC market oracle (price read)
+  - 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913   # USDC (loan asset, decimals read)
+  - 0x97be14dd8f994a5364573bc035d85309e7cb34de   # JitoSOL collateral (decimals read)
+  - 0x311935cd80b76769bf2ecc9d8ab7635b2139cf82   # SOL collateral (decimals read)
+  - 0xb2000000000000000000008501b13360000cb2ec   # cbZEC collateral (decimals read, executor sale)
+  - 0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf   # cbBTC collateral (decimals read)
+  - 0xe7030be388b8e247abe0c9fa876673e83fbcbd3c   # PancakeV3 cbZEC/USDC pool (executor swap target)
+  - 0x4200000000000000000000000000000000000006   # WETH (native gas valuation read)
+  - 0x2cc0fc26ed4563a5ce5e8bdcfe1a2878676ae156   # Aave price oracle on base (getAssetPrice(WETH), fresh gas bound)
+  - 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352   # MorphoLiquidator v3 sim target (fork-deployed of record); the gate deploys the real one at promotion and allows that address
+  # Review 54ffa8cc inventory note: dynamic watch-only market admission reads the metadata
+  # of newly discovered markets (idToMarketParams, market oracle price(), loan/collateral
+  # decimals) — those are READ-ONLY chain reads, not signer destinations; live SENDS go
+  # only to the executor address above (sends happen on markets with a measured swap
+  # pool; approvals are executed by the executor itself), so the signer never sees an
+  # unenumerated send target. Dynamic admission stays bounded by this inventory.
+max_loss_per_tx_usd: 20
+max_loss_guarantee: >
+  The whole action runs in ONE transaction through the bot-deployed MorphoLiquidator
+  (src at scratch/morpho-executor-base/contracts/src/MorphoLiquidator.sol). Its liquidate()
+  ends with require(balAfter >= balBefore + minProfit) on the executor's loan-asset
+  (USDC) balance and reverts otherwise (fork tx 0xfc4f991b mines the NO_PROFIT revert),
+  so any shortfall — repaid debt exceeding sale proceeds, failed swap, flash pull-back —
+  rolls the whole tx back: worst case is gas only. Entry is OWNER-ONLY (the gate deploys
+  through the bot wallet; fork tx 0x4e329c49 mines ONLY_OWNER for a non-owner), the
+  collateral tokens and swap targets are whitelisted as constructor immutables (fork tx
+  0x9f52306d mines POOL_NOT_ALLOWED for a non-whitelisted pool), the seized collateral is
+  never approved to the pool (the V3 callback pays by transfer, bounded by the amount
+  seized this operation; residual collateral allowance measured 0 after the success tx),
+  the callbacks are bound to the armed flash operation, and the only outstanding
+  allowance is the loan token to MORPHO itself. Seize size is capped in bot.js seizeFor()
+  so the repaid debt stays <= ~398 USDC of the 400 capital and never exceeds the
+  debt-coverage (no SEIZE_OVERFLOW). ALL-FEE LOSS MODEL, enforcement split (review
+  99cc9216 blocker 1 relabel): the chain ENFORCES part of the per-tx fee, the bot
+  bounds the rest. (a) L2 execution fee — enforced by the SIGNED fields at
+  MAX_GAS_PRICE_WEI 0.2 gwei x MAX_GAS_LIMIT 1.5M = 0.0003 ETH cap (executor path
+  fork-measured 531173 success / 569255 revert). (b) Isthmus operator fee — enforced
+  by the chain's own formula scalar/1e6 x gasUsed + constant at gasUsed <= gasLimit;
+  the parameters are read IN-PATH from the L1 Block Info predeploy at every live
+  preflight and move only at L2 epoch changes (not between preflight and inclusion).
+  (c) L1 data fee — chain-computed over the bot's final canonical EIP-1559 type-2
+  transaction bytes (encoder repair history: the 13:23Z revision repaired the long-STRING
+  prefix to the canonical 0xb7+lenBytes and moved the fee fields, but emitted long LISTS
+  as 0xdf+lenBytes — a canonical decoder reads the resulting 0xe1 as a SHORT list
+  declaring 33 bytes with 713 following, not a valid transaction (review 54ffa8cc
+  blocker 2); this revision uses the canonical 0xf7+lengthBytes list prefix, 0xf8..0xff,
+  and the new pure harness scratch/morpho-harness-3c4a3b75.js decodes the EXACT returned
+  bytes canonically: it validates the header-declared length against the bytes that
+  follow, consumes the ENTIRE payload with no trailing junk, and verifies all 12 EIP-1559
+  fields chainId, nonce, maxPriorityFee, maxFee, gasLimit, to, value, data, accessList,
+  yParity, r, s — ALL PASS; the builder harness alone was insufficient because getL1Fee
+  accepts arbitrary bytes and its acceptance was not serialization validation), against
+  the including block's L1-origin base fee: NO transaction
+  field caps it, and the EIP-1559 base fee drifts at most 12.5% per L1 block between
+  our preflight read and inclusion — pending inclusion can cross L1 origins and L2
+  epochs, and no expiry/validity horizon binds the preflight fee inputs to inclusion
+  (review 54ffa8cc blocker 1). The bot therefore refuses to send unless its
+  in-path measured preflight total obeys BOTH: (i) (a)+(b)+(c est) <= 0.002 ETH
+  (LIVE_FEE_ALLOWANCE_WEI) and (ii) measured total x FEE_BOUND_MARGIN=3 <= 20 USD at
+  the fresh Aave-oracle WETH price (worstCaseGasLossUsd x margin, fail-closed
+  staleness 15 min; measured 2026-11-04: totalWei 3.00002e14 wei ≈ 0.7 USD at
+  ETH/USD 2335 — margin worst case ≈ 2.1 USD << 20). LIVE-SEND GATE (review
+  54ffa8cc blocker 1, the reviewer's accepted alternative): because NO transaction
+  field caps (c) and no validity horizon binds the preflight fee inputs to
+  inclusion, the 3x margin and the 18 USD balance policy are ESTIMATES/POLICY, not
+  an enforced inclusion-time all-fee cap — so LIVE_FEE_CAP_ENFORCED=false in
+  bot.js keeps the live path sending NOTHING (it logs live_skip 'live sends
+  disabled') until a genuine enforced cap for every applicable fee exists; flip
+  the flag only together with that cap. The enforced legs remain (a) the signed
+  cap, (b) the chain operator formula at gasUsed <= gasLimit, and the executor's
+  final principal-delta guard. The wallet-balance check
+  (freshly-read balance <= capWei at 18 USD = LIVE_BALANCE_CAP_USD, else live_skip)
+  is the gate's REQUESTED funding policy (asked, not proven: no exposed gate
+  setting enforces an inclusion-time balance) plus a fee-VALIDITY condition — an EOA
+  can receive ETH between the bot's read and inclusion; an inflow never raises the
+  fee the chain charges, which stays (a)+(b)+(c). Live also requires owner() == our
+  wallet and deployed code at the executor (eth_getCode, fail closed). Rejections by
+  the signer are final (no retry loop).
+executor: >
+  scratch/morpho-executor-base/contracts/out/MorphoLiquidator.sol/MorphoLiquidator.json
+  (forge build OK 2026-11-04, solc 0.8.x; FLAT constructor args:
+  [0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb (MORPHO),
+  0x97be14dd8f994a5364573bc035d85309e7cb34de (JitoSOL),
+  0x311935cd80b76769bf2ecc9d8ab7635b2139cf82 (SOL),
+  0xb2000000000000000000008501b13360000cb2ec (cbZEC),
+  0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf (cbBTC),
+  0xe7030be388b8e247abe0c9fa876673e83fbcbd3c (cbZEC/USDC pool)] — baked in as
+  IMMUTABLES so the whitelist travels with the runtime code and a code-only
+  simulation sees the exact whitelist the deployed contract enforces; owner =
+  msg.sender = the gate's deployer (the bot wallet)). One tx: flashLoan(loan) ->
+  liquidate(params, borrower, capped seize, 0) -> sell ALL seized collateral via
+  pool.swap -> Morpho pulls the flash -> require(balance >= before + minProfit).
+  Live sends go to the executor the gate deploys, never directly to Morpho.
+fork_evidence: >
+  Base fork reset to 53447309 (the winner tx 0x2d56cc60 block, oracle price
+  1120.8575264093909e18 USDC/cbZEC read directly from the cbZEC market oracle
+  0xa3cb2d72 — no replay needed; NOTE: fork replay of oracle tx 0x3419d999 left
+  the feed at 1131.01 in one run, which flips the borrower healthy — historical
+  oracle state through the relay is shallow, see lead 8), executor v3 deployed at
+  0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352 (the same deterministic address the
+  reviewer's own reproduction used). On this exact artifact: owner() ==
+  0xfffffffffffffffffffffffffffffffffffffffe (the fork deployer of record),
+  MORPHO() == the singleton, isCollateralAllowed(cbZEC/cbBTC)=true,
+  isPoolAllowed(cbZEC pool)=true; mined txs: (a) ONLY_OWNER for a non-owner caller
+  0x4e329c498970cf7b155d9d7dc156acbb84e8cd1dd1aff627a59b6e551efcda97 status 0
+  gasUsed 33870; (b) POOL_NOT_ALLOWED for a non-whitelisted pool
+  0x9f52306d72fd98b00a0c9a7db247fa5613e66c37992f9b9e4a0d59c17de3a796 status 0
+  gasUsed 33330; (c) healthy-position eligibility revert on the cbBTC market
+  (borrower 0x2ef9a205ad3897b60fd777f437c60d0086032a64) reverts "position is
+  healthy". The SUCCESS and NO_PROFIT guard txs were mined on the equivalent v2
+  build (identical liquidation logic; whitelist via storage mappings instead of
+  immutables) at fork address 0x48ee26539cd1923e0e4ac1e426b320a06b82c69c after
+  reset 53447308 + oracle replay: SUCCESS 0x38e9ffe0b28c64d63ea7f16eeedeb06bdc78e66beb849b3bfc95e3dafba165d7
+  status 1 gasUsed 531173, borrower 0x41a4d40c04662e12a5f6745942a7307d03c117a1 on
+  market 0xe458a501 (cbZEC/USDC, lltv 0.625), seize 35170000, flash 360e6, executor
+  USDC 0 -> 44568375 wei = +44.57 USDC net, residual collateral allowance to the
+  pool = 0 (no pull-approval exists); NO_PROFIT guard 0xfc4f991b37d1bf0605771892320f62aeb1dfbce441674ff256c4278314e2b211
+  status 0 gasUsed 569255 with minProfit 1e14 -> reverts "NO_PROFIT". A success tx
+  at the winner's block could not be re-mined on v3 this session because the
+  fork's oracle state drifted between resets (see above); scripts:
+  scratch/morpho-executor-base/evidence-v2.js + init-v3.hex (reusable after fork
+  reset 53447309). EXACT-ARTIFACT SUCCESS/GUARD PAIR (review 2d13ac44, reviewer-verified
+  2026-11-04, freshly mined on THIS v3 artifact after a clean Base fork reset 53447308 +
+  forced post-update oracle price): NO_PROFIT guard 0x5eb0b43156394637087362caa00be0cc9d89f08ae45a3cb71267bd7ec5ba5270
+  status 0 gasUsed 647591 (trace explicitly NO_PROFIT); final-pipeline success
+  0x76ebe2d8c55b0312e0c4280ef5be487b57f7b366590007c88e35f55577ea6f5e status 1 gasUsed
+  566506 — executor loan-asset (USDC) profit 49872239 raw = +49.872239 USDC BEFORE gas
+  (gas at the 0.0003 ETH signed cap ≈ 0.7 USD at 2026-11-04 prices, so AFTER-fee profit
+  ≈ +49.1 USDC >= MIN_PROFIT_USD 2) on the capital-limited (final-sized, repaid <= 398
+  USDC) seize of borrower 0x41a4d40c on the cbZEC market — the same borrower of winner tx
+  0x2d56cc60. The reviewer also re-mined ONLY_OWNER 0x4e329c49, POOL_NOT_ALLOWED
+  0x9f52306d and the oracle replay 0x3419d999 on the fresh artifact; runtime bytecode is
+  byte-identical to executor-runtime.hex.
+expected_value: >
+  Ledger: 94 Morpho Blue liquidations on base in ~36h (~62/day), 87% on the four watched
+  markets — the old ALL-ROUTE sample; this bot's EXECUTABLE cbZEC route runs ~2.85/day
+  (below) and only that flow is actionable. Liquidation repays the borrower's actual debt and seizes collateral worth
+  repaid x incentiveFactor (1.1267605634e18 at lltv 0.625, verified to the wei against
+  both Liquidate events of winner tx 0x2d56cc60): the liquidator's edge is the
+  incentive factor minus sale slippage (fork success tx: +44.57 USDC on 350 USDC repaid,
+  ~11.3% gross edge, sale through the measured pool). Dominant actor 0xdb61a255... wins
+  86% by liquidating in the same block as the Chainlink feed update; our paper run
+  measures the residual window (underwater_closed.visible_ms) and the 13/94 events won
+  by 8 other addresses show some flow is not same-block. Live expectation: opportunistic
+  liquidations the dominant bot misses (dust positions, markets it does not watch,
+  slow bleeds via interest), capital-capped at ~398 USDC repaid per tx. MEASURED
+  2026-11-04 (run 0182bdda, relay paper-lane historical eth_call of price() on the cbZEC
+  oracle 0xa3cb2d72): the executable cbZEC route (market 0xe458a501, pool 0xe703)
+  liquidated 19 times in the 6.7 ledger days (blocks 53159261..53447309) = 2.85/day, and
+  EVERY probed one used a price FIRST SEEN in its own liquidation block:
+  price(53265194)=1207.289 vs implied <=1198.94 (liq 53265195 tx 0x56ae0d93, repaid
+  382.32 USDC — final-sized, gross edge 0.1267/1.1268 x 382.32 ≈ 48.4 USDC),
+  price(53428518)=1161.888 vs used 1155.637 (liq 53428519 tx 0xc0d3a567),
+  price(53429433)=1155.637 vs implied <=1140.89 (liq 53429434 tx 0x0facc248),
+  price(53429509)=1140.8185 vs implied <=1126.24 (liq 53429510 tx 0xaec254a8). The
+  same-block feed->liquidation race dominates this route: a natural >=20 s poll window
+  was NOT observed in the current event flow, and the previous "post-winner 194 USDC
+  underwater residual" claim is corrected: the residual debt is 194 RAW = 0.000194 USDC
+  dust and healthy at the capture price (review 511fc3e7) — not a window. Raising
+  LOG_BLOCKS to 60000 closes a steady ~33h window ONLY; the measured 261k-block
+  pre-capture activity gap is closed by the COLD_START_BLOCKS=450000 deep backfill (now
+  also run once for already-persisted candidate sets, review 2d13ac44 blocker 3).
+  RACE CLASS (review 99cc9216 blocker 4, run 65653fce; EXTENDED run 31324734 attempts 87:
+  price probes at ALL SIX most-recent executable cbZEC captures — 53265195/53428519/
+  53429434/53429510 plus BOTH Liquidate events of winner block 53447309 (tx 0x2d56cc60) —
+  every victim was HEALTHY at its parent block
+  (hf 1.0015-1.0098 accrued to the parent timestamp) and captured inside the
+  oracle-update block: 6/6 same-block races, no >=20 s window): on the evidence above (every
+  probed executable-route capture used a price first-seen in its own liquidation
+  block; no >=20 s window measured; residual is 0.000194 USDC dust), the executable
+  route's capture class is a same-block oracle-update RACE, and polling this route at
+  this cadence is RECORDED blocked_infra — a 20 s poller starts after the block that
+  already contained the capture. Promotion stands waiting for either a naturally
+  eligible, pre-discovered, final-sized, after-fee capture with a measured poll-
+  compatible window (interest-bleed class: positions crossing the threshold between
+  oracle updates — not yet observed on this route) or faster inclusion-adjacent
+  infrastructure. The per-capture economics themselves are proven (fork success
+  +49.9 USDC before ~0.7 USD fees); the unproven leg is catchability, not profitability.
+awaited_events: >
+  Waits for any tracked borrower to become protocol-ineligible at the oracle price.
+  Ledger shows ~62/day on base morpho_blue across ALL routes; the EXECUTABLE-route
+  headline is smaller: the cbZEC market (pool 0xe703...) measured 19 liquidations in
+  6.7 ledger days (~2.85/day). Last executable capture observed: block 53447309
+  (2026-11-03 05:32 UTC, tx 0x2d56cc60...); newer all-route captures through the
+  review-54ffa8cc verified cursor (Base next_block 53506531): blocks 53503574 /
+  53503630 / 53503814 (2026-11-04) landed on markets ce983b9e... / 45f3b568...
+  WITHOUT an executable pool (watch-only). No schedule predicts the next capture; the last
+  executable one predates this session. Largest currently-tracked positions are refreshed each scan
+  (heartbeat lines). Live sends only on markets with a measured swap pool (cbZEC);
+  others log opportunity_watch_only.
+good_signs: >
+  heartbeat lines with scanned ≈ 400+, debtors > 100 and min_hf between 1.0 and 2.0;
+  opportunity lines at hf just below 1.05; simulate lines with sim_ok=true on the
+  executor calldata (state-override sim of the exact live bytes) and
+  profit_usd_oracle > 0; underwater_closed lines with visible_ms measure our window.
+bad_signs: >
+  error lines; simulate lines with sim_ok=false and a decode/allowance revert (would
+  mean calldata or executor regression — the fork txs above prove the same bytes
+  succeed); heartbeat with debtors=0 for hours; opportunity lines never appearing while
+  ledger logs new base morpho_blue liquidations.
+rpc_reads_per_min: ~8 (one scan = 2-3 Multicall3 eth_calls every 20 s carrying up to 500
+  market/position/price inner calls, plus 5-161 eth_getLogs per 5 min refresh — 161 on a
+  deep-backfill batch (4 tracked markets + 1 all-liquidations query, 40 x 2000-block
+  pages each), 5 on a cursor resume; executor sims are one extra eth_call per
+  underwater detection, rare)
+fixes: |
+  2026-11-04 15:23-15:27Z (review 54ffa8cc blockers 1-3, run 3c4a3b75): (1) blocker 1 accepted
+  alternative: live sends gated off — LIVE_FEE_CAP_ENFORCED=false gates the live send
+  branch in bot.js simulateLiquidation (logs live_skip 'live sends disabled: no enforced
+  inclusion-time all-fee cap'); the 3x preflight margin and the 18 USD balance funding
+  policy stay honest estimates/policy, not an enforced inclusion-time cap; flip the flag
+  only together with a genuine enforced cap for every applicable fee. (2) blocker 2:
+  rlpList long-list prefix repaired from 0xdf+lengthBytes to the canonical
+  0xf7+lengthBytes (prefixes 0xf8..0xff): the previous encoding of the ~600-byte
+  calldata emitted outer 0xe1, which a canonical decoder reads as a SHORT list declaring
+  33 bytes with 713 following; the new pure no-RPC harness scratch/morpho-harness-
+  3c4a3b75.js decodes the EXACT encTxBytes bytes with a canonical decoder, validates
+  the header-declared length against the bytes that follow, consumes the ENTIRE payload
+  (no trailing junk), and verifies all 12 EIP-1559 fields — ALL PASS; the old builder
+  harness accepted the same non-canonical 0xdf-list convention the encoder emitted, so
+  its acceptance was not serialization validation (getL1Fee accepts arbitrary bytes).
+  (3) blocker 3: expected_value/awaited_events refreshed to the current executable-route
+  flow — last executable capture 53447309 (tx 0x2d56cc60), newer captures 53503574/
+  53503630/53503814 through verified next_block 53506531 are watch-only non-pool markets
+  (ce983b9e.../45f3b568...); 6/6 measured executable captures are same-block oracle
+  races with the victim healthy at the parent block (attempts 87) = the accepted
+  blocked_infra classification; the old 194-USDC-window and 60000-block-gap claims are
+  labeled SUPERSEDED below. Supervised paper restart 15:27:29Z loads this revision
+  (bot.js edited 15:23:24Z; logs/bot.jsonl start line 15:27:29.236Z ties the revision;
+  first heartbeat 15:27:50Z scanned 1157 debtors 888 markets 8, zero errors since;
+  cbZEC pool 0xe7030be388b8e247abe0c9fa876673e83fbcbd3c persisted across the restart).
+  2026-11-04 13:23Z (review 99cc9216 blockers 1-4, run 65653fce): (1) blocker 1 relabel
+  (see max_loss_guarantee): the balance check is the gate's REQUESTED funding policy +
+  fee-validity, not a proven chain invariant; the enforceable fee bound is now explicit
+  per leg — signed cap (a), chain operator formula (b), chain-computed L1 data fee (c)
+  bounded bot-side by FEE_BOUND_MARGIN=3 on the in-path measurement, sends refused
+  unless measured total x 3 <= 20 USD. (2) blocker 2: encTxBytes fee fields moved BEFORE
+  gasLimit (canonical order chainId, nonce, maxPriority, maxFee, gasLimit, ...; the
+  previous revision emitted gasLimit first — RLP decode read 1500000/20000000/200000000
+  instead of 20000000/200000000/1500000), AND the long-form RLP prefixes were repaired:
+  rlpBytes/rlpList used a 0xf7+lenBytes base for long strings/lists where the canonical
+  bases are 0xb7+/0xdf+, which produced NON-INTEGER prefix bytes ('f8.5') — the bytes
+  fed to getL1Fee were not valid RLP; independent canonical-decode harness
+  scratch/morpho-harness-1309.js ALL PASS on the exact returned bytes (pure, no RPC).
+  (3) blocker 3: market churn no longer evicts PINNED markets (pickEvictVictim drops
+  only discovered markets; was: sort-by-lastLiq.shift evicting pinned entries whose
+  lastLiq was still undefined at a restart — supervised log market_added 11:58:20.632Z
+  re-added the pinned cbZEC market with pool=null and persisted state showed pool=null
+  on all 8 markets); a re-added pinned market now inherits pinnedMeta (measured pool/
+  irm/decimals) instead of watch-only null; market_added log carries pool+pinned flags;
+  candidates_refreshed telemetry logs to_block = the actual batch endpoint (tip logged
+  separately as tip_block). Supervised restart 13:23:30Z restores the cbZEC pool from the
+  pinned config via loadState (state.json had pool=null). (4) blocker 4: race class
+  recorded blocked_infra in expected_value + attempts row (same-block oracle-race
+  captures; polling cadence has no measured window).
+  2026-11-04 11:49Z (review 2d13ac44 blockers 1-5, run 0182bdda): (1) ENFORCED all-fee
+  bound (blocker 1): see max_loss_guarantee — the gate funds the Base gas float at most
+  LIVE_BALANCE_CAP_USD = 18 USD (low, immutable funding invariant), the bot fails closed
+  unless balance <= cap at every live send (bot.js simulateLiquidation), and every fee
+  kind is deducted from that balance at inclusion: enforced worst-case all-fee spend =
+  min(balance, signed L2 cap + operator fee + L1 data fee) <= 18 USD < 20 USD.
+  (2) EIP-1559 encoding (blocker 2): encTxBytes now emits the canonical field order
+  (gasLimit BEFORE maxPriorityFee/maxFee, data BEFORE accessList; verified by canonical
+  decode: chainId 822105, nonce, 8316e360 gasLimit, ...), rlpUint normalizes Number/
+  BigInt callers so nonce 0 encodes as the canonical empty integer 80 (was byte 00 from
+  the paper caller's Number 0), and the live pre-flight (signer address, valuation,
+  deployed code, owner(), nonce) completes BEFORE feeBound/gasUsd/minProfitOn/calldata
+  are computed — those values now derive from the SAME nonce the live send uses (was:
+  computed at nonce 0 and never refreshed). getL1Fee over the canonical full tx returns
+  1.79e9 wei at 11:44Z; feeBound.totalWei 3.00002e14 wei = the formula side, logged per
+  simulate as worst_case_fee_usd = min(formula, 18 USD cap). (3) Deep discovery
+  (blocker 3): refreshCandidates queries tracked-market logs from..to, not from..tip
+  (the old bug: measured 944 nominal getLogs reads per deep refresh at tip-1,000,000,
+  now 40 pages x 5 queries = 161 per batch); deepCursor/cursor commit only after the
+  batch completes (an RPC failure re-reads the SAME segment, was: deepCursor advanced
+  mid-refresh and the failed 550000..629999 segment was skipped); persisted deepDone
+  migrates already-persisted warm candidate sets (cursor != null, deepCursor null) into
+  the one-off deep backfill — the deployed state on disk had exactly that shape, and the
+  supervised restart at 11:49:39Z started that migration. (4) Catchability/manifest
+  (blocker 4): measured price-probe evidence and corrected claims in expected_value;
+  exact-artifact fork pair in fork_evidence. (5) Blocker 5: supervised paper runner
+  restarted 11:49:39Z with THIS code (logs/bot.jsonl start line ties the revision).
+  2026-11-04 09:20Z (review 021de292 blocker 3, run c6063617): protocol-exact
+  economics. (1) ACCRUED state: Morpho.accrueInterest (selector 0x151c1ade) runs
+  as a REGULAR inner call inside the scan Multicall3 eth_call, so the market()
+  read after it returns the exact totals the protocol's _isHealthy/liquidate
+  compute against; fail closed (market skipped for the cycle) if the inner call
+  fails. Nothing is mutated on mainnet (eth_call). (2) VIRTUAL SHARES: borrowed
+  = toAssetsUp(borrowShares, tba, tbs) = ceil(shares*(tba+1)/(tbs+1e6)) per
+  SharesMathLib (VIRTUAL_SHARES=1e6, VIRTUAL_ASSETS=1); the old
+  ceil(borrowShares*tba/tbs) omitted both terms and used unaccrued totals.
+  (3) REPAID CHAIN: seizeFor now binary-searches the max seize whose exact
+  protocol chain repaidAssets = toAssetsUp(clamp_toSharesUp(wDivUp(mulDivUp(
+  seized,price,1e36),inc))) keeps repaid <= 398 USDC. VERIFIED: (a) 56/56
+  agreement with the protocol's own withdrawCollateral eligibility code path on
+  the 14 nearest-boundary candidates of each tracked market
+  (scratch/morpho-econ/probe-result.json); (b) the chain reproduces BOTH
+  Liquidate events of winner tx 0x2d56cc60 to the wei (13203398612 /
+  414167285) on the reconstructed execution-time state at fork 53447309 with
+  the oracle forced to the post-update price (scratch/morpho-econ/fork-verify.json).
+  (4) PRE-CAPTURE DISCOVERY GAP measured and fixed: the winner's borrowers last
+  acted 261,222 / 260,573 blocks (~15 days) pre-capture — invisible to
+  LOG_BLOCKS=20000; raised to 60000 (~33h). (5) CATCHABLE WINDOW: borrower
+  0xe6ee41c9 remained protocol-underwater immediately after the winner's
+  partial liquidation (~194 USDC debt vs ~121 USDC maxBorrow at capture price)
+  — a historical residual window on the executable cbZEC route that a 20 s
+  poller can catch [SUPERSEDED, reviews 511fc3e7/99cc9216/54ffa8cc: the residual
+  debt is 194 RAW = 0.000194 USDC dust, healthy at the capture price — not a
+  window; and the 60000-block raise closed only a steady ~33h window while the
+  measured 261k-block gap is closed by the COLD_START_BLOCKS deep backfill]. Paper restarted 09:21:56Z with the new code, zero errors.
+  2026-11-04 08:35Z (review c7693f9e blockers 1-3, run 807117915): (1) Live sim
+  now runs from OUR wallet against the DEPLOYED executor with NO code override,
+  behind a fail-closed pre-flight: signer address, fresh native valuation,
+  deployed code present, owner() == our wallet, all-fee bound inside the 0.002
+  ETH allowance (bot.js scanCycle). Paper keeps the fork-owner runtime override.
+  (2) seizeFor() now divides by 1e18 TWICE (price term 1e36 AND incentive factor
+  1e18): demonstrated on the Base fork at 53447308 (pre-liquidation state of
+  winner tx 0x2d56cc60, oracle feed forced to the post-update 1120.8575264093909
+  price via a minimal fixed-answer feed runtime, scratch/morpho-fix-80711791/):
+  sizing seized=40009608 repaid=397999998 (capital-capped; the old formula would
+  have seized the borrower's whole 58914419), executor sim from owner passed,
+  mined fork tx 0xea45f08b7b88926aee9a62e9478a579d85b6a9a6cb99873500219ee6ac001460
+  status 1 gas 520892, executor USDC +50547170 (50.55 USDC) in ONE atomic tx;
+  non-owner eth_call reverts ONLY_OWNER. (3) All-fee bound is now a measured
+  GasPriceOracle getL1Fee(bytes) on our exact max-content calldata x5 margin +
+  the tx-enforced L2 cap, fail-closed when the read fails; the old selector
+  l1Fee(bytes) 0x3fd1263d no longer exists on the Isthmus GasPriceOracle (relay
+  eth_call reverts — measured), getL1Fee 0x49948e0e returns 2771391084 wei for
+  our 648-byte calldata, bound total 3.0e14 wei <= 0.002 ETH allowance. On-chain
+  minProfit is now MIN_PROFIT_USD + the all-fee bound in loan units. Blocker 4
+  (discovery strictly before capture + measured catchable window on the cbZEC
+  route) remains open, see KB leads.
+  2026-11-04 01:45Z (executor + profit-model blockers of review 6950ca00): (1)
+  Executor rewired for inventory safety (review blockers 1+2, human finding
+  e9a6679c): liquidate() is now OWNER-ONLY (owner = immutable deployer = the
+  gate's bot wallet), collateral tokens and swap targets are whitelisted via
+  CONSTRUCTOR IMMUTABLES (they travel with the runtime code, so a code-only
+  paper sim sees the exact whitelist — storage-mapping whitelists proved
+  invisible to a code-only state override), the redundant collateral approval
+  to the swap target is REMOVED (the V3 callback pays the pool by transfer,
+  bounded by the amount seized in the armed operation; residual allowance
+  measured 0 after a success tx), the swap callbacks are bound to the armed
+  flash operation (flashActive && swapArmed && armed pool && armed token &&
+  amount <= seized), and the only outstanding allowance is the loan token to
+  MORPHO itself. (2) EXEC no longer hard-coded: read from EXECUTOR_ADDR env /
+  the fork-deployed executor of record 0xb464f731..., live mode requires
+  eth_getCode non-empty AND owner() == our wallet (fail closed), and the paper
+  sim exercises a CONSTRUCTOR-PATCHED runtime whose five MORPHO immutable slots
+  are verified non-zero at load (offsets 246,694,932,1190,2556; fail closed to
+  watch-only if not). (3) Profit model (review blocker 3): profitEst now uses
+  the SELECTED seize's sale proceeds at oracle price minus the repaid debt
+  (debt-capped seizure included: proceeds = repaid x incentiveFactor when
+  debt-limited), never the borrower's whole collateral value; the flash is
+  ceil(repaid x 1.005) with rational CEIL arithmetic (the old 1005n/1000n
+  evaluated to 1n); the live gate subtracts a conservative gas bound in USD
+  (1.5M gas x 0.2 gwei + flat L1 fee, valued at a FRESH WETH price from the
+  Aave oracle 0x2cc0fc26 read every cycle, fail-closed staleness 15 min) and
+  requires the residual >= MIN_PROFIT_USD; seizeFor additionally caps the seize
+  at the debt coverage so Morpho can never SEIZE_OVERFLOW. (4) Detection infra
+  unchanged from the 00:23Z fix (getLogs paging + cursor persistence working:
+  warm resume = 5 getlogs calls). Remaining: a success+guard tx pair mined on
+  THIS v3 artifact at a freshly underwater position (fork oracle state drift
+  blocked re-mining at the winner's block this session — see fork_evidence).
+  2026-11-04 00:23Z (detection-infra blocker of review 294ea30f): the startup refresh
+  issued 10000/20000-block eth_getLogs ranges that exceeded the relay's 20000-result cap
+  and the throw killed the process before the scan interval registered — the service
+  crash-looped ~45 s from 23:55Z (5 restarts). Now: (1) all getLogs are paged in
+  2000-block pages and an oversized page is halved recursively to single blocks
+  (getLogsRange/getLogsPaged in bot.js); (2) a cursor (state.cursor) is persisted only
+  after a fully successful scan and the next refresh resumes at cursor+1-8 blocks, so
+  cold start = full 20000-block window and warm start = only new blocks; (3) refresh
+  runs in its own retry loop with exponential backoff (5 s -> 60 s) — an RPC error can
+  no longer kill the process; heartbeats start immediately and never depend on refresh
+  success. Evidence in logs/bot.jsonl: cold start 00:21:45Z candidates_refreshed
+  from_block=53461170 to_block=53481170 getlogs_calls=55 ms=16096 candidates=457
+  (discovery works: 437 -> 457); service restart 00:22:59Z resumed cursor 53481163 with
+  getlogs_calls=5 ms=422 (no excess reads); the halving path was exercised separately
+  with a 20000-block all-events getLogs that used to exceed the cap and now returns all
+  72179 logs. Cumulative per-market liquidation counts (state.liqCounts) replaced the
+  per-refresh window counts, so new-market discovery (>=2 liquidations) is no longer
+  tied to a window that fails. Remaining known blockers (executor inventory safety,
+  hard-coded EXEC, profit model) are unchanged by this fix.
+legal_note: >
+  Morpho liquidation is a public protocol incentive: anyone may repay a borrower's debt
+  and seize the corresponding collateral at the oracle price. No frontrunning of pending
+  txs, no price manipulation: we act only when the on-chain oracle itself marks the
+  position ineligible, and sell the seized collateral on the pool's public AMM.
+expedite: false

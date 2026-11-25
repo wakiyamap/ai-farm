@@ -1,0 +1,4 @@
+# Agents (group farm) manage paper bots only through paper-ctl, which validates
+# every argument. FARM_ROLE / FARM_RUN_ID are passed so archives record who did it.
+Defaults!/opt/farm/bin/paper-ctl env_keep += "FARM_ROLE FARM_RUN_ID"
+%farm ALL=(root) NOPASSWD: <REDACTED>

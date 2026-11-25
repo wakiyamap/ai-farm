@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-supernova-amm",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 281,
+ "chain": "ethereum",
+ "slug": "supernova-amm",
+ "name": "Supernova AMM",
+ "category": "Dexs",
+ "tvl_usd": 117054,
+ "url": "https://supernova.xyz/",
+ "github": null,
+ "listed_days_ago": 281,
+ "run_id": "9c718242e4ce49c8890fe02d83f20c9d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "No open payer: minter.update_period (0xfe29ea13...84a2) public but pays caller 0; distribute/distributeFees role-gated (EPOCH_MANAGER, PermissionsRegistry) pay 0; claims pay holders only \u2014 sample of 4 receipts/24h: claimRewards 0.55-309 NOVA (bash.0004-0.22) vs bash.76 gas, claimBribes bash.15 vs .81 gas (one vault batch .45 USDT + 39.8 unpriced > .18 gas, needs veNFT); weekly emission 6.52M NOVA = ,741/wk over 66 gauges, NOVA bash.000727 (llama ts 1795181783), gas 5.48 gwei x 84k-353k (1795192771)",
+  "kb": [
+   "attempts:2979",
+   "protocols:1381"
+  ],
+  "run_id": "9c718242e4ce49c8890fe02d83f20c9d",
+  "at": 1795193108
+ }
+}

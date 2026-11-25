@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-sperax-demeter-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 796,
+ "chain": "arbitrum",
+ "slug": "sperax-demeter-v2",
+ "name": "Sperax Demeter V2",
+ "category": "Farm",
+ "tvl_usd": 26932,
+ "url": "https://demeter.sperax.io",
+ "github": null,
+ "listed_days_ago": 796,
+ "run_id": "e7e56db25b1548beac67d3af6caab749",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 10 farms (registry 0x45bC..222e0 -> impl 0xc659eba3 CamelotV3Farm); claimRewards/claimPoolFee revert DepositDoesNotExist from a fresh address (caller must own the deposit), setRewardRate reverts NotTheTokenManager and pays 0; full no-topic 7d scan of all 10 farms (blocks 524552634..526605846, 11-15..11-22, all 510 logs explained): 508 unpaid setRewardRate updates by keeper EOA 0x37b1a6e5 (~0.014 USD gas each) + 1 depositor yield claim (0.009 USD); 0 stranger payments; TVL 26,932 USD, ETH 1711.73 USD (coins.llama.fi 11-22 20:10 UTC)",
+  "kb": [
+   "attempts:3844",
+   "protocols:2020"
+  ],
+  "run_id": "e7e56db25b1548beac67d3af6caab749",
+  "at": 1795378587
+ }
+}

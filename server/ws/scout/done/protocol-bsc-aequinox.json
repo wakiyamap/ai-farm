@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-aequinox",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1524,
+ "chain": "bsc",
+ "slug": "aequinox",
+ "name": "Aequinox",
+ "category": "Dexs",
+ "tvl_usd": 628668,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1524,
+ "run_id": "82b8c2cba77946478aec0e0129ce610d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Balancer V2 fork: vault 0xee1c8dbfbf958484c6a4571f5fb7b99b74a54aa7 exposes exactly 26 standard Balancer fns, none pays the caller (1% swap fee goes to LP; pool checkpoint/reward getters revert); sampled 7x5000-block windows over 7d (133.12M-134.46M blocks @0.45 s): 9 vault Swap logs in 3/7 windows (EOAs via routers), AEQ transfers 2 in 1/7; TVL $628,668 (DefiLlama).",
+  "kb": [
+   "attempts:2433",
+   "protocols:960"
+  ],
+  "run_id": "82b8c2cba77946478aec0e0129ce610d",
+  "at": 1795073703
+ }
+}

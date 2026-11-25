@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "butterswap MasterChef withdraw-claim",
+  "status": "dead_end",
+  "why": "Own LP emissions rather than public caller bounty. The only observed $66 claim was accrued by a large LP holder (tx 0xbfa2d33c565b41062cf4a4c088973dffefcd4bc26740db21dbaf56354219f3d2). At the $100 holding cap, current pool 2 allocation and reserves imply only ~$0.22/day gross before trades, fees and volatile BUTTER price risk; no demonstrated seven day realized net profit at farm scale.",
+  "next_steps": "Closed 2026-11-23, attempts new row from run 922a5fa5914f48b6b639d8b0be9f5272. Reopen only with measured realized net profits at <=$100 holding size and a single-transaction exit to USDC; a larger own-stake claim alone is not evidence."
+}

@@ -1,0 +1,22 @@
+id: trial-peapods-base
+author: builder/gpt-6-sol
+chains: [base]
+strategy: "trial: follow confirmed Peapods LVF fWETH-12 liquidations and take profitable remaining borrower shares"
+copied_from: "Base liquidator EOAs 0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3, 0x00000000001fc3937c130c1408bfec31b5b6c669, 0x6669c47bbf09f61a7fddea3b6a9180d7fc0f8ac0; example tx 0x0f197f0b165c42793b5a13dc242e6293fba102e56e3a75e58991af2917756105"
+capital_usd: 5
+allowed_contracts: []
+send_route: public
+max_loss_per_tx_usd: 1
+max_loss_guarantee: "PeapodsTake.sol:61-81 owner-only run checks max gas price and minProfit, flash callback performs the whole action, requires WETH growth, unwraps and pays the gain to the bot in the same tx. bot.py:126-132 caps 3.2m gas x 0.05 gwei plus 100e9 wei L1 allowance at $0.641 using $4000/ETH, and bot.py:188-206 requires simulated gross above that cap. Maximum priority fee 0.001 gwei x 3.2m gas = $0.0128, below 0.5% of the proven $3.14 gross. Base native wallet funding $5 is within the OP Stack $18 cap."
+expected_value: "Trial win rate to be measured by actual sends. Last 7 days: 78 Liquidate txs on pair 0x23574154 in blocks 59107858-59184235 from 4 EOAs, 13 borrowers. Follow-on same-borrower takes: 65 intervals, median 118 blocks and 24 seconds, minimum 2 blocks; 18/65 within 10 seconds. Max priority fees 0-0.019259993 gwei, median tx index 16. One historical route gross +0.00174545 WETH (~$3.06 at $1753.89/ETH) after flash repayment vs 2.34m gas; fork executor succeeds with +0.00178763 native gross. Evidence scratch/trial-peapods-base/competition.json, proof.json, scratch/peapods-fWETH12-receipt.json."
+executor: scratch/trial-peapods-base/contracts/out/PeapodsTake.sol/PeapodsTake.json
+executor_args: "{bot}"
+executor_note: "Constructor takes only the bot owner. All protocol addresses, borrower, size, deadline, swap output, and profit bound are call arguments. Morpho callback checks and clears the active counterparty, approves exact loan and staked token amounts inside the tx and resets approvals to zero. The executor calls no setup function and returns only native ETH to the bot wallet. Live code requires EXECUTOR_ADDR_BASE or EXECUTOR_ADDR."
+fork_evidence: "scratch/trial-peapods-base/proof.py, proof.json: Base fork lease/reset at block 59166221, deployed current artifact 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352, funded owner, minProfit guard revert 0x8adbc4eb256eb42f3d48881810fff76be9808c36836e99c0daa699f389812895, success 0x909cbc701d7fb9071342d8d53151921665cc77c21d879d5eb0b78076756d2237 at block 59166224 with owner native +0.001787634633978628 ETH gross and +0.001763632393978628 net of fork gas, repeat no-opportunity revert 0xee212d2e580dc59ba506b7af17058566a8c3c00ccabe1a4708482f21dbbc4cd0."
+awaited_events: "Base pair 0x23574154842bc86cf5bbc5f99376cfa1e2f82497 Liquidate(address,uint256,uint256,uint256,uint256,uint256,uint256), topic 0x821de4e13fff1938b3806eb2859b6a5d55111f00dcf286f8a793584228ff36f8, through feed /logs; latest rescan found a take at block 59206529 at 2026-11-18 19:54:41 UTC, fully repaid borrower, next time unknown. Safety scan every 10 minutes and on feed gaps/errors."
+good_signs: "Detected confirmed Liquidate followed by successful head simulation with gross above signed cap; send_result won with positive native net_wei and actual gas below cap."
+bad_signs: "No sends in 7 days, repeated unprofitable or reverted simulations after feed events, all sends lost to incumbents, or read budget exhaustion."
+rpc_reads_per_min: "0.1 safety scan calls/min plus event-driven calls only; 78 events/7d averaged ~11/day, 68 events on the burst day. No per-block polling."
+alchemy_cu_per_day: "About 22,829 CU/day average: 12,240 CU/day for 10-minute head+getLogs scans, 4,444 CU/day event reads/simulations, 5,760 CU/day feed maintenance, 385 CU/day feed log delivery. Burst estimate ~45,000 CU/day; code cap 100,000. At $0.53 per million CU, average $0.0121/day."
+legal_note: "Verified FraxlendPairCore.liquidate(uint128,uint256,address) is public and expressly transfers collateral to an arbitrary liquidator that repays debt. The executor uses public Morpho flash loans, collateral redemption and an ordinary public pool swap. It observes confirmed logs only and does not manipulate price or watch pending transactions."
+expedite: false

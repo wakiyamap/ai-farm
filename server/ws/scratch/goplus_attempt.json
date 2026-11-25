@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-goplus-locker-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. UniV3 LP locker: the only function that pays a recipient (collect -> recipient arg) requires msg.sender == lock.owner or lock.collector, so a stranger's call reverts; unlock/decreaseLiquidity/relock are owner-gated and increaseLiquidity is caller-supplied (no payout). No ownerless reward/bounty/keeper function pays a caller. Contract also dormant: 0 lock/unlock/liq events in the last 7 days.",
+  "numbers": "Contract UniV3LPLocker 0x25c9C4B56E820e0DEA438b145284F02D9Ca9Bd52 (verified src, blockscout); nextLockId=4183. collect(uint256,address,uint128,uint128)=0x260e12b0; eth_call from fresh 0x2222.. reverts, debug_traceCall shows revert with 0 sub-calls (role require fails first) -> role_gated. 7d events OnLock/OnUnlock/OnIncLiq/OnDecLiq = 0 over blocks 55889520..58913520 (base 0.2s blocks). Control same query 40000000..58913520 = 244 events (238 OnLock,4 OnUnlock,2 OnIncLiq), last event block 53234341 (~13.1 days ago). Gross to a stranger = 0 (none ever paid)."
+}

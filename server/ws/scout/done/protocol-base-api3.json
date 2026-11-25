@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-api3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1750,
+ "chain": "base",
+ "slug": "api3",
+ "name": "Api3",
+ "category": "Risk Curators",
+ "tvl_usd": 1323782,
+ "url": "https://api3.org/",
+ "github": [
+  "api3dao"
+ ],
+ "listed_days_ago": 1750,
+ "run_id": "2921f0b2940c45039297cb6eecc8afc1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Api3 on base = Morpho VaultV2 curator: its whole 1,326,143 USD TVL (api.llama.fi 2026-11-19) is Labu WETH 0x4d72fed1b6ce42f8dea811f7b6685ebe4ec04e01 (734.51 WETH); only permissionless fn accrueInterest() passes eth_call from a fresh address but pays the caller 0 (fee shares to API3 recipients); 597 AccrueInterest events in 7d by keeper EOAs (0xe7dbde2e, 0x3b6b2a48, 0xc9cc05d3), gas 0.005 gwei (<bash.01/call); API3's own oracle contracts (Api3ServerV1 0x709944a4..) have no stranger-paid function",
+  "kb": [
+   "attempts:2538",
+   "protocols:1036"
+  ],
+  "run_id": "2921f0b2940c45039297cb6eecc8afc1",
+  "at": 1795098853
+ }
+}

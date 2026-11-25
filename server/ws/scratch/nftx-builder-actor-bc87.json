@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "address": "0x62af7c48cf412162465a8cafde44dfb17ba96038",
+  "strategy": "NFTX v2.1 vault 6 MASK/WETH LP staker claiming accumulated fee distributions from NFTXLPStaking.claimRewards(6); reward is paid to the holder of the staked position only, not to an unrelated caller.",
+  "est_profit_usd_day": 2.05,
+  "evidence": "Claim tx 0x0a254aad668058a716dae3b7de5a3645d62f8af8eaf7b34e2203e353e251a1f7 at Ethereum block 26463748 paid 0.22574586 MASK to the caller. On-chain vault 6 dist token 0x3e5ccc306b7fb9ff2aa2a6027741c2addfe882a9 balanceOf(caller)=5.249207103 LP versus totalSupply=17.118472562 LP (30.66%). NFTXLPStaking FeesReceived logs blocks 26417737-26467992: 13 vault-6 events sum 0.54 MASK, so caller's pro-rata newly distributed fee stream was approximately 0.1656 MASK (~14.38 USD at 86.86 USD/MASK) over seven days; this is return on LP capital and not a public keeper bounty. scratch/nftx-fees-exact7d.json; verified NFTXLPStaking source 0x0e49a0fa1ae7b7a16fa66a5d5a7057e96285029a."
+}

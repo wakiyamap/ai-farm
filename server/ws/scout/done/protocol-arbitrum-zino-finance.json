@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-zino-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 626,
+ "chain": "arbitrum",
+ "slug": "zino-finance",
+ "name": "Zino Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 41196,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 626,
+ "run_id": "61ad73b86b3540569f65835fb39e3c70",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Trade.liquidatePosition/limitOrderExecute, Stake.autoCompound, StakingHelper.autoCompound/autoCompoundAllEarners revert 'caller is not the executor' (executor 0x1b0dd842/0x3a1f9584, onlyOperator); only open fns Borrowing.liquidate+liquidateAll pay msg.sender 0 (no transfer in body; 0 borrowers, 0 positions, 31 earners, TVL 41635 USD) vs gas 0.0008-0.33 USD (23,995-9.65M gas at 0.020034 gwei, ETH 1712.98); 0 tx/0 logs on all 4 core contracts in 7 d (524537409 11-15 to 526591065 11-22, no-topic scan; control 1 log at 346407399 = last tx 2025-06-12)",
+  "kb": [
+   "attempts:3819",
+   "protocols:2001"
+  ],
+  "run_id": "61ad73b86b3540569f65835fb39e3c70",
+  "at": 1795373988
+ }
+}

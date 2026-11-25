@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-txflow-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 209,
+ "chain": "arbitrum",
+ "slug": "txflow-bridge",
+ "name": "TxFlow Bridge",
+ "category": "Bridge",
+ "tvl_usd": 46925801,
+ "url": "https://txflow.com/",
+ "github": null,
+ "listed_days_ago": 209,
+ "run_id": "3e5674760da24fe9b499b7dd52b4e975",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Bridge2 escrow 0xcde3f99b (verified source, no reward/fee logic anywhere): open-callable batchedRequestWithdrawals pays caller $0 (7d: 1,932 requests, gas $0.006/call); the only payer batchedFinalizeWithdrawals (7d: 1,933 calls, moved $579,568 USDC in the last day to 183 withdrawing users, not callers) is finalizers-role gated - stranger eth_call reverts, all 4 active callers are protocol relayers (finalizers=true), 0 deposits 7d, 8,861 failed retries.",
+  "kb": [
+   "attempts:1698"
+  ],
+  "run_id": "3e5674760da24fe9b499b7dd52b4e975",
+  "at": 1794915363
+ }
+}

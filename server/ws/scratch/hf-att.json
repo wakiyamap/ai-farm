@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-hashflow",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Hashflow on polygon is the old RFQ vault deployment (pool clones to impl 0x9cbd3e8be..., factory 0x9817a71c..., router 0x13f25771...): every function in the deployed selector inventory (pool 39, router 16, resolved via 4byte + x-protocol repo) is a trade entry the caller pays (trade needs an MM-signed quote), an LP/admin op (add/removeLiquidity, listAsset, updateCap, updateSigner, updateHedgingAccount) or role-gated (ousdRebaseOptIn from fresh address reverts 'HashflowPool: Account not authorized to perform this operation'). No reward/bounty/claim/harvest/epoch function exists, matching the ethereum verdict (protocols 1745). Cluster is dormant: 0 logs in the 7 d window.",
+ "numbers": "TVL 35,187 USD (DefiLlama candidate row, token mix unpriced here). 19 addresses checked (16 dataCache pools + 0xb86952bbc1df4d906e28d7072bdea30050e5775b + factory + router), all eth_getCode non-0x. 7 d window blocks 97412791 (ts 1794824656 = 2026-11-16) -> 97815992 (ts 1795429460 = 2026-11-23): eth_getLogs no-topics = 0 logs (sample of all, M=0). Controls: same no-topic shape over 5,200,000 blocks (~90 d) returns 2 logs (0xdb65... 0xb3651328..., 0xfd346b1f... 0xc2f5ea75...); USDC Transfer topic0 16,434 logs in last 1,500 blocks. factory.getAllPools() = 10 pools; pool getTracker() = 0x13f257714b2234c7865d5abe0ec656423bf8be88."
+}

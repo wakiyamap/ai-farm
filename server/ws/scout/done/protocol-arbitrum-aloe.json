@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-aloe",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 971,
+ "chain": "arbitrum",
+ "slug": "aloe",
+ "name": "Aloe",
+ "category": "Lending",
+ "tvl_usd": 27287,
+ "url": "",
+ "github": [
+  "aloelabs"
+ ],
+ "listed_days_ago": 971,
+ "run_id": "aff26beee4dc4ef79f5a96fb29ecfe70",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Factory 0x000000009efdB26b970bCc0085E126C9dfc16ee8 + 14 Lenders + 28 Borrowers on arbitrum; anyone-callable Borrower.warn pays ante/4 = 0.00075 ETH = 1.29 USD (ETH 1722.01 coins.llama.fi 1795389609), gas <0.02 USD (371535 gas x 0.0202 gwei), but 0 Warn/Liquidate events in 7d blocks 524588705-526642039 (0 in 365d, last 2025-03-13; no-topic scan control on 14 Lenders returned 2 logs) and warn eth_call reverts (all borrowers healthy); Factory.claimRewards reverts: rewardsToken = address(0).",
+  "kb": [
+   "attempts:3899"
+  ],
+  "run_id": "aff26beee4dc4ef79f5a96fb29ecfe70",
+  "at": 1795389991
+ }
+}

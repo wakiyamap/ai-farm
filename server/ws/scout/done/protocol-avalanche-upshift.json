@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-upshift",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 712,
+ "chain": "avalanche",
+ "slug": "upshift",
+ "name": "Upshift",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 8997298,
+ "url": "https://app.upshift.finance",
+ "github": null,
+ "listed_days_ago": 712,
+ "run_id": "19f3f24e4e214d71849270edc359e030",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Ethena USD+ vault 0x6AaB14C53980B9aA1Ce632a7e46a6E5E62e60f55 ($9.2M, asset USDe 18-dec): processAllClaimsByDate/claim/chargeManagementFee/collectFees callable by anyone but pay 0 to the caller - 190 claims over 7d (blocks 99961760-100641760) paid $972k gross to 143 redeeming users, all via 8 batch txs sent by the vault's own operator 0xe0b7deab801d864650dec58cbd1b3c441d058c79; gas $0.06-0.09 per batch (0.0087-0.0124 AVAX at AVAX $7.176, coins.llama.fi), no keeper bounty anywhere in TokenizedVaultV2 ABI (npm @upshiftfinance/sdk).",
+  "kb": [
+   "attempts:2051"
+  ],
+  "run_id": "19f3f24e4e214d71849270edc359e030",
+  "at": 1794989132
+ }
+}

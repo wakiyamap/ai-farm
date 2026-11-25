@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "piku_finance",
+ "status": "dead_end",
+ "checked": "DefiLlama module piku-dao/index.js + verified sources. Contracts (all eth_getCode non-empty): USP token 0x098697bA3Fee4eA76294C5d6A466a4e3b3E95FE6 (Inverter ERC20Issuance beacon proxy, role-gated mint/burn); USP oracle 0x433471901bA1A8BDE764E8421790C7D9bAB33552 (getPriceForIssuance, view); FXArbUSDTRY vault 0x99351BaEd3d8aB544CCb08aF96A105910fdA71E7 (AccountableAsyncRedeemVault, deposit/redeem onlyAuth = whitelisted institutional investors); its Accountable strategy/loan-manager proxy 0xcbbbd21c793218bb5f18d4159c5709619ecafca6 (impl 0x4f4ec9e4ddcadcda2e9cd79c54da4e39c5210019); Midas-mToken share tokens StockMarketTRBasisTrade 0x827Ce7E8e35861D9Ac7fE002755767b695A5594a and CarryTradeUSDTRYLeverage 0x2bf11d2E04Bc40daa95c24B8b90EC4F5c57Dd326 (mint/burn behind MidasAccessControl roles); PIKU governance token 0x2e4039e8e31475d65dc00293c366fdbfbbc02dc3. Only permissionless state functions found: strategy accrueAndProcess() 0x2b2eb02c and updateLateStatus() 0xa022985f - eth_call from fresh addr 0x1234...7890 both succeed, body has no token transfer to msg.sender (fees minted as shares to manager/treasury), accrueAndProcess returns usedAssets=0. publishRate is dvnPublisher-gated; depositGateway() = 0x0. No reward/bounty/claim function pays a stranger."
+}

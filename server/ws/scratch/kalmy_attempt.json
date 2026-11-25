@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-kalmy-app",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Alpaca-fork leveraged yield (Kalmy/kalmar-io) dormant on BSC: 0 logs from all 83 protocol contracts (3 vaults, 65 workers, 5 staking, 11 LP farms) over 7 days, control returns 355 logs same shape/range. Only permissionless reward-ish function found on workers is reinvest() (0xfdb5a03e); eth_call from a fresh address passes the role check but reverts 'Pancake: TRANSFER_FAILED' (empty CAKE pot) and by design pays the vault, not the caller. Gross per call 0.",
+ "numbers": "7d window blocks 133914253 (ts 1794826138, 2026-11-16T10:49Z) -> 135257670 (ts 1795430880, 2026-11-23T10:48Z), from eth_getBlockByNumber timestamps; eth_getLogs no-topics 83/83 protocol addresses (from kalmar-io/kalmar-assets bsc-kalmar-contract.json) = 0 logs (full set, not a sample); control same shape/range PancakeSwap V2 MasterChef 0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652 = 355 logs (topic0 set non-empty, no-topic scan so no forked-topic risk); worker 0x6e577cF6416E99219A440BDb102439A5af0d841e reinvest() eth_call from 0x7777..7777 revert 'Pancake: TRANSFER_FAILED' (0x08c379a0...); iBNB vault totalSupply = 0x10a6704cd814823495 = 3.1e20 (~310 iBNB, usd unpriced); TVL 30,572 USD from candidate record; gross per call 0 USD."
+}

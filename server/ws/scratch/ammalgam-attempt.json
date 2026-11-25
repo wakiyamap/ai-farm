@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-ammalgam-vaults",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The two ERC-7540 vaults' keeper functions (updateNewTotalAssets, settleDeposit/settleRedeem, expireTotalAssets) are gated by onlyValuationManager/onlySafe and revert from a fresh address with those custom errors; even role-holders are not paid - no transfer to msg.sender anywhere, fees go to feeReceiver EOA 0x60dee4f4 and FeeRegistry protocolFeeReceiver. No stranger was paid in 7 days; user fns just move the depositor's own capital.",
+  "numbers": "7d (blocks 26406084-26456484, no-topic eth_getLogs on both proxies, 18 logs, 12 txs): callers 0x7a3dfd8730a4ba3aa2b8ec0411b6c7635397de33 x4 (valuation EOA), 0xb220f968e2f89c8f2372478cc28ff6384f3fc342 x2, 0x90deceec188094f6f6c1ef446d843f70abfc92cb x2 (Safe settles), users 0x52d0fc34 x2, 0xc6ef452b x1, 0x5b191f5a x1. One call pays 0 USD gross; keeper gas 93,771-287,949 @0.27-0.49 gwei = 0.04-0.25 USD (ETH 1735.93 USD coins.llama.fi ts 1795180074). totalAssets: 85,628 USDC + 344.37 WETH (~598k USD) across the 2 vaults. Role reverts verified by eth_call from 0x1234...7890 (OnlySafe 0xfde82f1f, OnlyValuationManager 0x14c9222d)."
+}

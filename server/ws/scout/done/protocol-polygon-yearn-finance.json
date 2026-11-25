@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-yearn-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "yearn-finance",
+ "name": "Yearn Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 276381,
+ "url": "https://yearn.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "3a798f3c04cd41ab81f27beaa2419af9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 81 V3 + 1 v2 vaults on polygon (kong.yearn.fi vaults/137), 287k USD TVL; process_report(strategy) reverts 'not allowed' from a stranger, no transfer to msg.sender in vault source; 7d topic-less census of all 82 vaults: 13 logs (user Transfers/Withdraws only), 0 StrategyReported (blocks 97339037-97641437); 0 yearn-periphery auction kicks 7d (attempts:2134).",
+  "kb": [
+   "attempts:2853",
+   "protocols:1273"
+  ],
+  "run_id": "3a798f3c04cd41ab81f27beaa2419af9",
+  "at": 1795167987
+ }
+}

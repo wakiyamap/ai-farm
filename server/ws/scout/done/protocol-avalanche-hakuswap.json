@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-hakuswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1774,
+ "chain": "avalanche",
+ "slug": "hakuswap",
+ "name": "HakuSwap",
+ "category": "Dexs",
+ "tvl_usd": 25135,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1774,
+ "run_id": "f2395692355742fd8407d188cddda782",
+ "result": {
+  "verdict": "unpaid",
+  "line": "UniV2 fork + pancake chef (0xba438a6f..., no harvest fn); public updatePool/deposit callable but pay 0: HAKU emissions dead at supply 100.04M >= 100M cap, 9/9 mints = 0 HAKU, staking TVL 0; 7d (blocks 100492500-101089583) only 22 token transfers / 3 txs by one EOA, 14 chef logs all dust deposits by 0xc648134f etc paying 0 HAKU = 0 USD gross vs ~0.005 USD gas (7.5 Gwei, WAVAX 6.95 USD).",
+  "kb": [
+   "attempts:4162"
+  ],
+  "run_id": "f2395692355742fd8407d188cddda782",
+  "at": 1795452638
+ }
+}

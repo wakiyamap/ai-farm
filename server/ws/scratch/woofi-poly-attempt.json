@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-woofi-swap",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. WOOFi Swap polygon (SPMM v2 stack, docs addresses, all eth_getCode-confirmed) has no function that pays a stranger: pool.claimFee() is stranger-callable but pays WooFeeManager and unclaimedFee()=0; FeeManager.distributeFees and oracle postPrice revert from a fresh EOA ('WooracleV2_2: !Admin'); claimRebate() pays only the caller's own accrued rebate. The stack is also dormant: 0 claimFee/claimRebate calls in the last 7 days, pool's last tx 2026-10-02, router's last swap 2026-10-18.",
+  "numbers": "TVL 395,941 USD (api.llama.fi currentChainTvls Polygon, 2026-11-19); pool USDC.e balance 183,723.93 (balanceOf eth_call 2026-11-19, 6 dec read on chain); unclaimedFee()=0; claimFee 7d count 0, last claimFee 2026-08-31 tx 0x2cab47755f7243d094e967a03e32bb0f3ea4e513e1525fef5f350d6a8ee0e1ca by protocol keeper 0xb08dc5670682658a77841db446b226dd355527f2, 110,002 gas @ 52 gwei = 0.0005 USD at POL 0.08175 USD (coins.llama.fi 2026-11-19 14:01Z); claimRebate 7d count 0, last 2026-08-18 tx 0xd3b57740707095d1560d88ecba00d598965b595f6a863311964bb0e4714fe5bd; explorer txs (etherscan) lists returned older rows for both addresses = query-shape control; source github woonetwork/woofi_swap_smart_contracts WooPPV2.sol + explorer WooRebateManager source"
+}

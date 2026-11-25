@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-zerobase-cedefi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 530,
+ "chain": "bsc",
+ "slug": "zerobase-cedefi",
+ "name": "ZEROBASE CeDeFi",
+ "category": "Basis Trading",
+ "tvl_usd": 17663124,
+ "url": "https://app.zerobase.pro/",
+ "github": null,
+ "listed_days_ago": 530,
+ "run_id": "8426572469c34c71a26366ab31eefd41",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BSC vault 0xCc5Df5C68d8c991035B6A437D4e00A99875228E4 (TVL 17.7M USDT+USDC) is depositor self-service: full 7d scan (270 chunks, 0 fail) = 167 events (88 ClaimAssets + 69 RequestClaim + 7 Stake + 3 FlashWithdraw), all EOA self-calls; claims pay staker-caller (user==msg.sender), admin fns AccessControl-gated (stranger setRewardRate reverts 0xe2517d3f); gross to a stranger 0 USD, gas 0.0077 USD/call (260k gas x 0.05 gwei x BNB 590.19, coins.llama.fi); no keeper function pays callers.",
+  "kb": [
+   "attempts:1891",
+   "protocols:516"
+  ],
+  "run_id": "8426572469c34c71a26366ab31eefd41",
+  "at": 1794953182
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-cvi-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: public liquidation finder fee exists in verified platform code, but no successful liquidation or caller payout was observed on the four Ethereum platforms in the last seven days; fresh-address empty-list calls revert, and three of four platforms have zero total position units. ETH platform retains position units, so future eligibility would require owner discovery.",
+  "numbers": "Window from timestamp now-7d: block 26430708 at 2026-11-16 22:53:47 UTC through block 26480949 at 2026-11-23 22:53:35 UTC. One no-topic eth_getLogs query covering all four platform addresses returned 0 events, and separate staking no-topic query returned 0; same-shape USDC no-topic control returned 494 logs in blocks 26480940-26480949. Thus observed liquidation calls/payments = 0, gross = 0 token units, gas per successful call = unmeasured, USD = unpriced because no successful call. totalPositionUnitsAmount() is 0 on USDT and two USDC platforms; ETH has 0x63c5c7b664fdb133 units. Source: DefiLlama cvi adapter, verified explorer PlatformV2/Platform/Staking Solidity, eth_getCode/eth_call/eth_getLogs through relay."
+}

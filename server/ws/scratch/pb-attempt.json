@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-privacy-boost",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only permissionless pay-the-caller mechanism is the portal sweep (requestPortalDeposit: 'any caller may sweep, a keeper for the fee'), but portalSweepFeeBps = 0 on-chain, so sweeps currently pay 0; claimPortalSweepFee from a fresh address reverts NoDeferredPortalSweepFee (pot empty). All epoch functions (submitEpoch, submitDepositEpoch, submitPortalDepositEpoch, submitGiftClaimEpoch) are onlyRelay and paid to the protocol relayer off-chain in-shield (feeNPK). No stranger was paid in the last 7 days.",
+  "numbers": "7d window blocks 55,498,751-58,522,751 (2026-11-10..17, eth_getLogs on pool 0x71A0fD3C76E3E937d8275A3cb6a467b70123bD40): 2,069 logs / 2,065 txs: EpochSubmitted 1,399, DepositEpochSubmitted 333, DepositRequested 333, gift-epoch events 2, GiftSettled 1, Upgraded 1; PortalDepositRequested 0, PortalSweepFeeDeferred 0, PortalSweepFeeClaimed 0, ForcedWithdrawal* 0, GiftExitExecuted 0 (same query returns the other topics = control ok). All sampled callers (10/10 epoch txs, 3/3 gift/other) = relay EOA 0x6bd37032571f47e50f312542ae05d548b69dc9b0 (allowedRelays=true). Depositors: 324/333 from 0xf977237b7d978dde922ee4909619740c73d8a49b (backend); volumes 327 WETH deposits totalling 0.327 WETH (~$600) + 6 USDC deposits totalling 2,056.88 USDC (DepositRequested events, ETH $1,833.07 from coins.llama.fi). Gas: epoch submit ~826k gas @ 0.006 gwei = ~$0.009/tx (5 sample receipts). portalSweepFeeBps=0, withdrawFeeBps=40 (eth_call)."
+}

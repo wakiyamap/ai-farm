@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-gami-labs",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 171,
+ "chain": "base",
+ "slug": "gami-labs",
+ "name": "Gami Labs",
+ "category": "Risk Curators",
+ "tvl_usd": 2633797,
+ "url": "https://gamilabs.io/",
+ "github": null,
+ "listed_days_ago": 171,
+ "run_id": "4a91a6a4c4d44d459f4260af49199472",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Base has 1 Gami contract: ERC-7540 MetaVaultWrapper proxy 0x776f...da69a (impl 0x82b7ee...8ecd1, Amphor infra vault 0xc627...baa1), 2.54M gamisUSDC. Only permissionless fn is updateEpochID() 0xb634ea0a: eth_call from fresh EOA ok, 44,059 gas = $0.0005 (0.006 gwei, ETH $1809.64); it only copies Amphor epochId (127) to storage - no transfer, no event, gross $0. 0 txs to it in last 7d (Blockscout head 2026-11-01T13:29Z), 0/50 recent calls. migrate() onlyOwner + empty body; deposit/redeem need controller==msg.sender or approved operator",
+  "kb": [
+   "attempts:1674",
+   "protocols:358"
+  ],
+  "run_id": "4a91a6a4c4d44d459f4260af49199472",
+  "at": 1794909874
+ }
+}

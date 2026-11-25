@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-alienfi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1363,
+ "chain": "arbitrum",
+ "slug": "alienfi",
+ "name": "AlienFi",
+ "category": "Dexs",
+ "tvl_usd": 51908,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1363,
+ "run_id": "1bd9345624174d0090d940cc1e58b7bb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "AlienFi = UniV2-fork DEX + MasterChefV2 0xCf8D01c1...F5C on arbitrum: updatePool/massUpdatePools/deposit/withdraw callable from a fresh address (eth_call OK, not role-gated on regular pools) but pay a stranger 0 (pendingAlien(0,fresh)=0; mints go to devaddr+contract); 0 MasterChef events in 7d (blocks 524654372-526710899, no-topic scan; control LP 0xE145A571... = 28 logs), pool lastRewardBlock months old, gas/call ~bash.003 (87,379 gas x 0.02 gwei x ETH 1722.56) vs gross 0.",
+  "kb": [
+   "attempts:3990"
+  ],
+  "run_id": "1bd9345624174d0090d940cc1e58b7bb",
+  "at": 1795410659
+ }
+}

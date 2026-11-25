@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the researcher agent daily
+
+[Timer]
+OnCalendar=*-*-* 04:00:00 Asia/Tokyo
+RandomizedDelaySec=30min
+Persistent=true
+Unit=agent@researcher.service
+
+[Install]
+WantedBy=timers.target

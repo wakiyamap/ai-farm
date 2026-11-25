@@ -1,0 +1,8 @@
+{
+ "chain": "base",
+ "target": "protocol-base-dexalot-portfolio",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Dexalot Portfolio on Base is a lock-and-message bridge; its own contracts (PortfolioMain 0x50901EeE5cBDafdF410299c16bA598B2D01b6627, PortfolioBridgeMain 0x246c87368580acd6E9ca46Bf112aD91978389634) expose no function anyone can call for a reward - processXFerPayload reverts from a fresh address (bridge-only), collectBridgeFees/collectNativeBridgeFees/refundNative are owner-only. The only keeper-like action (delivering L1->Base withdrawals via execute302 on LayerZero's shared Executor302 0x2cca08ae69e0c44b18a57ab2a87644234daebae4) is onlyRole(ADMIN_ROLE) and pays 0 on-chain to the caller even for a role holder.",
+ "numbers": "7 delivery txs in last 7 days (eth_getLogs 0x356ea86..head on PortfolioMain+PortfolioBridgeMain: 47 msg events = 40 outbound DEPOSIT + 7 inbound WITHDRAW; 5 relayer EOAs, sample txs 0x69c248ce5cbf71e5945f195f051ca6c7aa1dfe827ddb95cf7bac0e19397db95a etc.); callTracer on all 7: zero value transfers to the caller (gross $0.00); gasUsed 161,727-161,751 @ 0.009-0.0157 gwei = $0.0026-0.0046 per call at ETH $1,798.09 (coins.llama.fi 2026-11-18). eth_call execute302 (sel 0xcfc32570) real input from 0x1111..1111 reverts 'AccessControl: account missing role', from relayer 0xe93685f3bba03016f02bd1828badd6195988d950 returns. Addresses from Dexalot deployment API privapi/trading/deployment (env production-multi-base).",
+ "bot_id": null
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "3jane_options",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/3jane/index.js lists one Theta vault proxy 0xAcD147A5bbCB7166c5BB13A9354ad7a59b99fB4d. eth_getCode nonempty; vaultParams() answers and reports asset 0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee (18 decimals read by decimals()). EIP-1967 implementation slot resolves 0x4c8ce0e024b8f53d5cac310c3046d82834a9944c; explorer verified RibbonThetaVaultWithSwap. Public closeRound() returns 0x in eth_call from 0x1111111111111111111111111111111111111111, but verified _closeRound transfers any fee only to stored feeRecipient 0x36fd7804816d5556f8063a5ca81d89736006e914, never caller. commitNextOption(), rollToNextOption(), settleOffer(), burnRemainingOTokens() are onlyKeeper; fresh eth_call to first two reverts !keeper. Seven-day no-topic eth_getLogs scan of vault blocks 26430021-26480266 (2026-11-16 20:36:11 to 2026-11-23 20:36:23 UTC) returns 8 logs including 4 Transfer control logs, no CollectVaultFees or CloseShort event, hence 0 successful closeRound calls."
+}

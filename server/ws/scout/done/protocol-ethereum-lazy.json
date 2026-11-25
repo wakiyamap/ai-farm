@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-lazy",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 307,
+ "chain": "ethereum",
+ "slug": "lazy",
+ "name": "Lazy",
+ "category": "Yield",
+ "tvl_usd": 854268,
+ "url": "https://getlazy.xyz",
+ "github": null,
+ "listed_days_ago": 307,
+ "run_id": "580e54073c8b43ee89d090f31e82efe3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LazyUSDVault 0xd53B68fB...3805 (ethereum, TVL 854k, totalAssets 854,379 USDC): only anyone-callable fn is purgeProcessedWithdrawals (pays caller 0, 0 calls since deploy blk 24184528; control same-shape query returned 4 WithdrawalFulfilled); fulfillWithdrawals/reportYield/forceProcess are operator-gated, all 7d txs (3) and all 4 history fulfills by team EOA 0x46a1..254a; purge gas 93k = 0.48 USD at 3.13 gwei, ETH 1641 USD",
+  "kb": [
+   "attempts:2987"
+  ],
+  "run_id": "580e54073c8b43ee89d090f31e82efe3",
+  "at": 1795194086
+ }
+}

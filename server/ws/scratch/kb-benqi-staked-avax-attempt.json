@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-benqi-staked-avax",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. sAVAX (StakedAvax proxy 0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be) has no function that pays a stranger: the reward/keeper functions accrueRewards(), deposit(), withdraw() are AccessControl-gated and run by a single keeper EOA 0x565f0fe9715e3cb0df579f186c299d6707887e83, and accrueRewards() has not been called in 98 days at all; the anyone-callable submit/redeem/requestUnlock/redeemOverdueShares functions pay the caller back their own stake, nothing more (gross to a fresh caller 0 USD vs 0.003 USD gas).",
+ "numbers": "totalPooledAvax 24,042,206.9 AVAX = 171.7M USD at AVAX 7.14 USD (coins.llama.fi ts 1795097522). Last 7d (Routescan txlist of proxy, full 1,429-tx window): accrueRewards 0, withdraw 311 + deposit 109 all from keeper 0x565f0fe9...e83, submit 219 (43,952 AVAX), requestUnlock 182, redeem 84, redeemOverdueShares 73, cancelUnlockRequest 14. accrueRewards 0 of 20,000 txs 2026-08-13..2026-11-19 (2 Routescan pages, offset=10000). Role reverts proven by eth_call from fresh addr 0xf32c308d266e8559b804e00fb1a37afcd6a7a0b1: ROLE_ACCRUE_REWARDS / ROLE_DEPOSIT / ROLE_WITHDRAW. gasPrice 7.52 gwei -> ~60k gas call = 0.003 USD. Impl 0xB791C7A42FD0D10F90DEaa906a8735f79719FA53 verified source (Routescan getsourcecode)."
+}

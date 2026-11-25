@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-kine-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "kine-finance",
+ "name": "Kine Finance",
+ "category": "Yield",
+ "tvl_usd": 683346,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "82bee907f54c4c4db30c184a3f01c70f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: ethereum Kine = deposit-only Compound-fork (comptroller 0xbb7d94a4 -> ControllerV2 0x5f89356c + 6 live markets kETH/kMCD/kWBTC/kUSDT/kXKINE/kWOO, verified source): markets expose only mint/redeem/ERC20 (no claimReward/rewardToken/accrue anywhere; KMCD borrow/repay/liquidateBehalf onlyMinter), 7d no-topic getLogs on all 7 addrs (blocks 26417566 2026-11-15T02:59Z - 26467822 2026-11-22T02:59Z) = 5 events from 1 tx, gross 0 USD per call, TVL 670,738 USD (api.llama.fi 2026-11-22).",
+  "kb": [
+   "attempts:3569"
+  ],
+  "run_id": "82bee907f54c4c4db30c184a3f01c70f",
+  "at": 1795316732
+ }
+}

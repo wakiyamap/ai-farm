@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "aave_v3 liquidationCall WETH-for-USDC/USDT (Arbitrum)",
+  "why": "Aave v3 pool 0x794a61358d6845594f94dc1db02a252b5b4814ad pays the liquidator the WETH liquidation bonus in-transaction: Atlas wallet 0x5bb9ece5e30beb69553eaee25d0598e3bf928140 took 11 liquidations 2026-11-08..15 for $623.43 gross (collateral value minus debt repaid, DefiLlama ETH price at each tx; effective bonus 4.50-5.25% of $34-2918 debts). The two busiest takers over the same window are also Atlas wallets: 0xd12810b19b596347a3afac206d3ca65d08594b3f (198 events) and 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd (76), so a fresh address IS being paid, but by a contested market.",
+  "next_steps": "Contract 0x794a61358d6845594f94dc1db02a252b5b4814ad, liquidationCall(address,address,address,uint256,bool). This wallet: 11 calls in 7.7 days (1.4/day), gross median ~$57/call (range $1.56-131.42); tx gas 1.29-1.88M @ ~0.038 gwei = $0.09-0.13 paid by 6 distinct keeper EOAs (sample of 10 receipts), not by the wallet. First block taken (median window 0 blocks, 13/20 in the first takeable block per lead 9) - contested, not neglected; the farm's trial-aave-arbitrum bot is already live on this job.",
+  "status": "measured"
+}

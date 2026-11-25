@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-goose-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Goose Finance MasterChef 0xe70E9185F5ea7Ba3C5d63705784D8563017f2E57 is a PancakeV1 fork: the only anyone-callable reward functions (deposit/withdraw/emergencyWithdraw, eth_call from fresh address all succeed, no role gate) pay msg.sender only its own accrued EGG - a fresh caller earns nothing; updatePool/massUpdatePools mint to devaddr+MC and pay the caller 0. 7-day users were paid their own days-old farm yield, not a free claim. Emissions are ~$152/day protocol-wide on a $0.00113 token; the listed address is just the EGG ERC20 and the site/API are dead.",
+ "numbers": "7d (blocks 133,281,848-134,625,848, 300x4500-block ranges, 0 fails): 17 Deposit + 69 Withdraw + 0 EmergencyWithdraw, 7 unique users (top 0xef669b7c...987e: 63 withdraws, 0 deposits). Gross per withdraw (5 distinct-user sample, EGG Transfer logs from MC): $1.15, $6.96, $8.40, $78.79, $137.76 (EGG $0.00113 = $11,114 BUSD / 9,833,260 EGG reserves of pair 0x19e7cbecdd23a16dfa5573df54d98f7caae03019; BNB $574.45 coins.llama.fi @1795146711). Gas $0.004-$0.07 (123,215-771,161 gas @ 0.05-0.15 gwei). eggPerBlock 0.7 EGG/block split by allocPoint = ~134,400 EGG/day ~$152; MC EGG balance 43.1M ~$48.7k; poolLength()=26; DefiLlama TVL $287,452 from dead API api.goosedefi.com via projects/goose.js"
+}

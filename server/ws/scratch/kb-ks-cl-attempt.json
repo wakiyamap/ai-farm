@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-kittenswap-cl",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid — Kittenswap CL is the legacy (Phase 2, 'no longer supported') Velodrome/Solidex-style UniV3 fork on HyperEVM; its permissionless reward functions pay a stranger 0. Pools' updateRewardsGrowthGlobal() reverts 'NG' (gauge-only) from a fresh address, NFP collect is NFT-owner gated, and the per-pool gauges (periodFinish 1752105600 = 2025-07-10 on all 5 sampled) emit nothing: 0 RewardPaid and 0 Deposit logs over a 25.99M-block (~300 d) window; getReward variants revert for a fresh address. The AMM itself is alive (LPs still collect their own fees) but no function pays an unrelated caller a bounty.",
+  "numbers": "221 pools (allPoolsLength, CLFactory 0x2E08F5Ff603E4343864B14599CAeDb19918BDCaF); gauges on early pools only (sample 11 of 221), e.g. 0x9e11a759b6763da1278ce68180e2070a17c85861; periodFinish 1752105600 (2025-07-10) on all 5 sampled gauged pools; RewardPaid+Deposit logs 0 on 5 gauges over blocks 25,566,296-51,557,116 (~300 d at ~1 blk/s); controls NFP 0xB9201e89f94a01FF13AD4CAeCF43a2e232513754: 3,230 any-events / 239 Transfer same window (query works); KITTEN $0.0010933, HYPE $68.85 coins.llama.fi 2026-11-18; gasPrice 0.1 gwei (eth_gasPrice) so ~150k-gas claim ~ $0.001; TVL $595k (candidate) vs adapter deleted 8bf2f817 PR #18076; sources: docs.kittenswap.finance/tokenomics/deployed-contracts + adapter commit 78997386"
+}

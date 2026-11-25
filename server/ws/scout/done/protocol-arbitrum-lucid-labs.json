@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-lucid-labs",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 33,
+ "chain": "arbitrum",
+ "slug": "lucid-labs",
+ "name": "Lucid Labs",
+ "category": "Bridge",
+ "tvl_usd": 33540,
+ "url": "https://www.lucidlabs.fi",
+ "github": [
+  "LucidLabsFi"
+ ],
+ "listed_days_ago": 33,
+ "run_id": "95909ca7440e41d88280b8630de9df3b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Arbitrum's only Lucid contract, CircleLockReleaseAssetController 0x3c3DC44fABc3a516E6A329734aEE36dA49F3BA21 (USDC 6 dec): sole public fn execute(bytes32) pays caller 0 USD (releases to recipient) and minBridges()=0 reverts it (MultiBridgeTransfersDisabled); 7d blocks 524407646..526464615 no-topic scan: 1509 logs, 277 TransferExecuted all via adapter 0xe3e23446 receiveMessage from one relayer EOA 0x13440466 (8/8 sampled), 0 TransferExecutable, 0 execute() calls; AaveYieldStrategy role-gated; mirrors ethereum dead_end protocols:1284.",
+  "kb": [
+   "attempts:3650"
+  ],
+  "run_id": "95909ca7440e41d88280b8630de9df3b",
+  "at": 1795336162
+ }
+}

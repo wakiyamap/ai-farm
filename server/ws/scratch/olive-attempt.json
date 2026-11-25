@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-olive-network",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: Olive Network's only harvest() requires OPERATOR_ROLE and is unimplemented; three verified implementation variants expose no permissionless caller reward.",
+  "numbers": "DefiLlama adapter: 16 Ethereum vaults (15 ERC20, 1 ETH); 16/16 code and getters confirmed by rpc.py on 2026-11-23. Explorer: 3 implementations (0x05c9f5d566fb6e1a07712a18b642697d5aea14cb, 0x8d8f21d23787b8db2305892ffeed5786b38d7480, 0xa2e9c6177f81a1337b656d3b066fd20c7cf8cab4). Fresh-address eth_call harvest() on representative ERC20 and ETH vaults: !operator. Eligible reward calls: none in verified source; 7-day count/gross/gas not applicable, not measured as zero."
+}

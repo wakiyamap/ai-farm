@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-subfrost",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 111,
+ "chain": "ethereum",
+ "slug": "subfrost",
+ "name": "SUBFROST",
+ "category": "Decentralized BTC",
+ "tvl_usd": 128282,
+ "url": "https://app.subfrost.io/",
+ "github": null,
+ "listed_days_ago": 111,
+ "run_id": "edf2956aaebd41a5a6cd6cb3c2446f49",
+ "result": {
+  "verdict": "role_gated",
+  "line": "frUSD vault 0x95779e7e (ethereum, impl+strategy source verified): only payout path is authenticatedCall->withdrawFromBridge behind onlyRelayer whitelist (relayerCount=2; fresh-address eth_call reverts NotRelayer 0xc64891a5); 7d: 2 relayer txs (0x896f346b) paying 1540.47 USDT / 1996.08 USDC to signature-chosen targets, gas 1.05M/1.35M gas = $4.71/$7.51 at ETH $1738.98, caller gross $0 (flatFee $2 + 0.1% accrue to vault, feeRecipient=vault); depositAndBridge x4 (user deposits, 0xfa725d3e); GatewayFactory 0xaf4c39a0 2 ops (0x7518faa1); Curve3PoolStrategy has no claim/harvest.",
+  "kb": [
+   "attempts:2909",
+   "protocols:1327"
+  ],
+  "run_id": "edf2956aaebd41a5a6cd6cb3c2446f49",
+  "at": 1795179100
+ }
+}

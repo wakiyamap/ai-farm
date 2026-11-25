@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "Reserve eUSD/ETH+ scheduled revenue Dutch auctions",
+  "outcome": "review_fix",
+  "reason": "Independent review of reserve-dutch-ethereum passed mechanism, guard, deployment artifact, detection and watchdog payout checks, but gate promote exited 2: 'manifest.yaml must list allowed_contracts (the contracts the bot may call)'. Current manifest uses allowed_contracts: []; manifest-check returned PASS with only a warning. Earner must make the allowlist nonempty with an intended protocol contract and resubmit. Gate refusal is final for this submission; no deployment or funding occurred. Review: bots/paper/reserve-dutch-ethereum/review.md, run 05940091af7f483daadb0a43b09598bf.",
+  "numbers": "Reviewer fork reset 26348315; success tx 0xdf8aacea3f05e86b0c2e9c8bf7db84aaaf26999b6b73261041d101326bd93af6 status 1 gasUsed 766870, ETH+ payout to owner and zero executor balance; fresh unsettled NO_PROFIT revert tx 0x11456e2005460027319a1e2f2ec257d1dafb73f83edbbfec8940f90e467344f7; floor tx 0xa5804939b0edde2638385c4e4c62d397655456feecf1c4329d273f3d1b4994cb status 1 gasUsed 765811 owner received 456443179206306 wei ETH+ >= 210000000000000 floor. Fee cap 1050000*2 gwei=0.0021 ETH=$4.34 at Chainlink $2068.82425549. scratch/reserve-bot/review-0594-proof.json.",
+  "bot_id": "reserve-dutch-ethereum"
+}

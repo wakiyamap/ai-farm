@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-balanced-exchange",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "balanced-exchange",
+ "name": "Balanced Exchange",
+ "category": "Dexs",
+ "tvl_usd": 60783,
+ "url": "https://app.balanced.network/trade",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "b764f10dcbde44e189bc98b14c7609b7",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bridge/intents spoke only: IntentFiller 0x4A1C8274 fillIntent is permissionless but the caller DEPOSITS (pays 0; eth_call from fresh addr ok) and filler has 1 tx EVER (2025-06-18, 0 in 7d); manager recvMessage is executor-gated (require(executors[tx.origin]) per protocols:325), 8/8 recent calls from single executor 0xa4026a97..., sample receipt 0x2aff7a28 pays caller 0 (0 logs), gas 153873 = 0.0053 USD (0.0201 gwei, ETH 1719.11 coins.llama.fi 12:55 UTC); TVL 62,193 USD is ICON-side deposits.",
+  "kb": [
+   "attempts:4105"
+  ],
+  "run_id": "b764f10dcbde44e189bc98b14c7609b7",
+  "at": 1795438844
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-sonne-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1511,
+ "chain": "base",
+ "slug": "sonne-finance",
+ "name": "Sonne Finance",
+ "category": "Lending",
+ "tvl_usd": 51133,
+ "url": "https://sonne.finance",
+ "github": [
+  "sonne-finance"
+ ],
+ "listed_days_ago": 1511,
+ "run_id": "081b7b1d5e084d32b2d68d77141b9647",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: claimComp(address) on base comptroller 0x1DB2466d...45F0 is permissionless (eth_call from stranger no revert) but pays 0: pot 0.00061816 SONNE (usd: unpriced), speeds 0/0 on all 7 markets, ExternalRewardDistributor has 0 reward tokens, 0 SONNE payouts in 7d (blocks 58114128-61138384, WETH same-shape control OK; 293 sToken transfers show markets alive), gas ~8-9 USD full claim (776,941 gas x 6-7 gwei, ETH 1724.45 USD).",
+  "kb": [
+   "attempts:4025"
+  ],
+  "run_id": "081b7b1d5e084d32b2d68d77141b9647",
+  "at": 1795418442
+ }
+}

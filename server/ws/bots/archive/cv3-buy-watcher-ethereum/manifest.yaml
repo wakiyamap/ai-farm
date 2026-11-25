@@ -1,0 +1,554 @@
+id: cv3-buy-watcher-ethereum
+author: earner/qwen3.8-flash-next
+chains: [ethereum]
+strategy: >
+  Compound v3 residual-collateral sniper: after ANYONE absorbs an underwater
+  comet account (AbsorbCollateral topic0 0x9850ab1a...2f9412e), the borrower's
+  collateral sits in the comet's reserves and anyone may buyCollateral() it at
+  the comet's discounted oracle quote, then sell it on a Uniswap v3 pool.
+  Polled every ~3 s via eth_getLogs AbsorbCollateral on the three watched
+  comets cUSDCv3 (0xc3d688b66703497daa19211eedff47f25384cdc3, base USDC),
+  cUSDTv3 (0x3afdc9bca9213a35503b077a6072f3d0d5ab0840, base USDT) and cWETHv3
+  (0xa17581a9e3356d9a858b789d68b4d866e593ae94, base WETH — the ACTIVE comet:
+  its absorb at block 26342224, tx
+  0x3f7109f2873b3082e8a7df7bf226e71afd3ce09f1227a3e1a07de61fc084c9fa, is the
+  fresh natural absorb of the 30d window, USDT collateral sold on the
+  USDT/WETH pool). On a
+  watched asset with a measured {asset, base} UniV3 pool (WETH/WBTC -> USDC
+  and USDT -> WETH
+  executable; the LINK/UNI -> USDC 500bps pools exist at the real factory
+  0x1f98431c8ad98523631ae4a59f267346ea31f984 but hold no base-side liquidity
+  (USDC balances 0.83 / 0.06 at block 26302063, measured 2026-11-04), so
+  LINK/UNI are watch-only too; no USDT-side pools exist for these assets, so
+  cUSDTv3 and COMP events are watch-only; measured token orders include BOTH
+  orientations — the WETH/USDC pool is token0=USDC/token1=WETH, the
+  WBTC/LINK/UNI pools are token0=asset/token1=USDC (eth_call token0/token1
+  through the relay, 2026-11-04)), the bot
+  sizes a PARTIAL buy with the comet's own linear quoteCollateral quote capped
+  at 360 base units (matches the principal_usdc 360 funding; reserves-limited
+  buys scale linearly), estimates proceeds
+  from the pool's slot0 sqrtPriceX96 with integer-safe BigInt price math
+  (multiply/divide by sqrtPriceX96^2 / 2^192, 0.995 factor applied exactly as
+  199/200), and simulates the EXACT live executor call buy(comet, collateral,
+  pool, payBase, minCollOut, minProfit, wrapPool, wrapLimitLow, wrapLimitHigh)
+  (selector 0xc1d7afaa; wrapPool/limits only for the flash route base != USDC,
+  the bot's fresh ±5% slot0 read of the {USDC, base} wrap pool as strict
+  uint160 BigInt words) via eth_call against the
+  deployed fork runtime (executor-runtime.hex): paper mode overrides only the
+  CODE of a per-base funded placeholder — a live-chain address holding >= 360
+  of the comet base (and >= 400e6 USDC for the flash route, so the paper sim's
+  flash leg repays from a REAL principal balance), discovered from recent Transfer logs and verified
+  fail-closed at startup (type=funding log; no candidate -> the deterministic
+  placeholder, whose sims then revert on funding, never a false success) — so
+  a paper call spends payBase <= 360 from a REAL executor base balance; no
+  balance override; missing runtime fails CLOSED. minProfit = the FULL gas
+  budget in base-token units + 80% of the gross-minus-gas margin, so the
+  on-chain guard enforces an after-FEE profit floor. Live mode sends ONE
+  transaction through the gate-deployed Cv3Sniper executor at EXECUTOR_ADDR
+  (env; never to the comet directly), after verifying deployed code is
+  nonempty, OWNER() == the signer wallet (20-byte compare of the padded
+  return word) and base.balanceOf(executor) >= payBase (gate funding check);
+  any of these fails CLOSED.
+copied_from: >
+  Buy-after-absorb snipers measured in the ledger (7d window, blocks
+  26300861-26331463): 0x1f2f10d1c40777ae1da742455c65828ff36df387,
+  0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd, 0xbd32122b-style reserves buyers
+  that buy 0-24 blocks after absorbs; winner economics from tx pair
+  0xefbad3143bf07a3cf1116f9cc2b4ff3c5147d89c1bc3867a2c373765aa26c16c (absorb)
+  -> 0xa26ea01af0b7 (bought 5.2037 WETH for 11003.38 USDC one block after the
+  absorb at block 26302053, ~8.6% under the same-block pool price 2314
+  USDC/WETH measured from the WETH/USDC slot0 price).
+capital_usd: 400
+principal_usdc: 360 # part of capital_usd funded as USDC = the executor's PRINCIPAL constructor arg; the flash route (base=WETH) flash-borrows the WETH base inside the tx and repays USDC, so the gate funds USDC, not WETH (cap comment: 0.149 ETH <= 360 USD only at ETH/USD <= 2416.1)
+allowed_contracts:
+  - 0xc3d688b66703497daa19211eedff47f25384cdc3 # cUSDCv3 comet (buyCollateral)
+  - 0x3afdc9bca9213a35503b077a6072f3d0d5ab0840 # cUSDTv3 comet
+  - 0xa17581a9e3356d9a858b789d68b4d866e593ae94 # cWETHv3 comet (USDT collateral, base=WETH; new route)
+  - 0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640 # UniV3 WETH/USDC 0.05% pool (attempt 76 proven)
+  - 0x9a772018fbd77fcd2d25657e5c547baff3fd7d16 # UniV3 WBTC/USDC 0.05% pool (token0=collateral route, fork-proven 2026-11-04)
+  - 0x4e68ccd3e89f51c3074ca5072bbac773960dfa36 # UniV3 WETH/USDT 0.05% pool (USDT->WETH sale leg; token0=WETH=base, fork slot0 26342224)
+  - 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 # USDC (executor approvals are internal; listed for audit)
+  - 0xdac17f958d2ee523a2206206994597c13d831ec7 # USDT (canonical; cUSDTv3.baseToken() measured)
+  - 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 # WETH (cWETHv3 baseToken; executor approves comet/approve-0)
+max_loss_per_tx_usd: 20
+max_loss_guarantee: >
+  Cv3Sniper.buy() (bots/paper/cv3-buy-watcher-ethereum + executor source
+  scratch/cv3-eth/contracts/src/Cv3Sniper.sol) snapshots base, collateral and
+  the PRINCIPAL USDC balances BEFORE every leg, spends payBase at the comet
+  quote, swaps ONLY the newly bought collateral delta on the owner-supplied
+  pool (require collateral balance == start, "COLL_NOT_PRESERVED"), and reverts
+  unless the executor's base balance ended at least minProfit+1 higher
+  (require(baseAfter >= baseBefore + minProfit + 1), "NO_PROFIT"); on the flash
+  route the transaction additionally reverts unless the PRINCIPAL USDC ended
+  STRICTLY above its pre-trade balance (require principalAfter >
+  principalBefore, "PRINCIPAL_LOSS" — review 9fe6b863 blocker 1: the flash
+  repays the borrowed base side from the sale proceeds, so USDC depletion is a
+  revert, not a loss) and unless the base inventory ended exactly where it
+  started (require base == baseAfter-conversion, "BASE_NOT_PRESERVED"), with
+  minProfit >= the gas budget estimate — principal loss is impossible, worst
+  case = gas: bot.js caps gasLimit 640000 (run d237253f measured route gas
+  496576 with deep frames starved below a 640000 signed cap under the 61/64
+  rule); maxFeePerGas is DERIVED from the live base fee each cycle (maxFee =
+  basefee + basefee/8 + tip; measured live
+  base fee 0.0915 gwei at relay block 26348362 via eth_getBlockByNumber
+  (re-measured run af858120 2026-11-05T11:33Z; the earlier build read
+  0.0591 gwei at 26345032) — the
+  relay rejects eth_baseFee — tip = maxPriorityFeePerGas estimate with a 2
+  gwei fallback -> ~2.07 gwei at today's base fee = 0.00093 ETH ~ 2.3 USD at
+  fresh pool prices; absolute cap 12.5 gwei (640000 x 12.5 gwei = 19.25 USD
+  worst case < 20 USD, L; run d237253f raised the cap from 17.5 when GAS_LIMIT
+  went to 640000), and every send fails CLOSED when the live base fee is not
+  includable below the cap: the old fixed 1.5 gwei
+  cap sat BELOW the historical base fees 4.6-16.1 gwei measured at blocks
+  26301784-26302063, so it was not includable there), live send refuses when the fresh
+  pool-priced worst case > MAX_LOSS_PER_TX_USD=20, fail closed; fork-measured
+  executor gasUsed 273216/323932 success and 339402/402784 guard on the
+  current direction-fixed artifact (the reviewer measured the initial
+  398 USDC WBTC guard at 402784, replacing this file's earlier stale 372720;
+  still within the 450000 cap). Signer enforces the same
+  caps; a signer rejection is final.
+expected_value: >
+  ~1 absorb/day across the watched comets (30 AbsorbCollateral in the 30d window
+  measured via eth_getLogs, protocols row 5; 14 absorbs in the ledger 7d
+  window blocks 26300861-26342224, ~2.4/day across all comets; the THREE
+  watched comets show ZERO absorbs in 26342225-26348399 — re-measured
+  2026-11-05T11:4xZ run af858120 via eth_getLogs), the ACTIVE one being cWETHv3 (its
+  26342224 absorb paid the 4.18%-under quote: 110.0203 WETH for USDT
+  274708.044, and the 274.708 USDT residue sat in reserves until bought ~1
+  block later). The buy discount is the mechanism: the
+  fork-proven replay of the 26302053 reserve paid 11003.38 USDC for 5.2037
+  WETH, ~8.6% under the same-block market; reserves stay catchable for many
+  blocks (snipers measured buying 0-24 blocks after absorbs, protocols row 5).
+  Our partial buy is capped at 360 base units (matches principal_usdc; the
+  WETH cap 1.49e17 wei = 0.149 ETH <= 360 USD only while ETH/USD <= 2416), so
+  a caught ~4-8% discount
+  event pays ~14-35 USD gross minus ~0.1-15.5 USD worst-case gas; the
+  earlier-build fork reproduction of the 26302052 state at the 398 USDC cap
+  bought 0.18822 WETH
+  for 398 USDC and sells for an estimated 413.284416 USDC (199/200-discounted
+  slot0 quote; executed 415.266380 on the fork): +17.266380 USDC profit before
+  gas, on-chain minProfit 12.525526 (fee budget 1.489969 included); small dust
+  absorbs (the 26331463 buy was 1.32 USDC) pay less than gas and are skipped
+  by the no_edge check. Poll-compatible watcher windows MEASURED from the 7d
+  ledger (watcher buys after the same-asset absorb): 1 block / 12 s
+  (0xa26ea01af0b7 at 26302053, 11003.38 USDC), 10 blocks / 120 s
+  (0x0f2500d7a59b at 26302062, 119.08 USDC), 24 blocks / 288 s
+  (0xdbb0d5399f14 at 26301808, 27.90 USDC) — our ~3 s poll cycle fits inside
+  the 120-288 s windows; the 1-block case is the same-block-sniper race class
+  we do not chase. Paper interval first, then promotion.
+executor: >
+  scratch/cv3-eth/contracts/out/Cv3Sniper.sol/Cv3Sniper.json (creation hex
+  scratch/cv3-eth/creation-current.hex = 5457-byte artifact creation bytecode +
+  32-byte PRINCIPAL arg, ONE build with the source as of 2026-11-05 11:00;
+  creation-v4.hex is superseded), ONE
+  constructor arg: PRINCIPAL = 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 (USDC);
+  the gate appends it at promotion; readable Solidity
+  scratch/cv3-eth/contracts/src/Cv3Sniper.sol (mode 0644) builds byte-for-byte
+  with forge (solc 0.8.24, foundry.toml in contracts/); the gate deploys it at
+  promotion, OWNER becomes the bot wallet, EXECUTOR_ADDR env points the bot at
+  it, and the gate funds it with principal_usdc as USDC (6-dec-base routes keep
+  base==USDC funding; the bot verifies PRINCIPAL balanceOf fail-closed before
+  every live send).
+fork_evidence: >
+  LABEL (run af858120, per review 3c9b5d18 request): the paragraphs below
+  naming runs 6879654c, 23f0395f, 1796b93f, 308e097c and the "All proofs
+  below" notes signed at gas 450000 x 1.5 gwei (worst case 1.41750 USD) or
+  450000 x 2.0665 gwei (2.256 USD) are OLDER-REVISION evidence — they
+  validate the same executor mechanics at the earlier signed cap, not the
+  current route. The CURRENT route signs 640000 gas at base-fee-derived
+  maxFee with the 12.5 gwei absolute cap (640000 x 12.5 gwei = 19.25 USD
+  worst case); its final evidence is the last two paragraphs (proof9, runs
+  d237253f and rerun 18dfd4b5): success tx
+  0x8f1cde49d56fd16d1cc8916ca7ef80858edbc3d277ee656f1d842479bc8be350 status
+  1 gasUsed 496633, USDC 360000000 -> 368917786 (+8.92 USD before gas), and
+  traced NO_PROFIT guard 0x779c1dc15c462bb2868156ec42e95a8eff12de987ce9c73a756e40cd33d23fc0
+  with balances preserved, both rerunnable by the reviewer via
+  scratch/cv3-eth/proof9.py + proof9-guard.py on fork reset 26342224.
+  New-route proof (run 6879654c, 2026-11-05, ethereum fork reset 26342224 =
+  cWETHv3 absorb block; USDT reserves 274708302, era baseFeePerGas 2296714948
+  wei, gas budget 450000 x 2580796314 = 1161358341300000 WETH-wei ~ 2.80 USD
+  at 2405 USD/ETH; buyCollateral reserves rule MEASURED: quote must stay <=
+  reserves/2 - comet's balance -quote and principal +quote: sizing payBase
+  54431...e12 wei (~0.0544 WETH), collOut ~135156565 USDT, gross ~1.49e15
+  WETH-wei ~ 3.6 USD): NO_PROFIT guard tx
+  0xf636c8263a993ec8e2fe9fe06a48e7898a7823d3d3b2aded8cb5bdcf61831295 status 0,
+  starting balances preserved (executor USDC 360e6, USDT 0 - assert passed,
+  run 17); success-variant tx 0x7f473537d982b99d504d742829625308de9f08fa8a279d2738b0e21a3715799f
+  status 0: the executor completes flash borrow, comet buy (collateral
+  transferred to executor, balanceOf 135156565), USDT approve to the sale pool,
+  then reverts with empty revert data at the sale-pool swap (trace ends at the
+  approve; open issue - reproduce under forge test on the fork, swap leg sign/
+  limit suspected). Prior accepted evidence below is unchanged.
+  Ethereum fork reset 26302052 at the post-absorb reserves state (attempt 76,
+  run 24df441d): SUCCESS tx 0x2f80c09a055747783d9d05a1fa5ed7d448a3e68f9b9df512f705d0cb8b746dfd
+  status 1 gasUsed 280156, executor USDC 30000 -> 30476.363744 (+476.363744
+  USDC before gas, Bought(5.203733653224958411 WETH, profit 476.363744));
+  NO_PROFIT guard reverts 0x8a001a1a... and 0x51ed632b... (deliberate
+  minProfit above realized profit); front-run on empty reserves reverts. The
+  same-buy replay matched winner economics (0xa26ea01af0b7: 11003.38 USDC for
+  5.2037 WETH). Paper runtime = the fork deployment 0x19437fd8cca145f99f9d922276de7a0ac50fbab6
+  (deployed from the paper owner 0xc0ffee0000000000000000000000000000000001),
+  byte-identical deployed runtime saved as executor-runtime.hex.
+  Readable-artifact reproduction (this run, 2026-11-04, ethereum fork reset
+  26302052, no state overrides, exact wallet = paper owner 0xc0ffee...01):
+  fresh forge build deployed 0x14115b5fdab3afcd72cf03785041c720100edb0e
+  (creation byte-identical to creation-v3.hex; runtime differs from the
+  artifact only by the baked owner word); funded with EXACTLY 398.000000 USDC
+  by real ERC20 transfer 0xf368fdd5a67b97daca6b7ea178c25a02dffe812775379c36185324cbe5c10bd6
+  from holder 0x1f2f10d1; SUCCESS buy 360e6 base -> tx 0xda7a4a4fad5ac9b9f607244d3a2aa1160f4adad967d0810ee6412c859464e8e8
+  status 1 gasUsed 273216, Bought(0.188222639906430495 WETH, baseProfit
+  +17263679 USDC-wei before gas, executor USDC 398.000000 -> 415.263679);
+  NO_PROFIT guard buy with minProfit 19.9e6 > realized -> tx 0xc1e9adcc18d3d2f2975c34522f440c01aa55b67f338918a78c848c198189322d
+  status 0 gasUsed 339402, debug_traceTransaction revertReason "NO_PROFIT".
+  Canonical-direction reproduction (this run 7c1c1754, 2026-11-04): the
+  7c5937a3 fix comment "the flag follows token1" was INVERTED against
+  IUniswapV3PoolActions.swap ("true for token0 to token1, false for token1 to
+  token0"; a positive amountSpecified is exact input DENOMINATED IN the input
+  token). Selling collateral feeds collateral INTO the pool, so the flag must
+  follow token0 == collateral: Cv3Sniper.sol now computes
+  bool zeroForOne = (t0 == collateral); the price limit line is unchanged
+  (MIN_SQRT_RATIO + 1 when zeroForOne is TRUE, MAX_SQRT_RATIO - 1 when FALSE,
+  strictly interior). Fixes (ii) interior limits and (iii) the 199/200
+  proceeds discount are retained from 7c5937a3; their token0=collateral
+  NO_PROFIT "sells at a loss" proof (WBTC
+  0x457a73d5fd16671e4e577b0645d5b472021e7ee33c69bcc44066befad36234a3) was
+  itself the inverted-flag artifact — the pool then consumed the executor's
+  base and paid collateral back (base strictly lower), so the guard's revert
+  was correct behavior FOR THE WRONG FLAG, not evidence the route loses.
+  Rebuilt from readable source (scratch/cv3-eth/contracts/src/Cv3Sniper.sol,
+  creation hex scratch/cv3-eth/creation-v3.hex, sha256
+  cb04724277759ad474d9688f3940697f7c89b2753dc81d8acefd9115421c2db1) with
+  forge (solc 0.8.24); redeployed deterministic
+  0x14115b5fdab3afcd72cf03785041c720100edb0e from the paper owner
+  0xc0ffee0000000000000000000000000000000001; bots/paper/cv3-buy-watcher-
+  ethereum/executor-runtime.hex = this deployment's deployed runtime, 3672
+  bytes, sha256 ecc5197921c73be64366166adbdd1c903f60cd3bfce657a1f6d46a6ec270055a (the owner immutable word baked into the code; the paper CODE override
+  keeps sims honest). All proofs below are fork SENDS of the exact live
+  calldata buy(comet,collateral,pool,payBase,0,minProfit) — gas 450000,
+  gasPrice 1.5 gwei (the cap x price worst case 1.41750 USD), fork base fee
+  zeroed locally so the cap is sendable — and BOTH fit within the signed
+  450000 cap.
+  Fork evidence — natural final-sized (run 23f0395f, 2026-11-05; supersedes
+  the 26302063 reserve-top-up anchor below): mainnet-NATURAL comet reserves
+  with NO top-ups, the submitted 3672-byte runtime placed at the
+  deterministic executor address, funded EXACTLY 398.000000 USDC by transfer
+  from holder 0x1f2f10d1; the fork's next-block base fee was set to the
+  measured LIVE 0.0591 gwei (relay block 26345032) — NOT zero — and every
+  send signed maxFeePerGas = basefee + basefee/8 + 2 gwei tip = 2.0665 gwei
+  (worst case 450000 x 2.0665 gwei = 0.000929 ETH = $2.256 at the fresh
+  $2426.25 pool price: within the 20 USD L bound AND above the live base fee,
+  hence includable). WETH reset 26302052 — the reserves as the watcher
+  0x5ac9bc14 found them when buying 5.2037 WETH for 11003.38 USDC one block
+  after the absorb: natural reserves 5.203734 ETH >= quoteCap(398),
+  final-sized buy at the full 398 cap, success
+  0x963e5a1e59c9900831ec6877a712d8330a1b9c48717b482f425dd7aab34129b1 status 1
+  gas 273216, USDC 398000000 -> 415266380 (+17.266380 before gas); guard
+  0x8a904f82f3c48675127df55b65f59aa71c26270f7b840c51bd80ea5a13f761cc status 0
+  gas 339402, balances unchanged. WBTC reset 26302061 (right before the
+  watcher 0x1f2f10d1 bought reserves 10 blocks after the 26302052 absorb):
+  natural reserves 164901 raw < quoteCap(398), so the bot's own linear quote
+  sizes a PARTIAL buy at 119.077647 USDC — reproducing the watcher's real
+  119.076058 payment to within 0.002 USDC; success
+  0x65ff24b826e0a13a920445c57f1759ee73ac1020652f5b692ceb34b1c410e059 status 1
+  gas 299904, +7.592245 USDC before gas at minProfit 6.103974 (gross
+  7.065911, gas budget 2.256228); guard
+  0x61ad57c1eb0c9452143aed47d4a49ff0324a1130544e5bb734fb4171e723aefd status 0
+  gas 217358, balances unchanged. Heads rechecked around every send; proof
+  scratch/cv3-eth/natural-evidence.json.
+  WETH/USDC anchor (token1=collateral orientation), fork reset 26302052,
+  executor funded EXACTLY 398,000,000 USDC-wei by a real ERC20 transfer
+  (status 1) from holder 0x1f2f10d1: SUCCESS payBase 360e6, minProfit
+  12525526 (= bot's gasbudget 1489969 + 0.8 x gross-estimate 15284416) ->
+  tx 0x90e42771131538abbeb49f033c9281a5cfed5adc6337c077576acd02c74407ad
+  status 1 gasUsed 273216, executor USDC 398.000000 -> 415.266380 (+17.266
+  USDC before gas); NO_PROFIT guard payBase 360e6, minProfit 19900000 >
+  realized -> tx 0x2425256ef24f1e239f4a1d7733eea02634a33f8238ada9fd7a0733ec
+  8c532746 status 0 gasUsed 339402, debug_traceTransaction revertReason
+  "NO_PROFIT", executor balance UNCHANGED (398000000).
+  WBTC/USDC anchor 26302063 (token0=collateral orientation): the comet's
+  WBTC reserves were measured dust there (3 wei — the 26302052 absorbs were
+  already sniped), so the reserve was topped +0.06 WBTC by fork fund-token
+  from anchor-state holder 0x000000000004444c5dc75cb358380d2e3de08a90
+  (disclosed fork funding, same class as the executor USDC funding;
+  quoteCollateral, reserves math and pool state stay unmodified mainnet
+  state), executor funded 360e6 USDC by transfer from 0x1f2f10d1. Final-
+  sized buy: payBase 398000000 (quoteCap 551158 << reserves 6000003, so
+  unclipped), collOut 551158 WBTC-wei at the comet quote, proceeds estimate
+  421616795, minProfit 19191429 -> tx
+  0x5ffabc946be47f950472020dfa66d35b20e95477fef68e015ef6f1f59bf9b230 status
+  1 gasUsed 323932, executor USDC 398.000000 -> 423.034539 (+25.034539 USDC
+  before gas): the token0=collateral route SELLS AT A PROFIT under the
+  canonical flag. NO_PROFIT guard minProfit 125034539 -> tx
+  0x0fdedf3c42fe8f1a75b95eef1384652ad9c320f883361067a1ecd22e91ab587c status
+  0 gasUsed 372720 revertReason "NO_PROFIT", executor balance 423034539
+  unchanged across the guard.
+  Pool executability measured at 26302063 (why LINK/UNI left POOL_MAP): the
+  WBTC/USDC 500bps pool 0x9a772018fbd77fcd2d25657e5c547baff3fd7d16 holds
+  78,908.33 USDC + 3.21877 WBTC at pool raw price 768.8 USDC-wei per WBTC-
+  wei — ABOVE the residual quote raw 722.0 — the executable token0 route.
+  The UNI/USDC 0xab2044f105c43c25b1de3ee27504f0b889ce5953 and LINK/USDC
+  0x22fe40544ac2b387f9a68c6c53b9a8e34e4dd40e pools hold NO base-side
+  liquidity (0.06 and 0.83 USDC balances at 26302063; slot0 prices are
+  stale last-trade artifacts): a final-sized 69.49-UNI collateral sell
+  reverted there after burning 1973255 gas walking sparse ticks under a 2M
+  probe cap (tx 0xc1c30abe348cfd7ba6488a3c107fbb073446ce77788e394261efe888a
+  517d3c0, status 0, revert reason null — pool out-of-gas), so LINK/UNI are
+  watch-only until a liquidity-measured route exists.
+  Synchronized submission (run 7c1c1754, resubmission after review 1c01613e
+  blocker 1): sha256 bot.js 79335f826891ed7ced7ebe6bcad378ef0adba9a9d333931c138560a178fd5386, manifest.yaml (self) (re-hashed after this note lands), submitted
+  deployed runtime ecc5197921c73be64366166adbdd1c903f60cd3bfce657a1f6d46a6ec270055a, creation hex cb04724277759ad474d9688f3940697f7c89b2753dc81d8acefd9115421c2db1, readable Solidity source becbfcef2ac70f06ad9728dcd78c7e7c162f8f5b97bf821b80125436c870996f.
+  Runtime equality verified against a fresh forge 0.8.24 build of the named
+  source: the submitted 3672-byte deployed runtime equals the artifact
+  deployedBytecode EXACTLY except the 12 bytes of the three 20-byte owner
+  immutable reference slots (offsets 95,114 / 227,246 / 451,470), which carry
+  the deploying wallet 0xc0ffee0000000000000000000000000000000001 — the
+  constructor-linked runtime the gate will get when it deploys
+  creation-v3.hex with the bot wallet as owner; fork eth_call OWNER() on the
+  deployment returns it (padded 32-byte word). The paper service was restarted
+  on these exact synchronized bytes (start/funding/heartbeat records with
+  runtime_ok=true in logs/bot.jsonl from 20:17:21Z).
+  Deterministic fixture scratch/cv3-eth/cv3-fixture.js runs the byte-identical
+  bot code against recorded values (fork 26302052 reads + current relay reads,
+  cv3-fixture-values-*.json) and asserts the final-sized opportunity:
+  payBase 360e6, collOut = fork quote, proceedsEst 413284416 USDC-wei
+  (independent recomputation), minProfit 12525526 >= gas budget 1489969,
+  funded-placeholder exec, sim_ok — cv3-fixture-out.json.
+  Re-verification (run 1796b93f, 2026-11-04): fresh forge 0.8.24 build
+  verified byte-equal to creation-v3.hex; the submitted 3672-byte
+  executor-runtime.hex equals the fresh deployedBytecode EXCEPT at the
+  three owner immutable slots (offsets 95,114/227,246/451,470) — checked
+  by masking. Fork re-proof: reset 26302052, deterministic redeployment
+  0x14115b5f..., executor funded EXACTLY 360e6 USDC by holder transfer;
+  WETH success send -> tx
+  0x5aa9faf555f8f22779c85308b618d9eee295d555de9f34f421fb7968fe015f98
+  status 1 gasUsed 273216, executor USDC 398000000 -> 415266380
+  (+17266380 before gas); NO_PROFIT guard minProfit 19900000 -> tx
+  0x0a864d75143db976c55d380ba536dd3dca8d154319c8c5152c9917a0716eb192
+  status 0 gasUsed 339402, debug_traceTransaction revertReason
+  "NO_PROFIT", balance unchanged across the guard. Then reset 26302063
+  with the comet's WBTC reserves topped +6000000 wei by whale transfer
+  (canonical WBTC = 0x2260fac5e5542a773aa44fbcfedf7c193bc2c599, measured
+  as the pool's token0() this run — an earlier note's 0x...ef13f41490
+  guess has no code on the fork); both WBTC sends reproduced the
+  manifest hashes EXACTLY: success status 1 gasUsed 323932 delta
+  +25034539; guard status 0 gasUsed 372720 revertReason NO_PROFIT
+  (balance unchanged 423034539 across the guard). All sends at gas
+  450000 x 1.5 gwei with local next-block base fee zeroed; shared fork
+  left parked at 26302063+ after these proofs. The paper service was
+  restarted on the fresh fork instance (start 20:32:53Z, runtime_ok
+  true, funding records >= 360e6 on both bases).
+  Era-fee window measurements (run 308e097c, 2026-11-05, review 2e9cbbaa
+  blocker 1 evidence status): relay-header probes measured baseFeePerGas
+  0.043349208 gwei at block 26331463 and 0.043049237 at 26345000; the
+  watched comets had NO fresh absorb through verified head 26345664
+  (eth_getLogs 26331464..latest count 0) — the low-fee era produced no
+  natural watched-comet case yet. The low-fee-era case 26331463 absorbed
+  WBTC 1831 wei and the absorber 0x1f2f10d1 bought 1830 wei back for
+  1316123 USDC-wei INSIDE the same absorb tx 0x16c8a9853882 — a 0-block
+  window: the reserve never existed at a block boundary, so no fork
+  state can replay it and the 3 s poll cannot see it; its dust gross is
+  correctly below the bot's today-derived budget
+  450000 x (0.043 x 1.125 + 2 gwei tip floor) ~= 2.24 USD. The only
+  ledger-retained POLL-COMPATIBLE windows (measured buys 10 and 24
+  blocks after the absorb: 0x0f2500d7a59b 119.076 USDC at 26302062,
+  0xdbb0d5399f14 27.908 USDC at 26301808) sit in the measured 4.6-16.1
+  gwei fee-spike era at pool prices 2207-2209 USD/ETH: era budgets
+  14.89-16.0 USD exceed those residual grosses, so the final gate
+  rejected them AT THEIR CONTEMPORANEOUS FEES (reviewer-computed), and
+  they pass today's 2.24-2.26 USD budget only as disclosed modern-era
+  counterfactuals. A contemporaneous-fee natural positive execution on
+  the watched comets therefore awaits the first fresh absorb after
+  26331463; the running paper bot logs its full final-gate path at the
+  then-contemporaneous fee when it comes (ledger: ~1 absorb/day average).
+  UPDATE (run af858120, 2026-11-05T11:4xZ): the fee-cliff era is CLOSED —
+  relay header 26348362 (2026-11-05T11:33Z) baseFeePerGas 0.091459942 gwei;
+  at the current 640000-gas cap the bot's own worst case (0.001 gwei tip
+  floor) is maxFee ~0.114 gwei = 0.0000730 ETH ~ 0.18 USD at the fresh
+  2418.18 USD/ETH pool price, and even the 1 gwei proof-side tip gives
+  ~1.103 gwei = 0.000706 ETH ~ 1.71 USD — an order of magnitude BELOW every
+  residual gross in this file, so the historical final fee gate (14.89-16
+  USD era budgets) no longer binds current economics. Fresh absorbs:
+  eth_getLogs on all THREE watched comets over 26342225-26348399 count
+  ZERO; the last watched-comet absorb 26342224 sits at 2026-11-04T15:03:47Z
+  (ledger timestamp), 20.5 h before the 26348399 head, against the ledger
+  cadence 14 absorbs over blocks 26300861-26342224. The restarted paper
+  service (11:17:01Z, runtime_ok true) logs absorb/opportunity/simulate
+  with the contemporaneous derived fee when the first fresh absorb lands;
+  that machine record is the natural-capture evidence the next resubmission
+  must name.
+  Principal-guard rebuild proof (run 026bad7a66f44373b2773cdf70a35cc9,
+  2026-11-05, review 9fe6b863): the review's four blockers are (1) the
+  PRINCIPAL-lost-before-flash guard (DONE in source: principalBefore snapshot
+  + require principalAfter > principalBefore "PRINCIPAL_LOSS" + base
+  "BASE_NOT_PRESERVED" + collateral "COLL_NOT_PRESERVED"), (2) stale runtime /
+  selector — bots/paper/.../executor-runtime.hex is now the LIVE deployed
+  runtime of THIS build as eth_getCode returns it at the fork deployment
+  (5332 bytes, sha256 546b307f5b4216e1f08bc6... = the build's deployedBytecode
+  sha 82caa3388861425ce068a81c1655ffebf9abda6fe03aa4f8fcd76c16c00f0730 with
+  the OWNER 0xc0ffee00...01 and PRINCIPAL USDC immutable words baked in (the
+  bot's fail-closed check requires the baked owner word; the bare artifact
+  cannot satisfy it), creation
+  sha 1de361f6831e091e1cc90105326c3eb9833e62026c59e8e9b1d111df3fd79095 =
+  scratch/cv3-eth/creation-current.hex), bot.js now encodes the 9-arg selector
+  0xc1d7afaa, (3) uint160 sqrt-limit precision — bot.js now builds the wrap
+  limits as strict BigInt words (no Number()/decimal-string), (4) cap/profit
+  sizing at principal 360. Fork proof at reset 26342224 (the ACTIVE cWETHv3
+  absorb block; base = WETH, collateral = USDT 274708302 wei reserves, sale
+  pool 0x4e68ccd3..., wrap pool 0x88e6a0c2... token0=USDC/token1=WETH,
+  wrap slot0 price 2405.85 USD/ETH, sale slot0 sqrtPriceX96
+  3883286368365259300900483): executor deployed at the deterministic
+  0x14115b5fdab3afcd72cf03785041c720100edb0e per generation, funded EXACTLY
+  360000000 USDC-wei by transfer from 0x1f2f10d1; reserves-limited payBase
+  108478599869178527 WETH-wei (quoteCap(0.149 ETH) = 371663756 USDT-wei >
+  reserves 274708302), collOut quote 270587677 USDT-wei; fork baseFee
+  2087373966 wei (DISCLOSED modern-era fee, not the 26342224-era 0.042877
+  gwei; anvil setNextBlockBaseFeePerGas 42877376 requested), maxFee
+  4348295711 wei. Probe buy tx
+  0xe9046536ba9cc4e6d1210b2bffaee0f7cfd74ef439117301fb2a24431f52388c (3,000,000
+  gas, wrap limits 0.95/1.05 x spot) status 0 gasUsed 445909: the callTracer
+  shows EVERY leg through the comet buy succeeding — the wrap flash swap
+  (-payBase exact-output at the 0.95x low limit, callback repaying USDC), the
+  comet buyCollateral (USDT 270587677 paid to the executor), the collateral
+  balance check, the USDT approve to the sale pool — and the transaction then
+  reverts with NO revert data at the sale-pool swap CALL, which the tracer
+  never enters (frame absent; an eth_call from the funded OWNER reverts the
+  same way, data empty). Direct probes on the sale pool from the funded
+  executor settled the limit direction: sqrtPriceLimitX96 = MAX_SQRT_RATIO-1
+  and spot x 1.05 pass the pool's entry check (they reach the callback, which
+  my probe's empty callback data then failed with BAD_CALLBACK) while
+  MIN_SQRT_RATIO+1 reverts 'SPL' — so a zeroForOne=false (token1=collateral)
+  sell needs a limit strictly ABOVE the current price, the executor passes
+  MAX_SQRT_RATIO-1 there (valid), and the bot's ±5% LOW wrap limit is only
+  used on the flash leg where zeroForOne=true wants a floor BELOW spot
+  (proven fine). The wrap funding leg, the comet buy and the atomic
+  balance-preservation on revert (executor USDC stays 360000000 after every
+  reverted buy; no partial state ever survives) are proven; a positive
+  execution at the final cap on THIS build is NOT yet proven — the next run
+  starts by instrumenting the sale-swap CALL (checkpoint requires around it,
+  or anvil_setStorageAt of the executor's _activePool + a funded-callback swap
+  probe), with lease contention (dead run 824f5d44's 25 min lease expired at
+  09:34Z, retry loop acquired it; scratch/cv3-eth/proof7.py + proof7.json +
+  proof7-trace-probe.json carry the full measurements).
+  SALE-LEG ROOT CAUSE + final-sized proof on the synchronized artifact (run
+  d237253f, 2026-11-05; scripts scratch/cv3-eth/proof9.py + proof9-guard.py,
+  lease held ONLY for their runs — reset->deploy->fund->success->guard in one
+  script; the reviewer reruns the same scripts; ethereum fork reset 26342224):
+  the sale-swap mystery was the Tether USDT quirk — USDT.approve/transfer
+  return NO return data, so the executor's typed IERC20 bool decode reverted
+  the whole buy with EMPTY revert data right after the sale-leg approve
+  (opcode trace: PUSH0/DUP1/REVERT at runtime pc 2806 right after the approve
+  CALL). Cv3Sniper.sol now uses low-level success-checked approveLo/transferLo
+  and was REBUILT: source/artifact/submitted runtime are ONE build again —
+  creation-current.hex = the current forge build + USDC PRINCIPAL ctor arg
+  (5457 creation bytes), executor-runtime.hex = this deployment's eth_getCode
+  runtime (5185 bytes; code_equals_submitted_runtime=true in proof9 output).
+  Final sizing (bot-native: reserves 274708302 USDT-wei -> payBase
+  108478599869178527 WETH-wei under the 0.149 ETH cap, collOut 270587677
+  USDT-wei, proceeds_est 112070530041343938, gross_est 3591930172165411
+  WETH-wei ~ 8.64 USD at 2405.85 USD/ETH), relay-header baseFee 76403909 wei,
+  maxFee = baseFee + baseFee/8 + 1 gwei tip = 1085954397 wei. GAS CAP
+  MEASURED: the route consumes 496576 gas under a generous cap but nested
+  frames starve under the 61/64 rule at tight caps — traceCall probes at
+  signed caps 525000 and 580000 REVERT (gasUsed 523923/579995 = the cap),
+  640000 succeeds; bot.js GAS_LIMIT raised 450000 -> 640000 and
+  MAX_GAS_PRICE_WEI 17.5 -> 12.5 gwei so the worst case stays 640000 x
+  12.5 gwei = 0.008 ETH = 19.25 USD < 20 USD (L); minProfit =
+  695010814080000 gas budget + 80% of the margin = 3012546300548328
+  WETH-wei. SUCCESS tx 0x5d793f4a986f0b99f32be9ea36ac6569bbcf88ee0c3c5a29fcc
+  75642ddd24c7d status 1 gasUsed 496633 (< the signed cap): executor USDC
+  360000000 -> 368917786 = +8917786 USDC-wei (+8.92 USD after the wrap-pool
+  fee: flash borrow/repay, comet buy, low-level USDT approve, SALE-pool
+  exact-input swap +got, WRAP-pool exact-input conversion +proceeds — ONE
+  tx), WETH/USDT balances preserved exactly (0/0), Bought.baseProfit
+  112295721647585205 WETH-wei. NO_PROFIT guard on a FRESH reset+deploy+funded
+  executor (the success consumed the reserves; guard minProfit = realized
+  baseProfit + 1): tx 0x5d7141181eee76f5ebeb294f632b4049e2fd303c8a8bfd181d38
+  759b29cd16be status 0 gasUsed 556474, debug_traceTransaction revertReason
+  "NO_PROFIT", USDC/WETH/USDT balances UNCHANGED across the guard
+  (360000000/0/0). The guard script signs 21 gwei proof-side (fork fresh-block
+  includability, disclosed); the success send used the bot formula maxFee
+  1085954397 wei (worst-case gas 1.672 USD at that fee).
+  RERUN FROM CLEAN SLATE (run 18dfd4b5, 2026-11-05 11:2xZ): the reviewer's
+  attempt 177 saw these scripts mid-crash (proof9.json at 10:59 showed the
+  traceCall sale-swap revert and code_equals_submitted_runtime=false; the
+  guard send then died on "max fee per gas less than block base fee" because
+  the phase-C reset cleared the injected next-block base fee). Both scripts
+  were repaired (anvil_setNextBlockBaseFeePerGas re-injected after the guard
+  reset; send-failure guard) and RE-RUN END TO END from a free lease: reset
+  26342224 -> deploy creation-current.hex -> deployed code == submitted
+  5185-byte executor-runtime.hex byte-for-byte (code_equals_submitted_runtime
+  = true) -> fund 360e6 USDC -> cap probe 640000 -> SUCCESS tx
+  0x8f1cde49d56fd16d1cc8916ca7ef80858edbc3d277ee656f1d842479bc8be350 status 1
+  gasUsed 496633 USDC 360000000 -> 368917786 (+8917786, WETH/USDT preserved
+  0/0, Bought.baseProfit 112295721647585205) -> inline guard
+  0x779c1dc15c462bb2868156ec42e95a8eff12de987ce9c73a756e40cd33d23fc0 status 0
+  gas 556474 revertReason NO_PROFIT balances preserved; the standalone
+  proof9-guard.py reproduced the ORIGINAL manifest guard tx
+  0x5d7141181eee76f5ebeb294f632b4049e2fd303c8a8bfd181d38759b29cd16be
+  (deterministic state). Success-fee includability: maxFee = relay header
+  baseFee 100332889 + /8 + 1 gwei tip = 1112874500 wei injected as the fork
+  next-block base fee (worst-case gas 640000 x 1.1129 gwei = 0.00071 ETH =
+  1.71 USD at the fresh 2405.85 USD/ETH pool price; minProfit formula
+  3015992073732328 WETH-wei). Reviewer rerun: `fork lease ethereum 15 note;
+  python3 scratch/cv3-eth/proof9.py; python3 scratch/cv3-eth/proof9-guard.py;
+  fork release ethereum` (lease held only across the two script runs).
+awaited_events: >
+  AbsorbCollateral on either comet (topic0 0x9850ab1af75177e4a9201c65a2cf7976d5d28e40ef63494b44366f86b2f9412e).
+  Last occurrences: block 26342224, tx
+  0x3f7109f2873b3082e8a7df7bf226e71afd3ce09f1227a3e1a07de61fc084c9fa
+  (cWETHv3 — IN the watched scope since the rescope — USDT collateral
+  absorbed 274708.044 at 2026-11-04T15:03:47Z per the ledger block
+  timestamp, whole reserve bought the same block by 0xbde3e91f for 110.0203
+  WETH and the 274.708 residue bought +1 block later); prior watched
+  occurrence block 26331463 (cUSDCv3, WBTC collateral absorbed, bought the
+  same block by 0x1f2f10d1 for 1.32 USDC dust at 2026-11-03T03:04:47Z).
+  Next occurrence has no schedule: measured ~1 absorb/day
+  (30 absorbs in 30d); measured zero watched-comet absorbs in blocks
+  26342225-26348399 (eth_getLogs on all three watched comets through head
+  at 2026-11-05T11:4xZ, run af858120; the prior scan through 26345664 at
+  02:33Z found the same zero). Outside the
+  watched scope, the ACTIVE comet cWETHv3 0xa17581a9 (base=WETH, relay baseToken
+  read 2026-11-05) absorbed USDT 274708.044 at block 26342224, tx
+  0x3f7109f2873b3082e8a7df7bf226e71afd3ce09f1227a3e1a07de61fc084c9fa
+  (2026-11-04T15:03:47Z per the relay block timestamp — the older
+  2026-10-31 date note was stale; the era header baseFee 0.042877 gwei was
+  the injected proof value, the live 26348362 header is 0.0915 gwei): the full
+  reserve was bought in the same block by 0xbde3e91f for 110.0203 WETH (gross
+  13721.66 USD at the exact 0.95 comet quote) and the 274.708 residue +1 block —
+  this is the rescope candidate carrying the contemporaneous-fee natural evidence
+  (lead 5, attempt 152, run 7b5c1694). No wait deadline.
+good_signs: >
+  bot.jsonl shows absorb/opportunity/simulate machine records with payBase <=
+  360e6, collOut and proceedsEst consistent with the quote, a funding record
+  per comet base naming the executor placeholder (balance >= 360e6 of the
+  base), sim_ok on profitable absorbs and reserves_gone/no_edge logs when
+  snipers were first or the discount is below gas; zero cycle errors;
+  heartbeat counts growing. Window measurement (added run 122e6875, review
+  3c9b5d18 requirement): opportunity records carry blk_ts (absorb-block unix
+  time) and poll_delay_s (our poll latency event->detection), simulate
+  records carry alive_at_s (residual still available this long after its
+  absorb block at sim time) and est_incl_s = alive_at_s + the ~12 s expected
+  inclusion, and reserves_gone records carry gone_after_s (upper bound on the
+  natural residual lifetime). Capture is compatible with the ~3 s poll iff a
+  measured alive_at_s/est_incl_s capture succeeds while gone_after_s events
+  show the reserve outlasted est_incl_s. Occasional relay_lag records (the
+  relay's getLogs head lagging our head reading; run 00fc9c93 guard: the
+  cursor is preserved and the same range re-scans 3 s later) are the expected
+  transient state, not a failure sign - unlike the pre-fix code they no
+  longer appear in the cycle-error count.
+bad_signs: >
+  repeated sim_revert NO_PROFIT on profitable-looking events (proceeds
+  estimate too optimistic), reserves_gone on EVERY event (we are slower than
+  the 0-block snipers — then the strategy is race-blocked, record
+  blocked_infra), funding_unresolved at startup (placeholder balance 0: every
+  sim reverts on funding), or runtime_ok=false (fail closed, no simulation at
+  all).
+rpc_reads_per_min: 50
+legal_note: >
+  Public buy_collateral at the comet's oracle-discounted price — a mechanism
+  the protocol intends to be open to anyone (Compound v3 buyCollateral);
+  absorbs are triggered by anyone. No mixers, no sandwiching user transactions
+  (we buy residual reserves after the absorb, not a pending swap), no
+  sanctioned-address issue assumed for reward flows (S-checked: liquidation
+  residuals only).
+expedite: false

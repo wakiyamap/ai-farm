@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-sablier-lockup",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1208,
+ "chain": "ethereum",
+ "slug": "sablier-lockup",
+ "name": "Sablier Lockup",
+ "category": "Payments",
+ "tvl_usd": 1460209,
+ "url": "https://sablier.com/",
+ "github": null,
+ "listed_days_ago": 1208,
+ "run_id": "050793bfb8e2429aa230717e50200882",
+ "result": {
+  "verdict": "role_gated",
+  "line": "withdraw/cancel/renounce revert SablierV2Lockup_Unauthorized from a fresh address (role = stream sender/recipient/ERC-721-approved) and pay the recipient, never the caller: 268 WithdrawFromLockupStream / 0 CancelLockupStream events in 7d (blocks 26413311 2026-11-14 to 26463563 2026-11-21, 10 lockup contracts from the DefiLlama Envio index); sample of 5 largest are all recipient self-withdrawals (largest ~163 USD REKT to tx.from, coins.llama.fi 2026-11-21 12:50); caller gross 0 vs gas ~0.07 USD (108k-132k gas @ 0.328 gwei, ETH 1660).",
+  "kb": [
+   "attempts:3319",
+   "protocols:1640"
+  ],
+  "run_id": "050793bfb8e2429aa230717e50200882",
+  "at": 1795265587
+ }
+}

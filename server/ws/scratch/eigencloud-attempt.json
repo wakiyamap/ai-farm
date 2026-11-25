@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-eigencloud",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. EigenCloud = EigenLayer rebrand (llama slug eigencloud, EIGEN token). The only callable-with-no-role reward functions are RewardsCoordinator.processClaim/processClaims(claim, recipient): anyone can call but they pay only the earner's own accrued rewards to the recipient argument - a stranger with no staked position is paid 0, no bounty leg; submitRoot/disableRoot are onlyRewardsUpdater. Cashing out also needs queue+complete withdrawal (not one tx), so it misses L's holding-frame. Same entity already dead_end as eigenlayer (protocols:158).",
+  "numbers": "7d = blocks 26413430 (2026-11-14 13:09Z) -> 26463742 (2026-11-21 13:21Z). 253 RewardsClaimed / 120 txs on RC 0x7750d328b314EfFa365A0402CcfD489B80B0adda (topic0 0x9543dbd5... from receipt, matches keccak of source event RewardsClaimed(bytes32,address,address,address,address,uint256); control: same-shape scan of EIGEN token 198 logs; eth_getCode + CALCULATION_INTERVAL_SECONDS()=86400 OK). Sample 5 of 120: callers EOAs self-claiming; gross of priced tokens/call $0.1-10.6 (EIGEN 18dec $0.1138, WETH $1673.69 coins.llama.fi 2026-11-21T13:28Z; 3 reward tokens unpriced: 0x9c3c3106..., 0xc12e4d31..., 0xba50933c...); gas 155k-403k gas = $0.33-1.45; no ERC20 Transfers in claim receipts (shares credited, redemption queued); PodDeployed 0 in first 12k blocks of window; TVL 4.58e9 USD (candidate)."
+}

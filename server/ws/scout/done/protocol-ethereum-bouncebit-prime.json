@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-bouncebit-prime",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 373,
+ "chain": "ethereum",
+ "slug": "bouncebit-prime",
+ "name": "BounceBit Prime",
+ "category": "Basis Trading",
+ "tvl_usd": 5149256,
+ "url": "https://prime.bouncebit.io/",
+ "github": null,
+ "listed_days_ago": 373,
+ "run_id": "4c28032e8aee4b45891c98decf214d67",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Gateway proxy 0x6f77..C580 (impl 0xf17c..4208 unverified, 70 selectors via openchain): deposit whitelist-gated (fresh addr reverts 0x1e092104, isWhitelisted=false), rebase/promoPrepareWithdrawals revert 0xe2517d3f missing REBASE_PRIMARY_OPERATOR 0xe42ad9a5; totalLocked(USDT 6dec)=5,154,823 USDT (~5.15M USD) matches TVL; 0 proxy events + 0 external calls in 7 days (lifetime 434 logs, last event block 25,355,540 ~153d ago, last tx 2026-02-16 FAILED; control USDT 58 blocks = 6,539 logs) - custodial off-chain basis trades, nothing pays a stranger.",
+  "kb": [
+   "attempts:3006",
+   "protocols:1400"
+  ],
+  "run_id": "4c28032e8aee4b45891c98decf214d67",
+  "at": 1795198803
+ }
+}

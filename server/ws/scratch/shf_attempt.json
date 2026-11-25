@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-steakhouse-financial",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Steakhouse on Arbitrum is only Morpho curated vaults (VaultV2/MetaMorpho, standard Morpho code per explorer source). The sole permissionless state-changing function is accrueInterest() on the V2 vaults (no role; eth_call from a fresh address succeeds); it pays the caller 0 - fee shares go to fixed fee recipients. No reward/bounty/keeper function that pays a stranger exists.",
+ "numbers": "AccrueInterest events last 7 days (eth_getLogs blocks 522744788-525163988, 7 vault addresses, topic0 of AccrueInterest(uint256,uint256,uint256,uint256) cast keccak + v1 2-param topic): 1072 total (USDG Pro 0xbeeFf72B...: 442; v1 0x5c0C306A...: 573; HY USDT 37; HY USDC 20). Sample caller tx 0x5969489a41cfe7a53c31a507f4508d07b0aebe7678c8937472c782b7322b2956 from 0x5afe2414f865cbc5ff4e25979996c5b1252e0002, gasUsed 256350 @ 0.020 gwei = 5.13e-6 ETH. Gross paid to caller per accrueInterest call = 0 USD (VaultV2.sol:636-644, shares to fee recipients). Largest vault USDG Pro totalAssets 90,572,919.487877 USDG (~$90.6M); High Yield Turbo USDC totalAssets 172,431,032 USDC. DefiLlama currentChainTvls Arbitrum $93,918,886 (api.llama.fi/protocol/steakhouse-financial 2026-11-17)."
+}

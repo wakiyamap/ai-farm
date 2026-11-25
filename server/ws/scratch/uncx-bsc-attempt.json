@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-uncx-network-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The 4 UNCX V3 locker contracts counted on BSC (0x0D29598EC01fa03665feEAD91d4Fb423F393886c, 0xf1f7f21e2ea80ab110d0f95faa64655688341990, 0xfe88DAB083964C56429baa01F37eC2265AbF1557, 0xac03f882a41553fb2d519b35874b0a551977b9d9) pay out only through collect/withdraw/decreaseLiquidity, all gated on lock.owner, lock.additionalCollector or the single UNCX AUTO_COLLECT_ACCOUNT 0xd45dd91df475bfd944335160f538c1a14888dc1c; migrate is MIGRATOR-only and lock() charges the caller instead of paying. A stranger collect reverts (depth-1 revert, no external calls). No keeper bounty exists: fees flow to UNCX, LP fees to the lock owner.",
+  "numbers": "locks 36/121/1108/4 (getLocksLength 2026-11-18); collect from fresh 0x1111 reverts on 4/4 contracts (eth_call+debug_traceCall, REVERT depth 1 @pc 20436, ~23.9k gas); 7d event counts not obtained - scout lane Alchemy CU spent 306100/300000 and bsc public nodes returned 'all providers failed: public: limit exceeded' / 'no provider available' for eth_getLogs (no zero count claimed); protocol TVL BSC 3,219,561 USD (api.llama.fi/protocol/uncx-network-v3 2026-11-18); sources github.com/uncx-network/liquidity-locker-univ3-contracts"
+}

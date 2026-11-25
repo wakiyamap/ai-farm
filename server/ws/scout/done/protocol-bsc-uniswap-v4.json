@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-uniswap-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 656,
+ "chain": "bsc",
+ "slug": "uniswap-v4",
+ "name": "Uniswap V4",
+ "category": "Dexs",
+ "tvl_usd": 29107021,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 656,
+ "run_id": "f9fba6269bfd4313856e7009b227cd18",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BSC Uniswap V4 (PoolManager 0x28e2ea09...e9df, V4FeeAdapter 0x66276d2e...b87c): the only stranger-callable claim-style fn is collect(CollectParams[]) but it pays the hard-coded TokenJar 0xc6ae..f70a, caller gets 0; 7 d (blocks 132,911,400-134,254,623): 99 FeesCollected in 5 keeper txs (Uniswap EOAs 0x16f09eaa 4/5, 0xc6055b7d 1/5) moved USD 14,434 to the jar (coins.llama.fi priced, 7 small events unpriced), gas USD 1.92-2.19/tx (BNB 590.80); collectProtocolFees reverts 0x48f5c3ed InvalidCaller from a stranger; triggerFeeUpdate ran 3,684x/7d from 0x87c4d68b, pays 0.",
+  "kb": [
+   "attempts:2021",
+   "protocols:614"
+  ],
+  "run_id": "f9fba6269bfd4313856e7009b227cd18",
+  "at": 1794981696
+ }
+}

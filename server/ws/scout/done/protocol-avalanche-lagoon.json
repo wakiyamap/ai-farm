@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-lagoon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 693,
+ "chain": "avalanche",
+ "slug": "lagoon",
+ "name": "Lagoon",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 1414081,
+ "url": "https://lagoon.finance",
+ "github": [
+  "hopperlabsxyz"
+ ],
+ "listed_days_ago": 693,
+ "run_id": "0a6d3d33030242a9afe524d5e1bf827d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "18 vaults chainId 43114 (api.lagoon.finance GraphQL) share impl 0x33f65c8d025b5418c7f8dd248c2ec1d31881d465 (version 0.5.0); all maintenance fns onlySafe/onlyValuationManager (stranger eth_call settleDeposit -> OnlySafe revert 0xfde82f1f); last 7d: 16/16 maintenance txs by curator keys (safe 0x42165bc7ee10d6194eccf225bbef199315f2d485: 6x updateNewTotalAssets + 6x settleDeposit; 2 EOAs: 4x router multicall), 0 strangers paid, gross 0 vs gas ~$0.01 (settleDeposit 142,873 gas @8.1gwei, AVAX $7.15 coins.llama.fi)",
+  "kb": [
+   "attempts:2040",
+   "protocols:629"
+  ],
+  "run_id": "0a6d3d33030242a9afe524d5e1bf827d",
+  "at": 1794985641
+ }
+}

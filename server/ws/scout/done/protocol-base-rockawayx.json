@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-rockawayx",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 235,
+ "chain": "base",
+ "slug": "rockawayx",
+ "name": "RockawayX",
+ "category": "Risk Curators",
+ "tvl_usd": 604115,
+ "url": "https://rockawayx.com/",
+ "github": null,
+ "listed_days_ago": 235,
+ "run_id": "297c4f2061eb4cfb93f715c7633d73c0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Base = one VaultV2 0xAE4181CFB5aaA08bbE77d269c6B595672b9F9Edc (RockawayX Midas USDC Prime, 602,956 USDC); no claim/reward/auction fn in the 97-fn verified ABI; accrueInterest() callable by a stranger (eth_call 0x, no revert) but pays 0; 7d: 38 vault logs = 10 AccrueInterest in 7 txs, all side effects of deposits/withdrawals routed via 0x2b08a911f48de25a7e305d910afb5597abe8ea7b (sample 5/7), gas bash.004-0.019/tx (ETH $1813, coins.llama.fi).",
+  "kb": [
+   "attempts:1708",
+   "protocols:383"
+  ],
+  "run_id": "297c4f2061eb4cfb93f715c7633d73c0",
+  "at": 1794917827
+ }
+}

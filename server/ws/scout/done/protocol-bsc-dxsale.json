@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-dxsale",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1586,
+ "chain": "bsc",
+ "slug": "dxsale",
+ "name": "DxSale",
+ "category": "Launchpad",
+ "tvl_usd": 14373473,
+ "url": "https://dx.app",
+ "github": null,
+ "listed_days_ago": 1586,
+ "run_id": "225d78792d2545ce97b61da40be458e4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only busy callable unlockToken(uint256) on BSC lockers (9812+3363+14223 locks open) pays the caller's own vested Cake-LP (~1.45 LP/call, gas 0.009 USD at 300k gas x 0.05 gwei, BNB 589.66 coins.llama.fi); fresh-address eth_call reverts 'user doesnt have a locker'; 7d eth_getLogs 3x5000-blk sample: 2526/502/0 logs (control 880), 5/5 sampled calls from one whale 0x6ac496edc011d0eae8e60991f3ee240f324a1084 - no stranger-paid keeper function",
+  "kb": [
+   "attempts:2457"
+  ],
+  "run_id": "225d78792d2545ce97b61da40be458e4",
+  "at": 1795078847
+ }
+}

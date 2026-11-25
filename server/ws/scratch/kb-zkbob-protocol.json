@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "zkbob",
+  "status": "dead_end",
+  "checked": "Pool proxy 0x72e6B59D4a90ab232e55D4BB7ed2dD17494D62fB (ZkBobPool, impl 0x07fd71f48884cfd342dbd6f6a475c4a96c631557, verified source via explorer source) holds 125,225 native USDC 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359 = all Polygon TVL. Addresses from github zkBob/zkbob-ui src/config/index.js (poolAddress, closingDate 2025-02-01) and zkBob/zkbob-contracts. All state-mutating pool fns are role-gated and none pays the caller: transact()/appendDirectDeposits() onlyOperator (centralized relayer 0xc2c4ad59b78f4a0aFD0CDB8133E640Db08Fa5b90, fees accrue to accumulatedFee[msg.sender]); redeemUpTo(uint256)/disableWithdrawalQueue() redemptionOperator only (pays queued claimants, not caller); withdrawFee(operator,to) operator/feeReceiver only; recordDirectDeposit queue-only; fillMigrationOrder expired 2023-12-01; set*/reset* onlyOwner. eth_call from stranger 0x1111..11 reverts 'ZkBobPool: not an operator' (transact) and 'ZkBobPool: not authorized' (withdrawFee, redeemUpTo). Payment contract 0x76a911E76fC78F39e73cE0c532F8866ac28Dfe43 (pay() -> shielded) last used Dec-2024. Sources: api.llama.fi/protocol/zkbob, explorer txs polygon, eth_gasPrice, coins.llama.fi"
+}

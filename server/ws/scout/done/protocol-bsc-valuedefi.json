@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-valuedefi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "valuedefi",
+ "name": "ValueDefi",
+ "category": "Dexs",
+ "tvl_usd": 415232,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "667e325467484a8f847f4e5500e809b5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "AMM-only protocol (hydraswap-style factory 0x1b8e...c14c, 439 pairs; stableswap proxy 0xc6e1...7122, 14 pools): no public fn pays the caller; 7d (blocks 133297499-134641499, eth_getLogs, control USDC 706 logs): 593 logs / 450 txs / 93 swaps, all EOA users; fee fns getCollectedFees/setProtocolFee revert from a stranger (role_gated); sample swap 913,324 gas = $0.026 at BNB $570.68.",
+  "kb": [
+   "attempts:2787",
+   "protocols:1218"
+  ],
+  "run_id": "667e325467484a8f847f4e5500e809b5",
+  "at": 1795154140
+ }
+}

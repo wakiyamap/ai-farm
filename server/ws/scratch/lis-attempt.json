@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-lido-impact-staking",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The protocol is 7 ERC1967 proxies (DefiLlama adapter projects/lis/index.js) on one implementation NGOLis (0xc8726c5d0579c573af71092ff9b1d6e9e589a202). Its only maintenance function handleNGOShareDistribution() is onlyOracle - stranger eth_call reverts OnlyOracle(address) - and it pays the caller nothing anyway (wstETH 95% to rewardsOwner, 5% LIS_FEE to _lis). User claim/stake functions pay only the caller's own deposit (claimWithdrawal requires msg.sender == requester). No keeper/bounty class exists.",
+ "numbers": "7 proxies all -> impl NGOLis 0xc8726c5d... (EIP-1967 slot). eth_call handleNGOShareDistribution() (0x0ef43a58) from 0x1111..1111 reverts 0xf432bce9 OnlyOracle(address). 7d logs across all 7 proxies = 0 (no-topic scan 0x1932f87..0x193bc27 = head 26461223); same-shape 30d scan = 15 logs (control): 7 RewardsUpdated (topic0 0x4b4e9b2b from the contracts' own receipts) + 8 Staked (0xf5946045). Last distribution batch blocks 26366425-439 (~13d ago), caller oracle 0x96b260c568d025a15eae91904ead3b22cb584e2f, gas 117277/tx; at current gasPrice 0.353 gwei (eth_gasPrice) x ETH $1617.35 (coins.llama.fi 2026-11-20) gas ~= $0.067/call, caller reward $0. Collateral token wstETH (adapter balanceOf; contract wstETHSC). TVL $162,298 (session context). Sources: explorer source ethereum, rpc.py eth_call/eth_getLogs/eth_getTransactionReceipt."
+}

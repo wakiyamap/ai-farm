@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-bracket-lst",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 476,
+ "chain": "ethereum",
+ "slug": "bracket-lst",
+ "name": "Bracket LST",
+ "category": "Liquid Staking",
+ "tvl_usd": 168873,
+ "url": "https://app.bracket.fi/",
+ "github": null,
+ "listed_days_ago": 476,
+ "run_id": "1da33c51d89e4849a7781df025e300a9",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No caller-paid reward fn on brktETH (proxy 0x6C8550..ccD6, impl src read): mint/burn/claimWithdrawal only return the caller's own funds (stranger claimWithdrawal eth_call reverts WithdrawalNotReady 0x0f2ca6e7), swapCollateral is DEFAULT_ADMIN_ROLE-gated (reverts AccessControlUnauthorizedAccount 0xe2517d3f), oracle view-only; 7d no-topic log scan (blocks 26408476-26458876): 7 logs total, 0 mints, 1 WithdrawalClaimed paid the EOA claimer its own 0.035035 rETH = 65.94 USD (coins.llama.fi rETH 1882.08, 2026-11-20 21:06 UTC), gas 0.036 USD (76480 @ 0.2967 gwei, ETH 1601.31).",
+  "kb": [
+   "attempts:3055"
+  ],
+  "run_id": "1da33c51d89e4849a7781df025e300a9",
+  "at": 1795209073
+ }
+}

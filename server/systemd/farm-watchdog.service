@@ -1,0 +1,21 @@
+[Unit]
+Description=Farm watchdog (stops bots without waiting for an agent)
+After=rpc-relay.service farm-signer.service
+Requires=rpc-relay.service
+
+[Service]
+Type=exec
+User=farmgate
+Group=farmgate
+ExecStart=/usr/bin/python3 -I /opt/farm/bin/farm-watchdog
+Restart=always
+RestartSec=10
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/var/lib/farmgate /srv/farm/ws/inbox/live
+SyslogIdentifier=farm-watchdog
+
+[Install]
+WantedBy=multi-user.target

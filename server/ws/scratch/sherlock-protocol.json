@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "sherlock",
+  "status": "measured",
+  "checked": "DefiLlama adapter projects/sherlock/index.js gives 2 ethereum contracts. v1 = 0xacbBe1d537BDa855797776F969612df7bBb98215: stepped proxy, impl 0xeafd0ce3eb91d08b36136e9fdd42b54d1bb9294a (explorer abi) is the SherX ERC20 (transfer/approve only, no caller-paid fns); holds 121,300 USDC (balanceOf). v2 = 0x0865a889183039689034dA55c1Fd12aF5083eabF: verified Sherlock.sol staking-pool NFT (source via explorer, saved scratch/sherlock-v2-src); totalTokenBalanceStakers 105,600 USDC; token() = USDC 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 read on chain; paused()=false; owner 0x92aeffffad9fff820f7fcaf1563d8467afe358c4. Caller-paid function: arbRestake(uint256 id) (Sherlock.sol L664) — permissionless (only whenNotPaused; fresh-address eth_call reverts InvalidConditions 0x3af36e0a, not Unauthorized), pays USDC to msg.sender (max 20% of position shares, ramping linearly over 7 d after lockup + 2 wks). payoutClaim(address,uint256) gated to sherlockClaimManager (role); ownerRestake gated to NFT owner. Sum 105.6k+121.3k USDC = candidate TVL 226.8k."
+}

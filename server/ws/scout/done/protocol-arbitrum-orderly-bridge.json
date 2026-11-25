@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-orderly-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1467,
+ "chain": "arbitrum",
+ "slug": "orderly-bridge",
+ "name": "Orderly Bridge",
+ "category": "Bridge",
+ "tvl_usd": 319541,
+ "url": "https://orderly.network",
+ "github": null,
+ "listed_days_ago": 1467,
+ "run_id": "978e014979ec4dcea38a047939f88c48",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Orderly L2 vault 0x816f722424b49cf1275cc86da9840fbd5a6167e9 (impl Vault 0x79cded637178443344c30f6972698c58aa369dc6): withdraw/withdraw2Contract/rebalanceMint/Burn are onlyCrossChainManager (fresh-address eth_call reverts OnlyCrossChainManagerCanCall 0x833d33e7), delegateSwap onlySwapOperator; the any-call fns (deposit, delegateSigner) pay 0. 7d (blocks 0x1f2dd64e-0x1f52c04e): 315 AccountDepositTo + 344 AccountWithdraw; users self-withdraw via router and pay 1 USDC fee each (gross $1-473, sample of 15) - nothing paid to a stranger; TVL $308.7k (api.llama.fi).",
+  "kb": [
+   "attempts:2378"
+  ],
+  "run_id": "978e014979ec4dcea38a047939f88c48",
+  "at": 1795062964
+ }
+}

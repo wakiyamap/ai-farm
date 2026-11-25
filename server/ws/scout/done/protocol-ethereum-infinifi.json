@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-infinifi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 539,
+ "chain": "ethereum",
+ "slug": "infinifi",
+ "name": "infiniFi",
+ "category": "Yield",
+ "tvl_usd": 68811785,
+ "url": "https://infinifi.xyz",
+ "github": [
+  "InfiniFi-Labs"
+ ],
+ "listed_days_ago": 539,
+ "run_id": "0adf3ca4472c4d1d9d472456af764497",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all reward fns (Farm.claimRewards, LiquidationFarm.liquidate, Merkl/Fluid claimers, PLSmoother.accrue, YieldSharingV3.accrue) are onlyCoreRole FARM_SWAP_CALLER/ACCRUE_YIELD on InfiniFiCore 0xF6d48735.. (fresh-address eth_call reverts 'UNAUTHORIZED'); 20 farms in registry 0xF5f271..; keeper-only activity: KEEPER_SWAP 0x6c0D4a98.. called PL_Smoother.accrue() 16x in 7d, gross $0 to caller (receipt: burn + event, no transfer), gas ~$0.14/call (70,219 gas @ 1.232 gwei, ETH $1614.31 llama 2026-11-20T21:55Z); permissionless removeMaturedFarm/distribute pay caller 0.",
+  "kb": [
+   "attempts:3072",
+   "protocols:1451"
+  ],
+  "run_id": "0adf3ca4472c4d1d9d472456af764497",
+  "at": 1795212040
+ }
+}

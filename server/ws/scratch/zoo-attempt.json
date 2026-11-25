@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-zoo-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Zoo Finance (zoofi.io) BSC deployment is a Filecoin LVT vault over a Uniswap v4 FIL/VT pool; the vault's only non-user mutators (buyback(uint256), burnVestingTokens(uint256), pauseDeposit/unpauseDeposit) revert 'Caller not authorized' from a fresh address and deposit/redeem pay the caller nothing, so no public function pays a stranger. The protocol is also fully idle: zero VT transfers and zero vault events in 7 days while holding $13.3M TVL.",
+  "numbers": "eth_call at block 134253122. buyback(1) & burnVestingTokens(1) from 0x0000...cafebab3 revert 'Caller not authorized' (0x08c379a0 string in revert). VT Transfer 7d = 0 logs across 121 consecutive 5000-block eth_getLogs windows (133648322..134253122); same-shape control FIL 0x0d8ce2.. one window = 274 logs. Vault proxy events 0 in 14 sampled 5000-block windows spanning 7d. VT totalSupply 21,774,898; TVL $13.34M (candidate, llama). Gas: eth_gasPrice 0.05 gwei x 150k = 7.5e-6 BNB = $0.0044 at BNB $592.22 (coins.llama.fi coingecko:binancecoin 2026-11-18)."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "target": "venus_flux liquidate/setRates class (addresses TBD)",
+  "why": "Fluid-Lending-style lending on BSC with ~425k USD borrowed (USDT 189k, USDD 217k, ETH 23 at block 134120803, source: LiquidityResolver 0xca13A15de31235A37134B4717021C35A3CF25C60 getOverallTokensData), so Fluid's public reward paths (Borrowable.liquidate bonus, Liquidity rate refresh) are plausible earners; identified 2026-11-17 run 15def8ee but not measured.",
+  "next_steps": "1) find the Borrowable and Liquidity addresses on BSC: read the frontend's runtime config (flux.venus.io app calls an Instadapp-style config API) or use a keyless explorer (Routescan) - BscScan API needs a key and its HTML is Cloudflare-blocked; 2) eth_call liquidate(address) on Borrowable from a fresh address (role revert = role_gated); 3) 7-day eth_getLogs on the Liquidate event (BSC ranges <=5000 blocks) to count calls, callers and bonus paid; 4) check whether Liquidity rate refresh pays the caller at all. Control query shape on the FToken proxy 0x52Aa899454998Be5b000Ad077a46Bbe360F4e497."
+}

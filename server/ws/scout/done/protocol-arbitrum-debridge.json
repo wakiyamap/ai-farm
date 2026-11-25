@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-debridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1732,
+ "chain": "arbitrum",
+ "slug": "debridge",
+ "name": "deBridge",
+ "category": "Bridge",
+ "tvl_usd": 33406,
+ "url": "https://app.debridge.com",
+ "github": [
+  "debridge-finance"
+ ],
+ "listed_days_ago": 1732,
+ "run_id": "66b59aa4c42341f1bcca08e89acfd73f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Gate 0x43dE2d77...98aA (impl 0x797161bc, version()=421): claim() pays executionFee to msg.sender, callable by anyone (fresh-address eth_call reverts SubmissionUsed, not role-gated); 7 d (blocks 524714324-526772129, 11-16 to 11-23): 105 Claimed events, ALL amount=0 with executionFee exactly 32 wei (7 d total 3360 wei ~1e-9 USD), 15/15 sampled claims sent by deBridge's own relayer 0xde5ce22a at 0.014-0.039 USD gas/claim; DLN taker inventory flow already dead_end (attempts 1252, 1416; ethereum 3466, bsc 2523).",
+  "kb": [
+   "attempts:4068",
+   "protocols:2191"
+  ],
+  "run_id": "66b59aa4c42341f1bcca08e89acfd73f",
+  "at": 1795429375
+ }
+}

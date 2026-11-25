@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-sodax",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. SODAX on base is a 2-contract hub-and-spoke bridge (SpokeAssetManager + ConnectionV3, Sonic hub). The only keeper job is message delivery recvMessage -> verifyMessage, gated by require(executors[tx.origin]) owner allowlist (stranger eth_call reverts 'unauthorized executor'; registered relayer's replay reverts 'Message already processed'). Nothing on-chain pays the caller anyway: fees accrue to ConnectionV3 (balance 0.0 ETH) and leave via onlyOwner withdrawFee; recvMessage pays the user recipient.",
+ "numbers": "7d window blocks 57731202 (2026-11-15 09:56) to 60755202 (2026-11-22 09:56 UTC): recvMessage 47 calls, 100% from one executor EOA 0xa4026a97d3bf3caed9489cfac61ac8863d2ddb83 (Blockscout txlist to 0x348BE44F63A458be9C1b13D6fD8e99048F297Bc3); transfer deposits 27; Connection Message events 70 (eth_getLogs chunked, topic0 0x0fcc8c44.. from receipt); gas/relay 186949 @ 0.009 gwei = $0.003 (ETH 1709.85 coins.llama.fi 2026-11-22 10:03 UTC); pays caller $0.00 gross; connSn()=14934; AM holds 7.69 ETH custody; TVL $46.6k."
+}

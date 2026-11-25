@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-superfund",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 529,
+ "chain": "base",
+ "slug": "superfund",
+ "name": "Superfund",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 59180,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 529,
+ "run_id": "b34fe63448534bcdbcb4367e6fc770b2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Vault 0x10076e..e47b EulerEarn-fork (59,185 USDC): harvest()/updateInterestAccrued()/gulp() anyone-callable (fresh-address eth_call OK) but pay 0 to caller (10% perf fee to owner); 0 logs of any kind in 7d blocks 57864722 (2026-11-15) -> 60892630 (2026-11-22) [control USDC 19,828 logs/2000 blocks]; harvest gas 1,139,599 = 0.012 USD; last vault log 2026-11-10; 10 strategies on Base, their harvest() reverts (vault-gated).",
+  "kb": [
+   "attempts:3796"
+  ],
+  "run_id": "b34fe63448534bcdbcb4367e6fc770b2",
+  "at": 1795369140
+ }
+}

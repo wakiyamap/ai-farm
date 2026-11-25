@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-fortifi",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. FortiFi's two avalanche vaults (FortiFiMASSVaultV2 0x432963C721599Cd039ff610Fad447D487380D858, FortiFiWNativeMASSVaultV2 0x853e7A9dcc5037cD624834DC5f33151AA49d2D73) expose only user-driven deposit/add/withdraw/rebalance/refreshApprovals - every public state function pays msg.sender its own principal minus a protocol fee, there is no reward/bounty/keeper function in the repo that pays a stranger for calling. rebalance requires ERC1155 receipt ownership (reverts NotTokenOwner from a fresh address) and the strategy's depositToFortress/withdrawFromFortress are whitelisted to isFortiFiVault. Both vaults are paused()=true and had 0 txs in the last 7 days (last txs 2025-02-04 and 2026-04-21 via snowtrace txlist).",
+  "numbers": "TVL $364,829 (candidate). nextToken 70 / 174 (eth_call). rebalance eth_call from 0x1111.. reverts 0xab35696f. 7d txs = 0 on both vaults; snowtrace latest-desc endpoint validated live (folks hub 0xb39c0329.. has a tx at 2026-11-15). Source: DefiLlama adapter projects/fortifi/index.js; repo 0xFortiFi/FortiFi-Vaults."
+}

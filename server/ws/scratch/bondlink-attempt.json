@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-bondlink-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Bondlink is a single-token RWA stablecoin (USDb OFT + SPCTPool) with no function that pays a caller - deposits/redeems move your own principal (mint/redeem fees are paid BY the caller to feeRecipient) and cdRedeem/redeem additionally require an off-chain KYC signer signature. Protocol is also dormant: zero logs on USDb and SPCTPool in the last 7 days, last tx to USDb was 2025-10-24 (392 days ago) and website is dead.",
+  "numbers": "7d window blocks 26409879 (ts 2026-11-14T01:17Z) to 26460170 (ts 2026-11-21T01:2xZ): 0 logs on USDb 0x1623A55e0BA2384afD7511D6d7f77CF28790B5c5 (no-topic scan; control same shape 654 logs on USDC 11 blocks) and 0 logs on SPCTPool 0xb4c10af7edf50e3f3f6c758f9973b500d7235f8a. Last tx to USDb: block 23650484, ts 1761347087 = 2025-10-24 (explorer txs), 392 days ago, an approve(). eth_call deposit(fresh 0x1111...1111, 1 USDC) reverts 'ERC20: transfer amount exceeds allowance' = callable but caller supplies USDC. USDb totalSupply 151991.52 (18dp, on-chain getter) = DefiLlama TVL 151,991 USD; USDb holds 217.16 USDC; SPCTPool.totalPooledUSD() = 141991.52 USDC (6dp). Oracle getPrice() = 1e18. Gas irrelevant: nothing to call."
+}

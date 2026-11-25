@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-rho-x-lp-vault",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The vault's only reward-bearing functions (settleDeposit, settleRedeem, expireTotalAssets, claimSharesOnBehalf, close) are all onlySafe and updateNewTotalAssets is onlyValuationManager; eth_call from a fresh address reverts with OnlySafe/OnlyValuationManager. Fees go to feeReceiver/protocolFeeReceiver, never msg.sender, and the safe's keeper pays its own gas, so nothing pays a stranger. The protocol runs its own keeper EOA.",
+ "numbers": "TVL 499,110.999 USDT (totalAssets() read at block 0x193b5bf; USDT decimals 6 read on chain; asset() = 0xdac17f958d2ee523a2206206994597c13d831ec7). 7d activity (blocks 26411231-26461631, no-topic eth_getLogs on 0x4cb280e63251b9ab24a54def74bf5995d82ff398, 25 logs = the control): 7x NewTotalAssetsUpdated, 7x TotalAssetsUpdated, 1x SettleRedeem (topic0 from receipt/source), 0x SettleDeposit, 2x Transfer, 15 distinct txs, all sent by keeper EOA 0x4675804a6f3c836320f1e90224f1b36782af5418 to the safe 0xb5cbe1ba5d95df353ddb3acca494b1e0e16514f2. Settle tx 0xf32e8aaf495053ae0b0416391749654276ecda6f2350d14fde4665abd15ef452 gasUsed 232,655 x 6.79 gwei = 0.00158 ETH = $2.59 at $1638.95/ETH (coins.llama.fi WETH price, 2026-11-20). Reward per settle call to a stranger: $0 (fees paid to feeReceiver, not caller)."
+}

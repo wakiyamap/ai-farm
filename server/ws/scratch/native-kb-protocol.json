@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "native_credit_pool",
+ "status": "dead_end",
+ "checked": "CreditVault 0x74a4Cd023e5AfB88369E3f22b02440F2614a1367 (verified source CreditVault.sol via explorer/blockscout; adapter projects/native-lend in DefiLlama-Adapters, slug native-credit-pool, base vault 0x74a4...1367 fromBlock 32578350). eth_getCode non-empty; getters answer: epochUpdater 0x4bed8de4358b956727676e00c4f215f5f3b7b482, signer 0x0b89c5eb76b15a4b09b05b01c953e19dedf80a5e, owner 0xca0f3fb46eb413abefa10d91aa2a6fd49eab60eb, feeWithdrawer 0x0; 6 LP tokens (WETH/USDC/USDT/cbBTC + 2 exotic) via allLPTokens(0..5). All 8 state functions (epochUpdate, settle, removeCollateral, repay, liquidate, pay, addCollateral, swapCallback, withdrawReserve) revert from fresh 0x...dEaD address (OnlyEpochUpdater/OnlyTrader/OnlyLiquidator/OnlyFeeWithdrawer/OnlyCreditPool/OnlyLpToken). liquidate additionally needs an EIP-712 signature from the protocol signer and liquidatorToRecipient[msg.sender] payout, so reward goes to the whitelisted liquidator's recipient, not a stranger. explorer txs (blockscout, full history): last inbound tx to vault 2026-09-20 (block 51546970), last two FAILED; 0 vault events in 6x50k-block windows (~300k blocks, ~28h) on 2026-11-18, control USDC Transfer 19,961 logs in 500 blocks same shape. TVL base $479k, borrowed $6.3k (api.llama.fi 2026-11-18)."
+}

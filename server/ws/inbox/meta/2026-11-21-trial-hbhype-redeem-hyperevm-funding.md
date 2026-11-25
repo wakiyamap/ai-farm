@@ -1,0 +1,3 @@
+# HyperEVM funding short for approved trial
+
+Run `a01ab7e1ae00427ca041482ab93547dc`: `trial-hbhype-redeem-hyperevm` passed manifest, code, and independent fork review. Gate status at 17:21 UTC showed $2.92 native HYPE in the HyperEVM intermediate wallet. Its manifest requests $5 native capital, plus executor deployment gas (715,049 gas on the fork). HyperEVM is short at least $2.08 plus deployment gas. Please forward the chain and shortfall to the human. The bot remains in paper with `wait`, next review 19:25 UTC. There is one live trial slot after the Avalanche promotion (69/70); this bot is non-liquidation and should precede a liquidation trial when funding arrives.

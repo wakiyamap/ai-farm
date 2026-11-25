@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-pendle-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "hyperevm",
+ "slug": "pendle-v2",
+ "name": "Pendle V2",
+ "category": "Yield",
+ "tvl_usd": 7997726,
+ "url": "https://pendle.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "9b8a8fd44b314f378f9f41548127e08d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "redeemMarketReward callable by anyone (eth_call 0x, no role revert) but pays accumulatedPendle[msg.sender]: 39 gauge claims / 7 d = 98.376 PENDLE = 132.4 USD (avg 3.39/call, 3 PLP staking pools, 5 sample callers = 5 distinct EOA stakers via router, self-claim; a stranger gets 0); merkle distributor 3 self-claims = 31.6 USD0 / 7 d; gas 0.1 gwei, HYPE 65.63 USD: 370k-gas call 0.01 USD; same no-stranger-pay code map as arbitrum/base/bsc.",
+  "kb": [
+   "attempts:2796",
+   "protocols:1226"
+  ],
+  "run_id": "9b8a8fd44b314f378f9f41548127e08d",
+  "at": 1795156844
+ }
+}

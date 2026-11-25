@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "actor-arbitrum-0xe0763177d7e80e290fc4fea055fae11f5024f687",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated - it is a UniswapX V3 Dutch-order RFQ desk, not an open keeper job. The reactor (V3DutchOrderReactor 0xb274d5f4...4a87c) is permissionless (BaseReactor.executeWithCallback, no access control), but the orders it wins carry cosignerData.exclusiveFiller == itself with exclusivityOverrideBps 25 (3 of 3 sampled fills), so a fresh address would have to improve the output by 25 bps while the desk's whole realised margin is 0.052% median - a stranger is not paid the same spread.",
+  "numbers": "7d window blocks 522478177-524878177 (2026-11-09 04:39 -> 11-16): 62 fills = 8.9/day (alchemy_getAssetTransfers fee transfers to treasury 0x16575aada6b1140f6c263f426764ffea08e3eda9; ledger actor_daily agrees: 60 fills 11-09..15, cursor 524454962 ~30h behind head). Gross to treasury $987 = $141/day; median fee $2.40/fill, mean $15.92; fee ratio median 0.052% (min 0.019%, max 0.216%) of order output; median order $4,168, largest $215k. Gas (12 of 62 receipts): median 1,261,247 gas, mean 1,538,059 at 0.02012 gwei = $0.046/fill median, $0.056 mean (ETH $1823.43, WBTC $65,292, ARB $0.1308, coins.llama.fi 2026-11-16 23:11); ~56% of the last 25 calls to it reverted (explorer txs), so gas per fill all-in ~$0.07; net ~$140/day. Reactor-wide 1,145 fills/7d by 7 addresses: 0x225a38bc... 750 (65%), 0x302649cc... 262, this address 60 (5%), 0xd767473b 49, 0x1d52f9dc 21."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-uniswap-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Uniswap V3 on polygon has no callable function that pays a stranger. Factory/pool/NFPM/SwapRouter/Staker confirmed on-chain (docs v3-polygon-deployments.mdx); pool collect pays only the caller's own tokensOwed, createPool pays 0 (PoolCreated 0 in ~11 d), Staker claimReward unused (0 RewardsClaimed in 656k blocks), collectProtocol owner-gated. Value here is LP fees (self-collect) and swap arbitrage (latency race), not keeper-style rewards.",
+ "numbers": "Factory 0x1F98431c8aD98523631AE4a59f267346ea31F984 (feeAmountTickSpacing(500)=10); pool WMATIC/USDC 0.05% 0xb6e57ed85c4c9dbfef2a68711e9d6f36c56e0fcb (token0=WMATIC); Staker 0xe34139463bA50bD61336E0c446Bd8C0867c6fE65: RewardsClaimed = 0 over blocks 96,920,744->97,576,956 (656,212 blocks, 984,331 s ~11.4 d; eth_getLogs via relay); control 23 Swap logs same shape 2k-block window; PoolCreated 0 same range; POL $0.08244 (coins.llama.fi 2026-11-19); gas per plain call ~100k gas * ~30 gwei ~ $0.0002; TVL $21,497,262 (session context, DefiLlama)"
+}

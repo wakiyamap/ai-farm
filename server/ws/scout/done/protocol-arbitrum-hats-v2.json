@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-hats-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1239,
+ "chain": "arbitrum",
+ "slug": "hats.v2",
+ "name": "Hats.V2",
+ "category": "Bug Bounty",
+ "tvl_usd": 131621,
+ "url": "https://hats.finance",
+ "github": null,
+ "listed_days_ago": 1239,
+ "run_id": "c561edb0e0cc48a9a5d0be920b321474",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Hats.V2 bug-bounty vaults, registry 0xa80d0a37...9e48, 20 vaults holding USDC (arb TVL 131,604 USD, DefiLlama 2026-11-18): 0/20 vaults had any tx or claim event in last 7d (last vault tx block 514042556, 2026-11-08); open-callable approveClaim pays the beneficiary not the caller and reverts NoActiveClaimExists; only registry activity was logClaim (3d ago), which charges the caller - no stranger was paid.",
+  "kb": [
+   "attempts:2290",
+   "protocols:838"
+  ],
+  "run_id": "c561edb0e0cc48a9a5d0be920b321474",
+  "at": 1795044534
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-spice-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: Leverage vault liquidation requires LIQUIDATOR_ROLE; no stranger-paid public function was found in the four adapter-listed vault implementations. Deposits and withdrawals only move depositor or share-owner assets, while allocation and setters are gated.",
+  "numbers": "4 of 4 adapter vaults had nonempty code, asset()=WETH and responsive totalAssets(). Four distinct Etherscan verified implementations inspected. Fresh-address eth_call liquidateLoan(address,uint256) to 0xd68871bd7D28572860b2E0Ee5c713b64445104F9 reverted missing LIQUIDATOR_ROLE (cast keccak LIQUIDATOR_ROLE = 0x5e17fc5225d4a099df75359ce1f405503ca79498a8dc46a7d583235a0ee45c16). Fresh-address eth_call deposit(address,uint256,uint256) to Flagship and VIP reverted missing STRATEGIST_ROLE. Public paid functions found: 0 in verified source; 7-day count and gross/gas not applicable to a public payout because none exists. Source: DefiLlama spice-finance adapter and Etherscan verified source; relay eth_getCode and eth_call, 2026-11-23 UTC."
+}

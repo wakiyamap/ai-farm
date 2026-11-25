@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-landx-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1059,
+ "chain": "ethereum",
+ "slug": "landx-finance",
+ "name": "LandX Finance",
+ "category": "RWA",
+ "tvl_usd": 1570776,
+ "url": "",
+ "github": [
+  "LandXit"
+ ],
+ "listed_days_ago": 1059,
+ "run_id": "193e26aa628a487c9397664537ec19b4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: no function pays a stranger (xToken.claim() eth_call from fresh addr pays 0, LNDX fee pot feeNotDistributed 0 USDC, withdrawSurplusUSDC reverts 'only distributor', buyOut/sellCToken gated to xToken/cToken, getShards/getTheNFT need NFT ownership); 0 events over 7d (blocks 26412795-26463030, 2026-11-14 to 21) on 4 xTokens + 4 cTokens + RentFoundation with 30d control scan returning 7 vault events (last 2026-10-24) -> vaults dormant 28d; only LNDX 52 events (43 Transfer, 8 Approval, 1 GrantTokensClaimed).",
+  "kb": [
+   "attempts:3289",
+   "protocols:1612"
+  ],
+  "run_id": "193e26aa628a487c9397664537ec19b4",
+  "at": 1795259128
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-obol",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Obol's TVL ($1.06B, 6321 DVs) sits at operator-side withdrawal contracts (Coinbase WithdrawalVault 0xb9d7..., 4194 vals), not Obol contracts. Obol's own callable-by-anyone functions (OVM/OWR distributeFunds, ObolLidoSplit.distribute) pay fixed recipients, never the caller; the only caller-paid function, rstOBOL claimAndDistributeReward (searcher hands 4400 OBOL, claims accrued rewards), had 1 call in 7d that LOST money: reward 2680.77 OBOL ($4.77) < payout 4400 OBOL ($7.83) + $8.62 gas. Claims ran ~1/day until block 25.29M (~June 2026) then stopped; reward pot accrues ~8 OBOL/day vs a 4400 payout.",
+  "numbers": "OVM factory 0x2c26B5A373294CaccBd3DE817D9B7C6aea7De584: 1 OVM ever (created blk 23919948). OWR factory 0x119acd7844cbdd5fc09b1c6a4408f490c8f7f522: 42 OWRs, DistributeFunds events 0 in 7d / 1 in 30d (receipt-derived topic0 0x8b367b31..., tx 0xf3415dc6...0789c, 0.04 ETH to rewardRecipient). ObolLidoSplit factory 0xa9d9...e2a6: 64 splits, last created ~blk 25.63M. rstOBOL 0x1932e815254c53B3Ecd81CECf252A5AC7f0e8BeA RewardDistributed topic0 0x3818a331...: 462 lifetime, 73 distinct claimers, 1 in last 7d = block 26456783 2026-11-19 23:30 UTC tx by 0x953c1ba7029c92741a1739dcd18a8a462109b618, gasUsed 2369544 @ 2.235 gwei = 0.0053 ETH; OBOL $0.00178, ETH $1628 (coins.llama.fi 2026-11-20). Sample of 1 of 1 (7d) plus all-history count."
+}

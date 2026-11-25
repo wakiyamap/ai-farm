@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-cbridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1835,
+ "chain": "optimism",
+ "slug": "cbridge",
+ "name": "cBridge",
+ "category": "Bridge",
+ "tvl_usd": 449772,
+ "url": "https://cbridge.celer.network/#/transfer",
+ "github": [
+  "celer-network"
+ ],
+ "listed_days_ago": 1835,
+ "run_id": "8e23973b01ee4f1d9487f8312d364216",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Router 0x9D39Fc...3401 + OTV 0xbCfeF6...0aA11 (verified sgn-v2 source, nativeWrap=WETH 0x4200..0006): no reward/claim fn pays the caller; relay/withdraw/executeDelayedTransfer pay a recorded receiver only. 7d eth_getLogs: Router Send 92, Relay 21, WithdrawDone 8, OTV 0/0 (control OK); relay() callers are 4 Celer relayer bots (0x9a666440..., 0x98e9d288..., 0xbfa2f68b..., 0xd10c833f...), gross paid to caller 0 USD/call. Same as arbitrum attempts:2576.",
+  "kb": [
+   "protocols:1065",
+   "attempts:2578"
+  ],
+  "run_id": "8e23973b01ee4f1d9487f8312d364216",
+  "at": 1795108146
+ }
+}

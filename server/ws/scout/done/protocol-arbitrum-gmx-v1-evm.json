@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-gmx-v1-evm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "gmx-v1-evm",
+ "name": "GMX V1 EVM",
+ "category": "Derivatives",
+ "tvl_usd": 1166069,
+ "url": "https://gmx.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "dcb3436d8db84a05aad67f16e5ffd578",
+ "result": {
+  "verdict": "unpaid",
+  "line": "GMX v1 OrderBook executeSwap/Increase/DecreaseOrder are anyone-callable and pay minExecutionFee 0.0001 ETH (0.18 USD) to any _feeReceiver, but pot empty: 0 Execute*/LiquidatePosition events and 0 OrderBook events of any kind in 30 d (blocks 515336726-525706726, 39 chunks 0 errors; control Vault scan 126 logs), newest OrderBook success a user cancel 2026-09-19; Vault.liquidatePosition pays 5.0 USD but reverts 'Vault: invalid liquidator' from a fresh address (inPrivateLiquidationMode=1) = role_gated; gas ~0.02 gwei (~0.07 USD).",
+  "kb": [
+   "attempts:2618",
+   "protocols:1093"
+  ],
+  "run_id": "dcb3436d8db84a05aad67f16e5ffd578",
+  "at": 1795117178
+ }
+}

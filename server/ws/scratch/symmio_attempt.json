@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-symmio",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Every reward-paying entry point on the SYMM BSC perps diamond (liquidatePartyA 0x3f65c7f4, liquidatePartyB 0x7e65a279, liquidatePendingPositionsPartyA 0xc81ead74) reverts 'Accessibility: Must have role' from a fresh EOA; the anyone-callable expireQuote returns OK but pays 0 to the caller. Protocol is dormant: 4 user txs (2 Withdraw, 2 DeallocatePartyA) and 0 liquidations in 7 days, so nobody was paid. Mirrors the arbitrum verdict (protocols:457).",
+ "numbers": "scan blocks 133585038 -> 135169618 (2026-11-22 15:49, head at check); exact 7d-ago block 133762414 timestamp-verified 2026-11-15 15:49 UTC (binary search); the 4 txs (blocks 133860262, 133967942, 134349788, 134726836) all fall inside the exact 7d window; no-topic eth_getLogs on 0x9A9F48888600FC9c05f11E03Eab575EBB2Fc2c8f: 6 logs / 3 txs, all user ops (topics: Withdraw 0x9b1bfa7f.., DeallocatePartyA 0x5bcd0876.., BalanceChangePartyA 0x12f92668.., all topic0 from the scan itself); getLogs control WBNB Transfer 31570 logs / 2100 blocks same shape; liquidations in 7d: 0; role revert strings from eth_call at 0x80d8d52; collateral USDT 0x55d398326f99059fF775485246999027b3197955 (18 decimals, read via getCollateral()); gross per call: no paid calls to measure; DefiLlama TVL 56,959 USD at 2026-11-22 (candidate row)"
+}

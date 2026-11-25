@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-reserve-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the only public function that pays (Folio bid()) had no auction to bid in during the last 7 days and pays only dust when auctions run. 0 AuctionBid and 0 AuctionTrustedFillCreated logs blocks 133,289,961-134,634,689 (control: 423 Transfers same shape/address); rebalances are ~monthly (nonce 14 ran 2026-11-10, next ~12-10), and the last two cleared via trusted fills with 0 public bids and ~3.5 USD gross of end-of-auction dust. Confirms protocols:681 / leads:272 (dead_end) on the same contract.",
+  "numbers": "1 Folio on BSC: CMC20 0x2f8a339b5889ffac4c5a956787cda593b3c36867, version() 5.0.0, nextAuctionId() 36, marketCap 3,550,810 USD (api.reserve.org/discover/dtf?chainId=56, 2026-11-20). 7-day window 11-13..11-20, blocks 133,289,961-134,634,689 (137 x 5000 getLogs via relay): AuctionBid 0, AuctionTrustedFillCreated 0, control Transfer 423. bid() eth_call from fresh addr reverts 0xa2ce2f84 Folio__AuctionNotOngoing (not role). Gas 0.05 gwei (eth_gasPrice 2026-11-20) x ~150k gas ~ 0.004 USD (BNB 566.46 USD coins.llama.fi ts 1795150674). Prior measurement run 056dbceb: 112 trusted fills auctions 28-35 at ~zero edge, 8 public bids auction 29 (2026-09), 0 since; ~3.5 USD gross / monthly rebalance ~ 0.1 USD/day."
+}

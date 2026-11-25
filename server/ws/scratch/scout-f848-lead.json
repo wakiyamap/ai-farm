@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "felix_cdp redeemCollateral actor 0xf848670508a8f83767b0a1bf53a5fac737d30e31",
+  "why": "Permissionless Felix redemption arbitrage is being taken by 0xf848670508a8f83767b0a1bf53a5fac737d30e31 via executor 0x01ce5aa238f1ca4cc194b8256651b60642fe4b1a; 8 sampled successes paid it 0.417074 USDT0 ($0.4166 at 2026-11-24 00:11 UTC) in tx receipts including 0xcf2b1528b9b2d9620f94a55b338fe2d1ce1852c105125677c441e68928cdffad and 0x3431759a0e325c63ad13ffc26ed1e21d29ad3d4f2af057717dd791e212a628ea.",
+  "next_steps": "Felix CollateralRegistry 0x9de1e57049c475736289cb006212f3e1dce4711b redeemCollateral(uint256,uint256,uint256); actor executor call selector 0x0044b3d3 is unverified, so copy the public protocol route, not this ABI. Timestamp-based 7 d window blocks 51460960 (2026-11-17 00:11:34 UTC) through 52075780 (2026-11-24 00:11:34 UTC). Ledger source felix_cdp.redemption has 7 tx/14 events/1420 feUSD principal from this actor; eighth success after ledger cursor in tx 0x015d2039b265c228b0212fe7dc949315b9008a55615c8c2692321aa385697125. Receipt sample of 15 recent executor calls: 8 success, 7 revert; gross $0.0521 and gas $0.0170 per successful call; failed gas $0.0183 per call; sample net $0.153. Existing class lead 149 is dead_end and trial-feusd-redeem-hyperevm already built. Recheck only if redeemed class flow exceeds 250k feUSD/7 d or median net exceeds $1/tx; this actor does not meet the reopen bar. No latency race claim from this sample.",
+  "status": "measured"
+}

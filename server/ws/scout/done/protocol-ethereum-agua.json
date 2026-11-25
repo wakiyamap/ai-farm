@@ -1,0 +1,22 @@
+{
+ "id": "protocol-ethereum-agua",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 106,
+ "chain": "ethereum",
+ "slug": "agua",
+ "name": "Agua",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 10665943,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 106,
+ "run_id": "8322540d1fd24bf5869707dfc08ab097",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Agua vault 0xa98b4a70e17e...22a0f (OpportunityOVault, 10.67M USDC): only setRate/setCap/setLockup/setEarlyFee mutate state, all onlyRole(ADMIN_ROLE) (stranger eth_call reverts AccessControl); redemptions self-service (completeRedemption reads msg.sender's request, stranger reverts NoActiveRequest), no caller reward; 7d no-topic scan = 6 logs (2 redeemEarly, 1 requestRedemption, 3 Transfer) by 2 user EOAs; lifetime 88 Deposit / 1 RateUpdated (admin pays 0.0057 ETH LZ fee); gross 0 USDC/call, gas ~0.25 gwei.",
+  "kb": [],
+  "run_id": "8322540d1fd24bf5869707dfc08ab097",
+  "at": 1795178559
+ }
+}

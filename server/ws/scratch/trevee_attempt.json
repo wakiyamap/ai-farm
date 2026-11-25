@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-trevee-earn",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only ethereum contracts are 3 BoringVault share tokens (scUSD/scETH/scBTC bridge reserves); every state-changing entry point (manage/enter/exit) is behind solmate Auth roles (eth_call from a fresh address reverts UNAUTHORIZED) and none of them pays the caller; there is no reward/harvest/claim function at all. Nothing called them in the last 7 days either (0 vault logs each, control positive), and ethereum TVL is only ~95k USD.",
+ "numbers": "7d window blocks 26410323 (2026-11-14) to 26460575 (2026-11-21), timestamps via eth_getBlockByNumber. Logs per vault (no-topic eth_getLogs, relay scout lane): scUSD 0, scETH 0, scBTC 0; control WETH 500 blocks same shape = 22,796 logs. eth_call manage + enter from 0x1111..1111: revert 'UNAUTHORIZED' (role_gated). TVL ethereum 94,557 USD (api.llama.fi/protocol/trevee-earn currentChainTvls 2026-11-21 02:47 UTC); 24,081 USDC in 0xd3DCe716...97aE, 2.446 WETH in 0x3bcE5CB2...C7812 (WETH 1,614.43 USD coins.llama.fi ts 1795229098); gross per call 0 USD, gas ~0.01 USD for a 60k-gas call (eth_gasPrice 0x6f013b2 = 0.1164 gwei, ETH 1,614.43 USD) (no takers). Source: registries/sumTokens.js 'rings', Etherscan-verified BoringVault src."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "Reserve rebuild follow-on exit pins (continuation of the attempt 927 measurement): Static Aave USDT and Wrapped cUSDCv3 redemption NAVs",
+  "outcome": "dead_end_recorded",
+  "reason": "Measured 2026-11-11T17:5x-18:0xZ run c78105da (this session; 3 ethereum research-lane eth_call, no fork, no sends). ERC4626 convertToAssets(1e18) (selector 0x07a2d13a) at head: Static Aave USDT 0x7133ebcb (decimals()=6) returns 0x10772cba5d23ccd3 = 1.1506e18 raw underlying (6 dec) = 1.1506 USDT per share unit - below ALL three of its settled prices 1.18010-1.18124 eUSD per share (the buyer pays ~2.5 pct above redemption NAV), so the StaticAave->eUSD margin is negative and the pair contributes no rebuild candidate. Wrapped cUSDCv3 0x27f2f159 (decimals()=6) reverts convertToAssets code 3 (not ERC4626; underlyingRatio also reverted in attempt 927) - its 2 settles stay unmodeled, a minor pair. Net: of the 16 stable->eUSD settled legs over 12 d, a positive settle-vs-NAV margin exists only on the Gauntlet USDC Prime (6 legs, +0.43..0.90 pct) and Frontier (4 legs, +0.51..1.90 pct) pairs; combined with the incumbent take rate 42/42 (attempt 927) the lead 19 dead_end conclusion stands unchanged.",
+  "bot_id": null
+}

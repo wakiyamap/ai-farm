@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-governor-dao",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Governor DAO's ten-pool GovTreasurer exposes no reward to an outside caller. Public updates accrue GDAO to stakers, and withdrawals only settle the caller's own stake.",
+  "numbers": "At 2026-11-23 22:59-23:00 UTC, eth_call poolLength()=10 on 0x4dac3e07316d2a31baabb252d89663dee8f76f09; gdao()=0x515d7E9D75E2b76DB60F8a051Cd890eBa23286Bc; GDAOPerBlock()=1e18 raw units; eth_call updatePool(0) from 0x...dEaD succeeds (0x return), whereas withdraw(0,0) from that fresh address reverts. Verified source shows updatePool reward destination address(this), deposit/withdraw transfer pending reward only to msg.sender with userInfo[pid][msg.sender]. No stranger gross or gas USD applies. DefiLlama current TVL about 47,594 USD is deposited asset value, not caller revenue."
+}

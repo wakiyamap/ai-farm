@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-fluid-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. FluidDEX DexT1 on Arbitrum (resolver 0x1De42938De444d376eBc298E15D21F409b946E6D -> 23 pools, identical verified poolT1 code) exposes only user swap/liquidity operations to strangers plus a DEX_FACTORY-auth fallback (fresh-address eth_call reverts FluidDexError(51002 DexT1__NotAnAuth)); there is no collectFees/harvest/reward/bounty/liquidation function that pays a caller - fees are extracted inside swaps and liquidity interest accrues lazily. The real Fluid keeper revenue (vault liquidations) is in fluid_lending (protocols:16), already a promoted trial.",
+ "numbers": "23 DEXes (getAllDexAddresses); 18,088 Swap logs / 7 d across all 23 (topic0 0xdc004dbca4ef9c966218431ee5d9133d337ad018dd5b5c5493722803f75c64f7, blocks 522854010-525274010, 5 chunked eth_getLogs, per-pool top 7,738); fresh-address reverts: 51002 NotAnAuth on admin/fallback selectors, user-level revert on swapIn; gas 0.02 gwei (eth_gasPrice 2026-11-18), ETH $1,810.96 (coins.llama.fi) => ~$0.005 per ~150k-gas swap. Sources: explorer source/abi/txs arbitrum, raw adapter index.js."
+}

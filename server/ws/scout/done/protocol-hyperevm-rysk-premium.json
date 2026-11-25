@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-rysk-premium",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 249,
+ "chain": "hyperevm",
+ "slug": "rysk-premium",
+ "name": "Rysk Premium",
+ "category": "Yield",
+ "tvl_usd": 63738,
+ "url": "https://app.rysk.finance/join?code=DEFILLAMA",
+ "github": null,
+ "listed_days_ago": 249,
+ "run_id": "6d85b5c2a04645b0bb6241a097757f79",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Rysk Premium = operator-run epoch vaults on hyperevm; only ops LiquidityPool.executeEpochCalculation/settleVault revert 'Not keeper or governor' from a fresh addr and pay msg.sender nothing; user redeem()/completeWithdraw() pay the caller its own funds (0 for a stranger); 0 events in 7 d (blocks 51325148-51939931, 2026-11-15..22, no-topic scan, control 2723 Transfers on collateral token) across 6 vaults + MarginPool + VaultRegistry; vault1 last event 2026-03-23 by keeper EOA 0x9006f8c8...; TVL 63,522 USD = 998.5 HYPE x 62.39 (coins.llama.fi 2026-11-22 11:10Z).",
+  "kb": [
+   "attempts:3698"
+  ],
+  "run_id": "6d85b5c2a04645b0bb6241a097757f79",
+  "at": 1795345998
+ }
+}

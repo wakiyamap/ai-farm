@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-syntetika",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 88,
+ "chain": "base",
+ "slug": "syntetika",
+ "name": "Syntetika",
+ "category": "Risk Curators",
+ "tvl_usd": 13944172,
+ "url": "https://syntetika.io/",
+ "github": null,
+ "listed_days_ago": 88,
+ "run_id": "a82ba2abf95e46e9826282a9f27a2184",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Syntetika hBTC vault 0x9C2dCDbD..353df3 + Merkl-style distributor 0x3Ef3D8bA..Dd9Ae on base: claim(address[],address[],uint256[],bytes32[][]) (0x71ee95c0) pays holders in hBTC; 7 claims last 7d, all self-claims by strangers (4 EOA, 3 ERC-4337), gross ~14/58/14/1.3/1.1/0.6/0.02 per call vs gas $0.001-0.002 (96k-212k gas @0.006-0.009 gwei); eth_call from fresh address reverts InvalidProof not role; rewards only accrue on held hBTC at 3%/yr (rewards_apy), distributor pot 0.347 hBTC (~$22.6k); vault ops (updateVaultRate, processWithdrawalRequests) role-gated, pay 0.",
+  "kb": [
+   "attempts:1627",
+   "leads:233"
+  ],
+  "run_id": "a82ba2abf95e46e9826282a9f27a2184",
+  "at": 1794899835
+ }
+}

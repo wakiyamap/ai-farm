@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-theoriq-alphavault-eth",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Mellow-style vault (proxy 0xDbC81B33A23375A90c8Ba4039d5738CB6f56fE8d -> impl 0x0000000615b2771511daa693ac07be5622869e01) with 5 verifier-gated subvaults and 6 deposit/redeem queues; the anyone-callable state functions (claimShares, deposit-queue claim, redeem-queue claim, handleBatches) pay the caller nothing - payouts are the user's own shares/assets and fees are minted to the protocol's feeRecipient. handleReport (the only oracle-driven hook) is oracle-only/vault-only. No keeper bounty exists and activity is near-zero.",
+ "numbers": "head 26457592 @1795189996; last direct tx to vault 26299711 @1793292695 (claimShares), to ETH deposit queue 26375564 @1794206027 (cancelDepositRequest), to subvault#0 24770438 @1774873955 -> 0 txs in 7d on all three (explorer txs listings non-empty, timestamps predate window); eth_call from fresh 0x1111..1111: claimShares(account) ok, handleBatches(1) returns 0 on RedeemQueue 0xa1ce84069e5ac305075b0d54ebc12389bf674d18; TVL 136322 USD (DefiLlama candidate); gas/reward: n/a (no paying function). Sources: projects/theoriq/index.js, verified sources of impls 0x0000000615b2771511daa693ac07be5622869e01 / 0x0000000e535b4e063f8372933a55470e67910a66 / 0x00000006da9f179bfe250dd1c51cd2d3581930c8 / 0x0000000285805eac535daddb9648f1e10dfdc411."
+}

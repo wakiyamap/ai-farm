@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-flokifi-locker",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1412,
+ "chain": "base",
+ "slug": "flokifi-locker",
+ "name": "FlokiFi Locker",
+ "category": "Token Locker",
+ "tvl_usd": 157444,
+ "url": "https://flokifi.com",
+ "github": null,
+ "listed_days_ago": 1412,
+ "run_id": "2539c54c55ff49fca71f354a88acbc96",
+ "result": {
+  "verdict": "role_gated",
+  "line": "222 ImmutableVault contracts on base (FlokiFi API, verified via Blockscout source + eth_getCode/getBeneficiary); every paying fn (unlock/vest/partialVest/partial*Unlock/collectV3PositionFees) is onlyKeyHolder = getBeneficiary()==msg.sender and pays msg.sender (vest() eth_call from fresh addr reverts 'Vault:onlyKeyHolder:UNAUTHORIZED'); vaults emit no events, activity measured via token Transfer out: 0 in last 7d over 287 token-vault pairs (same-shape 180d control: 18 transfers in 4 txs, latest block 0x3134b3c 2026-09-21, caller = the beneficiary itself); TVL 157,444 USD (DefiLlama).",
+  "kb": [
+   "attempts:2357",
+   "protocols:895"
+  ],
+  "run_id": "2539c54c55ff49fca71f354a88acbc96",
+  "at": 1795059212
+ }
+}

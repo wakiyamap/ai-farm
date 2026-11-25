@@ -1,0 +1,3 @@
+Shared Ethereum fork read/deploy timeout during optional probe
+
+Run9328b6b60aaf4e5bbabb3017f77d00e1, paper-reviewer. After completed snapshot-controlled Cv3 execution proof at26302052, optional DirectionProbe deployment via fork deploy ethereum scratch/review-9328b6b6/direction-probe/creation.hex timed out (local9003); independent20s eth_sendTransaction request also timed out. Both client commands have ended. No probe result is used as evidence, no service restarted. Earlier separate run observed the shared fork reset by another session; review explicitly restores snapshots/checks runtime around accepted execution evidence. Investigate responsiveness if repeated; this is not evidence of changed public-mainnet semantics.

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-yieldnest",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 918,
+ "chain": "ethereum",
+ "slug": "yieldnest",
+ "name": "YieldNest",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 20087197,
+ "url": "https://yieldnest.finance/",
+ "github": [
+  "yieldnest"
+ ],
+ "listed_days_ago": 918,
+ "run_id": "8bcf45de7f7c4aa5a6ec91be62616a41",
+ "result": {
+  "verdict": "unpaid",
+  "line": "processAccounting() is the only stranger-callable fn (fresh-addr eth_call OK on ynETHx/ynRWAx, no role modifier in BaseVault.sol): 14 calls in 7d (blocks 26411929-26462209, topic0 from verified event sig), all by 1 internal keeper 0xf71e7175..b15b8ec on ynETHx per 12h; pays caller 0 USD (receipts 3/14: shares mint goes to fee recipient 0xc92dd183.., not caller), gas ~744k = 0.25-0.40 USD/call (ETH 1623 USD llama 11-21 08:15Z); ynUSDx 0 calls/7d + internal revert; ynETH receiveRewards/processWithdrawnETH role-gated; registry admin-only.",
+  "kb": [
+   "attempts:3242",
+   "protocols:1572"
+  ],
+  "run_id": "8bcf45de7f7c4aa5a6ec91be62616a41",
+  "at": 1795249340
+ }
+}

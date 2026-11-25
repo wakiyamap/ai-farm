@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "bitway_earn",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/bitway/index.js (not bitway-earn; 404 there): vaults ABSOLUTE_RETURN 0x5C4a6903732532eeB3AE0803e062d8AE25d52BD1 and CORE_ALPHA 0xb82E32062C773c7748776C06FdB11B92EDAE3B63, both with code (eth_getCode) and getter getTVL(address) 0x0f40517a answering. Source: github bitwaylabs/bitway-earn contracts/Vault.sol + WithdrawVault.sol; deployed 55-selector dispatcher matches the repo functions (cast sig cross-check). Payout paths stake/requestClaim/cancelClaim/claim/flashWithdrawWithPenalty all pay msg.sender and require claimItem.user == msg.sender (fresh-address eth_call claim reverts); no harvest/distribute/payReward-type function; rewards accrue to depositors at admin-set rate (setRewardRate onlyRole). Custodial basis-trading vault (off-chain yield), TVL $32.3M: getTVL USDT(0x55d398326f99059fF775485246999027B3197955) 1.34M/20.24M + 0xce24439f2d9c6a2289f741120fe202248b666666 1.56M/9.21M on ABS/CORE."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-nullmask",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 47,
+ "chain": "ethereum",
+ "slug": "nullmask",
+ "name": "Nullmask",
+ "category": "Privacy",
+ "tvl_usd": 49682,
+ "url": "https://nullmask.io",
+ "github": [
+  "nullmask-services"
+ ],
+ "listed_days_ago": 47,
+ "run_id": "eaa4cee0935c4a9d93e532f84c9b1c17",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: the only caller-paid reward is params.fee (ETH) on shieldedWithdrawal/Transfer/Swap, paid only to admin-whitelisted allowedRelayers (stranger with fee>0 reverts NotRelayer, fee=0 pays 0); 7d (blocks 26429642-26479886, 16-23 Nov) 1,516 withdrawals, all 15 samples (incl 5 largest fees) from one whitelisted relayer 0xb3d4518c...3f9d paid 0.00078-0.0195 ETH (sum 2.37 ETH) vs ~4.5M gas/call (~1.34 USD at 0.172 gwei) so fee ~ gas; 1,563 deposits all guard-only; sweepProtocolFees open but pays treasury (1.49 ETH ~2,586 USD/7d at ETH 1,737 USD)",
+  "kb": [
+   "attempts:4197",
+   "protocols:2315"
+  ],
+  "run_id": "eaa4cee0935c4a9d93e532f84c9b1c17",
+  "at": 1795462377
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-jpy-defi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 33,
+ "chain": "ethereum",
+ "slug": "jpy-defi",
+ "name": "JPY DeFi",
+ "category": "CDP",
+ "tvl_usd": 783185,
+ "url": "https://app.jpydf.com",
+ "github": null,
+ "listed_days_ago": 33,
+ "run_id": "c33c75c52aa94967a6f68cedca8d82f7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "batchLiquidateTroves is the only permissionless paid entry (pays caller 0.0375 WETH/trove from GasPool + 0.5% collateral, source Constants.sol) but 0 Liquidation events in the protocol's whole life (no-topic scan of both TroveManagers since block 26,083,328, 83 logs); all 5 troves (ICR 1.339-1.489 vs CCR 1.25/1.40) revert eth_call from a fresh address; redemptions: 2 events in 1 tx 28 d ago (0x1ce46293, EOA 0xf3f7364c), none in 7 d; SP deposits 16.76M JPYdf with 0 yield pending; gas ~0.13 USD/500k at 0.147 gwei base, ETH 1752.90 USD (coins.llama.fi 1795170870).",
+  "kb": [
+   "attempts:2867",
+   "protocols:1286"
+  ],
+  "run_id": "c33c75c52aa94967a6f68cedca8d82f7",
+  "at": 1795171154
+ }
+}

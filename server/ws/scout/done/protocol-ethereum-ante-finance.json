@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-ante-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "ante-finance",
+ "name": "Ante Finance",
+ "category": "Insurance",
+ "tvl_usd": 347029,
+ "url": "https://ante.finance",
+ "github": [
+  "antefinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "1f8732d63ae54354b955f5a693d9347e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: reward functions are challenger/author-gated (fresh-addr eth_call reverts 'Only challengers can checkTest' v0.5 / 'Only confirmed challengers can checkTest' v0.6 / 'Only author can claim' claimReward; public updateDecay pays caller 0); 91 pools (54 factory 0xa03492A9, 37 factory 0x89E583A6), 7d blocks 26416079-26466335: 0 TestChecked/ClaimPaid/RewardPaid, only 6 logs (4 user Stakes 4.05 ETH, 1 self Unstake+WithdrawStake 0.05 ETH); 90d: 3 TestChecked, 0 paid; TVL 335k USD ethereum",
+  "kb": [
+   "attempts:3491"
+  ],
+  "run_id": "1f8732d63ae54354b955f5a693d9347e",
+  "at": 1795298971
+ }
+}

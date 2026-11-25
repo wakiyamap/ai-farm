@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-sigma-money",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Sigma Money (CDP, TVL ~$876k) has permissionless keeper functions rebalance() and liquidate() on BNBUSDBasePool paying a bounty (docs formula rawDebts*bonusRatio*(1-liquidationExpenseRatio)), but ZERO Rebalance/Liquidate events in the last 7 days on the pool contract and no events at all on it or BNBUSD in the last ~2 days - the protocol is idle, so no stranger was paid and there are no sample calls to price. Liquidations additionally have a whitelist option (addLiquidationWhitelist / permissionedLiquidationThreshold) that may gate who can liquidate. No eligible positions to trigger = nothing collectable now.",
+  "numbers": "7d events on 0x2b9C1F069Ddcd873275B3363986081bDA94A3aA3 (BNBUSDBasePool) topic0 Rebalance 0xb8c3fd52c06cd7e35d81a3fc31542187d197c9deef253587a27e0214677d0f6b or Liquidate 0x158ba9ab7bbbd08eeffa4753bad41f4d450e24831d293427308badf3eadd8c76: 0 (31x50k-block chunks, blocks 0x7e85591-0x7fffc41 = 1.509M blocks, paper lane). Control same shape: 43813 USDT Transfer logs in 100 blocks. Last 50k blocks: 0 events of any topic on BasePool and 0 on BNBUSD 0x5519a479Da8Ce3Af7f373c16f14870BbeaFDa265. TVL $875,972 (DefiLlama api.llama.fi 2026-11-17). Blocks 0.4 s (measured 2004 s / 5000 blocks)."
+}

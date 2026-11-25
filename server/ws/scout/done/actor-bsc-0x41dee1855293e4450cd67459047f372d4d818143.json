@@ -1,0 +1,20 @@
+{
+ "id": "actor-bsc-0x41dee1855293e4450cd67459047f372d4d818143",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "bsc",
+ "address": "0x41dee1855293e4450cd67459047f372d4d818143",
+ "run_id": "3a5b33d1704649c6b9f32cb1414b8a1d",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "bsc UniswapX V3DutchOrderReactor 0x00000000a55e filler: EIP-1967 proxy account (impl 0xc97c266b) holding inventory, called via multicall 0x91d9e40d by gas EOA 0x5002302a, keeps the in-tx spread (AAPLx xStock/USDC flow via pool 0x5f7a4c11); 3 fills in the 10 ledger-covered days Nov 6-15 (0.29/day, sample 3 of 3; 0 in last-5k-block scan vs control 14 by 5 desks), gross $0.09-0.34/call, gas $0.011-0.021/call (382-719k gas @ 0.0505 gwei, BNB $590.33 coins.llama.fi 2026-11-18) => net ~$0.05/day; 4th stranger data point, lead 166 class stays dead_end.",
+  "kb": [
+   "actors:245",
+   "attempts:1954",
+   "leads:166"
+  ],
+  "run_id": "3a5b33d1704649c6b9f32cb1414b8a1d",
+  "at": 1794968560
+ }
+}

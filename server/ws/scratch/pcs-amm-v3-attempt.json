@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-pancakeswap-amm-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: PancakeSwap AMM V3 on base is a canonical Uniswap-V3 fork (factory + pools + NPM position manager) with no anyone-callable function that pays the caller. All value flows are LP-owned (collect pays the position owner via isAuthorizedForToken) or caller-pays (swap/flash callbacks, createPool, increaseObservationCardinalityNext); the fee-takers collectProtocol/setFeeProtocol/setLmPool are factory/owner-gated. CAKE farming (MasterChefV3/LmPool) is a separate DefiLlama protocol.",
+  "numbers": "TVL 18,507,627 USD (candidate / api.llama.fi currentChainTvls.Base 17,457,000, 2026-11-19). Factory 0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865 (DefiLlama adapter projects/pancakeswap-v3, verified name PancakeV3Factory, owner() answers 0x0f6f9a6dd9f065dc4455bb2b8e3f0cffb6f2410c). Sample pool getPool(WETH,USDC,500)=0xb775272e537cc670c65dc852908ad47015244eaf (slot0() answers). NPM 0x46a15b0b27311cedf172ab29e4f4766fbe7f4364 (verified NonfungiblePositionManager). Event sample (eth_getLogs, 10k blocks 59241204-59310328, ~33 min at 0.2s blocks): 1119 Swap + 38 Collect + 17 Mint, all Collects pay the LP recipient, 0 stranger-paid calls. increaseObservationCardinalityNext eth_call from stranger 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 succeeds, pays 0. Gas: eth_gasPrice 0x5b9cf9 = 0.006 gwei -> a 150k-gas collect ~= 9e-7 ETH = $0.0016 at ETH $1770.63 (coins.llama.fi coingecko:ethereum 2026-11-19)."
+}

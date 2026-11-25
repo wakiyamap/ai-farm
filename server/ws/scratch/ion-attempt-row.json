@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-ion-protocol",
+  "outcome": "lead_recorded",
+  "reason": "unclear: Four verified public liquidation contracts have a stranger-callable collateral-for-debt path, but none emitted any log in the last seven days. No paid execution exists in that period to measure gross or gas; accrueInterest pays the treasury/suppliers, not its caller.",
+  "numbers": "7d blocks 26430035 (2026-11-16 20:38:59 UTC) to 26480279 (2026-11-23 20:38:59 UTC), from eth_getBlockByNumber timestamps. Four Liquidation contracts: 0 Liquidate logs, 0 any-topic logs each, full-range eth_getLogs chunks. Topic0 cast keccak Liquidate(address,address,uint8,uint256,uint256) = 0x54f9b006b19a44694e56b0d6a57f34c420bf88da7373f9d0f3380e5f4b70951e; no-topic scan showed no unknown topic0. Positive control same shape: wstETH Transfer topic, 709 logs in blocks 26479280-26480279. Sample of 0 of 0 liquidations; gross USD and gas USD unmeasured. Source: DefiLlama ion-protocol adapter/backend and verified Etherscan Liquidation.sol/IonPool.sol."
+}

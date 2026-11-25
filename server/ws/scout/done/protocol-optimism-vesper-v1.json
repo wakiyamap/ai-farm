@@ -1,0 +1,22 @@
+{
+ "id": "protocol-optimism-vesper-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "vesper-v1",
+ "name": "Vesper V1",
+ "category": "Yield Aggregator",
+ "tvl_usd": 2095997,
+ "url": "https://vesper.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "dc6dae8fc8f14a908d1b5cf0c6ecf95e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only open paying fn is PoolRewards.claimReward(address) and it pays only the claimer's own accrued OP dust: 9 RewardPaid in 7d (sample 9/9, blocks 159345102-159647502) all from users' own withdrawAndClaim, gross 0.000002-0.0234 OP ($0.0000001-$0.0017) vs gas $0.0000-0.0003; fresh address gets 0; 4 reward pots hold 1043 OP = $76.93 with OP rate 0; keeper fns onlyKeeper/onlyGovernor/onlyPool (4 pools from api-optimism.vesper.finance, VPool impl 0x655952146e18ec662bf2bc7cc3d85247fd5d86d4).",
+  "kb": [],
+  "run_id": "dc6dae8fc8f14a908d1b5cf0c6ecf95e",
+  "at": 1795160556
+ }
+}

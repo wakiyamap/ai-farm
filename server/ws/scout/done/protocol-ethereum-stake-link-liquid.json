@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-stake-link-liquid",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1429,
+ "chain": "ethereum",
+ "slug": "stake.link-liquid",
+ "name": "stake.link liquid",
+ "category": "Liquid Staking",
+ "tvl_usd": 67450289,
+ "url": "https://stake.link/staking-pools",
+ "github": null,
+ "listed_days_ago": 1429,
+ "run_id": "06fe356ccb0c4a9ca576d53116cf8ea0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: anyone-callable fns (PriorityPool.depositQueuedTokens/performUpkeep, CommunityVCS.claimRewards, SDLPool.distributeToken) transfer 0 to caller (source, eth_call); 7d (blocks 26414426-26468774, 11-14..11-21) all maintenance calls (depositQueuedTokens 7, updateVaultDeposits 3, updateRewards 1) by one rewardsUpdater EOA 0xf5c08D55a77063ac4E5E18F1a470804088BE1ad4, gross 0 LINK = 0 USD vs 392586 gas x 6.54 gwei = 0.00257 ETH = 4.31 USD gas (ETH 1678.84 coins.llama.fi 16:39Z); no stranger paid",
+  "kb": [
+   "attempts:3393",
+   "protocols:1698"
+  ],
+  "run_id": "06fe356ccb0c4a9ca576d53116cf8ea0",
+  "at": 1795279384
+ }
+}

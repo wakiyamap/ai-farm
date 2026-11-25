@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "yuzu_money",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/yuzu-money/index.js gives 2 ethereum contracts, both TransparentUpgradeableProxy to impl YuzuILPV3 0x577c202011dd122bcb0ad1bf4a71e01e9f999b68 routing to facet YuzuILPV3Facet 0x19fa50cc96dc461fc16fc2a4a644188e1aa4a2de (verified sources via explorer). yzCash 0x224e90591A2d63fb66E677D0561Ea4A6Ad1F098D and yzSyrup 0xC9854f2AF89d4d26837004d1e154Bd3C3C1009b1: asset()=USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 (6 decimals, read on chain), totalAssets 865,585 and 3,032,069 USDC. All keeper-ish functions role-gated in facet source and on chain: fillRedeemOrder requires ORDER_FILLER_ROLE (eth_call from fresh addr reverts MissingRole 0xe2517d3f; hasRole true only for 0x18f61fa42857831a6ab7243a51b7b573b0c017f6 on yzSyrup and 0x9d7c56afee66020816689469aec4db3623f78263 on yzCash), updatePool/startPoolUpdate/endPoolUpdate POOL_MANAGER_ROLE, distribute/terminateDistribution DISTRIBUTOR_ROLE, finalize/cancelRedeemOrder order owner/controller. redeemOrderFeePpm()=0 on both vaults, so even a filler is paid 0. No public GitHub (DefiLlama github null)."
+}

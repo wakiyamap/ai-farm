@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-summer-fi-pro",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only paying function (AutomationExecutor.execute, refunds gas to msg.sender) requires whitelist registration (callers mapping, onlyOwner addCallers); a fresh address reverts. Protocol is also sunset (2026-02-12 hallmark, deprecated on DefiLlama): zero TriggerExecuted in the last 7 days, last keeper execution 2025-08-13, and the executor's ETH balance (the gas-refund pot) is 0. Nothing to earn even if whitelisted.",
+  "numbers": "bot 0xE018AeA83728a037D8B6f76cCA0E8331cDAb937a, executor 0x2d43e84567019d721f095cfd632291c3ee868d8f, registry 0x85859ab683019a4e345d963e455b5e3ce133ef49 (DefiLlama adapter projects/summer-fi). TriggerExecuted last 7d: 0 (blocks 0x1f25e000-0x1f51a448, control on block 367956825 window returns 1, tx 0xb4468af43772ff89e71281440dc563baaad4bb2de9af75627eb983a89eb873c9 dated 2025-08-13). Executor ETH balance 0 wei. TVL $182,317 (api.llama.fi 2026-11-18). callers(0x1f186c30d328c914efbc8ec90135591a8ee94070)=true, callers(stranger)=false, eth_call execute from 0x...cafe0001 reverts."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-conic-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Public rebalancing reward path currently pays no CNC because all five pool reward-active flags are false. No activity at the handler or pools in the seven-day window; other public maintenance functions distribute to LPs or protocol recipients, not the caller.",
+  "numbers": "7 d = blocks 26430219 (2026-11-16T21:15:47Z) through 26480462 (2026-11-23T21:15:47Z), found by eth_getBlockByNumber timestamps. No-topic eth_getLogs counts: handler 0/1, each of five controller.listPools() pools 0/1; total 0 events in six contracts. Control: USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 no-topic eth_getLogs returned 81 logs in block 26480462, first tx 0xaf08a732f77cba7ce41dc82fabf94289190d4dc2106167f7482970ae0ecf8534. Flags rebalancingRewardActive(): 0 for all 5 pools (0x89dc3E9d493512F6CFb923E15369ebFddE591988, 0x80a3604977270B7Ef2e637f9Eb78cE1c3FA64316, 0x3367070ed152e2b715eef48D157685Cf496f3543, 0x72c23c94f68669C7B6A5B6e8c87aa9B70c263140, 0xb083AD0933fADF12761450a4FD45775B9Fb6Df77). Handler payout token cnc()=0x9aE380F0272E2162340a5bB646c354271c0F5cFC, decimals()=18; current gross reward 0 CNC/call; USD and gas per call unmeasured because no successful recent calls. Fresh 0x000000000000000000000000000000000000dEaD eth_call handler.rebalance(USDC pool,1,0,0) reverted ERC20 transfer amount exceeds allowance, not a role check. Explorer txs latest direct handler call was block 20143658 (2024-06-21)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-telos-consilium",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 414,
+ "chain": "ethereum",
+ "slug": "telos-consilium",
+ "name": "Telos Consilium",
+ "category": "Risk Curators",
+ "tvl_usd": 130690,
+ "url": "https://telosc.com/",
+ "github": null,
+ "listed_days_ago": 414,
+ "run_id": "d17bdd08e07d4c7ca96894bb80b932b0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "28 Euler v2 vaults (factory 0x29a56a1b, module 0x8ff1c814) owned by 0x7054b25D/0x7d07BFdd; only permissionless calls are liquidate() and convertFees(). 0 Liquidate events in 7d and 90d across all 28 (control: same-shape no-topic scan 773 logs); 400 all-history, last blk 25416773 2026-06-28, repaid 31.88 USDT0, gross <= 15% disc = 4.8 USD vs 1,395,475 gas = 3.63 USD at 1.62 gwei, ETH 1607.99. convertFees pays feeReceiver 0x1b81ce5c (curator), 0 calls 90d. Fresh-addr liquidate reverts E_ControllerDisabled (state, not role).",
+  "kb": [
+   "attempts:3034",
+   "protocols:1424"
+  ],
+  "run_id": "d17bdd08e07d4c7ca96894bb80b932b0",
+  "at": 1795205115
+ }
+}

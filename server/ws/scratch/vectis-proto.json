@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "vectis_finance",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/vectis/index.js (slug vectis-finance; github field None): Ethereum TVL = ERC-4626 vaults from api.vectis.finance/strategy/fetchAllVaultAddresses; exactly 1 ethereum vault 0x05ED3da1dEeaaa57C8E09986e95AC271572DCf89 (name() 'Vectis UltraX Arb', AccountableAsyncRedeemVault, asset()=USDC 0xA0b8...eB48, permissionLevel()=0=Open, eth_getCode non-0x). Strategy 0x1bf9863234168844a14d9dc3df5cfae104a34262 = ERC1967Proxy -> AccountableYield 0xc1671caac96a342d518c615606391015870f576c; FeeManager 0x25cf00fce3368b7145a5ccc2989233dfdcde9c24 -> impl 0x0f7a48c19b358083b0818dc589c5e151f69260c0 (credit-vaults-v1 FeeManager). depositGateway()/safetyModule()/rewards() all 0x0. Sources via explorer (verified). Keeper-style open functions (accrueAndProcess 0x2b2eb02c, updateLateStatus 0xa022985f) eth_call OK from fresh 0x1111..1111 but source has no transfer to msg.sender (fees to manager/treasury); withdrawManagerFee public pays managerFees[msg.sender]=0 to strangers; publishRate requires msg.sender==dvnPublisher (role). 7d no-topic eth_getLogs on vault+strategy: 55 logs / 12 txs only (control USDC same shape 38,274 logs/500 blk)."
+}

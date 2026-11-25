@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hyperdrive-hl-lending",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only reward-paying callable on the Market contracts is liquidate(), behind onlyLiquidator (LIQUIDATOR_ROLE whitelist, one admin-granted member per market, no self-enroll); a fresh-address eth_call reverts NoLiquidatorRole. No reward, claim or keeper-fee function pays a stranger, and there were 0 liquidations in the last 7 days anyway.",
+  "numbers": "Contracts from DefiLlama adapter projects/hyperdrive-hl/index.js: registry 0x86ccFbEc579D491e9b37354187dD48a1a9C7c1E7, lens 0x7fB0d63E84D847569ca75A6cdbA283bA1401F9f6, markets 0x6fcd93da.../0x167101b7.../0xa522572c.../0xdc6493e9..., impl 0x69411eb8d181fae9256b72398b4dd527e23cd765 (verified source). LIQUIDATOR_ROLE=getRoleMembers returns 1 address/market (0x9271a5c6..., 0xaeaad6d9..., 0x72ee42bd...). eth_call liquidate from 0x...C0FFEE01 reverts 0x0bf4fc01 NoLiquidatorRole. Liquidate events last 7 days (head 51539192): 0 on all 4 markets (etherscan tx lists, control non-empty). Gas ~0.116 gwei x HYPE $68.95 (coins.llama.fi) ~ $0.002/200k gas."
+}

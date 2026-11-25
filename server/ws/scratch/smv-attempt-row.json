@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-spectra-metavaults",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only function anyone can call on Spectra MetaVaults base contracts is MetaVaultWrapper.updateEpochID() (0xb634ea0a): a stranger eth_call succeeds but it pays 0 - the verified source is a cached-epochId sync with zero transfers and no reward terms. The epoch machinery on the underlying Amphor AsyncVaults (open/settle/close) is onlyOwner (Solady 0x118cdaa7 revert from a stranger) and the owner is each metavault's own manager contract, so 7-day activity is user deposits/redeems and owner-operator epoch cycles only - no caller reward, no pot. Same contract family as the spectra_metavaults_outside_v2 row (verdict agrees).",
+  "numbers": "TVL 3,047,668 USD (candidate row); 3 metavaults on base (api.spectra.finance/v1/base/metavaults, registry 0xa2c9da26c1982cacaf01c5c691e0cf0aeb031ac1); 7-day eth_getLogs over the 7 protocol contracts (blocks 56,695,357-59,723,533, ts 1794529447-1795135000): 39 logs / 8 txs, callers 4 EOAs, 0 updateEpochID calls; updateEpochID gross 0 USD (source, no transfers); stranger reverts on settle/open/close = 0x118cdaa7; one epoch-cycle tx gasUsed 735,870 @ 8 gwei = 0.00589 ETH = 10.3 USD (ETH 1,753.25 USD, coins.llama.fi ts 1795135503)."
+}

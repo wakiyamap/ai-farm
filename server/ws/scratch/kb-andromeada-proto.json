@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "andromeada",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter (projects/andromeada deleted from main; recovered at git 8bf2f817~1: uniTvlExports base factory 0xB9e611CaD79f350929C8E36cAbbe5D2Ce9502D51). eth_getCode non-empty; allPairsLength()=6, pairCodeHash()=0x9927924c... OK. Factory ABI from bytecode dispatch + 4byte.directory: createPair/getPair(address,address,bool), allPairs(uint256), allPairsLength, isPair, pairCodeHash, setPause/isPaused, pauser/pendingPauser/setPauser/acceptPauser, getInitializable - no reward fn. Pairs are StableV1 AMM fee-distribution V2 pairs (Beta Finance design: supplyIndex0/1, claimable0/1(address), claimFees() 0xd294f093, fees()=feeTo 0xdf449092345c3ab9fc44a6fc8f191fba82aada7f). Only 1 of 6 pools active in 7d (0x33f6e2c56c7cc615673e2d393c4f4777ef39dfc4 WETH/USDbC, token0/token1 read on chain); 61 events total, 20 swaps via router 0xafc1d86cd8345741933a782ae906f984534ca428. claimFees() from stranger succeeds, no transfer, claimable0/1=0 everywhere. TVL 34.5k USD, site dead (deadUrl), no GitHub org. Base Blockscout down (503), Etherscan not_on_plan."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-dacm",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. DACM is a single Lagoon v0.5.0 ERC-7540 vault (0x018282d5b510f00dcacb8f4a81c3901d2fc9da51, asset USDC, 451,181 USDC). All settlement/valuation functions (settleDeposit, settleRedeem, close, expireTotalAssets = onlySafe; updateNewTotalAssets = onlyValuationManager) revert from a fresh address; the remaining public ERC-7540/20 functions only move the caller's own funds and pay the caller nothing. Only DACM's own roles transacted in the last 7 days; zero user deposits/redeems - no stranger was paid.",
+  "numbers": "7d logs (blocks 522539791-524958991, eth_getLogs address=vault, 23 logs / 9 txs): 6x updateNewTotalAssets from 0xbb3b351e669b2ba2905c4864c9c0fc37c32bd580 (valuation manager), 5x NAV-activation+fee-take from the Safe 0xbd3023f43b4b0a79a93a8196923b6ad107f38da3 (sample tx 0x62da47a2e700763f395441726fd85987c6a89b54c89b25ab89bc3a01b489c011). Fees paid go to feeReceiver 0xa572da990dabf3cf912d8657e4f0a067d9239c0a ($17.28) and Lagoon protocolFeeReceiver 0x9a408dc07820d810331a17da5e3a737fa2540d4b ($1.92) per weekly activation (minted shares at $1.0653/share = 451,181 USDC / 423,527 shares), not to the caller. Gas: activation 142,700 gas @ 0.0201 gwei = $0.0052; proposal 69,217 gas = $0.0025 (ETH $1,828 from coins.llama.fi, effectiveGasPrice from receipts). Zero DepositRequest/RedeemRequest/SettleDeposit/SettleRedeem events in range (same query shape returned 23 logs)."
+}

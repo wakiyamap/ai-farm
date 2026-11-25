@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-mev-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: MEV Protocol's reward and fee payments require an operator or designated contract. Public withdrawal claim pays only the stored ticket receiver, so a stranger gets no reward.",
+  "numbers": "2026-11-23T20:59Z latest eth_call: mevETH 0x24ae2da0f361aa4be46b48eb19c91e02c5e4f27e queueLength=338, requestsFinalisedUntil=337; fresh claim(338) NotFinalised 0x1ba17204, claim(337) AlreadyClaimed 0x646cf558. Fresh payRewards(1) and sendFees(1) at staking module 0xca3773d1a1bca3eda4ccc99f3939564a79467da5 revert Unauthorized 0x82b42900; fresh grantRewards() with 1 wei at mevETH reverts UnAuthorizedCaller 0xe3272bbb. Source: verified Etherscan Solidity via explorer source; adapter: https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/meveth/index.js . Public caller-reward count: none identified; gross/gas per reward call: n/a."
+}

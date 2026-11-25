@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-renzo",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1069,
+ "chain": "bsc",
+ "slug": "renzo",
+ "name": "Renzo",
+ "category": "Liquid Restaking",
+ "tvl_usd": 79718,
+ "url": "https://app.renzoprotocol.com/restake",
+ "github": [
+  "Renzo-Protocol"
+ ],
+ "listed_days_ago": 1069,
+ "run_id": "689dcf3583d04d148b292296d562e1bc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only keeper fn on BSC is xRenzoDeposit.sweep() (proxy 0xf25484650484DE3d554fB0b7125e7696efA4ab99), whitelist-gated - fresh-address eth_call reverts UnauthorizedBridgeSweeper - and pays 0 (bridgeFeeCollected 0, bridgeFeeShare 0); 0 BridgeSwept/Deposit in 90 d (no-topic scan blocks 102345588-135177588 = 653 logs, all PriceUpdated, control returns logs) with 0.716 nextWETH (~1.23k USD) unswept; other contract ezETH xERC20 44.28 ezETH = 75.8k USD, 7 d = 14 logs, mint reverts NotHighEnoughLimits; gas 0.011 USD",
+  "kb": [
+   "attempts:3920"
+  ],
+  "run_id": "689dcf3583d04d148b292296d562e1bc",
+  "at": 1795395619
+ }
+}

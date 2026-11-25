@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-pancakeswap-amm-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1323,
+ "chain": "arbitrum",
+ "slug": "pancakeswap-amm-v3",
+ "name": "PancakeSwap AMM V3",
+ "category": "Dexs",
+ "tvl_usd": 5370024,
+ "url": "https://pancakeswap.finance/swap",
+ "github": null,
+ "listed_days_ago": 1323,
+ "run_id": "cdb9bcadc8ba44a898ca782f212cf56d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Uni V3 fork + MCv3 farms (factory 0x0BFbCF9f..., MCv3 0x5e09acf8...): every reward fn is position-owner gated (fresh addr: pool collect pays 0, harvest reverts NotOwner); sample of 60k of 2.419M blocks/7d: 9 Collect (~360/7d) + 7 Harvest (~283/7d), 100% self-harvest, gross $0.0003-$1925 to the LP itself, gas $0.02",
+  "kb": [
+   "attempts:2326",
+   "protocols:870"
+  ],
+  "run_id": "cdb9bcadc8ba44a898ca782f212cf56d",
+  "at": 1795053014
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "Morpho Blue farm-band liquidation poller, lead 157",
+  "outcome": "review_fix",
+  "bot_id": "morpho-farmband-base",
+  "reason": "New paper bot cannot detect or safely account for capture: bot.js:251 returns before position slot discovery (keccakOk=false), so shares/collateral stay unknown; bot.js:318-320 decodes accrueInterest eth_call as two return words, while paper detections show only accrueInterest-reverted; aggregator discovery logged {} even with three AnswerUpdated logs; bot.js:359 simulates from/to executor rather than bot wallet to deployed executor. Executor source:155-158 keeps USDC profit in executor, while bot has no sweep call. No README with per-occurrence capture windows. Fix these and show the bot detects and simulates a historical capture, with wallet receiving USDC in the same tx. Fork proof not reproduced because these blockers preclude promotion.",
+  "numbers": "paper logs/detections.jsonl: every observed record is accrueInterest-reverted across cbXRP/cbBTC/cbZEC; state/bot.json baseSlot=null, agg={}; scratch/mb157-proof.json reports +21.674725 USDC in executor, 821690 gas; scratch/mb157-window.json has capture 56245267 window 155 blocks/30s and 56242285 window 24 blocks/5s."
+}

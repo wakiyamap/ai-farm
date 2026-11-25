@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-kernel-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward — all three Ethereum kAsset contracts expose deposit/redeem and restricted administration, with no public caller reward function. The protocol home page announces sunset.",
+  "numbers": "3 adapter-listed Ethereum contracts verified via eth_getCode and numApprovedTokens(): krETH 0xf02C96DbbB92DC0325AD52B3f9F2b951f972bf00 returns 6; ksETH 0x513D27c94C0D81eeD9DC2a88b4531a69993187cF returns 6; kUSD 0x0bB9aB78aAF7179b7515e6753d89822b91e670C4 returns 3. Sources: DefiLlama projects/kernel/index.js, Etherscan verified source through explorer. No qualifying reward function, so 7-day count and per-call gross/gas N/A; no zero-event claim."
+}

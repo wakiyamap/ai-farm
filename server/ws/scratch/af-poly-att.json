@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-autofarm",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The polygon deploy is AutoFarmV2_CrossChain (masterchef 0x89d065572136814230A55DdEeDDEC9DF34EB0B76), a stripped vault with no reward machinery: only deposit/withdraw of the caller's own funds; no harvest/claim/emission function exists, so no function pays a stranger. Strategy earn() is role-gated (reverts '!gov' from a fresh address) and pays nothing anyway. Zero masterchef events in the last 7 days on a 501k USD TVL protocol (9 all-user-withdrawal events in 90 days).",
+ "numbers": "TVL 501,159 USD (api.llama.fi chainTvls.Polygon 2026-11-20). poolLength=241. 7d masterchef events: 0 (blocks 97234118-97637318, eth_getLogs; control USDC 50,109 logs/2,000 blocks, same shape; same contract 9 events/90d). pid37 strat 0x17d1a70... holds 236,456 WLP (18 dec, want 0xc469910...b27); pid80 31,348 pWINGS-LP. eth_gasPrice 275.5 gwei; POL $0.079 (coins.llama.fi ts 1795161770) => 100k-gas call ~ $0.002. withdraw(0,0) fresh addr reverts 'user.shares is 0'; strat earn() reverts '!gov'."
+}

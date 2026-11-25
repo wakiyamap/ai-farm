@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-aster-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The Aster Bridge vault on Arbitrum has no stranger-callable reward function: the only fund-moving functions withdraw()/cancelWithdraw() are onlyRole(OPERATE_ROLE) (reverts AccessControlUnauthorizedAccount from a fresh address), deposits are open but pay nothing. The bridge's own relayers execute withdrawals and the $0.51/withdrawal fee accrues to the vault (ADMIN-only withdrawFee), so there is no keeper reward to compete for.",
+ "numbers": "vault 0x9E36CB86a159d479cEd94Fa05036f235Ac40E1d5 (UUPS -> AstherusVault impl 0x896a363007ba67f677eb2d1e8cc00f8b61697d1a, verified); 2403 Withdraw events in last 7d (eth_getLogs 0x1f295e86..latest, all USDT0 0xfd08..cbb9); 5-tx sample callers: 0x1cbba42a845eb24f404c4a2498fdd1a2718b8c22, 0xef9c62ed74150c63d07573e5f9140107166777ab (relayer EOAs, selector 0x0cd4b1fe); fee 510000 units = $0.51/withdrawal to vault; gas 208437 x 0.02 gwei = $0.0075 (ETH $1798.43 coins.llama.fi 2026-11-18)"
+}

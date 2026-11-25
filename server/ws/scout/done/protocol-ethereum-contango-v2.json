@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-contango-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1140,
+ "chain": "ethereum",
+ "slug": "contango-v2",
+ "name": "Contango V2",
+ "category": "Derivatives",
+ "tvl_usd": 3880852,
+ "url": "https://contango.xyz",
+ "github": null,
+ "listed_days_ago": 1140,
+ "run_id": "953e86c63726426fa5dbb805706cbf7e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Post-sunset build: claimRewards reverts Unauthorised(0xae10e1de) from a fresh address (owner-only); OrderManager execute keeperReward is onlyRole(BOT_ROLE) (hasRole false fresh); Liquidations not deployed on mainnet; 7d (blocks 26413054-26463309, 11-14..11-21): 11 PositionUpserted in 11 self-paid user/strategy txs, 0 RewardsClaimed, 0 OrderManager events (control 11 on core, same shape).",
+  "kb": [
+   "attempts:3306"
+  ],
+  "run_id": "953e86c63726426fa5dbb805706cbf7e",
+  "at": 1795262444
+ }
+}

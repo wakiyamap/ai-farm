@@ -1,0 +1,10 @@
+# @farm/dsh-web-search-rustxng bundle patch: selects the local RustXNG search provider.
+# Patch `config` replaces the whole base `web` row, so fetchProvider is restated.
+- id: web
+  config:
+    searchProvider: rustxng
+    fetchProvider: http
+
+- insert:
+    - id: farm-web-search-rustxng
+      name: '@farm/dsh-web-search-rustxng'

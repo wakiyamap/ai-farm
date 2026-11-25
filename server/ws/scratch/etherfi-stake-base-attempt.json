@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-ether-fi-stake",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The Base footprint of ether.fi Stake is two BoringVault share tokens (eBTC 0x657e8C867D8B37dCC18fA4Caead9C45EB088C642, sETHFI 0x86B5780b606940Eb59A062aA85a07959518c0161) with no reward function in the ABI; manage/enter/exit all revert UNAUTHORIZED from a stranger eth_call, and yield is exchange-rate appreciation for holders. Last 7 days: only user transfer/approve calls, zero keeper calls, nobody paid.",
+ "numbers": "Base TVL 2.51M USD (eBTC backing 2.44M + sETHFI staking 0.17M, api.llama.fi 2026-11-19). 7-day txs (>= 2026-11-12): eBTC 2 transfers, sETHFI 3 approves (explorer txs, blockscout; 25-row listing back to block 52.38M has zero enter/exit/manage). Stranger eth_call reverts 'UNAUTHORIZED' for manage 0xf6e715d0, exit 0x18457e61, enter 0x39d6ba32. Gas 0.006 gwei (~$0.001/100k gas, ETH 1774.19 USD CoinGecko/coins.llama.fi 2026-11-19)."
+}

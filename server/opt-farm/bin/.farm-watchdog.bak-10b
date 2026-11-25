@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+"""Watchdog: acts without waiting for any LLM. Runs as farmgate.
+
+Every interval:
+  - for every live bot and chain: read balance and nonce
+  - nonce advanced but no matching 'sent' record in signer.log  -> key compromise:
+    halt + stop --all, wake the live-operator
+  - native + USDC balance dropped by more than L since last check -> stop that bot, wake
+  - daily realized loss > n                                     -> freeze (gate reads pnl), wake
+  - a bot@ service in failed state                               -> wake
+Wake = `systemctl start agent@live-operator` with the reason written to
+/srv/farm/ws/inbox/live/<ts>-watchdog.md.
+"""
+import datetime as dt
+import json
+import os
+import subprocess
+import sys
+import time
+import urllib.request
+
+sys.path[:0] = ["/opt/farm/pylib", "/opt/farm/lib"]
+import farmkeys  # noqa: E402
+
+CONF = "/etc/farm/gate.json"
+STATE = "/var/lib/farmgate"
+LIVE = "/srv/farm/ws/bots/live"
+INBOX = "/srv/farm/ws/inbox/live"
+CHAIN_IDS = {"ethereum": 1, "base": 8453, "arbitrum": 42161}
+ETH_USD_FEED = {"ethereum": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
+                "base": "0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70",
+                "arbitrum": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612"}
+
+
+def manifest_block(text, key):
+    """Lines of a top-level manifest key (same rules as gate-ctl since 9e): inline lists, block
+    lists and lists of mappings; comments stripped."""
+    out, inside = [], False
+    for raw in text.splitlines():
+        line = raw.split(" #", 1)[0].rstrip() if not raw.lstrip().startswith("#") else ""
+        if not line.strip():
+            continue
+        if not line[0].isspace() and not line.startswith("-"):
+            inside = line.split(":", 1)[0].strip() == key
+            if inside:
+                out.append(line.split(":", 1)[1] if ":" in line else "")
+            continue
+        if inside:
+            out.append(line)
+    return out
+
+
+def manifest_chains(text):
+    vals = []
+    for line in manifest_block(text, "chains"):
+        s = line.strip()
+        if s.startswith("["):
+            vals += [v.strip().strip("'\"") for v in s.strip("[]").split(",") if v.strip()]
+        elif s.startswith("- "):
+            vals.append(s[2:].strip().strip("'\""))
+        elif s and not vals and "," not in s:
+            vals.append(s.strip("'\""))
+    return [c for c in vals if c in CHAIN_IDS]
+
+
+UNREADABLE = set()   # live bots whose manifest names no known chain (reported once)
+
+
+def rpc(url, chain, method, params):
+    body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
+    req = urllib.request.Request(f"{url}/{chain}?lane=live", data=body, headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        out = json.loads(r.read())
+    if "error" in out:
+        raise RuntimeError(out["error"].get("message"))
+    return out["result"]
+
+
+def wake(reason, detail):
+    os.makedirs(INBOX, exist_ok=True)
+    ts = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    with open(f"{INBOX}/{ts}-watchdog.md", "w", encoding="utf-8") as f:
+        f.write(f"# Watchdog: {reason}\n\n{detail}\n")
+    subprocess.run(["sudo", "-n", "/usr/bin/systemctl", "start", "agent@live-operator.service"], check=False)
+    print(f"watchdog: wake live-operator: {reason}", file=sys.stderr)
+
+
+def sent_nonces(bot):
+    seen = set()
+    try:
+        with open(f"{STATE}/signer.log", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                if r.get("bot") == bot and r.get("decision") == "sent":
+                    seen.add((r.get("chain"), r.get("nonce")))
+        with open(f"{STATE}/gate.log", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                if r.get("bot") == bot and r.get("op") in ("sweep", "sweep_usdc", "sweep_usdc_sent", "cancel", "deploy_executor_sent", "deploy_executor") and r.get("nonce") is not None:
+                    seen.add((r.get("chain"), r.get("nonce")))
+    except OSError:
+        pass
+    return seen
+
+
+def main():
+    with open(CONF, encoding="utf-8") as f:
+        cfg = json.load(f)
+    url, interval = cfg["relay_url"], cfg["watchdog_interval_s"]
+    master = farmkeys.load_master()
+    last = {}   # (bot, chain) -> (balance, nonce)
+    woke_for_freeze = False
+    while True:
+        try:
+            bots = sorted(d for d in os.listdir(LIVE) if os.path.isdir(f"{LIVE}/{d}")) if os.path.isdir(LIVE) else []
+            halted = os.path.exists(f"{STATE}/halt")
+            for bot in bots:
+                try:
+                    addr = farmkeys.address_of(farmkeys.derive_private_key(master, f"bot:{bot}"))
+                except KeyError:
+                    continue
+                with open(f"{LIVE}/{bot}/manifest.yaml", encoding="utf-8") as f:
+                    chains = manifest_chains(f.read())   # every YAML list style, like the gate (9i)
+                if not chains and bot not in UNREADABLE:
+                    UNREADABLE.add(bot)
+                    print(f"watchdog: {bot}: manifest.yaml names no known chain; this bot is NOT monitored", file=sys.stderr)
+                st = subprocess.run(["systemctl", "is-failed", f"bot@{bot}.service"], capture_output=True, text=True, check=False).stdout.strip()
+                if st == "failed":
+                    wake("bot service failed", f"bot: {bot}\n\nSee `paper logs`-style: journalctl -u bot@{bot}")
+                    subprocess.run(["sudo", "-n", "/usr/bin/systemctl", "reset-failed", f"bot@{bot}.service"], check=False)
+                for chain in chains:
+                    bal = int(rpc(url, chain, "eth_getBalance", [addr, "latest"]), 16)
+                    nonce = int(rpc(url, chain, "eth_getTransactionCount", [addr, "latest"]), 16)
+                    price = int(rpc(url, chain, "eth_call", [{"to": ETH_USD_FEED[chain], "data": farmkeys.selector("latestAnswer()")}, "latest"]), 16) / 1e8
+                    token = (cfg.get("usdc") or {}).get(chain)
+                    usdc = 0
+                    if token:
+                        r = rpc(url, chain, "eth_call", [{"to": token, "data": farmkeys.encode_call("balanceOf(address)", addr)}, "latest"])
+                        usdc = int(r, 16) if r and r != "0x" else 0
+                    prev = last.get((bot, chain))
+                    if prev:
+                        pbal, pnonce, pusdc = prev
+                        if nonce > pnonce and not halted:
+                            known = sent_nonces(bot)
+                            unknown = [n for n in range(pnonce, nonce) if (chain, n) not in known]
+                            if unknown:
+                                subprocess.run(["/opt/farm/bin/gate-ctl", "stop", "--all"], check=False)
+                                wake("UNEXPECTED TRANSACTION: possible key compromise, halted everything",
+                                     f"bot: {bot}\nchain: {chain}\naddress: {addr}\nnonces not signed by the signer: {unknown}")
+                                halted = True
+                        # native + USDC together: principal leaving as USDC and coming back as ETH (or vice
+                        # versa) inside one interval nets out; a real loss shows in the sum
+                        drop_usd = (pbal - bal) / 1e18 * price + (pusdc - usdc) / 1e6
+                        if drop_usd > cfg["max_loss_per_tx_usd"] and not halted:
+                            subprocess.run(["/opt/farm/bin/gate-ctl", "stop", bot], check=False)
+                            wake("bot lost more than L in one interval, stopped it",
+                                 f"bot: {bot}\nchain: {chain}\ndrop: {drop_usd:.2f} USD (native + USDC) in {interval}s")
+                    last[(bot, chain)] = (bal, nonce, usdc)
+            # daily loss
+            try:
+                with open(f"{STATE}/pnl.json", encoding="utf-8") as f:
+                    p = json.load(f)
+                loss = -sum(v for v in p.get("realized_usd", {}).values() if v < 0)
+            except (OSError, ValueError):
+                loss = 0.0
+            if loss > cfg["max_daily_loss_usd"] and not woke_for_freeze:
+                wake("daily loss limit reached; promotions frozen", f"realized loss today: {loss:.2f} USD")
+                woke_for_freeze = True
+            if loss <= cfg["max_daily_loss_usd"]:
+                woke_for_freeze = False
+        except Exception as exc:  # keep watching whatever happens
+            print(f"watchdog: {exc!r}", file=sys.stderr)
+        time.sleep(interval)
+
+
+if __name__ == "__main__":
+    main()

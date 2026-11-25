@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-narwhalswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1745,
+ "chain": "bsc",
+ "slug": "narwhalswap",
+ "name": "Narwhalswap",
+ "category": "Dexs",
+ "tvl_usd": 344956,
+ "url": "",
+ "github": [
+  "narwhalswap"
+ ],
+ "listed_days_ago": 1745,
+ "run_id": "6c98ad574a8a420982b1fc6485e2ace5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniV2-fork DEX, factory 0xB9fA84912FF2383a617d8b433E926Adf0Dd3FEa1 (allPairsLength=96, block 134517049): source (github narwhalswap/contracts) shows no reward/harvest/claim fn anyone can call for pay, setFeeTo role-gated; only pair.skim pays and its excess is 0 on 9 of 10 sampled pairs; DEX still trades (WBNB/BUSD 15 WBNB+8,969 BUSD pool swapped 0.2h before check, sample 14/96 pairs) but fees go to LPs/feeTo; 7d event counts n/a: scout Alchemy lane spent (300,562/300,000 CU), public bsc nodes reject all getLogs",
+  "kb": [
+   "attempts:2535",
+   "protocols:1034"
+  ],
+  "run_id": "6c98ad574a8a420982b1fc6485e2ace5",
+  "at": 1795098085
+ }
+}

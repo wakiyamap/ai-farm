@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-gauntlet",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Gauntlet on Arbitrum is only a curator: 11 Morpho vaults (4 MetaMorphoV1_1 + 7 VaultV2) owned by its proxies/EOA. Every admin function is gated (owner/curator/allocator/guardian/timelock); the only anyone-callable state function, VaultV2.accrueInterest(), succeeds from a stranger but pays the caller 0 (fee shares go to Gauntlet's fee recipients). No reward, bounty or keeper payment to strangers exists.",
+  "numbers": "TVL claim $63.4M (DefiLlama 2026-11-17) but Morpho-listed Gauntlet vaults on arbitrum total only ~$0.88M (gtUSDC Prime $535K, gtUSDC Core $349K, rest <$150 each, blue-api.morpho.org 2026-11-17); largest owner-side position is VaultV2 USDG Premium 0x390c1bb01f3f627144a40617e287d4ce3d5abcfa with 31.1M shares (eth_call latest, block 0x1f4d4b0a) but 62K USDG idle. accrueInterest() selector 0xa6afed95 (cast sig); eth_call from 0x1111...1111 returned 0x (no role revert). Recent 25 txs of USDG Premium vault (explorer txs): all multicall/deposit/redeem/approve, no payer-to-stranger function. Control: same getLogs shape on factory 0x878988f5f561081deEa117717052164ea1Ef0c82 returned 111 CreateMetaMorpho events, 4 with Gauntlet owner; V2 factory 0x6b46fa3cc9EBF8aB230aBAc664E37F2966Bf7971 returned 7 CreateVaultV2 events, all 7 with owner 0xF9D8B7e7981986746c4DE236CC72F1a26AFb5851."
+}

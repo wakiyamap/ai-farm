@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-aequinox",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward first. Aequinox on bsc is a Balancer V2 fork (vault 0xee1c8dbfbf958484c6a4571f5fb7b99b74a54aa7): its dispatcher has exactly 26 standard Balancer functions, all user-driven (swap/batchSwap/join/exit/flashLoan) or owner-setters - no function pays the caller; swap fees (1% observed) go to the LP. Observed pool is a plain weighted pool (checkpoint() reverts, reward getters revert), so no keeper-style reward exists at pool level either. Protocol is live but bursty and small.",
+  "numbers": "7d = 133.12M..134.46M blocks (0.45 s/block, 7d ~ 1.343M blocks, measured from headers); vault logs sampled 7 windows x 5000 blocks (~4.4 h of 7d): 9 Swap events in 3/7 windows (topic0 0x2170c741 old Balancer Swap ABI), AEQ (0x0ddef12012ed645f12aeb1b845cb5ad61c7423f5, supply 11,561,706) Transfers 2 in 1/7 windows; TVL $628,668 (DefiLlama candidate, 2026-11-19); no gas measured (no reward function to call). Sources: relay eth_getCode/eth_call/eth_getLogs, github raw 0xBriz/aequinox-graph, api.llama.fi/protocol/aequinox."
+}

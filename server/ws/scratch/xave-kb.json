@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "protocol": "xave_finance",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/xave-finance/index.js (polygon): FXPoolFactory 0x627D759314D5c4007b461A74eBaFA7EBC5dFeD71, FXPoolDeployer 0xF169c1Ae8De24Da43a3dC5c5F05De412b4848bD3, CurveFactory 0x6bfBc74eb37d44DE6E44B0B63F04CbA626009Ff5 - eth_getCode non-0 for all three; factory.owner() answered (0x009c4ba01488a15816093f96ba91210494e2c644) and pool getPoolId() answered (0xa5b235fb345b5744cc285045c8118a92f4aef58b). Verified source (explorer, via etherscan) FXPoolFactory.sol/FXPool.sol: public functions are only newFXPool (creator pays gas, receives nothing) + views; every state change (setParams, includeAsset, setPaused, setCap, setEmergency, setCollectorAddress, setProtocolPercentFee) is onlyOwner; onSwap/onJoinPool/onExitPool have isVault modifier (canonical Balancer vault 0xBA12222222228d8Ba445958a75a0704d566BF2C8); LP fees stay in pool, protocol fees minted to owner-set collector. CurveFactory pools = Synthetix CurveSwap fork, fees to fee-address/LPs, no keeper fn (pool 0x6156f030b877344470bac075a708d7e27602cc17). Docs xave-finance.gitbook.io + github.com/xave-finance (xave-contract-addresses/src/matic.ts, lending-market-v1, amm-v1): no keeper/distributor contract on polygon; 2022-era AmmRewards MasterChef 0x972127aFf8e6464e50eFc0a2aD344063355AE424 (harvest(pid,to)) dead since 2023-03 (last tx block 40542627).",
+  "wiki_page": null
+}

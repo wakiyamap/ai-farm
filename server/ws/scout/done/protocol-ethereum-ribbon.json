@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-ribbon",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "ribbon",
+ "name": "Ribbon",
+ "category": "Options Vault",
+ "tvl_usd": 2670592,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "9ef2a89a4de44bd08e00c0292d2f8f93",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Ribbon theta vaults pay callers nothing: closeRound() is public but pays 0 to msg.sender (no reward/bounty mechanism in verified source), rollToNextOption/commitNextOption are onlyKeeper; 0 CloseShort events in 7d on all 12 ethereum vaults (blocks 26418218 2026-11-15 to 26468464 2026-11-22 chain ts, control 2-log no-topic scan ok), last rolls 2025-12-05 by Ribbon EOA 0x482b8cba; current option oWETHUSDC/WETH-12DEC25-3600C expired ~11.5 mo ago and closeRound() now reverts 'SafeMath: subtraction overflow'; idle 699.1 WETH + 19.1 WBTC + 471k USDC (totalBalance); gross 0 vs gas > 0.",
+  "kb": [
+   "attempts:3602",
+   "protocols:1843"
+  ],
+  "run_id": "9ef2a89a4de44bd08e00c0292d2f8f93",
+  "at": 1795324791
+ }
+}

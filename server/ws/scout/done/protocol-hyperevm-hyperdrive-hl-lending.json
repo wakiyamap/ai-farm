@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperdrive-hl-lending",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 521,
+ "chain": "hyperevm",
+ "slug": "hyperdrive-hl-lending",
+ "name": "Hyperdrive HL Lending",
+ "category": "Lending",
+ "tvl_usd": 515604,
+ "url": "https://hyperdrive.fi/",
+ "github": null,
+ "listed_days_ago": 521,
+ "run_id": "0144b6f0caff46e2b90eb53fe6db3076",
+ "result": {
+  "verdict": "role_gated",
+  "line": "liquidate() (0xab1f41f2, impl 0x69411eb8) is the only paying fn, gated LIQUIDATOR_ROLE whitelist: exactly 1 admin-granted member per market (m1 0x9271a5c6, m2 0xaeaad6d9, m3 0x72ee42bd); fresh-address eth_call reverts NoLiquidatorRole; 0 liquidations in last 7 days across 4 markets (full-window etherscan tx lists: 9/2/15/0 txs, all redeem/approve/withdrawCollateral; last liquidator activity Nov 9); gas 0.116 gwei x HYPE $68.95 = ~$0.002/200k gas so role is the only barrier",
+  "kb": [
+   "attempts:1883",
+   "protocols:510"
+  ],
+  "run_id": "0144b6f0caff46e2b90eb53fe6db3076",
+  "at": 1794951825
+ }
+}

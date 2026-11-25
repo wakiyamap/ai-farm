@@ -1,0 +1,12 @@
+{
+  "run_id": "dcd75f6aeadf4e54b551c47bb1cf5479",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Reserve Folio (DTF) rebalance auctions: venue-side payout fork rerun with taker funding (lead 94)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:696", "leads:94"],
+  "wiki_pages": ["mechanisms/reserve-dtf-rebalance-auctions.md"],
+  "bot_ids": ["reserve-folio-dtf-ethereum"],
+  "injection_seen": false,
+  "notes": "Diagnosed the prior venue-side revert on the fork (reset 26306742): WRAP 0xebbc..22250 is shared Ondo GMToken impl code and every venue leg runs DELEGATECALLed from the executing GM token/router, so funding/approvals belong in those tokens' own storage (WRAP-proxy funding was the silent failure - fork fund-token prints FAILED at exit 0 when the holder balance is short; note in inbox/meta). Decoded the exact pulls from the blobs (15.61e18 router-token taker->vault, 36.46e18 sell-token), refunded scratch/rf-venue-proof3.py token-native (SELL 57.58e18 from the Folio, BUY 8e18, router token 15.46e18, SETTLE dust, 7 spender approvals at 1e24) - the router transferFrom now passes balance/allowance and the leg dies in the mint hook: AccessControl missing MINTER_ROLE as the taker; grant WRAP MINTER_ROLE to the executor address and rerun rf-venue-proof3.py for the venue payout success. Live quote path stays key-gated; bot archived by the reviewer at 14:02Z."
+}

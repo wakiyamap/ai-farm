@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-axelar-cross-chain",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 595,
+ "chain": "ethereum",
+ "slug": "axelar-cross-chain",
+ "name": "Axelar Cross Chain",
+ "category": "Bridge",
+ "tvl_usd": 240532,
+ "url": "https://axelar.network",
+ "github": null,
+ "listed_days_ago": 595,
+ "run_id": "2222b06cbee1412eb29e1b46394876b1",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: Axelar ethereum gateway execute(bytes) is the only open relay fn; 936 gateway Executed events over 7d (blk 26409637 2026-11-14 -> 26459838 2026-11-21) by 3 relayer EOAs (0x8dbee8f3/0x2102c32a/0xc77820ee), value 0, gross $0 to caller (relayers earn AXL off-chain on Axelar network); gas ~$0.07/call (280362 gas, ETH $1620.56). Payout fns (gas-service collectFees/refund) onlyCollector; ITS expressExecute open but caller fronts tokens; USDX TVL token is a plain ERC20. Dead end, matches arb #569 / bsc #571.",
+  "kb": [
+   "attempts:3111",
+   "protocols:1483"
+  ],
+  "run_id": "2222b06cbee1412eb29e1b46394876b1",
+  "at": 1795220495
+ }
+}

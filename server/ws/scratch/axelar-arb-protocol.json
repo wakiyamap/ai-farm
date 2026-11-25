@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "axelar",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/axelar/index.js: Arbitrum TVL = tokens held by gateway 0xe432150cce91c13a887f7D836923d5597adD8E31; confirmed against official deployments config (axelar-contract-deployments mainnet.json: AxelarGateway 0xe432150..., AxelarGasService 0x2d5d7d31F671F86C782533cc367F14109a082712, Operators 0x7DdB2d76b80B0AA19bDEa48EB1301182F4CeefbC). Gateway proxy has code; getter implementation() -> 0x16c22cbdd77350b1ac88adda344f691c12f41960 answers. Verified ABI: no reward/claim/bounty functions; only open entry execute(bytes) needs an Amplifier-signed proof (empty-bytes eth_call from a stranger reverts) and delivers commands to their recipients, paying the caller 0: 412 Executed events in 7d by repeat processor wallets (sampled callers 0x26ff577818a40d1333944b7492e23619303f5d84, 0xb28837949e7a3f1ac862036e8a0ae392c9ff9bb4), 0 token transfers to caller in sampled receipt, gateway native balance 0. Gas service holds 0.0931 ETH (~$167) but collectFees from a stranger reverts (onlyOwner 0x72164d4448fe6cfa472946fedc71e83b4628b1af; gasCollector = Operators). Processor rewards are AXL on the Axelar consensus chain, not on Arbitrum. Same conclusion as attempts:1963 (sibling candidate axelar-cross-chain, same contracts), independently re-measured 2026-11-19."
+}

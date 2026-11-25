@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-zerobase-cedefi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 532,
+ "chain": "ethereum",
+ "slug": "zerobase-cedefi",
+ "name": "ZEROBASE CeDeFi",
+ "category": "Basis Trading",
+ "tvl_usd": 14638357,
+ "url": "https://app.zerobase.pro/",
+ "github": null,
+ "listed_days_ago": 532,
+ "run_id": "35ce111293644b6d8c4705ced33e8cc7",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Vault 0x9eF5...93685 (verified Vault.sol, same self-service family as 5 sibling chains): claims pay only claimItem.user (fresh-address claim of queue 10744 reverts; cancelClaim disabled; transferToCeffu BOT_ROLE); getTVL 447,252 USDC + 14,207,925 USDT = 14.66M matches listed TVL; 7d scan blocks 26,408,692-26,459,092: 3 RequestClaim (125,584 USDT + 7,361 USDC), 0 ClaimAssets/Stake; sample claim 3,380 USDT gross paid to depositor itself, 272,231 gas @0.596 gwei ~0.26 USD (ETH 1,617.89 coins.llama.fi 2026-11-20); no function pays a stranger.",
+  "kb": [
+   "attempts:3071",
+   "protocols:1450"
+  ],
+  "run_id": "35ce111293644b6d8c4705ced33e8cc7",
+  "at": 1795211608
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-shprd",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1000,
+ "chain": "arbitrum",
+ "slug": "shprd",
+ "name": "SHPRD",
+ "category": "Indexes",
+ "tvl_usd": 343726,
+ "url": "",
+ "github": [
+  "stealth-defi"
+ ],
+ "listed_days_ago": 1000,
+ "run_id": "8eae5d0686074c8796b4b83169fecb08",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Factory 0xf0ee0b31... + 8 vaults live on arbitrum (TVL $343,726); only keeper fn harvest{Management,Performance}Fees revert role-gated (HARVESTER_ROLE = team Safe 0xaebb602c..., 2 members) and pay team feesReceiver 0xe7a8902f..., not caller; 0 tx across all 9 contracts in last 7d (Blockscout, newest 2026-10-24); gas ~$0.005/call (0.02 gwei, ETH $1770 coins.llama.fi).",
+  "kb": [
+   "attempts:2206",
+   "protocols:772"
+  ],
+  "run_id": "8eae5d0686074c8796b4b83169fecb08",
+  "at": 1795023095
+ }
+}

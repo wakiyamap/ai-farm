@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-tacit",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the only callable pay-the-caller streams on the listed EVM pool are relay/box fees: anyone can call transact/completeDeposit/sweepReceive (immutable, no owner) but the median fee a stranger earns (0.000108 ETH, $0.19) is below the measured gas cost of the same call (~400k gas, $0.51-0.58), and the dapp hands relayer business to its own keeper endpoint by hand, so nobody competes on-chain. Privacy-pool mechanics themselves are out of S scope (no mixers/privacy pools); the keeper fee is gas-reimbursement style, not profit.",
+  "numbers": "7d (blocks 26405320-26455720): 403 pool Transact events (topic0 from repo source, data parsed), 232 relayed fee>0, fee sum 0.032 ETH ($56), median fee 0.000108 ETH ($0.19); relayers: keeper 0x7c9f8aE4e48Cbb...bCFc43D0 226 (docs keeperAddress), 0x3909a77e...6168 6 ($1.40 gross, 6x gas-equivalent ~$3, so negative), 171 self-relay fee 0; gas per relayed call 393183-415845 gas x effGasPrice = 0.00029-0.000333 ETH = $0.51-0.58 (receipts 0x109d47477eb92e63d9acdf34a30c37d306b40ec023f4f68cddee4784bff7cfc7, 0x29137b79c094cf17fd16e873095c1ea1d704db236be2535bc9ce99d605cd7459); router: 5 Received sweeps, fees 13-143e-6 ETH, 14-25 bps of amount; WETH $1750.84 coins.llama.fi 2026-11-20 10:35 UTC; TVL $114k Ethereum (api.llama.fi/protocol/tacit)"
+}

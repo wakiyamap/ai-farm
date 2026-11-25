@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-sodax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 102,
+ "chain": "avalanche",
+ "slug": "sodax",
+ "name": "SODAX",
+ "category": "Bridge",
+ "tvl_usd": 78088,
+ "url": "https://www.sodax.com/",
+ "github": null,
+ "listed_days_ago": 102,
+ "run_id": "bbd300bcb84d4fe385a67ecf950b656f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Bridge spoke (SpokeAssetManager 0x5bDD1E1C5173F4c912cC919742FB94A55ECfaf86 + Connection 0x4555aC13D7338D9E671584C1D118c06B2a3C88eD): open transfer()/recvMessage() pay caller 0 on-chain; 7d blocks 100381935-101058475: 77 txs (74x transfer 0xc6b4180b, 3 swap+bridge), 5 callers, 67/77 from router 0xc79f1e68; 0 native/0 token to caller in 5/5 sampled (caller locks own USDC into AM, e.g. 1500); gas 109,594 @7.5 gwei = 0.000822 AVAX = $0.0055 (AVAX $6.6942 llama 1795341504); recvMessage 0 external calls 7d, allowlist-gated on arbitrum (KB 325).",
+  "kb": [
+   "attempts:3679",
+   "protocols:1902"
+  ],
+  "run_id": "bbd300bcb84d4fe385a67ecf950b656f",
+  "at": 1795342112
+ }
+}

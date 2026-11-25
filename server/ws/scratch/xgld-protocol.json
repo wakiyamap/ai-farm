@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "xgld",
+ "status": "dead_end",
+ "checked": "Unitas xGLD (yield-bearing gold OFT wrapper, backed by XAUt). DefiLlama adapter projects/unitas-xgld lists only the token 0xe60106a5cAb7e7C64830919d36Ab20CaAf50Ac91 (verified XGLDToken, LayerZero OFT, decimals 6; totalSupply getter answers). Related BSC contracts found via explorer source + app bundle + docs.unitas.so/overview/xgld: XGLDBoostProxy 0x0a4db0575ce1518ba1d008cf7cc08aeb05f57b0e (impl 0x96a7380aa22f38295381ff05f91ea3a91c17fbd3), XGLDRedeemer 0x2ac5abd45fea3d72afc1c68500ba4a677153003c, XGLDExchangeRate 0x7bbe7fdcd6bdffd7f767a9531b6210b87b3e46e7, XGLDMinting 0x2a9e3ea72575e05337a7703c8fad65a82a5b5865, XAUt(BSC) 0x21cAef8A43163Eea865baeE23b9C2E327696A3bf. Only permissionless value-moving function is claim(bytes32) (Redeemer/BoostProxy): pays stored recipient's own redemption principal, 0 to caller. Mint path fully role-gated (MINT_CALLER/SECURE_OPERATOR/MINTER/Minter/Burner), NAV setExchangeRate RATE_UPDATER_ROLE; docs: mint/redeem for whitelisted users."
+}

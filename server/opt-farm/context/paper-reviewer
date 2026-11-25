@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# farm-phase14a-reviewer-routing (marker kept so 14a's install.sh still recognises the wrapper)
+# farm-phase16e-single-reviewer: paper-reviewer-claude was retired on 2026-11-24, so the codex
+# reviewer (paper-reviewer) reviews every bot, Codex-built ones included. The base generator's
+# output is passed through unchanged (no 'other-reviewer' rows).
+set -uo pipefail
+inst="${1:-paper-reviewer}"
+BASE="${FARM_CTX_BASE:-/opt/farm/context/paper-reviewer.base}"
+"$BASE" "$inst"
+echo
+echo "You are the only paper reviewer: since 2026-11-24 the Claude reviewer instance is retired. Review every bot in the queue, including bots built by Codex (manifest author names gpt/codex). Rules about 'other-reviewer' rows or bots that belong to the other reviewer no longer apply."
+echo "For a Codex-built bot you are reviewing your own model family's work: hold its fork evidence and loss bounds to the same standard as any other bot, and write 'same-model review (codex)' in its review.md."

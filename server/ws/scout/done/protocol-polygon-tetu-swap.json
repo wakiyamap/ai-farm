@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-tetu-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "tetu-swap",
+ "name": "Tetu Swap",
+ "category": "Yield",
+ "tvl_usd": 49726,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "d33f5b4354b542608de00933f5e7b8a7",
+ "result": {
+  "verdict": "role_gated",
+  "line": "TetuSwap AMM (router 0xBCA055F2..Ca819, factory proxy 0x684d8c18..1828, 31 pairs, TVL 49,964 USD): only reward fn pair.claimAll() reverts from a stranger 'TSP: Only recipient can claim' (per-pair Tetu distributor proxy holds the role, swap fees pay it directly); 0 events on all 31 pairs in 7 d (blocks 97,432,850->97,836,050, 2026-11-16 to 11-23; control same shape: 7 logs over 90 d, last Mint/Sync 2026-08-26) - protocol dormant.",
+  "kb": [
+   "attempts:4191"
+  ],
+  "run_id": "d33f5b4354b542608de00933f5e7b8a7",
+  "at": 1795460318
+ }
+}

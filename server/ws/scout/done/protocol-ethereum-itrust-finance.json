@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-itrust-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "itrust-finance",
+ "name": "iTrust Finance",
+ "category": "Insurance",
+ "tvl_usd": 386849,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "d82c4d26446e4aa3b2a0f76479766d34",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: no function pays a stranger - endRound/authoriseUnstakes factory-admin (fresh-address eth_call reverts 0x), withdrawRewards pays only own accrual + trusted-signer sig (fresh addr 0 WNXM, 0 BOND); 7d blocks 26417459-26467715 (11-15..11-22) 0 logs on sNXM 0xD82c..C238/iNXM 0xf410..0978/ITG (30d 1 log UnstakedRequest 11-09; control WNXM 514); last claim 0x6f70ba7b 2026-05-13 paid 0.1609 WNXM = 7.79 USD gross, gas 274766 = 0.06 USD; unclaimed 431.76 WNXM = 20,920 USD (48.45 USD, llama 11-22)",
+  "kb": [
+   "attempts:3567",
+   "protocols:1813"
+  ],
+  "run_id": "d82c4d26446e4aa3b2a0f76479766d34",
+  "at": 1795315992
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "id": "protocol-arbitrum-railgun",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1754,
+ "chain": "arbitrum",
+ "slug": "railgun",
+ "name": "Railgun",
+ "category": "Privacy",
+ "tvl_usd": 3036812,
+ "url": "https://railgun.org",
+ "github": [
+  "Railgun-Privacy",
+  "Railgun-Community"
+ ],
+ "listed_days_ago": 1754,
+ "run_id": "c5f7cfc146804e65ab288098af58863c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No function pays a caller: proxy 0xFA7093...F4b9 impl RailgunSmartWallet 0x4799...f221 has only shield/transact where the user PAYS the protocol (unshieldFee 25/10000 to treasury 0x3b37...bfc8, both via eth_call 2026-11-19); checkSafetyVectors pays 0, all else onlyOwner, Treasury spend TRANSFER_ROLE-gated; docs list Rewards/Staking only for ETH/Polygon/BSC; last 25 proxy txs (explorer, 2026-11-19, blocks 1795077366-1795098235) all user shield/transact.",
+  "kb": [
+   "attempts:2536",
+   "protocols:1035"
+  ],
+  "run_id": "c5f7cfc146804e65ab288098af58863c",
+  "at": 1795098394
+ }
+}

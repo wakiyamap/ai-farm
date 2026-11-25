@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-stoneusd",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward — the protocol's only ethereum contract (DefiLlama adapter stakestone-stoneusd) is a plain ERC-20 (StakeStone USD) verified on etherscan: full interface is ERC-20 + AccessControl + mint(to,amount) gated by MINTER_ROLE + burn(amount) that burns the caller's own tokens; no function pays a reward to the caller, so there is nothing for a stranger to claim. Same conclusion as the BSC deployment (attempt 1739).",
+  "numbers": "1 contract 0x6A6E3a4396993A4eC98a6f4A654Cc0819538721e (eth_getCode ~6.8 KB, symbol()=STONEUSD); totalSupply 1,604,710.84 STONEUSD @ $1.0393 (coins.llama.fi ts 1795191609) = $1.67M TVL; 7-day no-topic eth_getLogs blocks 26,400,105-26,460,601 = 4 logs (3x Transfer 0.01 + 1 Approval, txs 0x0fe83557…, 0x545650de…, 0x2f096696…, 0x197ab977…), no unknown topic0; control same shape USDC 100 blocks = 13,101 logs; gas n/a (no function to call). Source: explorer source ethereum + projects/stakestone-stoneusd/index.js."
+}

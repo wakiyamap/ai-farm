@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-dxsale",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. DxSale polygon = 3 DxLocker V3 lockers + 2 LockerV3.3 storages (DefiLlama adapter); the only claim-like fn unlockToken(uint256) reverts from a fresh address ('user doesnt have a locker!' - lock-owner gated) and changeFees etc. are owner-only; nothing pays a stranger (fees go FROM lock users TO Lock_fees_account). Protocol is nearly dormant on polygon: 0 calls/events in the last 7d; last activity 2026-05-17, all-time callers are lock owners unlocking, no keeper ever. Same family already dead-ended on bsc/ethereum/base/arbitrum.",
+ "numbers": "7d window blocks 97407655 (2026-11-16 08:15 UTC) - 97810854 (2026-11-23 08:15 UTC), eth_getBlockByNumber timestamps: 0 logs on all 5 addrs (no-topic eth_getLogs; control USDC 0xc2132d05d31c914a87c6611c10748aeb04b58e8f 687 logs/60 blk same shape, same run). Last event any of the 5: block 87026419 (2026-05-17, tx 0x1ae8bd7c5bb5879708a78a644eed32240514a3ca3eeb7d8687321f289331334c). Getters: lockerNumberOpen 112/95/77 on 0xEb3a9C.../0x6FCC2e.../0x036063..., lockerIDCount 290/127 on tokenStorage/lpStorage. Gross per call 0 USD (no caller reward); gas 281.77 gwei (eth_gasPrice) x ~300k gas = 0.084 POL = 0.0066 USD (POL 0.0779 USD coins.llama.fi 2026-11-23 08:20 UTC). ABI: 22 fns, no reward/harvest/claim (blockscout getabi 0x6FCC2e4Efb4E05DdfC2154AbE209356d5A687666)."
+}

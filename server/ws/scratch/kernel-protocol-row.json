@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "kernel_protocol",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/master/projects/kernel/index.js lists krETH 0xf02C96DbbB92DC0325AD52B3f9F2b951f972bf00, ksETH 0x513D27c94C0D81eeD9DC2a88b4531a69993187cF, and kUSD 0x0bB9aB78aAF7179b7515e6753d89822b91e670C4. All three have nonempty eth_getCode and numApprovedTokens() returns 6, 6, and 3 at latest via rpc.py. Etherscan verified sources (explorer source, saved under scratch/kernel-kr, kernel-ks, kernel-ku) show only deposit and redeem as public protocol actions. Deposits mint kAssets in exchange for supplied tokens and charge mint fees to feeAddress; redemption burns the caller's kAssets and charges a fee. Administration is onlyOwner or approvedProtector. No public payout, harvest, bounty, keeper or distribution function. Protocol home page says it has been sunset. Verdict no_reward; 7-day caller count and gross/gas are inapplicable because no qualifying function exists."
+}

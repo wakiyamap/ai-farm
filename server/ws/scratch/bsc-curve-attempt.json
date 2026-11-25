@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-curve-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. BSC Curve DEX is three NG factories + 476 pools with no gauges, no Minter (addressProvider get_id_info 0..6 all inactive stub) and no function that pays the caller: pools expose only exchange/add/remove/withdraw_admin_fees, and withdraw_admin_fees (callable by anyone per source and eth_call from a fresh address) sends admin fees to factory.fee_receiver 0x98b4029cabef7fd525a36b0bf8555ec1d42ec0b6, not the caller. 7d activity is pure self-interested swaps/LP.",
+ "numbers": "factories 0xd7e72f...988b ssng 299 pools / 0x98EE85...AF7F twocrypto 141 / 0xc55837...E657 tricrypto 36 (pool_count() eth_call, 2026-11-23). 7d window blocks 133947606 (2026-11-16) - 135291002 (2026-11-23): 3737 logs / 27 active pools over all 476 (no-topic scan; all topic0 identified from runtime-matched Sourcify sources: 3668 TokenExchange ssng 0x8b3e96f2, 31 twocrypto TokenExchange 0x143f1f8e, 26 Transfer, 6 RemoveLiquidity 0xdd3c0336, 3 AddLiquidity, 2 RemoveLiquidity, 1 Approval); 0 ClaimAdminFee/reward events; 0 callers of withdraw_admin_fees paid. Busiest pool 0xa5e0e46462970c9ee8c2ecadcde254c483748ec4 USDT/USDC/FDUSD 3257 swaps/7d. TVL bsc 41571 USD (api.llama.fi/protocol/curve-dex currentChainTvls.Binance, 2026-11-23 ~14:55 UTC)."
+}

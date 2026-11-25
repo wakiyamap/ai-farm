@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-opengdp-shared-security",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - Karak (OpenGDP) has no caller-reward mechanism on Arbitrum: grep reward|bounty|incentive|fee|keeper over the verified v1 (VaultSupervisor, DelegationSupervisor) and v2 (Core) sources returns 0 hits. Anyone-callable functions (startWithdraw/finishWithdraw, v2 finalizeSlashing/finalizeUpdateVaultStakeInDSS, deposits) pay the caller $0; value moved goes to the staker as principal. 7d activity is users exiting their own positions (caller == staker in 5/5 sampled txs); v2 Core dead since Dec 2024.",
+  "numbers": "7d (blocks 523362351-525362351): VaultSupervisor 1 log, DelegationSupervisor 144 logs (127 StartedWithdrawal, 17 FinishedWithdrawal), v2 Core 0 logs (last tx block 283020899 = Dec 2024); sample 5/17 FinishedWithdrawal: gross to caller $0, gas ~141k * 0.02003 gwei * $1759.72 = $0.005/call (eth_gasPrice, coins.llama.fi ETH 2026-11-18). TVL $574,784 Arbitrum (DefiLlama 2026-11-18), 32 v1 vaults via getVaults()."
+}

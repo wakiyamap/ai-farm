@@ -1,0 +1,8 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-goplus-locker-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. GoPlus Locker V3 on BSC is the UniV3 LP Locker at 0x25c9C4B56E820e0DEA438b145284F02D9Ca9Bd52 (+ TokenLocker 0xF17A08A7d41F53B24AD07Eb322CBBdA2ebdeC04b). The only reward-paying function collect(lockId,recipient,max0,max1) pays accrued UniV3 LP fees to the lock's own collector but reverts 'Not owner' from a stranger (lock owner/collector only); unlock reverts 'Not lock owner'; everything else is admin or user deposit that pays GoPlus, not the caller. Nothing in the last 7 days was taken by strangers.",
+ "numbers": "7d log scan blocks 132897736-134241736 (269 windows x 5000, 0.45 s blocks): 3 events, all OnLock via lock() by one EOA 0x1be457c63923d394345a4103e9540a3f2d8e89ee (txs 0x4182d8f8..., 0x867230cf..., 0xfd28bb31...); 0 collect, 0 unlock. nextLockId()=4361 lifetime. collect() from fresh addr reverts (eth_call latest); from lock owner it returns non-zero fee amounts for lock 4360. Gas price 0.05 gwei (tx gasPrice 0x2faf080), collect ~150k gas = ~7.5e-6 BNB = ~0.004 USD at BNB $591.80 (coins.llama.fi 2026-11-18). Fee schedule (docs): BNB Chain lock fee 0.12 BNB, LP fee 0.5% LP_ONLY, FEE_DENOMINATOR()=10000.",
+ "bot_id": null
+}

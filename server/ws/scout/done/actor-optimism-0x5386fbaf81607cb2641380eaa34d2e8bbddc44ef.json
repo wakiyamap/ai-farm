@@ -1,0 +1,19 @@
+{
+ "id": "actor-optimism-0x5386fbaf81607cb2641380eaa34d2e8bbddc44ef",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "optimism",
+ "address": "0x5386fbaf81607cb2641380eaa34d2e8bbddc44ef",
+ "run_id": "63418fc4d4524ba4a41a3d37ef8ea5ef",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "HAI OracleJob 0xf4f18205 keeper: executor poked by EOA 0xf8753c24 calls workUpdateCollateralPrice(bytes32) in hourly 5-item batches (VELO,WETH,OP,TBTC,RETH) for 0.05 HAI/item to itself; 12 txs / 44 rewards in ledger window (all 12 sampled; 2/7/3 txs on Nov 10/12/13, 0/day since Nov 14), gross 0.308 USD per batch call, gas median 0.10 USD (range 0.008-0.22, 682k gas at 0.013-0.173 gwei; ETH 1830, HAI 1.234 coins.llama.fi), ~1.76 USD net over 7 d = 0.25/day; open to any caller - farm trial bots on same job are live (leads 211/213), incumbents take it in the first eligible block.",
+  "kb": [
+   "attempts:1568",
+   "actors:224"
+  ],
+  "run_id": "63418fc4d4524ba4a41a3d37ef8ea5ef",
+  "at": 1794887453
+ }
+}

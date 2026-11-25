@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-iotube",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. ioTube's polygon contracts (TokenSafe 0xA239F03C..., TokenList 0xDe9395d2..., Cashier 0xf72CFb70...) have no function anyone can call that pays the caller: TokenSafe's only state-changing fn is mint() onlyOwner, TokenList's are all onlyOwner, Cashier's withdrawToken reverts from a stranger and pause/unpause/setDepositFee are owner fns. The Cashier has been paused since 2024-11-06 (owner tx) and there were 0 transactions on all three contracts in the last 7 days; settlement is done by the centralized owner which pays its own gas.",
+  "numbers": "TVL 267,833 USD (candidate, DefiLlama). 7-day txs: 0 on all 3 contracts (polygon.blockscout.com /api/v2 addresses/*/transactions 2026-11-19; newest items 2026-10-03 contract-origin transfer, 2024-11-06 pause, 2021-06-02 deploy). paused()=true, owner=0x87e2d48de6cc2029ffc1a915462e4aa597890cd6 (eth_call via relay). getActiveItems(0,2) count=2 (WMATIC, WETH) (eth_call)."
+}

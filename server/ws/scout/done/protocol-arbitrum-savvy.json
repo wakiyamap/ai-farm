@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-savvy",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1237,
+ "chain": "arbitrum",
+ "slug": "savvy",
+ "name": "Savvy",
+ "category": "CDP",
+ "tvl_usd": 129098,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1237,
+ "run_id": "57d2d3361eaa41acbf0b0cf3700184c1",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Savvy (arbitrum, TVL 129k USD): harvest on SavvyPositionManager 0x36358a15...4eda and swap/flushToAmo/burnCredit on SavvySage 0x78a370c3... are _onlyKeeper (eth_call harvest from fresh addr reverts SVY214 SPM_UNAUTHORIZED_KEEPER); even harvest pays protocolFeeReceiver+sage, not the caller; 0 txs in last 7 days on all 3 PMs + sage (last 2026-11-07, explorer txs).",
+  "kb": [
+   "attempts:2287"
+  ],
+  "run_id": "57d2d3361eaa41acbf0b0cf3700184c1",
+  "at": 1795043585
+ }
+}

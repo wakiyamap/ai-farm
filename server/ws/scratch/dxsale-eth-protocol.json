@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "dxsale",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/dxsale (config.js 2026-11-21) ethereum set, all 5 confirmed live via rpc.py eth_getCode (non-0x) + getter eth_calls: DxLocker V3 0x1Ba00C14F9E8D1113028a14507F1394Dc9310fbD (lockerNumberOpen()=37), 0xe74083baFE69cd74519C6a40a3Ad0723BD360BDD (=7), 0xc68C522682614A9F1D336f756c0C0D71352925D3 (=149); LockerV3.3 storage tokenStorage 0x983b00a2C3d8925cEDfC9f3eb5Df1aE121Ff6B9F (lockerIDCount()=154), lpStorage 0xFEE2A3f4329e9A1828F46927bD424DB2C1624985 (=303). None verified on explorer (Blockscout eth: no verified source, Etherscan not_on_plan); selectors extracted from deployed bytecode (15/22/22/23/27 per contract) match only locker self-service + ownership functions (lockerNumberOpen 65057350, UserLockerCount c7450462, DXLOCKERLP ae4f4df1, unlockToken dd2e0ac0, AllLockRecord 1e330895, lockerIDCount 2247b817, owner/renounce/transferOwnership); no claim/reward/harvest-style selector matched. Same locker family already dead-ended on bsc (2457), arbitrum (2455), base (2456). TVL 472,349 USD is locked LP/tokens, not a reward pool."
+}

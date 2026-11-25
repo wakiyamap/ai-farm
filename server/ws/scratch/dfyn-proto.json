@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "dfyn_network",
+ "status": "dead_end",
+ "checked": "UniV2 fork (DefiLlama forkedFrom UniswapV2, repo dfyn/dfyn-exchange = stock UniswapV2Factory/Router02). Factory 0xE7Fb3e833eFE5F9c441105EB65Ef8b261266423B (from dfyn-sdk src/constants.ts, MATIC slot): eth_getCode non-empty, allPairsLength()=1789 (block 97634315), explorer ABI = stock UniV2Factory (setFeeTo/setFeeToSetter owner-gated). Router 0xA102072A4C07F06EC3B4900FDC4C7B80b6c57429: getCode non-empty, factory()=0xE7Fb.., WETH()=0x4c28f48448720e9000907BC2611F73022fdcE1fA (symbol WETH, 18 dec), ABI = stock Router02 + executeMetaTransaction, no reward fn. Farms = Synthetix-style StakingRewards (dfyn/dual-farm repo, address list in dfyn/dfyn-farms-info): getReward() transfers _msgSender()s OWN accrued rewards; eth_call getReward() from fresh addr 0xFe1d.. returns without revert (pays 0), earned(fresh,DFYN)=0 via 0x211dc32d; notifyRewardAmount is onlyRewardsDistribution. Sample farm 0x0656Bd61A18Fd8E4bd48F90e41D043CdfEc96aE0 RewardPaid logs last 7d (from 97231115) = [], control DFYN Token Transfers same window returns logs. TVL 335k USD."
+}

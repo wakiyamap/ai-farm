@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "address": "0x555ce236c0220695b68341bc48c68d52210cc35b",
+ "strategy": "deBridge DLN cross-chain intent filler: takes orders permissionlessly, pays the destination chain from its own inventory, then collects the source-chain unlock (ClaimedOrderV1 on DLN 0xef4fb24ad0916217251f553c0596f8edc630eb66). 1,739 claims / 7 d on ethereum, 312.85 ETH give-side principal (~1.03M USD at 3,300 USD/ETH). Class C by shape, same as the Across relayers census card: multi-chain USDC inventory, the fill->claim lag leaves capital outside one transaction (L cannot be enforced) and the gate has no moving-funds mechanism yet.",
+ "evidence": "ledger query (0 relay CU): source_id=debridge_dln.claimed_unlock, actor=0x555ce236c0220695b68341bc48c68d52210cc35b, ts > now-7d: n=1739, sum(give_amount)=312.8532 ETH, avg 0.1799 ETH, max 99.9219 ETH (100-ETH outlier); sample batch claim tx 0x3c5aac88d467f9653ee3733b13e04120ce429fb92d850e1c8e42e0631dc7385a (block 26419139, three orders, give_token native ETH); second claimer 0x2cc24b8f7a63d0ff808540a5dd86cb0f8285cafa 16 claims/7d; ledger source debridge_dln.claimed_unlock is the 3rd-most-active ethereum source in 7 d (1,835 events)"
+}

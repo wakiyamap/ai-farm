@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-circle-gateway",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 141,
+ "chain": "ethereum",
+ "slug": "circle-gateway",
+ "name": "Circle Gateway",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 56685128,
+ "url": "https://www.circle.com/gateway",
+ "github": null,
+ "listed_days_ago": 141,
+ "run_id": "6595d700099d4679840fc6b2a13a1962",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No public function pays the caller: 7d (blocks 26,406,239-26,456,639) gatewayMint 3,784 txs / 66.63M USDC minted, gatewayBurn 281 txs / 5.69M USDC burned, all by Circle operator EOAs (0x9caab037.., 0xa19c1e89.., 0x5cf6f78f..) paying their own gas (~135-177k gas, ~bash.1-0.7 at ETH 1731 USD); the 543 USDC of 7d burn fees go to Circle feeRecipient 0xfbaf3a19b1c02b8bef52a7e9fa855c86c69ab95c, not to callers; wallet 0x77777777Dcc4d5A8B6E418Fd04D8997ef11000eE holds 56.81M USDC = TVL.",
+  "kb": [
+   "attempts:2926",
+   "protocols:1341"
+  ],
+  "run_id": "6595d700099d4679840fc6b2a13a1962",
+  "at": 1795182334
+ }
+}

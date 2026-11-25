@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-accountable",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 347,
+ "chain": "arbitrum",
+ "slug": "accountable",
+ "name": "Accountable",
+ "category": "Uncollateralized Lending",
+ "tvl_usd": 470777,
+ "url": "https://accountable.capital/",
+ "github": null,
+ "listed_days_ago": 347,
+ "run_id": "6de4f72fc6364ea7a2f60799979b1e22",
+ "result": {
+  "verdict": "unpaid",
+  "line": "1 strategy on arbitrum (proxy 0x12dfb1..4659 AccountableOpenTerm, vault 0x9fe29a..3e85 USDC, 547,321 USDC, loan OngoingDynamic); anyone-callable accrueInterest/updateLateStatus/processAvailableWithdrawals pay caller $0 (fees mint to manager 0xd85e704a, rewards distributor 0x0); 7d: 28 accrueInterest + 7 processAvailableWithdrawals, all by keeper 0x185a0d7a (0 vault shares), gas $0.0046/call at ETH $1819.30 (coins.llama.fi); rest role-gated (onlyBorrower/DVN/manager, vault onlyAuth whitelist).",
+  "kb": [
+   "attempts:1757"
+  ],
+  "run_id": "6de4f72fc6364ea7a2f60799979b1e22",
+  "at": 1794926412
+ }
+}

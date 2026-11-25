@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-zoo-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 644,
+ "chain": "bsc",
+ "slug": "zoo-finance",
+ "name": "Zoo Finance",
+ "category": "Yield",
+ "tvl_usd": 13335725,
+ "url": "https://zoofi.io",
+ "github": null,
+ "listed_days_ago": 644,
+ "run_id": "08b549e2424b4f96b351f89e7bbd34eb",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Zoo Finance BSC LVT (FIL/VT Uniswap v4 pool, vault 0xebf1039d, impl 0xd3be6f86): buyback(uint256)/burnVestingTokens(uint256) revert 'Caller not authorized' from a fresh address (eth_call at 134253122), deposit/redeem pay 0 to caller; 7d activity: VT Transfer 0 logs over 121x5000-block windows, vault events 0 over 14 sampled windows (control FIL token 274 logs/window), TVL 3.3M idle, gas 0.05 gwei x 150k = bash.0044 at BNB 92.22 (coins.llama.fi)",
+  "kb": [
+   "attempts:2007",
+   "protocols:603"
+  ],
+  "run_id": "08b549e2424b4f96b351f89e7bbd34eb",
+  "at": 1794979398
+ }
+}

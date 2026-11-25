@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-uniswap-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "optimism",
+ "slug": "uniswap-v2",
+ "name": "Uniswap V2",
+ "category": "Dexs",
+ "tvl_usd": 179610,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "4df1228f67b745e292c6552c79934b45",
+ "result": {
+  "verdict": "unpaid",
+  "line": "canonical Uniswap V2 core (factory 0x0c3c1c53...74Bf, 13,460 pairs, priced TVL $120,923) has one open pay-a-recipient call, Pair.skim(address) (eth_call from a fresh addr returns 0x, not role-gated); pot census of the top 300 of 13,460 pairs (99.9% of TVL) max $0.000015; Skim 0 events in 7 d and 0 in 30 d on the top 32 pairs against the control Swap 6,611 / Mint 9 / Burn 3 in 7 d; gas <$0.02 (gasPrice 1,000,656 wei, ~40k gas, ETH $1,799.47 coins.llama.fi).",
+  "kb": [
+   "attempts:2411",
+   "protocols:941"
+  ],
+  "run_id": "4df1228f67b745e292c6552c79934b45",
+  "at": 1795069649
+ }
+}

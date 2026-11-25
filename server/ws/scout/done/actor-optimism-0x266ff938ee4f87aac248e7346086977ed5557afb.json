@@ -1,0 +1,19 @@
+{
+ "id": "actor-optimism-0x266ff938ee4f87aac248e7346086977ed5557afb",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "optimism",
+ "address": "0x266ff938ee4f87aac248e7346086977ed5557afb",
+ "run_id": "7cd9f582abff462eb010632f803bb687",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Naive hourly EOA poke on HAI OracleJob 0xf4f18205 workUpdateCollateralPrice('RETH') on optimism: 148 calls / 7 d (nonce delta), 1 reward of 0.05 HAI = 0.060 USD (HAI 1.2073 coins.llama.fi ts 1795363670) = 0.009 USD/day gross vs 0.05 USD/day gas (measured 2.9e-5 ETH/day, 145k gas failed / 249k success) - net ~-0.04 USD/day; the job paid 3108 x 0.05 HAI Rewarded events in 7 d (blocks 159584146-159886546, topic0 from receipt) to 17 addresses, top 4 take 92.5%; no auth on the work fn, so a fresh caller is paid too; lead already measured (protocols:277, leads 211/212/213/251).",
+  "kb": [
+   "attempts:3813",
+   "actors:368"
+  ],
+  "run_id": "7cd9f582abff462eb010632f803bb687",
+  "at": 1795372855
+ }
+}

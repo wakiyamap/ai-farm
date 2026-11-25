@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-defibox",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "defibox",
+ "name": "DefiBox",
+ "category": "Dexs",
+ "tvl_usd": 43012,
+ "url": "https://defibox.io",
+ "github": [
+  "DefiboxTeam"
+ ],
+ "listed_days_ago": null,
+ "run_id": "67e05452b7714f59a91a394dfff094c3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "skim type (S): bsc DefiBox = 1 UniV2 factory 0xDB984fd8371d07db9cBf4A48Eb9676b09B12161D + 44 pairs, no claim/reward fn (Sourcify ABI; setFeeTo/Setter gated, feeTo 0x6f0cb0f5.. is EOA); only stranger-callable payer is pair skim(address): no revert from a fresh address on all 9 active pairs, 59,524 gas = 0.017 USD, pays 0 (balance == reserves on 8 of 9; 9th holds 43.453 unpriced 0xb3670f91..); 1,667 swaps / 7 d on 9 of 44 pairs (blocks 133948606-135292047, control 3,340 logs), ~3,563 USD stable-side volume / 7 d, TVL 43,012 USD.",
+  "kb": [
+   "attempts:4138",
+   "protocols:2259"
+  ],
+  "run_id": "67e05452b7714f59a91a394dfff094c3",
+  "at": 1795447089
+ }
+}

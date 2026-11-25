@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "sushiswap",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/sushiswap/api.js: ethereum tvl = subgraph totalLiquidityUSD of the original V2 factory 0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac (candidate $16.4M = LP reserves) + staking xSUSHI SushiBar 0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272. eth_getCode non-empty for both; eth_call getters answer: feeTo()=0x1d2af2b99e253b68d72c76484dd88ffb0ace158c, feeToSetter()=0x19b3eb3af5d93b77a5619b047de0eed7115a19e7, allPairsLength()=4822 (2026-11-22). Etherscan-verified UniswapV2Factory.sol (solc 0.6.12): only createPair is public non-view (no payout in its body); setFeeTo/setMigrator/setFeeToSetter require msg.sender==feeToSetter ('UniswapV2: FORBIDDEN'). Pairs standard V2: 0.25% fees accrue as LP minted to feeTo inside mint(); skim(address) sweeps balance-over-reserve donation dust to any recipient, not a fee payout; no harvest/claim/distribute fn. feeTo = SLPChwomper (Blockscout-verified, solc 0.8.20): all state-changing fns onlyTrusted or onlyOwner (snwap, snwapMultiple, unwind, wrapEth / withdraw, doAction, setTrusted, updateRedSnwapper) - internal fee sweeper, pays no caller. SushiBar source: only enter/leave (accrual staking, no fn pays a caller). Same conclusion as sibling-chain sushiswap rows (arbitrum:1109, base:1153, bsc:1209, polygon:1272)."
+}

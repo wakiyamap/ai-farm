@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-aarna-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 643,
+ "chain": "ethereum",
+ "slug": "aarna-protocol",
+ "name": "Aarna Protocol",
+ "category": "Yield",
+ "tvl_usd": 111370,
+ "url": "https://www.aarna.ai",
+ "github": null,
+ "listed_days_ago": 643,
+ "run_id": "073c3e29c9514339ac47804377d6d0da",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: the only fee-bearing fn (AtvManager.rebalance, pays fee to msg.sender) requires rebalanceController 0x980d9fbb (fresh-addr eth_call reverts AB30 updatePoolData / AB32 pauseUnpauseDeposit / 0xd7fed6bd settleQueue); only stranger-callable fn updateTVL() pays 0 (gas 148,739 = 0.027 USD @ 0.11 gwei, ETH 1620 USD); 1 tx total in 7d (26409824-26460080, user approve on ATV-111) across 4 vaults + 3 managers, nobody paid; TVL 111370 USD",
+  "kb": [
+   "attempts:3127",
+   "protocols:1497"
+  ],
+  "run_id": "073c3e29c9514339ac47804377d6d0da",
+  "at": 1795224016
+ }
+}

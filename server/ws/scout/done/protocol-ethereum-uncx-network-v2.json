@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-uncx-network-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1647,
+ "chain": "ethereum",
+ "slug": "uncx-network-v2",
+ "name": "UNCX Network V2",
+ "category": "Token Locker",
+ "tvl_usd": 70916635,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 1647,
+ "run_id": "ffe2423b6c7a45a182c2f1a39bd515f5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "5 Unicrypt V2 LP lockers (0x663a..db214, 0xed91..d8ab, 0x17e0..8449, 0x59d7..c7fb, 0xd948..be98); every payout fn (withdraw/relock/splitLock/migrate/claimFees) needs lock.owner==msg.sender (fresh-addr eth_call reverts NOT OWNER/LOCK MISMATCH; owner control passes) and pays owner's own LP back. 7d blocks 26415186-26465440 (ts 1794682971-1795287755): 12 events = 11 owner withdraws (11 distinct EOAs) + 1 new lock; gross to a stranger 0 USD; withdraw gas ~79.4k @2.1 gwei = ~0.28 USD (ETH 1680.97 coins.llama.fi ts 1795287901); LP tokens unpriced memecoin pairs.",
+  "kb": [
+   "attempts:3440",
+   "protocols:1729"
+  ],
+  "run_id": "ffe2423b6c7a45a182c2f1a39bd515f5",
+  "at": 1795288717
+ }
+}

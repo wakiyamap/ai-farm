@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-bitfi-basis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 640,
+ "chain": "bsc",
+ "slug": "bitfi-basis",
+ "name": "BitFi Basis",
+ "category": "Basis Trading",
+ "tvl_usd": 91318709,
+ "url": "https://www.bitfi.one",
+ "github": null,
+ "listed_days_ago": 640,
+ "run_id": "f78b47ec00fb433ab7bef93b2c6eac08",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BitFi Basis on BSC = bfBTC LayerZero OFT wrapper only (proxy 0x623F..d9DF, 1260 bfBTC ~1M): keeper fns updateEpoch/approveWithdraw revert NotMultiSig from a stranger, called 3x/7d by protocol EOA 0x4cb5..e662 via Safe 0x1eb1..dd03, pay bash, gas bash.0039; 7d (blocks 132,909,296-134,250,782): EpochUpdated 3, WithdrawRequest 1 (bash.71 bfBTC), Deposit/Claimed/OFT 0 \u2014 nothing to earn, yield is off-chain at Ceffu.",
+  "kb": [
+   "attempts:2001",
+   "protocols:599"
+  ],
+  "run_id": "f78b47ec00fb433ab7bef93b2c6eac08",
+  "at": 1794978127
+ }
+}

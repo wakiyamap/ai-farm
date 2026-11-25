@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-lista-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Lista DEX on ethereum = Moolah smart-lending collateral pools only: 7 Curve-style StableSwapPool proxies + 3 Uniswap-V3-fork ListaV3Pool. The DEX pools themselves have no anyone-pays-caller keeper function. V3 pools are active (8363 Swap events in 7d, mostly USDC/USDT 0xdcf7612f) but every Swap is an ordinary swapper/router, not a keeper payout. StableSwapPool has no exchange fee to caller and withdraw_admin_fees is onlyRole(MANAGER). The PublicLiquidator (flashLiquidate, external, pays loanToken profit to msg.sender with NoProfit revert) is idle: 0 events in 7d and 0 in ~27d, and its isLiquidatable gate requires the Moolah market to already be liquidation-whitelisted. Same verdict as bsc lista_dex (protocols:385) and ethereum lista_lending (protocols:51).",
+ "numbers": "TVL 731,818 USD (candidate); 21 active ethereum smart-lending markets from api.lista.org marketList -> 10 unique swapPools (7 StableSwapPool proxies, 3 ListaV3Pool). 7d no-topic eth_getLogs on all 10 pools (26406204-latest, control = same shape 8537 logs): Swap(topic0 c42079f9) 8363, Burn 80, Collect 63, Mint 29, RemoveLiquidity 2; topics from receipts. StableSwapPool proxies ~0 activity. PublicLiquidator 0x29ff57f7ef036e8022c4b5ff52da6b0e5a937c26: 0 events 7d, 0 events ~27d (26261976-latest). Gas eth_gasPrice 9.9 gwei, ETH $1682.09 (coins.llama.fi 2026-11-20 15:2xZ): 200k swap ~$3.3, 500k flashLiquidate ~$8.3. protocols:1366"
+}

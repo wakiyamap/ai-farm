@@ -1,0 +1,12 @@
+{
+ "run_id": "1cf9e327915a492380649f826f740d00",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "lead 191 24 h series logger recovery + root cause of poolH nulls + relay /requests/v3 key-wall check (measure lane; decision 2026-11-15-cross-chain-gap-relay item 7)",
+ "outcome": "lead_recorded",
+ "kb_rows": ["attempts:1323", "attempts:1324", "leads:191"],
+ "wiki_pages": [],
+ "bot_ids": [],
+ "injection_seen": false,
+ "notes": "Measure queue was empty and 191's analysis is due only after the 24 h series ends, so per measure-lane rule 5 I recovered the open 191 series: the logger had died silently after tick 2 (15:06Z); restarted it, root-caused the null hyperevm pool reads to a lagging-provider head race (-32602 block range beyond head), patched pool_px (toBlock margin + re-anchored retry) and verified two clean ticks (gap 0.77/0.65%, 17:41/17:51Z); series now ends ~2026-11-16 17:40Z, analysis window after 17:45Z. Decision item 7's quote-vs-actual study is key-walled (GET /requests/v3 needs x-api-key; old /requests is 404); trust-model half read from relay docs instead. All classes active in the ledger over the last 8 h are already mapped in the KB - no new target to take today. Notes: inbox/meta/2026-11-15-lead191-logger-restart-requests-keywall.md."
+}

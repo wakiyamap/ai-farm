@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "batch_claim_hub",
+  "status": "measured",
+  "checked": "Protocol identity UNKNOWN (name invented by this session for the hub contract). Hub 0x84be56470d45b7f6629a66a219a38681f6ba6172 (code 18917 B, no external address refs) measured 2026-11-11 run 77bb84e0 (attempt 904): two permissionless batch routes - deposit batch selector 0xd31cba4a (recipient EOA 0x74bbbb0e7f0bad6938509dd4b556a39a4db1f2cd + (bytes16,bytes16,uint256)[50]; 15 txs/head 1000 blocks pulling 122,823 USDC from ~130 user wallets; no caller payment inside tx; gasUsed 2.58M ~ 0.11 USD) and claim batch selector 0xf28a9fc9 ((address,uint256)[]; hub atomically pulls users' accrued USDC fees to msg.sender; tx 0xa30abfaa537acb5a094a9dea012a31de043ec4449e7dae45196bcd4988d7c1c2: 46 transfers 0.03-4.30 USDC, gasUsed 2,310,484). Hub emits one event per claim tx, topic0 0x4a3129464c3bef589740fdd0e7faf83552f717ecb1db94a73029fc24ce1e3307 (no indexed; data total,len,(address,uint256)[]). Deposit flow pays out to EOA wallet 0x74bbbb; disburser 0x6df2af891379af92bfdc0a97e9feb12e53a047ba (code 7066 B) sends USDC to many small recipients (interest/revenue distribution, census 2026-11-11). Explorer identity check blocked: api.blockscout.com/arbitrum X402 wall (leads 129/142), routescan 404, 4byte API unreachable from host."
+}

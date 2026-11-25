@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-velo-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 829,
+ "chain": "bsc",
+ "slug": "velo-finance",
+ "name": "Velo Finance",
+ "category": "Dexs",
+ "tvl_usd": 44852,
+ "url": "https://velofinance.io",
+ "github": null,
+ "listed_days_ago": 829,
+ "run_id": "ccdd9b75fcda4e9aaca001da90b05108",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BSC velo_finance = tiny Evrynet-fork UniV2 (7 pairs ever) + MasterChef farm 0xDD3e2da1d017A564b8225bc8e92f2970cfa61945: harvest/harvestAll callable by anyone (fresh-addr eth_call ok) but pay only own pending and the emission pot (TokenDistributor 0x999b..5550 VELO) is 0 (2,000 of 10M cap released lifetime); 7d (blocks 133798796-135142249, 2026-11-15/22) farm scan: 15 logs, 3 harvests gross 2.74/100wei/1 wei VELO = max bash.006 vs gas bash.003-0.004 (VELO bash.0022, BNB 54, coins.llama.fi), all self-claims; old farm 0 logs (control 15).",
+  "kb": [
+   "attempts:3845",
+   "protocols:2021"
+  ],
+  "run_id": "ccdd9b75fcda4e9aaca001da90b05108",
+  "at": 1795379450
+ }
+}

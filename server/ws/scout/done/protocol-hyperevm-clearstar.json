@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-clearstar",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "hyperevm",
+ "slug": "clearstar",
+ "name": "Clearstar",
+ "category": "Risk Curators",
+ "tvl_usd": 1252066,
+ "url": "https://clearstar.xyz",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "6a3c6a3421d348bdab118087557c67f7",
+ "result": {
+  "verdict": "not_found",
+  "line": "No Clearstar contracts on hyperevm: DefiLlama's only address (eulerVaultOwner 0x6539519E69343535a2aF6583D9BAE3AD74c6A293) is an EOA (eth_getCode 0x at block 51,548,933, controls non-zero); the $1.28M TVL is Euler v2 vaults it curates (Clearstar Earn USDC $137.6k + HYPE $23.7k of 60 vaults at factory 0xcF55...273A) whose only public fn touch() pays the caller nothing and fee fns are owner-gated (pay the curator); EOA made 0 tx in the last 7 days (last 2026-10-25).",
+  "kb": [
+   "attempts:1915",
+   "protocols:536"
+  ],
+  "run_id": "6a3c6a3421d348bdab118087557c67f7",
+  "at": 1794959496
+ }
+}

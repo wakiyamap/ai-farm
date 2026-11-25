@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-ring-few",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 989,
+ "chain": "bsc",
+ "slug": "ring-few",
+ "name": "Ring Few",
+ "category": "Bridge",
+ "tvl_usd": 2357923,
+ "url": "https://ring.exchange/#/earn",
+ "github": null,
+ "listed_days_ago": 989,
+ "run_id": "c803cb94f471433aaef42fb7ac4e39ac",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Ring Few BSC is a pure 1:1 wrapper (factory 0xEeE4..72CD, 59 wrapped tokens; source RingProtocol/few-factory matches deployed dispatchers): open createToken/wrap/unwrap pay the caller 0 (createToken costs ~1.2M gas ~= 0.00006 BNB ~= $0.035 at 0.05 gwei x BNB $579.70), mint/burnFrom are core minter/burner role-gated; no claim/reward/harvest function; WrappedTokenCreated 0 in 12x5000-block sample of last 7 days (control blocked by scout lane budget).",
+  "kb": [
+   "attempts:2200"
+  ],
+  "run_id": "c803cb94f471433aaef42fb7ac4e39ac",
+  "at": 1795021745
+ }
+}

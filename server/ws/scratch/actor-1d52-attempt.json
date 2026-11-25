@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "actor-arbitrum-0x1d52f9dc2bbee56fc81a70247c2b93030285c3b7",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers: the candidate is a UniswapX V3-Dutch filler (executor contract called by gas-EOA 0x6ce9efddac8e3a97d55cad8028c4693893ac8571 via execute(address,tuple,bytes) 0x4c067550). It fills public user orders on V3DutchOrderReactor 0xb274d5f4b833b61b340b654d600a864fb604a87c and keeps the spread; at least 3 other filler addresses win fills on the same reactor, so a fresh address quoting the same would be paid too. Small scale: ~2 fills/day, ~$0.70/fill.",
+  "numbers": "20 fills in 7d = 2.9/day (eth_getLogs Executed topic2=filler, blocks 522783818-524861943); 16 distinct swappers; mean gross spread $0.70/fill (sample of 10 of 20 receipts, range $0.00-$1.94, tokens valued at coins.llama.fi 2026-11-16: ETH $1826, MSTRx $102.9, GOOGLx $284.3); gas ~350-410k gas @ ~0.021 gwei = ~$0.017/call; est net ~$2/day; 1 FAILED tx in last ~25 (revert = gas lost); reactor total flow ~130 fills/day all-fillers (control: 9 Executed in last 20k blocks, 3 other fillers)."
+}

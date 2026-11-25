@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "paraspace_lending_v1",
+  "status": "unmeasured",
+  "checked": "DefiLlama module paraspace/index.js and helper/address.js identify UiPoolDataProvider 0x30E6C173Ff3958a6629258C71Bd161e70BEe0e6D and PoolAddressProvider 0x6cD30e716ADbE47dADf7319f6F2FB83d507c857d. Both have code; provider getPool() returns code-bearing proxy 0x638a98bbb92a7582d07c52ff407d49664dc8b3ee; pool getReservesList() answers. Verified explorer source and parallel-finance/paraspace-core PoolApeStaking.sol / ApeStakingLogic.sol show public unstakeApePositionAndRepay, which can pay APE incentive to a non-owner caller if the position is unhealthy. Fresh-address eth_call reaches health-factor revert 45, not a role check. Pool no-topic eth_getLogs across 2026-11-16 21:23 to 2026-11-23 21:23 UTC is empty; USDC Transfer same query shape returns 98 events in one block. Current payable positions and gross/gas per call not established; verdict unclear."
+}

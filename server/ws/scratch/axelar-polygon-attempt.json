@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-axelar",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the gateway's open-to-anyone function execute(bytes) pays the caller 0 on polygon - 342 Executed events / 321 txs in 7 days all submitted by 7 repeat processor EOAs (0x2102c32a09cbced4146c3db2d27ae21a185bda43, 0xc77820eef59629fc8d88154977bc8de8a1b2f4ae - same Amplifier processors as arbitrum attempts:2390 - plus 0xb2883794..., 0x26ff5778..., 0xdc4bf782..., 0x51a3c407..., 0x8dbee8f3...), value 0 and 0 ERC20 Transfers to caller in 5 sampled receipts. The only pot, AxelarGasService (55.56 POL, $4.5), pays its collector role, not strangers (collectFees from a stranger eth_call reverts, source onlyCollector). Processors are paid in AXL on the Axelar consensus chain. Matches base (2395), bsc (2396), arbitrum (2390), optimism (2398).",
+  "numbers": "Executed(bytes32) topic0 0xa74c8847d513feba22a0f0cb38d53081abf97562cdb293926ba243689e7c41ca; eth_getLogs gateway 0x6f015F16De9fC8791b234eF68D486d2bF203FBA8 blocks 97200082-97603382 (7d, 1.5s blocks): 342 logs / 321 txs; sample of 10 of 321 for callers, 5 receipts for payments. GasUsed 292k-365k/call, effectiveGasPrice ~330 gwei (receipt 0xc5936c4a6084a7f6...) => ~0.099 POL ~ $0.008/call at POL $0.08078 (coins.llama.fi polygon:0x000...000, ts 1795110631). Gateway native balance 2.25 POL ($0.18, no permissionless withdraw); AxelarGasService native balance 55.56 POL ($4.49)."
+}

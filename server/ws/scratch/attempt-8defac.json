@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0x8defac3f807375bc078748f0c2d18d580e333b89",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the EOA moves its own funds and pays itself its own liquidation bonus. It calls only its own self-deployed contracts (0x29281e35 fn cf1f5981, 0x85a9b8a6 fn 86fbb333) plus kHYPE staking ops (approve, queueWithdrawal); a fresh address repeating cf1f5981 would earn nothing since the wrapper routes profit to its owner. Activity is bursty (16 tx all on 2026-11-14 in the last 7 days), the 5 Morpho Blue liquidations that day were dust (repaidAssets 9.9e14 down to 9.9e6 wei WHYPE across decreasing-size attempts, bonus < $0.05 total), 47 of 55 cf1f5981 calls in its history FAILED, and nothing accumulates: EOA holds 0.054 HYPE, both its contracts hold 0 HYPE/WHYPE/kHYPE. It was topped up 0.0687 HYPE by 0x56c26202 on 11-14 - a person funding gas, not a protocol paying a keeper.",
+  "numbers": "7d: 16 outgoing tx (all 2026-11-14), ~2.3/day counted over 7 days; 5 Morpho liquidations (sample of 5 of 5, ledger morpho_blue.liquidate_hyperevm), gross bonus < $0.05/tx (dust repay 0.00001-0.001 WHYPE); gas/call 277,205 gas x 0.8017 gwei = 0.000222 HYPE = $0.015 (HYPE $69.00 coins.llama.fi coingecko:hyperliquid 2026-11-17); est net 7d ~= -$0.24 (16 x $0.015 gas vs dust gains); est_profit_usd_day ~ 0"
+}

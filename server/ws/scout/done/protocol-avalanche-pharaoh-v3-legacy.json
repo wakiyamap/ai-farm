@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-pharaoh-v3-legacy",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 399,
+ "chain": "avalanche",
+ "slug": "pharaoh-v3-legacy",
+ "name": "Pharaoh V3 Legacy",
+ "category": "Dexs",
+ "tvl_usd": 1172110,
+ "url": "https://www.phar.gg/",
+ "github": null,
+ "listed_days_ago": 399,
+ "run_id": "ffcc7842ef21499d8681734159d6bd0c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Keeper fns Voter.distribute/distributeAll + Minter.updatePeriodAndRebase are permissionless (eth_call from fresh addr ok) but pay caller 0: emissions (4.65M PHAR/wk = ~186k USD at 0.04 USD, coins.llama.fi) go to gauges only, no incentive() in Minter; 30d: distribute x48 + distributeAll x1 + batch x1 by EOAs 0x8068e05d, 0x84d0f74d paying own gas (~0.13 USD/distribute at 38 gwei, AVAX 7.02; distributeAll 9.77M gas = 0.51 USD, txs 0x2e3646dc, 0x78ae6f77); 7d claims (claimClGaugeRewards x63 etc., control 339 txs same query) pay only LP/veNFT holders.",
+  "kb": [
+   "attempts:1797",
+   "protocols:451"
+  ],
+  "run_id": "ffcc7842ef21499d8681734159d6bd0c",
+  "at": 1794935174
+ }
+}

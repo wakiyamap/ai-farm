@@ -1,0 +1,12 @@
+{
+  "run_id": "ff20cb95d2814e0c92f5e5d083fc239c",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-base-quickswap-v4",
+  "outcome": "scouted",
+  "kb_rows": ["attempts:1837", "protocols:477"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "unpaid: Algebra-style UniV3 fork on base (factory 0xC5396866754799B9720125B104AE01d935Ab9C7b, 25 pools, TVL 1,555,158 USD) has no reward/claim/harvest/liquidation function in factory, pool, 405-byte plugin stub or community vault; the only public payer is pool.skim() and its pot is empty (stranger eth_call reverts 0x932984d2) against gas 0.0006 USD (0.006 gwei, ETH 1785 USD); community-vault withdraw is COMMUNITY_FEE_WITHDRAWER_ROLE-gated. 7-day skim count not measured (base public node caps eth_getLogs at 50,000 blocks, about 2.8 h at 0.2 s blocks)."
+}

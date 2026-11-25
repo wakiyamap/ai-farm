@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-aero-slipstream",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 60,
+ "chain": "ethereum",
+ "slug": "aero-slipstream",
+ "name": "Aero Slipstream",
+ "category": "Dexs",
+ "tvl_usd": 13276224,
+ "url": "https://aero.xyz/",
+ "github": null,
+ "listed_days_ago": 60,
+ "run_id": "a438569e246c4325b34da0e9b1deb6a1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "CLFactory 0xF4Fd2E6c..414c2 (120 pools, verified); only permissionless callables LeafVoter.settleGauge + VRM.advanceGlobalPoints pay 0 (fresh-0x1111 eth_call ok, 87,875 gas = 0.02 USD at 0.1318 gwei, WETH 1753.11 coins.llama.fi 2026-11-20 11:07 UTC); fund movers role-gated: pool.collectFees reverts NG (gauge-only), gauge.collectFees reverts NVRM (VRM-only), 25 ClaimFees/7d pay VRM (sample 487 USDC + 0.234 WETH); 7d scan sample gauge = 22,594 logs, EmissionsClaimed 4,462 all recipient==account LPs; mirrors arbitrum/optimism/elysium unpaid.",
+  "kb": [
+   "attempts:2880",
+   "protocols:1300"
+  ],
+  "run_id": "a438569e246c4325b34da0e9b1deb6a1",
+  "at": 1795173149
+ }
+}

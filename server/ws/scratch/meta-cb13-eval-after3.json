@@ -1,0 +1,1363 @@
+[
+ {
+  "q": "relay getLogs response too large dense logs base",
+  "page": "infra/base-relay-dense-logs.md",
+  "rank": 3,
+  "got": [
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/relay-reference.md",
+   "infra/base-relay-dense-logs.md",
+   "infra/beefy-harvest-rewards.md",
+   "pitfalls/getlogs-startup-crashloop.md"
+  ]
+ },
+ {
+  "q": "cbBTC morpho discovery truncated logs",
+  "page": "infra/base-relay-dense-logs.md",
+  "rank": 1,
+  "got": [
+   "infra/base-relay-dense-logs.md",
+   "pitfalls/getlogs-startup-crashloop.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "pitfalls/aave-activity-window-coverage.md",
+   "pitfalls/moonwell-whale-whale-capture-classes.md"
+  ]
+ },
+ {
+  "q": "curve pegkeeper reward keeper",
+  "page": "infra/curve-pegkeeper-rewards.md",
+  "rank": 1,
+  "got": [
+   "infra/curve-pegkeeper-rewards.md",
+   "infra/ledger-agent-sources.md",
+   "infra/convex-harvest-mower-scout.md",
+   "pitfalls/curve-dao-minter-pokes-no-caller-reward.md",
+   "infra/curve-fee-collector-forward.md"
+  ]
+ },
+ {
+  "q": "crvUSD peg keeper update profit",
+  "page": "infra/curve-pegkeeper-rewards.md",
+  "rank": 1,
+  "got": [
+   "infra/curve-pegkeeper-rewards.md",
+   "infra/ledger-agent-sources.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "infra/llamalend-crvusd-loans.md",
+   "infra/curve-fee-collector-forward.md"
+  ]
+ },
+ {
+  "q": "base contract addresses selectors",
+  "page": "infra/farm-base-contracts.md",
+  "rank": 1,
+  "got": [
+   "infra/farm-base-contracts.md",
+   "infra/reserve-revenue-auctions.md",
+   "infra/uniswap-fee-releaser.md",
+   "infra/convex-harvest-mower-scout.md",
+   "mechanisms/sparklend-liquidation-new-aave.md"
+  ]
+ },
+ {
+  "q": "which selectors work on base pool oracle",
+  "page": "infra/farm-base-contracts.md",
+  "rank": 1,
+  "got": [
+   "infra/farm-base-contracts.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "infra/reserve-revenue-auctions.md",
+   "infra/uniswap-fee-releaser.md"
+  ]
+ },
+ {
+  "q": "catchable window interest bleed oracle update",
+  "page": "methods/aave-v3-catchable-window-probe.md",
+  "rank": 1,
+  "got": [
+   "methods/aave-v3-catchable-window-probe.md",
+   "mechanisms/morpho-ethereum-pinned-market-census.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "mechanisms/compound-v3-absorb-ethereum.md"
+  ]
+ },
+ {
+  "q": "liquidatable at parent block probe",
+  "page": "methods/aave-v3-catchable-window-probe.md",
+  "rank": 5,
+  "got": [
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "methods/keeper-calldata-replay-probe.md",
+   "pitfalls/ethereum-deprecated-v2-pools.md",
+   "methods/aave-v3-catchable-window-probe.md"
+  ]
+ },
+ {
+  "q": "uniswap v3 amountSpecified sign exact input",
+  "page": "pitfalls/univ3-direct-pool-swap.md",
+  "rank": 2,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/univ3-direct-pool-swap.md",
+   "mechanisms/uniswapx-v3-dutch-fills.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "mechanisms/morpho-hyperevm-liquidations.md"
+  ]
+ },
+ {
+  "q": "pancake swap fork revert transferFrom flash loan allowance",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/univ3-direct-pool-swap.md",
+   "mechanisms/blur-blend-refinance-auction.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "mechanisms/reserve-dtf-rebalance-auctions.md"
+  ]
+ },
+ {
+  "q": "abi bytes offset calldata too short",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/hyperevm-packable-abi.md",
+   "pitfalls/base-blocks-not-seconds-log-data-offset.md",
+   "infra/farm-base-contracts.md",
+   "methods/find-protocol-addresses.md"
+  ]
+ },
+ {
+  "q": "morpho oracle price scale decimals divisor",
+  "page": "pitfalls/morpho-price-scale-per-market.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/morpho-price-scale-per-market.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "pitfalls/morpho-accrueinterest-stale-oracle-revert.md",
+   "infra/liquidator-census.md"
+  ]
+ },
+ {
+  "q": "WBTC USDC morpho 1e36 price",
+  "page": "pitfalls/morpho-price-scale-per-market.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/morpho-price-scale-per-market.md",
+   "mechanisms/morpho-ethereum-pinned-market-census.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+   "pitfalls/aave-activity-window-coverage.md"
+  ]
+ },
+ {
+  "q": "bot crash loop startup getLogs max results",
+  "page": "pitfalls/getlogs-startup-crashloop.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/getlogs-startup-crashloop.md",
+   "pitfall/getlogs-startup-crashloop.md",
+   "infra/relay-reference.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "pitfalls/live-loss-stop-checklist.md"
+  ]
+ },
+ {
+  "q": "cursor commit after successful scan backoff heartbeat",
+  "page": "pitfalls/getlogs-startup-crashloop.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/getlogs-startup-crashloop.md",
+   "infra/base-relay-dense-logs.md",
+   "infra/beefy-harvest-rewards.md",
+   "infra/reserve-revenue-auctions.md",
+   "infra/sky-maker-auction-coverage.md"
+  ]
+ },
+ {
+  "q": "fork reset by another session",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "infra/relay-reference.md",
+   "infra/reserve-revenue-auctions.md",
+   "pitfalls/fork-reset-fetch-and-block-time.md",
+   "mechanisms/compound-accrue-interest-to-caller.md"
+  ]
+ },
+ {
+  "q": "fork deploy timeout ethereum anvil",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "pitfalls/executor-fork-gotchas.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/fork-proxy-delegatecall-codeless.md",
+   "infra/relay-reference.md"
+  ]
+ },
+ {
+  "q": "fork getStorageAt returns zero no code old block",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "infra/relay-reference.md",
+   "mechanisms/reserve-dtf-rebalance-auctions.md"
+  ]
+ },
+ {
+  "q": "aave executor fork test base gotchas",
+  "page": "pitfalls/aave-executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/aave-executor-fork-gotchas.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "dormant borrower missed liquidation activity window",
+  "page": "pitfalls/aave-activity-window-coverage.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/aave-activity-window-coverage.md",
+   "mechanisms/morpho-ethereum-pinned-market-census.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "infra/liquidator-census.md",
+   "pitfalls/moonwell-whale-whale-capture-classes.md"
+  ]
+ },
+ {
+  "q": "candidate universe eviction cap dormant",
+  "page": "pitfalls/aave-activity-window-coverage.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/aave-activity-window-coverage.md",
+   "methods/aave-v3-catchable-window-probe.md",
+   "mechanisms/morpho-ethereum-pinned-market-census.md",
+   "pitfalls/base-blocks-not-seconds-log-data-offset.md",
+   "methods/find-protocol-addresses.md"
+  ]
+ },
+ {
+  "q": "why paper bot gets fix review blockers",
+  "page": "pitfalls/paper-review-blockers.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/copy-reviewed-fix-to-all-bots.md",
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/live-loss-stop-checklist.md"
+  ]
+ },
+ {
+  "q": "checklist before submitting paper bot",
+  "page": "pitfalls/paper-review-blockers.md",
+  "rank": 3,
+  "got": [
+   "pitfalls/live-loss-stop-checklist.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "infra/relay-reference.md",
+   "mechanisms/base-opstack-fee-anatomy.md"
+  ]
+ },
+ {
+  "q": "paper mode executor simulation state override immutables",
+  "page": "pitfalls/executor-paper-sim-override.md",
+  "rank": 2,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "compound v3 absorb arbitrum",
+  "page": "mechanisms/compound-v3-absorb-arbitrum.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-arbitrum.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "infra/liquidator-census-evidence-2026-11-13.md",
+   "infra/liquidator-census.md",
+   "compound-v3-absorb-arbitrum.md"
+  ]
+ },
+ {
+  "q": "compound absorb ethereum buyCollateral",
+  "page": "mechanisms/compound-v3-absorb-ethereum.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "infra/liquidator-census-evidence-2026-11-13.md",
+   "infra/liquidator-census.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "mechanisms/compound-v3-absorb-arbitrum.md"
+  ]
+ },
+ {
+  "q": "comet buyCollateral quoteCollateral discount ethereum",
+  "page": "mechanisms/compound-v3-absorb-ethereum.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "mechanisms/compound-v3-absorb-arbitrum.md"
+  ]
+ },
+ {
+  "q": "aave v3 base liquidationCall ABI",
+  "page": "mechanisms/aave-v3-base-measured-abi.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/aave-v3-base-measured-abi.md",
+   "mechanisms/aave-v3-arbitrum-measured-abi.md",
+   "infra/farm-base-contracts.md",
+   "mechanisms/aave-v4-hub-spoke-liquidations.md",
+   "pitfalls/paper-review-blockers.md"
+  ]
+ },
+ {
+  "q": "aave arbitrum stable debt gas liquidation",
+  "page": "mechanisms/aave-v3-arbitrum-measured-abi.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/aave-v3-arbitrum-measured-abi.md",
+   "infra/gho-liquidation-venue-closure.md",
+   "pitfalls/paper-review-blockers.md",
+   "methods/aave-v3-catchable-window-probe.md",
+   "mechanisms/sparklend-liquidation-new-aave.md"
+  ]
+ },
+ {
+  "q": "L1 data fee operator fee base loss bound",
+  "page": "mechanisms/base-opstack-fee-anatomy.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/live-loss-stop-checklist.md",
+   "infra/relay-eth-usd-price-feed.md",
+   "infra/stakedao-v2-harvest-fees.md"
+  ]
+ },
+ {
+  "q": "getL1Fee gas price oracle isthmus",
+  "page": "mechanisms/base-opstack-fee-anatomy.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "infra/relay-eth-usd-price-feed.md",
+   "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "pitfalls/paper-review-blockers.md"
+  ]
+ },
+ {
+  "q": "morpho blue liquidate seizedAssets incentive factor",
+  "page": "mechanisms/morpho-blue-liquidate-math.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "mechanisms/morpho-ethereum-pinned-market-census.md",
+   "pitfalls/morpho-price-scale-per-market.md",
+   "infra/farm-base-contracts.md",
+   "infra/liquidator-census.md"
+  ]
+ },
+ {
+  "q": "morpho liquidation incentive math base",
+  "page": "mechanisms/morpho-blue-liquidate-math.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "infra/liquidator-census.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "infra/liquidator-census-evidence-2026-11-13.md",
+   "infra/liquidator-census-evidence-2026-11-13-batch6-10.md"
+  ]
+ },
+ {
+  "q": "EIP-1559 RLP encoding long list prefix",
+  "page": "mechanisms/base-opstack-fee-anatomy.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "infra/relay-reference.md",
+   "infra/farm-base-contracts.md",
+   "infra/hyperevm-scout-tooling.md",
+   "mechanisms/morpho-blue-liquidate-math.md"
+  ]
+ },
+ {
+  "q": "zeroForOne direction selling collateral token0",
+  "page": "pitfalls/univ3-direct-pool-swap.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/univ3-direct-pool-swap.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "pitfalls/aave-executor-fork-gotchas.md"
+  ]
+ },
+ {
+  "q": "sqrtPriceLimitX96 SPL revert MIN_SQRT_RATIO",
+  "page": "pitfalls/univ3-direct-pool-swap.md",
+  "rank": 2,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/univ3-direct-pool-swap.md",
+   "infra/liquidator-census.md",
+   "mechanisms/gearbox-v3-liquidation.md",
+   "pitfalls/moonwell-getaccountliquidity-decode.md"
+  ]
+ },
+ {
+  "q": "uniswapV3SwapCallback pay pool positive delta",
+  "page": "pitfalls/univ3-direct-pool-swap.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/univ3-direct-pool-swap.md",
+   "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+   "infra/liquity-v1-redemptions.md",
+   "infra/reserve-revenue-auctions.md",
+   "mechanisms/compound-accrue-interest-to-caller.md"
+  ]
+ },
+ {
+  "q": "fork deploy file name too long bytecode",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "methods/find-protocol-addresses.md",
+   "infra/relay-reference.md",
+   "infra/llamalend-crvusd-loans.md",
+   "mechanisms/liquid-pool-epoch-poke.md"
+  ]
+ },
+ {
+  "q": "fork lease generation number measurement invalid",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "pitfalls/fork-reset-fetch-and-block-time.md",
+   "infra/llamalend-crvusd-loans.md",
+   "pitfalls/executor-deploy-gas-limit.md"
+  ]
+ },
+ {
+  "q": "reset refused leased by another run reviewer cannot reproduce",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/reserve-dtf-rebalance-auctions.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "infra/feed.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "fork send creation no to address no code deployed",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "infra/llamalend-crvusd-loans.md",
+   "methods/scheduled-maturity-burst-windows.md",
+   "pitfalls/executor-paper-sim-override.md"
+  ]
+ },
+ {
+  "q": "aave liquidationCall MustNotLeaveDust revert cover amount",
+  "page": "pitfalls/aave-liquidation-cover-dust.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/aave-liquidation-cover-dust.md",
+   "mechanisms/aave-v4-hub-spoke-liquidations.md",
+   "mechanisms/aave-v3-base-measured-abi.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/aave-activity-window-coverage.md"
+  ]
+ },
+ {
+  "q": "ethereum base fee dropped gwei era cliff own-era floor",
+  "page": "infra/ethereum-fee-era-cliff.md",
+  "rank": 1,
+  "got": [
+   "infra/ethereum-fee-era-cliff.md",
+   "infra/reserve-revenue-auctions.md",
+   "pitfalls/executor-fork-gotchas.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "infra/curve-fee-collector-forward.md"
+  ]
+ },
+ {
+  "q": "morpho stale oracle vs uniswap pool spot realized profit sizing",
+  "page": "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "infra/liquity-v1-redemptions.md",
+   "pitfalls/paper-review-blockers.md",
+   "infra/liquidator-census.md"
+  ]
+ },
+ {
+  "q": "cast abi-encode missing function selector tx reverts 26k gas",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "mechanisms/reserve-dtf-rebalance-auctions.md",
+   "infra/reserve-revenue-auctions.md",
+   "pitfalls/shared-fork-concurrency.md"
+  ]
+ },
+ {
+  "q": "USDT approve no return data empty revert executor",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "pitfalls/ethcall-empty-revert-calldata.md",
+   "pitfalls/moonwell-whale-whale-capture-classes.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "bare revert no subcalls low gas fallback dispatch calldata",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "infra/llamalend-crvusd-loans.md",
+   "mechanisms/blur-blend-refinance-auction.md",
+   "mechanisms/compound-accrue-interest-to-caller.md"
+  ]
+ },
+ {
+  "q": "compound v3 absorber buys whole reserve same block residue late buyer",
+  "page": "mechanisms/compound-v3-absorb-ethereum.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "mechanisms/compound-v3-absorb-arbitrum.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "infra/liquidator-census.md",
+   "pitfalls/ethereum-deprecated-v2-pools.md"
+  ]
+ },
+ {
+  "q": "Cv3Sniper fork proof success NO_PROFIT reviewer correction",
+  "page": "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "moonwell mToken liquidateBorrow seize holder cashless market",
+  "page": "mechanisms/moonwell-base-core-liquidations.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "pitfalls/moonwell-whale-whale-capture-classes.md",
+   "pitfalls/moonwell-getaccountliquidity-decode.md",
+   "methods/liquidation-profit-transfer-balances.md",
+   "methods/find-protocol-addresses.md"
+  ]
+ },
+ {
+  "q": "executor-runtime.hex zero immutable addresses runtime_ok false",
+  "page": "pitfalls/executor-paper-sim-override.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "methods/find-protocol-addresses.md",
+   "infra/sky-maker-auction-coverage.md",
+   "infra/liquidator-census.md"
+  ]
+ },
+ {
+  "q": "forge deployedBytecode placeholder immutables paper simulation code override",
+  "page": "pitfalls/executor-paper-sim-override.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/shared-fork-concurrency.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/flash-executor-sweep-invariant.md"
+  ]
+ },
+ {
+  "q": "submitted runtime mismatches changed executor source stale",
+  "page": "pitfalls/executor-paper-sim-override.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/shared-fork-concurrency.md"
+  ]
+ },
+ {
+  "q": "eth_getLogs without address returns empty result relay",
+  "page": "pitfalls/relay-getlogs-invalid-params.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/relay-reference.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "methods/find-protocol-addresses.md",
+   "pitfalls/shared-fork-concurrency.md"
+  ]
+ },
+ {
+  "q": "chain-wide topic-only log scan finds no events",
+  "page": "pitfalls/relay-getlogs-invalid-params.md",
+  "rank": 3,
+  "got": [
+   "infra/sky-maker-auction-coverage.md",
+   "methods/find-protocol-addresses.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/relay-reference.md",
+   "infra/beefy-harvest-rewards.md"
+  ]
+ },
+ {
+  "q": "how to find pool proxy contract address of a protocol",
+  "page": "methods/find-protocol-addresses.md",
+  "rank": 1,
+  "got": [
+   "methods/find-protocol-addresses.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "methods/poke-caller-census.md",
+   "infra/uniswap-fee-releaser.md",
+   "infra/fluid-lending-arbitrum.md"
+  ]
+ },
+ {
+  "q": "memory guessed address returns empty bytecode eth_getCode",
+  "page": "methods/find-protocol-addresses.md",
+  "rank": 1,
+  "got": [
+   "methods/find-protocol-addresses.md",
+   "pitfalls/proxy-implementation-slot-lookup.md",
+   "infra/convex-harvest-mower-scout.md",
+   "pitfalls/fork-proxy-delegatecall-codeless.md",
+   "pitfalls/ethcall-empty-revert-calldata.md"
+  ]
+ },
+ {
+  "q": "docs site explorer ENOTFOUND blockscout unreachable",
+  "page": "methods/find-protocol-addresses.md",
+  "rank": 1,
+  "got": [
+   "methods/find-protocol-addresses.md",
+   "mechanisms/dexalot-omnivaults.md",
+   "infra/hyperevm-scout-tooling.md",
+   "infra/sky-maker-auction-coverage.md",
+   "mechanisms/gho-facilitator-registry.md"
+  ]
+ },
+ {
+  "q": "fork deploy status 0 empty revert data constant gasUsed",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "pitfalls/paper-review-blockers.md",
+   "infra/reserve-revenue-auctions.md",
+   "pitfalls/executor-fork-gotchas.md"
+  ]
+ },
+ {
+  "q": "constructor arguments missing deploy reverts",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/executor-fork-gotchas.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "pitfalls/executor-paper-sim-override.md"
+  ]
+ },
+ {
+  "q": "cast sig selector padded zeros topic returns no logs",
+  "page": "pitfalls/relay-getlogs-invalid-params.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "pitfalls/multi-version-factory-event-topics.md",
+   "methods/find-protocol-addresses.md",
+   "infra/fluid-lending-arbitrum.md"
+  ]
+ },
+ {
+  "q": "liquidation scan zero events vacuous topic0 wrong",
+  "page": "pitfalls/relay-getlogs-invalid-params.md",
+  "rank": 2,
+  "got": [
+   "methods/find-protocol-addresses.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/llamalend-crvusd-loans.md",
+   "infra/relay-reference.md",
+   "infra/convex-harvest-mower-scout.md"
+  ]
+ },
+ {
+  "q": "web search github repo deployment addresses",
+  "page": "methods/find-protocol-addresses.md",
+  "rank": 1,
+  "got": [
+   "methods/find-protocol-addresses.md",
+   "infra/relay-reference.md",
+   "infra/sky-maker-auction-coverage.md",
+   "infra/liquidator-census.md",
+   "infra/uniswap-fee-releaser.md"
+  ]
+ },
+ {
+  "q": "where to find protocol contract address not from memory",
+  "page": "methods/find-protocol-addresses.md",
+  "rank": 1,
+  "got": [
+   "methods/find-protocol-addresses.md",
+   "infra/uniswap-fee-releaser.md",
+   "mechanisms/v3-expired-position-claims.md",
+   "methods/follow-slow-liquidators.md",
+   "infra/liquidator-census.md"
+  ]
+ },
+ {
+  "q": "getLogs null topics silently empty",
+  "page": "pitfalls/relay-getlogs-invalid-params.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "methods/find-protocol-addresses.md",
+   "infra/relay-reference.md",
+   "pitfalls/eth-getlogs-topic-address-decode.md",
+   "infra/hyperevm-scout-tooling.md"
+  ]
+ },
+ {
+  "q": "eth_getLogs address array parse error -32700",
+  "page": "pitfalls/relay-getlogs-invalid-params.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/relay-reference.md",
+   "pitfalls/eth-getlogs-topic-address-decode.md",
+   "infra/hyperevm-scout-tooling.md",
+   "infra/relay-log-scan-address-batching.md"
+  ]
+ },
+ {
+  "q": "liquidation event cadence counts user operations not payouts",
+  "page": "pitfalls/event-cadence-not-liquidations.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/event-cadence-not-liquidations.md",
+   "mechanisms/gearbox-v3-liquidation.md",
+   "infra/liquidator-census.md",
+   "infra/liquidator-census-evidence-2026-11-13-batch6-10.md",
+   "mechanisms/compound-v3-absorb-ethereum.md"
+  ]
+ },
+ {
+  "q": "TVL is custody wallet not on-chain lending book",
+  "page": "pitfalls/llama-custody-tvl.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/llama-custody-tvl.md",
+   "pitfalls/llama-token-supply-tvl.md",
+   "methods/find-protocol-addresses.md",
+   "mechanisms/custodial-perps-liquidation.md",
+   "pitfalls/protocol-gated-liquidation.md"
+  ]
+ },
+ {
+  "q": "invalid hex string concatenating cast sig and abi-encode output",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/relay-reference.md",
+   "pitfalls/cast-keccak-stdin-newline.md",
+   "infra/fluid-lending-arbitrum.md"
+  ]
+ },
+ {
+  "q": "eth_call execution reverted empty data getter without from",
+  "page": "pitfalls/relay-ethcall-from.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/relay-ethcall-from.md",
+   "pitfalls/ethcall-empty-revert-calldata.md",
+   "infra/llamalend-crvusd-loans.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "known contract address eth_getCode returns 0x",
+  "page": "methods/find-protocol-addresses.md",
+  "rank": 1,
+  "got": [
+   "methods/find-protocol-addresses.md",
+   "infra/farm-base-contracts.md",
+   "pitfalls/ethcall-empty-revert-calldata.md",
+   "infra/convex-harvest-mower-scout.md",
+   "pitfalls/ethereum-deprecated-v2-pools.md"
+  ]
+ },
+ {
+  "q": "census on implementation address returns zero events proxy",
+  "page": "pitfalls/proxy-implementation-no-logs.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/proxy-implementation-no-logs.md",
+   "pitfalls/proxy-implementation-slot-lookup.md",
+   "methods/find-protocol-addresses.md",
+   "infra/beefy-harvest-rewards.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "manifest constructor args executor gate deploy",
+  "page": "pitfalls/manifest-path-scalar.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/manifest-path-scalar.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/live-executor-env-var.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/shared-fork-concurrency.md"
+  ]
+ },
+ {
+  "q": "review fix executor path isfile false",
+  "page": "pitfalls/manifest-path-scalar.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/manifest-path-scalar.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "same reviewer fix needed in sibling bots",
+  "page": "pitfalls/copy-reviewed-fix-to-all-bots.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/copy-reviewed-fix-to-all-bots.md",
+   "pitfalls/live-loss-stop-checklist.md",
+   "infra/relay-reference.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md"
+  ]
+ },
+ {
+  "q": "uniswap fee switch tokenjar release threshold UNI",
+  "page": "infra/uniswap-fee-releaser.md",
+  "rank": 1,
+  "got": [
+   "infra/uniswap-fee-releaser.md",
+   "infra/ledger-agent-sources.md",
+   "infra/chain-selection.md",
+   "infra/liquidator-census.md",
+   "mechanisms/compound-accrue-interest-to-caller.md"
+  ]
+ },
+ {
+  "q": "30 USD live loss stop pending receipts STOPPED.json",
+  "page": "pitfalls/live-loss-stop-checklist.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/live-loss-stop-checklist.md",
+   "infra/relay-reference.md",
+   "infra/sky-maker-auction-coverage.md",
+   "infra/reserve-revenue-auctions.md",
+   "pitfalls/paper-review-blockers.md"
+  ]
+ },
+ {
+  "q": "cumulative stop-loss bypass before send",
+  "page": "pitfalls/live-loss-stop-checklist.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/live-loss-stop-checklist.md",
+   "infra/liquidator-census.md",
+   "infra/yield-yak-reinvest-rewards.md"
+  ]
+ },
+ {
+  "q": "ledger source zero events emitter cursor not initialized",
+  "page": "infra/ledger-source-coverage.md",
+  "rank": 1,
+  "got": [
+   "infra/ledger-source-coverage.md",
+   "infra/beefy-harvest-rewards.md",
+   "infra/concentrator-harvest-bounties.md",
+   "infra/stakedao-v2-harvest-fees.md",
+   "infra/ledger-agent-sources.md"
+  ]
+ },
+ {
+  "q": "eth_getLogs hex string of odd length topic rejected",
+  "page": "pitfalls/relay-getlogs-invalid-params.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/relay-reference.md",
+   "infra/fluid-lending-arbitrum.md",
+   "infra/llamalend-crvusd-loans.md",
+   "pitfalls/eth-getlogs-topic-address-decode.md"
+  ]
+ },
+ {
+  "q": "cast keccak hash does not match event topic0",
+  "page": "pitfalls/cast-keccak-stdin-newline.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/cast-keccak-stdin-newline.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/beefy-harvest-rewards.md",
+   "infra/relay-reference.md",
+   "mechanisms/morpho-ethereum-pinned-market-census.md"
+  ]
+ },
+ {
+  "q": "pool mint collect non-canonical selectors packed 16-byte event words",
+  "page": "pitfalls/hyperevm-packable-abi.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/hyperevm-packable-abi.md",
+   "pitfalls/multi-version-factory-event-topics.md",
+   "infra/uniswap-fee-releaser.md",
+   "mechanisms/sparklend-liquidation-new-aave.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "transaction receipt returns null for older ethereum tx",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "pitfalls/shared-fork-concurrency.md",
+   "infra/reserve-revenue-auctions.md",
+   "infra/sky-maker-auction-coverage.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "alchemy_getAssetTransfers valid category HTTP 400",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "methods/liquidation-profit-transfer-balances.md",
+   "infra/hyperevm-scout-tooling.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "mechanisms/reserve-dtf-rebalance-auctions.md"
+  ]
+ },
+ {
+  "q": "bsc getLogs exceed maximum block range 5000",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/bsc-head-density.md",
+   "infra/relay-eth-usd-price-feed.md",
+   "mechanisms/dexalot-omnivaults.md"
+  ]
+ },
+ {
+  "q": "elysium fork reset extra block excess blob gas",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "infra/reserve-revenue-auctions.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "mechanisms/reserve-dtf-rebalance-auctions.md",
+   "pitfalls/hyperevm-packable-abi.md"
+  ]
+ },
+ {
+  "q": "blockscout API key X402 payment error verified source",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "infra/hyperevm-scout-tooling.md",
+   "methods/find-protocol-addresses.md",
+   "infra/llamalend-crvusd-loans.md",
+   "mechanisms/reserve-dtf-rebalance-auctions.md"
+  ]
+ },
+ {
+  "q": "arbitrum trace_block fails debug trace response larger than 32 MiB",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/uniswap-fee-releaser.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "pitfalls/executor-fork-gotchas.md"
+  ]
+ },
+ {
+  "q": "avalanche eth_getLogs 10000 block range alchemy",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "methods/find-protocol-addresses.md",
+   "infra/hyperevm-scout-tooling.md",
+   "mechanisms/dexalot-omnivaults.md"
+  ]
+ },
+ {
+  "q": "defillama yields pools pool_found missing new pools since date",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "methods/find-protocol-addresses.md",
+   "infra/fluid-lending-arbitrum.md",
+   "infra/uniswap-fee-releaser.md",
+   "infra/llamalend-crvusd-loans.md"
+  ]
+ },
+ {
+  "q": "felix feUSD redemption hyperevm topic0",
+  "page": "mechanisms/felix-feusd-redemption-arb.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/felix-feusd-redemption-arb.md"
+  ]
+ },
+ {
+  "q": "curl RPC_RELAY_URL permission refused dont ask mode",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/hyperevm-scout-tooling.md"
+  ]
+ },
+ {
+  "q": "alchemy_getAssetTransfers txHash filter earliest transfers",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "infra/hyperevm-scout-tooling.md",
+   "methods/poke-caller-census.md"
+  ]
+ },
+ {
+  "q": "elysium getLogs response larger than 32 MiB at head",
+  "page": "infra/relay-reference.md",
+  "rank": 1,
+  "got": [
+   "infra/relay-reference.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/bsc-head-density.md",
+   "infra/beefy-harvest-rewards.md",
+   "methods/poke-caller-census.md"
+  ]
+ },
+ {
+  "q": "hex string without 0x prefix fromBlock",
+  "page": "infra/relay-reference.md",
+  "rank": 2,
+  "got": [
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "infra/relay-reference.md",
+   "infra/fluid-lending-arbitrum.md",
+   "pitfalls/eth-getlogs-topic-address-decode.md",
+   "pitfalls/executor-paper-sim-override.md"
+  ]
+ },
+ {
+  "q": "which agent-added ledger sources exist and what units are their amounts",
+  "page": "infra/ledger-agent-sources.md",
+  "rank": 2,
+  "got": [
+   "infra/reserve-revenue-auctions.md",
+   "infra/ledger-agent-sources.md",
+   "mechanisms/reserve-dtf-rebalance-auctions.md",
+   "infra/beefy-harvest-rewards.md",
+   "infra/sky-maker-auction-coverage.md"
+  ]
+ },
+ {
+  "q": "ledger source amounts principal not profit index",
+  "page": "infra/ledger-agent-sources.md",
+  "rank": 1,
+  "got": [
+   "infra/ledger-agent-sources.md",
+   "infra/reserve-revenue-auctions.md",
+   "infra/alchemix-v3-transmutation.md",
+   "infra/beefy-harvest-rewards.md",
+   "infra/stakedao-v2-harvest-fees.md"
+  ]
+ },
+ {
+  "q": "beefy charged_fees units native token",
+  "page": "infra/beefy-harvest-rewards.md",
+  "rank": 1,
+  "got": [
+   "infra/beefy-harvest-rewards.md",
+   "infra/ledger-agent-sources.md",
+   "infra/stakedao-v2-harvest-fees.md",
+   "infra/reserve-revenue-auctions.md",
+   "infra/sky-maker-auction-coverage.md"
+  ]
+ },
+ {
+  "q": "wait for event instead of polling long-poll cursor gap",
+  "page": "infra/feed.md",
+  "rank": 1,
+  "got": [
+   "infra/feed.md",
+   "infra/reserve-revenue-auctions.md",
+   "infra/relay-reference.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "infra/liquidator-census.md"
+  ]
+ },
+ {
+  "q": "feed cu_today 429 subscription budget",
+  "page": "infra/feed.md",
+  "rank": 1,
+  "got": [
+   "infra/feed.md"
+  ]
+ },
+ {
+  "q": "one block after trigger counted in expected revenue",
+  "page": "infra/feed.md",
+  "rank": 1,
+  "got": [
+   "infra/feed.md",
+   "infra/reserve-revenue-auctions.md",
+   "methods/blocked-infra-feed-retriage.md",
+   "infra/stakedao-v2-harvest-fees.md",
+   "infra/beefy-harvest-rewards.md"
+  ]
+ },
+ {
+  "q": "earner no target what to do blocked_infra leads",
+  "page": "methods/blocked-infra-feed-retriage.md",
+  "rank": 4,
+  "got": [
+   "infra/hyperevm-scout-tooling.md",
+   "methods/follow-slow-liquidators.md",
+   "infra/uniswap-fee-releaser.md",
+   "methods/blocked-infra-feed-retriage.md",
+   "mechanisms/compound-accrue-interest-to-caller.md"
+  ]
+ },
+ {
+  "q": "next-block trial promote exception capital 20 USD",
+  "page": "methods/blocked-infra-feed-retriage.md",
+  "rank": 1,
+  "got": [
+   "methods/blocked-infra-feed-retriage.md",
+   "infra/relay-reference.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "mechanisms/gearbox-v3-liquidation.md",
+   "mechanisms/morpho-ethereum-pinned-market-census.md"
+  ]
+ },
+ {
+  "q": "classify blocked lead speed permission capital tooling",
+  "page": "methods/blocked-infra-feed-retriage.md",
+  "rank": 1,
+  "got": [
+   "methods/blocked-infra-feed-retriage.md",
+   "infra/hyperevm-scout-tooling.md",
+   "methods/follow-slow-liquidators.md",
+   "mechanisms/moonwell-base-core-liquidations.md"
+  ]
+ },
+ {
+  "q": "which new chain to add alchemy supported chains score",
+  "page": "infra/chain-selection.md",
+  "rank": 1,
+  "got": [
+   "infra/chain-selection.md",
+   "pitfalls/relay-getlogs-invalid-params.md",
+   "methods/find-protocol-addresses.md",
+   "mechanisms/curve-vault-mint-window.md",
+   "pitfalls/shared-fork-concurrency.md"
+  ]
+ },
+ {
+  "q": "candidate chain block time borrows websocket table",
+  "page": "infra/chain-selection.md",
+  "rank": 1,
+  "got": [
+   "infra/chain-selection.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "mechanisms/morpho-ethereum-pinned-market-census.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "mechanisms/morpho-hyperevm-liquidations.md"
+  ]
+ },
+ {
+  "q": "eth_call execution reverted data 0x on a getter relay broken",
+  "page": "pitfalls/ethcall-empty-revert-calldata.md",
+  "rank": 2,
+  "got": [
+   "infra/reserve-revenue-auctions.md",
+   "pitfalls/ethcall-empty-revert-calldata.md",
+   "pitfalls/relay-ethcall-from.md",
+   "methods/find-protocol-addresses.md",
+   "pitfalls/moonwell-getaccountliquidity-decode.md"
+  ]
+ },
+ {
+  "q": "address argument not padded to 32 bytes calldata revert",
+  "page": "pitfalls/ethcall-empty-revert-calldata.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/ethcall-empty-revert-calldata.md",
+   "pitfalls/executor-fork-gotchas.md",
+   "mechanisms/morpho-hyperevm-liquidations.md",
+   "infra/reserve-revenue-auctions.md",
+   "mechanisms/morpho-blue-liquidate-math.md"
+  ]
+ },
+ {
+  "q": "measure how slow a liquidator is seconds from takeable to capture",
+  "page": "methods/follow-slow-liquidators.md",
+  "rank": 1,
+  "got": [
+   "methods/follow-slow-liquidators.md",
+   "infra/liquidator-census.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "infra/liquidator-census-evidence-2026-11-13-batch6-10.md",
+   "mechanisms/morpho-blue-liquidate-math.md"
+  ]
+ },
+ {
+  "q": "which liquidation markets to target slow takers half of gross 300 USD",
+  "page": "methods/follow-slow-liquidators.md",
+  "rank": 2,
+  "got": [
+   "infra/liquidator-census.md",
+   "methods/follow-slow-liquidators.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "mechanisms/morpho-ethereum-pinned-market-census.md",
+   "infra/llamalend-crvusd-loans.md"
+  ]
+ },
+ {
+  "q": "top 30 liquidators by gross executor contract EOAs table",
+  "page": "infra/liquidator-census.md",
+  "rank": 2,
+  "got": [
+   "methods/follow-slow-liquidators.md",
+   "infra/liquidator-census.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "infra/reserve-revenue-auctions.md",
+   "infra/liquity-v1-redemptions.md"
+  ]
+ },
+ {
+  "q": "group liquidator addresses into one operator by funding source and payout",
+  "page": "methods/follow-slow-liquidators.md",
+  "rank": 1,
+  "got": [
+   "methods/follow-slow-liquidators.md",
+   "infra/liquidator-census.md",
+   "infra/liquidator-census-evidence-2026-11-13.md",
+   "infra/liquidator-census-evidence-2026-11-13-batch6-10.md",
+   "pitfalls/paper-review-blockers.md"
+  ]
+ },
+ {
+  "q": "stop tracing funder exchange bridge more than 200 recipients",
+  "page": "methods/follow-slow-liquidators.md",
+  "rank": 1,
+  "got": [
+   "methods/follow-slow-liquidators.md",
+   "infra/reserve-revenue-auctions.md",
+   "infra/uniswap-fee-releaser.md",
+   "mechanisms/compound-accrue-interest-to-caller.md"
+  ]
+ },
+ {
+  "q": "fork serves no ERC-20 state DAI getCode empty executor bare revert",
+  "page": "pitfalls/ethcall-empty-revert-calldata.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/ethcall-empty-revert-calldata.md",
+   "mechanisms/compound-accrue-interest-to-caller.md",
+   "infra/relay-reference.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/moonwell-whale-whale-capture-classes.md"
+  ]
+ },
+ {
+  "q": "token contract has no code eth_getCode returns 0x",
+  "page": "pitfalls/ethcall-empty-revert-calldata.md",
+  "rank": 0,
+  "got": [
+   "methods/find-protocol-addresses.md",
+   "pitfalls/shared-fork-concurrency.md",
+   "infra/uniswap-fee-releaser.md",
+   "mechanisms/reserve-dtf-rebalance-auctions.md",
+   "mechanisms/pendle-v2-maturity-redemption.md"
+  ]
+ }
+]

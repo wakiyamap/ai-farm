@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-sodex-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 312,
+ "chain": "base",
+ "slug": "sodex-bridge",
+ "name": "SoDEX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 50684686,
+ "url": "https://ssi.sosovalue.com",
+ "github": null,
+ "listed_days_ago": 312,
+ "run_id": "9ae765e74b534f3bb356981c6b0ffc62",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Base SoDEX = 2 custody EOAs + SOSO ERC20 0x624e..8831 + UUPS SoDexTokenBridge 0xCC7322..185B (impl 0x1522..6b75): withdraw->WITHDRAWER_ROLE, completeAMLDeposit->NotAML, mint/burn->bridge-only (0 events 7d; 275 lifetime), bridge()/callFor() are user-paid; 7d bridge activity 24 deposits + 28 withdrawals, Base TVL 50.67M USD (api.llama.fi 2026-11-17); nothing pays a stranger.",
+  "kb": [
+   "attempts:1752",
+   "protocols:414"
+  ],
+  "run_id": "9ae765e74b534f3bb356981c6b0ffc62",
+  "at": 1794925265
+ }
+}

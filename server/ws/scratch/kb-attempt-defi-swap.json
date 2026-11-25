@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-defi-swap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Crypto.com DeFi Swap is a plain Uniswap V2 fork: no public function that pays the caller. All non-view functions besides pair swap/mint/burn/skim/sync are feeSetter-role-gated (verified by eth_call revert string); skim/sync are callable by strangers but pay 0. Protocol pays swap fees to LPs/feeTo, not to keepers.",
+  "numbers": "Factory 0x9DEB29c9a4c7A88a3C0257393b7f3335338D9A9D (CroDefiSwapFactory, verified source), allPairsLength()=100, totalFeeBasisPoint()=30 bps, feeToBasisPoint()=5, feeTo()=0x0 (eth_call latest 2026-11-21). 7d window blocks 26416355 (2026-11-14 22:57 UTC) to 26466755 (2026-11-21 23:26 UTC): 1,852 Swap events on 6 sampled pairs of 100 (sample; topic0 d78ad95f... from cast keccak of verified-ABI event). Top swapper 0xbdb3ba9f...fdf47b6 (third-party arb-bot contract, 600 swaps), 1inch router 58. setFeeTo from stranger reverts 'CroDefiSwap: FORBIDDEN - only current feeSetter' (eth_call). Protocol volume 7d $617,212 USD, 30d $2,526,064 (api.llama.fi/summary/dexs/defi-swap, 2026-11-21); TVL $851,854 (candidate). Gross to caller per public call: 0."
+}

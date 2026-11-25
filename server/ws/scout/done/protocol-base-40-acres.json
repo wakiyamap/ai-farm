@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-40-acres",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 578,
+ "chain": "base",
+ "slug": "40-acres",
+ "name": "40 Acres",
+ "category": "Lending",
+ "tvl_usd": 510175,
+ "url": "https://www.40acres.finance/",
+ "github": [
+  "40-Acres"
+ ],
+ "listed_days_ago": 578,
+ "run_id": "9aaa759243be4b5f88b1e31ddf6cd168",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only caller-paid fn is the portfolio account's RewardsProcessingFacet.processRewards (pays msg.sender gasReclamation <=5% of rewards), gated by PortfolioManager.authorizedCallers (onlyOwner; 1 caller ever: 0x250600a035d14e0b079d9efa625393e7bfe83265 @44261665); 7d blocks 55866304-58880344: 386 manager multicall by 105 owners, all self-service, 0 strangers paid, 0 USD gross/call; legacy Loan 0x87f18b...3558EFD0 claim() EntryPoint-gated, last tx 30 d ago; no liquidation by design; Base TVL 22.78M/borrowed 5.45M USD",
+  "kb": [
+   "attempts:1944",
+   "protocols:40"
+  ],
+  "run_id": "9aaa759243be4b5f88b1e31ddf6cd168",
+  "at": 1794966010
+ }
+}

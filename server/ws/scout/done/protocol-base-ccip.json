@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-ccip",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 166,
+ "chain": "base",
+ "slug": "ccip",
+ "name": "CCIP",
+ "category": "Bridge",
+ "tvl_usd": 32315050,
+ "url": "https://chain.link/cross-chain",
+ "github": null,
+ "listed_days_ago": 166,
+ "retries": 1,
+ "run_id": "d5cc9a1ad39c499f996d8f713dd1c2f8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Router 1.2.0 0x881e3a65..8bcd + OffRamp 1.6.0 0xf09afe78.. on base: manuallyExecute/execute callable by anyone (fresh-addr revert EmptyBatch 0xc2e5347d, not a role revert) but pay 0 - verified source has no msg.sender transfer; 7d callers are ~480 DON commits from 7 rotating hotkeys all value=0, caller gas 116,195 gas = 9.0e-7 ETH = $0.0016 (ETH 1816.21 USD, coins.llama.fi); no stranger paid.",
+  "kb": [
+   "attempts:1703"
+  ],
+  "run_id": "d5cc9a1ad39c499f996d8f713dd1c2f8",
+  "at": 1794916602
+ }
+}

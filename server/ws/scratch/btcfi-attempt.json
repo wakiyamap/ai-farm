@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-btcfi-cdp",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the Base deployment is a passive cross-chain collateral escrow (Socket meta-call from Bifrost chain 3068). The only active entry function 0x30300667 is driven by a single relayer EOA that sends value IN (0.0067-0.0078 ETH attached) rather than claiming; zero calls and zero events in the last 7 days (even the relayer stopped 2026-11-14). No function anyone can call for a payout was found. Caveat: verified ABI unavailable (Blockscout CF-challenge, no repo), so a hidden claim-style fn cannot be fully excluded - but with 0 txs in 7d nobody was paid anyway.",
+ "numbers": "7d window blocks 57,945,747 (2026-11-15 21:52 UTC) .. 60,969,750 (2026-11-22 21:52 UTC) from timestamps: 0 logs / 0 txs to pool 0x4F7aB59b5AC112970F5dD66D8a7ac505c8E5e08B (eth_getLogs no-topic; control: 7,781 USDC Transfers in ~1,300 blocks same lane). TVL $75,224 (llama currentChainTvls 2026-11-22) = 1.23841536 cbBTC (balanceOf on 0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf). Last 5 txs (2026-11-14, blocks 57,551,940-57,566,193, timestamps 2026-11-14 22:52 UTC) all from 0xc0d2df37e29884bc7f7508f9957e236320b16eab, selector 0x30300667, value 0.0067/0.0073/0.0078 ETH in, gasUsed 196,861 @ baseFee 0x4c51d5 wei (0.005 gwei) = ~0.000001 ETH gas, usd: unpriced token = ETH. Gross paid to caller: 0."
+}

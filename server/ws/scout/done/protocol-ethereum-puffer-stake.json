@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-puffer-stake",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1021,
+ "chain": "ethereum",
+ "slug": "puffer-stake",
+ "name": "Puffer Stake",
+ "category": "Liquid Restaking",
+ "tvl_usd": 17715885,
+ "url": "https://www.puffer.fi/restake",
+ "github": null,
+ "listed_days_ago": 1021,
+ "run_id": "d21f740ade0240e29e58d1f3e2887cc4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "pufETH vault 0xD9A4..6a72 (PufferVaultV5, totalAssets 9849.6 ETH): all 5 keeper-style fns (initiate/claimWithdrawalsFromLido, mint/depositRewards, revertMintRewards) revert AccessManagedUnauthorized from a fresh address and none pays the caller; 7.7 d (blocks 26403552-26462856) no-topic scan: 620 logs, 0 Requested/ClaimedWithdrawals, all user approve/transfer/redeem. Gross 0 USD, gas n/a.",
+  "kb": [
+   "attempts:3276"
+  ],
+  "run_id": "d21f740ade0240e29e58d1f3e2887cc4",
+  "at": 1795256920
+ }
+}

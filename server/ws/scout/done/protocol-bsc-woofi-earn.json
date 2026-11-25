@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-woofi-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1462,
+ "chain": "bsc",
+ "slug": "woofi-earn",
+ "name": "WOOFi Earn",
+ "category": "Yield",
+ "tvl_usd": 445596,
+ "url": "https://woofi.com/en/trade/",
+ "github": null,
+ "listed_days_ago": 1462,
+ "run_id": "3fbe2967ad5d4ca7979c3dbfc95c3edf",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Super Charger vaults (USDT 0x5CB9...+6 more, TVL $447,640): startWeeklySettle/endWeeklySettle are onlyAdmin (fresh-EOA eth_call reverts '!ADMIN'); 14 settle calls in 7d (7 vaults x start+end) all by WOOFi EOA 0x3668ba88a32332269483a0eb2406a7f8149b486d; source pays the caller $0, gas $0.003 (105,616 gas @0.05 gwei, BNB $580.94); stranger-callable earn()/harvest()/accureInterest() pay $0 (VoidStrategy deposit empty)",
+  "kb": [
+   "attempts:2374",
+   "protocols:907"
+  ],
+  "run_id": "3fbe2967ad5d4ca7979c3dbfc95c3edf",
+  "at": 1795062134
+ }
+}

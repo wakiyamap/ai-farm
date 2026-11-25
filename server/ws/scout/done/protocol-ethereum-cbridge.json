@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-cbridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1838,
+ "chain": "ethereum",
+ "slug": "cbridge",
+ "name": "cBridge",
+ "category": "Bridge",
+ "tvl_usd": 5706783,
+ "url": "https://cbridge.celer.network/#/transfer",
+ "github": [
+  "celer-network"
+ ],
+ "listed_days_ago": 1838,
+ "run_id": "5a585296470f418d85d2e9e14667552b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: Router 0x5427FEFA711Eff984124bFBB1AB6fbf5E3DA1820 relay/withdraw/executeDelayedTransfer pay the recorded receiver, never the caller; 7d (blocks 26415828-26466084, 2026-11-14->21): Relay 16, WithdrawDone 4, DelayedTransferExecuted 0, vaults 0, all by 2 fixed Celer relayer bots; caller gross 0 vs gas 165,444 ~= 32.7 USD (117.3 gwei, ETH 1684.35 coins.llama.fi 11-21 21:15Z); same as arb/op/polygon/avalanche/bsc (attempts 2576-2582).",
+  "kb": [
+   "attempts:3477",
+   "protocols:1754"
+  ],
+  "run_id": "5a585296470f418d85d2e9e14667552b",
+  "at": 1795296051
+ }
+}

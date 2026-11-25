@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-symbiosis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1692,
+ "chain": "arbitrum",
+ "slug": "symbiosis",
+ "name": "Symbiosis",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 432609,
+ "url": "https://symbiosis.finance",
+ "github": [
+  "symbiosis-finance"
+ ],
+ "listed_days_ago": 1692,
+ "run_id": "d7c30bda6bf64ec7acac1f836fd794b9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No open reward: destination completions are onlyMPC (receiveRequestV2 reverts 'BridgeV2: forbidden' from fresh addr); 7d = 113 BurnCompleted (87 USDC/22 WETH/4 SIS) all via receiveRequestV2Signed by one EOA 0x67f9b3e561383493b3f874feae0c53c2cd23851d; bridgingFee 31.67 USD total 7d (avg 0.28/call) goes to the bridge contract, not the caller; gas ~150-230k @ 0.02 gwei = ~0.006 USD (WETH 1807, coins.llama.fi 2026-11-19 11:48Z).",
+  "kb": [
+   "attempts:2499",
+   "protocols:999"
+  ],
+  "run_id": "d7c30bda6bf64ec7acac1f836fd794b9",
+  "at": 1795089015
+ }
+}

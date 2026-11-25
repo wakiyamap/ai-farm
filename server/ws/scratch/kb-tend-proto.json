@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "tenderize_v2",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/tenderize-v2/index.js: factory 0xa7cA8732Be369CaEaE8C230537Fc8EF82a3387EE; NewTenderizer logs from block 19115337 -> 34 Tenderizer clones on ethereum, all asset POL 0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0, created blocks 19.12M-20.08M (2024). eth_getCode non-0x and getters answer on 0xf6f8db129f4d4258af0694d30ba93eef0fd82b9a (asset/validator/adapter/totalSupply; adapter = 0x40bab0368cf40fa048e5a5a5bdcb009c9e708be8, unverified on explorer). Verified impl 0x8acd955cb1073f018d0737708e258ccf3f6ba824 (Tenderize Labs, Tenderizer.sol): rebase() external, 'can be called by anyone' - eth_call from fresh 0x..cafe0001 succeeds (226,458 gas); reward-fee from rebase is minted to registry.treasury(), caller receives 0; deposit/unlock/withdraw are user functions (withdraw requires the unlock ERC721: useUnlock(msg.sender)); registry/Unlocks functions onlyRole-gated. No caller-paid function exists."
+}

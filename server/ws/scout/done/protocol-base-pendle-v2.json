@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-pendle-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "pendle-v2",
+ "name": "Pendle V2",
+ "category": "Yield",
+ "tvl_usd": 2140244,
+ "url": "https://pendle.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "df5666098db34fedb92466bc4ab9cdbb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "redeemMarketReward() (0x58f3d163, gaugeController 0x17F100fB, impl 0xef5579f4) callable by anyone (eth_call ok) but pays stranger 0; controller dormant since 2024-11-21, holds 272,988 PENDLE for stakers; other payers are self-claim merkle claim 0xa0165082 (5 EOAs/7d) or role-gated (PTLooper onlyExecutor 0x9cf2b94c, tokenPriceRegistry admin); limitRouter fills = taker trades (2 EOAs/7d); 4 CreateNewMarket/7d by bot 0xc78bc588 (0 paid, per ethereum check); gross 0 USD/call vs gas <0.01 USD (0.006 gwei, 60k gas).",
+  "kb": [
+   "attempts:2697"
+  ],
+  "run_id": "df5666098db34fedb92466bc4ab9cdbb",
+  "at": 1795134265
+ }
+}

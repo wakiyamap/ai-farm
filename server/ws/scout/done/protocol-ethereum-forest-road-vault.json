@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-forest-road-vault",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 26,
+ "chain": "ethereum",
+ "slug": "forest-road-vault",
+ "name": "Forest Road Vault",
+ "category": "RWA",
+ "tvl_usd": 503291,
+ "url": "https://forestroadvault.com",
+ "github": [
+  "Forest-Road-Company"
+ ],
+ "listed_days_ago": 26,
+ "run_id": "bc9cbb0fed6f4c2db893a45a238f9714",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No caller-paid function exists (source-wide, Forest-Road-Company/forest-road-vault): closeEpoch (only scheduled keeper act, 4x/7d all by keeper 0xd355effb, EpochClosed logs blocks 26405178-26455578) is SETTLEMENT_KEEPER_ROLE-gated and pays 0 while costing 3,223,715 gas @ 1.284 gwei = 0.00414 ETH = 7.22 USD (ETH 1744.55, coins.llama.fi 1795168803); permissionless attest/checkpointAccrual/markPastDue/liquidate pay the caller 0 (checkpointAccrual 1 external call since 09-18 deploy); epochs settled 799 USDfr of user redemption principal; control 95 Transfer logs same range.",
+  "kb": [
+   "attempts:2861"
+  ],
+  "run_id": "bc9cbb0fed6f4c2db893a45a238f9714",
+  "at": 1795169397
+ }
+}

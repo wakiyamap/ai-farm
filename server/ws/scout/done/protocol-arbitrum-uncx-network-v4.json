@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-uncx-network-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 142,
+ "chain": "arbitrum",
+ "slug": "uncx-network-v4",
+ "name": "UNCX Network V4",
+ "category": "Token Locker",
+ "tvl_usd": 30215,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 142,
+ "run_id": "45ae1c37939a4a95b6d482bc167c676b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "2 UniV4 lockers (0x62d61d..613 V2, 0xfd5265..75b V3, verified source); collect/unlock gated on lock.owner (collect also AUTO_COLLECT_ACCOUNT 0xd45dd91d..dc1c), fresh-address eth_call collect reverts NotOwner() 0x30cd7471; 7d (blocks 524431947 2026-11-15 to 526488759 2026-11-22): 0 events, 0 strangers paid, 6 active locks on 30,215 USD TVL, gas 0.009-0.016 USD/tx (0.02 gwei, ETH 1709 USD llama 2026-11-22)",
+  "kb": [
+   "attempts:3683",
+   "protocols:1906"
+  ],
+  "run_id": "45ae1c37939a4a95b6d482bc167c676b",
+  "at": 1795343114
+ }
+}

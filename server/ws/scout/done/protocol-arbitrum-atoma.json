@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-atoma",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 111,
+ "chain": "arbitrum",
+ "slug": "atoma",
+ "name": "ATOMA",
+ "category": "Basis Trading",
+ "tvl_usd": 636535,
+ "url": "https://atoma.fi",
+ "github": null,
+ "listed_days_ago": 111,
+ "run_id": "742d3a54d27941a993998dd2548b3ced",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all 4 keeper fns (settleEpoch, updateTotalAssets x415/7d, crystallizePerformanceFee, collectWithdrawalFees) are onlyOperator (revert NotOperator 0x7c214f04 from stranger), operator EOAs paid 0 by the vault; only permissionless payout is claimWithdrawal (own escrow: 3 claims/7d, $98/$5,079/$100; stranger reverts NothingToClaim); gas ~$0.005/call (0.02 gwei, ETH $1,826).",
+  "kb": [
+   "attempts:1639"
+  ],
+  "run_id": "742d3a54d27941a993998dd2548b3ced",
+  "at": 1794902104
+ }
+}

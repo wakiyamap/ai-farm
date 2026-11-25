@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "flaunch",
+  "status": "dead_end",
+  "checked": "v1.3.1 Base contracts from repo flayerlabs/flaunchgg-contracts README (verified sources via explorer). PositionManager hook 0x588C683EcC450F8b2aAdb13D7f63792b840425DC, Flaunch ERC721 0x475a09618BfD00FA4CB03B8504e95b62075E6F7D, BidWall 0x0dae90B70f62CE3b1D5278F4763BD1f595d6A687, flETH vault 0x000000000d564d5be76f7f0d28fe52605afc7cf8 (eth_getCode non-0x; underlyingETHBalance() = 703.5 ETH answers). Uniswap v4 hook design: swap fees are auto-collected in-swaps; treasury executeAction() gated to pool creator (creator != msg.sender -> Unauthorized); BidWall functions all onlyPositionManager; FeeEscrow.withdrawFees(token,recipient,unwrap) pays balances[msg.sender] so a stranger withdraws 0; MemecoinTreasury.claimFees() callable by anyone but pays the treasury, not the caller; flETH.harvest() callable by anyone but pays yieldReceiver 0xa5e76f79b7e05602c09e56f4ccad9c3507b3f471 and eth_call from a fresh address currently reverts ETH_TRANSFER_FAILED. No liquidations, auctions, epochs or reward-pot payouts to callers found in current (v1.3.x) or legacy pre-v1.3 Base deployments (no performTreasuryAction/rewardsDistribute anywhere in the source trees)."
+}

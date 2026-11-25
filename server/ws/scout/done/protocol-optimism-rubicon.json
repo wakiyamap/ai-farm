@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-rubicon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1836,
+ "chain": "optimism",
+ "slug": "rubicon",
+ "name": "Rubicon",
+ "category": "Dexs",
+ "tvl_usd": 122324,
+ "url": "https://app.rubicon.finance/swap",
+ "github": [
+  "RubiconDeFi"
+ ],
+ "listed_days_ago": 1836,
+ "run_id": "d1738eb555e84a1599a951431a1fa2c4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only callable payers are BathToken.getBonusTokenReward/getAllBonusTokenReward (msg.sender's own accrued OP); OP stream ended 2023-02-10 (periodFinish, earned(fresh)=0, ~5.8k OP left for existing LPs); 12 payouts/7d = LP redeems of 0.001-14.25 OP (sum 42.7 OP = 3.18 USD, OP 0.0744 USD) vs gas ~0.000002 USD/call; classic order book 0 fills/7d, no bump/kill/tip, del_rank callable (eth_call ok) but pays 0 and 0 calls/7d; Aquila V2/CLMM V3 are standard Uv2/Uv3 forks with no reward functions",
+  "kb": [
+   "attempts:2583",
+   "protocols:1069"
+  ],
+  "run_id": "d1738eb555e84a1599a951431a1fa2c4",
+  "at": 1795109237
+ }
+}

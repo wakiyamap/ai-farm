@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-shift-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 389,
+ "chain": "arbitrum",
+ "slug": "shift-protocol",
+ "name": "Shift Protocol",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 380822,
+ "url": "https://shiftprotocol.xyz",
+ "github": null,
+ "listed_days_ago": 389,
+ "run_id": "9ee8b29c5db842f8816377053c896bf4",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No function anyone can call that pays the caller: 3 verified ShiftVaults (0x956bdd..6964, 0x6d7C89..e3c2, 0x7174f0..10bd) \u2014 public writes are user deposits/withdrawals paying themselves; fee claims CLAIMER-gated (stranger eth_call reverts Unauthorized(\"claimer\")), batch withdrawal ops EXECUTOR-gated and the executor transfers USDC IN; 7d eth_getLogs (blocks 522661359-latest): 15 user-op events, 9 users, 0 USD gross to callers (control: 26 Transfers same shape).",
+  "kb": [
+   "attempts:1781"
+  ],
+  "run_id": "9ee8b29c5db842f8816377053c896bf4",
+  "at": 1794931847
+ }
+}

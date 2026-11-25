@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-balancer-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 705,
+ "chain": "optimism",
+ "slug": "balancer-v3",
+ "name": "Balancer V3",
+ "category": "Dexs",
+ "tvl_usd": 259515,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": 705,
+ "run_id": "1efb202cf3024abb913594b98f175d7a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: no caller-reward fn in V3 ABI family; only permissionless PFC.collectAggregateFees(pool) pays caller $0 (verified source: fees -> pool creator + DAO 0x9ff4..af7e), 0 calls in 7d (last 2025-08-27 tx 0xe65c2f34..d91; txs-list control non-empty); 7d Vault logs: 498 Swap all on one rETH-Aave wETH pool 0x870c0af8.., 7d pool swap fee 0.001674 ETH = $3.02 (ETH $1806.67 coins.llama.fi), 0 LiquidityAdded/Removed in 60d (control 498); pool fee pot $6.84 -> DAO; gas 281,690 x 0.001 gwei = $0.0005.",
+  "kb": [
+   "attempts:2050",
+   "protocols:637"
+  ],
+  "run_id": "1efb202cf3024abb913594b98f175d7a",
+  "at": 1794988782
+ }
+}

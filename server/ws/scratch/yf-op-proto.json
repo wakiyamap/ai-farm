@@ -1,0 +1,6 @@
+{
+ "chain": "optimism",
+ "protocol": "yearn_finance",
+ "status": "dead_end",
+ "checked": "2026-11-20 scout run 3c416939: DefiLlama adapter projects/yearn (kong.yearn.fi/api/rest/list/vaults/10) lists 112 vaults, 1.44M USD: 111 v2 (0.4.3-0.4.6, top: yvVelo-alETH-WETH-f 0xf7D66b41Cd4241eae450fd9D2d6995754634D9f3 1.04M, yvVelo-msETH-WETH-f 0xd0d2Ac44Cc842079e978bB11b094764f7D0dec6A 104k) + 1 v3 POOL vault tvl 0. Keeper path = strategy.harvest() -> vault.report(gain,loss,debtPayment); StrategyVelodromeFactoryClonable (verified source blockscout, uses yearn-vaults v0.4.6 BaseStrategy): harvest() is onlyKeepers (keeper||strategist||governance||guardian||management); keeper() = 0xc6387e937bcef8de3334f80edc623275d42457ff; eth_call harvest() from stranger reverts, from keeper EOA succeeds. 0 StrategyReported events in 7d across all 112 vaults (both 8-arg and 9-arg topic0, chunked 32 addrs; control: 22 events 35d on top-2 vaults, Transfer controls 51/56; lastReport() top vaults 2026-10-21, others 2026-05-11). Last keeper harvest tx 0x6f03aa2d769fd25903a76b7543eecaf9bab8c7cb53644ef624182199ea8a77d5: 1,014,256 gas @3271 wei/gas = 3.32e9 wei = $0.000006 (ETH $1742.64 coins.llama.fi 2026-11-20 07:40Z), caller paid nothing (gain goes to vault, perf fee to rewards addr). Same shape as arbitrum (unpaid) and base (role_gated) yearn_finance rows."
+}

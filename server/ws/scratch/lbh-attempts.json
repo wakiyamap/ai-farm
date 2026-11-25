@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-liquidbots",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. LiquidBots on hyperevm is a per-user trading-account factory (LqFactory + BeaconProxy LqTraders) for Hyperliquid bots. Every external function that moves funds sits behind onlyUser / onlyBackend / onlyCloser / onlyFeeTaker, and FEETAKER_ROLE is grantable only by the owner (LqAccessManager.grantRole onlyOwner), so no stranger can take the fee or any keeper role. Fees go to the protocol's own feeWallet. The one free function, createLqTrader, costs the caller gas and pays nothing. No liquidations, no epoch/round advance, no harvest.",
+ "numbers": "7d window blocks 51,322,733 (2026-11-15) -> 51,937,553 (2026-11-22) from eth_getBlockByNumber timestamps: LqTraderCreated = 10 events, 10 distinct users (eth_getLogs factory 0x7a4CbfC403f3aA935D8223750c95077f27b36318 topic0 0x552950b9251799953c32b6d745141e67b4992c8c9dfa244f5c3eacdb6a1a86d5, non-empty so query shape is live). Role revert string 'LqTrader: only fee taker' on eth_call 0xad1052c3 from fresh address. TVL 68,053 USD (DefiLlama api.llama.fi 2026-11-22). No stranger payment to price: 0 USD gross, gas n/a (nothing callable to call)."
+}

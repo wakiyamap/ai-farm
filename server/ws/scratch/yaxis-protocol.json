@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "yaxis",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/yaxis/index.js (MetaVault 0xBFbEC72F2450eF9Ab742e4A27441Fa06Ca79eA6a, VaultManager 0xe3d32c20be68e6189a52f60148c850df7a2bb5dd, YaxisChef 0xc330e7e73717cd13fb6ba068ee871584cf8a194f, Bar 0xeF31Cb88048416E301Fee1eA13e7664b887BA7e8, 4 vaults 0x9720346Ba80b668E50A5560c200180515fEbb895 etc, votingEscrow 0x66b4c0dAA0C65ED1eae84B4d738B9572a79389c4, gauge 0x951E7726d70017E56756A6807886113708A699Fb). All confirmed non-0x via eth_getCode; getters vaultManager() and harvester() answer on-chain. Verified sources from etherscan (yAxisMetaVault.sol, yAxisMetaVaultManager.sol, v3/Vault.sol, YaxisChef.sol). Keeper fn vault.earn(address) (0xfdb5fefc) is onlyHarvester (single role addr 0x18dbefac8eb66fdf559e31d5c154f4ffbc63ff99); eth_call from stranger reverts '!harvester', and per source it pays the caller nothing anyway (sweeps full available 3CRV balance to controller). MetaVault earn() permissionless but 0 pay. Chef = MasterChef fork, pays stakers only. No other pay-the-caller fn found. TVL 488,618 USD per candidate."
+}

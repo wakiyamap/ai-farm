@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+"""scout-done: close the candidate a scout session worked on (phase 14b).
+
+  scout-done <id> --verdict <v> --line "<one line with the numbers>" [--kb attempts:1,leads:2]
+
+verdict: pays_strangers | role_gated | no_reward | unpaid | unclear | not_found | aborted
+Moves scout/doing/<id>.json to scout/done/<id>.json with the result added.
+"""
+import argparse
+import json
+import os
+import sys
+import time
+
+WS = os.environ.get("SCOUT_WS", "/srv/farm/ws")
+VERDICTS = ["pays_strangers", "role_gated", "no_reward", "unpaid", "unclear", "not_found", "aborted"]
+
+ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+ap.add_argument("id")
+ap.add_argument("--verdict", required=True, choices=VERDICTS)
+ap.add_argument("--line", required=True)
+ap.add_argument("--kb", default="")
+a = ap.parse_args()
+src = f"{WS}/scout/doing/{a.id}.json"
+if not os.path.exists(src):
+    sys.exit(f"scout-done: {src} not found (wrong id, or already closed)")
+if len(a.line) > 600:
+    sys.exit("scout-done: --line is over 600 characters; keep it to one line")
+item = json.load(open(src, encoding="utf-8"))
+item["result"] = {"verdict": a.verdict, "line": a.line, "kb": [k for k in a.kb.split(",") if k],
+                  "run_id": os.environ.get("FARM_RUN_ID", "manual"), "at": int(time.time())}
+dst = f"{WS}/scout/done/{a.id}.json"
+with open(dst + ".tmp", "w", encoding="utf-8") as f:
+    json.dump(item, f, indent=1)
+os.rename(dst + ".tmp", dst)
+os.remove(src)
+print(f"ok closed {a.id}: {a.verdict}")

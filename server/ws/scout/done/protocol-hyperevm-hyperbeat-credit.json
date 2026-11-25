@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperbeat-credit",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 157,
+ "chain": "hyperevm",
+ "slug": "hyperbeat-credit",
+ "name": "Hyperbeat Credit",
+ "category": "Collateral Management",
+ "tvl_usd": 902456,
+ "url": "https://app.hyperbeat.org",
+ "github": null,
+ "listed_days_ago": 157,
+ "run_id": "82d6160784104323b2b1067874442685",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Hyperbeat Credit = 6 PermissionedWrapper ERC20s on hyperevm (wWHYPE 0x1B01..7513, wbeHYPE 0x516f..fbd1, wUBTC 0x0e2b..bc85, wUETH 0x037a..acF2, wUSOL 0x5c3a..2589, wXAUt0 0xC315..47d8, TVL 02K, DefiLlama adapter hyperbeat-wtoken): verified ABI has no reward/claim/keeper function; wrap/unwrap exchange 1:1 (pay bash) and are whitelist-gated (wrap from stranger reverts); 60 Wrapped/Unwrapped events in last 7d (blocks 50877731-51492519) by 27 accounts; gas bash.008/tx (380607 gas @ 0.303 gwei, HYPE 8.98 coins.llama.fi).",
+  "kb": [
+   "attempts:1655",
+   "protocols:348"
+  ],
+  "run_id": "82d6160784104323b2b1067874442685",
+  "at": 1794905552
+ }
+}

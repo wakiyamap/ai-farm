@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-cian-automation",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 978,
+ "chain": "avalanche",
+ "slug": "cian-automation",
+ "name": "CIAN Automation",
+ "category": "Yield",
+ "tvl_usd": 599791,
+ "url": "https://yieldlayer.cian.app/vaults/0xB13aa2d0345b0439b064f26B82D8dCf3f508775d?chainId=1&utm_source=TPFDZE",
+ "github": null,
+ "listed_days_ago": 978,
+ "run_id": "f5a0d2fb3a50427081c289ec5cd4c3ca",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 3253 ControllerLib wallets (all fns onlyOwner/onlyAutomationOrOwner) behind WalletFactory 0x15cbFF12...36d2A; Automation 0x056c41b8...ffbae autoExecute* is whitelist-gated by ERC2612Verifier 0x25440d9e (eth_call: keeper true, stranger reverts 'Basic: not allowed!'); 7d: 166 Automation txs, 100% from one CIAN keeper EOA 0x4a8e72d9..5895, gross to caller $0 (no transfer to msg.sender; 0 keeper logs in sample 0x3cdf3a80), gas 1M x 7.55 gwei = $0.052/call (AVAX $6.88 llama.fi); TVL $582k",
+  "kb": [
+   "attempts:2199",
+   "protocols:766"
+  ],
+  "run_id": "f5a0d2fb3a50427081c289ec5cd4c3ca",
+  "at": 1795021289
+ }
+}

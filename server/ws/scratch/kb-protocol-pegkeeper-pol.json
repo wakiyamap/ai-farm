@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "curve_pegkeeper",
+  "status": "dead_end",
+  "checked": "Rebalance-cadence census 2026-11-11 run 24061df2 (attempt 898): topic-only Provide/Withdraw(uint256) ledger topic0s over 97,025,349-97,125,348 gave 24 Withdraw logs from 8 emitters, 0 Provide; the top-4 emitters all revert debt()/credit() - no Polygon pegkeeper rebalance events in ~1.9 d; ethereum control debt() works on the ledger-pinned keeper 0xfb726f57 (returns 0 = dormant). Curve-dex Polygon pools exist (DefiLlama yields, 17 pools, top 2.29M USD) but at ~1/50 ethereum TVL the rebalance cadence x thin per-event margin cannot carry a farm bot: dead_end for the lead 16 transplant."
+}

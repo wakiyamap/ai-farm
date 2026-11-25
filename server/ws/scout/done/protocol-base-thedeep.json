@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-thedeep",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 486,
+ "chain": "base",
+ "slug": "thedeep",
+ "name": "TheDeep",
+ "category": "Liquidity Manager",
+ "tvl_usd": 2065667,
+ "url": "https://app.thedeep.ink/",
+ "github": null,
+ "listed_days_ago": 486,
+ "run_id": "210a9da3ad1d4f00b1123894b21cd70d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "TheDeep on Base = ichi-farm ICHI-vault stack (3 factories, 61 vaults); only stranger-callable reward fn collectFees/collectRewards, which pays ammFeeRecipient/feeRecipient/affiliate (not the caller); 0 CollectFees events in 7d across all 61 vaults (427 getLogs, 0 errors; control 8 events on chunk0); eth_call collectFees from fresh addr returns (0,0) on 0x0a2c..074a; base gas 0.006 gwei (~$0.002/call) vs $0 caller payout.",
+  "kb": [
+   "attempts:1851",
+   "protocols:488"
+  ],
+  "run_id": "210a9da3ad1d4f00b1123894b21cd70d",
+  "at": 1794945373
+ }
+}

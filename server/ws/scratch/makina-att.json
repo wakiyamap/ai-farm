@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-makina",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Makina v2 machines on Base (8 Dialectic tokenized-stock vaults, ~1.86M USD TVL) run all keeper work through whitelisted roles: updateTotalAum (onlyAccountingAuthorized, restrictedAccountingMode=1 on all 8 machines), Caliber harvest/swap/managePosition (onlyOperator/mechanic), AsyncRedeemer.finalizeRequests (onlyMechanic), deposit/redeem behind DirectDepositor/AsyncRedeemer. A stranger was not paid in the last 7 days and the keepers receive nothing: updateTotalAum transfers no tokens to msg.sender (fee shares go to fee recipients).",
+  "numbers": "7d window blocks 55,667,452-58,691,453 (ts 1794323866-1794928666): 24 TotalAumUpdated events across 8 machines (24 txs; sample of 5 callers: 0x2ca7457df62e038a76e3795f6d725611fbfb299a, 0x14a6e04ced98e3492427e0fb7cdb9210da4bca0d, 0x8a56839fd73d098e3d36ddb508c4e9f084439bd3, 0x70b5aee18e89b56edd70937d6fb93a7e409b9fcc, 0x5ba30d661a837f873a400ff1d3b44d9240177a7f; isAccountingAgent(caller)=1 verified). eth_call updateTotalAum from stranger reverts, from mechanic 0x425bbc2cff0c7e7960baa9bac2f0cb67b41d3bef returns AUM (tx 0xef518b02a94c... shows share Transfers to fee recipients only, none to caller). Gas ~378,107 @ 0.006 gwei = 0.0000023 ETH = ~0.004 USD (ETH 1801.07 USD, coins.llama.fi 2026-11-17). Gross per call to caller: 0 USD. Control: same getLogs shape returned 10 MachineCreated events on factory 0x1E1fa6F5f258b744881634216bDBc612B09C3C30."
+}

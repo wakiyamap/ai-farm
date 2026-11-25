@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-curve-llamalend-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 158,
+ "chain": "optimism",
+ "slug": "curve-llamalend-v2",
+ "name": "Curve LlamaLend V2",
+ "category": "Lending",
+ "tvl_usd": 187458,
+ "url": "https://www.curve.finance/lend/ethereum/markets/",
+ "github": null,
+ "listed_days_ago": 158,
+ "run_id": "c6d4d82f18ea4f7e8dd87da343e1cd98",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only callable-for-pay fn is controller.liquidate on 3 v2 controllers (0x745422bf,0x9fc15ac3,0xb5ec7a3d; fresh addr reverts Loan-doesnt-exist, no role gate): 0 Liquidate events in last 7d, 3 in whole 5-month lifetime (last 2026-10-08, control Borrow 767 same scan), users_to_liquidate()=0 now; lifetime debts 0.0003-277 USD, gas ~0.002-0.01 USD/call (1M gas at 1.01e6 wei, ETH 1810.62 coins.llama.fi) - empty pot",
+  "kb": [
+   "attempts:1659",
+   "protocols:350"
+  ],
+  "run_id": "c6d4d82f18ea4f7e8dd87da343e1cd98",
+  "at": 1794906834
+ }
+}

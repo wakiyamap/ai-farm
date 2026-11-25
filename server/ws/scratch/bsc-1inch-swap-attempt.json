@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-1inch-swap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: 1inch Swap on bsc is the legacy Mooniswap v1 pools (1,409 behind factory 0xd41b24bba51fac0e4827b6f94c0d6ddeb183cd64; the adapter's 2nd 'factory' 0xbaf9a5d4b0052359326a6cdab54babaa3a3a9643 is actually an AggregationRouter with no pools). Deployed pool code exposes no reward function: recalculateBalances/rewardsBalance/rewardsAmount revert 0x, the only public non-user functions are the DAO votes which record a vote and transfer nothing (MooniswapGovernance.sol), feeVote from a fresh address succeeds void. Nothing anyone can call to get paid.",
+  "numbers": "TVL $204,819 (api.llama.fi 1inch-swap currentChainTvls.Binance, 2026-11-20 01:05 UTC); pools 1,409 (MooniswapFactory.getAllPools() at block 0x805e687); pool bytecode 42,723 bytes / 48 selectors, no reward fn; feeVote(300) eth_call from 0x0099: success, void, 0 paid; 32-pool sample x 4,320 blocks (0x805d5a7-0x805e687, ~54 min): Swapped 0, any-logs 0; control USDC Transfer same shape: 37,677; BNB $577.58 (coingecko:binancecoin ts 1795136724)"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-bmx-freestyle",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 850,
+ "chain": "base",
+ "slug": "bmx-freestyle",
+ "name": "BMX Freestyle",
+ "category": "Derivatives",
+ "tvl_usd": 1296516,
+ "url": "https://www.bmx.trade",
+ "github": null,
+ "listed_days_ago": 850,
+ "run_id": "8bab74a2ed1e4cd2a11f02d419d638c2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "SYMMIO frontend; accountSource 0x6D63921D...9dDD + shared core diamond 0x91cf2d8e...be43 (code+getters ok); liquidatePartyA/B, forceCancelQuote/forceClosePosition roleless (eth_call reverts on condition) and pay caller's in-protocol balance; 7d scan blocks 56,043,902-59,067,902 (61x50k): accountSource 0 logs (control: core 130, 104 in one tx), last accountSource tx 2026-09-19, subgraph volume 0 through stale Oct-30 tip; strangers paid 7d = $0 gross, gas <$0.01 (0.006 gwei, ETH $1799.18 llama); dormant + needs off-chain Muon sig",
+  "kb": [
+   "attempts:2123",
+   "protocols:698"
+  ],
+  "run_id": "8bab74a2ed1e4cd2a11f02d419d638c2",
+  "at": 1795004359
+ }
+}

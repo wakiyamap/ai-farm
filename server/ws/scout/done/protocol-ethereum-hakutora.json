@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-hakutora",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "hakutora",
+ "name": "Hakutora",
+ "category": "Risk Curators",
+ "tvl_usd": 16116935,
+ "url": "https://hakutora.xyz",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "009e2ade35f440a38f4fb9bfce09ddc2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Morpho vault curator: 6 MetaMorpho-fork vaults (totalAssets own read: 10,420,115 USDC + 4,886,006 USDT + 2,512.52 DAI + 0.51 BTC = 15.31M USD) + hsUSDf wrapper (0.78 shares); only keeper-shaped fn reallocate reverts NotAllocatorRole (0xf7137c0f) from a fresh address and pays 0 - 0 reallocate events in 7 d (blocks 26409127-26459385, 461 logs, no unknown topic0), 2 in 90 d by curator EOA 0x182f3956 in tx 0xdfd3d398 (gas 163,184 = 0.053 USD, no transfer to caller); 7 d traffic only user Deposit/Withdraw (hUSDC 6/35, hUSDT 6/9).",
+  "kb": [
+   "attempts:3087",
+   "protocols:1465"
+  ],
+  "run_id": "009e2ade35f440a38f4fb9bfce09ddc2",
+  "at": 1795215385
+ }
+}

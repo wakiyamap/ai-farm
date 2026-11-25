@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-allblue-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "allblue-v3",
+ "name": "AllBlue V3",
+ "category": "Dexs",
+ "tvl_usd": 482865,
+ "url": "https://allbluedex.io",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e99fe9ec208546feb2a0951ecc9c5575",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Coral-style CLMM, 43 pools (factory 0xE749c1cA...7CeD, impl MiningPoolFactory 0xa3E316f8): 7d 792 Collect events + ~6.9k Swap/day (logger 0x77c8dffe..., blocks 100020213-100809563); collect/collectReward pay only the caller's own position (fresh addr -> 0); collectProtocolFee anyone-callable (160k gas = 0.0012 AVAX = bash.008) but pays 13.6 USDC.e fee to protocolFeeTo 0x52fb7d3a...35f1, caller gets 0; no stranger-paid function",
+  "kb": [
+   "attempts:2648",
+   "protocols:1118"
+  ],
+  "run_id": "e99fe9ec208546feb2a0951ecc9c5575",
+  "at": 1795123384
+ }
+}

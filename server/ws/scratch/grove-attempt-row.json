@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-grove-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Grove's whole avalanche footprint is one ALMProxy (0x7107DD8F56642327945294a18A4280C78e153644, verified source ALMProxy.sol) whose only state-changing functions doCall/doCallWithValue/doDelegateCall are onlyRole(CONTROLLER); a fresh-address eth_call reverts AccessControlUnauthorizedAccount (0xe2517d3f). No reward/claim/harvest functions exist and no stranger paid in 7d (contract idle: 0 logs in 5k blocks, last external tx 2026-10-07).",
+ "numbers": "TVL $264.2M (DefiLlama currentChainTvls.Avalanche 2026-11-17; proxy holds 250M JAAA units + 17.9M GACLO-1 + 0 USDC via eth_call). 9 external txs to proxy in full history per Routescan, 0 in last 7d. Proxy 0 logs in blocks h-5000..h vs control 5,178 USDC Transfers same window (relay eth_getLogs). Gas 7.52 gwei (eth_gasPrice) x 60k gas ~ 0.00045 AVAX ~ $0.003 at AVAX $7.24 (coins.llama.fi coingecko:avalanche-2)."
+}

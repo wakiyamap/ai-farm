@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-dxsale",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1591,
+ "chain": "polygon",
+ "slug": "dxsale",
+ "name": "DxSale",
+ "category": "Launchpad",
+ "tvl_usd": 49953,
+ "url": "https://dx.app",
+ "github": null,
+ "listed_days_ago": 1591,
+ "run_id": "22895dcf96f246af971e6dab55e7bfd2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all 5 adapter contracts live on polygon (3 DxLocker V3, lockerNumberOpen 112/95/77; 2 storage lockerIDCount 290/127); only claim-like fn unlockToken(uint256) reverts from a stranger ('user doesnt have a locker!'), 22-fn ABI has no caller reward (fees go to Lock_fees_account), 0 calls/events in 7d (blocks 97407655-97810854, control USDC 687 logs/60 blk), last activity 2026-05-17; gross 0 USD, gas ~0.0066 USD/call (281.77 gwei x 300k, POL 0.0779).",
+  "kb": [
+   "attempts:4042",
+   "protocols:2169"
+  ],
+  "run_id": "22895dcf96f246af971e6dab55e7bfd2",
+  "at": 1795422101
+ }
+}

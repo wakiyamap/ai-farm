@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-flokifi-locker",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1415,
+ "chain": "ethereum",
+ "slug": "flokifi-locker",
+ "name": "FlokiFi Locker",
+ "category": "Token Locker",
+ "tvl_usd": 1095659,
+ "url": "https://flokifi.com",
+ "github": null,
+ "listed_days_ago": 1415,
+ "run_id": "29acf37e70c044eabb57826e106e1050",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All 103 ethereum vaults pay only via onlyKeyHolder functions (unlock/vest/partialVest pay msg.sender; verified VaultFactory 0xc64c475523404759de6991ba8a71c7574e04245a, VaultKey 0xd7df4d751a16a6e2a68c1a383e6aee94baff7a9f): fresh-address eth_call reverts 'Vault:onlyKeyHolder:UNAUTHORIZED'. 7 d (blocks 26414322-26464575, 11-14\u219221): 0 vault transfers, 0 VaultKey transfers, 0 factory events; control: 20 logs/90 d, all vest() self-pays by vault 0x6c22F70b... to own key holder (0x0ab5613d..., 3.4007 SLP unpriced, 66,434 gas).",
+  "kb": [
+   "attempts:3386"
+  ],
+  "run_id": "29acf37e70c044eabb57826e106e1050",
+  "at": 1795278019
+ }
+}

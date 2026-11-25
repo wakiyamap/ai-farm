@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "level",
+ "status": "dead_end",
+ "checked": "Level USD (lvlUSD) CDP, level.money, TVL 458k (api.llama.fi 2026-11-21). Contracts found via Blockscout token search + on-chain getters (DefiLlama adapter file level-money/index.js not in the adapters repo, so used explorer): lvlUSD token 0x7C1156E515aA1A2E851674120074968C905aAF37 (eth_getCode non-empty, name()='Level USD', minter()=0x9136ab0294986267b71beed86a75eeb3336d09e1); LevelMintingV2 proxy 0x9136ab0294986267b71beed86a75eeb3336d09e1 (eip1967, impl 0xB35e00313090BD9Ec1b017d5f2e3de2Bb90a92E7, src/v2/LevelMintingV2.sol); StakedlvlUSD ERC4626 0x4737D9b4592B40d51e110b94c9C043c6654067Ae (asset()=lvlUSD); VaultManager proxy 0x5f432430c515964c299bb4f277cdab0fcc074e25 (impl 0xbD622e336d637C1F36419dBC64DA1392a0317B6F); slvlUSDSilo 0x96948ca569ffaef0ce0f05b79aa9cde073690ced. Full ABI review of all 5: mint(Order)/initiateRedeem = requiresAuth (authority role), transferInRewards = REWARDER_ROLE, silo.withdraw = gated; only completeRedeem(address,address) is permissionless and it pays msg.sender's OWN pending redemption (stranger eth_call reverts 0x2e25d45e NoPendingRedemptions()). No reward/bounty/fee to a caller anywhere. Verdict role_gated."
+}

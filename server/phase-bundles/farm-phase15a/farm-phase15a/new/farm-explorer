@@ -1,0 +1,396 @@
+#!/usr/bin/env python3
+"""farm-explorer: a local read-only door to block-explorer APIs that keeps the API keys.
+
+Agents call it through /opt/farm/bin/explorer; they never see a key. Only a fixed set of
+read operations on a known address is passed on. There is no search by name: the APIs have none.
+
+Two backends with the same (Etherscan-compatible) modules and actions:
+  etherscan   https://api.etherscan.io/v2/api?chainid=...      key: $CREDENTIALS_DIRECTORY/key
+  blockscout  https://api.blockscout.com/v2/api?chain_id=...   key: $CREDENTIALS_DIRECTORY/bkey
+              (phase 15a; optional: without the bkey credential only Etherscan is used)
+
+For each request Etherscan is asked first, unless it already said the chain is not on its plan,
+unsupported, or the key is invalid. Blockscout is asked when Etherscan refuses the chain that way,
+and for `source` / `abi` when Etherscan has no verified source. The answer says which one served it.
+
+  GET /health                         counters, per-backend per-chain status
+  GET /chains[?probe=1]               which configured chains each backend can serve
+  GET /q/<chain>/<op>?address=0x...   op: source | abi | creation | txs | internal | tokentx
+
+Config: /etc/farm/explorer.json (no secrets; optional "blockscout" object). Keys: systemd
+LoadCredential from /etc/farm/explorer.key and /etc/farm/blockscout.key (root 0600).
+Standard library only.
+"""
+import json
+import os
+import re
+import sys
+import threading
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+CONF = os.environ.get("FARM_EXPLORER_CONF", "/etc/farm/explorer.json")
+ADDR_RE = re.compile(r"^0x[0-9a-fA-F]{40}$")
+
+# op -> (module, action, name of the address parameter, cacheable)
+OPS = {
+    "source": ("contract", "getsourcecode", "address", True),
+    "abi": ("contract", "getabi", "address", True),
+    "creation": ("contract", "getcontractcreation", "contractaddresses", True),
+    "txs": ("account", "txlist", "address", False),
+    "internal": ("account", "txlistinternal", "address", False),
+    "tokentx": ("account", "tokentx", "address", False),
+}
+# optional numeric parameters of the list ops: name -> (lowest, highest)
+LIST_PARAMS = {"page": (1, 50), "offset": (1, 200), "startblock": (0, 10**12), "endblock": (0, 10**12)}
+CACHE_MAX, CACHE_TTL_S = 500, 24 * 3600
+# Etherscan statuses after which the chain goes to Blockscout without asking Etherscan again
+SKIP_STATUSES = ("not_on_plan", "unsupported", "invalid_key")
+# HTTP statuses of a refusal that Blockscout may answer instead (plan, chain, key)
+FALLBACK_HTTP = (402, 404, 503)
+NOT_VERIFIED = ("not verified", "source code not verified", "contract source code not verified")
+
+
+class Refused(Exception):
+    """A request this service does not pass on. (status, message)"""
+
+
+class Backend:
+    """One explorer API: its URL, key, chain-id parameter name, spacing, daily counter and what
+    it has said about each chain."""
+
+    def __init__(self, name, upstream, key, chain_param, min_interval_s, daily_limit, probe_params, scrub):
+        self.name, self.upstream_url, self.key, self.chain_param = name, upstream, key, chain_param
+        self.min_interval_s, self.daily_limit, self.probe_params = min_interval_s, daily_limit, probe_params
+        self.scrub = scrub
+        self.lock = threading.Lock()
+        self.last_call = 0.0
+        self.day, self.calls_today = "", 0
+        self.status = {}                    # chain -> ok | not_on_plan | unsupported | invalid_key | error: ...
+        self.probed_at = {}                 # chain -> time of the last probe (plans change: re-probe after 6 h)
+        self.stats = {"upstream_ok": 0, "upstream_failed": 0}
+
+    def call(self, chain, chain_id, params, timeout):
+        """One GET. Spaced by min_interval_s and counted against daily_limit."""
+        with self.lock:
+            today = time.strftime("%Y-%m-%d", time.gmtime())
+            if today != self.day:
+                self.day, self.calls_today = today, 0
+            if self.calls_today >= self.daily_limit:
+                raise Refused((429, f"daily limit of {self.daily_limit} {self.name} calls reached; "
+                                    "it resets at 00:00 UTC"))
+            wait = self.min_interval_s - (time.monotonic() - self.last_call)
+            if wait > 0:
+                time.sleep(wait)
+            self.last_call = time.monotonic()
+            self.calls_today += 1
+        q = dict(params, **{self.chain_param: str(chain_id)}, apikey=self.key)
+        url = self.upstream_url + "?" + urllib.parse.urlencode(q)
+        t0 = time.monotonic()
+        try:
+            req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "farm-explorer/2"})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = json.loads(r.read(32 * 1024 * 1024))
+        except urllib.error.HTTPError as exc:                     # Blockscout answers some refusals with 4xx + JSON
+            body = b""
+            try:
+                body = exc.read(64 * 1024)
+                data = json.loads(body)
+            except Exception:                                     # noqa: BLE001
+                data = None
+            if not isinstance(data, dict):
+                self.stats["upstream_failed"] += 1
+                log(backend=self.name, chain=chain, action=params.get("action"), ok=False,
+                    ms=int((time.monotonic() - t0) * 1000), why=self.scrub(f"HTTP {exc.code} {body[:120]!r}")[:200])
+                if exc.code in (401, 403):
+                    self.status[chain] = "invalid_key"
+                    raise Refused((503, f"{self.name} refused the key (HTTP {exc.code}); tell the human (inbox/human)"))
+                raise Refused((502, f"{self.name} upstream failed: HTTP {exc.code}"))
+            data.setdefault("_http", exc.code)
+        except Exception as exc:                                  # noqa: BLE001 - network, bad JSON
+            self.stats["upstream_failed"] += 1
+            log(backend=self.name, chain=chain, action=params.get("action"), ok=False,
+                ms=int((time.monotonic() - t0) * 1000), why=self.scrub(repr(exc))[:200])
+            raise Refused((502, f"{self.name} upstream failed: " + self.scrub(str(exc) or type(exc).__name__)[:300]))
+        self.stats["upstream_ok"] += 1
+        log(backend=self.name, chain=chain, action=params.get("action"), ok=True, ms=int((time.monotonic() - t0) * 1000))
+        return data
+
+    def classify(self, chain, chain_id, data):
+        """Both APIs answer with status "0" and the reason in `result` or `message` (Blockscout
+        sometimes with an HTTP error code and `message`). Returns None when the answer is
+        usable, else (status, message); remembers what it says about the chain or the key."""
+        if not isinstance(data, dict):
+            return 502, f"{self.name} returned something that is not a JSON object"
+        http = data.get("_http")
+        if "jsonrpc" in data and http is None:                    # the probe (block number)
+            if "result" in data and data.get("result") is not None:
+                self.status[chain] = "ok"
+                return None
+            text = json.dumps(data.get("error"))
+        elif str(data.get("status")) == "1" and http is None:
+            self.status[chain] = "ok"
+            return None
+        else:
+            result = data.get("result")
+            text = f"{data.get('message') or ''} {result if isinstance(result, str) else ''}"
+            if isinstance(result, list) and not result and http is None:   # "No transactions found": real, empty
+                self.status[chain] = "ok"
+                return None
+            if http is not None:
+                text = f"HTTP {http} {text}"
+        text = self.scrub(text).strip()
+        low = text.lower()
+        if ("free api access is not supported" in low or "upgrade your api plan" in low
+                or "not available on your plan" in low or "upgrade your plan" in low):
+            self.status[chain] = "not_on_plan"
+            return 402, f"{chain} is not on the {self.name} key's plan ({self.name}: {text[:160]})"
+        if ("invalid api key" in low or "missing/invalid" in low or "missing or invalid" in low
+                or "api key is invalid" in low or "unauthorized" in low or http in (401, 403)):
+            self.status[chain] = "invalid_key"
+            return 503, f"the {self.name} API key is missing or invalid; tell the human (inbox/human)"
+        if ("unsupported chain" in low or "invalid chainid" in low or "invalid chain_id" in low
+                or ("chain" in low and "not supported" in low) or "unknown chain" in low
+                or ("chain" in low and "not found" in low)):
+            self.status[chain] = "unsupported"
+            return 404, f"{self.name} does not serve {chain} (chain id {chain_id})"
+        if "rate limit" in low or "too many requests" in low or http == 429:
+            return 429, f"{self.name} rate limit: {text[:160]}; wait a few seconds"
+        return 422, f"{self.name}: {text[:300]}"                  # e.g. "Contract source code not verified"
+
+
+class Explorer:
+    def __init__(self, cfg, key, bkey=None):
+        self.cfg = cfg
+        self.keys = [k for k in (key, bkey) if k]
+        self.chains = dict(cfg["chains"])
+        timeout = cfg.get("timeout_s", 20)
+        self.timeout = timeout
+        self.backends = [Backend("etherscan", cfg["upstream"], key, "chainid", cfg.get("min_interval_s", 0.4),
+                                 cfg.get("daily_limit", 20000), {"module": "proxy", "action": "eth_blockNumber"},
+                                 self.scrub)]
+        bs = cfg.get("blockscout") or {}
+        if bkey and bs.get("enabled", True):
+            self.backends.append(Backend("blockscout", bs.get("upstream", "https://api.blockscout.com/v2/api"), bkey,
+                                         "chain_id", bs.get("min_interval_s", 0.25), bs.get("daily_limit", 20000),
+                                         {"module": "block", "action": "eth_block_number"}, self.scrub))
+        self.cache = {}                     # (chain, op, address) -> (time, payload)
+        self.stats = {"cache_hits": 0, "refused": 0, "fallbacks": 0}
+
+    # kept for the 12e /health shape
+    @property
+    def status(self):
+        return self.backends[0].status
+
+    def scrub(self, text):
+        """No key ever leaves this process, whatever an upstream echoes back."""
+        for k in self.keys:
+            text = text.replace(k, "***")
+        return text
+
+    def backend(self, name):
+        return next((b for b in self.backends if b.name == name), None)
+
+    def ask(self, b, chain, params):
+        data = b.call(chain, self.chains[chain], params, self.timeout)
+        bad = b.classify(chain, self.chains[chain], data)
+        if bad:
+            raise Refused(bad)
+        return data
+
+    # --- operations ---------------------------------------------------------------------
+    def query(self, chain, op, args):
+        if chain not in self.chains:
+            raise Refused((404, f"unknown chain {chain!r}; known: {', '.join(sorted(self.chains))}"))
+        if op not in OPS:
+            raise Refused((404, f"unknown operation {op!r}; known: {', '.join(sorted(OPS))}"))
+        module, action, addr_param, cacheable = OPS[op]
+        address = args.get("address", "")
+        if not ADDR_RE.match(address):
+            raise Refused((400, "address must be 0x followed by 40 hex digits"))
+        params = {"module": module, "action": action, addr_param: address}
+        if not cacheable:
+            for name, (lo, hi) in LIST_PARAMS.items():
+                if name in args:
+                    try:
+                        v = int(args[name])
+                    except ValueError:
+                        raise Refused((400, f"{name} must be a whole number"))
+                    if not lo <= v <= hi:
+                        raise Refused((400, f"{name} must be between {lo} and {hi}"))
+                    params[name] = str(v)
+            params.setdefault("page", "1")
+            params.setdefault("offset", "50")
+            params["sort"] = "asc" if args.get("sort") == "asc" else "desc"
+            if op == "tokentx" and args.get("contractaddress"):
+                if not ADDR_RE.match(args["contractaddress"]):
+                    raise Refused((400, "contractaddress must be 0x followed by 40 hex digits"))
+                params["contractaddress"] = args["contractaddress"]
+        key = (chain, op, address.lower())
+        if cacheable:
+            hit = self.cache.get(key)
+            if hit and time.time() - hit[0] < CACHE_TTL_S:
+                self.stats["cache_hits"] += 1
+                return hit[1]
+        data, via, notes = None, None, []
+        es, bs = self.backends[0], self.backend("blockscout")
+        if bs and es.status.get(chain) in SKIP_STATUSES:
+            order = [bs]
+            notes.append(f"etherscan {es.status[chain]} on {chain}")
+        else:
+            order = [es] + ([bs] if bs else [])
+        last = None
+        for i, b in enumerate(order):
+            try:
+                data, via = self.ask(b, chain, params), b.name
+                break
+            except Refused as exc:
+                last = exc
+                status, why = exc.args[0]
+                notes.append(why[:200])
+                retry = (status in FALLBACK_HTTP
+                         or (op in ("source", "abi") and status == 422 and any(s in why.lower() for s in NOT_VERIFIED))
+                         or (op == "source" and status == 422 and b.name == "etherscan"))
+                if i + 1 < len(order) and retry:
+                    self.stats["fallbacks"] += 1
+                    continue
+                if len(notes) > 1:
+                    raise Refused((status, " | ".join(notes)))
+                raise
+        if data is None:
+            raise last or Refused((502, "no explorer backend answered"))
+        if (op == "source" and via == "etherscan" and bs and isinstance(data.get("result"), list)
+                and data["result"] and not (data["result"][0].get("SourceCode") or "").strip()):
+            # Etherscan answers status 1 with an empty SourceCode for unverified contracts
+            try:
+                data, via = self.ask(bs, chain, params), bs.name
+                self.stats["fallbacks"] += 1
+            except Refused as exc:
+                notes.append(exc.args[0][1][:200])
+        out = {"chain": chain, "op": op, "address": address, "via": via, "result": data.get("result")}
+        if cacheable:
+            if len(self.cache) >= CACHE_MAX:
+                self.cache.pop(min(self.cache, key=lambda k: self.cache[k][0]))
+            self.cache[key] = (time.time(), out)
+        return out
+
+    def probe(self, b, chain):
+        """Does this backend's key work on this chain? One cheap call (the chain's block number)."""
+        b.probed_at[chain] = time.time()
+        try:
+            data = b.call(chain, self.chains[chain], b.probe_params, self.timeout)
+        except Refused as exc:
+            if b.status.get(chain) not in SKIP_STATUSES:
+                b.status[chain] = "error: " + exc.args[0][1][:120]
+            return b.status[chain]
+        bad = b.classify(chain, self.chains[chain], data)
+        if bad and b.status.get(chain) in (None, "ok"):
+            b.status[chain] = "error: " + bad[1][:120]
+        return b.status[chain]
+
+    def chain_table(self, probe=False):
+        out = {}
+        for chain in sorted(self.chains):
+            row = {"chain_id": self.chains[chain]}
+            for b in self.backends:
+                if probe or chain not in b.status or time.time() - b.probed_at.get(chain, 0) > 6 * 3600:
+                    self.probe(b, chain)
+                row[b.name] = b.status.get(chain, "unknown")
+            ok = [b.name for b in self.backends if row[b.name] == "ok"]
+            row["status"] = "ok" if ok else row["etherscan"]
+            row["via"] = ok[0] if ok else None
+            out[chain] = row
+        return out
+
+    def health(self):
+        return {"ok": True, "chains": self.status, "cache_hits": self.stats["cache_hits"],
+                "refused": self.stats["refused"], "fallbacks": self.stats["fallbacks"],
+                "day": self.backends[0].day, "calls_today": self.backends[0].calls_today,
+                "daily_limit": self.backends[0].daily_limit,
+                "upstream_ok": sum(b.stats["upstream_ok"] for b in self.backends),
+                "upstream_failed": sum(b.stats["upstream_failed"] for b in self.backends),
+                "backends": {b.name: {"day": b.day, "calls_today": b.calls_today, "daily_limit": b.daily_limit,
+                                      "chains": b.status, **b.stats} for b in self.backends}}
+
+
+def log(**kw):
+    print(json.dumps(dict(ts=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), **kw)), flush=True)
+
+
+def make_handler(ex):
+    class Handler(BaseHTTPRequestHandler):
+        protocol_version = "HTTP/1.1"
+
+        def log_message(self, *a):                                # the upstream log line is enough
+            pass
+
+        def send(self, status, obj):
+            body = json.dumps(obj).encode()
+            self.send_response(status)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+
+        def do_GET(self):                                         # noqa: N802
+            parsed = urllib.parse.urlparse(self.path)
+            args = {k: v[0] for k, v in urllib.parse.parse_qs(parsed.query).items()}
+            parts = [p for p in parsed.path.split("/") if p]
+            try:
+                if parts == ["health"]:
+                    return self.send(200, ex.health())
+                if parts == ["chains"]:
+                    return self.send(200, {"chains": ex.chain_table(probe=args.get("probe") == "1")})
+                if len(parts) == 3 and parts[0] == "q":
+                    return self.send(200, ex.query(parts[1], parts[2], args))
+                raise Refused((404, "paths: /health, /chains, /q/<chain>/<op>?address=0x..."))
+            except Refused as exc:
+                ex.stats["refused"] += 1
+                status, why = exc.args[0]
+                return self.send(status, {"error": ex.scrub(why)})
+            except Exception as exc:                              # noqa: BLE001 - never a traceback with a key in it
+                return self.send(500, {"error": "farm-explorer internal error: " + ex.scrub(repr(exc))[:200]})
+
+        def do_POST(self):                                        # noqa: N802
+            self.send(405, {"error": "read-only: GET only"})
+    return Handler
+
+
+def read_key(path):
+    with open(path, encoding="utf-8") as f:
+        return f.read().strip()
+
+
+def load():
+    cred = os.environ.get("CREDENTIALS_DIRECTORY")
+    if not cred:
+        sys.exit("farm-explorer: CREDENTIALS_DIRECTORY is not set (start it from farm-explorer.service)")
+    # the unit hands over the config as a credential too, so this works whatever /etc/farm's mode is
+    conf = os.path.join(cred, "conf") if os.path.exists(os.path.join(cred, "conf")) else CONF
+    with open(conf, encoding="utf-8") as f:
+        cfg = json.load(f)
+    key = read_key(os.path.join(cred, "key"))
+    if not key:
+        sys.exit("farm-explorer: the key file is empty")
+    bpath = os.path.join(cred, "bkey")
+    bkey = read_key(bpath) if os.path.exists(bpath) else None
+    return cfg, key, bkey or None
+
+
+def main():
+    cfg, key, bkey = load()
+    ex = Explorer(cfg, key, bkey)
+    host, port = cfg.get("listen", ["127.0.0.1", 29484])
+    if host not in ("127.0.0.1", "::1", "localhost"):
+        sys.exit("farm-explorer: listen must be loopback")
+    srv = ThreadingHTTPServer((host, int(port)), make_handler(ex))
+    srv.daemon_threads = True
+    log(event="start", listen=f"{host}:{port}", chains=sorted(ex.chains), backends=[b.name for b in ex.backends])
+    srv.serve_forever()
+
+
+if __name__ == "__main__":
+    main()

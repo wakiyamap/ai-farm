@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-boson-protocol",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Boson v2.5.1 diamond on polygon has anyone-callable state transitions (completeExchange, expireVoucher, expireDispute, withdrawFunds) but none pays the caller - no bounty/keeper-fee exists in the code (only a mutualizer gas stipend paid to the mutualizer contract); all value flows to buyer/seller/dispute-resolver participants. Worse, the protocol is inert on polygon: 0 txs to the diamond in the last 7 days (last tx 2026-10-26, an admin pause), so even the participant flows are dormant; the 227k USD TVL is listed offers. No stranger could have earned anything calling here in the last 7 days.",
+ "numbers": "0 txs/7d to 0x59A4C19b55193D5a2EAD0065c54af4d516E18Cb5 (etherscan tx list, last tx block 96221157 ts 1793037107=2026-10-26); getLogs control returns 1 log on 96221120-96221200 (public node caps ranges at 100 blocks); eth_call fresh address -> InvalidState (not role-gated); gas 281.55 gwei x POL $0.08174 (coins.llama.fi) => 97,212-gas change = $2.24 (voidOffer receipt 0x0d6f831e...); withdrawProtocolFees onlyRole(FEE_COLLECTOR)"
+}

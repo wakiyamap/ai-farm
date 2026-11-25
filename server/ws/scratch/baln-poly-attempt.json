@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-balancer-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward verdict. Balancer V2 on polygon has no function that pays the caller: the only fee-settlement route ProtocolFeesWithdrawer.withdrawCollectedFees is authorizer-gated (eth_call from fresh address reverts) and dormant since 2022-05-18; the 2 MerkleOrchard distributors pay only their own claimers and had 0 claims in 7 days (last orchard tx 2024-12-03); vault flow is user-driven swaps; the active pool set has no linear pools with the keeper-style manageFreeUnderlying(), which pays nothing by design anyway. Same shape as the arbitrum/ethereum/base/optimism siblings.",
+ "numbers": "Vault Swap topic0 0x2170c741c41531aec20e7c107c24eecfdd15e69c9bb0a8dd37b1840b9e0b207b, blocks 97286360-97639288 (~7d, head 0x5d1d378), 3 chunks: 25,301 Swap logs, 197 distinct pools (top pool 0x03cd191f589d12b0582a99808cf19851e468e6b5 (poolId tail 8cf19851e468e6b5..0a) 4,683 swaps/7d). Claimed events 7d and 35d on 0xc3ccacE8..bB68 and 0x0F3e0c42..c54e = 0; same-shape control (WMATIC 0x0d500B1d..1270 Transfer, ~1400 blocks) returned logs. withdrawCollectedFees (0x6daefab6) eth_call from 0x1111.. reverts; last withdrawer tx block 28442149 ts 1652819562. MerkleOrchard v2 last tx 1733216176 (2024-12-03, explorer txs). Top-14 pools: getBuffer() (0x705e8b2e) reverts on 14/14. TVL $2.095M (DefiLlama candidate row)."
+}

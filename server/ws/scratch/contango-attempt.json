@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-contango-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated: no function on the Contango core pays a stranger; the only keeper reward (OrderManager execute -> keeperReward = gas multiplier refund to msg.sender) is onlyRole(BOT_ROLE), and the order book is idle anyway (0 orders placed/executed in the last 7d). Core activity in 7d was 6 user trades; claimRewards pays the position owner, not a caller (reverts Unauthorised from a fresh address).",
+ "numbers": "7d core proxy logs: 20 (16 PositionUpserted, 4 PositionDonated) in 6 txs, eth_getLogs addr 0x6Cae28b3D09D8f8Fc74ccD496AC986FC84C0C24E from block 0x1f2c28fb; OrderManager 0xa64f0dbb10c473978c2efe069da207991e8e3cb3 OrderExecuted 7d = 0, OrderPlaced last ~7M blocks = 0 (same query shape on core returned 20 logs as control; oldest 3.5M-block chunk 403 on public node); claimRewards(0x..01) from 0xAbCd..Ef12 eth_call revert 0xae10e1de Unauthorised; keeperReward formula src OrderManager.sol L321 gasMultiplier 1e4 scale; source via etherscan impl 0x555d00bbB3c8C4DADd698Aed2e5cfdc1d37d7B29 / 0x1c8df1873a54b6807c530e683b7d7019b5b1aa21"
+}

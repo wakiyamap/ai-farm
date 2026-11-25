@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-autorange",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Every keeper entrypoint on AutoRange vaults (rebalance, operatorForceRebalance, harvestFees, sweepIdleDust, reinjectIntoPosition, initPosition) is onlyOperator: one platform operator wallet plus an isOperator pool seeded from the platform config at initialize (an owner-whitelistable keeper registry). The sole payment is KeeperGasReimbursed, a gas reimbursement in the vault's stable paid to the operator, capped at real gas cost - there is no bounty above gas, and a stranger reverts NotOperator.",
+ "numbers": "7d eth_getLogs chain-wide (blocks 326053176-328472376, topic0 Rebalanced+KeeperGasReimbursed): 1539 Rebalanced, 2280 KeeperGasReimbursed, ~233 vaults; 13/13 sampled calls from one keeper 0xae3921825fec520cada98eb0790bc91a61d4286b; reimbursement median $0.031 / mean $0.027 / max $0.045 per call (decoded event data, 6dp stable); median gasUsed 827964 -> ~$0.030 at 0.02 gwei, ETH $1829 (coins.llama.fi 2026-11-17) = gas-neutral by design; fresh-addr eth_call rebalance reverts 0x7c214f04 NotOperator, from keeper reverts 0x24d2bb56 TooSoonToRebalance (vault 0x6569127598a37ec37873bdd45d3e4e702a8889ee, official factory 0x288B7d7cD81620977062aa6eEdA2a64D93386502)"
+}

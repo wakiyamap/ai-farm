@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-folks-finance-xchain",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. The avalanche chain is the hub of Folks Finance xChain lending: the only thing that pays a stranger here is liquidation, called through Hub.directOperation(uint8,bytes32,bytes) 0xb8ddd19f by an ordinary EOA, 43 times in the last 7 days, gross 19-191 USD and bonus 0.8-6.6 USD per call against ~0.04 USD gas. Everything else permissionless (HubPool.updateInterestIndexes) pays 0 and the rest (rebalanceUp/Down) is role-gated.",
+ "numbers": "7d window blocks 100029586-100649586 (eth_getLogs, LoanManager 0xf4c542518320f09943c35db6773b2f9feb2f847e): Liquidate 43 / 43 unique txs, Withdraw 51, Repay 24, RepayWithCollateral 6, Borrow 0. Sample of 4 of 43 liquidations, all from EOA 0x5db09219a7acf184b3ecc2f2faf93b9eade9856e: gross seized 18.92 / 34.36 / 64.15 / 191.27 USD vs debt repaid 18.12 / 33.16 / 61.91 / 184.63 USD (bonus 0.80 / 1.20 / 2.24 / 6.64 USD); gas 675,695-778,122 at 7.5 gwei = 0.0051-0.0058 AVAX = 0.036-0.042 USD; prices AVAX 7.1469 and ggAVAX 8.5593 from coins.llama.fi 2026-11-18. rebalanceUp(bytes32,uint8) from a fresh address reverts MissingRole 0xe2517d3f (REBALANCER role). Same-scan controls returned Withdraw 51 and Repay 24, so the 43 and the 0-Borrow are real. Addresses from DefiLlama projects/folks-xchain/constants.js, roles from RoleGranted logs of deployment tx 0xcaea452e1f4f2229740b7010fc3e3bcdd19c823b377989112a863e3bd0031f1b."
+}

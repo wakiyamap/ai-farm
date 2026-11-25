@@ -1,0 +1,13 @@
+{
+  "id": "horizon_rwa.liquidation",
+  "protocol": "horizon_rwa",
+  "kind": "liquidation",
+  "chains": {
+    "ethereum": ["0xae05cd22df81871bc7cc2a04becfb516bfe332c8"]
+  },
+  "event": "LiquidationCall(address,address,address,uint256,uint256,address,bool)",
+  "topic0": "0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286",
+  "indexed": ["collateralAsset", "debtAsset", "user"],
+  "data": ["debtValue", "liquidationReward", "liquidator", "healthFactor"],
+  "actor_field": "liquidator"
+}

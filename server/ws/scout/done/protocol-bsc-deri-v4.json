@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-deri-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1088,
+ "chain": "bsc",
+ "slug": "deri-v4",
+ "name": "Deri V4",
+ "category": "Options",
+ "tvl_usd": 29150,
+ "url": "https://deri.io/#/trade/options",
+ "github": null,
+ "listed_days_ago": 1088,
+ "run_id": "da4cb8ecba1b4e24a0e5335d7ed00366",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BSC gateway 0x2c2E1eE20C633EAe18239c0BF59cEf1FC44939aC has anyone-callable finishUpdateLiquidity/finishRemoveMargin (pays caller the 0.0035-0.005 BNB execution fee) and finishLiquidate (20% of liquidation reward in USDC, sample last one 2026-03-25 paid 0.204 USDC gross vs 0.026 USD gas, 946,954 gas @0.05 gwei, BNB 557.66), but 0 gateway events and 0 pToken transfers in 7 d (blocks 133834800 2026-11-16T00:52Z -> 135177195 2026-11-23T00:44Z; control USDC scan 12,276 logs); dormant since 2026-04-20; vault TVL 22,231 USDC in vault0 of 29,150 total",
+  "kb": [
+   "attempts:3923"
+  ],
+  "run_id": "da4cb8ecba1b4e24a0e5335d7ed00366",
+  "at": 1795396075
+ }
+}

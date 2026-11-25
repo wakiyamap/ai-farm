@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-gauntlet",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "bsc",
+ "slug": "gauntlet",
+ "name": "Gauntlet",
+ "category": "Risk Curators",
+ "tvl_usd": 472444564,
+ "url": "https://www.gauntlet.xyz",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "c734a35d987e47e6837cfaef01c3102d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "4 Moolah-fork vaults (impl 0x713a7e23...cc95, USD1 vault totalAssets 138.5M) on bsc: reallocate((MarketParams,uint256)[]) is the only allocation fn and reverts from a stranger ('not allocator or bot'); no accrueInterest/updateAssetPortfolio in ABI - keeper reward lives on Moolah core 0x8f73b65b..., not Gauntlet",
+  "kb": [
+   "attempts:1912",
+   "protocols:533"
+  ],
+  "run_id": "c734a35d987e47e6837cfaef01c3102d",
+  "at": 1794958867
+ }
+}

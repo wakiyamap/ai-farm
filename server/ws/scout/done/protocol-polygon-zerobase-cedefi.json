@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-zerobase-cedefi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 530,
+ "chain": "polygon",
+ "slug": "zerobase-cedefi",
+ "name": "ZEROBASE CeDeFi",
+ "category": "Basis Trading",
+ "tvl_usd": 631316,
+ "url": "https://app.zerobase.pro/",
+ "github": null,
+ "listed_days_ago": 530,
+ "run_id": "ed94330f7a164a8f8110515e61e9ff9a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Polygon vault 0xCc5Df5...28E4 (TVL 631,615 USD, getTVL USDT 252,627 + USDC 378,988, matches DefiLlama): same self-service Vault.sol as arbitrum (KB 511) - claim/requestClaim/stake pay only msg.sender (user==msg.sender reverts for a fresh address), transferToCeffu BOT_ROLE, sendLpTokens airdropAddr, setters DEFAULT_ADMIN, cancelClaim flag off; 0 txs in last 7 days (last 2026-11-08), ~11 txs/30d all self-service EOAs; sample claim gas 0.140 POL = 0.011 USD (POL 0.0817, coins.llama.fi); depositor yield 112%/yr nominal paid to stakers, nothing pays a stranger caller",
+  "kb": [
+   "attempts:1889",
+   "protocols:514"
+  ],
+  "run_id": "ed94330f7a164a8f8110515e61e9ff9a",
+  "at": 1794953001
+ }
+}

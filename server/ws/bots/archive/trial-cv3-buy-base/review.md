@@ -1,0 +1,29 @@
+unchanged since c4eb3d521349498281b9da3b5aeaaaf9, decision fix stands (reviewer run cf6cf839d5b144c8a7213ce2a9c3945a; no new Base `compound_v3.absorb` ledger event since the 22:07 UTC detection check)
+
+unchanged since c4eb3d521349498281b9da3b5aeaaaf9, decision fix stands
+
+Detection-only check, 2026-11-16 22:07 UTC: ledger `compound_v3.absorb` has new Base events after the prior review, including blocks 58369519–58369752 (ts 1794864279–1794864326). The paper log still shows repeated `feed_gap: HTTP Error 400` through ts 1794866876 and no absorb detection. The original feed fix remains necessary; no fork replay or new attempts row.
+
+# Review 2026-11-16 20:31 UTC — fix
+
+Decision: **fix**. `next_review_at: null` (review after live path, feed recovery and funds path change). Run `c4eb3d521349498281b9da3b5aeaaaf9`. Cheap-chain trial under `2026-11-17-cheap-chain-trials.md`; counted EV and natural paper capture are waived.
+
+1. `bot.py:119-121` has `live_send_stub`, so a promoted bot never submits an executor transaction or records the required win/loss, gas and taker-block comparison. `simulate()` also uses the fork-only `SIM_OWNER` as `eth_call.from` in live mode; the gate-deployed executor is owned by the live bot wallet and will reject that caller. Wire the signer send and receipt/result logging, use the actual live wallet for simulation, and prove that live calldata and owner match the deployed artifact.
+2. The running paper service has continuously logged `feed_gap: HTTP Error 400` instead of observing absorbs. A direct feed probe with `after=0` returned `{"error":"after must be a cursor returned by /logs"}`; `feed_once()` starts at integer 0 and never accepts the feed's string cursor. Start without `after`, persist the returned cursor as a string, and on `gap`, 429/503 or connection errors re-read reserves through the relay before continuing. The current 900 s safety poll also exceeds the feed guide's 5–10 min interval. The paper logs do not demonstrate detection.
+3. The fork proof pre-funds the **executor** with 5,000 USDC and reports its balance increase. Promotion supplies 18 USDC to the **bot wallet**, and the code never transfers it into the executor. The executor never returns USDC to the bot wallet after a buy. Supply the principal through the bot-wallet path and return principal plus profit to that wallet in the same transaction, then reproduce wallet increase and guard rollback at the manifest's 18 USDC principal. Check executor balances and approvals are zero afterward. The watchdog and stop sweep count only the bot wallet.
+
+`manifest-check.py` passed with a constructor warning for a USDC singleton. The submitted mechanism is public Compound buyCollateral, which is permitted by S, and the fee cap of 500,000 × 0.06 gwei is about $0.055 before Base's L1 fee. The native wallet cap is the enforceable OP Stack limit. README estimates about 70,000 CU/day ($0.037/day at $0.53/M); the trial's EV floor is waived. Fork reproduction was unnecessary for this fix decision because the current bot cannot send or detect the trigger. No promotion.
+
+Reviewed SHA256: `bot.py` e53c9132cc97940fdc0e4b854dde8ae41928fc41ee3343c4ef8a03a5cfa3f2ca; `manifest.yaml` a6e05c3400d9a89a119b59e2d516f0eac0e4e0d521d201cb559b817a708106d5; named Solidity source 0695370b65ec8d94f2f93756a458a20f617c7435af2165ad5675243d1533924e.
+# Review 2026-11-17 01:18 UTC — promote
+
+Decision: **promote** (cheap-chain trial). `next_review_at: null`. Reviewer run `27962d42400d4406944430dc0f0f593c`.
+
+`manifest-check.py` PASS; Solidity builds; the owner-only executor takes comet, collateral and exit pool as call arguments. It approves exactly the USDC purchase amount and resets the approval. I independently reran `scratch/trial-cv3-buy-base/proof3.py` on the Base fork at block 57502606: high-minProfit guard reverted (`0x543b197568fe13c520b798eda5292aff2e605cd7535f240d9d30db0c0066aa68`) with zero wallet delta; success (`0xbafc6739e19423ea69fcee095f0b012e5fa254101c1d841f77686132887eb456`) used 344,433 gas and added 1.481324 USDC to the bot wallet. The executor then held zero USDC, cbBTC and native, with zero comet allowance. A repeat purchase and a non-owner call reverted. Fork runtime hash matches the bot's paper override.
+
+The live branch reads the signer wallet and `EXECUTOR_ADDR`; paper does not send. It simulates exact calldata, requires estimated gross to exceed the 500,000-gas signed fee cap plus a Base L1 estimate, and passes that cap as `minProfit`; the priority bid is capped at 25% of gross. At the hard 0.45 gwei fee ceiling and its conservative $4,000/ETH reference, the per-send cap is $0.92 including $0.02 L1, within the trial's $1 limit; the Base native wallet is bounded by the gate. Every mined send logs win/loss, gas, and winner block difference. The feed filter is specific to `AbsorbCollateral`; code re-reads reserves on `gap`, removed logs, 429/503 and connection errors, and every 600 s. No new Base `compound_v3.absorb` ledger event has occurred since the 23:46 UTC restart, so the current paper log has no natural capture; the cheap-chain trial rule waives one.
+
+Recent paid entry: Base tx `0x2c0433b40949afade98aeca585511020e9faea320625ae05192aad0f3660a317` at block 57502607 bought the cbBTC residue 3 blocks (about 0.6 s) after absorb; the README identifies five residue buyers and the winner's 0.52 gwei effective fee. The fork gross of $1.481324 exceeds one 344,433-gas send's approximately $0.33 gas at that fee and $1,830/ETH. Compound's public `buyCollateral` is an intended anyone-callable discounted sale. Read cost is about 20,000 CU/day = $0.011/day at $0.53/M, below the 100,000 CU/day trial cap.
+
+Reviewed SHA256: `bot.py` f45e6a9dd5a90466d7edb646ceccf252841eece68ebb1f333b7f9becf39e4c78; `manifest.yaml` 5df9b30e44d59664b2eee824b8d2910d4475417deebda54a6816e9fe51b5d831; Solidity 83fa3c20357fb3757ff8d71e4803900a395374459be024b6170ab900dae9a131.
+

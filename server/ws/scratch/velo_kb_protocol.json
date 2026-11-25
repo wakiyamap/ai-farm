@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "velo_finance",
+  "status": "dead_end",
+  "checked": "2026-11-22T20:15-20:35Z run ccdd9b75 scout (verdict unpaid): DefiLlama slug velo-finance = Evrynet-rebranded Uniswap-V2 AMM on BSC (Sourcify sources are EvryFactory.sol/EvryPair.sol). Adapter projects/velo/index.js pins factory 0xa328180188a30feF1d82c9FC916E627DB6E17238 (all code-confirmed via rpc eth_getCode; allPairsLength()=7, functions all owner/admin-gated, no public reward fn). Current farm proxy 0xDD3e2da1d017A564b8225bc8e92f2970cfa61945 -> impl 0xe9c46eb7446fbf76b316a9705ccd1b5c9b20e362 (Farms.sol+TokenDistributor.sol, Sourcify match; 6 pools, rewardPerBlock 1e15 wei). Anyone-callable fns: harvest(pid)/harvestAll() pay only msg.sender's own pending (eth_call harvest(0)/harvestAll() from fresh addr 0x...deadbeef succeed, no role revert, pay 0); updatePool/massUpdatePools public but pay caller nothing; TokenDistributor.release() is onlyOwner. Emission pot empty: TokenDistributor 0x999b3bb858890ad58c0986ffa4e8156a12035550 VELO balance 0 (cap 10M, released 2,000 VELO lifetime). 15 AprFix lock contracts (EarnOtherFixedAPRLockReward, e.g. 0x5e10B2247a430f97c94205894B9185F687A32345): withdraw/emergencyWithdraw pay holder only, recoveryReward onlyOwner. Old farm 0x33472144Eaa7540E7badA5a1ab7Da372e48a9252: 0 logs in 7d."
+}

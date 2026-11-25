@@ -1,0 +1,8 @@
+{
+  "chain": "elysium",
+  "target": "Holding-frame mean reversion on Elysium USDC/WHYPE pools vs the HyperEVM HYPE price (buy WHYPE with USDC when Elysium trades below the reference, sell back in the same pool)",
+  "outcome": "review_fix",
+  "bot_id": "whype-gap-elysium",
+  "reason": "Review 466717176aed4cecbf57d227f37d36f9: holding-frame buy guard permits 19.90 USDC immediate exit for 20 USDC spent and uses spot quote rather than executable full-size exit; stale paper state from old 1e6 WHYPE unit bug yields no new trades after restart; live funding transfer is not confirmed before buy estimate; historical table recomputes negative EV before gas. See bots/paper/whype-gap-elysium/review.md.",
+  "numbers": "README table 12 rounded trip nets sum -5.87 USD/100 over 26.5h (-1.174 USD/20, -1.063 USD/day before gas); attempt 1288 unrounded claim -5.86. 10s poll x 8640/day x 3 CU = 25920 CU/day = 0.0137376 USD/day. Paper log 2026-11-15 10:08:09Z-10:31:59Z: 24 heartbeats, 0 new sim buys/sells; state/state.json whype_est 309824409318485345173504 and holding true. Attempt 1288 fork proof 20 USDC buy, 19.9554 USDC same-pool sell."
+}

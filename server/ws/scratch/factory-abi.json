@@ -1,0 +1,10 @@
+# via blockscout
+constructorNone(address,address,bytes) payable
+admin() -> (address)
+changeAdmin(address)
+implementation() -> (address)
+upgradeTo(address)
+upgradeToAndCall(address,bytes) payable
+event AdminChanged(address,address)
+event BeaconUpgraded(address)
+event Upgraded(address)

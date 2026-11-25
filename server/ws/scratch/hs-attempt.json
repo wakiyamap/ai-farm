@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-hyperswap-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. HyperSwap V3 is a stock Uniswap V3 fork (verified source of HyperswapV3Factory/Pool via explorer). No function anyone can call pays the caller: collect() pays only msg.sender's own accrued fees, flash() charges the caller, and the only payout function collectProtocol(recipient,...) is onlyFactoryOwner - eth_call from a fresh address reverts, from the owner EOA 0xbc7e493fd3ed834ed563f9597aaaed94e446bbc7 it succeeds. All recent calls are the owner's own daily sweep to treasury 0x324126250aae1572cb6649e3bec9142c2b7aa87b, so no stranger can ever be paid.",
+ "numbers": "7d (2026-11-13..18) on top pool 0x3a36b04bcc1d5e2e303981ef643d2668e00b43e7 (WHYPE/uBTC 0.3%): 5 CollectProtocol events = 1/day, all from owner EOA, recipient 0x3241..a87b (contract, 27,888-hex code). Gross per call (5/5 samples, tx 0x435f370d...196b1 and 3 others): $424-$1,450, avg ~$805 (6.01 WHYPE + 0.00955 uBTC sample; HYPE $68.58, uBTC $64,359.94 from coins.llama.fi 2026-11-18). Gas 95,949 at 0.1 gwei (eth_gasPrice) = 0.0000096 HYPE = $0.0007. Protocol still live and busy: subgraph head 51.56M, swaps within minutes of head. Subgraph collectProtocols entity is empty (missing handler); counts from eth_getLogs topic 0x596b5739... (cast keccak CollectProtocol(address,address,uint128,uint128)). Sources: docs.hyperswap.exchange, ormi subgraph hyperswap-v3/v0.1.2, explorer source of factory 0xb1c0fa0b789320044a6f623cfe5ebda9562602e3."
+}

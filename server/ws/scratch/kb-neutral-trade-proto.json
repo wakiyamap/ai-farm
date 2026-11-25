@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "neutral_trade",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/neutral-trade (constants.js ACCOUNTABLE_STRATEGIES.ethereum = single strategy 0x56B935Fe5183cC0DE489233d032F9A4B8ec2f9Ff 'Neutral Trade Autopilot'; rest of TVL is Solana). Proxy = ERC1967, impl 0x80c93dc28f142fc3f40ce058c9ca56a0a47621f5 verified on etherscan as AccountableYield (Accountable NAV strategy). Getters read on chain: asset()=USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, vault()=0x909dadbca7955614a455d9e7447ad4adb4902c8e (Accountable AsyncVault, redemption-queue; payouts go to redeemers not callers), depositGateway()=0x0, rewards()=0x0, loanState()=3 OngoingDynamic, borrower()=0x4c28871f0a222d801af87c29f2948d19cffda9f2. Only role-free functions are accrueAndProcess() and updateLateStatus(); source shows no payment path to msg.sender (only ERC-20 move in AccountableYield.sol is safeTransferFrom in repay; fees mint to managerFeeRecipient + FeeManager treasury). publishRate gated on dvnPublisher, borrow/repay onlyBorrower, defaultLoan/coverDefault onlySafetyModuleOrManager. GitHub org neutral-trade is all Solana repos, no ethereum contracts repo. No keeper/bounty/reward mechanism on ethereum."
+}

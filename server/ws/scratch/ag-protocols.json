@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "atomic_green",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/atomic/index.js lists 3 lending proxies on Arbitrum (impl 0x176db32e1e56b22e39ea6f9e328e5b5d277835dc, unverified): 0x561920028545985c60fb93d48717ff0070cb4e74 (WETH 0x82af...fbab1, 18 dec), 0xBAE99752dA245089698Bc1b5F0a14eAE91694FBc (WBTC 0x2f2a...5b0f, 8 dec), 0xc1b677039892C048f2eFb7E9C5da1B51fDE92504 (USDC 0xff97...5cc8, 6 dec); all have code, token()/totalSupplied()/totalBorrowed() answer. Trading 'manager' engines: 0x51ff48f2d43966be796692bdddfae96a435242a8 (impl 0x62cc5522, 19KB, no liquidate) and 0x8b7610edb6399f57f465d08c30bac1ec113eb600 (impl 0xdd1a2d2d has liquidate(uint256) 0x415f1240, takeProfit, stopLoss, marketClose); selectors extracted from bytecode + openchain. liquidate(1) from fresh address reverts 'AccessManager: NA' = role-gated. Only user funcs on lendings are supply/withdraw/claimReward (own-yield claims). 7d eth_getLogs (blocks 524688419 2026-11-16 to 526688419 2026-11-23) across all 5 proxies: 0 events; same-shape control 493279000-496610000 returned 33 logs. Last protocol tx anywhere 2026-09-17 (USDC pool withdraw). totalBorrowed now: USDC 0, WETH 0.011, WBTC 0.000405 (dust)."
+}

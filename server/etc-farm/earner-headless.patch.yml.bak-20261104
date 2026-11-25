@@ -1,0 +1,22 @@
+# dsh headless profile for the earner. agent@earner-local bind-mounts this file
+# read-only at /home/earner/.dsh/profiles/headless/cordis.patch.yml.
+# Provider values copied from the working web profile (harness).
+- id: llm-pi-ai
+  config:
+    providers:
+      glm53flash:
+        displayName: GLM5.3flash
+        api: openai-completions
+        baseURL: http://127.0.0.1:8000/v1
+        apiKeyEnv: GLM53FLASH_API_KEY
+        models:
+          - id: /home/admin/models/glm53flash/UD-IQ3_XXS/GLM-5.3-Flash-UD-IQ3_XXS-00001-of-00004.gguf
+            name: GLM-5.3-Flash
+            contextWindow: 480000
+            maxTokens: 65536
+            input:
+              - text
+- id: agent-default-model
+  config:
+    provider: glm53flash
+    model: /home/admin/models/glm53flash/UD-IQ3_XXS/GLM-5.3-Flash-UD-IQ3_XXS-00001-of-00004.gguf

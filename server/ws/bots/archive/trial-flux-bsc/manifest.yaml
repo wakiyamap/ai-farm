@@ -1,0 +1,22 @@
+id: trial-flux-bsc
+author: builder/gpt-6-sol
+chains: [bsc]
+strategy: "trial: flash-funded public Fluid BNB/USDC vault liquidation on BSC; 30 second quote timer"
+copied_from: "0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3 through executor 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd in tx 0xcd4d4f58986afa36ffab844fc3a6ae2f88f5ff168ff78eb293f58e9717a090a3 (block 133552990); same Aave flash USDC -> Fluid vault liquidate -> WBNB/USDC pool route"
+capital_usd: 10
+allowed_contracts: []
+send_route: public
+max_loss_per_tx_usd: 1
+max_loss_guarantee: "TrialFluxLiquidator.sol:67-70 reverts NoProfit unless USDC balance grows by minProfit and transfers all profit to the bot wallet in one transaction. bot.py:211-225 bounds gasLimit 1200000 times maxFeePerGas to 0.85 USD at 1.2 times the Aave oracle BNB/USD price, requires simulated gross to exceed that cap, and passes the cap as on-chain minProfit. The live branch repeats this bound in bot.py:155-168. The maximum priority bid is 25% of simulated gross, capped again by 0.85 USD (BID_SHARE in bot.py:64). No USDC principal; the Aave flash loan is repaid inside the call."
+expected_value: "Trial: actual win rate measured by live sends, no counted EV. Seven-day BNB/USDC competition (scratch/trial-flux-bsc/competition-wide.json): 42 liquidation txs, 7 liquidator contracts, 16 sender EOAs, 40/42 takeable at capture parent block, 30/42 at capture-30 blocks, 26/42 at capture-60 blocks, 21/42 at capture-120 blocks (point-in-time quote, not exact opening times); effective gas price median 0.1 gwei, range 0.05-0.3. The bot aims to quote in the observed windows. Historical paid tx 0xcd4d4f... left +6.339567 USDC with the liquidator at 594681 gas and 0.1 gwei. Fork success on another case paid bot +6.549340 USDC for 487218 gas."
+executor: scratch/trial-flux-bsc/contracts/out/TrialFluxLiquidator.sol/TrialFluxLiquidator.json
+executor_args: "{bot}"
+executor_note: "Owner-only take(job) accepts Aave pool, Fluid vault, USDC, WBNB, PancakeV3 pool, debt amount, minimum collateral rate, minimum USDC profit and absorb flag as call arguments; constructor takes the bot address only. Aave callback and Pancake swap callback accept only the counterparty set for this call, cleared afterward. USDC approvals to vault and Aave are exact and reset to zero. The executor wraps all received BNB, swaps it through the specified pool, repays the flash loan, and sends USDC profit to the owner. Live address comes only from EXECUTOR_ADDR_BSC or EXECUTOR_ADDR."
+fork_evidence: "scratch/trial-flux-bsc/proof.py; output scratch/trial-flux-bsc/proof-result.json. Reset to BSC block 133551277, parent of paid tx 0xdef3a464..., deploy artifact (961016 gas), fund owner, nonowner revert 0x0bf4ceca84c7369ad9033f5449fd5eb67ba7602504c4cc157f8805c98f598725, high minProfit revert 0xb32c234168f2411ea122147588ed2805c5ffbe1df0f3c0f83f4ef046a2f2acc4, success 0x3874ce8bf82396bac90e66b28af2b0b9de47d54e9cd66e88de955756951ea2ac (487218 gas, bot +6.549340376368009729 USDC), exhausted repeat revert 0xd23946720d3d577774c83654a4bac1102e6960b1a371018e1b3a3879c80c01e1. Executor USDC/WBNB/BNB and two allowances zero. Historical selftest scratch/trial-flux-bsc/selftest.py returns +6.549340305 USDC using the bot calldata and paper code override."
+awaited_events: "30 second timer quotes the BNB/USDC Fluid vault; next liquidation time is unknown, depending on positions and BNB price. Last observed LogLiquidate at block 133649352 on 2026-11-15 01:40:53 UTC. The timer samples about every 67 BSC blocks, never polls every block."
+good_signs: "positive quote and opportunity logs, live send_result won with bot USDC delta; a small blocks_from_winner distance on lost sends"
+bad_signs: "no positive quote through a volatile week, every live send lost by many blocks, repeated sim_revert, daily CU cap reached"
+rpc_reads_per_min: "2 eth_call quotes/min, plus about 2 eth_calls and one gas-price read per positive quote, plus receipt and winner lookup after a send"
+alchemy_cu_per_day: "74,880 CU/day for 30 second quote polling (2880 calls x 26 CU), about 2,600 extra at the 42-positive busiest observed day and under 5,000 for live receipt/winner lookups; code cap 90,000 CU/day. At $0.53 per 1M CU, cap costs $0.0477/day."
+legal_note: "Fluid vault liquidate pays the public collateral discount to any caller who repays debt. The bot uses only confirmed on-chain state through eth_call and a timer, no mempool monitoring or pending-user transaction reaction. It bids only for the public liquidation reward."
+expedite: false

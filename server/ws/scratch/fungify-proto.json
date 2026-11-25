@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "fungify",
+  "status": "dead_end",
+  "checked": "Compound-V2-fork NFT lending (DefiLlama adapter projects/fungify/index.js: comptroller 0xf9c70750bF615dE83fE7FF62D30C7faACD8f8Ba0, cether 0x70C4F75ebaF99e24d775C91867b1a844da6eF6FD; both eth_getCode != 0x). Comptroller is a Unitroller proxy; implementation 0x84f5c4756564f2def3dd7df7731aec556fe8bb7f (explorer source, Comptroller.sol). getAllMarkets() = 34 markets; interestMarket() = 0x5f86f598e4fa983097fe6693a1b51f047d87b9cf (\"fUSDC\"/\"Fungify USDC\", 8 dec, underlying() = USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48); cether name = \"Fungify Ether\"; FUNG token 0x0e4e7f2aecf408aff4f82f067677050239bdc58a (\"Fung Token\"). Stranger-callable payout paths in source: batchLiquidateBorrow (liquidationIncentiveMantissa() = 1.08e18 = 8%), topUpInterestShortfall (top-up capped at shortfall*1.05, seizes collateral), redeemAllInterest (pays the lender, only ERC721 markets). No emissions: compRate() = 0. Access: nonReentrantWL -> _checkEoaOrWL: any EOA ok, contracts need the admin whitelist[msg.sender]. Verdict unpaid: no rewards at all in 7d."
+}

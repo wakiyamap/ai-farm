@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-resonate-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1251,
+ "chain": "optimism",
+ "slug": "resonate-finance",
+ "name": "Resonate Finance",
+ "category": "Yield",
+ "tvl_usd": 29873,
+ "url": "https://resonate.finance",
+ "github": null,
+ "listed_days_ago": 1251,
+ "run_id": "5c8be9696bc649ea979197eef57a417d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "0x80ca847618030bc3e26ad2c444fd007279daf50a (verified 'Resonate'); only payout fns claimInterest/batchClaimInterest(fnftId,recipient) require FNFT-holder (eth_call from fresh addr reverts); no keeper reward fn; 0 events in 7 d (blocks 159599575-159901975, 2026-11-16..23, WETH control positive), last log 2024-09-24; 29 pools ever; TVL 29873 USD",
+  "kb": [
+   "protocols:2099",
+   "attempts:3959"
+  ],
+  "run_id": "5c8be9696bc649ea979197eef57a417d",
+  "at": 1795403303
+ }
+}

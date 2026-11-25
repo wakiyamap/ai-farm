@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-kipseli",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 82,
+ "chain": "base",
+ "slug": "kipseli",
+ "name": "Kipseli",
+ "category": "Dexs",
+ "tvl_usd": 664782,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 82,
+ "run_id": "4ed0189b8a9c4d829537e732c2dd094e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Kipseli Base = RFQ PropAMM venue (TVL 664,782 USD, 4 pairs + USDC quote); anyone-callable surface is swap (needs off-chain EIP-712 quote; aggregators Settler/CoW are the takers, e.g. tx 0x9ab391dbf4e05d8f) and views quote/isActive; 0 reward functions, all keeper functions onlyOwner, vault 0xbee3211a..da000 very active (50 ERC20 transfers in 38 min sample) but caller is paid 0 USD (gas ~0.01-0.04 USD); hub 0xc2Be7B94d5498b1acEb914F3a1dec4Ce502d235F unverified, selectors via 4byte show no claim/collect/harvest.",
+  "kb": [
+   "attempts:1626",
+   "protocols:322"
+  ],
+  "run_id": "4ed0189b8a9c4d829537e732c2dd094e",
+  "at": 1794899469
+ }
+}

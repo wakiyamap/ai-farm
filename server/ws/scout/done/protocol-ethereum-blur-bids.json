@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-blur-bids",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1413,
+ "chain": "ethereum",
+ "slug": "blur-bids",
+ "name": "Blur Bids",
+ "category": "NFT Marketplace",
+ "tvl_usd": 8781864,
+ "url": "https://blur.io/",
+ "github": null,
+ "listed_days_ago": 1413,
+ "run_id": "5e5015b0632148b9aa96a2897ebfab52",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Blur Bids = bidding vault 0x0000000000A39bb272e79075ade125fd351887Ac (verified BlurPool impl 0x01a656024de4B89e2D0198BF4D468E8fd2358b17, no reward fn in ABI): only anyone-callable payer is withdraw(uint256), pays caller's own 1:1 ETH principal (fresh addr eth_call pays 0, role reverts only on deposit(address)/withdrawFrom/transferFrom); 189 withdrawals in 7d (blocks 26414291-26464544, WETH control 18932/500blk), 5 largest 18.55/8.07/7.69/6.15/4.82 ETH all own principal, gas ~35.6k = 0.011 USD at 0.188 gwei, ETH 1677.97 USD (llama ts 1795277114); pool 4932 ETH = 8.28M USD matches TVL.",
+  "kb": [
+   "attempts:3383",
+   "protocols:1688"
+  ],
+  "run_id": "5e5015b0632148b9aa96a2897ebfab52",
+  "at": 1795277386
+ }
+}

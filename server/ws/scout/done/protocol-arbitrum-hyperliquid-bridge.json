@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-hyperliquid-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 944,
+ "chain": "arbitrum",
+ "slug": "hyperliquid-bridge",
+ "name": "Hyperliquid Bridge",
+ "category": "Bridge",
+ "tvl_usd": 63425665,
+ "url": "https://app.hyperliquid.xyz",
+ "github": null,
+ "listed_days_ago": 944,
+ "run_id": "273e698035024f6880804b5a86786de3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Bridge2 0x2Df1c5...163dF7 (79.9M native USDC, verified source): no fn pays the caller; only payout batchedFinalizeWithdrawals sends USDC to withdrawal.destination and is role-gated (fresh eth_call reverts 'Sender is not a finalizer'); 7.13d: 12,510 FinalizedWithdrawal / 8,940 txs / $291.8M gross to users, gas ~$0.0003/call (118k x 0.0225 gwei x ARB $0.1275, 5-tx sample) paid by finalizers with zero reward; legacy 0xc67e9e...373a4 dead (0 calls 7d).",
+  "kb": [
+   "attempts:2177"
+  ],
+  "run_id": "273e698035024f6880804b5a86786de3",
+  "at": 1795016236
+ }
+}

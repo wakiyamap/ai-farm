@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-btcd",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 181,
+ "chain": "ethereum",
+ "slug": "btcd",
+ "name": "BTCD",
+ "category": "Yield",
+ "tvl_usd": 1932664,
+ "url": "https://btcd.fi/",
+ "github": [
+  "BTCDLabs"
+ ],
+ "listed_days_ago": 181,
+ "run_id": "9b0c1ec56be54d9baf45c8595616d4ee",
+ "result": {
+  "verdict": "role_gated",
+  "line": "7d (blocks 26406566-26456966): 74 mint/burns on VaultMinting 0xc60F6892, all by one relayer 0x9b6f014b to 2 whitelisted recipients; BTCDMinting 2 events, engine Multicall 0x18f1FAC1 and HybridVault 0 (no-topic scan; control = VaultMinting's 113). Only permissionless calls (mint/burn) pay the recipient, caller 0 USD (5 of 24 sampled: 143-16,371 USDC legs); gas 0.000413 ETH = $0.71 (1.78M gas x 0.232 gwei, ETH $1731 coins.llama.fi ts 1795185960). Fresh-address eth_call reverts NotWhitelisted / UnauthorizedCaller / BenefactorNotWhitelisted.",
+  "kb": [
+   "attempts:2948",
+   "protocols:1357"
+  ],
+  "run_id": "9b0c1ec56be54d9baf45c8595616d4ee",
+  "at": 1795186312
+ }
+}

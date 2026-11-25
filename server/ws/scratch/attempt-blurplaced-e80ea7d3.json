@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "blur-refi-taker-ethereum build per lead 148 (take leg proven in attempt 966; manifest + runnable bot placed)",
+  "outcome": "paper_placed",
+  "bot_id": "blur-refi-taker-ethereum",
+  "numbers": "manifest-check OK; paper active/running (bot.jsonl logs StartAuction/Refinance_fill/take_bid JSON lines, head 26395958); census attempt 954 windows median 1903 blocks p10 317 min 2 (1/220); census EV gross 1.13 USD/day 23 fills/day at 0.13 ETH cap, gas ~0.14 USD/fill; fork proof attempt 966 take debit 185896784673149155 / wallet sweep delta +80690127848445",
+  "reason": "Bot placed with manifest.yaml + README (per-occurrence window stats per decision 2026-11-12 item 2) + run.sh + blur_refi_taker.py (stdlib python: 15 s relay poll of Blend StartAuction topic0 e5095dc3... / Refinance topic0 558a9295..., logs every opportunity, bid rate_bips = min(3.215 x elapsed_blocks monotonic Dutch ceiling, 1800)); executor source sha e35df7a5 (receive() mint gated by withdrawing so sweep's Pool payout is not re-minted - fork-proven route, runtime hex 2945 bytes). Open for the review: L questions recorded on lead 148 (take() parks the Pool-unit float with no same-tx wallet guard; watchdog counts executor-held Pool units as lost at 30 USD). Blend has no public liens() getter (eth_call liens(446638) empty) - the live tuple source is the startAuction trace; a stale tuple reverts InvalidLien (fork proof A2)."
+}

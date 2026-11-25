@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-superfluid",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1852,
+ "chain": "optimism",
+ "slug": "superfluid",
+ "name": "Superfluid",
+ "category": "Payments",
+ "tvl_usd": 986014,
+ "url": "https://superfluid.org/",
+ "github": [
+  "superfluid-finance"
+ ],
+ "listed_days_ago": 1852,
+ "run_id": "a64e97719e774b308540acfd81bb6f46",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only anyone-callable paid fn is CFA stream liquidation via host.callAgreement(cfaV1, deleteFlow) (Host 0x567c4B14.., no role: 5 liquidators in 30 d); 7 d = 5 events all USDCx, caller gross 0.00995 USDCx = $0.010 (best single call $0.0098, tx 0xbdad0c50; median $0.00005) vs gas $0.001-0.0018/tx; 30 d route ~$1.30 gross, incumbent BatchLiquidator 0x84956c84 took 18/23; PIC seat lead already closed (leads:248).",
+  "kb": [
+   "attempts:2599",
+   "protocols:1077"
+  ],
+  "run_id": "a64e97719e774b308540acfd81bb6f46",
+  "at": 1795112444
+ }
+}

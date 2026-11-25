@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-zerc20",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 71,
+ "chain": "base",
+ "slug": "zerc20",
+ "name": "zERC20",
+ "category": "Privacy",
+ "tvl_usd": 27025,
+ "url": "https://zerc20.io/",
+ "github": null,
+ "listed_days_ago": 71,
+ "run_id": "aab1265549a2471e942b86122b3836ec",
+ "result": {
+  "verdict": "no_reward",
+  "line": "zERC20 v2 Base live but nothing pays the caller: 7d blocks 57727472-60751476 = 148 Committed + 72 RootProved + 72 CheckpointRecorded all sent by one protocol relayer EOA 0x03438e16 (proveRootTransition 687893 gas @0.006 gwei = 0.007 USD, value 0, no transfer to caller) and only user wrap/unwrap on zETH (33 Wrapped + 32 Unwrapped/7d, users pay own gas); no reward/bounty/claim function in any ABI, factory 0 txs.",
+  "kb": [
+   "attempts:3671",
+   "protocols:1896"
+  ],
+  "run_id": "aab1265549a2471e942b86122b3836ec",
+  "at": 1795340909
+ }
+}

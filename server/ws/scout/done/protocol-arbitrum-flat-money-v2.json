@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-flat-money-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 434,
+ "chain": "arbitrum",
+ "slug": "flat-money-v2",
+ "name": "Flat Money V2",
+ "category": "Partially Algorithmic Stablecoin",
+ "tvl_usd": 804934,
+ "url": "https://flat.money",
+ "github": null,
+ "listed_days_ago": 434,
+ "run_id": "f343e6abd4744261ba141437f5255e55",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "OrderExecutionModule.executeOrder(address,bytes[]) (proxy 0x7e50ad6e, dHEDGE Flatcoin fork, WBTC collateral) is open-callable and pays msg.sender: 47 fills in 7d (sample of 7 of 47), all taken by stranger EOA 0x45d83e658e2f70ba83e4e519f792f065c4a01d7d, median 2.17e-6 WBTC ~$0.14 gross (getKeeperFee=2.34e-6, WBTC $63,740 coins.llama.fi) vs 787k gas x 0.02 gwei = $0.028 L2 + ~$0.02-0.05 L1 data; total keeper revenue only ~$6.5/week, one keeper takes all first-block; liquidate(uint256[]) also open but 0 PositionLiquidated in 14d.",
+  "kb": [
+   "attempts:1829",
+   "leads:250",
+   "protocols:471"
+  ],
+  "run_id": "f343e6abd4744261ba141437f5255e55",
+  "at": 1794940173
+ }
+}

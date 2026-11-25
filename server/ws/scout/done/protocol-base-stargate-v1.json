@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-stargate-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1700,
+ "chain": "base",
+ "slug": "stargate-v1",
+ "name": "Stargate V1",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 275824,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 1700,
+ "run_id": "42c44d52e32d42329b4b23abeb3df7f2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: router 0x45f1A95A4D3f3836523F5c83673c797f4d4d263B + 2 pools (WETH poolId 13, USDC poolId 1, TVL $276.9k) have no caller-paying function; retryRevert/clearCachedSwap/callDelta anyone-callable (fresh eth_call: callDelta ok, others data-gated revert) but pay $0 to caller - payouts go to the user/receiver arg (Router.sol); 0 keeper calls in 7d (all 25 router txs in 13d are instantRedeemLocal user redemptions, ~2/day); 7d Revert/CachedSwapSaved logs 0 (low confidence: scout lane CU spent, big getLogs ranges silently [] on public fallback, 60-block control = 1)",
+  "kb": [
+   "attempts:2508",
+   "protocols:1010"
+  ],
+  "run_id": "42c44d52e32d42329b4b23abeb3df7f2",
+  "at": 1795091165
+ }
+}

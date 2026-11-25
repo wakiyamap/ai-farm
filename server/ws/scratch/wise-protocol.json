@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "wise_token",
+ "status": "dead_end",
+ "checked": "DefiLlama slug wise-token (adapter projects/wise-token/index.js: TVL = ownerless LP share of WETH in UniV2 pair 0x21b8065d10f73EE2e260e5B47D3344d3Ced7596E, doublecounted). Contracts read from the token itself (LIQUIDITY_GUARD() 0x9c306cad..., LIQUIDITY_TRANSFORMER() 0xfef0d2f3...), all eth_getCode non-empty, totalSupply() getter answers. Verified source (explorer source = GitHub wise-foundation/wise-token-contracts master, 2020 staking-token design): every reward path (createStake/endStake/scrapeInterest/referrerInterest/createLiquidityStake) mints to msg.sender; the only anyone-callable maintenance fns are manualDailySnapshot()/manualDailySnapshotPoint(uint64)/liquidityGuardTrigger() - eth_call from fresh address succeeds, source shows no transfer to caller (volunteer gas burn). RefundSponsor refunds gas to the transacting user (requestGasRefund pays msg.sender their own accrued refund), not a keeper bounty. 7d activity: 544 token logs (Transfer 284, ReferralCollected 156, InterestScraped 4, StakeStart 3, snapshot events 16) - alive but user-driven. No keeper/harvest/distribute function that pays a stranger -> verdict unpaid."
+}

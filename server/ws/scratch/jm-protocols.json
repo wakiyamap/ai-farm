@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "justmoney",
+ "status": "dead_end",
+ "checked": "JMSwapFactory 0xd36aba9ec96523b0a89886c76065852adfe2eb39 (verified source JMSwapFactory.sol via explorer source polygon; code 23048 B; getters factory()/allPairsLength()=30 pairs and getRouterAddress()=0x57884b46d815d7cf42c04cf226728a0d787ef58d answer via rpc.py eth_call). Deployed pairs are the Pair contract from that same verified file (standard UniV2: mint/burn/swap/skim/sync + initialize; sample pair 0xDD8230365aBD5c6d7F5ecE91b6971CeDA6d1e5c5 factory() -> the factory). Router 0x57884b... unverified on both explorers, 19403 B code, no name match on Blockscout search (JM/Router/Factory/MasterChef). JM bridged token 0x388D819724dD6d71760A38F00dc01D310d879771 (verified Token.sol+BridgeOracle.sol: only owner/handler-gated mint, nothing caller-paid). No reward/claim/keeper function anywhere: factory functions are createPair (public, pays 0) + setFeeTo/setNewOwner/setRouterAddress/addModerator/removeModerator (owner/moderator-gated). DefiLlama: category Dexs, tvlCodePath registries/uniswapV2.js, Polygon TVL 32,253 USD (candidate, 2026-11-23)."
+}

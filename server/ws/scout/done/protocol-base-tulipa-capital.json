@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-tulipa-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "base",
+ "slug": "tulipa-capital",
+ "name": "Tulipa Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 13944173,
+ "url": "https://www.tulipa.capital",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "46adde819a394ef386b80ce346dc9958",
+ "result": {
+  "verdict": "role_gated",
+  "line": "2 curated vaults on base (Creditcoop Tulipa Credit Vault 0x61a8..47d4, 16.38M USDC; Ember Hilbert Basis+ 0x9c2d..3df3, 215.1 cbBTC ~ 13.9M USD at block 58818889); no function pays a caller: processDepositRequest/mintFeeShares revert from stranger (OnlyOperator/OnlyVaultManager), user flows pay only the depositor; 7d events 0 (credit, last tx 2026-04-13) / 37 (Ember, all user Transfer/Approval via router 0x8888..f946); gas 0.006 gwei ~ 0.002 USD/call at ETH 1823.87 (coins.llama.fi)",
+  "kb": [
+   "attempts:1914",
+   "protocols:535"
+  ],
+  "run_id": "46adde819a394ef386b80ce346dc9958",
+  "at": 1794959421
+ }
+}

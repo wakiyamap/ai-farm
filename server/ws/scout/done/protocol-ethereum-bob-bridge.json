@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-bob-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 931,
+ "chain": "ethereum",
+ "slug": "bob-bridge",
+ "name": "BOB Bridge",
+ "category": "Bridge",
+ "tvl_usd": 1852343,
+ "url": "https://www.gobob.xyz",
+ "github": null,
+ "listed_days_ago": 931,
+ "run_id": "683763c44022482f96c027c72e5e765c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Canonical OP-Stack bridge on ethereum (portal 0x8AdeE1..5a3E 506.98 ETH, L1StandardBridge 0x3F6cE1..ac1f7, USDC/wstETH bridges). Only stranger-callable money-mover is OptimismPortal2.finalizeWithdrawalTransaction (fresh EOA reverts OptimismPortal_Unproven, no role) and it pays the recipient, never the caller: 17 finalizations in 7 d (blocks 26412017-26462272, all sampled) by 14 EOAs, gross 0.00 USD per call, gas 161k-311k = 0.03-1.09 USD at ETH 1621.33 (coins.llama.fi 08:25Z); bridge finalizers messenger-gated; USDC and wstETH bridges 0 logs (control 95 on portal).",
+  "kb": [
+   "attempts:3244",
+   "protocols:1574"
+  ],
+  "run_id": "683763c44022482f96c027c72e5e765c",
+  "at": 1795250596
+ }
+}

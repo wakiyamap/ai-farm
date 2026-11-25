@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "hydrex_omni",
+  "status": "measured",
+  "checked": "DefiLlama api.llama.fi/protocol/hydrex-omni (Base-only Dexs, TVL $240k, no github field, no adapter dir in DefiLlama-Adapters under hydrex/hydrex-omni). Docs docs.hydrex.fi contract reference: Factory 0x36077D39cdC65E1e3FB65810430E5b2c4D5fA29E, MultiRouter proxy 0x599bFa1039C9e22603F15642B711D56BE62071f4, Voter proxy 0xc69E3eF39E3fFBcE2A1c570f8d3ADF76909ef17b (impl VoterV5 0x9cb9fc7d128f89cbd43bbfd89dbab05d1fa17233), VotingEscrow proxy 0x25B2ED7149fb8A05f6eF9407d9c8F878f59cd1e1, HYDX 0x00000e7efa313F4E11Bfff432471eD9423AC6B30, oHYDX 0xA1136031150E50B015b41f1ca6B2e99e49D8cB78, HydrexIncentiveDistributor proxy 0x8604d646df5A15074876fc2825CfeE306473dD45. All confirmed live on Base (eth_getCode non-empty via relay; VoterV5, VotingEscrowV2Upgradeable, HydrexIncentiveDistributor verified on Base Blockscout with getters answering). Repo RichJamo/hydrex-periphery (aux contracts; SendDailyPoints checkIn pays only points). VoterV5 ABI has public claimBribes/claimFees/claimRewards/poke/vote/distribute; fresh-address eth_call: claimRewards succeeds (0x), claimBribes reverts custom error 0xe433766c (position-based, caller must own the lock) - not owner/role gated."
+}

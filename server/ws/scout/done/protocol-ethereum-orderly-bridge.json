@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-orderly-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1470,
+ "chain": "ethereum",
+ "slug": "orderly-bridge",
+ "name": "Orderly Bridge",
+ "category": "Bridge",
+ "tvl_usd": 4681608,
+ "url": "https://orderly.network",
+ "github": null,
+ "listed_days_ago": 1470,
+ "run_id": "ae92d312ac1046049eaef2a95d0e5122",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Vault 0x816f..67e9 (impl 0x469d..c47d, verified): every money-out fn role-gated (eth_call withdraw from stranger -> OnlyCrossChainManagerCanCall; delegateSwap onlySwapOperator; CCM fns onlyVault; adapter onlyOperator); 7d blocks 26424696-26464696: 45 deposits + 28 withdraws ~830k USD gross (772.9k USDC + 2.9k USDT + 32.5 ETH @1680.85) all to bridge users' own balances, 0 to callers; anyone-call fns deposit/depositTo/delegateSigner pay nothing; same as 6 sibling chains (attempts 2378-2385).",
+  "kb": [
+   "attempts:3391",
+   "protocols:1696"
+  ],
+  "run_id": "ae92d312ac1046049eaef2a95d0e5122",
+  "at": 1795279091
+ }
+}

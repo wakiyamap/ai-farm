@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-clearpool-lending",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1681,
+ "chain": "base",
+ "slug": "clearpool-lending",
+ "name": "Clearpool Lending",
+ "category": "Uncollateralized Lending",
+ "tvl_usd": 103230,
+ "url": "https://clearpool.finance",
+ "github": null,
+ "listed_days_ago": 1681,
+ "run_id": "fdfc086ffa074affa53d62c43cb60169",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no caller-paid function on Base: 1 prime pool closed (0x42634e71, currentSize 0, last tx 2024-04-11) + PoolMaster vault pools (TVL 103,230 USD, borrowed 0, llama 2026-11-19); accrueInterest() public pays 0, processDebtClaim reverts OnlyFactory, cancelAuction reverts ActionNotAllowed, markPoolDefaulted prime-member only; 0 calls in 7d on factory 0x199A016F (last tx 2026-04-12) and on newest pool 0xc7202a14 (0 external txs ever).",
+  "kb": [
+   "attempts:2492"
+  ],
+  "run_id": "fdfc086ffa074affa53d62c43cb60169",
+  "at": 1795086893
+ }
+}

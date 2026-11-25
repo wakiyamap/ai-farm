@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "posttechsofi",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter: no projects/posttechsofi dir; registry registries/friend-tech.js 'posttech' -> single owner addr 0x87da6930626fe0c7db8bc15587ec0e410937e5dc (arbitrum). eth_getCode non-empty; explorer source (etherscan) = PostTechProfile.sol, a friend.tech clone (buyShares/sellShares bonding curve, fee setters onlyOwner, fees paid out instantly via .call, no claim/harvest/reward fn). Getter owner() -> 0x136a640bccfbed27edd9948ae79ceb390128d555. Balance 24.9006 ETH = llama TVL 24.90059 ETH (42848 USD @ ~1720.7 USD/ETH, llama ts 1795389947). Protocol has no github, url dead (deadUrl true). No public function pays a stranger for calling: buyShares costs the caller 5%+5%+5% fees, sellShares returns own curve position minus 10%."
+}

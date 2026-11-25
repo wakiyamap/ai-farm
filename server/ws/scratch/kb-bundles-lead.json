@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "bundles Index rebalance",
+ "status": "measured",
+ "why": "Non-owner EOA 0xee5f1096950ee296df87fe83c6726521d8c8259f called Index.rebalance 8 times in 7 days on indexes 0xe202345c1a32a98f894f02d077af98108376ade3 (5x) and 0xd19d6750760a8f41fc376c81526fcd8b38ab0d5a (3x) and was paid in every sampled tx (ETH forwarded to it in the same tx): 0.50 / 0.79 / 0.75 / 1.99 / 7.32 USD gross (5 of 8 traced, txs 0xc5e36d37..fae40, 0xe1a70a81..1e9c, 0xebf8c02c..08aa, 0xe21246d0..00bf, 0x970eeb6a..9c5c). Index owners 0x529c78ee.. and 0x9f129daf.. differ from the caller, so the taker is a stranger.",
+ "next_steps": "Contract: the Index contracts (Factory 0x661F8b1Ef3d24E99C461E0523Fd441Ed8d49bF19, getIndexes); function rebalance(address tokenOut,uint256 amountOut,address tokenIn,address to,bytes data) sel 0x98880506, callable by anyone (needs a callback contract implementing IIndexCallee.execute; the bot uses router 0xb63dd422). Caller sells the index's overweight token via UniV3/V2 and pays the index a BUN fee (132-1838 BUN = ~$1-13; BUN $0.0071 from pair 0x9dd78ea2b7a92b6cb5d4a495dac34f8641070ceb reserves, llama unpriced); caller keeps the spread = 0.5-7.3 USD gross/call. 7-day count: 8 rebalances, all by one bot; gas 361k-442k at 0.077 gwei = ~$0.05/call (WETH $1593, coins.llama.fi 2026-11-20 20:42 UTC), so net ~0.45-7.3. Total protocol revenue here only ~18 USD/week; no Swap/Mint activity on the 11 AMM pairs in 7 days. Not taken in the same block by a crowd (single bot, 8/7d), timing driven by index drift - computable ahead."
+}

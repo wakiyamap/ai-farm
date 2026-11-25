@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "elfi_protocol",
+  "status": "dead_end",
+  "checked": "ELFi perp diamond 0x957e0C2Ea128b0307B5730ff83e0bA508b729d50 + vaults 0x9099824Be9aB2b691ce0E478853Cb15Fb81FF677, 0x8772bB60EA1BBA8a7729a90ff1907855FD55ba83, 0xb059B996C2Ebf23E77dD3110AE1f334caBF2DeA2 + elfUSD 0xc367281626dDbf7fE93229A396AE8E29dE25D5E2 (DefiLlama adapter projects/elfi/index.js). No verified source on Blockscout; source = github sherlock-audit/2024-05-elfi-protocol, on-chain reverts match it. Reward functions: executeOrder (22dabfa5) pays keeper usedGas*tx.gasprice WETH capped at order.executionFee, liquidationPosition (c0828713)/liquidationAccount (5a536f8f)/liquidationLiability - all require ROLE_KEEPER (\"KEEPER\"); fresh-address eth_call reverts with role error; hasRole(0xA11ce..01,KEEPER)=false. Liquidations take gas as protocol loss (no bonus). Only open fn: callLiabilityClean (d96faa28) - caller deposits liability tokens, withdraws collateral 1:1, getAllCleanInfos shows 12 pending cleans; no protocol discount. Dormant on Base: 0 txs in last 7d on all 5 contracts (Blockscout: diamond last tx 2026-09-15 diamondCut, vaults last 2025-02-27; diamond getLogs 10000 blocks = 0 events, USDC control same shape 10404 logs). Website deadUrl, TVL 1.3M USD but stale."
+}

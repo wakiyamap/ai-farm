@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-xoxno-lending",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 80,
+ "chain": "stellar",
+ "slug": "xoxno-lending",
+ "name": "XOXNO Lending",
+ "category": "Lending",
+ "tvl_usd": 142306,
+ "url": "https://xoxno.com",
+ "github": null,
+ "listed_days_ago": 80,
+ "run_id": "d02abe8305a44ed1a18ff4b730f9fd05",
+ "result": {
+  "verdict": "no_reward",
+  "line": "7d (ledgers 65493066@2026-11-15 -> 65613282@2026-11-22, 10k-chunk getEvents, control AQUA 1300+ transfers): controller 86 events/82 txs (65 user position ops, 0 liquidations, 0 revenue claims); permissionless fns update_indexes/claim_revenue/update_account_threshold pay the caller nothing (revenue goes to protocol accumulator, caller pays gas; protocol runs its own keeper); only paid fn is liquidate (0/7d); fees 0.0002-0.043 USD/tx at XLM 0.12866 USD (coins.llama.fi 13:01Z); TVL 142k USD",
+  "kb": [
+   "attempts:3725",
+   "protocols:1939"
+  ],
+  "run_id": "d02abe8305a44ed1a18ff4b730f9fd05",
+  "at": 1795352816
+ }
+}

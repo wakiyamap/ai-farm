@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-jpeg-trading",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 67,
+ "chain": "ethereum",
+ "slug": "jpeg-trading",
+ "name": "JPEG Trading",
+ "category": "Risk Curators",
+ "tvl_usd": 402404,
+ "url": "https://www.jpeg-trading.com/",
+ "github": null,
+ "listed_days_ago": 67,
+ "run_id": "f7da47bccb724840b5036bbf598bfd57",
+ "result": {
+  "verdict": "unpaid",
+  "line": "JPEG Trading x Tenbin = 2 Euler EVC EVaults (eTGLD-1 0x0120c274..b460, eUSDC-131 0xb57320b2..e6f7) + Euler Earn vault 0x018b86..dc01 (role-gated): public touch()/convertFees() pay the caller nothing by design (source: fees go to feeReceiver/protocolReceiver), pots 0.001232 USDC / 0 tGLD, interestFee=0, totalBorrows 0.70 USDC / 0 tGLD so liquidate() has no bounty; 7d no-topic logs: 0 (USDC vault) / 2 = 1 deposit tx (tGLD vault, control 14245 logs/240 blocks); gas 90.7k/107.6k @ 0.124 gwei ~ 0.02-0.03 USD vs 0 gross to caller => unpaid",
+  "kb": [
+   "attempts:2886",
+   "protocols:1304"
+  ],
+  "run_id": "f7da47bccb724840b5036bbf598bfd57",
+  "at": 1795173876
+ }
+}

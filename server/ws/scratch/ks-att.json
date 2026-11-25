@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-kittenswap-algebra",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid \u2014 Algebra Integral 1.2.2 AMM with eternal farming: the permissionless reward function FarmingCenter.claimReward(KITTEN,to,amount) pays only the caller's own accrued KITTEN (eth_call from fresh address returns 0, no role revert); collectRewards is NFT-owner gated. No keeper/bounty function that pays an unrelated caller. LPs did claim KITTEN in the last 7 days (~65 KITTEN \u2248 $0.069 per claim vs ~$0.001-0.005 gas) but that is yield on their own positions, not a stranger-takeable flow.",
+ "numbers": "Sample 1000 blocks (51527115..51528114, 2026-11-17): 26 RewardClaimed events, 1692.5 KITTEN total (~$1.80), avg 65 KITTEN; RewardClaimed topic0 0xe6ac6a78... on 0xf3b57fE4d5D0927C3A5e549CB6aF1866687e2D62. Callers: EOA 0xfb493d4b693bf7e982153ff7a0d7a955d2f454a5 driving vault 0xa2940d59eb625aad26f09e032a9ac161f0e8c4e8 (batch claims every few min) + direct EOA 0x6a12f4bb6f27402473be9d9637027ee59b8880d6. Sample claim tx 0xbe0049151597395f3398cb5359b891effe7556a9bec916c32e1ae2e6303617e9: 495625 gas @ 0.15 gwei = 7.4e-5 HYPE \u2248 $0.005 (HYPE $68.23, KITTEN $0.00106, coins.llama.fi). Extrapolated emissions \u2248 145k KITTEN/day \u2248 $154/day (single 17-min window; research-lane RPC budget exhausted before more windows). Factory last createPool 1759539540 (Oct 2025)."
+}

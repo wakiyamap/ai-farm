@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "actor-optimism-0xc774f30484818f06a261a89a1d66367e6bbe3e5a",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the address is not an EOA keeper but the AlchemistRouter contract of AlchemistV3 lending (MYT mixWETH vault) on OP Mainnet; verified source says it batches deposit/withdraw/repay/claim for EOA users and holds no funds. The 7-day calls are 5 distinct EOAs moving their own funds (deposits carry the user's own ETH, withdrawals pay the user in the same tx). The router itself earns nothing: 0 balance, never sends a tx, no fee logic in the router (protocol fees accrue to the Alchemist's protocolFeeReceiver).",
+  "numbers": "7d window blocks 159514696 (2026-11-14T03:49:29Z) to 159817096 (2026-11-21T03:49:29Z) from eth_getBlockByNumber timestamps: 8 incoming calls, ~1.1/day (withdrawUnderlying 4, withdrawETH 2, claimRedemption 1, depositETHToVaultOnly 1), 5 distinct caller EOAs; sample of the 200 latest incoming txs covers 2026-06-03 to 2026-11-21 (~1.2 tx/day), 0 outbound. Gas per call paid by the caller: 940,942-1,404,505 gas at effective gas price 1,102-26,668 wei = $0.000001-$0.00004/call (ETH $1575.19, coins.llama.fi, ts 1795233007). Router balance 0 wei. Alchemist proxy 0xded3a04612ff12b57317abe38e68026fc9d28114 (impl AlchemistV3 0x031b6228a825e0e1a37653e153cea6c02b571385), MYT vault 0x91b8657aea26caa8a0e9d6dd4e24727ccf32f822 ('Optimism WETH Mix Yield Token'), underlyingToken() = WETH 0x4200000000000000000000000000000000000006. est_profit_usd_day 0."
+}

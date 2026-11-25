@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-uniswap-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1492,
+ "chain": "ethereum",
+ "slug": "uniswap-v2",
+ "name": "Uniswap V2",
+ "category": "Dexs",
+ "tvl_usd": 610257345,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1492,
+ "run_id": "8982098b41bb4fefa81e8356d9c319a4",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no function pays a caller: factory 0x5C69bEe7...aA6f (allPairsLength=528376, 327 PairCreated logs in 7d, blocks 26414552-26468901, topic0 from receipt) + canonical V2 pair 0x2b5d7bc1...5649 + router ABIs hold only createPair/mint/burn/swap/skim/sync; fresh-address eth_call: sync()/skim() OK pay 0, mint/burn revert; 0.30% swap fees go to LPs + feeTo, not to callers.",
+  "kb": [
+   "attempts:3401",
+   "protocols:1703"
+  ],
+  "run_id": "8982098b41bb4fefa81e8356d9c319a4",
+  "at": 1795280476
+ }
+}

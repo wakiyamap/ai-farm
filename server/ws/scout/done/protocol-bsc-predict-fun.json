@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-predict-fun",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 797,
+ "chain": "bsc",
+ "slug": "predict-fun",
+ "name": "Predict Fun",
+ "category": "Prediction Market",
+ "tvl_usd": 10233920,
+ "url": "https://predict.fun",
+ "github": null,
+ "listed_days_ago": 797,
+ "run_id": "fd8efd7c9fed4c32b9c05be0b71279f1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Polymarket fork: only open-to-anyone reward fn is RewardDistributor.claim (merkle USDT, pays msg.sender not caller; fresh stranger eth_call reverts = pays 0; 1 sampled claim 8.03 USDT tx 0x5ce02448..., gas 188061 x 0.05 gwei = 0.0055 USD at BNB 588.07 llama; D1 round 347 totalClaimed 60,246 USDT, D2 round 39 totalClaimed 196,730 USDT); everything else role-gated (exchange matchOrders/fillOrder onlyOperator, CTFAutoRedemptionHelper.redeemPositions OPERATOR_ROLE, claimYield YIELD_MANAGER_ROLE)",
+  "kb": [
+   "attempts:2095",
+   "protocols:680"
+  ],
+  "run_id": "fd8efd7c9fed4c32b9c05be0b71279f1",
+  "at": 1794998490
+ }
+}

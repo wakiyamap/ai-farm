@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-nft20",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Verified Ethereum factory, pair, MasterChef and staker have no independent public caller reward. Referral mint needs the caller's NFT deposit; auction bids need payment; factory swap benefits the staker; MasterChef mint currently reverts.",
+  "numbers": "Factory counter=319 pairs and fee=5 from eth_call on 2026-11-23; MasterChef poolLength=20; factory flashLoansEnabled=false. Fresh-address eth_call: factory swapTokensForMuse succeeds but source sends output to staker (caller 0); pair multi721Deposit([0],fresh,fresh) reverts (caller 0); MasterChef updatePool(0) and deposit(0,0) revert 'must have minter role to mint' (caller 0). Source: Etherscan verified NFT20FactoryV7 0xd0d89d8d009ae5602816a75b7b6ba8ed88a17b25, NFT20Pair 0x4c5057d1cc3642e9c3ac644133d88a20127fbd67, MasterChef 0x193b775af4bf9e11656ca48724a710359446bf52, StakedMuse 0x9cfc1d1a45f79246e8e074cfdfc3f4aacdde8d9a. No 7-day event count or USD estimate claimed because no eligible payout path was found."
+}

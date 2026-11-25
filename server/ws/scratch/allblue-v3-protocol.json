@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "allblue_v3",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/allblue-v3/index.js: factory (EIP173 proxy, impl slot -> MiningPoolFactory 0xa3E316f89E76EBa1dDcfB57CFe61577d1969f8B1) 0xE749c1cA2EA4f930d1283ad780AdE28625037CeD, totalPoolsCount()=43 confirmed. Pools = EIP173 proxies to MiningPool impl 0x198763c1347ea879e26c2564c6f51fdfcb24ef01 (source via Routescan etherscan API; Crypto.com Coral-style CLMM, masterDeployer 0xB6e2F9D65368dc3169E2b959c91ca9774feBfdA8, airdropDistributor proxy 0x33ad5c17b81cc027edd7f53e6585a648cb40a190). Source review: factory fns deployPool (masterDeployer-only), setters (onlyManager/onlyOwner); pool payout fns collect/collectReward pay msg.sender's own position (fresh-address eth_call -> 0), collectProtocolFee anyone-callable but pays fixed protocolFeeTo 0x52fb7d3ab53d5a8d348b15ea7e3f7bfe35dd35f1, depositAirdropAndReward airdropDistributor-only; setPrice/registerLogger/registerRewardToken factory-only. Activity (logger 0x77c8dffe4130fe58e5c3c02a2e7ab6db7f4f474f, 7d blocks 100020213-100809563): 792 Collect, ~6.9k Swap/day, 26 active pools in 10k blocks. No function pays a stranger."
+}

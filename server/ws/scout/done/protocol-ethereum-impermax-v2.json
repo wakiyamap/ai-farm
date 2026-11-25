@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-impermax-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "impermax-v2",
+ "name": "Impermax V2",
+ "category": "Lending",
+ "tvl_usd": 112761,
+ "url": "https://impermax.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "da7570afd93949edbdbe0aa349811003",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidate() permissionless (fresh-addr eth_call returns 0, no revert): 7d no-topic scan of all 72 borrowables (blocks 26,411,601-26,467,600, 2026-11-15/22) = Liquidate 2, Borrow 0, Reinvest 0; both liquidations in ONE keeper tx 0x7fa7400d (0x50b519b4 called by 0x20638ad4): repaid 0.00037 WETH = 0.62 USD (WETH 1677.06, coins.llama.fi 1795314718), seized 0.8996 IMX unpriced; gas 632,798 = 0.18 USD; 40/72 borrowables have borrows but activity is dust; reinvest bounty EOA-gated in every version; TVL 112,761 USD",
+  "kb": [
+   "attempts:3563"
+  ],
+  "run_id": "da7570afd93949edbdbe0aa349811003",
+  "at": 1795315612
+ }
+}

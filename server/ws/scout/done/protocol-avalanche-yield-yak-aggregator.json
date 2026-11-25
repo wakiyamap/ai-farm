@@ -1,0 +1,26 @@
+{
+ "id": "protocol-avalanche-yield-yak-aggregator",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "yield-yak-aggregator",
+ "name": "Yield Yak Aggregator",
+ "category": "Yield Aggregator",
+ "tvl_usd": 6906755,
+ "url": "https://yieldyak.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "1141101498094a7c966d27cf98c35877",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "reinvest() (external onlyEOA, pays REINVEST_REWARD_BIPS/10000 of pot to msg.sender): 16 calls in 7d (blocks 100316593-100816593, complete chunk scan; control WAVAX Transfer 1000 blk = 697 logs) by 5 EOAs, 7 of 97 farms; stranger-paid gross>gas: 4 OLIVE-AVAX calls paid 552-2481 OLIVE = $0.07-$0.31 vs $0.020 gas (385k gas @7.5gwei, AVAX $6.96), p33-USDC $0.0886 = gas; USDC/sJOE dust; BIRD 17.2k/YTS 2144 unpriced; 7d totals gross $0.61 vs gas $0.47; current untaken best AC4D estimateReinvestReward 0.113 WAVAX = $0.79.",
+  "kb": [
+   "attempts:2673",
+   "leads:311",
+   "protocols:1133"
+  ],
+  "run_id": "1141101498094a7c966d27cf98c35877",
+  "at": 1795129602
+ }
+}

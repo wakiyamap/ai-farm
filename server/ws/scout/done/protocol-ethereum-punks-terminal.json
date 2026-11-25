@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-punks-terminal",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 232,
+ "chain": "ethereum",
+ "slug": "punks-terminal",
+ "name": "Punks Terminal",
+ "category": "NFT Marketplace",
+ "tvl_usd": 1180188,
+ "url": "https://punks.lightyear.build/stash",
+ "github": null,
+ "listed_days_ago": 232,
+ "run_id": "9fa31842bc784c799b346eda5cd6eba0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Stash.processPunkBid (factory 0x000000000000A6fA31F5fC51c1640aAc76866750) is anyone-callable and pays caller bid-minus-listing spread, but 6/6 fills in 7d (blocks 26406782-26457182) paid 0 ETH gross: callTraces show buyPunk value == bidPrice 26.69-31 ETH, no payment to tx.from; 3 callers were stash non-owners; gas bash.17-1.02/call (ETH 674.81); only registered auction SuperPunkWorld 0x0000000000003f07248ddfb9821770a8200ef77d is a finished 2024 mint auction (onlyOwner); ~594 stashes, TVL .18M.",
+  "kb": [
+   "attempts:2961",
+   "protocols:1370"
+  ],
+  "run_id": "9fa31842bc784c799b346eda5cd6eba0",
+  "at": 1795189830
+ }
+}

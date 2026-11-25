@@ -1,0 +1,58 @@
+---
+type: infra
+chains: [ethereum, base, arbitrum]
+protocols: [uniswap_protocol_fees]
+author: earner/qwen3.8-flash-next
+updated: 2026-11-09
+---
+# Uniswap fee switch: TokenJar + Firepit release auction (all three farm chains)
+
+**Conclusion (closed 2026-11-09):** a live, permissionless, fixed-price revenue-release class on all three farm chains, now fully closed as a farm target: every leg measures threshold ~= payout and no after-gas EV for an entrant (Ethereum builder-bid saturation, Arbitrum attempt 656, Base attempt 660 below). Anyone pays a fixed UNI `threshold` to the Releaser (Firepit) and receives the full TokenJar balance of up to 20 chosen assets (Uniswap v2/v3/v4 protocol fees). It is a threshold-crossing race: whoever first finds `value(top-20 assets, after selling) > threshold UNI + gas` wins. Ethereum is saturated (surplus ~0.04 ETH per release, ~90% bid to the builder). Arbitrum is saturated too (one traced winner netted ~4 USD). Base showed ~0.2 ETH net per release, but only at 9-day-old prices, so that margin needs a recompute at the block's own price before anyone builds. Ledger tracking is live since 2026-11-09: source uniswap_protocol_fees.released tracks `Released(uint256,address,address[])` on all three chains (the dynamic `address[]` is accepted since phase 9d, decisions/human/2026-11-09-ledger-dynamic-events.md).
+
+## Mechanism (source: github Uniswap/protocol-fees, src/releasers/ExchangeReleaser.sol)
+- `release(uint256 _nonce, address[] assets, address recipient)`: `handleNonce` (the nonce must equal the current `nonce()`, so two searchers can't both fill the same nonce), `assets.length <= 20`, `RESOURCE.safeTransferFrom(msg.sender, RESOURCE_RECIPIENT, threshold)`, `TOKEN_JAR.release(assets, recipient)` (full balances), then `emit Released(uint256 indexed nonce, address indexed recipient, address[] assets)`.
+- topic0 `0x0143172ff1dd87f3691e870b3fb5616db820278d26d2d16c3e03330a240a6c38` = keccak(`Released(uint256,address,address[])`).
+- TokenJar emits no events. Value = same-tx transfers out of the jar.
+- Fee sources: V2 feeTo = jar (LP tokens minted to the jar); V3 through V3FeeAdapter / V3OpenFeeAdapter (permissionless `collect` of pool protocol fees into the jar); V4 through V4FeeAdapter (`collect`). Winners batch these collects into the release tx (Base trace: 220 subcalls of `collectProtocol` 0x85b66729 through V3OpenFeeAdapter `0xd7ee9368`, plus 20x V4FeeAdapter `0xe0511234`).
+- On Base (OP Stack) the Firepit is `OptimismBridgedResourceFirepit`: it takes bridged UNI and bridges it to L1 0xdead. This costs the searcher nothing extra.
+
+## Addresses (from the repo README; checked on-chain by threshold()/RESOURCE() reads)
+| chain | Releaser | TokenJar | threshold | RESOURCE |
+|---|---|---|---|---|
+| ethereum | 0x0D5Cd355e2aBEB8fb1552F56c965B867346d6721 | 0xf38521f130fcCF29dB1961597bc5d2B60F995f85 | 4000 UNI | UNI 0x1f98...F984 |
+| base | 0xFf77c0ED0B6b13A20446969107E5867abc46f53a | 0x9bD25e67bF390437C8fAF480AC735a27BcF6168c | 2000 UNI | 0xc3de830ea07524a0761646a6a4e4be0e114a3c83 |
+| arbitrum | 0xB8018422bcE25D82E70cB98FdA96a4f502D89427 | 0x95E337C5B155385945D407f5396387D0c2a3A263 | 2000 UNI | 0xfa7f8980b0f1e64a2062791cc3b0871572f1f7f0 |
+
+## Cadence (relay-log-scan, address-filtered Released logs)
+- ethereum (blocks 23.9M-26.376M): 1540 releases since 2025-12-30 (nonce 0 .. 0x603), 85 recipients. Last ~31 d: 137 releases (4.4/day). Top recipient 0x396a940e37c486c5c3e612d49be89b762ea1b1a5 won 41 of those 137. All 137 used 20 assets.
+- base (blocks 49.0M-55.09M): 543 releases since ~2026-07-23, 22 recipients. Most were the launch backlog. Last 30 d: 8, last ~6 d: 5 (they come in bursts). The last 150 releases went to 13 recipients; the leaders are 0x42914525361b16f0af9d8ba672b0cdd4d92d19d8 (33) and 0x45b63c48fd0108fd6576891024ef44effb245a39 (31).
+- arbitrum (blocks 470M-522.6M): 277 releases, 24 recipients, 37 in the last ~30 d. Leader 0xd72c5a4fd84b295eae438b022596050b4fbd0b07 (96 overall).
+
+## Economics measured from traces
+- **Ethereum** tx 0xd7a72881...51129 (block 26373850, contract 0x396a94): zero-inventory flash pattern. It buys 4000 UNI inside the tx (V4 PoolManager + v2/v3 pools), releases, sells, then pays **0.0358 ETH to builder 0x4838b106 (Titan)** and **0.0034 ETH to tx.from**. Gas 5.25M. Surplus ~0.04 ETH ≈ 90 USD, about 90% bid away. Saturated.
+- **Base** tx 0xf0346087...b098 (block 54990764, contract 0x42914525): the contract pulls 2000 UNI by `transferFrom` from an inventory wallet 0x98d77b9831e08d2b1e34c5ccc99939af550a6162 (not bought in the tx). The payout to 0x70dfd3eb went 0.0300 -> 6.546 ETH in that block (fork reads 54990763/54990764): +6.516 ETH gross. The jar held 3.05 WETH + 0.094 ETH + 5830 USDC + 0.0064 cbBTC + 16 others. 2000 UNI at Chainlink UNI 6.98 / ETH 2226.6 USD (reads ~9 days old, eth fork block 26306762) = 6.27 ETH, so **net ≈ 0.24 ETH ≈ 550 USD** before gas. A second Base tx 0xd58f86f2 (0x45b63c48) paid 6.46 ETH to tx.from 0x0a334dd6, net ≈ 0.19 ETH. Gas 9.35M and 13.1M (Base, cents).
+- **Arbitrum** tx 0xe91d4d5f...41d6 (block 0x1f24da09, contract 0xf697c9ed): zero-inventory. It takes a 10 WETH Morpho flash loan (0x6c247b1f `0xe0232b42`), buys 500+400+1100 UNI in the tx (V4 PoolManager 0x360e68fa, pools 0x05477c22, 0xc24f7d8e), releases, sells, and sends the final **0.0019 ETH (~4 USD)** to 0x35a90c15. Saturated.
+- **Caveat:** the Base net figures depend on the UNI/ETH price at the block. A 4% move erases them, and the zero-inventory winners on ETH and ARB make ~0. Treat the Base ~0.2 ETH margin as unconfirmed until it is recomputed at the block's own price.
+
+## What a farm entrant would face
+- X: incumbents on Base/Arbitrum hold 2000 UNI inventory (~14k USD), which is over the farm's 2000 USD cap. An L-compliant entrant has to source the UNI inside the tx (V4 unlock flash accounting, or a v3 flash swap). The ethereum leader 0x396a94 already does exactly that, so the flash path works at competitive margins on deep mainnet UNI liquidity. On Base, the round-trip cost of 2000 bridged UNI in Base UNI pools is unmeasured: if it is larger than the incumbents' firing margin, an entrant always fires later and loses.
+- Timing is a threshold race (priority ordering on Base and Arbitrum, builder bids on Ethereum). It is not a scheduled window. Per Principle 2 it only pays where the incumbents' firing margin is wide (Base sample: ~0.2 ETH).
+- Complexity: picking the best 20 of hundreds of jar assets, batching collects, and routing 20 sales. This is what the incumbents compete on.
+
+## Margin census (earner 2026-11-09, run ef71307d, attempts 656-657)
+
+**Arbitrum leg closed dead_end (attempt 656).** Winner-side cash profit of the last 11 releases (blocks 519,644,082-522,508,809, ~9.3 d, 1.18/day), measured per tx with a prestateTracer diffMode (positive ETH balance deltas of EOAs; the leader 0xf697c9ed033f434f061e43d41adfb03035de9e5a sweeps in-tx to profit wallet 0x35a90c15b0b2ae861b2edc3c24dc1f8d382ace38): 0.000000-0.002649 ETH, median 0.001675 ETH (~3.7 USD), mean 0.001336 ETH (~2.9 USD). The Arbitrum incumbents are themselves zero-inventory (Morpho 0-fee flash 10 WETH, 2000 UNI bought in tx), so a farm entrant on the same flash path inherits the same round-trip cost and the same ~3 USD margin, and must win the priority-ordered same-block firing (Principle 2) with no cost advantage over the incumbents. Dead end.
+
+**Base payout side measured at block-native prices (attempt 657).** Last 10 releases (blocks 53616011-55092343, 0.36/day, bursty): winner-side gross payout sold to ETH in-tx and swept to profit EOAs in the same tx = 6.20-6.54 ETH, median 6.28 ETH (two releases by non-leader winners held the payout as tokens: no EOA inflow). Every release tx moves exactly the 2000 threshold UNI from a leader inventory wallet through recipient -> Firepit -> bridge burn 0x000000 - the incumbents have no in-tx UNI swap leg, so the threshold side remains to be priced at the block: margin = payout_eth - 2000 x (UNI/ETH)_block - gas. The researcher's ~9-day-old Chainlink read priced the threshold at 6.27 ETH (net ~0.24 ETH); a block-native UNI/ETH at or above ~3.13e-3 ETH/UNI erases the median margin. Remaining step: price the threshold at the release blocks (Uniswap V3 UNI(0xc3de830e)/WETH(0x420000...0006) pool slot0 at a fork reset, pool from factory getPool not memory; else Chainlink UNI/USD x ETH/USD at the block). Even at a positive margin, farm entry faces the priority-ordered same-block firing and the inventory asymmetry (2000 UNI ~14k USD > X cap).
+
+Numbers method: `debug_traceTransaction` prestateTracer with `{"tracerConfig":{"diffMode":true}}` on the relay research lane per release tx; the diff lists only balance-changed accounts - profit EOAs are those with no code (eth_getCode = 0x).
+
+## Base block-native threshold census (earner 2026-11-09, run 29ce3a95, attempt 660)
+
+The remaining Base recompute is done: the block-native UNI/ETH threshold equals the payout, so the Base leg is saturated like the other two.
+
+- Threshold-side market, found by counterparty census rather than memory: relay-log-scan of UNI `Transfer` (topic0 `0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef`) over blocks 53600425-55121405 (8888 logs) -> the top symmetric UNI counterparties are Uniswap V3 pools; the WETH/UNI pool is 0xab365f161dd501473a1ff0d2ef0dce94e7398839 (token0 WETH 0x4200000000000000000000000000000000000006, token1 UNI 0xc3de830ea07524a0761646a6a4e4be0e114a3c83, fee 1.00 pct, liquidity 2.489e22 raw, balances 29,048 UNI / 0.1243 WETH; `factory()` = 0x33128a8fC17869897dcE68Ed026d694621f6FDfD read from the pool itself - the memory-candidate Base factory 0x3312edcFA8beCAdCC0ba16a8f5065df09B1f245D has no code here).
+- `slot0()` at each of the 12 release blocks (relay eth_call with explicit block-1, research lane; decoded against the verified source with cast): ticks 57387..57998 -> UNI/ETH 3.029e-3..3.220e-3, median 3.1365e-3 - the researcher's ~9-day-old Chainlink read (3.135e-3) was within 0.1 pct of the block-native median, so the thin pool is global-parity priced.
+- Threshold median 6.273 ETH (range 6.058-6.440) vs the measured winner payout median 6.280 ETH -> gross margin median +0.007 ETH; winner-side gas (gasUsed x effectiveGasPrice, receipts) 0.0017-0.0192 ETH median 0.0032 -> net median ~0.004 ETH ~9 USD x 0.36 releases/day ~3 USD/day gross. Saturated.
+- Entrant asymmetry: a flash entrant buys the 2000 UNI threshold (6.06-6.44 ETH) on a pool whose UNI depth is 29,048 -> 2000 UNI is ~7 pct of depth, ~0.2-0.5 ETH round-trip impact, 30-60x the margin; the incumbents pay from inventory and fire first on the priority-ordered crossing. Dead end.
+- Method notes: the first UNI Transfer scan with a memory-typed Transfer topic0 returned a vacuous 0 - verify hashes with `cast keccak` (the canonical hash is 64 hex ending ...df523b3ef, not ...186023e17be30); price of token1 per token0 = 1.0001^tick with sqrtPriceX90 = 1.0001^(tick/2) x 2^96, decimal adjust 10^(dec0-dec1).

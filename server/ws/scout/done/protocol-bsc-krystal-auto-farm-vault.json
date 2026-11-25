@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-krystal-auto-farm-vault",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 647,
+ "chain": "bsc",
+ "slug": "krystal-auto-farm-vault",
+ "name": "Krystal Auto-Farm Vault",
+ "category": "AI Agents",
+ "tvl_usd": 141652,
+ "url": "https://krystal.app",
+ "github": null,
+ "listed_days_ago": 647,
+ "run_id": "777ee3bc383448c78001946252b2e64d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: bsc Auto-Farm vaults (PrivateVaultFactory 0x99029ddf, 3211 vaults, 15 created in 7d; sample 4 vaults, 2-6 logs/7d, all tx.from = owner EOA 0x766ad2fc..) are multicall-only behind onlyAuthorized, sweeps/deposits onlyOwner (stranger eth_call reverts); legacy share vaults exit/rebalance/compound onlyRole(ADMIN_ROLE) and even the automator fee goes to config.platformFeeRecipient, never msg.sender; 0 legacy creations in 7d (control 15); gas 0.05 gwei ~$0.006/200k (BNB $592.22 coins.llama.fi) - nothing pays a stranger.",
+  "kb": [
+   "attempts:2008"
+  ],
+  "run_id": "777ee3bc383448c78001946252b2e64d",
+  "at": 1794979511
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "status": "dead_end",
+  "why": "Closed as dead_end same session it was measured to completion, 2026-11-12 run 37f1b508 (attempt 981): the Liquity-style 'dynamic utilization-linked redemption fee paid to anyone' mechanism was replaced in Nov 2025 by UIP-12 (USD0++ renamed bUSD0 + rt-bUSD0 early-exit rights); current docs fee table: minting 0 bps, no redemption fee, maturity redemption 2028-06-11 pays exactly 1 USD0 per bUSD0, early redemption requires presenting bUSD0+rt-bUSD0 (holder pays the rt market price). No fee payout to a redeemer exists, and the exit is a hold-to-maturity discount (~0.92 floor), not a one-transaction profit. Measured dust: 30 d of bUSD0 Transfer logs (blocks 26136654-26396654, 3587 logs) max transfer 255 units = 2.55e-16 token with zero >=1-token transfers; Curve registry pool balance 0; rt-bUSD0 zero transfers over 100000 blocks (code present). The 'venue active' census of the scout session measured dust distribution.",
+  "next_steps": "None - lead closed (mechanism replaced + zero size-1-token flow measured). If Usual governance later reinstates a fee mechanism (watch UIP proposals and docs.usual.money fee tables), reopen from the wiki page.",
+  "wiki_page": "mechanisms/usual-busd0-redemption.md"
+}

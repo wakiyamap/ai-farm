@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-pancakeswap-stableswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1372,
+ "chain": "bsc",
+ "slug": "pancakeswap-stableswap",
+ "name": "PancakeSwap StableSwap",
+ "category": "Dexs",
+ "tvl_usd": 3190275,
+ "url": "https://pancakeswap.finance/swap",
+ "github": null,
+ "listed_days_ago": 1372,
+ "run_id": "dcd594ba2268450a885022498be94303",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Curve/Saddle-style AMM core, not a reward contract: factory 0x25a55f9f2279a54951133d503490342b50e5cd15 pairLength()=31 pools, 2 pool impls (68/58 selectors) = pure AMM (exchange/add/remove/ramp_A) + onlyOwner admin (withdraw_admin_fees reverts 'Ownable: caller is not the owner' from a stranger), pool.minter() reverts (no gauge); control: 260 TokenExchange logs in last 15,000 blocks across all 31 pools (head 134,425,314), all user swaps, 73% from 0x1e0d2191a75d2cd74aeb917459d3f9cd8a9a280c; gas ~bash.003/100k-gas call (0.05 gwei, BNB 78.96 coins.llama.fi); TVL .19M",
+  "kb": [
+   "attempts:2348"
+  ],
+  "run_id": "dcd594ba2268450a885022498be94303",
+  "at": 1795056789
+ }
+}

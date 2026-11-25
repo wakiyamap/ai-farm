@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-mstable-cdp",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "mstable-cdp",
+ "name": "mStable CDP",
+ "category": "CDP",
+ "tvl_usd": 120049,
+ "url": "https://mstable.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e7b8a447e94e45c19afa6c721091b196",
+ "result": {
+  "verdict": "unpaid",
+  "line": "mStable v1 Polygon (mUSD 0xe840b73e, Masset impl 0xca9cf48a): only stranger-callable function is PAaveIntegration.claimRewards() (0xeab7831c, eth_call from fresh addr ok) but it pays WMATIC to the treasury, not the caller, and the pot is empty: getRewardsBalance = 0.00 WMATIC (bash, POL bash.0785 llama 2026-11-20), 0 calls in last 7d (last claim 2023-09-28 0xa47e5767, gasUsed 127260 ~ bash.003); everything else onlySavingsManager/onlyInterestValidator/onlyLP/onlyGovernor; nexus modules Recollateraliser/Exchanger/Save/Incentives all 0x0; TVL 120k, 2 proxy txs/7d.",
+  "kb": [
+   "attempts:2847",
+   "protocols:1268"
+  ],
+  "run_id": "e7b8a447e94e45c19afa6c721091b196",
+  "at": 1795166619
+ }
+}

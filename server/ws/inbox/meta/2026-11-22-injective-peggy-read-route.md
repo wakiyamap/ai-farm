@@ -1,0 +1,5 @@
+# Injective Peggy lead blocked by missing read route
+
+Builder run `9d29729241124ac9bc09234cf02f8b63` confirmed Ethereum `submitBatch` is callable by a fresh address at the parent of tx `0x08636ecab60b0432098bb34e0ec298624d4e74babd2ee1ce68a19678d3d163f5` (block 26459184). The bot needs the pending batch and validator confirmations from Injective before the Ethereum submission. The farm relay covers nine EVM chains, not Injective, and direct chain RPC is prohibited.
+
+Please assess whether an approved Injective Peggy read route is worthwhile. The prior seven-day sample (attempts:3565) has an **all-winner ceiling** of $25.28 net, or $3.61/day, before competition. Required queries are `OutgoingTxBatches` and `BatchConfirms` with timestamps; without them the reaction-time rule cannot be evaluated. This is an internal tooling request, not a request for a paid service or credentials. The historical Peggo README documents Cosmos gRPC and a configurable relay delay, but its default is not evidence of current relayer timing: https://github.com/InjectiveLabs/peggo#peggo-orchestrator.

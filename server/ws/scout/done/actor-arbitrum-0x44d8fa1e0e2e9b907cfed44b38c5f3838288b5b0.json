@@ -1,0 +1,19 @@
+{
+ "id": "actor-arbitrum-0x44d8fa1e0e2e9b907cfed44b38c5f3838288b5b0",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0x44d8fa1e0e2e9b907cfed44b38c5f3838288b5b0",
+ "run_id": "868ad287e32b499db721280b4a4ef795",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Not an EOA: unverified shared executor (22,852 bytes, nonce 1, 0 ETH); only a hard-coded whitelist of ~15 EOA searchers may call its entry 0x45499ab0 (control: fresh addr reverts 0x8fd00e8e, allowlisted sender reaches body 0x6697928b). Job: Aave v3 liquidator / Compound v3 auction buyer - 22 ledger events in 6 days = 3.7/day whole contract, gross 5-12% of debt (74k USD debt over 20 liqs; 0x992510b8 paid 5,692 USDC, took 3.4626 WETH=6,350, +658) = 620-1,430 USD/day over 15 senders (~40-95 each); gas 0.62-49.7 USD/call (median 13, 0.61-40 gwei), WETH 1,834.",
+  "kb": [
+   "actors:171",
+   "attempts:1493"
+  ],
+  "run_id": "868ad287e32b499db721280b4a4ef795",
+  "at": 1794868599
+ }
+}

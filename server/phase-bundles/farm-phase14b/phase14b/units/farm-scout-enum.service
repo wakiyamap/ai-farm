@@ -1,0 +1,14 @@
+# Phase 14b: fill /srv/farm/ws/scout/queue (DefiLlama, ledger, KB). No RPC calls of its own.
+[Unit]
+Description=Fill the farm scout queue
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=earner
+Group=earner
+UMask=0002
+Environment=PATH=/opt/farm/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/opt/farm/bin/scout-enum
+TimeoutStartSec=15min

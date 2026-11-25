@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "galaxy_curation",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter registries/curators.js (github 404 for projects/galaxy-curation; tvlCodePath=registries/curators.js): base config morphoVaultOwners=[0x42D510eDeb9257f8D920d5B9f5109D95cB22419d] -> Morpho API (api.morpho.org/graphql vaultV2s) shows exactly one Galaxy-owned Base vault: 0x1e9e47583f15D45a10Df48c0b1846E0492c795D7 'Galaxy USDC Quality' (Morpho V2), totalAssetsUsd 2,037,180 = llama Base TVL 2,036,954 (2026-11-17). eth_getCode non-empty (21,808 bytes); totalSupply() getter answers (1.223M shares). Deployed dispatcher contains all 85 upstream morpho-org/vault-v2 VaultV2.sol external fns (cast sig comparison, 0 missing); extra selectors = public-var getters + DOMAIN_SEPARATOR + accrueInterestView. Role-free fns: accrueInterest() (eth_call from 0x1111..1111 ok, est 137,473 gas ~ $0.0015) pays caller $0; forceDeallocate pays penalty to the vault (withdraw(penalty, address(this), onBehalf), source src/VaultV2.sol L790); deposit/mint/withdraw/redeem move caller's own assets. Everything else owner/curator/allocator/sentinel-gated. managementFee=performanceFeeRecipient=0x64143e1fcd4efa1d0fba656c227a8e0a04223e59, curator=0xa13094eced689b7419baba12851374424c1486f1 (eth_call). No reward/claim/keeper-fee function exists."
+}

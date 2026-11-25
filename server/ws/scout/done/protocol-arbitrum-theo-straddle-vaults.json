@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-theo-straddle-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 701,
+ "chain": "arbitrum",
+ "slug": "theo-straddle-vaults",
+ "name": "Theo Straddle Vaults",
+ "category": "Basis Trading",
+ "tvl_usd": 85722,
+ "url": "https://app.theo.xyz/invite?invite=defillama",
+ "github": null,
+ "listed_days_ago": 701,
+ "run_id": "c3b86c825dda47428e2367348d671309",
+ "result": {
+  "verdict": "role_gated",
+  "line": "4 funded TheoDepositVaults (10.62 WETH 0x4fE1, 17.6k USDC 0xF37F, 2.3k USDC 0x3ca8, 26.23 weETH 0x5460 = 87.9k USD); rollToNextRound onlyKeeper ('!keeper' from fresh addr), VaultKeeper.rollRound onlyOwner forwards all to owner(), no reward pool; 7d (blocks 524546479-526599984): 3 user completeWithdraws of own ~217 USDC each on TUSDCH42161, gas 0.0036 USD, 0 events on others (control: 6 on 0x3ca8), 0 RollRound in 30d",
+  "kb": [
+   "attempts:3829"
+  ],
+  "run_id": "c3b86c825dda47428e2367348d671309",
+  "at": 1795376377
+ }
+}

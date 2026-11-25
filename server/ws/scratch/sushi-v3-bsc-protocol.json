@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "sushiswap_v3",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/sushiswap-v3/index.js: bsc = uniV3Export, factory 0x126555dd55a39328F69400d6aE4F782Bd4C34ABb (fromBlock 26976538); candidate TVL $38,899 = LP reserves only. Factory eth_getCode non-empty; getters answer (eth_call 2026-11-23): owner()=0xcd03e2e276f6eedd424d41314437531f665187b9, feeAmountTickSpacing(3000)=60 (selectors via cast sig). explorer source bsc failed (etherscan not_on_plan, blockscout 404); Sourcify v2 exact match (matchId 28996084) = sushiswap/v3-core UniswapV3Factory.sol: createPool(address,address,uint24) anyone-callable but pays caller nothing (caller pays gas, deploys pool), enableFeeAmount/setOwner owner-gated, getPool/parameters/feeAmountTickSpacing views; events PoolCreated/OwnerChanged/FeeAmountEnabled. Pool = standard UniswapV3Pool from the same verified bundle: initialize/mint/collect/burn/swap/flash/increaseObservationCardinalityNext callable by anyone, none pays the caller (collect pays a recipient argument, accrued LP fees); setFeeProtocol/collectProtocol onlyFactoryOwner; no reward/harvest/distribute/keeper/auction function. Newest pool 0x50cecb147db7cd9c0678f780d3b0fb30286e2234 eth_getCode non-empty, slot0() answers (tick 207243). Same pattern as sushiswap_v3 ethereum/base/polygon/arbitrum (KB 1676/861/862/863)."
+}

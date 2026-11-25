@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-steer-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1266,
+ "chain": "bsc",
+ "slug": "steer-protocol",
+ "name": "Steer Protocol",
+ "category": "Liquidity Manager",
+ "tvl_usd": 3827696,
+ "url": "https://app.steer.finance",
+ "github": null,
+ "listed_days_ago": 1266,
+ "run_id": "eb6c02c0eb85452180b43aa0369e6c38",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Vault tend() (via Orchestrator 0x3B41454C.. executeAction 0x8b235713) reverts 0xe2517d3f for a fresh EOA, succeeds only from the Orchestrator; bonded KeeperRegistry 0x09eb271b maxNumKeepers=3 and full, all >=8000 actions/7d by those 3 keepers, 0 strangers; rewardPerAction()=0, only gas back from GasVault: VaultGasUsed sample of 5 = 1.1e-5..3.4e-5 BNB = $0.006-0.020 vs $0.016 gas (tx 0xd768dbbb, 559695 @0.05 gwei; BNB $579.97) -> net ~0",
+  "kb": [
+   "attempts:2301",
+   "protocols:847"
+  ],
+  "run_id": "eb6c02c0eb85452180b43aa0369e6c38",
+  "at": 1795047543
+ }
+}

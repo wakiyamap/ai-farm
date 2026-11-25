@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-lighter-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 583,
+ "chain": "ethereum",
+ "slug": "lighter-bridge",
+ "name": "Lighter Bridge",
+ "category": "Bridge",
+ "tvl_usd": 482508934,
+ "url": "https://app.lighter.xyz",
+ "github": null,
+ "listed_days_ago": 583,
+ "run_id": "5427ac9d6c9f4beeaa43ae636d824c30",
+ "result": {
+  "verdict": "unpaid",
+  "line": "zkLighter validium bridge (proxy 0x3b4d794a..cf5ca7, impl ZkLighter): no reward fn exists - withdrawPendingBalance (2482 events/1074 txs/1603 recipients in 7d blocks 26409394-26459654; 13/15 sampled txs by Lighter relayer 0x40dc31da..8738) pays _owner their own USDC, caller gets 0; executeBatches anyone-callable pays 0; commitBatch/verifyBatch/revertBatches/updateStateRoot role-gated (isActiveValidator); gas 0.024-0.034 USD/tx (0.1448 gwei, ETH 1619.77)",
+  "kb": [
+   "attempts:3103",
+   "protocols:1478"
+  ],
+  "run_id": "5427ac9d6c9f4beeaa43ae636d824c30",
+  "at": 1795218623
+ }
+}

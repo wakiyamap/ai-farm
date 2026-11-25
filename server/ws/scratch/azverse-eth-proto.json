@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "azverse_perps",
+  "status": "dead_end",
+  "checked": "2026-11-20 run 1ce9dd4e (scout, verdict not_found): DefiLlama adapter projects/azverse/index.js (main repo; projects/azverse-perps/ is 404) tracks ethereum ONLY via 3 qualified-custodian EOAs 0x03a7e58745874d49b3acc770c40261a3ce206608, 0xc2a290eceac480f057b6e7b45a7a949535e478ce, 0xdc379823a9a3a2ca9d77c33299551ecdbabf7a41 (the Arbitrum assetVault 0x91ba525861c16aa8cd4d6974e4058cc846f42ebe is not used for ethereum and has no code there either). eth_getCode = 0x for all four on ethereum (rpc.py, 2026-11-20). Balances: 0x03a7 80,382 USDT + 62,016 USDC; 0xc2a2 13.31 ETH; 0xdc37 346,999 USDT + 11.31 ETH (~532.6k total, matches chainTvls.Ethereum 532,630 same day); 0x03a7 active daily (USDT withdrawal txs through block 26444111, ts 1795030907) - operational custodial hot wallets, not contracts. GitHub org AZverse has no contracts repo (az-bft = BFT consensus for its own AZ L1, azx-cli, adapter forks only); org README: everything settles on AZ, a purpose-built L1; api.llama.fi url is empty, deadUrl true. Same conclusion as arbitrum (protocols 58, attempts 389-391) and bsc (protocols 330, attempts 1635): perps run on the off-chain AZX engine on AZ L1, ethereum is a custody landing zone. Nothing callable on ethereum."
+}

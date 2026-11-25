@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+# Dynamic context for an earner session. Printed at the end of the prompt.
+set -uo pipefail
+WS=/srv/farm/ws
+KB=/opt/farm/bin/kb
+LEDGER=/opt/farm/bin/ledger
+export PATH=/opt/farm/bin:$PATH
+
+# The lane keeps the two earner instances off the same work (earner.md, section 1, Lanes).
+case "${1:-}" in
+  *-measure) lane=measure ;;
+  *) lane=build ;;
+esac
+echo "- lane: $lane"
+
+if [[ "$lane" == measure ]]; then
+  echo
+  echo "### Measurement queue (unmeasured leads, oldest first)"
+  $KB query "SELECT id, chain, target, substr(next_steps,1,400) AS next_steps FROM leads WHERE status='unmeasured' ORDER BY updated_at ASC LIMIT 8" 2>/dev/null || echo "(kb unavailable)"
+else
+  echo
+  echo "### Measured leads without a bot (newest 8)"
+  # 15i: leave out leads marked TRIAL BOT PLACED / NOT A BUILD TARGET and leads a paper or live
+  # manifest names (lead: N, lead_id: N, leads:N)
+  skip=$(cat "$WS"/bots/paper/*/manifest.yaml "$WS"/bots/live/*/manifest.yaml 2>/dev/null \
+         | grep -oiE '^[[:space:]]*lead(_id)?[[:space:]]*:[[:space:]]*[0-9]+|leads:[0-9]+' | grep -oE '[0-9]+$' | sort -un | paste -sd, -)
+  $KB query "SELECT id, chain, target, substr(next_steps,1,160) AS next_steps FROM leads WHERE status='measured' AND COALESCE(next_steps,'') NOT LIKE '%TRIAL BOT PLACED%' AND COALESCE(next_steps,'') NOT LIKE '%NOT A BUILD TARGET%'${skip:+ AND id NOT IN ($skip)} ORDER BY updated_at DESC LIMIT 8" 2>/dev/null || echo "(kb unavailable)"
+fi
+
+echo
+echo "### Open leads (newest 10)"
+$KB query "SELECT id, chain, target, substr(next_steps,1,120) AS next_steps FROM leads WHERE status='unmeasured' ORDER BY updated_at DESC LIMIT 10" 2>/dev/null || echo "(kb unavailable)"
+
+echo
+echo "### Recent attempts (last 15, so you don't repeat them)"
+$KB query "SELECT chain, target, outcome, substr(reason,1,100) AS reason FROM attempts ORDER BY id DESC LIMIT 15" 2>/dev/null
+
+echo
+echo "### Most active actors in the ledger (7 days)"
+$LEDGER top --days 7 2>/dev/null | head -16
+
+echo
+echo "### Paper bots waiting for a fix"
+# 15i: the current decision is the first decision line or decision heading near the top of review.md
+# (`**Decision: fix**`, `decision fix stands`, `## <time> — fix`). A bot whose code or manifest is newer
+# than its review.md was resubmitted: the reviewer's turn, listed apart.
+resub=""
+for d in "$WS"/bots/paper/*/; do
+  [[ -d "$d" ]] || continue
+  r="$d/review.md"
+  [[ -f "$r" ]] || continue
+  line=$(head -15 "$r" | grep -m1 -iE 'decision[*: ]+(fix|wait|promote|demote|reject|archive)|^#+ .*(—|–| - ) *(fix|wait|promote|demote)([^a-z]|$)')
+  printf '%s' "$line" | grep -qiE 'decision[*: ]+fix|(—|–| - ) *fix([^a-z]|$)' || continue
+  newer=$(find "$d" -maxdepth 3 \( -name logs -o -name state -o -name out -o -name cache -o -name __pycache__ \) -prune \
+          -o -type f \( -name '*.py' -o -name '*.sol' -o -name 'manifest.yaml' \) -newer "$r" -print -quit 2>/dev/null)
+  if [[ -n "$newer" ]]; then
+    resub+="- $(basename "$d"): ${newer#"$d"} is newer than review.md"$'\n'
+  else
+    echo "- $(basename "$d"): ${line:0:200}"
+  fi
+done
+echo
+echo "### Paper bots resubmitted after a fix (waiting for the reviewer; not builder work)"
+printf '%s' "${resub:-(none)}"
+[[ -n "$resub" ]] || echo
+
+echo
+echo "### Unfinished bots (built by a cut-off session; continue them)"
+for d in "$WS"/bots/paper/*/; do
+  [[ -d "$d" ]] || continue
+  id=$(basename "$d")
+  [[ -f "$d/review.md" ]] && continue
+  st=$(systemctl show "paper@$id.service" -p SubState --value 2>/dev/null)
+  if [[ "$st" != "running" ]]; then
+    echo "- $id: service ${st:-never started}; $(ls "$d" | tr "\n" " ")"
+    [[ -f "$d/manifest.yaml" ]] && echo "  strategy: $(grep -A1 '^strategy' "$d/manifest.yaml" | tail -1 | head -c 160)"
+    [[ -f "$d/logs/bot.jsonl" ]] && echo "  last log: $(tail -1 "$d/logs/bot.jsonl" | head -c 200)"
+  fi
+done
+echo
+echo "### Previous earner runs without a session report (cut off)"
+sqlite3 /var/lib/farm/ops.db "SELECT started_at, service_result FROM runs WHERE role='earner' AND service_result='timeout' ORDER BY started_at DESC LIMIT 3" 2>/dev/null | sed 's/^/- /' || echo "(ops.db not readable)"
+
+echo
+echo "### Active claims"
+now=$(date -u +%s)
+for c in "$WS"/claims/*.json; do
+  [[ -f "$c" ]] || continue
+  exp=$(python3 -c "import json,sys,datetime;d=json.load(open(sys.argv[1]));print(int(datetime.datetime.fromisoformat(d['expires_at'].replace('Z','+00:00')).timestamp()))" "$c" 2>/dev/null || echo 0)
+  if (( exp > now )); then echo "- $(basename "$c" .json)"; else rm -f "$c"; fi
+done
+echo
+echo "Paper slots in use: $(systemctl list-units --plain --no-legend --state=active 'paper@*.service' | wc -l) / 12"

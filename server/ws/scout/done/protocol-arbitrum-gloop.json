@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-gloop",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 474,
+ "chain": "arbitrum",
+ "slug": "gloop",
+ "name": "Gloop",
+ "category": "Lending",
+ "tvl_usd": 26006,
+ "url": "https://gloop.finance/",
+ "github": null,
+ "listed_days_ago": 474,
+ "run_id": "4f3874be952848aca857d89811723a15",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidateUser callable by anyone (7.5% bonus, stranger eth_call hits health-check not auth) but pot empty: totalBorrows 0.0105 USDC (max bounty 0.0008 USD vs 0.082 USD gas at 0.02 gwei x 1720 USD ETH); 0 Liquidation events and 0 pool events of any kind in 7d (blocks 524510193-526563411, control GMI index 41 events); 1 liquidation ever 2025-10-11 gross ~0.75 USDC gasUsed 2.39M.",
+  "kb": [
+   "attempts:3779"
+  ],
+  "run_id": "4f3874be952848aca857d89811723a15",
+  "at": 1795365546
+ }
+}

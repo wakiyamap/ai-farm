@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-gibxswap",
+  "outcome": "lead_recorded",
+  "reason": "unclear: Uv2/Swipe-style fork; live token/factory/pair confirmed on chain, but the reward contracts in the protocol's own repo (MasterChef 0xFeC95..., SwapMining 0x2008B6...) are wired to an abandoned 1-pair factory (0x1f59...), last pool update at block 10,701,366 (Sep 2021), chef is not a minter of the live X token, SwapMining poolLength()=0 and reward()=9.54e11 wei/block (about 0 USD at X=0.000055). takerWithdraw() callable by anyone (eth_call from fresh address succeeds, pays 0). No 7-day event proof: bsc eth_getLogs on the scout lane returned only provider limit errors and the same-shape WBNB Transfer control was 0 in-run, so all zero counts are unverified; the live router/chef for the live factory 0x97bC are unidentified (no bsc explorer provider, bscscan HTML 403).",
+  "numbers": "TVL $580k (candidate), live factory allPairsLength()=58, X/WBNB pair 0xD879... liquidity $12k and 7 tx/24h (dexscreener 2026-11-19 ~16:2xZ), SwapMining reward()=0xde0b6b3a76 wei=9.54e11 wei/block (eth_call latest 2026-11-19), chef poolLength()=1 lastRewardBlock 10,701,366, X price $0.000055 (dexscreener), BSC block time 0.45 s (measured blocks 134,532,520->134,535,304 = 1253 s)"
+}

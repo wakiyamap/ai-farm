@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-near-intents",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. NEAR Intents' Arbitrum side is a passive token bridge connector: the docs-listed NEAR Intents EVM address 0x2CfF890f0378a11913B6129B2E97417a2c302680 is an EOA (eth_getCode 0x on arbitrum and ethereum); the connector contract 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd exposes only deposit/withdraw-style calls where the caller pays gas and tokens go to a receiver argument - no function pays the caller. All protocol fees and solver rewards accrue on NEAR (intents.near), not on Arbitrum.",
+  "numbers": "Arbitrum TVL (DefiLlama api.llama.fi/protocol/near-intents) $4,885,317. Connector 0x233c...b4cd code len 17,266 hex; ABI fns: deposit(bytes,address,uint128) payable, withdraw(uint128,address,address,uint128,bytes) payable, hot_verify, fees(), withdrawFees(); owner() -> 0x1affb9...ea16. Last-7-days txs on 0x233c (explorer txs): 1 deposit (0x58123a6e...b28b, ts 1794654168, caller 0x64a024...806c, value 0) + 2 chainId() view calls; state-changing reward paid to a stranger: 0. Connector USDC balance $148.6 (balanceOf 148,564,465 @6dp). Gas cost irrelevant: no caller-paid reward exists."
+}

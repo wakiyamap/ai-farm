@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-d2-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 864,
+ "chain": "hyperevm",
+ "slug": "d2-finance",
+ "name": "D2 Finance",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 10519976,
+ "url": "https://d2.finance/strategies",
+ "github": null,
+ "listed_days_ago": 864,
+ "run_id": "e1dc3ad65fef4f2ba32f6cd8c1ef55c5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "8 VaultV3 ERC4626 vaults on hyperevm (adapter d2finance, source verified): all state-changers role-gated (custodyFunds/returnFunds onlyTrader = strategy 0x50f73ffd, startEpoch/emergency* onlyOwner, deposit onlyWhitelisted); eth_call custodyFunds from fresh addr reverts '!trader'; no function pays the caller (custodyFunds gross 0 USD, gas 0.1 gwei ~60k = ~$0.0004); d2HYPE totalAssets 92,180 HYPE ~6.31M USD @ 68.50 (coins.llama.fi); 0 txs to any of the 8 vaults in the last 7d (newest Nov 1, block 50,139,807; 7d window from block 50,979,757); epoch Nov 3 -> Dec 19",
+  "kb": [
+   "attempts:2131",
+   "protocols:706"
+  ],
+  "run_id": "e1dc3ad65fef4f2ba32f6cd8c1ef55c5",
+  "at": 1795006048
+ }
+}

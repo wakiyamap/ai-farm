@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-dexalot-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1369,
+ "chain": "base",
+ "slug": "dexalot-dex",
+ "name": "Dexalot DEX",
+ "category": "Dexs",
+ "tvl_usd": 47849,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 1369,
+ "run_id": "f5df22215ede4b2182de9bdaf9749392",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Dexalot DEX on base is MainnetRFQ 0x1fd108cf42a59c635bd4703b8dbc8a741ff834be only: sole anyone-callable removeFromSwapQueue pays caller $0 and swapQueue is empty; processXFerPayload (PORTFOLIO_BRIDGE_ROLE) and claimBalance (REBALANCER_ADMIN_ROLE) revert AccessControl from a fresh addr; 0 events in 7 d (blocks 58078222 2026-11-16 - 61101447 2026-11-23, no-topic; control 79 on PortfolioMain same shape) on RFQ and ExchangeMain 0xD12165... => nobody paid, gross $0, gas unmeasured (0 calls, base ~0.01 gwei per attempts:2111).",
+  "kb": [
+   "attempts:3993",
+   "protocols:2129"
+  ],
+  "run_id": "f5df22215ede4b2182de9bdaf9749392",
+  "at": 1795411309
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-deltaswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1032,
+ "chain": "base",
+ "slug": "deltaswap",
+ "name": "DeltaSwap",
+ "category": "Dexs",
+ "tvl_usd": 94408,
+ "url": "https://gammaswap.com",
+ "github": null,
+ "listed_days_ago": 1032,
+ "run_id": "1fa23372f0f045c8b5b6ac8afb0c819f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "GammaSwap v2 on base: GammaPoolFactory 0xfd513630...a20b (67 pools) + AMM factory 0x9a9a171c...c971; only caller-paid fns are liquidate/liquidateWithLP/batchLiquidations, all revert NotLiquidator(0xd891a1b7) for a stranger (immutable LIQUIDATOR 0xa16f0baf...ae6eb, protocol's own bot); 0 Liquidation events in 7d (blocks 57986805..61010803, no-topic scan returned 59 other logs = control); base TVL 95,954 USD. Same as Arbitrum (attempts:2214).",
+  "kb": [
+   "protocols:2070",
+   "attempts:3912"
+  ],
+  "run_id": "1fa23372f0f045c8b5b6ac8afb0c819f",
+  "at": 1795393549
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "melegaswap vault harvest()",
+  "status": "measured",
+  "why": "vault 0xb2d57B1A40E61AAb3F88361228E1188E0fB6A21C harvest() pays the caller 0.25% (callFee) of each harvest of MARCO emissions from masterBuilder. Last 7 d (blocks 133824487 @2026-11-15 23:34:49 to 135167937 @2026-11-22 23:34:49): 159 Harvest events, 4 EOA callers - 0x8a1667083294bcb1205e01b0c6c8a72fc71e4084 (97x), 0x41ad9631673752d1a6016cc0d45e53d810efa726 (59x), 0x00001fe00b90d676b188f0040aa4f845abe00f7e (2x), 0xf62b10b2a9c717f4a1e8a327d4494cf972aaa156 (1x); top two hold zero vault shares (userInfo = 0) and are not admin/owner/treasury - pure keeper wallets. Sample paid call: 0xb40e23439b9f5b6ff9e426f32e0b06fe1ed5bbdd476959053170a254b27fa71d paid 84.14 MARCO (~$0.014).",
+  "next_steps": "Contract 0xb2d57B1A40E61AAb3F88361228E1188E0fB6A21C, function harvest() (0x4641257d). 7 d: 159 calls; gross to caller 2.98-84.14 MARCO/call (median 40.5 = $0.0068 at MARCO $0.0001680882, coins.llama.fi bsc:0x963556de... ts 1795378082, conf 0.99; decimals 18 on chain); gas 178,552 @ effective 0.05 gwei = 0.00000893 BNB = $0.005 (BNB $558.12 coins.llama.fi ts 1795390523); 157/159 calls gross>gas; total keeper take 8,755 MARCO = $1.47/7d. Caveats: notContract modifier means only EOAs can call (an executor contract reverts); harvests run ~hourly (cron-like, no first-block race) but the whole keeper pot is dust (~$0.2/caller/day)."
+}

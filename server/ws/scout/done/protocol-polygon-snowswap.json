@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-snowswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "snowswap",
+ "name": "SnowSwap",
+ "category": "Dexs",
+ "tvl_usd": 70770,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "d6c6f041c6f3430d9fcbf2fdf533bdee",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only caller-paid fns are 8 SnowSwap Polygon geysers' getReward() (usdSnowGeyser 0x3aCAA8CfC9026bF6754F823180bd70620Fa6B588 etc., pays caller's own accrued SNOW); 0 geyser events in 7d (blocks 97433017 2026-11-16 -> 97836217 2026-11-23; control: same getLogs shape returned 27 TokenExchange from usdsnow swap 0x6852E7399C6cC73256Ca46A4921e1c7b2682D912, 0.8k DAI/USDC/USDT pool TVL), eth_call getReward from fresh address succeeds but pays 0, pots 79.4+112.7 SNOW unpriced, gas ~bash.0017/call (276 gwei, POL bash.0776).",
+  "kb": [
+   "attempts:4190",
+   "protocols:2309"
+  ],
+  "run_id": "d6c6f041c6f3430d9fcbf2fdf533bdee",
+  "at": 1795460281
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "multiplier",
+  "status": "measured",
+  "checked": "DefiLlama adapter projects/multiplierfinance/index.js (tvlCodePath from api.llama.fi/protocol/multiplier; deadUrl true, TVL ~28k). Contracts confirmed via Sourcify v2 verified source + eth_getCode non-0x + getters answering: V1 LendingPool 0xbc3534b076EDB8E8Ef254D81b81DC193c53057F7 (getReserves() -> 12 reserves; addressesProvider() 0xcc0479a98cc66e85806d0cd7970d6e07f77fd633); V2 LendingPool proxy 0x503fba251cdc4c06a1eeea4faf89e3fafc5923a6 -> EIP1967 impl 0x3e7f2a240119552e6fc722a7a2C9E8563876b773 (pure Aave V2 fork, NO reward/claim functions). V1 reward fns (claimReward(address,uint8), claimAllReward, readReward) exist but revert from a fresh address: pool rewardsMgr() storage == 0x0 (reward module unwired), so V1 claims are dead, not role-gated. V1 pool emitted 0 logs in 7d (and 0 in the prior 3.96M blocks). V2 liquidationCall is open to anyone (source: external nonReentrant onlyActiveReserve, no role); getConfiguration(BTCB)=18447685936226724485476 -> liquidationBonus 11000 = 10%, liquidationThreshold 7000 = 70%."
+}

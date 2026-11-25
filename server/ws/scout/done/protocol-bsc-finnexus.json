@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-finnexus",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "finnexus",
+ "name": "FinNexus",
+ "category": "Options",
+ "tvl_usd": 45994,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "23ae28b6b1a949ac8e18b4538bb0ab80",
+ "result": {
+  "verdict": "unpaid",
+  "line": "FinNexus Options BSC dormant: 4 subgraph-pinned contracts (USDC pool 0xa3a6..4edd, FNX pool 0x423b..9862 + 2 managers, all eth_getCode+getters ok) had 0 events in 7d (blocks 133949449-135292916, ts-dated 11-16..11-23) and 0 in 30d, control same-shape returned 6 CreateOption logs near launch; only user fns (buyOption/exerciseOption/redeemCollateral) paying msg.sender themselves, gross 0, TVL 45.8k idle",
+  "kb": [
+   "attempts:4139"
+  ],
+  "run_id": "23ae28b6b1a949ac8e18b4538bb0ab80",
+  "at": 1795447117
+ }
+}

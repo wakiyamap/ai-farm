@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-galaxy-curation",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 179,
+ "chain": "base",
+ "slug": "galaxy-curation",
+ "name": "Galaxy Curation",
+ "category": "Risk Curators",
+ "tvl_usd": 2037099,
+ "url": "https://www.galaxy.com/",
+ "github": null,
+ "listed_days_ago": 179,
+ "run_id": "8ce60e5ebc6d4d9584051a941be63fb8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Base = one Morpho V2 vault 0x1e9e47583f15D45a10Df48c0b1846E0492c795D7 'Galaxy USDC Quality' .04M: role-free accrueInterest() pays caller bash (137,473 gas = ~bash.0015 @0.006 gwei, ETH 1791.75 coins.llama.fi) and forceDeallocate pays the vault not the caller (0 events 7d); 7d logs 46 total (blocks 55,579,154-58,603,154): Deposit x3 dust, Withdraw x4 max 04, Allocate x3, Deallocate x4, AccrueInterest x10 all inside user router txs; all other fns owner/curator/allocator/sentinel-gated.",
+  "kb": [
+   "attempts:1678"
+  ],
+  "run_id": "8ce60e5ebc6d4d9584051a941be63fb8",
+  "at": 1794911468
+ }
+}

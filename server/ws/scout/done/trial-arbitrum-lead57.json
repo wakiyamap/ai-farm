@@ -1,0 +1,21 @@
+{
+ "id": "trial-arbitrum-lead57",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "arbitrum",
+ "lead_id": 57,
+ "target": "Revert Lend V3Vault liquidation pond on Arbitrum (Uniswap-V3 NFT collateral, USDC debt, 1.68M USD book)",
+ "retries": 1,
+ "run_id": "62da49c9af35446ba4bcf4120dda6417",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d: 19 liquidations / 6 takers on vault 0x74e6afef (ledger verified); 7d cost 1,499, gross floor 2% = 30 (90 USD/day, was 5.4); sample of 10: median takeable->taken 0 blocks (267ms), median winner prio 0.008 gwei, gross bash.01-32 (whales same-block race; tail 1-32+ blocks, 2/10 > gas); one attempt gas bash.05-0.07",
+  "kb": [
+   "attempts:1491",
+   "leads:57"
+  ],
+  "run_id": "62da49c9af35446ba4bcf4120dda6417",
+  "at": 1794867246
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "Metronome sES Morpho market liquidations (bot id morpho-ses-ethereum)",
+ "why": "Metronome sES pinned market on Morpho Blue (market id 0xd2630c0ebf33ba83c82e8cd400a8e6345370238ca695ce58773b2d3e43de1b0a): 12 ledger captures 26317645-26353682 (~7d), two whale captures 2026-12-15 repaid 51.19 + 23.10 sES in one day; incumbents 0x3132d5bae89d248deda77aba04a43255ef188264 (6 captures), 0xb3983cddba4b127960a4cdd531ab989264509e23, 0x81463b0f960f247f704377661ec81c1fd65b5128 all take it; every measured capture is CATCHABLE one block before the capture block (windows >= 8192 blocks for the whale sizes), so the class passes the poll speed test (decision 2026-11-12 item 2). Per-capture windows and the two-leg exit rates are in bots/paper/morpho-ses-ethereum/README.md; the 36 USD/day scale stays provisional until the fork proof lands.",
+ "next_steps": "Fork proof pending (the one blocker before review): rerun scratch/morpho-ses-proof.js per the attempts-row recipe (lease, reset 26353673, deploy, prove); if the entry revert persists, test Morpho's own liquidatability at C-1 first (accrued-interest HF) and the executor's liquidate against the live executor code (eth_getCode of a fresh deploy) with debug_traceCall on the same calldata; paper logs under bots/paper/morpho-ses-ethereum/logs/bot.log show attempts with sim success/revert.",
+ "status": "measured"
+}

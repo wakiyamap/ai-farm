@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-joe-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "joe-dex",
+ "name": "Joe DEX",
+ "category": "Dexs",
+ "tvl_usd": 8486151,
+ "url": "https://lfj.gg/avalanche",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "7390ba2030a1490c8908230235981ea6",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: Joe V1 AMM (factory 0x9Ad6C38BE94206cA50bb0d90783181662f0Cfa10, 48,922 pairs; Router V1 0x60aE616a2155Ee3d9A68541Ba4544862310933d4; verified JoeFactory/JoeRouter02/JoePair ABIs) has no caller-paying fn - all open calls are user swaps/liquidity, factory setFns gated by feeToSetter; router >=100 txs 7d (sample 100: 78 swapExactAVAXForTokens, ~30 EOAs), factory 0 txs 7d (last 2026-10-21), gross to caller 0 USD",
+  "kb": [
+   "attempts:2658",
+   "protocols:1123"
+  ],
+  "run_id": "7390ba2030a1490c8908230235981ea6",
+  "at": 1795125828
+ }
+}

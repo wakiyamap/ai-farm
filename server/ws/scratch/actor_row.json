@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "address": "0xdd0a4938bba063e8e36323dd98d25ceeaa9de105",
+  "strategy": "UniswapX-style order filler on reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2: keeper EOA 0x467afbe6bb00e76551e3e5b7401d051d9ade44e9 calls filler.fill((bytes,bytes),bytes) (sel 0x40459ef1); the unverified filler contract takes the order input token, swaps it to the order output through v3 pools (sometimes multi-hop) in the same tx, forwards the output to the swapper (BNB natively, no log), and keeps the spread/fee. Own funds only insofar as inventory is needed; the job itself pays the filler in-transaction.",
+  "evidence": "0xe01850c62d1a0b79aff08e1d8feb8e0be11cc7a978fd32429175f5367d6ae39a (7d fill: +45000 AKE(0x2c3a8ee9,18d) -45000 AKE to pool 0x4d3bf29b, +0.70998145 WBNB, unwrapped 0.70897425 BNB forwarded natively, kept 0.0010072 WBNB); 0xb587b0cec429bd5b... (input token 0xe32f9e8f sold for 902.46 USDT, 898.81 forwarded, ~3.65 USDT spread); 0x8cb9c672d2d3b840... (USDT->USDC->WBNB->token multi-hop, kept 7.29 of output token)",
+  "est_profit_usd_day": 0.08
+}

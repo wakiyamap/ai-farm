@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-peapods-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1028,
+ "chain": "ethereum",
+ "slug": "peapods-finance",
+ "name": "Peapods Finance",
+ "category": "Yield",
+ "tvl_usd": 540225,
+ "url": "https://peapods.finance",
+ "github": null,
+ "listed_days_ago": 1028,
+ "run_id": "b8cf6da5fccf41ed9f4fb525db7512fc",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "liquidate(uint128,uint256,address) on the 23 ethereum LVF pairs (leverageManager 0x4e6ef371, no role; fresh eth_call reverts BorrowerSolvent): 7 Liquidate events in 7 d (blocks 26,412,698-26,465,475, no-topic scan of 5,088 logs, topic0 0x821de4e1 from source), 6 paid strangers 12-622 USD gross (8% of WETH repay after 1% protocol fee; txs 0x35f4b733, 0xed57b79b, 0x2530d310, 0x3914f8b9, 0x3720c7b3, 0xc22a938a) vs 2.2-3.6 USD gas; all 7 inside one 13-block crash burst 2026-11-18, 0 in the other 6.8 d, bonus paid in the crashing pPEAS token",
+  "kb": [
+   "attempts:3283",
+   "leads:360"
+  ],
+  "run_id": "b8cf6da5fccf41ed9f4fb525db7512fc",
+  "at": 1795258145
+ }
+}

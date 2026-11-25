@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-axelar-cross-chain",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. No function on any Axelar ethereum contract pays a caller/stranger. The only open relay action, AxelarGateway.execute(bytes), is called continuously by 3 dedicated relayer EOAs (0x8dbee8f3917049bc30fef01924a7ac79d16cf2b9, 0x2102c32a09cbced4146c3db2d27ae21a185bda43, 0xc77820eef59629fc8d88154977bc8de8a1b2f4ae), value 0, and the receipt shows no transfer to msg.sender (gross $0); the payout fns (gas-service collectFees/refund) are onlyCollector. Relayers earn AXL on the Axelar Cosmos network, not on ethereum. Same conclusion as arbitrum #569 and bsc #571 (identical code).",
+  "numbers": "7d window 26409637 (2026-11-14, ts 1794616151) to 26459838 (2026-11-21): 936 gateway Executed(bytes32) events (topic0 0xa74c8847d513feba22a0f0cb38d53081abf97562cdb293926ba243689e7c41ca, from receipt of tx 0x1168b840525d179c656b3fa3b33e87b29209c955c2d15d2b0459fe67d6a75235) on AxelarGateway 0x4F4495243837681061C4743b74B3eEdf548D56A5. Gross to caller per execute = $0 (value 0, no transfer to msg.sender). Gas per execute sample: 280362 gas x 162598045 wei = 4.56e-5 ETH = $0.074 (ETH $1620.56, coins.llama.fi ts 1795220113). Protocol TVL = USDX (0xf3527ef8dE265eAa3716FB312c12847bFBA66Cef) totalSupply 35,949,528 USDX on ethereum; DefiLlama prices whole protocol $233,881 latest (api.llama.fi/protocol/axelar-cross-chain). Callers = 3 relayer EOAs, none a paid stranger."
+}

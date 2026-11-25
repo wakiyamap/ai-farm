@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-fluid-dex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Fluid DEX on base (DexResolver 0xa3B18522827491f10Fc777d00E69B3669Bf8c1f8, FluidDexT1 pools, FluidDexFactory 0x91716c4eda1fb55e84bf8b4c7085f84285c19085) exposes only revert-settled user actions (swapIn/Out, deposit/withdraw/borrow/payback + Perfect variants); callbacks and adminModule are restricted, and no reward/claim/keeper/liquidate function pays the caller - fees go to the shared-liquidity pool. The venue is active but that is trader volume, not a payout to strangers.",
+  "numbers": "7 d to block 59003755: 2299 Swap events over 18 of 32 pool contracts (~330/d; eth_getLogs 55979755-59003755, control 6162 USDC Transfer logs/1000 blocks), LogArbitrage 5; TVL 3.09M USD (DefiLlama candidate). Gross per call to a stranger: 0 (no payout function). Source: adapter raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/fluid-dex/index.js, blockscout-verified FluidDexT1 source, repo Instadapp/fluid-contracts-public."
+}

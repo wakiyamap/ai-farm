@@ -1,0 +1,22 @@
+{
+ "id": "protocol-base-upshift",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 712,
+ "chain": "base",
+ "slug": "upshift",
+ "name": "Upshift",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 1040202,
+ "url": "https://app.upshift.finance",
+ "github": null,
+ "listed_days_ago": 712,
+ "run_id": "917004259c55429a8cd9dc746394440b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "4 proxy vaults on base (TokenizedVault impl 0x8ef5..6d9d, LendingPoolv3 impl 0xf80d..38cb); anyone can call chargeManagementFee/collectFees/claim/processAllClaimsByDate (no role gate, OK from fresh addr) but none pays msg.sender - last 7d (37 logs, blocks 55.97M-58.99M): 28x ManagementFeeCharged all by operator 0xe0b7deab.., 0 on main vault (mgmt 0%, withdrawal 0%), 519-530 wei on lending pool, 3 redemptions (668+3996+0.01 USDC) to the redeemer's own wallet; totalCollectableFees=0 on all 4, gross to a stranger caller bash vs gas ~bash.0011 (0.006 gwei x 100k, ETH 811.92 llama).",
+  "kb": [],
+  "run_id": "917004259c55429a8cd9dc746394440b",
+  "at": 1794989453
+ }
+}

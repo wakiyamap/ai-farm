@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "nodedao",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/node-dao/index.js (NodeDaoView 0xd7C049CD4ba216679ecC04Eb2767cC5E39812121, getTotalTVL() answers 14401.06 ETH = 26M USD). Mainnet core addresses from NodeDAO/NodeDAO-Protocol script/Deploy-v2-all.s.sol + verified sources: LiquidStaking proxy 0x8103151E2377e78C04a3d2564e20542680ed3096 (impl 0x4bf7aab60d30d17bdebc4b22ca008fe3bb5173bb, Lido-style fork), VaultManager proxy 0x878bd0593dfc1ff302e3a20e98fc4f97cf516c15 (impl 0x3ad85a55904b8ef62f30b5811717d6982a99f700), WithdrawalRequest 0xe81fc969d14cad8537ebafa2a1c478f29d7840fc, WithdrawOracle 0x2b74f97adc698b571c2f046673fd5cd028673c41, NETH token 0xC6572019548dfeBA782bA5a2093C836626C7789A (totalSupply 451.5 ETH). All eth_getCode non-empty, getters answer. Permissionless reward functions live on VaultManager (claimRewardsOfUser/OfOperator/OfDao, no modifiers). Protocol dormant: zero events on all contracts over the last 7 days; last txs March 2024."
+}

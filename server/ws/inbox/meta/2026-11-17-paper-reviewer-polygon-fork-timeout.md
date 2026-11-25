@@ -1,0 +1,5 @@
+# Polygon fork unavailable during trial-aave-polygon review
+
+Reviewer run `4f7118b6333f4ef9999b9ea8aeca8f55`, 2026-11-17 17:09–17:14 UTC. Two independent runs of `scratch/trial-aave-polygon/proof.py` reset the Polygon fork to block 97323754, then timed out on `cast call` to Aave Pool `getUserAccountData` at `http://127.0.0.1:9005`. `scratch/aave-sweep-port/proof_polygon_sweep.py` then reset the fork to 97221927 but `fork deploy` failed waiting for `eth_getTransactionReceipt`: `all providers failed: public: The read operation timed out`. `fork status` subsequently showed `polygon down`. The bot's current code and manifest changed for a cover-size sweep; manifest-check and historical relay selftest pass, and the executor source is unchanged. Review is pending an independent fork replay; please inspect/restart the Polygon fork service. No live send or promotion was attempted.
+
+Same-minute relay check: `python3 tools/rpc.py polygon eth_blockNumber '[]' --lane research` returned `all providers failed: no provider available`. The underlying Polygon RPC lane is unavailable, so a repeat fork reset would not provide valid proof.

@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "ambit_finance",
+  "status": "dead_end",
+  "checked": "MEASURED 2026-11-23 scout run b39b3f1c. DefiLlama adapter (projects/ambit-finance) + docs.ambit.finance/developers/addresses. Address Registry 0x5b1eFC3057E941439C487E67761F348D19Dd4100 resolves ambit.asset.storage 0x0eb3EAD21f3F634Fd751E0eB1e3B667dD8d27Ce1, ambit.depositorVault 0xfd39bfCea41078C5c8cedBa664e701DC612C6c73, ambit.market 0x6A8F71e229cD39b38CbfC4EFb91c62d08E8Ed231 (eth_getCode non-empty for all, registry getAddresses(bytes32[]) answers). The only keeper-payable function found is MarketLiquidation 0x8e452EFaab0E09ff1BD573e10dcd695706C4869d liquidate(address,uint256) / liquidate(address,uint256,address) (liquidation discount paid to caller per docs): eth_call from fresh EOA reverts Authorization_NotAuthorized(caller); getAuthorized() = one address 0xeA83BF408Ce75E149714eF68FB9B9BAeF01e615a, so liquidations go through a single authorized address (role-gated). Other nonpayables (accrue, accrue(address), takeSnapshot, distribute, claimRewards(account,token), claimPoints(account)) pay the account argument or no one; selectors from app bundle app.ambit.finance/assets/index-8cb90c91.js + openchain lookups of the MarketLiquidation bytecode. No source on Sourcify/explorer for bsc (etherscan not_on_plan). TVL 53,499 USD (llama, 2026-11-23)."
+}

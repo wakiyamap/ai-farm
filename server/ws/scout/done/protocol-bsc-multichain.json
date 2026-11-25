@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-multichain",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "multichain",
+ "name": "Multichain",
+ "category": "Bridge",
+ "tvl_usd": 16052198,
+ "url": "",
+ "github": [
+  "anyswap"
+ ],
+ "listed_days_ago": null,
+ "run_id": "bf0734101f6749a28dd997fc77976a58",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no reward function on bsc: TVL holders are EOAs (BNB deposit EOAs 0x4b3b/0xb1cb/0x171a hold 10,501 BNB = 5.97M USD, code 0x) + anyToken vaults (0xb46d67fb..., symbol() answers); official AnyswapV4/V5/V6 sources have 0 reward/keeper-type functions (only deposit/withdraw own funds, Swapin onlyAuth, Swapout own swap); full 7.76d getLogs on vault = 2 user token moves (controls 12/2 logs at 2022 blocks), TVL flat 11-12..19; gas n/a; same as arbitrum 1102 / avalanche 1126",
+  "kb": [
+   "attempts:2760",
+   "protocols:1198"
+  ],
+  "run_id": "bf0734101f6749a28dd997fc77976a58",
+  "at": 1795149130
+ }
+}

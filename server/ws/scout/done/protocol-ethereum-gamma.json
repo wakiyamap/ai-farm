@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-gamma",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "gamma",
+ "name": "Gamma",
+ "category": "Liquidity Manager",
+ "tvl_usd": 718242,
+ "url": "https://www.gamma.xyz",
+ "github": [
+  "GammaStrategies"
+ ],
+ "listed_days_ago": null,
+ "run_id": "4e85d929aa3f465687855b53aa65394d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "RebalanceProxy 0x47e38556.rebalance is onlyRebalancer per vault (fresh-address eth_call reverts 'only rebalancer'); 9 rebalances in 7d (blocks 26417030-26467286, topic0 from Hypervisor.sol, per-vault control on batch 1) all by keeper EOA 0xc8332131 on one vault, all with feeAmount0=feeAmount1=0 (empty pot), gas 549,755 = 0.28 USD/call (WETH 1681.32, coins.llama.fi); no other stranger-paid function among 91 vaults (Pancakeswap registry counter()=0).",
+  "kb": [
+   "attempts:3543"
+  ],
+  "run_id": "4e85d929aa3f465687855b53aa65394d",
+  "at": 1795310519
+ }
+}

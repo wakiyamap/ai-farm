@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-swaap-maker-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Swaap Maker V2 is a Balancer V2 fork (vault 0xd315a9c38ec871068fec378e4ce78af528c76293, explorer-verified 'Vault'; pools are custom Swaap SafeguardPool). No callable function pays the caller: updatePerformance() and evaluateStablesPegStates() are open to anyone (eth_call from fresh address returns 0x, no role revert) but only update state and emit events; claimManagementFees() mints fee BPT to the ProtocolFeesCollector, not to the caller. Also nearly dormant on polygon: 0 vault events in the last 7 days, 1 event in 37 days (an exitPool on 2026-11-15); $31k TVL sits idle.",
+  "numbers": "7d window blocks 97397581 (2026-11-16, ts 1794801841) .. 97797581 (2026-11-23, ts 1795401841): vault Swap=0, PoolBalanceChanged=0, no-topic=0 (topic0 Swap 0x2170c741c41531aec20e7c107c24eecfdd15e69c9bb0a8dd37b1840b9e0b207b from IVault.sol source). Control same shape: Balancer polygon vault 0xBA12..F2C8 no-topic 4.8k-block scan = 403 logs; 50 PoolBalanceChanged/7d; swaps >10k/7d (>10k in one 196k chunk, Alchemy size error). 37d chunk 0x5cb0000..head on swaap vault: 1 PoolBalanceChanged (block 97358820, 2026-11-15, exitPool 0xdf43640835b87a42a1db13de5eefd4f806feb5291e5893cbb49383df79b508e1). Pool 0x6bb19ff73cd6b35757f973ecf9541f2ef20e2555 7d logs=0, 37d=2 (Transfer+internal PerformanceUpdated at the same exit). Gross USD per callable call: 0 (no payment path to caller). TVL polygon 31,414 USD api.llama.fi 2026-11-23."
+}

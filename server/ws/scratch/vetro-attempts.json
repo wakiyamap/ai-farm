@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-vetro",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: no callable function pays the caller. Every keeper-ish function is role-gated (YieldDistributor.distribute DISTRIBUTOR_ROLE and the caller pays the yield in; pullYield vault-only; Treasury harvest UMM_ROLE, push/pull/swap KEEPER_ROLE). What is open to anyone is Gateway mint/redeem at NAV: the caller is charged (0 bps mint, 7 bps redeem), the only gain is the peg spread, currently 9.7 bps discount on VUSD = 2.7 bps net on redeem. No mint calls in 8.2 d; vetBTC gateway idle 43 d. The protocol itself runs the arb (vusd-arbitrage-bot with Morpho flashloans), so the spread is a market arb, not a protocol bounty.",
+ "numbers": "VUSD $0.99903 vs NAV $1 (coins.llama.fi ts 1795176528) = 9.7 bps discount, 2.7 bps net of 7 bps redeem fee (redeemFee read on chain); gateway txs explorer sample of 25 over 8.2 d (blocks 26395245-26454149): deposit/requestRedeem/redeem only, 7 EOAs, 0 mint; redeem gas 198,001 (tx 0x1de4d44ef0c2874e509e86ddf230b49cfb949738dc75d35b20d4d2fe310b6f37) ~ $0.17 at 0.495 gwei (eth_gasPrice) x ETH $1731.60 (coins.llama.fi ts 1795176616); fresh-address redeem reverts CallerNotWhitelisted(address) 0x252c8273; withdrawalDelay=120 enabled"
+}

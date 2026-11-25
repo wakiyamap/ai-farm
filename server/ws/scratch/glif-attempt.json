@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-glif",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - GLIF's only Base contract (DefiLlama ICNT vault 0xAeD7C2eD7Bb84396AfCB55fF72c8F8E87FFb68f3, PoolV2) plus its Periphery 0xdbe31f5be9b68c61f0a8f0adcd29b0ec826e520f expose permissionless flushDeposits/claimRewards/initializeRewardClaims (eth_call from a fresh address succeeds, no role revert), but none pays the caller: verified source sends the treasury fee to the treasury and keeps the LP part in the vault. For 7 days one GLIF keeper EOA 0x435ea93de414d4b19cefa93520cac0344709093e ate all 21 keeper txs and got 0; no stranger was paid.",
+  "numbers": "7d window blocks 56,271,649-59,295,649 (eth_getLogs on vault: 1,541 logs / 33 txs): 757 ClaimedRewards totalling 31,014 ICNT ~= $7,156 at ICNT $0.2307 (implied: DefiLlama TVL 443,117 / totalAssets 1,920,384.6 ICNT) - all to treasury+LP, $0 to caller. Keeper calls/7d: Periphery.claimRewards() 0x372500ab x7, initializeRewardClaims() 0x411e09ee x14, all by 0x435ea93d... Gas $0.029 per batch claimRewards (2,667,910 gas, 0.006 gwei = eth_gasPrice 0x5b8d80, ETH $1783.40 coins.llama.fi 2026-11-19; receipt 0x4078be80e2c9cf6216eb54d3b1dd230ee5a887ceb5683c8a47a741a1103eabab). No tx in 7d paid a caller anything."
+}

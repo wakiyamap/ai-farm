@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "actor-bsc-0xec5bcf2077ccb42074f5bf667acb211c9ccc60c0",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers, but negligible scale and it is the same closed class as lead 166 (protocols uniswapx:238). The candidate is an owner-gated UniswapX V3 Dutch filler executor on BSC: vanity gas EOAs call its custom entries (0xba70f170/0x09bfaff5/0xe7ce30d4), it flash-borrows WBNB on Moolah 0x8f73b65b, executes V3DutchOrderReactor executeWithCallback (0x0d335884) and swaps legs via Pancake V2/V3 + 1inch V6 in-tx, forwarding the margin to owner wallet 0x0000000000cb2b76. Orders filled are not exclusive to it (4/4 sampled), so a stranger filling would be paid the same spread; but it took only 4 fills in the 13-day ledger window (1663 fills on the reactor) and nets ~$0.11/day.",
+ "numbers": "4 fills / 4 active days in ~13d ledger window (ledger uniswapx.fill, cursor 133733424, reactor total 1663 fills); gross to profit wallet 0.000129-0.000290 BNB/call (mean 0.000217 BNB = $0.128 at BNB $590.37, coins.llama.fi); gas 350k-1102k @ 0.05005 gwei = $0.010-0.033/call; net total 4 fills $0.44 -> est $0.11/day. Txs 0xcc203cdf..., 0x1bbc7f2e..., 0x3e5f3992..., 0xb18bbc8b..."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-harvest-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: doHardWork (the only keeper-style function, vault/controller/strategy layers) is behind onlyControllerOrGovernance / hardWorkers whitelist and pays the caller 0. 7d had only 12 doHardWork runs on the whole polygon deployment, all from incumbent keeper EOA 0xfeed4c53d827aebebed6066788065ea1027c7e70 (hardWorkers=true; same keeper as the ethereum/arbitrum/base dead ends), all 12 receipts show 0 ERC20 transfers to the caller. No stranger-callable function that pays exists.",
+  "numbers": "7d window blocks 97482760 (2026-11-16, ts 1794851785)..97834073 (2026-11-23, ts ~1795456579) from eth_getBlockByNumber timestamps. eth_getLogs no-topic scan of ControllerV2 0xa8f156088ebfcc4530507e4e3d145e2fc1e6124e: 12 logs, all topic0 0x43ffccb0abea5304f42c5d67d56e479f21f76ecc142c39a770725e99125243bc (SharePriceChangeLog, topic0 from this scan itself = non-zero control), 12 distinct txs. 12-of-12 receipts (full sample): from=0xfeed4c53d827aebebed6066788065ea1027c7e70 in all 12; 0-13 ERC20 Transfers per tx, 0 to caller (7/12 txs have >0 transfers = control). Gas 230,618-1,627,313 gasUsed, effective 0.278-0.297 gwei = $0.005-$0.036 per call (median ~$0.009) at POL $0.077948 coingecko:polygon-ecosystem-token coins.llama.fi ts 1795456959. Gross paid to caller $0.00. Protocol API .matic: 30 vaults, sum totalValueLocked ~$113k."
+}

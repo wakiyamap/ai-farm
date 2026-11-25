@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-1212-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 71,
+ "chain": "ethereum",
+ "slug": "1212-capital",
+ "name": "1212 Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 3406147,
+ "url": "https://1212.capital/",
+ "github": null,
+ "listed_days_ago": 71,
+ "run_id": "47871e95df70499299bbfe67ebd364a7",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Lagoon v0.5.0 vaults Stable 0xbb30c3b6046debcbe941281218d18dec8ecebeb5 (1.66M USDC) + Alpha 0xc35ce0c1acfc448d18ddacbf641b09f2a18e1958 (1.74M USDC): every state-advancing fn reverts OnlySafe/OnlyValuationManager from a fresh address (eth_call reverts 0xfde82f1f/0x14c9222d), fees mint to feeReceiver not caller; 7d: Alpha 2 user txs, Stable 0; stranger gross 0",
+  "kb": [
+   "attempts:2887",
+   "protocols:1305"
+  ],
+  "run_id": "47871e95df70499299bbfe67ebd364a7",
+  "at": 1795174341
+ }
+}

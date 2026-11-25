@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-mezo-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 932,
+ "chain": "ethereum",
+ "slug": "mezo-bridge",
+ "name": "Mezo Bridge",
+ "category": "Bridge",
+ "tvl_usd": 7096913,
+ "url": "https://mezo.org",
+ "github": [
+  "thesis"
+ ],
+ "listed_days_ago": 932,
+ "run_id": "78aa89ae5aa6448c8baf7ef8f454cf5e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "7d blocks 26412038-26462293 (11-14\u219221): attestBridgeOut 330 calls all validator-role (fresh-address eth_call reverts NotBridgeValidator); anyone-callable withdrawBTC 2 calls by refund-whitelisted keeper 0x419b50 (gross 0.0000405 ETH = $0.066 gas refund vs $0.059 gas), attestBridgeOutWithSignatures/initialize/finalize 0; refundAuthorizations whitelist empty otherwise so a stranger earns 0; pool 0.543 ETH gas-reimbursement only (maxGasPrice 500 gwei), ETH $1619.70 (llama 08:40Z)",
+  "kb": [
+   "attempts:3248",
+   "protocols:1577"
+  ],
+  "run_id": "78aa89ae5aa6448c8baf7ef8f454cf5e",
+  "at": 1795251040
+ }
+}

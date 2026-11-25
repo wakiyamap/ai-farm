@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-mellow-restaking",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 890,
+ "chain": "ethereum",
+ "slug": "mellow-restaking",
+ "name": "Mellow Restaking",
+ "category": "Liquid Restaking",
+ "tvl_usd": 17543744,
+ "url": "https://mellow.finance/",
+ "github": null,
+ "listed_days_ago": 890,
+ "run_id": "ca57efe65a114de98a6f5039a5b40d80",
+ "result": {
+  "verdict": "unpaid",
+  "line": "61 vaults (53 multi-vault + 8 simple-lrt, 18.13M USD) on mellow api: pushRewards is anyone-callable but pays 0 to caller (rewards forwarded to curatorTreasury + distributionFarm in source); 0 RewardsPushed events 7d all 61 (blocks 26413107 2026-11-14 to 26463508 2026-11-21, control no-topic scan 134 logs); rebalance onlyRole; eth_call from fresh address reverts 'farm not found'/'farm not set' not role",
+  "kb": [
+   "attempts:3230",
+   "protocols:1565"
+  ],
+  "run_id": "ca57efe65a114de98a6f5039a5b40d80",
+  "at": 1795246357
+ }
+}

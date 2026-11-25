@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-usdfi-lending",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. RainMaker.claimComp(address) (0x1482359f300dd8d360ff9c0aa3e7232861858be4) is public and role-free (eth_call from a fresh address returns 0x, ~1.59M gas) but pays 0: compSupplySpeeds=compBorrowSpeeds=0 on all 16 markets, isRetired=false, and 0 STABLE-deprecated Transfers left RainMaker in the last 7 days (0 in 30d). The pot (179.41 STABLE, ~$106) only covers old accrued dust (largest compAccrued 5.07 STABLE ~$3.01 at 0xd8505b...da3, self-claim succeeds, unclaimed 30+ days), so no stranger has taken it.",
+ "numbers": "7d window blocks 133883268 (2026-11-16T06:15Z) -> 135226716 (2026-11-23T06:15Z), from eth_getBlockByNumber timestamps. RainMaker logs 7d (no-topic scan): 4, all one tx 0x5ae5ae3a... (DistributedSupplierComp topic0 0x2caecd17... from that contract's receipts). STABLE (0xa3870fbbEB730BA99e4107051612af3465CA9F5e, 18 dec) Transfers from RainMaker 7d = 0, 30d = 0; same-shape control BUSD Transfer+topic1 = 9641 logs (so the zero is real). claimComp gas estimate 0x184ade = 1,591,518 gas; gasPrice 0.05 gwei (eth_gasPrice); BNB $556.92 (coins.llama.fi coingecko:binancecoin ts 1795417209) => ~$0.044 per claim. STABLE $0.5939 (coins.llama.fi ts 1795388781). RainMaker STABLE balance 179.41 (balanceOf read on chain). Protocol TVL $68,365 / borrowed $423.93 (api.llama.fi/protocol/usdfi-lending 2026-11-23)."
+}

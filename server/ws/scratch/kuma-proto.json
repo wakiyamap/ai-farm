@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "kuma_protocol",
+ "status": "dead_end",
+ "checked": "KUMA Protocol (kuma.bond, RWA tokenized bonds). Contracts from DefiLlama adapter projects/kuma/index.js (module kuma, api.llama.fi/protocol/kuma-protocol): USK 0x01bF66BEcDcFD6D59A5Ca18869f494feA086cdfD and EGK 0xf2b5C482358dBaA495d442b57c163dbEDBF7868E, both ERC1967Proxy -> KIBToken (impls 0x3cd09352eebe8b9e302b83a59d90d19031290f80 / 0x94abc2880f0205ff170d0e6e20a2d9e35a851ab3, Etherscan-verified source read via explorer). AddressProvider 0xdc024bf64f893a682008083e805c9a204f3d7dc9 (from getKUMAAddressProvider eth_call): USK KUMASwap 0xb1ab37ef0df6d2b8294e5fa2bf03a455e4951cda (isDeprecated -> expireBond reverts DEPRECATION_MODE_ENABLED 0xf57127bc), EGK KUMASwap 0xcb32e7455ee7574173ec89355b6a1c715e222fa1, FeeCollector 0x400e0202f84322421f8ad32ca61208bf8c62ad25, BondToken NFT 0x74e9e8d1365358f0ec416e24f723e36181b79a7b. KIBToken/KUMASwap source: no reward/bounty payment to msg.sender on any external function; refreshYield() is the public epoch poke (epochLength 14400s), pays 0; claimBond role-gated; sellBond/buyBond need inventory (NFT/KIBT); redeemKIBT (whenDeprecated) returns own pro-rata. No keeper mechanism exists."
+}

@@ -1,0 +1,19 @@
+{
+ "id": "actor-hyperevm-0x2327c3cda4bf97cdadc80cd8d0aa51223af90801",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "hyperevm",
+ "address": "0x2327c3cda4bf97cdadc80cd8d0aa51223af90801",
+ "run_id": "70efae59d4084abc8adf3e97a4823916",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: private EOA exec key, 11 txs lifetime (~8/day, 32h window), all fn(bytes) 0x42313c45 to its own unverified router 0x86885a82 (created by its funder 0x7740e8519); dust Aave-v3-HIP-3 USDe/UETH loop ops + stable swaps with exact-repaid flash loan; spread ~$0.016/call accrues to the router, EOA receives nothing; sample of 5 of 11: gasUsed 39k-900k, gas $0.003-0.03/call at HYPE $68.77 (coins.llama.fi), 3/5 were 39k-gas heartbeats with $0 token flow; est ~$0.03-0.05/day",
+  "kb": [
+   "attempts:1556",
+   "actors:213"
+  ],
+  "run_id": "70efae59d4084abc8adf3e97a4823916",
+  "at": 1794884384
+ }
+}

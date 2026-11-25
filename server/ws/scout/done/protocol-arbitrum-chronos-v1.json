@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-chronos-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1304,
+ "chain": "arbitrum",
+ "slug": "chronos-v1",
+ "name": "Chronos V1",
+ "category": "Dexs",
+ "tvl_usd": 57438,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1304,
+ "run_id": "c5d5bf750a2643348e536a4949bcc304",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: Solidly-style AMM, factory proxy 0xCe9240869391928253Ed9cc9Bcb8cb98CB5B0722 (impl PairFactoryUpgradeable, 286 pairs); only public pays-caller fns: Pair.claimFees() (own LP fees), MasterChef harvest (staker's own WETH); Dibs claim onlyMuonInterface, converter keeper-gated; 7d blocks 524638556-526693721 (11-16..11-23): no-unknown-topic0 scan of all 286 pairs (2915 logs/898 txs) = zero Swap, zero Claim; MasterChef/Dibs/converter 0 logs; eth_call claimFees from fresh address (0,0): gross 0 vs gas ~0.003 USD (ETH 1732.26, 0.022 gwei, llama ts 1795405312)",
+  "kb": [
+   "attempts:3968"
+  ],
+  "run_id": "c5d5bf750a2643348e536a4949bcc304",
+  "at": 1795405853
+ }
+}

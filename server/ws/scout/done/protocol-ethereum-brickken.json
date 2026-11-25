@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-brickken",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1029,
+ "chain": "ethereum",
+ "slug": "brickken",
+ "name": "Brickken",
+ "category": "RWA",
+ "tvl_usd": 8406599,
+ "url": "https://www.brickken.com",
+ "github": null,
+ "listed_days_ago": 1029,
+ "run_id": "d30c28efc1dd43fb8eb1aec1edfac422",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: factory 0x91af681C...969Db (idSTOs=58, impl 0xbb0b08a9) + 58 STOEscrowManaged escrows; only public fns buyToken (caller pays) and getTokens (reverts 0xaafefe9b UserIsNotWhitelisted from fresh addr, pays only caller's own refund); 7d (blocks 26412690-26462951, 11-14..11-21): 74 logs / 4 txs on escrows = 2 factory newTokenization by ops 0xb8912c44 + 1 RollBack + 1 role-migration batch, 0 strangers paid, gross 0 USD vs gas ~0.01 USD (0.15 gwei); same as base/bsc (attempts:2215/2216)",
+  "kb": [
+   "attempts:3284",
+   "protocols:1607"
+  ],
+  "run_id": "d30c28efc1dd43fb8eb1aec1edfac422",
+  "at": 1795258389
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "id": "trial-bsc-lead379",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "bsc",
+ "lead_id": 379,
+ "target": "RYDEME/RYDE4 BSC atomic pool arbitrage behind executor 0x0000000000be226afde21672a5e4adc45692e69d",
+ "run_id": "ceb2b8b766f74216b2934886b77e7b7b",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7 d on bsc at the entry (blocks 133,634,946-134,978,392): 362 takes of RYDE4 through executor 0x0000000000be226a by 47 distinct EOA takers, all in a launch burst 11-18 to 11-20 with 0 in the last 33 h; 267 of 362 paid, median gross 0.10 USD, p90 1.17, top 5 9.0-21.4 USD, one attempt's gas 0.0265 USD (0.05 gwei flat, 1.0-1.4M gas); median 1 block (0-2, BSC 0.45 s blocks) from trigger to take, and 88.90-91.73% of each payout goes to the 48Club builder so a stranger keeps ~11% (62/267 clear gas at that share).",
+  "kb": [
+   "attempts:3527",
+   "leads:379"
+  ],
+  "run_id": "ceb2b8b766f74216b2934886b77e7b7b",
+  "at": 1795306033
+ }
+}

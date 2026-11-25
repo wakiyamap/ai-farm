@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "hinkal",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/hinkal/index.js SHARED_OWNERS = the two Hinkal ZK privacy pools on ethereum: 0x7cb60446d7635C68EDf1c568cac74A1f98c1Cfa4 (active, explorer-verified contract name Hinkal, hinkalHelper 0x65ba6e273f2f829b6ed14e064d97811580e2b607, owner 0xf04310839973454155d9886a4023451f8d3db7d0) and 0x25e5e82f5702A27C3466fE68f14abDbbAdFca826 (idle, last tx 1789988675 = 2026-09-21, 61 d ago). Both confirmed non-empty with eth_getCode and getters answer (hinkalHelper(), owner()). External surface of the active pool (explorer abi + verified source): transact(uint256[2],uint256[2][2],uint256[2],Dimensions,CircomData) payable 0x50fe69df, prooflessDeposit(...) payable 0xbb3b5d78, plus role-gated admin (registerExternalAction onlyRole DEFAULT_ADMIN_ROLE, setHinkalHelper onlyRole HINKAL_HELPER_MANAGER, registerVerifiers/removeVerifier). Only transact pays the caller (USDC relay fee / withdrawal payout). eth_call of a real transact payload from a fresh address reverts 'Unauthorized relay', so the helper whitelist applies on ethereum exactly as on Arbitrum (protocols:745, attempts:2175, where RelayStore.addRelay is onlyOwner). Helper 0x65ba6e27 is unverified on Etherscan and Blockscout, so its gate is documented from the revert string, not from source."
+}

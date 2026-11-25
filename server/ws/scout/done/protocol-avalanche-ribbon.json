@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-ribbon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "ribbon",
+ "name": "Ribbon",
+ "category": "Options Vault",
+ "tvl_usd": 75079,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "a3047677433545e881ea8d53a58cb665",
+ "result": {
+  "verdict": "unpaid",
+  "line": "closeRound() is the only permissionless fn (source: no transfer to msg.sender) and reverts 'Round closed' on all 3 vaults (currentOption=0); 7d (blocks 0x5fd439a 2026-11-16 to 0x607c676 2026-11-23): 22 initiateWithdraw + 4 completeWithdraw by EOAs paying users their own principal (largest 1.2335 AVAX = 8.78 USD @ 7.12), 0 CloseShort, roll/commit/settle/burn onlyKeeper (keeper 0x482b8cba, idle); gas 0.006-0.007 USD/call @ 8.3 gwei.",
+  "kb": [
+   "attempts:4129"
+  ],
+  "run_id": "a3047677433545e881ea8d53a58cb665",
+  "at": 1795444700
+ }
+}

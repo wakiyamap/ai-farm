@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-axelar",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the gateway's one open-to-anyone function, execute(bytes), needs an Amplifier-signed proof (empty-payload eth_call from a stranger reverts) and pays the caller 0 on BSC; a full 7-day scan of its Executed events found 646 events (591 txs) all submitted by the professional processors, with 0 transfers to the caller in 9 sampled receipts. The only pot on BSC, AxelarGasService (0.096 BNB ~$56), pays role holders (collectFees/updateGasInfo revert from a stranger). Processor rewards are AXL on the Axelar network, not on-chain BSC. Matches attempts:1965/2390 on the sibling candidates.",
+  "numbers": "Gateway 0x304acf330bbE08d1e512eefaa92F6a57871fD895 proxy (code non-empty; getter isCommandExecuted(bytes32)=false answers; impl 0x16C22cbDD77350b1AC88AdDA344F691c12f41960 Sourcify exact). execute(bytes)=0x09c5eabe; Executed(bytes32) topic0 0xa74c8847d513feba22a0f0cb38d53081abf97562cdb293926ba243689e7c41ca. Full 7d eth_getLogs scan (14x100k-block chunks, scout lane) blocks 133,102,309-134,445,717: 646 events, 591 unique txs; 9-receipt sample -> 6 distinct processor callers, 0/9 with ERC20 transfer to caller. Gas avg 294,212 gas x 0.0515 gwei eff = 0.0000152 BNB = $0.0089/tx at BNB $586.04 (coins.llama.fi coingecko:binancecoin 2026-11-19). Gateway native balance 0.03 BNB (~$18, untouched by execute); gas service balance 0x1559346fba0fd80 = 0.096 BNB. TVL $10,788,770 (candidate/DefiLlama)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-usd-ai",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 546,
+ "chain": "arbitrum",
+ "slug": "usd-ai",
+ "name": "USD AI",
+ "category": "RWA",
+ "tvl_usd": 157274124,
+ "url": "https://usd.ai/",
+ "github": null,
+ "listed_days_ago": 546,
+ "run_id": "fad1f57646b5490388817a17310a5f87",
+ "result": {
+  "verdict": "role_gated",
+  "line": "LoanRouterV2 liquidate/setLoanBreach onlyRole(LIQUIDATOR_ROLE), stranger hasRole=false; 0 LoanLiquidated and 0 LoanBreached in 30d on 0x1c2e... (control 1,126 USDai Transfers/7d); USDai.harvest() reverts 0xe6c4247b unless caller==_baseYieldRecipient; QueuedDepositor.service() onlyRole(CONTROLLER_ADMIN_ROLE); LoanRouterV1 frozen (MigrationInProgress); gas ~0.02 gwei ~ bash.004/call at ETH ,817.59 (coins.llama.fi); confirms 11-16 keeper-job dead end (8.03 USDC/job to fixed EOA, caller paid nothing).",
+  "kb": [
+   "attempts:1925",
+   "protocols:282"
+  ],
+  "run_id": "fad1f57646b5490388817a17310a5f87",
+  "at": 1794961816
+ }
+}

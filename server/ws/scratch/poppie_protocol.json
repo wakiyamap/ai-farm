@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "poppie",
+  "status": "dead_end",
+  "checked": "Poppie = Euler v2 (EVK) curated lending product (tokenized Ondo stocks/ETFs collateral, USDT asset) on BSC. No DefiLlama adapter in main (404); vault addresses from euler-xyz/euler-labels master 56/products.json, product poppie-ondo-bsc: 39 Euler v2 vaults (e.g. 0xf4940CdE23c164f8CA8D536f3567337349b3208F, name()=EVK Vault eUSDT-11, eth_getCode non-zero, proxy). Oracle PoppieEulerOracle 0xAE83F1A1Ea8a4e7CbcaC3551B88E22Baea25f26D and adapter 0x92dad5eEE3245c2aD9766225Ff15beDf650646ea (gfx-labs/poppie-oracle README, verified on BscScan); both eth_getCode non-zero; keeper()=0xea2b72ed98470dd7403e2f3da375ad2a77b1c00a, admin()=0xd2e0d0bf42f0f0bd094a587bb1fa7e03ff224e6d answered via eth_call. Keeper pushes keeperPushPrices (onlyKeeper) continuously: 70 PriceUpdated events in one 5000-block window on 2026-11-17, all from 0xea2b72ed (single GCP-KMS bot per README). Oracle source (gfx-labs/poppie-oracle src/PoppieEulerOracle.sol, 312 lines): no payable, no transfer/send, no reward pool - keeper is not paid on-chain. Vault convertFees() (0x2b5335c3) eth_call from fresh address 0x8e4a7f8d2b6e9c3f5a1d0b7c6e5f4a3b2c1d0e9f succeeds but pays 0 to caller (EVK mints fees to feeRecipient=curator). No Poppie-specific permissionless paid function found."
+}

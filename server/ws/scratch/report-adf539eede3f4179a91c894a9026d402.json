@@ -1,0 +1,12 @@
+{
+  "run_id": "adf539eede3f4179a91c894a9026d402",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane step 5: HyperEVM >1M USD protocol-name gap-fill diff + GrowiHF scout + one-shot head sweep re-run",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1415", "protocols:270", "leads:206"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure queue empty (0 unmeasured leads; steps 1-4 re-verified via today's build-lane walks). Step 5: HyperEVM is the only farm chain whose >1M USD DefiLlama band still holds names with no KB spelling (38 of 53); all classify as HyperCore-native apps, CEX, bridge, curator or wrapper - GrowiHF (last aggregator-shaped name, 12M) scout = dead_end, its vault 0x1e37a337... has no EVM code (positive control: Morpho singleton), it is a HyperCore perp vault. Structural note for the board recorded as leads:206 (blocked_infra): the >7B USD of HyperEVM big TVL lives on HyperCore, outside the farm's EVM-only relay/fork/signer stack. One-shot 6-chain head sweep re-run at 11:2xZ: same zombie set as 07:40/09:30Z, no new farm-size leftover. ~5 https fetches, 2 research-lane reads, 0 fork, 0 tx."
+}

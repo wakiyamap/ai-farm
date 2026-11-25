@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead399",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 399,
+ "target": "mayan_bridge redeemWithFee + refund",
+ "run_id": "b35bf706532c4d1d9b3bfa3b7b943f12",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "base 7 d (blocks 57,775,975-60,799,975, 11-15 to 11-22): redeemWithFee 112 occurrences / 2 takers / 9.9855 USDC gross (median 0.0111, max 2.2405) + 2 refund events 1.4983+1.9760 USDC; sample of 20 of 112: takeable->taken median 0 blocks (fee credited in-tx, attestation bytes empty 20/20), winner priority median 0.005 gwei max 0.016, gas 367,069 = 0.0065 USD/attempt at ETH 1703.58 (coins.llama.fi 12:33 UTC) < median gross; both takers are Mayan's own relayer/driver, pot ~1.43 USDC/day.",
+  "kb": [
+   "attempts:3721",
+   "leads:399"
+  ],
+  "run_id": "b35bf706532c4d1d9b3bfa3b7b943f12",
+  "at": 1795351155
+ }
+}

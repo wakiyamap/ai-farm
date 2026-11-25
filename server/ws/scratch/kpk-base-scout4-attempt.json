@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-kpk",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: KPK on Base is just one curated Morpho VaultV2 (0x392B3CCf36C8adB8094F45573346B457414cD752 'KPK USDC Yield', USDC) plus Safe treasuries (OIV/Zodiac DeBank sweeps). The vault is stock Morpho vault-v2 (Sourcify match): permissionless surface is ERC4626 deposit/withdraw (self-pay, no keeper reward); everything else (allocate, submit, revoke, setters) is curator/allocator/owner gated; KpkShares processRequests is OPERATOR-gated. No function anyone can call pays the caller.",
+  "numbers": "TVL base 5.6M USD (candidate). Vault 7d logs: 3006 total, 916 Deposit, 702 Transfer (eth_getLogs blocks 0x351dad1-0x37fff51, 2026-11-17). curator()=0x58c83ce55164537f9c73d5b65c426691bc26ffa0, asset()=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (USDC). Gross reward per callable call: 0 (no caller reward in VaultV2 source)."
+}

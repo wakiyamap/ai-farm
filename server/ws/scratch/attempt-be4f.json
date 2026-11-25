@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0xbe4fb41f897e2366c05675fee407500b305625d5",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward - self-funded trading bot, not a job site. The EOA spends nearly all its gas calling selector 0x60a8d7c2 on its OWN unverified executor 0x0435f8d3314d7f9b298990b4fbb669bf507431a8 (deployed by itself at block 51421402), which executes pre-computed multi-hop swaps in the Project X feUSD/kHYPE/USD_T0/WHYPE ecosystem; the protocol pays no fee to the caller, income is its own in-tx spread. A fresh address making the same call would pay gas for nothing (the function and the state are the bot's own).",
+  "numbers": "~43 tx/day over the last 14 h (nonce 115 at 51421402 -> 141 at 51472891; ~8-25 tx/day before), 32% reverts (8 of 25 on the recent explorer txs page). Gross spread sample of 4 successful txs: +0.32 USD on ~200 USD notional (+0.16%) in 0x3137d3cd...; other 3 acquired +99/+125/+262 feUSD at net ~0 USD. Gas per call: 0.029 USD on success (1.38M gas x 0.307 gwei), 0.001 USD on revert; HYPE 69.25 USD from coins.llama.fi 2026-11-17. Realized sweep to EOA in the traced success: 0.0695 USD_T0; most spread left accumulating in the executor. EOA native balance 0.0105 HYPE = 0.73 USD. est_profit_usd_day ~6 (28 successes/day x ~0.3 USD gross - gas), rough."
+}

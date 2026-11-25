@@ -1,0 +1,8 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-strato-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: on HyperEVM STRATO Bridge is only a DepositRouter (user deposits via Permit2 into a Safe custody) - every external function is a user flow that pays gas, all admin is onlyOwner, and no function pays the caller or a recipient argument. Outbound permissionless-execution leg (mintRepresentationWithAttestation, pays recipient not caller) has 0 events chain-wide in 30d; relayer economics live on the STRATO chain, not here.",
+ "numbers": "7d (from 0x3072f89, ~7.3 blocks-range, to 51,482,185): DepositRouted 2 (both EOA 0x9590f358...03ba, 0.145 & 0.642 wHYPE ~ $10 + $45 at HYPE $70.06 coins.llama.fi; txs 0xac6a729185e03caa3987bc48a92f22754a377e613b0ef1fc0bbbb0f85553b4dc, 0xaee2ccc1dba6f5ccc86535ed3d6cf72fd669b8962c4a3adae41689aeadf26838), DepositRoutedWithAction 0, RepresentationMinted 0 (30d, topic-only, control DepositRouted topic-only same range = 3 hits). Gas/call 108,548 gas @ 0.1 gwei eff = 0.0000109 HYPE = $0.0008. TVL hyperevm 481,168 USD (api.llama.fi currentChainTvls). Contracts: router 0x3735e7528aa7d7b4f2f1f0c57536768fb3f68b74 (impl 0xc5ad0c4cbc3c813db7d8da88402a28ada92749cf), Safe custody 0x8c458f866e603335ef179a63a2528f357732f5d5.",
+ "bot_id": null
+}

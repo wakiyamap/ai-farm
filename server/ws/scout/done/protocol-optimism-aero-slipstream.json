@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-aero-slipstream",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 58,
+ "chain": "optimism",
+ "slug": "aero-slipstream",
+ "name": "Aero Slipstream",
+ "category": "Dexs",
+ "tvl_usd": 5763083,
+ "url": "https://aero.xyz/",
+ "github": null,
+ "listed_days_ago": 58,
+ "run_id": "55aebc85b86642d9863760fd66b003eb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only anyone-callable fn on Optimism is LeafVoter.settleGauge (stranger eth_call ok, 103,250 gas = $0.0002 at gasPrice 1,029,062 wei / ETH $1,833 coins.llama.fi) but it pays $0 (verified source: accrual, no transfer); GaugeCapSettled 4,744 events/4,395 txs/22 gauges per 10k blocks (~20k/day) only inside user flows via helpers - 0 of 200 direct voter txs in 16 days; pools settleToBlock/collectFees _onlyGauge; factory 0xfeaB42D9...6778 (51 pools), voter 0x382409fa...4078 verified; mirrors Arbitrum/Elysium.",
+  "kb": [
+   "attempts:1606",
+   "protocols:308"
+  ],
+  "run_id": "55aebc85b86642d9863760fd66b003eb",
+  "at": 1794895155
+ }
+}

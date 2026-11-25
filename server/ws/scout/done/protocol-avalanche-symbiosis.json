@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-symbiosis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1697,
+ "chain": "avalanche",
+ "slug": "symbiosis",
+ "name": "Symbiosis",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 39967,
+ "url": "https://symbiosis.finance",
+ "github": [
+  "symbiosis-finance"
+ ],
+ "listed_days_ago": 1697,
+ "run_id": "03e7f3cb1d9e4655ac8d435b539e7462",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Portal 0xE75C7E85..., BridgeV2 0x292fc50e...: only anyone-callable entry receiveRequestV2Signed pays 0 (stableBridgingFee 13.85 USDC/7d across 59 completions goes to the bridge contract, withdrawFee onlyOwnerOrAdmin, bridge pot 50.75 USDC); all 59/7d taken by one EOA 0x67f9b3e5... at 0.039 USD gas/call (582615 gas x 9.95 gwei, AVAX 6.674); unsynthesize/metaUnsynthesize onlyBridge, receiveRequestV2 onlyMPC (fresh-addr reverts); 7d = blocks 100466667-101153701, 2026-11-16..11-23, getLogs control 134 logs.",
+  "kb": [
+   "attempts:4064",
+   "protocols:2190"
+  ],
+  "run_id": "03e7f3cb1d9e4655ac8d435b539e7462",
+  "at": 1795427788
+ }
+}

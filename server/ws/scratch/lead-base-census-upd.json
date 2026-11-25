@@ -1,0 +1,7 @@
+{
+"chain":"base",
+"target":"Base non-liquidation keeper/poke class chain census (chain scout: hot emitters, repeated caller pairs, who-pays-whom measurements at head)",
+"status":"dead_end",
+"why":"Base head is a dense 2-second-block searcher/depositor chain: the repeated-call classes are EOAs paying their own gas (0.6-0.9 tx/blk, gas 35k-1.26M/tx at 0.005 gwei baseFee) and NO protocol pays an outside caller - measured on the callers' own tx blocks (native delta = gas only, no Transfer-to-caller) and on 2800-block inflow windows (0 inflows, positive control 52 outflows returned for the depositor class).",
+"next_steps":"CLOSED dead_end 2026-11-11 run d0ee55b1 (attempt 902). Do not re-run these censuses. The hot self-emitter 0x4857db576ee0e45f10525ec59527bfd10beec60b is PINNED as the AERO Slipstream V3 deposit vault (name() 'Slipstream V3 Deposit', symbol AERO-CL; eth_call at head 56022910): the same deterministic address is the incumbent self-collecting LP on Elysium (lead 133) - a self-only fee-collecting position on both chains, not a bounty for callers. Reopen only if: (a) an unpinned selector class (0x92057d6b claim-style 35k-gas 35/100 blocks caller 0x10168749958f03a7c95432bd934058c77be787b0, 0x11f14a52, 0xd893efe7, 0xe45e1ed2, 0x7751c722, 0xfe7cdd42 - none in 4byte.directory) turns out to pay an external caller once pinned from a verified source; (b) same-block-race swap/arb traffic (0.9/blk) remains out of scope per decisions 2026-11-06."
+}

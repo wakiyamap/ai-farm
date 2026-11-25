@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "tangible_rwa",
+ "status": "dead_end",
+ "checked": "Tangible RWA on Polygon is the legacy v1 deployment (USDR/TNGBL/Caviar). Sources: DefiLlama adapter projects/tangible/index.js (slug tangible-rwa, module tangible/index.js, polygon TVL 41.2M of 41.4M); docs.tangible.store (now covers re.al chain, NOT Polygon: their Marketplace 0xdA1879e81C389c6D24B8a34E593c0f7a5970592b has no txs on Polygon). Contracts confirmed via eth_getCode/explorer: USDR 0x40379a439D4F6795B6fc9aa5687dB461677A2dBa (proxy, impl 0xfc371c50fcc787a42f48595c91d15e3ecde535c3; only mint/rebase/sync, no caller-paid function; recent 7d activity is plain approve/transfer by EOAs); TNGBL 0x49e6A20f1BBdfEeC2a8222E052000BbB14EE6007 (only approvals/transfers); v1 Factory 0xB0E54b88BB0043A938563fe8A77F4ddE2eB0cFc0 dead since 2022-11-21 (explorer txs); Caviar staking chef 0x83C5022745B2511Bd199687a42D27BEFd025A9A9 (impl 0xd52e7030e5c7592a8d855832775c69cb7e888877, CaviarChef.sol): harvest(address)/withdrawAndHarvest public (nonReentrant only, no role), eth_call harvest from fresh address succeeds and pendingReward(fresh)=0 - pays only the caller's own accrued wUSDR-vault shares; Caviar rebase chef 0xf5374d452697d9A5fa2D97Ffd025155C853F6c1c6 dead since 2023-09. No keeper/bounty surface that pays a stranger found."
+}

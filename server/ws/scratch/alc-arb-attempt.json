@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-alchemix-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The stranger-callable functions (AlchemistV3.poke, VaultV2.accrueInterest, Transmuter.pokeMatured) transfer nothing to the caller in source and eth_call from a fresh address reverts only on state (PositionNotFound/NotLiquidatable), never on a role; the one function that pays a stranger, liquidate (feeInYield+feeInUnderlying to liquidator, requires repaying debt with own capital), has 0 executions since launch. The 3 SelfLiquidated events in the last 7 days were NFT owners acting on themselves. Mirrors the ethereum (protocols:193) and optimism (protocols:287) dead_ends.",
+  "numbers": "7d window blocks 522593125..525012325 (eth_getLogs): raw logs on both AlchemistV3 proxies = 70, SelfLiquidated = 3 (users), Liquidated(topic0 0x969067f3) = 0 in 7d AND 0 since launch (from block 452291175). Transmuters 7d: 4 raw logs, PositionPoked = 0. poke(1) from fresh address succeeds; gas 408,293 (eth_estimateGas) x 0.02 gwei (eth_gasPrice 0x1312d00 wei) x $1785.87 ETH (coins.llama.fi) = ~$0.015/call; gross to caller $0. TVL $226,946 (candidate)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-carbon-defi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1303,
+ "chain": "ethereum",
+ "slug": "carbon-defi",
+ "name": "Carbon Defi",
+ "category": "Dexs",
+ "tvl_usd": 509710,
+ "url": "https://app.carbondefi.xyz/",
+ "github": null,
+ "listed_days_ago": 1303,
+ "run_id": "f3a125382bc7418b95e4c8d529fb978d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Carbon v1 CarbonController 0xC537e898 (705 pairs, 479k USD ETH TVL): no stranger-paid function - withdrawFees is ROLE_FEES_MANAGER-gated (fresh addr reverts AccessDenied 0x4ca88867), pot empty (WETH 0, USDC 220 raw = 0.0002 USD), all 58 fee withdrawals in 7d pay Vortex 0xd053dcd7 (dust, 3365 wei WETH sample); rest is 639 arb trades / 7d by 22 incumbent bots (top 3: 174/143/98) where the trader pays the fee, blocks 26413750-26464150",
+  "kb": [
+   "attempts:3358",
+   "protocols:1670"
+  ],
+  "run_id": "f3a125382bc7418b95e4c8d529fb978d",
+  "at": 1795272834
+ }
+}

@@ -1,0 +1,132 @@
+== 1
+swap_url = "https://swap.euler.finance"
+pricing_url = "https://v3.euler.finance"
+subgraph_url_path = "subgraphs/euler-simple-mainnet/latest/gn"
+# We use the Flashbots protect endpoint for sending transactions on mainnet to prevent being frontran.
+transaction_rpc_url = "https://rpc.flashbots.net/?builder=f1b.io&builder=rsync&builder=beaverbuild.org&builder=builder0x69&builder=Titan&builder=EigenPhi&builder=Gambit+Labs&builder=payload&builder=Loki&builder=JetBuilder&builder=tbuilder&builder=bobthebuilder&builder=BTCS&builder=bloXroute&builder=Blockbeelder&builder=Quasar&builder=Eureka&builder=Bombora&hint=hash&refund=0x8cbB534874bab83e44a7325973D2F04493359dF8%3A60&originId=protect-website"
+evc_address = "0x0C9a3dd6b8F28529d72d7f9cE918D493519EE383"
+swapper_address = "0x719F8b330CcA71cb6195D032A43194C7D3F9Fb45"
+wrapped_native_asset_address = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+oracle_lens_address = "0x30E6dFB84782A31d561536f64F47231451F7b48A"
+vault_lens_address = "0xA18D79deB85C414989D7297F23e5391703Ea66aB"
+account_lens_address = "0x2C5C13e4600AAbf77c1FdaA7b63d2D654DdFf7C5"
+utils_lens_address = "0xF5868adEedAa9Dd070e86BB40D981590C86db5A2"
+liquidator_address = "0x2021B1D7d2574F0C83c7d89DCCa1B9354dd953f0"
+# Liquidation bot v2 address is for now the profit receiver.
+profit_receiver = "0x8cbB534874bab83e44a7325973D2F04493359dF8"
+
+oracle_polling_interval_seconds = 30
+full_resync_and_check_interval_seconds = 3600 
+vault_shares_polling_interval_seconds = 60
+enable_observability_api = true
+
+# Vaults that produce false positive error notifications, see `notification_blacklist` in the README.
+notification_blacklist = [
+    { address = "0xa3e0943d0196F76db58d3549C9a7528Ef4ac335F", reason = "esUSP-3: sUSP (Pareto staked USP) has no instant redemption (maxRedeem is 0 for the swapper, ERC4626ExceededMaxRedeem) and every swap route redeems it, so liquidations seizing it always revert." },
+    { address = "0x4f36Bebf5dDb4b804F9C72644aEe82BAd165BFfc", reason = "ehwHLP-1: hwHLP sells below its oracle value, swap quotes never cover the repayment so liquidations revert on repay (E_TransferFromFailed)." },
+    { address = "0xb53b4B2590457bE63E1DCdAffa6a18ECd44D96D2", reason = "ePT-USDe-25SEP2025-1: expired PT collateral, the swap API returns no quotes for it." },
+    { address = "0x7fAb04FF2717d9A6B71A51c56c29697179597D40", reason = "eUSDC-95: LIQUIDATE (and deposit/withdraw/borrow) is disabled on the vault, every liquidation reverts E_OperationDisabled. Not in the vault_filter as it still has healthy borrowers." },
+    { address = "0x29D824d54Fd5118543E81637b8f865d045191F30", reason = "eynETH-2: ynETH trades ~10% below its oracle price, swap quotes do not cover the WETH repayment." },
+    { address = "0x6d18F74AAD8494B789aE34b5455816F79664d209", reason = "eynETHx-2: ynETHx trades ~18% below its oracle price, swap quotes do not cover the WETH repayment." },
+]
+
+[pyth]
+address = "0x4305FB66699C3B2702D4d05CF36551390A4c69C6"
+endpoint = "https://hermes.pyth.network/"
+
+[vault_filter]
+mode = "Blacklist"
+items = [
+    { address = "0xdB6856e8478DB159c383a0c4b274E259AF83cB15", reason = "Test vault with no real collateral or borrowers - not a genuine market, so there is nothing to liquidate." },
+    { address = "0xcbc9b61177444a793b85442d3a953b90f6170b7d", reason = "Resolv eUSDC-19: fixed/par pricing overvalues sampled Resolv collateral versus swap proceeds; sampled USR/wstUSR/USRUSDC liquidations cannot fund the required USDC repayment. Also accepts USDC collateral; exclusion is operational, not a claim all collateral routes fail." },
+    { address = "0x3b028b4b6c567ef5f8ca1144da4fbaa0d973f228", reason = "Resolv eUSDC-25: remaining debt is predominantly backed by USR priced at par; sampled USR sales cannot cover required USDC repayment. A small USDC-collateral leg remains recoverable (about $0.024 gross margin before gas), so this is a current economic/dust exclusion, not a disabled-liquidation claim." },
+    { address = "0x481d4909d7ca2eb27c4975f08dce07dbef0d3fa7", reason = "Accepts Yala YU / PT-YU collateral; Yala announced a monthly quota-limited redemption process for YU and this vault token in December 2025. Near-100% utilisation; retained pending recovery and validation of an economical unwind route." }, # Frontier Yala - eUSDC-47
+    { address = "0x1f46186af85a967416b17380800c69860b7c516f", reason = "Lends Yala YU; Yala announced a monthly quota-limited YU redemption process in December 2025. Retained pending recovery and validation of an economical unwind route." }, # Frontier Yala - eYU-1
+    { address = "0x0f93f35c0664a6a8231ccae7e22f652c9c075b32", reason = "Collateral-only PT-YU vault in Frontier Yala; no outstanding borrows or configured collateral LTVs. Listed for completeness." }, # Frontier Yala - ePT-YU-4SEP2025-1
+    { address = "0xe47babacfc9ce5f85126fab7c7e211da077d820e", reason = "Collateral-only PT-YU vault in Frontier Yala; no outstanding borrows or configured collateral LTVs. Listed for completeness." }, # Frontier Yala - ePT-YU-4DEC2025-1
+    { address = "0x01864ae3c7d5f507cc4c24ca67b4cabbdda37ecd", reason = "Only Stream xUSD / PT-xUSD collateral has positive liquidation LTV; near-100% utilisation and vault withdraw/redeem disabled. Retained pending validation of collateral recovery and an economical unwind route." }, # TelosC Stream - eUSDC-64
+    { address = "0x038dd0eb275b7de3b07884f1fa106ed6423c45f2", reason = "Only Stream xBTC collateral has positive liquidation LTV; near-100% utilisation and vault withdraw/redeem disabled. Retained pending validation of collateral recovery and an economical unwind route." }, # TelosC Stream - eWBTC-9
+    { address = "0x211711f277f146fc947d7053b41bb71bb5b5fc2c", reason = "Only Stream xETH collateral has positive liquidation LTV; near-100% utilisation and vault withdraw/redeem disabled. Retained pending validation of collateral recovery and an economical unwind route." }, # TelosC Stream - eWETH-33
+    { address = "0xf1ba8c5ca5ab011d06f31e64dad313d204acb9eb", reason = "Collateral-only Stream xUSD vault in TelosC Stream (Stream collapse, Nov 2025); listed for completeness." }, # TelosC Stream - exUSD-2
+    { address = "0x0f080bf8ba818001ecfb2f461708d8484323d0ce", reason = "Collateral-only PT-xUSD vault in TelosC Stream (Stream collapse, Nov 2025); listed for completeness." }, # TelosC Stream - ePT-xUSD-18DEC2025-2
+    { address = "0x9b62c8d69acb1397f585ba63eee2597c5bd0f644", reason = "Collateral-only Stream xETH vault in TelosC Stream (Stream collapse, Nov 2025); listed for completeness." }, # TelosC Stream - exETH-1
+    { address = "0xbbc4bc013f1c9ed674098a6d156c02c0a21a285c", reason = "Collateral-only Stream xBTC vault in TelosC Stream (Stream collapse, Nov 2025); listed for completeness." }, # TelosC Stream - exBTC-1
+    { address = "0xc42d337861878baa4dc820d9e6b6c667c2b57e8a", reason = "Deprecated Rezerve market; RZR and lstRZR collateral quotes revert PriceOracle_TooStale. Other collateral paths can still price; retained because the RZR-related paths are unsupported." }, # Rezerve Markets - eUSDC-58
+    { address = "0x1ab9e92cfde84f38868753d30ffc43f812b803c5", reason = "Deprecated Rezerve market lending RZR against lstRZR. Liability and collateral quotes fail because the configured RZR/USD feed is stale." }, # Rezerve Markets - eRZR-1
+    { address = "0x74034eb8d5b2e480825263a975e4cf82a081c959", reason = "Deprecated EUL-denominated lending market with dust debt; the USDC-to-EUL collateral-pricing path reverts through its Pyth EUL/USD leg, whose feed ID is absent from the current public Hermes catalogue. EUL-denominated collateral paths still price." }, # EUL Lending - eEUL-2
+    { address = "0xdae9216e77fef9cfae15b57783d99c99b66de0d1", reason = "Unlisted test-token market; its sole configured collateral is TEST-eVOLONEW (T-eVOLONEW). Excluded from production liquidation scope." }, # Unlisted - eUSDC-103
+    { address = "0xded27a6da244a5f3ff74525a2cfad4ed9e5b0957", reason = "Unlisted USD0 vault with dust debt; the configured USD0 pricing path reverts, and its USD0 and bUSD0 Pyth feed IDs are absent from the current public Hermes catalogue." }, # Unlisted - eUSD0-3
+    { address = "0xc364fd9637fe562a2d5a1cbc7d1ab7f32be900ef", reason = "Collateral-only lstRZR vault in deprecated Rezerve Markets; no outstanding borrows or configured collateral LTVs. Listed for completeness." }, # Rezerve Markets - elstRZR-1
+    { address = "0xf9caf8dd6c8ddf8e03f6304a926a0c263374e6cc", reason = "Accepts Uniswap V4 position collateral, which the bot does not currently support." }, # eUSDT-37
+    { address = "0xf7d5113f9d04dcc1aeebc3a34aa7b523e32edb2b", reason = "Accepts Uniswap V4 position collateral, which the bot does not currently support." }, # eUSDC-112
+    { address = "0xa2709c6305b1607e51adb1eb215430f21cb74f31", reason = "Accepts Uniswap V4 position collateral, which the bot does not currently support." }, # eWBTC-14
+    { address = "0xc97af70ab043927a5d9b682e77d1af3c52559a4e", reason = "Accepts Uniswap V4 position collateral, which the bot does not currently support." }, # eWETH-42
+    { address = "0xc9d8768989ad7a202a808fb35c51bf5ed56055bd", reason = "Accepts Uniswap V4 position collateral, which the bot does not currently support." }, # eUSDe-12
+    { address = "0x77633305032b6bdf3ebdb373b3badccb2786ce2f", reason = "Liquidate op is hooked by an access-control hook (0xF45Df77533F9a253A61Dd5D36531b12f78cd8301) with no liquidator or wildcard role holders, so every liquidation reverts NotAuthorized(). Dust-sized (~0.98 USD0 total borrows)." }, # eUSD0-6
+]
+
+== 8453
+swap_url = "https://swap.euler.finance"
+pricing_url = "https://v3.euler.finance/"
+subgraph_url_path = "subgraphs/euler-simple-base/latest/gn"
+evc_address = "0x5301c7dD20bD945D2013b48ed0DEE3A284ca8989"
+swapper_address = "0xd54d9Fc684169287f34DA6d57Aa002B424eEbC05"
+wrapped_native_asset_address = "0x4200000000000000000000000000000000000006"
+oracle_lens_address = "0xCE85cC424d12B8074bacB81c84dA7C6DA317c4D3"
+vault_lens_address = "0x601F023CD063324DdbCADa69460e969fb97e98b9"
+account_lens_address = "0x2C29f22D33823D69a8dA9F711B10F58bdDFd4c05"
+utils_lens_address = "0x81DB178AE24b78d9dE7144a6f198deD9A98Ee753"
+liquidator_address = "0xFB7107757306755aBa61FDDD8Bdb9D19C5514db9"
+# Liquidation bot v2 address is for now the profit receiver.
+profit_receiver = "0x8cbB534874bab83e44a7325973D2F04493359dF8"
+
+oracle_polling_interval_seconds = 30
+full_resync_and_check_interval_seconds = 3600 
+vault_shares_polling_interval_seconds = 60
+enable_observability_api = true
+
+[pyth]
+address = "0x8250f4aF4B972684F7b336503E2D6dFeDeB1487a"
+endpoint = "https://hermes.pyth.network/"
+
+[vault_filter]
+mode = "Blacklist"
+items = [
+    { address = "0xae120fab8475eeb08d6e6bfc9143d099d3a4ae73", reason = "Credifi CREDIT-token collateral with account-dependent liquidation hook checks. Retained pending verification of actual borrower eligibility and a supported CREDIT collateral unwind; external liquidation is not universally disabled." }, # EVK Vault eUSDC-46
+    { address = "0x21538A78C26886Be9f09Adc1286B54b4e9bBa255", reason = "Credifi CREDIT-token collateral with account-dependent liquidation hook checks. Retained pending verification of actual borrower eligibility and a supported CREDIT collateral unwind; external liquidation is not universally disabled." }, # EVK Vault eUSDC-81
+    { address = "0xc063c3b3625df5f362f60f35b0bcd98e0fa650fb", reason = "Resolv eUSDC-3: only USR/PT-USR collateral is configured. The router still prices USR at par; sampled USR-to-USDC proceeds fall far below required liquidation repayment. Swap routes exist; exclusion is due to unfavorable liquidation economics, not disabled pricing or absent liquidity." },
+    { address = "0xffaabc0bfbcec0355129e7653c6f1923ec533b66", reason = "Credifi CREDIT-token collateral with account-dependent liquidation hook checks. Retained pending verification of actual borrower eligibility and a supported CREDIT collateral unwind; external liquidation is not universally disabled." }, # Credifi - eUSDC-77
+    { address = "0x692b9f0c2701699b7a352c9331dfae6a6a163294", reason = "Credit-line vault with ERC-1155 CREDIT certificate collateral; liquidation is disabled (OP_LIQUIDATE hooked to address(0))." }, # Credit-line vault - eUSDC-21
+    { address = "0xcdf89d7a56395becf33d7984460e7a5aa1685e7d", reason = "Unlisted vault; the PIGGY / GHOST price feeds are stale (PriceOracle_TooStale), so accounts can't be priced." }, # Unlisted - ePIGGY-2
+    { address = "0xe4de200c57aafcdc9f60495470d2cf7daa5e3cf8", reason = "Unlisted vault; the GHOST / PIGGY price feeds are stale (PriceOracle_TooStale), so accounts can't be priced." }, # Unlisted - eGHOST-2
+    { address = "0xcf8930030fba9c8599a534304b94972762d79f71", reason = "Unlisted vault; the TBA price feed is stale (PriceOracle_TooStale), so accounts can't be priced. Dust-sized." }, # Unlisted - eUSDC-98
+    { address = "0x946dc9eb7834d4563d71a4f263cf4f8a51f85446", reason = "Accepts Uniswap V4 position collateral, which the bot does not currently support." }, # eUSDC-24
+    { address = "0xc460a5e894ff62e7d5392096efe285b5352545ef", reason = "Accepts Uniswap V4 position collateral, which the bot does not currently support." }, # eWETH-16
+    { address = "0x67af8ff5b13e9e697aa461e866fe0f41f68493c3", reason = "All operations are disabled (hookedOps 0x7FFF with hook target address(0)), so every liquidation reverts E_OperationDisabled. Dust-sized." }, # ewtSPYM-1
+    { address = "0xb5a2fda01456aee7437e740b73ae8fb77fb135db", reason = "All operations are disabled (hookedOps 0x7FFF with hook target address(0)), so every liquidation reverts E_OperationDisabled. Dust-sized." }, # ewtMSTR-1
+    { address = "0xc572516b2ea4613d1f206b1f47309d310fa452ac", reason = "All operations are disabled (hookedOps 0x7FFF with hook target address(0)), so every liquidation reverts E_OperationDisabled. Dust-sized." }, # ewtCOIN-1
+]
+
+== 42161
+swap_url = "https://swap.euler.finance"
+pricing_url = "https://v3.euler.finance"
+subgraph_url_path = "subgraphs/euler-simple-arbitrum/latest/gn"
+evc_address = "0x6302ef0F34100CDDFb5489fbcB6eE1AA95CD1066"
+swapper_address = "0x4AaA129FaD81a65Dab41b1fa7e964CBB9B30C848"
+liquidator_address = "0x7B6E56c43A6A82EA72C562798a56Ba7D92e129B9"
+wrapped_native_asset_address = "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+oracle_lens_address = "0x3AA8F4B4DB88506DE0E9541f81dFa52178575bDd"
+vault_lens_address = "0x8E0321a0f6d37411136077215ED9A539C1B16258"
+account_lens_address = "0x5E3AedDd85E95d8B3f6A903B2941CED2Cf7715E0"
+utils_lens_address = "0x7A6A3EE0520c8ef1f92cb38360D1c8363Bf5dd64"
+# Liquidation bot v2 address is for now the profit receiver.
+profit_receiver = "0x8cbB534874bab83e44a7325973D2F04493359dF8"
+
+oracle_polling_interval_seconds = 30
+full_resync_and_check_interval_seconds = 3600 
+vault_shares_polling_interval_seconds = 60
+enable_observability_api = true
+
+[pyth]
+address = "0xff1a0f4744e8582DF1aE09D5611b887B6a12925C"
+endpoint = "https://hermes.pyth.network/"

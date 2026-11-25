@@ -1,0 +1,19 @@
+{
+ "id": "actor-ethereum-0x0000000000aebc3dcd7922135a57debce08df04e",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "ethereum",
+ "address": "0x0000000000aebc3dcd7922135a57debce08df04e",
+ "run_id": "55e781e3dc154a86b72f0edfbcfc9fae",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Worker key of a private arb firm: 36 txs/7d (~5/day, sample of 4 traces of 36) all calling shared EIP-7702 account 0x0000000000be226a\u2026 (22+ whitelisted vanity caller keys hardcoded in impl 0x4eC9BABF\u2026, ~230 calls/day all keys) which does UniV4/V2/Balancer-V3/Morpho/Lido swaps; caller receives 0 ETH in-tx (0 incoming txs in last 50), gas/call 230k-12.5M gas (~bash.04-30 at ETH 1740 USD, blockscout 2026-11-20); profits go to treasury 0x000000000076403c\u2026 (150 ETH; 2.79 ETH from one 0x00010000 stETH arb moving 20 ETH).",
+  "kb": [
+   "attempts:2726",
+   "actors:283"
+  ],
+  "run_id": "55e781e3dc154a86b72f0edfbcfc9fae",
+  "at": 1795141059
+ }
+}

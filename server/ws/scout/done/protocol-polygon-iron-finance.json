@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-iron-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "iron-finance",
+ "name": "Iron Finance",
+ "category": "CDP",
+ "tvl_usd": 296315,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "a017394614a04ba6af182160ee69957b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Iron Bank (comptroller 0xF20fcd00...d10c + 8 rTokens, Compound fork) has NO claim/reward fn (no comp accrual in verified source, comp() reverts); only anyone-payable path liquidateBorrow: 0 events in 7d AND 30d across all 8 markets, markets emitted 0 logs at all in 7d (control: USDC Transfer 1634 logs/950 blocks); 4 IronSwap pools plain stableswap, no keeper fn (887 logs/7d, user swaps only); hypothetical gas 350k x 271gwei = bash.007 (POL bash.0784 llama), gross 0",
+  "kb": [
+   "attempts:2835",
+   "protocols:1258"
+  ],
+  "run_id": "a017394614a04ba6af182160ee69957b",
+  "at": 1795165054
+ }
+}

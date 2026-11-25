@@ -1,0 +1,19 @@
+{
+ "id": "actor-hyperevm-0x5d03a3f8151d98a1bf9de604e7552caf49034ec3",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "hyperevm",
+ "address": "0x5d03a3f8151d98a1bf9de604e7552caf49034ec3",
+ "run_id": "c4adbcdfae4c40169e5b505b5ee691f2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Self-employed flash-loan vault arb: EOA calls only its own owner-only executor 0xb54e8deb (NotOwner for strangers, sole caller 39/39); ~1,200 polls/day at 116k gas = $0.0014/call (0.183 gwei, HYPE $67.76 coins.llama.fi 19:57Z); 1 paying fill in 40-tx sample gross 0.1425 USDC (Morpho flash loan 160 USDC -> mint Embed BULL share -> sell to pool 0x1ccdbc56 -> repay, tx 0x036bd339), est ~$2-3/day net.",
+  "kb": [
+   "attempts:2623",
+   "actors:278"
+  ],
+  "run_id": "c4adbcdfae4c40169e5b505b5ee691f2",
+  "at": 1795118473
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-feather",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Feather on Polygon is just 2 Morpho VaultV2 vaults it curates (Feather BRZ 0x902Af532..., Feather frxUSD 0x922c8433...); the VaultV2 + MorphoMarketV1AdapterV2 ABI has no permissionless function that pays the caller. accrueInterest() is anyone-callable but pays 0 to the caller (fee shares go to the curator recipient); allocate/deallocate/skim revert Unauthorized from a fresh EOA. No keeper-bounty-style income for a stranger with no principal.",
+  "numbers": "TVL check: 1,195,583 BRZ + 116,806 frxUSD ~= USD 321-336k vs llama 323.8k (prices BRZ~0.183, block ~97.48M, 2026-11-17). 7d vault events (eth_getLogs 96780372..97483686): 833 total, AccrueInterest 212, Deposit 72, Withdraw 91, Allocate 49, Deallocate 38. eth_call from fresh EOA: accrueInterest 0x (ok), allocate revert 0x82b42900 Unauthorized. Merkl distributor 0x3Ef3D8bA38...: 209 logs 7d, 19 BRZ/frxUSD-related, not attributable to Feather."
+}

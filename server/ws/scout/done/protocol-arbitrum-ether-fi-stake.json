@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-ether-fi-stake",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1355,
+ "chain": "arbitrum",
+ "slug": "ether.fi-stake",
+ "name": "ether.fi Stake",
+ "category": "Liquid Staking",
+ "tvl_usd": 1078763,
+ "url": "https://www.ether.fi",
+ "github": null,
+ "listed_days_ago": 1355,
+ "run_id": "1a2864dc47364a498804ce1cbbbf921e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Arbitrum footprint (adapter projects/ether-fi/index.js) is 2 BoringVault share tokens only: sETHFI 0x86B5780b606940Eb59A062aA85a07959518c0161 (1.29M USD staked) + eBTC 0x657e8C867D8B37dCC18fA4Caead9C45EB088C642 (1.05M USD backing); full verified ABIs have no public paying function (no claim/reward/distribute; enter/exit move the caller's own stake for 0; manage reverts from a stranger eth_call, data 0x, BoringVault Auth); last-7d calls both contracts = approve/transfer only (25 of 25 shown for sETHFI, 1 for eBTC, explorer txs); gas ~$0.004/call at 0.02 gwei, ETH 1777.89 USD CoinGecko.",
+  "kb": [
+   "attempts:2332"
+  ],
+  "run_id": "1a2864dc47364a498804ce1cbbbf921e",
+  "at": 1795053692
+ }
+}

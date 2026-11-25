@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-d2-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 864,
+ "chain": "arbitrum",
+ "slug": "d2-finance",
+ "name": "D2 Finance",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 8844831,
+ "url": "https://d2.finance/strategies",
+ "github": null,
+ "listed_days_ago": 864,
+ "run_id": "ba02651649a4444bb304eeade2f6e055",
+ "result": {
+  "verdict": "role_gated",
+  "line": "23 ERC-4626 vaults on arbitrum (only VaultV0/VaultV1Whitelisted impls): custodyFunds/returnFunds onlyTrader (eth_call from fresh addr reverts '!trader'), deposit/redeem onlyWhitelisted, startEpoch onlyOwner, no reward/claim function in source; 0 txs in last 7 days on the 3 funded vaults (last 2026-11-03, 2025-03-12, 2024-12-09, explorer txs control returns older rows); stranger gross 0 USD vs gas ~0.01 USD.",
+  "kb": [
+   "attempts:2130"
+  ],
+  "run_id": "ba02651649a4444bb304eeade2f6e055",
+  "at": 1795005822
+ }
+}

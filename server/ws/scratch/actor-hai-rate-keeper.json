@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "address": "0x9ab1daea841cb6c0c0ac716531f03d50a97b8497",
+  "strategy": "HAI (Liquity V2 fork on OP) oracle rate keeper: EOA calls workUpdateRate() (selector 0xdbbb74d5, cast sig) one item per tx on OracleJob 0xF4F18205D8D46638489865e42c0a71a3d4F9FC22, ~7200 s cadence; paid 0.05 HAI (0.0617 USD) per call credited to its SAFEEngine internal-coin account; hourly slot shared, it takes ~6.9 of the daily windows; gross 0.0617 USD/call, gas 266,829 gas x 0.005-0.099 gwei observed = 0.002-0.048 USD/call, net ~0.1 USD/day",
+  "est_profit_usd_day": 0.1,
+  "evidence": "52 single-call txs 2026-11-09..17 (ledger source hai.oracle_job_reward; 48 in the 7 d window ts 1794287073..1794870273), e.g. 0xf96d9075f03bc3be871af7eec8ae5ffb918cf7d6f35fa9360f359059237db240 (block 159635748, Rewarded 5e16 to this EOA, input 0xdbbb74d5, gasUsed 266829, actual fee 1.344e-6 ETH incl L1 per explorer.optimism.io), 0xd91a26100369f2ca07add284608f2d2a0664b7d87f7726f409fbe0909aaab0c7, 0x506deb0db77318a3493f63a0f62987ad902c913efc7ec0e4c8af7868ea6f2267; prices HAI 1.2338 / ETH 1829.54 USD coins.llama.fi 2026-11-17; class control: 7 distinct keepers took 2,518 rewards/7 d on the same contract (protocols:277 measured, any caller paid)"
+}

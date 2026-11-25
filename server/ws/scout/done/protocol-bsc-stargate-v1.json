@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-stargate-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1700,
+ "chain": "bsc",
+ "slug": "stargate-v1",
+ "name": "Stargate V1",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 749535,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 1700,
+ "run_id": "4ba0f5a4c3664f18ac95cbb4f79d2753",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: Router 0x4a364f8c717cAAD9A442737Eb7b8A55cc6cf18D8 matches the audited Arbitrum Router 37/37 selectors; anyone-can-call fns (redeemLocal, instantRedeemLocal, retryRevert, clearCachedSwap, callDelta) pay the user/recipient arg, 0 to msg.sender (fresh-address eth_calls revert on state, not role); 7 pools all onlyRouter; MasterChef 0x3052A0F6ab15b4AE1df39962d5DdEFacA86DaB47 pays STG only to its own stakers (pool0 lastRewardBlock 134.09M vs head 134.50M); gas 100k = $0.003 at 0.05 gwei BNB $589.69; 7d log counts unverified: bsc getLogs refused all lanes.",
+  "kb": [
+   "attempts:2511",
+   "protocols:1013"
+  ],
+  "run_id": "4ba0f5a4c3664f18ac95cbb4f79d2753",
+  "at": 1795092206
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-hedgefarm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1494,
+ "chain": "avalanche",
+ "slug": "hedgefarm",
+ "name": "HedgeFarm",
+ "category": "Yield",
+ "tvl_usd": 36362,
+ "url": "",
+ "github": [
+  "HedgeFarm"
+ ],
+ "listed_days_ago": 1494,
+ "run_id": "f9fd9c87cf9744168c50bf5785653ebe",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: TVL 36,365 USDC in Alpha1 v1 0xdE41..929E (6,695) + v2 0x6090..01da (29,669), harvest(bool)/start/stop onlyManagerOwner (eth_call fresh addr reverts Unauthorized); only stranger-callable fns harvest()/performUpkeep() on empty SmartFarmooor Alpha2 0x3C39..B1A3 (BTC.b, totalSupply 0, pays caller 0, reverts TRANSFER_ZERO_VALUE); 0 txs/logs in 7d on all 3 (last 2026-10-02 dust/2024-05/2023-10; control USDC 2731 logs/2000 blk), gas 200k=0.011 USD (AVAX 6.71)",
+  "kb": [
+   "attempts:4018",
+   "protocols:2149"
+  ],
+  "run_id": "f9fd9c87cf9744168c50bf5785653ebe",
+  "at": 1795416410
+ }
+}

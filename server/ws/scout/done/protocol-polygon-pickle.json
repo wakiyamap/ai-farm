@@ -1,0 +1,26 @@
+{
+ "id": "protocol-polygon-pickle",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "pickle",
+ "name": "Pickle",
+ "category": "Yield Aggregator",
+ "tvl_usd": 52602,
+ "url": "",
+ "github": [
+  "pickle-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "980a28f63e6f4ae3ab5cd7ce2e6692b1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "jar earn() callable by anyone (eth_call ok from fresh addr on pDAI 0x0519848e, pam3CRV 0x261b5619) but pays 0 (source: forwards to controller, no msg.sender payment); Controller.harvest + StrategyAaveDaiV3.harvest revert from fresh (role_gated); 7d window blocks 97431799-97835041: 0 logs on 20 jars + controller + strategy (controls pass: USDC 13226 logs, WETH-from 9998); earn gas 110,659 x 247.3 gwei = $0.0021 at POL $0.0779; idle 1365 DAI in pDAI; last jar tx 2026-08-22 (approve); Polygon TVL 52,885 USD",
+  "kb": [
+   "attempts:4184"
+  ],
+  "run_id": "980a28f63e6f4ae3ab5cd7ce2e6692b1",
+  "at": 1795458675
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-termfinance-vaults",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The 2 Strategy vaults on avalanche (0x8fc260cd0a00cac30eb1f444b8f1511d71420af9, 0xe12520297046109d30b48476eecb214743fbece4) expose exactly two stranger-callable non-view functions - auctionClosed() (confirmed callable from a fresh address via eth_call) and sellRepoToken(address,uint256) - and neither transfers anything to the caller: auctionClosed() redeems the vault's own matured repo tokens into the vault, sellRepoToken is a repo-token-for-asset swap for holders. All reward-bearing paths (submitAuctionOffer etc.) are onlyManagement/GOVERNOR_ROLE. Both vaults are also fully dormant: 0 txs in the last 7d and 30d; $1.67M (all USDT, vault 1) sits idle with repo holdings worth ~$0.59.",
+ "numbers": "TVL on-chain totalLiquidBalance: 1,671,722.34 USDT + 109.36 USDC (eth_call totalLiquidBalance, 6-decimal USDT/USDC, matches DefiLlama 1,670,006 USD). Calls to either vault last 7d: 0; last 30d: 0 (snowtrace txlist, control same shape on WAVAX returns txs); last-ever tx 2026-02-14 and 2025-08-08. auctionClosed gross to caller: $0.00; gas 73,266 (eth_estimateGas) x 7.5 gwei (eth_gasPrice) = 0.00055 AVAX = $0.004 at AVAX $7.14 (coins.llama.fi 2026-11-18). Sources: projects/term-finance-vaults adapter, snowtrace verified source 'Strategy' (src/Strategy.sol), eth_call/eth_getCode on both addresses."
+}

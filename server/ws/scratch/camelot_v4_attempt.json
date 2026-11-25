@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-camelot-v4",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Camelot V4 (Algebra Integral 1.2, factory 0xBefC4b405041c5833f53412fF997ed2f697a2f37) has no permissionless function that pays the caller: pool mint/swap/collect/burn/flash are user actions paying the LP, skim() reverts role-gated (0x932984d2), plugin hooks are onlyPool, collectPluginFee needs the ALGEBRA_BASE_PLUGIN_MANAGER role, factory setters are onlyOwner. The DEX is live (>=2830 swaps/7d) but pays LPs and traders, not strangers who call.",
+  "numbers": "80 pools since launch (Pool events, factory, blocks 0x1758c600-0x1f49ef59); >=2830 Swap events last 7 days (0x1f257e59-latest; 80 pools, one 16-pool chunk size-censored); top sender 0xe200007fb83b7916a300dfa97c00000073e2edd2 998 swaps; TVL 150192 USD (api.llama.fi 2026-11-17); gross per stray call = 0 (no claim function); gas n/a. Sources: eth_getLogs/eth_call via relay research lane; docs.camelot.exchange/contracts/arbitrum; explorer source of factory (AlgebraFactory 0.8.20) and PluginFactory (CamelotBasePluginFactory)."
+}

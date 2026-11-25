@@ -1,0 +1,55 @@
+{
+ "chain": "ethereum",
+ "lane": "research",
+ "run": "6a90b7fdc41341f7952fa04862967e9b",
+ "utc": "2026-11-11T18:14-18:2xZ",
+ "head_ethereum": 26393443,
+ "head_base": 56115835,
+ "relay_health_at": "2026-11-11T18:20:40Z",
+ "relay_alchemy_cu_today": {
+  "live": 2118644,
+  "paper": 81932,
+  "research": 260436
+ },
+ "relay_lane_budget_per_day": {
+  "live": 1500000,
+  "paper": 900000,
+  "research": 1000000
+ },
+ "ledger_side": {
+  "morpho_blue.liquidate_pinned_markets": "0 new in the pinned markets (WETH/USDC 0x94b823e6..., WBTC/USDC 0x3a85e619...) since last known capture 26391772; the 4 new ethereum captures 26391872 (market 0x88abdf86, repaidAssets 61.287e15), 26392746 (0x1eda1b67, 99156 raw = 0.099 USDC dust), 26392747 + 26392748 (market 0xf6afd03c, repaid 32.94e15 / 150.83e12) all sit on other market ids",
+  "gearbox_v3.liquidate_credit_account": "0 new events since its last occurrence 26287070 (cursor at head); live bot heartbeat 18:20:23Z block 26393437: accounts=21, liquidatable=0, liq_total=0, rpc_cycle=4",
+  "reserve_revenue.started": "0 new after 26391002 (census window end 26391112 unchanged)",
+  "reserve_revenue.settled": "0 new after 26391112",
+  "curve_pegkeeper.*": "0 events since 26301741 (withdraw last; dormancy ~10.6 d continues)",
+  "moonwell_core.liquidate_borrow": "0 new base events after 56090651",
+  "uniswap_protocol_fees.released": "0 new base rows after 56115835",
+  "inverse_finance_firm.force_replenish": "today 00:00Z->18:2xZ: incumbent 0x31a9dd 608 events / 21.21 DOLA reward; entrants 0xe08d97e1 18/0.63, 0xa0f1c3ad 16/0.69, 0x00000f91 15/0.45, 0x0000000000be 14/0.62 -> incumbent >=90 pct, lead 73 gate stays closed",
+  "olympus_heart.reward_issued": "unchanged (last 26391540)"
+ },
+ "bot_side": {
+  "franken-dutch-ethereum": "live bot.log heartbeat 18:20:06Z head 26393436 pending={} (no MintingHub lot reached expiry since promotion 11-09 17:2xZ)",
+  "ChallengeStarted_relay_tail": "0 logs 26327472..26393443 (65972 blocks ~9.1 d) on hub 0xDE12B620A8a714476A97EfD14E6F7180Ca653557 with topic0 0xc4b384b2c5ca32c8e77081f4083be594a1ea9ba34f208a9f9a458f70608585f5; same-shape control (address+topic0, 26327400..26327600) = 1 log at the last known 26327471",
+  "morpho-watcher-ethereum": "live heartbeat 18:20:33Z scanned=756 debtors=371 markets=8 min_hf=0.4054 (market 0x08bd0186 user 0xe51d0591 debt_usd 0) underwater_now=6, all dust-scale (debt_usd 0), zero sends (nonce 1)",
+  "morpho-watcher2-ethereum_paper": "healthy, heartbeat 18:14:41Z scanned=174 debtors=82 markets=8 min_hf=1.05111 underwater_now=0, restamped=82 == debtors=82 (the fix (d) stamping live in the log), header lag 0, rpc_cycle=2"
+ },
+ "reads": "ledger-only queries + 3 ethereum research-lane eth_getLogs/eth_blockNumber + 1 GET /health; no fork, no sends",
+ "lane_probe_18:24Z": {
+  "live": "0x192bb70 ok",
+  "paper": "0x192bb70 ok",
+  "research": "0x192bb70 ok",
+  "note": "all three lanes still served head 26393460 after the live lane passed its 1.5M/day CU budget at 18:20Z (public-node fallback works)"
+ },
+ "pinned_census_30d": {
+  "window": "26177443-26393460",
+  "pinned_captures": 30,
+  "weth_market": "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd (21 events, 43,677 USDC repay, max 23,844.77)",
+  "wbtc_market": "0x3a85e619 (9 events, 330,435 USDC repay, max 92,326.04)",
+  "gross_ge_1usd": 20,
+  "gross_ge_25usd": 10,
+  "sed_market_0xd2630c0e": "40 captures/30 d = 1.33/day",
+  "penalty_check": "seized/repaid raw ratios reproduce the 3.37 pct penalty at block-native prices (WETH/USDC 4.869e8 -> implied ETH 2123 USD; WBTC/USDC 0.001377 -> implied WBTC 75,000 USD)",
+  "actors": "no incumbent monopoly: 8 actors hold 2-3 captures each over 30 d",
+  "kb": "attempts:933, leads:14 next_steps appended"
+ }
+}

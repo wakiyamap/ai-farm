@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-ccip",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 168,
+ "chain": "ethereum",
+ "slug": "ccip",
+ "name": "CCIP",
+ "category": "Bridge",
+ "tvl_usd": 1338501752,
+ "url": "https://chain.link/cross-chain",
+ "github": null,
+ "listed_days_ago": 168,
+ "run_id": "3fb28ce67bd044e9949c48f96abb5a3b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: OffRamp 1.6.0 0x26d3681D... commit+execute revert UnauthorizedTransmitter (0xda0f08e8) from fresh address (sender control succeeds, same block); 7d blocks 26406436-26456836 (getLogs OR-topics, topic0 from no-topic scan): 8971 commit + 170 execute txs, all 16 registered Chainlink DON hotkeys; gross/call 0.00 USD (execute 0x2e5eab25 caller out = 0.000047 ETH = gas exactly), gas 0.0823 USD at ETH 1751.06 (coins.llama.fi 2026-11-20T14:13Z); legacy EVM2EVMOffRamps stale (last tx 2025-05-16); executors paid off-chain in LINK; 8th closed ccip chain, no on-chain caller reward anywhere.",
+  "kb": [
+   "attempts:2937",
+   "protocols:1348"
+  ],
+  "run_id": "3fb28ce67bd044e9949c48f96abb5a3b",
+  "at": 1795184354
+ }
+}

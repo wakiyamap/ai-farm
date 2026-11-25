@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-sablier-flow",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 583,
+ "chain": "arbitrum",
+ "slug": "sablier-flow",
+ "name": "Sablier Flow",
+ "category": "Payments",
+ "tvl_usd": 27138,
+ "url": "https://app.sablier.com/payments/",
+ "github": null,
+ "listed_days_ago": 583,
+ "run_id": "5fd5cb7adb684fb9ba0f9a6390c7e92b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "6 withdrawals in the true 7d window (blocks 524529146 2026-11-15 18:02Z to 526581818, all 4 flow contracts) = 13,980.65 USD gross (5 USDC + 2 MOR, avg 2,330.11/call), 6 of 6 self-claims by stream owners, 0 USD to strangers; withdraw/withdrawMax is stranger-callable (eth_call from fresh addr: to=owner succeeds, to=stranger reverts WithdrawalAddressNotRecipient) but pays the recipient, protocolFee 0; gas ~0.0025-0.0035 USD/call at 0.0203 gwei x 73-102k gas, ETH 1710.46 (coins.llama.fi 2026-11-22 18:08Z); topic0s keccak'd from verified source, no-topic control returned 58 logs.",
+  "kb": [
+   "attempts:3808",
+   "protocols:1996"
+  ],
+  "run_id": "5fd5cb7adb684fb9ba0f9a6390c7e92b",
+  "at": 1795371380
+ }
+}

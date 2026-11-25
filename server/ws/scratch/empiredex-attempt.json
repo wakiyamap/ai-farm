@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-empiredex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Verified Ethereum factory and pair have no public caller-reward function. Token-only sweep and admin-only fee functions are restricted; skim type is excluded under S.",
+  "numbers": "2026-11-23 latest eth_call factory allPairsLength() = 5; allPairs(0) = 0x163b890f4892d593945579028ec44ef0f20a4633, pair factory() = 0xd674b01E778CF43D3E6544985F893355F46A74A5; both eth_getCode nonempty. Sources: DefiLlama registries/uniswapV2.js lines 673-681 and Etherscan verified EmpireFactory/EmpirePair source via explorer. Eligible reward functions = 0 by source inspection; no 7-day event count or gross/gas is applicable."
+}

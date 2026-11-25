@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-k3-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "bsc",
+ "slug": "k3-capital",
+ "name": "K3 Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 263959,
+ "url": "https://k3.capital",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "7ee4a14b5c774ca6aa63d381f1bc3d1e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "K3 on BSC curates 3 EulerEarn ERC4626 vaults (k3USDT 0xD98b0B12 4,167 USDT, K3BUSDT 957, eeUSD1-K3 0.62; decimals 18); every non-ERC4626 fn is role-gated (reallocate from fresh address reverts NotAllocatorRole 0xf7137c0f; euler-earn master), PublicAllocator.reallocateTo makes the CALLER pay a fee to K3; 0 Deposit/Withdrawal logs in 12x5000-block sample of last 7d (control: 42,601 USDT Transfers in 500 blocks) - no function anyone can call pays the caller.",
+  "kb": [
+   "protocols:534",
+   "attempts:1913"
+  ],
+  "run_id": "7ee4a14b5c774ca6aa63d381f1bc3d1e",
+  "at": 1794959188
+ }
+}

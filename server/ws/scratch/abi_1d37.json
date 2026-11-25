@@ -1,0 +1,786 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "ActiveRollOver",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "indexed": true,
+        "internalType": "uint24"
+      },
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "AddTrack",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "name",
+        "type": "string",
+        "indexed": true,
+        "internalType": "string"
+      },
+      {
+        "name": "token",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "AddTrackCheckpoint",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "indexed": true,
+        "internalType": "uint24"
+      },
+      {
+        "name": "blockNumber",
+        "type": "uint80",
+        "indexed": false,
+        "internalType": "uint80"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "AddUserCheckpoint",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "indexed": true,
+        "internalType": "uint24"
+      },
+      {
+        "name": "blockNumber",
+        "type": "uint80",
+        "indexed": false,
+        "internalType": "uint80"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "BumpSaleCounter",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "indexed": true,
+        "internalType": "uint24"
+      },
+      {
+        "name": "newCount",
+        "type": "uint32",
+        "indexed": false,
+        "internalType": "uint32"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "DisableTrack",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "indexed": true,
+        "internalType": "uint24"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "EmergencyWithdraw",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "indexed": true,
+        "internalType": "uint24"
+      },
+      {
+        "name": "sender",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "OwnershipTransferred",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "Stake",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "indexed": true,
+        "internalType": "uint24"
+      },
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint104",
+        "indexed": false,
+        "internalType": "uint104"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "Unstake",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "indexed": true,
+        "internalType": "uint24"
+      },
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint104",
+        "indexed": false,
+        "internalType": "uint104"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "activeRollOver",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "addTrack",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "name",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "stakeToken",
+        "type": "address",
+        "internalType": "contract ERC20"
+      },
+      {
+        "name": "_weightAccrualRate",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "_passiveRolloverRate",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "_activeRolloverRate",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "_maxTotalStake",
+        "type": "uint104",
+        "internalType": "uint104"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "bumpSaleCounter",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "disableTrack",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "emergencyWithdraw",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "getTotalStakeWeight",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "blockNumber",
+        "type": "uint80",
+        "internalType": "uint80"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint192",
+        "internalType": "uint192"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "getUserStakeWeight",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "user",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "blockNumber",
+        "type": "uint80",
+        "internalType": "uint80"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint192",
+        "internalType": "uint192"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "hasEmergencyWithdrawn",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "numTrackStakers",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "owner",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "renounceOwnership",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "stake",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "amount",
+        "type": "uint104",
+        "internalType": "uint104"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "trackActiveRollOvers",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint192",
+        "internalType": "uint192"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "trackCheckpointCounts",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "trackCheckpoints",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "blockNumber",
+        "type": "uint80",
+        "internalType": "uint80"
+      },
+      {
+        "name": "totalStaked",
+        "type": "uint104",
+        "internalType": "uint104"
+      },
+      {
+        "name": "totalStakeWeight",
+        "type": "uint192",
+        "internalType": "uint192"
+      },
+      {
+        "name": "numFinishedSales",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "trackCount",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "trackDisabled",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "trackFinishedSaleBlocks",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint80",
+        "internalType": "uint80"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "trackMaxStakes",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint104",
+        "internalType": "uint104"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "trackStakers",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "trackTotalActiveRollOvers",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint192",
+        "internalType": "uint192"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "tracks",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "name",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "stakeToken",
+        "type": "address",
+        "internalType": "contract ERC20"
+      },
+      {
+        "name": "weightAccrualRate",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "passiveRolloverRate",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "activeRolloverRate",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "maxTotalStake",
+        "type": "uint104",
+        "internalType": "uint104"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "transferOwnership",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "unstake",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "trackId",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "amount",
+        "type": "uint104",
+        "internalType": "uint104"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "userCheckpointCounts",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "userCheckpoints",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint24",
+        "internalType": "uint24"
+      },
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "blockNumber",
+        "type": "uint80",
+        "internalType": "uint80"
+      },
+      {
+        "name": "staked",
+        "type": "uint104",
+        "internalType": "uint104"
+      },
+      {
+        "name": "stakeWeight",
+        "type": "uint192",
+        "internalType": "uint192"
+      },
+      {
+        "name": "numFinishedSales",
+        "type": "uint24",
+        "internalType": "uint24"
+      }
+    ],
+    "stateMutability": "view"
+  }
+]

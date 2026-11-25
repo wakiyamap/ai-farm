@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "the_idols",
+  "status": "measured",
+  "checked": "DefiLlama adapter projects/the-idols/index.js (ohmTvl): treasury 0x439cac149b935ae1d726569800972e1669d17094 (=IdolMain NFT+staking contract), staking 0x0dd5a35fe4cd65fe7928c7b923902b43d6ea29e7 (VirtueStaking/IdolMarketplace), VIRTUE token 0x9416ba76e88d873050a06e5956a3ebf10386b863. All 3 have code (eth_getCode). Verified source of 0x439cac via explorer: IdolMain.sol. updateRewardPerGod() public nonReentrant pays msg.sender updateCallerReward=100bp (read 0x64) of newly accrued stETH; eth_call from fresh address returns 0x (no role revert). claimEthRewards(address)/claimTeamIdol pay _user/team, not caller. stethPrincipalBalance()=2705.37 stETH (~$4.55M at stETH $1682.78, coins.llama.fi 2026-11-21T20:07Z), matches candidate TVL $4.76M."
+}

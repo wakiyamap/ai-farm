@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "protocol": "extra_finance_xlend",
+  "status": "dead_end",
+  "checked": "2026-11-18 run 16bcc496: Extra Finance Xlend = Aave v3-core fork + ExtraX smart-account layer (github.com/ExtraFi/xlend-contracts, core-v3 forked from aave-v3-core b74526a; repo has NO reward/bounty/claim/poke/compound/checkpoint/distribute/epoch functions). DefiLlama tracks it in registries/aave.js (v3:true, dataHelper 0xCC61E9470B5f0CE21a3F6255c73032B47AaeA9C0: getAllReservesTokens() answers = 8 reserves DAI/USDC/WETH/USDT/wstETH/OP/WBTC/rETH; getReserveTokensAddresses answers). Pool proxy 0x345d2827f36621b02b783f7d5004b4a2fec00186 (InitializableImmutableAdminUpgradeabilityProxy, impl 0xd2f8c50858654ea0f81978b632288cb7ca93fc10, unverified on Blockscout; eth_getCode non-0x; POOL() on aWETH 0xf58bec4c57f8a459db9840236613082ae17eb23f returns it). mintToTreasury(address[]) permissionless but pays caller nothing. Only permissionless paid class = liquidationCall (bonus to receiver arg; getConfiguration 0xc44b11f7 decoded with fork's ReserveConfiguration layout: liqBonus 1.05 WBTC/WETH/DAI, 1.10 OP; eth_call liquidationCall from fresh address reverts '45' HEALTH_FACTOR_NOT_BELOW_THRESHOLD = not role-gated). LiquidationCall topic0 0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286: 2 events in 7d, 6 in 30d, all dust. Verdict unpaid: gross bonus per call ($0.004-$1.12) < gas per call ($0.26-$1.47).",
+  "wiki_page": null
+}

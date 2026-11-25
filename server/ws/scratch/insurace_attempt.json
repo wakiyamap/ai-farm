@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-insurace",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. InsurAce's two BSC stakers pools (LP staking StakersPoolV2 0xd50E8Ce9...78eF, ve-INSUR lock 0x8937f826...D76d) put every non-onlyOwner state-changing function (harvestRewards, settlePendingRewards, reCalcPoolPT, withdrawTokens, claimPayout, addStkAmount, rebalancePools) behind modifier allowedCaller -> SecurityMatrix 0xaa54d33d...b8ea whitelist of 2 InsurAce contracts or owner; a fresh-EOA eth_call harvestRewards reverts 'allowedCaller'. No function anyone can call and get paid; the ve pool has no caller-pay selector at all.",
+  "numbers": "rewardEndBlock 50,137,134 << head 135,296,246 (reward stream stopped long ago); 7d logs 133,953,500 (2026-11-16) -> 135,296,246 (2026-11-23), no-topic scan, 1 call, 3 addrs: 0 events on both pools, 3 INSUR Transfers (0.30/150.14/450.00 INSUR, all wallet-to-wallet, none from a pool; control = same call returns those 3); eth_call harvestRewards from 0x..bEEF reverts allowedCaller; whitelist pool A = 0xdecafc91000d4d3802a0562a8fb896f29b6a7480, 0xd2171abb60d2994cf9acb767f2116cf47bbf596f; gas 0.05 gwei (eth_gasPrice 2026-11-23), BNB $571.45 (coins.llama.fi 15:40Z) so a ~100k-gas call ~$0.03; INSUR (bsc 0x3192CCDdf1CDcE4Ff055EbC80f3F0231b86A7E30, decimals 18 read on chain) unpriced on coins.llama.fi; TVL $64,630 (candidate); pools endpoint files.insurace.io/public/defipulse/bscPools.json dead (HTTP 000)."
+}

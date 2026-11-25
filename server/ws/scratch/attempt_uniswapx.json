@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "actor-base-0x225a38bc71102999dd13478bfabd7c4d53f2dc17",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. UniswapX V3 dutch-order market-maker filler contract on Base (V3DutchOrderReactor 0x000000008a8330b5d1f43a62bf4c673a49f27ba0): a public job (967 fills, 12+ fillers), profit is the in-tx spread, not own-fund transfers. Caveat: fills are essentially oracle-priced (median ~0 bps vs Chainlink at fill block), so the edge is thin and depends on inventory + quote latency.",
+ "numbers": "967 fills 2026-11-12..15 (ledger events source uniswapx.fill) = 51% of the 1900 fills on the two Base V3 reactors in that window; ~300/day; gross per fill median ~$3.4k USDC-equiv (range $1.2k-66.9k), implied ~$1.0M/day volume; gas per call 186k-232k gas @ 0.006 gwei eff = $0.002-0.003 (ETH $1815 DefiLlama, Chainlink 0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70 $1818.22 @ 2026-11-16); spread vs Chainlink at same fill block, 12-fill sample: median ~0 bps, max +17.9 bps (fill 0x8ddf8f16...: $2.14 profit on $1.2k), worst -$34.9 on the $66.9k fill 0xdc891a58...; est_profit_usd_day ~$50-200 (0.5-2 bps x $1M/day), reported 100"
+}

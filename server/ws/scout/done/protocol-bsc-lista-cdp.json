@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-lista-cdp",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1539,
+ "chain": "bsc",
+ "slug": "lista-cdp",
+ "name": "Lista CDP",
+ "category": "CDP",
+ "tvl_usd": 50887413,
+ "url": "https://lista.org/",
+ "github": null,
+ "listed_days_ago": 1539,
+ "run_id": "074754913acd49c8b82b5f2f094937b2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Interaction 0xB68443Ee3e828baD1526b3e0Bdf2Dfc6b1975ec4 auctionWhitelistMode()=1 at bsc head 134,469,088 (re-verified 2026-11-19, confirms 2026-11-18 run e4083410); startAuction/resetAuction/buyFromAuction (tip+chip in lisUSD to keeper arg) revert 'Interaction/not-in-auction-whitelist' from a fresh address, dog.bark/clip.kick/redo/take are wards-auth, so no stranger-paid path; reopen only if auctionWhitelistMode() reads 0.",
+  "kb": [
+   "attempts:2445",
+   "protocols:651"
+  ],
+  "run_id": "074754913acd49c8b82b5f2f094937b2",
+  "at": 1795076082
+ }
+}

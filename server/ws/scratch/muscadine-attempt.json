@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-muscadine",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only anyone-callable reward-style function on Muscadine's 11 VaultV2 vaults is accrueInterest() (0xa6afed95) - eth_call from a stranger address succeeds (no role revert) - but it pays fee shares to the fixed fee recipient 0x057fd8b961eb664baa647a5c7a6e9728faba266a, not the caller, and both managementFee and performanceFee are 0 WAD on every funded vault, so the pot is empty: gross per call $0. No liquidation/auction/claim functions exist in the VaultV2 architecture (forceDeallocate makes the caller PAY a penalty).",
+  "numbers": "TVL $495.3k (DefiLlama currentChainTvls = sum of on-chain totalAssets 2026-11-17). 51 AccrueInterest events in last 7d (blocks ~55.65M-58.68M, eth_getLogs topic0 keccak AccrueInterest(uint256,uint256,uint256,uint256)) across 5 vaults; 14 of 15 sampled tx senders = owner EOA 0xf35b121ba32cbeaa27716abeffb6b65a55f9b333 itself, 1/15 = 0x628037c2d25f5e5f6f90415cff6d7e8860f41c08. Gas: eth_estimateGas 100,088 gas @ eth_gasPrice 6,013,306 wei (0.006 gwei) -> 6.0e-7 ETH = $0.001 at ETH $1,811.80 (coins.llama.fi base native, 2026-11-17). Gross $0 vs gas $0.001 per call."
+}

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Assemble the fixed part of an instance's prompt: common.md + role file + TOOLS.md.
+# Started as root from ExecStartPre=+ so the agent user cannot alter the result.
+set -euo pipefail
+
+INSTANCE="${1:?usage: assemble-prompt <instance>}"
+PROMPTS=/srv/farm/prompts
+MAX_BYTES=60000   # dsh loads at most 64 KiB of instructions
+
+ROLE="$(awk -v i="$INSTANCE" '$1 == i { print $2 }' /etc/farm/roles.conf)"
+if [[ -z "$ROLE" ]]; then
+  echo "assemble-prompt: unknown instance: $INSTANCE" >&2
+  exit 1
+fi
+
+OUT_DIR="/srv/farm/runners/$INSTANCE"
+install -d -o root -g root -m 755 "$OUT_DIR"
+tmp="$(mktemp "$OUT_DIR/.prompt.XXXXXX")"
+trap 'rm -f "$tmp"' EXIT
+
+{
+  cat "$PROMPTS/common.md"
+  printf '\n\n'
+  # roles/ is writable by harness. Read it as harness, so a symlink planted
+  # there can't make root copy a file harness itself can't read.
+  runuser -u harness -- cat "$PROMPTS/roles/$ROLE.md"
+  printf '\n\n'
+  runuser -u harness -- cat "$PROMPTS/roles/TOOLS.md"
+} > "$tmp"
+
+size="$(stat -c %s "$tmp")"
+if (( size > MAX_BYTES )); then
+  echo "assemble-prompt: prompt for $INSTANCE is $size bytes (max $MAX_BYTES)" >&2
+  exit 1
+fi
+
+chmod 644 "$tmp"
+mv -f "$tmp" "$OUT_DIR/prompt.md"
+trap - EXIT

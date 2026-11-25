@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-cega-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The Cega V2 listing resolves to the shared Cega Ethereum products. Verified FCN/LOV sources offer no permissionless caller reward: public state updates pay nothing, while fee and user payouts are directed to their configured recipients and operational functions require trader admin. No product or state events occurred in the last seven timestamp-checked days.",
+  "numbers": "7d blocks 26431145 (2026-11-17 00:21:23 UTC) to 26481388 (2026-11-24 00:21:23 UTC): no-topic eth_getLogs on 17 Cega adapter addresses = 0; same-shape USDC control blocks 26481378-26481388 = 1468 logs. Gross caller reward = 0 USDC (asset() = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48) per FCNProduct.sol and LOVProduct.sol source; gas/call = not applicable because no payable call or recent calls. Fresh 0x1111111111111111111111111111111111111111 eth_call on FCN 0x56F00A399151EC74cf7bE8DC38225363E84975E6, vault 0x6e6cAcBeaEa26054692EcdbE8d40D2666aAc2890: checkBarriers, calculateVaultFinalPayoff, calculateCurrentYield revert 500:WS; collectFees reverts 403:TA. Source: DefiLlama projects/cega/index.js and explorer source ethereum verified contracts."
+}

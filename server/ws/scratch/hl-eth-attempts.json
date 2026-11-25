@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-hyperlane",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only permissionless keeper function on Hyperlane ethereum core v3 is Mailbox.process(bytes,bytes): callable by anyone (fresh-address eth_call of real calldata reverts 'Mailbox: already delivered', a state check, not a role) but the v3 source pays msg.sender nothing and all sampled process txs carry value 0. IGPM.claim() is public but sweeps the full balance to one fixed beneficiary, so no stranger is paid on ethereum; relayers earn their refund on the source chain. Warp routers here are non-Fast standards (no fillFastTransfer), so the fast-fill fee is not deployed either. Matches the dead_ends on arbitrum/bsc/optimism/base.",
+  "numbers": "4,541 Process events 7d (blocks 26410052-26460452, topic0 0x0d381c2a... from tx receipt of 0x4308902965...); callers sample 21 txs: 3 relayer EOAs (0x74cae0ec.., 0x09b96417.., 0x1e100476..), all value 0; pays per call 0 ETH; gas 162,008 gasUsed x 21.23 gwei (eth_gasPrice 0x4ef8ade2d) = 0.00344 ETH = 5.63 USD at ETH $1,637.05 (coins.llama.fi ts 1795190707); Mailbox VERSION()=3 on chain; mailbox 0xc005dc82818d67AF737725bD4bf75435d065D239, IGPM 0x9e6B1022bE9BBF5aFd152483DAD9b88911bC8611 beneficiary()=0xa7eccdb9be08178f896c26b7bbd8c3d4e844d9ba"
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "3111bbc3a62d42779feff7d2208de6e5",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "lead 167 lusd redemption fork proof round 3 (shared fork ERC-20 state serving broken)",
+  "outcome": "blocked_infra",
+  "kb_rows": ["attempts:1139", "leads:167"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Root cause of the four-session bare revert: the shared ethereum fork serves no ERC-20 storage (DAI/USDC have no code, USDT/LUSD/cStable balanceOf revert, uniform at resets 25.9M-26.407M), so the redeem route dies with empty revert data before any leg can be bisected; four instrumented executor variants (deployed runtime verified) all confirmed the abort is not Solidity. Lead 167 closed to blocked_infra with the fork-restart control and the rerunnable proof6.py steps; fork lease released, inbox/meta note filed."
+}

@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "reserve_folio_dtf Base rebalance auction bids (LCAP, BGCI; bot folio-bid-base)",
+  "outcome": "review_promote",
+  "reason": "Current Solidity artifact passed fork guard revert, owner-only revert, closed-auction revert and wallet-raising success; executor balances and checked approvals ended at zero. Manifest-check passed, live path uses gate executor, and gate promoted the bot. Live start executor matched state/executor.json. See bots/live/folio-bid-base/review.md.",
+  "numbers": "Fork success 0xb99c2b1e4fb8d9f952bc81f3651946da31d39840bd9f23e47c20ab11bc51b222: owner +0.000685482 ETH net gas, 682059 gas; guard 0x15f13b655e4ca4a74b6c81ecba576923003880bd3f2531851afb5203c0eac42a. Recomputed conservative EV from README 18 first pair/auction rows: 0.007091 ETH gross - 18 x 682048 x 0.006 gwei gas = $12.70 per measured rebalance day at $1810.43/ETH; idle cost 37440 CU/day = $0.0198. Actual timestamp counted windows min 7 s, median 31.5 s.",
+  "bot_id": "folio-bid-base"
+}

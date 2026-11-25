@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "actor-bsc-0x302649ccdfc232ee49a28755c8a6c06e707b7d15",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The BSC arm of the same cross-chain RFQ fill desk (same EOA 0x1f56125481fcfa679d10d3ff22251212e3c1ae71, same impl 0x8d0d9b7a and venue router 0xe5ec0065 as base attempt 1515 / arbitrum attempt 1495). The UniswapX orders it fills on reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 embed this address in the signed calldata, and the desk books exactly zero at the address: 5/5 sampled fills net 0 to the wei on every token, so a fresh address making the same call earns no fee.",
+  "numbers": "counts: 123 fills 2026-11-06..15 (10 days, ~12/day, daily 2-36; ledger actor_daily bsc / source uniswapx.fill); still active: 1 CAND fill among 6 reactor fills in blocks 134015415-134021415 (~45 min, eth_getLogs control). Sample of 5 of 123: gross through CAND per call $6.5-$1,982 (median $825); CAND token-net exactly 0 in 5/5; sole caller = EOA 0x1f561254 (5/5 tx senders). Gas 699,152-782,918 gas/call at effectiveGasPrice 0.05 gwei = 3.3-4.0e-5 BNB = $0.020-0.024/call, ~$0.26/day at 12 calls/day (prices coins.llama.fi 2026-11-17: BNB $589.23, USDT $0.99919, BTC $64,460, ETH $1,813.5). Est profit booked at the address ~$0/day. Other active fillers same reactor: 0x52f9eea3 536, 0x225a38bc 391, 0xe0763177 239 fills."
+}

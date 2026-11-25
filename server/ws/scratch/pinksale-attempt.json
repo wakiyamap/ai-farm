@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-pinksale",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The protocol's only BSC contracts per the DefiLlama adapter are two locker vaults; neither has any function anyone can call that pays the caller. unlock(uint256) is gated by require(userLock.owner==msg.sender) and pays the owner-caller their own tokens (verified in Sourcify sources PinkLock.sol and PinkLock02.sol, plus eth_call revert from a fresh address). Lockers are active (thousands of locks, daily LockAdded/LockRemoved) but every payout goes to a lock owner acting for itself, not to a stranger keeper.",
+  "numbers": "vault1 0x7ee058420e5937496F5a2096f04caA7721cF70cc getTotalLockCount=58706, 0 events in 3x5000-block windows (now/-3.5d/-7d); vault2 0x407993575c91ce7643a4d4cCACc9A98c36eE1BBE getTotalLockCount=1113836, 37 LockAdded/4 LockRemoved in blocks 134477606-134482606 (0.45 s blocks, ~37 min), 5/1 at 133810606-133815606, 14/11 at 133138606-133143606; topic0 LockAdded 0x694af1cc.., LockRemoved 0xc6532367.. (cast keccak); sources: Sourcify v2 exact_match both; TVL 122,027,682 USD (candidate, DefiLlama)"
+}

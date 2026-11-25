@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-sierra-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. SIERRA/SPLUS are LYTPool vault proxies on ethereum (impl 0xfd10892c8a1cac5b279ee22877dcc735db7b7833); every state-changing function is behind MarketMaker/Issuer/Claimant/IssuerAdmin and none pays the caller (fees go to feeCollectorAddress). Fresh-address eth_call reverts confirm gating; 7-day callers are issuer/market-maker EOAs only. Same conclusion the avalanche scout reached on the identical implementation.",
+  "numbers": "7d txs (eth.blockscout.com api/v2 txlist, complete window 2026-11-13..20): SIERRA proxy 35 (14 approve, 9 transfer, 5 processRedemption by issuer 0xb841dbcb, 5 requestRedeem by MM 0xAF73EF59/0x077eba, 2 deposit); SPLUS proxy 4; OFT wrapper 2 approves. Sample processRedemption 0xa15f2b94... paid 3,377,662 USDC (6 decimals, USDC Transfer log) to MM, caller reward $0, gas 210,001 x 1.073 gwei x $1644 = $0.37 (Blockscout ETH rate 2026-11-20). RedeemRepay topic0 0x5d88c6df from receipt. Fresh-address reverts: deposit/requestRedeem 0x67ca592f NotMarketMaker, processRedemptions/openClaims 0x54ec5063 NotIssuer, claim 0x4b4270f5 NotClaimant. Ethereum TVL $19.88M is mostly OpenTrade vault deposits (adapter projects/sierra-money)."
+}

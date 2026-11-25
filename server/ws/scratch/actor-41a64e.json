@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "address": "0x41a64e5a47176d695198a532e6136dbdfb2db9fa",
+ "strategy": "Freshly deployed (2026-11-20 ~10:35 UTC) unverified flash-arb executor contract, called only by its creator EOA 0xbe6bbb45c0be7cba3087d345fab9a71ac88af200 via selector 0x0c89e77a. Each call: 1-3 Morpho Blue (0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb) flashLoan USDT legs (0.6k-160k USDT) + multi-leg swaps through Uniswap V4 PoolManager (0x000000000004444c5dc75cb358380d2e3de08a90), Uniswap V3 SwapRouter 0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8, V2 routers (0x11b815efb8f581194ae79006d24e0d814b7697f6, 0xc2e9f25be6257c210d7adf0d4cd6e3e881ba25f8) and Aave V2 LendingPool (0x7d2768de32b0b80b7a3454c06bdac94a69ddc7a9); unwraps WETH and forwards leftover ETH to EOA 0x4838b106fce9647bdf1e7877bf73ce8b0bad5f97; ends with zero ETH and 0.15 USDT balance. No protocol fee to the caller - proprietary arbitrage profit taken in-transaction.",
+ "evidence": "txs 0x7f96b67835df042991364a2ee7012b3c42b240d2daea43455db6793511367e94, 0x2851019a615f31568e90daac172dc7ffe59848563cc46b2a7087b5f56fd1dc09, 0xd31d90993ffce819102a5ca013af49eef98b9f69b3f1577917b0f0905f5cc199, 0xfbb1d78cb941a06480f82757770f34e33c186476c6335c89ec2e79bf5179fa28 (debug_traceTransaction callTracer); creation tx 0x825f27548e20600ee21f7e23c5de47807b6179dc4fe6f107bf3f695fd2cacde1 block 26455798",
+ "est_profit_usd_day": 60000
+}

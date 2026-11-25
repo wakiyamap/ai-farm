@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-king-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 641,
+ "chain": "ethereum",
+ "slug": "king-protocol",
+ "name": "King Protocol",
+ "category": "Liquid Restaking",
+ "tvl_usd": 745621,
+ "url": "https://kingprotocol.org/",
+ "github": [
+  "King-Protocol"
+ ],
+ "listed_days_ago": 641,
+ "run_id": "c890bc037638483a938c73fe50a7df07",
+ "result": {
+  "verdict": "no_reward",
+  "line": "ether.fi LRT2 fork; only ethereum contract is the KING vault 0x8F08B70456eb22f6109F57b8fafE862ED28E6040 (TVL 669,086 USD, llama): rebalance() reverts OnlyRebalancer (rebalancer=multisig 0xF46D..), deposit() reverts OnlyDepositors, redeem() pays the redeemer their own NAV (depositFee=redemptionFee=0, treasury 0xF46D..), strategies' deposit() spends caller's own funds; 7d eth_getLogs blocks 26409767(ts 1794617711)..26460022: 0 Deposit, 0 Rebalance, 21 Redeem, 106 Transfer (control non-zero); no function anyone can call pays the caller.",
+  "kb": [
+   "attempts:3123"
+  ],
+  "run_id": "c890bc037638483a938c73fe50a7df07",
+  "at": 1795222928
+ }
+}

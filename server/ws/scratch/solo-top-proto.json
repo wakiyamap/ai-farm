@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "solo_top",
+  "status": "dead_end",
+  "checked": "Solo.top single-asset USDT LP-mining vault (DefiLlama slug solo-top, adapter projects/solo/index.js lists BSC vault 0x7033A512639119C759A51b250BfA461AE100894b, listed 2021-10-28, deadUrl true, Certik audit). eth_getCode not 0x on proxy and on impl 0xc5d752335f567739f8419ea144ec0d96bea9f93b (EIP1967 slot). Getter getGlobalStatistics() answers: (743,943.83, 9,943,878.16) USDT 18-dec (0x55d398326f99059fF775485246999027B3197955). explorer source failed (etherscan not_on_plan bsc, no blockscout); ABI from 44 dispatcher selectors resolved via 4byte.directory: deposit/withdraw(uint256,uint256), unclaimedReward(uint256,address) view, pools/poolsLength/addPool, whitelist + isPermitted + dispatcher roles, transferETH/transferToken, owner. No claim/harvest/keeper function; withdraw from fresh address pays 0 (eth_call). 0 vault events last 7 days (0x7f86c15..0x804f31d), control same shape 2024 window returned Deposit+Withdraw txs by user EOAs. TVL 747k USD but nobody paid for calling; verdict no_reward."
+}

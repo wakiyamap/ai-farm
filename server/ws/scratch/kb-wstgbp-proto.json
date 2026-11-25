@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "wstgbp",
+  "status": "dead_end",
+  "checked": "wstGBP (MaseerOne, verified source via explorer) 0x57C3571f10767E49C9d7b60feb6c67804783B7aE (eth_getCode non-empty, getters gem/pip/act/adm/cop/flo answer); addresses from protocol's own DefiLlama adapter (Arb-Capital/DefiLlama-Adapters projects/wstgbp/index.js; main-repo projects/wstgbp is 404). gem=tGBP 0x27f6c8289550fCE67f6B50BeD1F519966aFE5287 (18 decimals on chain). pip=MaseerPrice proxy 0x6a79dce61a12aa4b75449e0b03746260765d07df (poke gated by buds role, no payment); act=MaseerGate proxy 0xb59cb4d3075a8ce5013c78e8bd7ada3fd1300f7f (all setters auth); flo = the contract itself. Public state fns: mint/redeem (user ops), exit(id) (anyone, canPass(fresh)=true, pays stored redeemer not caller), settle() (anyone, returns 102,839.6 tGBP unsettled but pays flo=self; 0 Settled events full history blocks 24852292-26456540), issue/smelt (issuer via adm). cooldown=0, totalPending=0, redemptionCount=87. 7d logs (fromBlock 26404796, no-topic scan = control, 227 logs, all 5 topic0s map to contract's own event signatures): 5 ContractCreated, 4 ContractRedemption, 4 ClaimProcessed, 0 Settled. No function pays its caller -> dead_end."
+}

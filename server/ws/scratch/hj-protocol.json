@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "hyperjump",
+  "status": "dead_end",
+  "checked": "DefiLlama address 0x03D6BD3d48F956D783456695698C407A46ecD54d is HyperBurn BEP20 (name() on-chain), not a farm. DEX factory (from HyperJump-DeFi/DefiLlama-Adapters fork projects/hyperjump/index.js; main-repo adapter 404s) 0xac653ce27e04c6ac565fd87f18128ad33ca03ba2: code present, allPairsLength()=460, getPair(WBNB,USDT)=0x0d29724d1834fc65869812bae5d63dce8acb7921. Farm (OldHyperJumpStation, repo HyperJump-DeFi/HyperJump-Contracts HyperJumpFarmV2 + data/bsc_pending_rewards.csv Farm column) 0x4F1818Ff649498a2441aE1AD29ccF55a8E1C6250: code present, poolLength()=94. One-time V2 claim 0xF153911d912de1f4FE576FbE4Ab29C075d656B58 (HyperJumpBscClaimLpRewards): claim() from fresh address reverts 'not claimable' (hardcoded snapshot whitelist). BscScan etherscan not_on_plan and no blockscout, so ABI from GitHub sources. 7-day eth_getLogs scan blocks 133282370-134625772 (4900-block chunks, 0 chunk errors): farm 0x4F18 all events 0, claim 0xF153 all events 0, factory PairCreated 0; control Swap scan on WBNB/USDT pair returned 375, so zeros are real."
+}

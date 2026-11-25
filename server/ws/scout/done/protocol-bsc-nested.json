@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-nested",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1691,
+ "chain": "bsc",
+ "slug": "nested",
+ "name": "Nested",
+ "category": "Indexes",
+ "tvl_usd": 54721,
+ "url": "https://nested.fi",
+ "github": null,
+ "listed_days_ago": 1691,
+ "run_id": "72642e6524d14446bd175da3634a369b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "FeeSplitter.releaseTokens (0x449D088C...5200f) is the only permissionless pay-caller fn and pays msg.sender's own accrued shares; fresh stranger paid 0. 7d (blocks 133903976 2026-11-16T09:31Z to 135247360 2026-11-23T09:30Z): 0 PaymentReleased, 0 NftCreated, 1 factory NftUpdated, 3 user txs; fees in <1 USD (~0.079 BUSD + 0.00094 WBNB), pot 4.32 WBNB (~2410 USD) + 1170 BUSD accrued to shareholders, not keeper-rewardable; gas 0.05 gwei ~0.002 USD/call, BNB 557.89 USD (llama 09:35Z). All factory ops onlyTokenOwner pay fees IN.",
+  "kb": [
+   "attempts:4058",
+   "protocols:2185"
+  ],
+  "run_id": "72642e6524d14446bd175da3634a369b",
+  "at": 1795426809
+ }
+}

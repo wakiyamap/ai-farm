@@ -1,0 +1,22 @@
+[Unit]
+Description=Farm dashboard (read-only, 127.0.0.1:8090)
+After=rpc-relay.service farm-signer.service
+
+[Service]
+Type=exec
+User=farmgate
+Group=farmgate
+SupplementaryGroups=farm
+ExecStart=/usr/bin/python3 -I /opt/farm/bin/farm-dash
+Restart=always
+RestartSec=5
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/var/lib/farmgate
+ReadOnlyPaths=/var/lib/farm
+SyslogIdentifier=farm-dash
+
+[Install]
+WantedBy=multi-user.target

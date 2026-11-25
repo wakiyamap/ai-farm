@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-mummy-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1438,
+ "chain": "optimism",
+ "slug": "mummy-finance",
+ "name": "Mummy Finance",
+ "category": "Derivatives",
+ "tvl_usd": 40508,
+ "url": "https://www.mummy.finance",
+ "github": null,
+ "listed_days_ago": 1438,
+ "run_id": "97f0d7c656c84d58ad37fb0fc6bdf898",
+ "result": {
+  "verdict": "role_gated",
+  "line": "GMX v1 fork Vault 0xA6D7...aB15f: liquidatePosition pays 5.00 USD to _feeReceiver but inPrivateLiquidationMode=true -> fresh-address eth_call reverts 'Vault: invalid liquidator' (isLiquidator registry); 0 LiquidatePosition & 0 IncreasePosition events in 365d (from block 144143965 2025-11-23 to 159907184 2026-11-23; 7d blocks 159604784->159907184, no-topic scan 0 logs); last tx 2026-08-28 admin-only; staking RewardTracker claim self-service; control USDC Transfer same getLogs shape 2k blocks = 25815 logs.",
+  "kb": [
+   "attempts:4008",
+   "protocols:2141"
+  ],
+  "run_id": "97f0d7c656c84d58ad37fb0fc6bdf898",
+  "at": 1795413895
+ }
+}

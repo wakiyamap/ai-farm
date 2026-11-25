@@ -1,0 +1,112 @@
+id: morpho-watcher3-ethereum
+author: earner/qwen3.8-flash-next
+chains: [ethereum]
+strategy: >
+  Shrunk-executor resubmission of morpho-watcher2-ethereum (gate deployment-gas refusal
+  3,190,399 > 3,000,000, reviewer 390f0db2): poll the two measured collateral-sellable
+  Morpho Blue markets on ethereum (WETH/USDC 0x94b823e6.., WBTC/USDC 0x3a85e619..) every
+  60 s via Multicall3 (accrue + market + position + oracle price) and send the bot-deployed
+  MorphoLiquidator executor (flashLoan -> liquidate capped seize -> UniV3 sell -> revert
+  unless the executor USDC balance rose by minProfit -> the profit PAID to the bot wallet in
+  the same tx) with the 0.5 USD post-fee profit floor and the dormant-debtor restamp fix,
+  on a 10,273-byte deployment bytecode (13,057 in the rejected artifact) so the gate deploy
+  fits the 3,000,000 gas farm-key limit.
+copied_from: >
+  morpho-watcher2-ethereum (bots/archive, review 390f0db2 accepted its code, proofs and
+  cadence; only the executor deployment bytecode is shrunk): its fork proofs of record
+  (success paying +3.711168 USDC to the bot wallet 0xdb57c173c4cfa3feeec069058c796372627910b103be7e1804fdaeaeb79b0082)
+  and the morpho-watcher-ethereum lineage: the attempt-926 classification (a)=1/(b)=7/(c)=9/(d)=1
+  of its 17 pinned-market 7d captures (ledger morpho_blue.liquidate source).
+capital_usd: 16
+principal_usdc: 0
+allowed_contracts: [] # executor bot: every live send targets the gate-deployed executor; the signer allows it automatically (decisions/human/2026-11-11-executor-bots-funds.md)
+max_loss_per_tx_usd: 20
+max_loss_guarantee: >
+  Same mechanism as the predecessor of record (bots/archive/morpho-watcher2-ethereum):
+  the whole action runs in ONE transaction through the bot-deployed MorphoLiquidator, which
+  ends liquidate() with require(balAfter >= balBefore + minProfit) on its own USDC balance
+  and reverts otherwise, so the worst case is gas only; maxFeePerGas is derived per cycle
+  from the latest header (basefee x 9/8 + 0.001 gwei tip, capped 17.5 gwei) x gasLimit
+  460000 <= 0.00805 ETH <= 20 USD at any plausible signing-time ETH/USD. After the guard the
+  contract transfers its whole loan-asset balance (the proven profit) to the bot wallet (the
+  owner) in the SAME transaction (a failed transfer reverts the whole tx), so no profit is
+  left sitting in the executor for the watchdog/gate sweep to miss. The shrunk artifact keeps
+  the guard byte-compatible in behavior: only Error(string) reasons became custom errors and
+  unused whitelist getters/setters were dropped (selectors unchanged).
+expected_value: >
+  Counted per decisions/human/2026-11-12 item 2 (only cases whose measured time-to-capture
+  exceeds the 60 s poll interval + send): the two floor-admitted 1.01/1.34-USD-gross captures
+  stayed liquidatable 100 s (~8 blocks) and 112 s (~9 blocks) before the competitor captured
+  them (blocks 26372995/26372996), and the long-window captures ran ~2500 s (~208 blocks,
+  26373743) to >=7193 s (~599 blocks, 26391772) — median of the counted windows ~222 blocks,
+  minimum ~8 blocks (attempt 939 cadence measurements, run ef61ac40). The class-(a) big
+  capture 26384831 (repaid 92,326.04 USDC, gross +17.45 USD at the 398 USDC capital cap,
+  proven fork delta 0xede2f12f8793e4f41120d855de4051b025a6cf827fc6acf781903cc309ce689c
+  +71.731107) had a 12 s = 1 block window and does NOT count. Sum ~1.8 USD/day after gas at
+  the measured pinned rate; the dust-case fork delta +0.158935 USDC
+  (0x45ff8d9f9686b7a1bbab994b7b78a71f7cd268232e67448d28e42af045e9998b) proves the executor
+  floor admits the sub-1-USD gross captures. Read cost is ~0.17 USD/day, far below the EV.
+executor: "scratch/morpho-exec3/contracts/out/MorphoLiquidator.sol/MorphoLiquidator.json"
+executor_args: "0x000000000000000000000000bbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc20000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c5990000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000088e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+executor_note: >
+  Same constructor [MORPHO, WETH, WBTC, 0, 0, UniV3 WETH/USDC pool] and same external
+  selectors as the morpho-watcher2 artifact (liquidate cf1f5981, isPoolAllowed d1e71c94,
+  setPoolAllowed 1bfa59c3, owner 8da5cb5b, sweep 62c06767, MORPHO 3acb5624 — verified equal
+  across old and new forge artifacts this session); the WBTC route is armed by the one owner
+  init tx setPoolAllowed(0x9a772018fbd77fcd2d25657e5c547baff3fd7d16, true) exactly as the
+  live bot does. The minProfit floor is a per-call argument. Shrink vs the rejected 13,057-byte
+  artifact (deploymentBytecode 10,273 bytes): string requires became custom errors, the
+  C0..C3/P0 whitelist getters became internal immutables, and the unused
+  setCollateralAllowed/allowedCollateral/CollateralAllowed path was dropped (a new collateral
+  token would need a redeploy; the pools stay runtime-settable). Fork deploy gas measured on
+  the shared ethereum fork: this artifact 2,076,371 (tx
+  0x93255389d2abf185d3b269dd7ddfeb62cd951997171d5364beb664965297a080) vs the rejected
+  artifact 2,636,574 on the same fork / 3,190,399 in the gate's live measurement; this
+  artifact lands under the 3,000,000 limit in both measurement styles.
+fork_evidence: >
+  Shrunk executor proven on the shared ethereum fork (run a8ec3ebf, rerun script for the
+  reviewer: scratch/morpho-eth2-proof.js + new log scratch/morpho-eth3-proof-log.txt, lease
+  convention `fork lease ethereum 15` -> reset -> deploy -> run -> `fork release`): reset
+  26328589, deployed 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352 (constructor args as
+  executor_args; deploy tx 0x93255389d2abf185d3b269dd7ddfeb62cd951997171d5364beb664965297a080
+  gasUsed 2076371), oracle update attempt then SUCCESS
+  0xdb57c173c4cfa3feeec069058c796372627910b103be7e1804fdaeaeb79b0082 (liquidate WETH/USDC
+  borrower 0x20f45e54..., gasUsed 332505, BOT-WALLET (owner) USDC balance 0 -> 3711168:
+  delta +3.711168 USDC POSITIVE — the profit is PAID to the bot wallet in the same tx, the
+  executor left at ~0) and REVERT on the now-healthy position
+  0x95c3d56d807928eb6e9a07d75ce5a077c10ab0500307da66d8f3159d825bad18 status 0. Predecessor
+  proofs of the same protocol path (13,057-byte artifact, review 390f0db2 reproduced the
+  success and the guard): success 0xdb57c173… gasUsed 332595 (+3.711168 paid to the owner
+  wallet), forced-high-minProfit revert 0xd0b41094623f8e7b891a67af7d314a8a94fa735d3cf342eee17a30fe1171426e
+  reverted NO_PROFIT with the wallet USDC unchanged; dust-size success
+  0x45ff8d9f9686b7a1bbab994b7b78a71f7cd268232e67448d28e42af045e9998b (+0.158935 USDC, the
+  case the 0.5 USD floor admits); natural big case
+  0xede2f12f8793e4f41120d855de4051b025a6cf827fc6acf781903cc309ce689c (+71.731107 USDC).
+awaited_events: >
+  Liquidate on either pinned market (newest pinned captures: 26391772 (2026-11-11),
+  26386155, 26385478/26385468/26384831/26384826 (2026-11-11, wave incl. the (a)-class
+  92,326-USDC repayment), 26373743/26372996/26372995/26372986/26372984 (2026-11-08/09),
+  ledger morpho_blue.liquidate). Measured pinned rate post-cliff ~0.49 events/day; the
+  poll-catchable counted share is the two ~8-9-block-window floor captures plus the
+  long-window cases per 7d. Next is an UNSCHEDULED event; the bot polls.
+good_signs: >
+  Paper logs: start row with runtime_ok true, candidates_refreshed growing from the deep
+  backfill (deepCursor advancing from tip-450000), heartbeats every ~60 s with scanned > 0,
+  restamped counting the pinned in-debt candidates, opportunities at hf < 1.05, and for any
+  capture: opportunity -> simulate with sim_ok true, positive balance delta and
+  min_profit_onchain at the 0.5 USD + expected-fee floor; dust rows log simulate_skip with
+  NO eth_call.
+bad_signs: >
+  market_state_missing rows (multicall chunks failing), sims disabled by the fail-closed
+  runtime check, a simulate that succeeds on a healthy position, restamped stuck at 0 while
+  debtors > 0 (the fix would not be holding), POOL_NOT_ALLOWED on a WBTC sim, or gasUsed far
+  above the fork-measured 307k-419k range.
+rpc_reads_per_min: 10
+alchemy_cu_per_day: 323000 # 1440 cycles x 5 reads x ~115 CU + 288 refreshes x (1 header + 9 getLogs batches) x ~115 CU = nominal 322,560 CU/day measured at the paper cadence (nine refresh batches per the reviewer note), ~= 0.17 USD/day at the 1M CU ~= 0.53 USD line (decisions/human/2026-11-12 item 6)
+legal_note: >
+  Morpho Blue liquidations: the protocol pays the liquidator a liquidation bonus (measured
+  seize factor 1.0438 = 4.38% of repaid debt at the 86% LLTV coverage cap) through public
+  liquidate() anyone may call — an intended keeper mechanism under S; selling seized
+  collateral on Uniswap V3 at the pool spot is an AMM sale, no sandwiches or wash trades.
+  Same class as the predecessor accepted by the reviewer; no new legality surface.
+expedite: false

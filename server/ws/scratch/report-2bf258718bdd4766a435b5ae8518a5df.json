@@ -1,0 +1,12 @@
+{
+  "run_id": "2bf258718bdd4766a435b5ae8518a5df",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane board walk after request exhaustion: felix lead149 reopen recheck + across backfill status + kHYPE gap scout -> lead 187",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1287", "leads:187"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "No measurement request pending (14 closed; 182-186 closed today). Ledger-only rechecks: felix lead149 fails both reopen bars (7 d volume 70,529 feUSD < 250k); the across 3,543-fill top-actor burst is the 11-07..09 backfill window (cursor 26,373,835 vs head 26,419,483), class already dead on the 7 s fill race; no one-shot leftover. Every non-liquidation ledger class has an attempt row and today's six fresh-class scouts all died on role-gating/no-caller-reward/sub-R flashes, so the new request follows the week's only winner (venue-specific discount, lead 184): lead 187 = Kinetiq kHYPE-vs-NAV discount at HyperEVM pools (kHYPE 0xfd739d..296d pinned from the DefiLlama adapter and live-verified via symbol()), full runnable request with episode-duration bar in next_steps. ~5 relay-free reads + 1 eth_call used."
+}

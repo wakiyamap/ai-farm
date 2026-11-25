@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-yam-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "yam-finance",
+ "name": "Yam Finance",
+ "category": "Synthetics",
+ "tvl_usd": 108507,
+ "url": "",
+ "github": [
+  "yam-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "71839afe809a4ff1b2cb68f6983a8bee",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: 11 expired UMA-fork ExpiringMultiParty contracts (92,885 USDC + 9.07 WETH = 107.9k USD); callable fns pay 0 to caller (payRegularFees->0, settleExpired pays caller's own collateral, expire/remargin/withdrawLiquidation revert role/state-gated); 0 events on all 11 in 7d (blocks 26418813 2026-11-15 -> 26469067 2026-11-22, no-topic scan, control WETH 7,625 logs/204 blk); last tx 2026-11-13 was sponsors self-settling, gas ~0.01 USD at 0.127 gwei",
+  "kb": [
+   "protocols:1870",
+   "attempts:3635"
+  ],
+  "run_id": "71839afe809a4ff1b2cb68f6983a8bee",
+  "at": 1795331805
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-dxsale",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1588,
+ "chain": "ethereum",
+ "slug": "dxsale",
+ "name": "DxSale",
+ "category": "Launchpad",
+ "tvl_usd": 472349,
+ "url": "https://dx.app",
+ "github": null,
+ "listed_days_ago": 1588,
+ "run_id": "b22d6fa8feab45308313e3ab5207a0e2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Ethereum DxSale = 5 locker contracts (3 DxLocker V3 0x1Ba0/0xe740/0xc68C, lockerNumberOpen 37/7/149; LockerV3.3 storages 0x983b/0xFEE2, lockerIDCount 154/303): unlockToken(uint256) reverts from a fresh address ('user doesnt have a locker'), pays only the caller's own LP; 0 logs on all 5 in 7d (blocks 26414962-26465210, chunked, controls: WETH 32794 logs + contract's own topic0 from receipt 0xcf22537a); last txs 2026-02-27/2024-11/2024-07 \u2014 no stranger ever paid, TVL 472k USD is locked LP.",
+  "kb": [
+   "attempts:3423",
+   "protocols:1718"
+  ],
+  "run_id": "b22d6fa8feab45308313e3ab5207a0e2",
+  "at": 1795285588
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-rari-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "rari-capital",
+ "name": "Rari Capital",
+ "category": "Yield Aggregator",
+ "tvl_usd": 843782,
+ "url": "",
+ "github": [
+  "Rari-Capital"
+ ],
+ "listed_days_ago": null,
+ "run_id": "5955a9f919bd4a35b1e0fe4680c2935e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Rari v1 + RGT LP distributor (proxy 0x1FA69a41...): claimAllRgt/claimRgt/distributeRgt callable by anyone but pay only msg.sender's own accrued stake - stranger eth_call reverts 'Unclaimed RGT not greater than 0'; RGT stream ended block 14,671,500 (2022-04); 0 events of any kind in 7 d (blocks 26,418,125-26,468,384, 2026-11-15 to 11-22, no-topic scan, WETH control 15,900 logs/256 blk); residual pot 4,958.1 RGT usd:unpriced, 287.5 LP staked; fund manager 0x26a7ac3e impl has no caller-paid keeper fn; TVL 838k USD Ethereum (llama 2026-11-22)",
+  "kb": [
+   "attempts:3592",
+   "protocols:1837"
+  ],
+  "run_id": "5955a9f919bd4a35b1e0fe4680c2935e",
+  "at": 1795323571
+ }
+}

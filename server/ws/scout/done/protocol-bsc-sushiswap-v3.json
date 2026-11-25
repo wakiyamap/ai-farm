@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-sushiswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1326,
+ "chain": "bsc",
+ "slug": "sushiswap-v3",
+ "name": "SushiSwap V3",
+ "category": "Dexs",
+ "tvl_usd": 38899,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": 1326,
+ "run_id": "8d09fa1287764c0a8fb5c5e61debdbc0",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Plain sushiswap/v3-core UniV3 fork (factory 0x126555dd55a39328F69400d6aE4F782Bd4C34ABb, Sourcify exact match, owner 0xcd03e2e2...87b9): no public function pays its caller - createPool/mint/collect/burn/swap/flash/increaseObservationCardinalityNext cost gas and pay 0 (collect pays a recipient argument), setOwner/enableFeeAmount owner-gated, setFeeProtocol/collectProtocol onlyFactoryOwner; 7d (blocks 133856975 2026-11-16 to 135200432 2026-11-23): 11 PoolCreated from 5 EOAs, 0.00 USD gross to callers; TVL 38,899 USD. Same dead end as sushiswap_v3 on ethereum/base/polygon/arbitrum.",
+  "kb": [
+   "attempts:3972"
+  ],
+  "run_id": "8d09fa1287764c0a8fb5c5e61debdbc0",
+  "at": 1795406480
+ }
+}

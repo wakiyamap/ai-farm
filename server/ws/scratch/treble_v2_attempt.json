@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-treble-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Treble V2 (Algebra-fork DEX on Base, factory 0x6e606Cf94A4DDc01aEed2Fce16d1b4f5B33e0A31 from DefiLlama registries/uniswapV3.js) has one public reward function - AlgebraEternalFarming.claimReward (0x346321eece97ae9858fbd441fe895ba559b38eab), callable by anyone (eth_call from a fresh address returns 0, no role revert) - but the farm pot is empty: numOfIncentives()=0 and 0 RewardClaimed events since deployment 2025-12-04 (contract has only its deploy txs). No stranger was ever paid; DEX is barely active (SwapRouter last tx 2026-10-29, TVL $206.5k).",
+  "numbers": "RewardClaimed getLogs blocks 39,023,463->58,639,356 = 0; control USDC Transfer 1000 blocks = 25,688 logs (relay, 2026-11-17). EF tx count 2 (deploys, Blockscout). numOfIncentives=0 (eth_call 0x82bd79ea). Gas 0.006 gwei (eth_gasPrice 0x5b8d80), ~100k gas/claim ~ $0.001 at ETH $1812.37 (Blockscout). TVL $206,505 (api.llama.fi 2026-11-17)."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-uniswap-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 656,
+ "chain": "avalanche",
+ "slug": "uniswap-v4",
+ "name": "Uniswap V4",
+ "category": "Dexs",
+ "tvl_usd": 2768002,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 656,
+ "run_id": "750f5e80bce242a58e289cfe1ece543e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Uniswap V4 PoolManager avalanche 0x06380c0e0912312b5150364b9dc4542ba0dbbc85 (48 active pools over 7d, ~25k swaps/7d, top-8 all hooks=0x0): no anyone-callable function pays the caller; the only payer collectProtocolFees is controller-gated (stranger eth_call reverts InvalidCaller 0x48f5c3ed) and protocolFeesAccrued = 0 for native/WAVAX/USDC; LP fees accrue to the LP's own ERC-6909 position",
+  "kb": [
+   "attempts:2015"
+  ],
+  "run_id": "750f5e80bce242a58e289cfe1ece543e",
+  "at": 1794980806
+ }
+}

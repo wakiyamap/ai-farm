@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "pancakeswap_amm",
+  "status": "dead_end",
+  "checked": "2026-11-20 scout run 05849071: candidate pancakeswap-amm on base (TVL 469,263 USD, Dexs). DefiLlama adapter projects/pancake-swap/index.js: base = getUniTVL({factory: 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E}); staking config covers bsc/ethereum/era/arbitrum only, no base chef/syrup. Factory confirmed: eth_getCode non-empty; feeTo()=0x82b852d8483111fd2c714a2579ee9d4e83947a60, feeToSetter()=0xddaf25d9363f852122d0c80ba33e7c613e8abb47, allPairsLength()=63,903 all answer (rpc.py base). Verified source via explorer (Blockscout, PancakeFactory.sol, solc 0.5.16) = canonical Uniswap-V2 fork: factory createPair (caller pays, returns new pair, pays 0), setFeeTo/setFeeToSetter (feeToSetter-gated); pair PancakePair mint/burn/swap/skim/sync/permit, _mintFee accrues only to feeTo on LP burn; NO update()/masterChef hook - masterChef() (0x575a86b2) reverts on sample pair 0x79474223aedd0339780bacce75abda0be84dcbf9. No anyone-callable function pays the caller: eth_call from fresh 0x00000000000000000000000000000000cafe0001: skim(to)=void success (transfers only existing excess, no pot), createPair(WETH,0x1111..)=success. Verdict no_reward, mirrors pancakeswap_amm_v3 (KB attempt 2324) and pancakeswap_infinity (1936)."
+}

@@ -1,0 +1,28 @@
+{
+ "id": "protocol-ethereum-tokenpocket",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1305,
+ "chain": "ethereum",
+ "slug": "tokenpocket",
+ "name": "TokenPocket",
+ "category": "Staking Pool",
+ "tvl_usd": 212407,
+ "url": "https://dapp.tokenpocket.pro/StakeVault/#/",
+ "github": [
+  "tokenbankteam",
+  "TP-Lab"
+ ],
+ "listed_days_ago": 1305,
+ "run_id": "ebc81c5b92bd44fab1ebd199385865d0",
+ "result": {
+  "verdict": "not_found",
+  "line": "no staking contract on ethereum: adapter projects/TokenPocket/index.js has no addresses, TVL comes from off-chain API preserver.mytokenpocket.vip/v1/pledge/global (HTTP 404 today, flat 100 units since 2024-10-24 => 212,407 USD stale); only address is TPT token 0x4161725d019690a3e0de50f6be67b07a86a9fae1 (symbol TPT, decimals 8, ABI = bare ERC-20, no claim/reward fn), 6 Transfer events in 4 txs over 7d (blocks 26413759 2026-11-14 -> 26464159 2026-11-21, largest 4.93 TPT, EOAs + SakeSwapPair); dapp.tokenpocket.pro/StakeVault 404.",
+  "kb": [
+   "attempts:3356",
+   "protocols:1668"
+  ],
+  "run_id": "ebc81c5b92bd44fab1ebd199385865d0",
+  "at": 1795272559
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-azverse-perps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 108,
+ "chain": "bsc",
+ "slug": "azverse-perps",
+ "name": "AZverse Perps",
+ "category": "Derivatives",
+ "tvl_usd": 950841,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 108,
+ "run_id": "a274de08cad84a5daa5fba71b6597de2",
+ "result": {
+  "verdict": "not_found",
+  "line": "No contracts on bsc: all 4 adapter addresses are eth_getCode 0x (qualified-custodian EOAs holding 898.5k USD USDT/USDC: 0x03a7 92.0k USDT+18.8k USDC nonce 694, 0xdc37 598.1k USDT+189.6k USDC nonce 1, chainTvls.Binance 942.5k); AZX is an off-chain CEX-style DEX (engine settles on its own AZ L1, docs: positions closed by the system, no liquidator/keeper role, no contracts repo in the AZverse org); matches prior arbitrum dead_end (attempts 389-391)",
+  "kb": [
+   "attempts:1635",
+   "protocols:330"
+  ],
+  "run_id": "a274de08cad84a5daa5fba71b6597de2",
+  "at": 1794901592
+ }
+}

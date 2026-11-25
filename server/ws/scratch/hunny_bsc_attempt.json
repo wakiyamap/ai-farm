@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-hunny-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. getReward() is the only callable-by-anyone pays-caller function and pays 0 to a stranger (it pays msg.sender's own earned()); harvest() is the auto-compound keeper action, gated 'owner or keeper' on most deployed vaults and pays 0 where callable. Protocol is near-dead: zero logs on all 16 vault contracts in the last 7 days, last activity 2026-11-02 was a depositor claiming their own funds.",
+ "numbers": "7d window blocks 133,942,456->135,687,818 (ts ~1794842255->1795447532, 2026-11-16..23; BSC 0.375 s blocks); 0 logs no-topic scan over 16 vault addresses; control same-shape same-addresses from block 117,440,512: 22 logs total (sample of 22 of 22, latest tx 0xf742eff3... 2026-11-02). TVL 62,296 USD (api.llama.fi 2026-11-23). CAKE farm 743.8 CAKE = ~1,200 USD (CAKE 1.6129 USD, coins.llama.fi 2026-11-23 15:32 UTC). Gas: eth_gasPrice 0.05 gwei x ~250k gas = 1.25e-5 BNB = 0.007 USD (BNB 574.21 USD same source/timestamp)."
+}

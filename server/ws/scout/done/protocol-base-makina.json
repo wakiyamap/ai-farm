@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-makina",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 376,
+ "chain": "base",
+ "slug": "makina",
+ "name": "Makina",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 1876151,
+ "url": "https://app.makina.finance/",
+ "github": [
+  "MakinaHQ"
+ ],
+ "listed_days_ago": 376,
+ "run_id": "ee20975ee44344fe920faf60ae43842a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Makina v2 machines (8 Dialectic vaults, 1.86M USD TVL, impl 0x9117aaf6..Machine): all keeper fns role-gated - updateTotalAum 24 calls/7d (blocks 55,667,452-58,691,453) only by whitelisted accounting agents (0x2ca7457d, 0x70b5aee1, ...), stranger eth_call reverts / mechanic succeeds, restrictedAccountingMode=1 on all 8; pays caller 0 USD (fee shares go to fee recipients), gas ~378,107 @0.006 gwei = ~0.004 USD (ETH 1801 USD, coins.llama.fi)",
+  "kb": [
+   "attempts:1769"
+  ],
+  "run_id": "ee20975ee44344fe920faf60ae43842a",
+  "at": 1794929090
+ }
+}

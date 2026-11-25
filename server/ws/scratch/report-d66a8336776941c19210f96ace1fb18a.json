@@ -1,0 +1,12 @@
+{
+  "run_id": "d66a8336776941c19210f96ace1fb18a",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "bridge-vs-bridge USDC quote comparison (decision 2026-11-16-bridge-vs-bridge-quotes): 50 bps matched-floor confirmation pass, Relay vs Across/StargateV2/CCTP/Mayan, 8 chains, 200/2000 USD",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1393", "leads:193"],
+  "wiki_pages": ["infra/bridge-relay-quote-api.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure queue was empty; the decision's request was already closed once (attempts:1344) but the queue never listed it, so this session re-ran it as a confirmation with matched 50 bps floors and full-coverage Relay legs: 0 of 127 round-trip combos reach +0.30% at 200 USD (best floor -0.556%, best center -0.041% Relay base<->hyperevm; at 2000 best center -0.020%, fee scales down but never positive). 0 fork, 0 tx, 0 farm relay CU (quote-API HTTPS only). Provider facts for next time: LiFi needs a browser-like User-Agent and hard-429s ~2 h after ~120 keyless quotes; deBridge/Squid hosts do not resolve here; Across Swap API is key-required. The decision's one-measure-session budget is now spent twice."
+}

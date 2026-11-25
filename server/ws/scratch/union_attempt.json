@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-union-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only public reward function, userManager.withdrawRewards(), is role-free but pays 0: all 15 LogWithdrawRewards events in the last 7 days paid 0 UNION because the comptroller's UNION pot holds just 2.74 UNION. Market is in wind-down (0 borrow/repay/mint/redeem in 60d, 8 unstakes 7d); even if funded, UNION itself has no market price on DefiLlama.",
+  "numbers": "7d withdrawals: 15 (eth_getLogs topic0 0x9074ae8fe137f8dd6d158c0e5f1d0b3169b04ba4be11a18ec03b9269b8e91a1a on comptroller 0x06a31efa04453c5f9c0a711cdb96075308c9d6e3, blocks 159309654..latest 159612054), all amount=0; last nonzero payout 0.2673 UNION 2026-10-16 block 0x96eed7c; pot 2.742 UNION (balanceOf); accrued examples 22.2/116.2 UNION (calculateRewards); staked 52,494 DAI, borrowed 39,470 DAI (UToken/UserManager getters); OP gasPrice 1,000,805 wei => gas < $0.01/withdrawal; 0 uToken market events 60d (control: same-shape comptroller query returned 274 logs over 60d)"
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-tenderize-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. rebase() is the only anyone-callable function and pays the caller nothing: the staking-fee share is minted to registry.treasury() (Tenderizer.sol L148-156), no transfer to msg.sender. Zero calls to all 34 Tenderizer clones in 7 days, so nobody was paid; last activity was a user withdraw/unlock on 2026-11-03. Even when active the taker pays gas for $0 in return - Tenderize runs it via Gelato paid off-chain, not on-chain.",
+ "numbers": "7d window blocks 26,412,582 (2026-11-14 10:19 UTC) -> 26,462,829 (2026-11-21) via timestamps: no-topic eth_getLogs, all 34 tenderizers (32+2 addresses) = 0 logs. Control same shape, same 32 addresses, 90d = 15 logs, newest block 26,337,188 (2026-11-03 22:12 UTC), tx 0x24862d2c...; those 15 logs are all user ops (Rebase+Unlock 0xf7870c5b, Withdraw 0xf279e6a1, Transfer/Approval) - no standalone rebase() tx. rebase() eth_call from fresh address succeeds on 0x218337076c79a6d94eb3b557f2c89ddd82e883a0 and 0x502ec99b6dfa76cf2fe8041ce3dc954fecc43c31 (no revert = callable by anyone); debug_traceCall gas 226,458, gasPrice 0.1366 gwei => $0.05 at ETH $1,638.51 (coins.llama.fi ts 1795256805). Caller reward $0. TVL ethereum $106,253 (api.llama.fi/protocol/tenderize-v2, 2026-11-21); largest clone 0x502e.. totalSupply 82,046 POL @ $0.07435 (coins.llama.fi ts 1795256805) = $6,100; POL/MATIC decimals 18 read from WMATIC quote."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-sushiswap-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: SushiSwap V3 on base is a standard Uniswap V3 fork (factory + pools + periphery). No public function pays the caller: LP swap fees accrue to positions and are withdrawn by the position owner/operator via NonfungiblePositionManager.collect (isAuthorizedForToken gated), not collectable by a stranger; pool.collect reads positions[msg.sender] so a stranger gets 0; no reward/incentive/harvest/keeper function exists in the source and DefiLlama lists rewardTokens null for all Base pools. Nothing for a keeper bot to earn.",
+  "numbers": "TVL $1,661,141 (candidate, DefiLlama 2026-11-19). Factory 0xc35dadb65012ec5796536bd9864ed8773abc74c4 (DefiLlama adapter), eth_getCode != 0x, owner()=0x000000000000000000000000cd03e2e276f6eedd424d41314437531f665187b9 answers. Periphery (github.com/sushiswap/v3-periphery deployments/base): NFTPM 0x80C7DD17B01855a6D2347444a0FCC36136a314de + SwapRouter 0xFB7eF66a7e61224DD6FcD0D7d9C3be5C8B049b9f, both eth_getCode != 0x and WETH9()=0x4200000000000000000000000000000000000006 answers. grep -i 'reward|incentive|harvest|distribute|bounty|keeper' over periphery contracts/ = 0 hits. DefiLlama yields.llama.fi/pools: all Base sushiswap-v3 pools rewardTokens null. NFTPM activity (explorer txs, control, block 59236392): last 15 txs span 4.3 days to 3.7h before check; callers are LP EOAs (0x2fe16a34, 0xd82f33cb), not paid keepers."
+}

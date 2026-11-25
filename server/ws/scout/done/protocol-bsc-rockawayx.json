@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-rockawayx",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 235,
+ "chain": "bsc",
+ "slug": "rockawayx",
+ "name": "RockawayX",
+ "category": "Risk Curators",
+ "tvl_usd": 108653,
+ "url": "https://rockawayx.com/",
+ "github": null,
+ "listed_days_ago": 235,
+ "run_id": "9fbfe4abf36a4751b057ebba8eac9dea",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BSC rockawayx = one Lista MoolahVault ERC-4626 0xb5a30e1fa2cf3c8dea882124b3ab5a47a27c5dd2 ('RockawayX PT Yield', 108,653 USDT, impl 0x713a7e23...fCc95): reallocate() reverts 'not allocator or bot'; only free fn skim(token) pays skimRecipient not caller and reverts (skimRecipient=0); 7d scan (269x5000 blk, 132,775,207-134,119,207 @0.45s/bl): 0 Skim, 9 AccrueInterest all inside 2 Deposit/7 Withdraw user txs; stranger gross 0 USD, call ~\\bash.0015 (0.05 gwei, BNB 593.09 USD coins.llama.fi).",
+  "kb": [
+   "attempts:1722",
+   "protocols:389"
+  ],
+  "run_id": "9fbfe4abf36a4751b057ebba8eac9dea",
+  "at": 1794918975
+ }
+}

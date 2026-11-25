@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-alchemix-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 206,
+ "chain": "base",
+ "slug": "alchemix-v3",
+ "name": "Alchemix V3",
+ "category": "Synthetics",
+ "tvl_usd": 2227805,
+ "url": "https://alchemix.fi/",
+ "github": null,
+ "listed_days_ago": 206,
+ "run_id": "85c60689dd0c4ea5847ae4882576c344",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Alchemix V3 base: anyone-callable liquidate/batchLiquidate (liquidatorFee 150bps=1.5% MYT to msg.sender) and pokeMatured (pays 0); Liquidated events 0 in last 7d (blocks 55588536-58612536) and 0 since launch from block 51125654; control PositionClaimed same range = 31 events/31 txs all self-claims via official router 0x720d1f94; liquidate(1) from fresh addr returns (0,0,0); gas ~0.006 gwei ~ $0.002/call (ETH $1785.87 llama).",
+  "kb": [
+   "attempts:1690"
+  ],
+  "run_id": "85c60689dd0c4ea5847ae4882576c344",
+  "at": 1794913412
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-planet-farm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "planet-farm",
+ "name": "Planet Farm",
+ "category": "Yield",
+ "tvl_usd": 1494040,
+ "url": "https://app.planet.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "55adcb1635c54768974f848d8c386095",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Harvest-fork earn()/farm() on Planet Farm strats is publicly callable (v2 strat 0xa24ce288 earn() reverts '!isAutoComp' = config not role) but pays the caller 0 USD (all fees to protocol addresses, V1 repo source); 7d pool updates 0/57 v1, 0/63 v2 (newest 8.7d), 2/24 Infinity (4.1d, user deposits), 0/8 v3 (62d) from lastRewardBlock at head 134633590; TVL 1.49M USD, gas ~0.004 USD/call (0.05 gwei x 150k x BNB 566.46)",
+  "kb": [
+   "attempts:2768"
+  ],
+  "run_id": "55adcb1635c54768974f848d8c386095",
+  "at": 1795150932
+ }
+}

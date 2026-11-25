@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-threshold-thusd",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 876,
+ "chain": "ethereum",
+ "slug": "threshold-thusd",
+ "name": "Threshold thUSD",
+ "category": "CDP",
+ "tvl_usd": 1698073,
+ "url": "https://app.thresholdusd.org",
+ "github": null,
+ "listed_days_ago": 876,
+ "run_id": "c6e5f259f4ab4441833fb2b29169b1dd",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Liquity V1 fork: TM liquidate/batchLiquidateTroves (0x27d7d02a, 0xfc7d41a6) pay caller 200 thUSD (unpriced, ~200 USD at par) + 0.5% coll/trove, not role-gated; 0 calls in 7d (blocks 26411475-26461842, no-topic scans 0 logs on both TMs+BAMM+SP+debt token, 1 Approval; control 1654 logs); 6 troves, all revert 'nothing to liquidate' now (ICR 0.74 trove is the last of its system); last liq+redeem block 23841310 2025-11-20 (366 d); gas ~0.25 USD",
+  "kb": [
+   "attempts:3227"
+  ],
+  "run_id": "c6e5f259f4ab4441833fb2b29169b1dd",
+  "at": 1795245554
+ }
+}

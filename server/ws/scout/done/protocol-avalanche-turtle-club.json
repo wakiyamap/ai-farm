@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-turtle-club",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 564,
+ "chain": "avalanche",
+ "slug": "turtle-club",
+ "name": "Turtle Club",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 34817,
+ "url": "https://app.turtle.xyz/",
+ "github": [
+  "Turtle-DAO"
+ ],
+ "listed_days_ago": 564,
+ "run_id": "f692e9abedaf42f58e587550fbb3f944",
+ "result": {
+  "verdict": "role_gated",
+  "line": "3x Lagoon v0.5.0 vaults (OptinProxy -> impl 0x33F65C8D025b5418C7f8dd248C2Ec1d31881D465, routescan/Sourcify): settleDeposit/settleRedeem/expireTotalAssets/claimSharesOnBehalf onlySafe, updateNewTotalAssets onlyValuationManager, settleDeposit reverts from fresh addr on all 3, and no fn pays the caller; 7d (blocks 100410372 2026-11-15 17:55 -> 101091367 2026-11-22 17:55, 681k blocks): 4 logs / 3 txs, 1 EOA 0xfc67..0663 self-withdrawing 30.79 AVAX on the AVAX vault, 0 on USDC/BTC (same-shape control), 0 USD gross paid to anyone.",
+  "kb": [
+   "attempts:3805",
+   "protocols:1993"
+  ],
+  "run_id": "f692e9abedaf42f58e587550fbb3f944",
+  "at": 1795370460
+ }
+}

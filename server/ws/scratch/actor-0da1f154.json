@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "address": "0x0da1f1549e9377b566f52268800e51826dccde3b",
+  "strategy": "EOA running flash-loan USDC round-trip arbitrage through its own unverified executor 0x1438e66b049ab1df862b56126969911afd4e97c1 (owner() == this EOA): calls 0x9d410c42 (onlyOwner - eth_call from a fresh address reverts 0x30cd7471), executor flash-loans USDC (0xb8ce59fc..., 6dp) from 0x68e37de8 via flashLoan(address,uint256,bytes) selector 0xe0232b42, buys token 0x02c6a2fa and sells it back into USDC across 2-3 HyperEVM pools (1.6-1.9M gas), forwards the exact spread to its own EOA treasury 0x18c6a0c85655824ab3000f8d7c1160da750c0b2e; plus 21k-gas empty self-calls as heartbeats. Bursts of ~16 arb calls/day, ~16% revert; the EOA itself receives nothing in-transaction.",
+  "evidence": "0x30ba123ac9bbee2a970571688eb0805777455b5e23f528aec3241c91a8eb9613 (debug_traceTransaction callTracer: flash 160.00 USDC in, 160.059494 back, repay 160.000000, 59,494 = $0.0595 forwarded to 0x18c6a0c8); 0xedfac838433ae6a03c0a6eb015b7003d037d689fae221714e4677fd7ec968eab (+$0.0559 to treasury, gas $0.016); 0x0f4910c1f226509331ee9ebc810f295f98ee23d3464279e34eba84fa32faa85e (+$0.1835, gas $0.034); 0x75ee92754213ea84fda1ec08171ea94978c44f38b45a012e972c37920425986d (success, 0 forwarded, gas $0.111); eth_call replay at block 0x30fb05d: from 0x0da1f154 ok, from 0x1111...1111 reverts 0x30cd7471",
+  "est_profit_usd_day": 0.33
+}

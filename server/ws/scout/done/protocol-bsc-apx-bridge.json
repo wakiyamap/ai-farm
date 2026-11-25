@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-apx-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1642,
+ "chain": "bsc",
+ "slug": "apx-bridge",
+ "name": "APX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 4323115,
+ "url": "https://www.asterdex.com/en/referral/c6eF10",
+ "github": null,
+ "listed_days_ago": 1642,
+ "run_id": "8265a2e462ea409398075ced6b53f34e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "APX perp diamond 0x1b6F..FEb0 (apollox-perp-contracts, 229 deployed selectors): the only keeper entry points executeTpSlOrLiq 0xa6ab4a81 / executeLimitOrder 0xbc4e343e revert 'missing role KEEPER_ROLE 0xfc8737ab..' from a stranger (4 keepers), and even they are paid 0 - liquidation closeFee goes to the LP vault; 0 ExecuteCloseSuccessful/limit-order/any diamond events in 10x5000-block windows sampled over 7d (control USDC Transfer 28 logs/8 blocks), gross 0 vs gas ~1e-4 USD - idle and role-gated.",
+  "kb": [
+   "attempts:2481"
+  ],
+  "run_id": "8265a2e462ea409398075ced6b53f34e",
+  "at": 1795084490
+ }
+}

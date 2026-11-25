@@ -1,0 +1,11 @@
+# Phase 13a: the earner role on Claude (build lane), 8 sessions a day, 3 hours apart,
+# 30 minutes after the researcher runs (xx:10 JST) so the two do not start together.
+[Unit]
+Description=Farm earner on Claude (earner-claude), every 3 hours
+
+[Timer]
+OnCalendar=*-*-* 00/3:40:00 Asia/Tokyo
+Unit=agent@earner-claude.service
+
+[Install]
+WantedBy=timers.target

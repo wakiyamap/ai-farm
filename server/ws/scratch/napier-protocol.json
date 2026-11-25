@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "napier",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter v1.js/v2.js (2026-11-23) identifies V1 factories 0x17354e8e7518599c7f6B7095a6706766e4e4dC61, 0x83CE9e95118b48DfED91632e1bB848f1D4ee12e3 and V2 factory 0x0000001afbCA1E8CF82fe458B33C9954A65b987B. eth_getCode nonempty and owner()/management()/getPoolList() answered; V2 getPoolList returned 74 pools. Sample pool 0x2f54543f9505ad01d5da6952b93956cbecaf4a0e has code, fee_receiver() answered, verified CurveTwocryptoOptimized source shows fees sent to fee_receiver, not the caller. Sample V2 principal token 0x368fb44afee5fd09edb945a4f56d57828a2a1303 has code and i_asset() answered (WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2). Etherscan/Blockscout verified V1 Tranche.sol and V2 PrincipalToken.sol: collect only pays msg.sender or an owner-approved collector; V1 claimProtocolFees is onlyManagement; V2 collectCuratorFees/collectProtocolFees require restricted access. No open bounty or caller fee found."
+}

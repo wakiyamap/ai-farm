@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "valuedefi",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/valuedefi.js: swapFactory 0x1b8e12f839bd4e73a47addf76cf7f0097d74c14c (hydraswap-style weighted AMM; allPairsLength()=439 answers, allPairs(0)=0x8dd39f0a49160cda5ef1e2a2fa7396eec7da8267) + stableSwapFactory 0xc6e111637440d1fe9c1ee45d5a1239771b267122 (proxy; allPoolsLength()=14, allPools(0)=0x0a7e1964355020f85fed96a6d8eb10baac457645). Both eth_getCode non-0x. Selectors reverse-resolved via 4byte.directory: factory exposes getPair/getCollectedFees (view)/protocolFee/setProtocolFee (owner)/createPair + one-off tg_invmru airdrop claims; pools expose swap/addLiquidity/removeLiquidity/calculate* views. No public harvest/claim/reward function that pays the caller. 7-day eth_getLogs scan (blocks 133297499-134641499, 269 chunks x 5000, control USDC 706 logs): 593 logs / 450 txs over 32 contracts (14 stable pools + 17 sampled weighted pairs + factory), 93 Swap events, callers are EOA users via routers (e.g. 0x854f6276e266c1e4b0e54ea1a0474a7e1dc3c1d7). No keeper/claim pattern."
+}

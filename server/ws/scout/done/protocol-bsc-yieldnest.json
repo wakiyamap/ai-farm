@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-yieldnest",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 921,
+ "chain": "bsc",
+ "slug": "yieldnest",
+ "name": "YieldNest",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 84733,
+ "url": "https://yieldnest.finance/",
+ "github": [
+  "yieldnest"
+ ],
+ "listed_days_ago": 921,
+ "run_id": "512ab91a1ff24f3896eed517cc7edd7f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "processAccounting() is stranger-callable on 4 of 5 bsc vaults (eth_call from fresh addr OK; ynBNB's Timelock impl lacks it, execute is role-gated), pays 0 (no transfer to msg.sender in verified source; ynBNBx hooks()=0x0): 0 calls in 7d blocks 133807704-135151157 and 0 in 30d (Transfer control=1), gas/call 0.002-0.021 USD (84.8k-770k gas x 0.05 gwei, BNB 557.30 coins.llama.fi 1795383008); alwaysComputeTotalAssets=true makes the keeper unnecessary",
+  "kb": [
+   "attempts:3870"
+  ],
+  "run_id": "512ab91a1ff24f3896eed517cc7edd7f",
+  "at": 1795383564
+ }
+}

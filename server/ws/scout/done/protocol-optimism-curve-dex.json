@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-curve-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "curve-dex",
+ "name": "Curve DEX",
+ "category": "Dexs",
+ "tvl_usd": 1186998,
+ "url": "https://curve.finance",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "915bde33856b4d41a5b57f0c899b5db5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: 97 pools, 878k USD; only permissionless fee fn is withdraw_admin_fees() (fresh-addr eth_call ok) and it pays factory fee_receiver 0xbf7e49..ca41, caller keeps 0; on v1 3CRV it is owner-only. No gauges (0 of 97), no local minter. 7d (159,477,075-159,779,475): 0 such calls, 0 in 30d, on top-5 NG pools + 3CRV (control: 5/3/4/21/20 other-selector txs); 5 fee sweeps moved 168.17 USD gross (largest 86.98, tx 0xf9e95a1f) to the fee_receiver inside users' own liquidity txs; pots left ~20 USD NG, 3CRV 77.02; gas 98,200 x 1,035,386 wei = 0.00018 USD at ETH 1,747.77 (llama 06:55Z).",
+  "kb": [
+   "attempts:2803",
+   "protocols:1231"
+  ],
+  "run_id": "915bde33856b4d41a5b57f0c899b5db5",
+  "at": 1795158574
+ }
+}

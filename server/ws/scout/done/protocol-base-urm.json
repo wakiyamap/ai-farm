@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-urm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 31,
+ "chain": "base",
+ "slug": "urm",
+ "name": "URM",
+ "category": "CDP",
+ "tvl_usd": 50133,
+ "url": "https://ultraroundmoney.com",
+ "github": null,
+ "listed_days_ago": 31,
+ "run_id": "ed739767101a4a4bacb32496afe7e85f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "URM CDP base: every keeper fn (autoUnwind liquidation, Fortress pegDefense, syncs, config) requires one automator EOA 0xcbe5a410...8020 (UDO.getAutomator); fresh-address eth_call hub.autoUnwind and Fortress.pegDefense both revert 'auth'. 7d (blocks 57704827-60726523, 2026-11-15 to 11-22): 7 autoUnwind liquidations, all 7 sent by the automator EOA, 0 by strangers; gross to caller 0 (clearing tax+interest -> Fortress, 205.11 URM ~= 204 USD via FortressPaid x47; refund -> NFT owner); gas 0.96-1.20M ~= 0.011-0.020 USD/call at 0.0066 gwei, ETH 1682.81 USD (coins.llama.fi 2026-11-22).",
+  "kb": [
+   "attempts:3651"
+  ],
+  "run_id": "ed739767101a4a4bacb32496afe7e85f",
+  "at": 1795336818
+ }
+}

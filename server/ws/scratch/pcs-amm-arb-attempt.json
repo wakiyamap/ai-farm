@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-pancakeswap-amm",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. PancakeSwap AMM (v2) on arbitrum is a Uniswap V2 fork: factory 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E (createPair/setFeeTo/setFeeToSetter only) and PancakePair (mint/burn/swap/skim/sync + permit, no collect, no flash in this deployment). Fees accrue to LPs and feeTo 0x82b852d8483111fd2c714a2579ee9d4e83947a60 during user swaps; no public function pays a caller. Staking add-on: 9 SmartChef farms (factory 0xD621A46e8d8D077ceFfd080c6bD4Be60a1783D6c, newest 2024-09-24) - harvest() reverts from a stranger (eth_call from fresh addr, bare revert on zero shares) and all 9 had 0 Harvest events in 7 days; users pay, nobody earns a fee for calling.",
+ "numbers": "TVL 517k USD candidate / 538,776 USD Arbitrum AMM + 4,829 USD staking CAKE (api.llama.fi/protocol/pancakeswap-amm 2026-11-19); 849 pairs (allPairsLength at block 525718564); 9 SmartChef farms (NewSmartChefContract logs from block 121169985); Harvest events 7d = 0 over 9 farms (blocks 523366980..525718564); control 91 Swap events 7d on 32 sampled pairs of 849 (3 pairs active); gross to a stranger caller = 0, so no gas comparison needed"
+}

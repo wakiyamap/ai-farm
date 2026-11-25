@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-ccip",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 166,
+ "chain": "avalanche",
+ "slug": "ccip",
+ "name": "CCIP",
+ "category": "Bridge",
+ "tvl_usd": 51425676,
+ "url": "https://chain.link/cross-chain",
+ "github": null,
+ "listed_days_ago": 166,
+ "run_id": "7e6ed5cb729a4d6f9cf999df20cf6bb2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "no function pays a stranger: OffRamp execute/executeSingleMessage are permissionless but transfer 0 on-chain (CCIP pays its DON off-chain in LINK, fee-vault withdrawals onlyOwner), commit is signature-gated, manuallyExecute owner; Router 0xf4c7e640eDa248ef95972845A62Bdc74237805db got 5 txs in 7d and 0 ExecutionSuccess events across its 29 registered OffRamps in 7d (sample: 63x10k-block getLogs, blocks 99902302-100527205); gas per call ~250k gas @10 gwei = $0.018 at AVAX $7.153 (coins.llama.fi)",
+  "kb": [
+   "attempts:1660",
+   "protocols:351"
+  ],
+  "run_id": "7e6ed5cb729a4d6f9cf999df20cf6bb2",
+  "at": 1794907184
+ }
+}

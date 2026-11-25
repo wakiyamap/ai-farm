@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-arrakis-modular",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 754,
+ "chain": "bsc",
+ "slug": "arrakis-modular",
+ "name": "Arrakis Modular",
+ "category": "Liquidity Manager",
+ "tvl_usd": 2701188,
+ "url": "https://arrakis.finance/",
+ "github": null,
+ "listed_days_ago": 754,
+ "run_id": "00d9b30cc45243058f633aef774d1523",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BSC factory 0x820FB812...3982 live (55 private vaults, 0 public; eth_call 2026-11-18); factory+vault+module interfaces (beacon impl 0x999b23ea...41d64, 36 selectors) have no caller-paid reward fn; only pay-style fn withdrawManagerBalance reverts 0x from a fresh address (manager role); rebalancing is manager-driven, no keeper bounty",
+  "kb": [
+   "protocols:661",
+   "attempts:2076"
+  ],
+  "run_id": "00d9b30cc45243058f633aef774d1523",
+  "at": 1794994040
+ }
+}

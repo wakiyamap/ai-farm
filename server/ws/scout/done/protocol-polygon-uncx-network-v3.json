@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-uncx-network-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1229,
+ "chain": "polygon",
+ "slug": "uncx-network-v3",
+ "name": "UNCX Network V3",
+ "category": "Token Locker",
+ "tvl_usd": 923246,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 1229,
+ "run_id": "4289cb71d50248b8b337d05ea15e7187",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Polygon UNCX V3 = 3 locker/PoR contracts (only 0x40f6301edb774e8B22ADC874f6cb17242BaEB8c4 LiquidityLocker_UniV3, 909 locks, active); 8 txs in 7 days (6 collect + 2 withdraw), every caller an EOA lock owner paying itself; stranger eth_call collect reverts \"OWNER\" (allowed: owner / additionalCollector / AUTO_COLLECT_ACCOUNT 0xd45dd91df475bfd944335160f538c1a14888dc1c = the fee treasury); sample 2 of 6 collects: gross $4,044 and $172 to the caller (3.5% UCF, $141.6/$6.01, to the protocol), gas $0.0097 and $0.0114 at 324 gwei, POL $0.08029 (coins.llama.fi); no reward/bounty function exists",
+  "kb": [
+   "attempts:2284"
+  ],
+  "run_id": "4289cb71d50248b8b337d05ea15e7187",
+  "at": 1795043126
+ }
+}

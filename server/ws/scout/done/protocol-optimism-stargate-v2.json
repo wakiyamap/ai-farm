@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-stargate-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 867,
+ "chain": "optimism",
+ "slug": "stargate-v2",
+ "name": "Stargate V2",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 843400,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 867,
+ "run_id": "a6907df969064ab09e31d68e22afa659",
+ "result": {
+  "verdict": "unpaid",
+  "line": "retryReceiveToken (0xa88835d7) on the 3 OP pools (0xe8CDF2 ETH, 0xcE8CcA USDC, 0x19cFCE USDT) is anyone-callable (fresh-addr eth_call reverts UnreceivedTokenNotFound, no role gate) but pays the stuck message's own receiver and 0 to the caller; 0 UnreceivedTokenCached events in 7d blocks 159400702-159703102 (controls same scan: OFTSent 993, OFTReceived 208, CreditsSent 1231, Redeemed 14); treasuryFee pots 0.0566 ETH (~$102) + 3738.66 USDC + 0.0063 USDT are treasurer-only exits; gas 0.001 gwei = ~$0.0002/call; USDT pool inactive (0 logs).",
+  "kb": [
+   "attempts:2142",
+   "protocols:715"
+  ],
+  "run_id": "a6907df969064ab09e31d68e22afa659",
+  "at": 1795007812
+ }
+}

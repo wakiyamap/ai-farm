@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-hypha",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Hypha (GoGoPool, stAVAX) is end-of-life since 2026-08-15 (eol.gogopool.com). The only publicly callable payout is the user's own redemption: WithdrawQueue.claimUnstake(requestId) pays the requester their own pro-rata AVAX; vault redeem/withdraw are WITHDRAW_QUEUE_ROLE-gated. No keeper/bounty/caller-reward function found in source or on the EOL page, so a stranger is paid nothing extra. On-chain activity is near zero: 0 events for stAVAX vault and WithdrawQueue in 9 sampled 90-block windows over 7 days (WAVAX control returned 198 logs in the same window); 16 unstake requests sit pending with next pending amount 0.",
+  "numbers": "TVL $256,846 (api.llama.fi 2026-11-18); vault totalAssets 36,013.51 AVAX = $248.7k at $6.896/AVAX (coins.llama.fi); rate 1.1964 AVAX/stAVAX (totalSupply 30,100.56 stAVAX); WithdrawQueue paused=false, pending requests 16, next pending amount 0; 0 logs in 9x90-block windows blocks 100,430,496-100,710,496 (7d sample; control WAVAX 198 logs); gas 7.51 gwei -> ~$0.001 per plain call (eth_gasPrice)"
+}

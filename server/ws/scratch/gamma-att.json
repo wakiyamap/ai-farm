@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-gamma",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Gamma's only keeper-style action on Arbitrum is vault rebalance/compound and both the Hypervisor (onlyOwner, owner = RebalanceProxy) and the RebalanceProxy (onlyRebalancer per vault) gate it to roles the owner assigns; 100% of the 1,339 rebalances in the last 7 days were done by 4 Gamma keeper EOAs and the fee goes to a feeRecipient argument the rebalancer sets, so no stranger is paid anything. eth_call from a fresh address reverts 'only owner' / 'only rebalancer'.",
+  "numbers": "310 hypervisors across 6 registries (DefiLlama projects/visor/config.js HYPE_REGISTRY arbitrum); 1,339 Rebalance(int24,uint256,uint256,uint256,uint256,uint256) events blocks 523107943-525707943 (7d to 2026-11-19), 42 distinct vaults, 4 caller EOAs (sample of 12 txs); rebalancers[0xf66da0f517c6f5431c77f4d0525ebc4b3bb40578]=0xa8e22aac49b573581510e07ac5d07175518d57fb; TVL 253,599 USD (api.llama.fi 2026-11-19); gross per call to a stranger = 0 (no payment path to caller); gas ~USD 0.01-0.05 on arbitrum not borne by protocol"
+}

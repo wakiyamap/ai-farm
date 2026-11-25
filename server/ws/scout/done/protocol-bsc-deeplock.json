@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-deeplock",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1752,
+ "chain": "bsc",
+ "slug": "deeplock",
+ "name": "DeepLock",
+ "category": "Launchpad",
+ "tvl_usd": 1889535,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1752,
+ "run_id": "a25fa579b6d3489fa832c4bf62843861",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BSC token locker, no keeper reward exists: withdrawTokens(uint256) is public but pays the deposit's own tokens to its withdrawalAddress (stranger caller keeps $0); withdrawFees(address)/fees are Ownable (remainingBnbFees 88.18 BNB = $52.1k at $591.32, owner 0xfaaef3...6792); depositId 63,993 latest; gas 0.05 gwei (~$0.003/call); 7-day call count unmeasured (bsc getLogs 'public: limit exceeded' all session, public eth_call serves latest state for historical blocks)",
+  "kb": [
+   "attempts:2537",
+   "protocols:1037"
+  ],
+  "run_id": "a25fa579b6d3489fa832c4bf62843861",
+  "at": 1795098815
+ }
+}

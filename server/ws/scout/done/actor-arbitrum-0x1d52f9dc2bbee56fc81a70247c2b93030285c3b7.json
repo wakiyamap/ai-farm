@@ -1,0 +1,20 @@
+{
+ "id": "actor-arbitrum-0x1d52f9dc2bbee56fc81a70247c2b93030285c3b7",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0x1d52f9dc2bbee56fc81a70247c2b93030285c3b7",
+ "run_id": "dc5cd845bd47455ba43cacf21e89073e",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "UniswapX V3-Dutch filler on Arbitrum: unverified Ownable executor driven by gas-EOA 0x6ce9efdd fills public orders on V3DutchOrderReactor 0xb274d5f4 (mostly tokenized stocks MSTRx/GOOGLx/COINx/AAPLs/AALs vs USDC/USDT via Uni V4); 20 fills in 7d = 2.9/day, 16 distinct swappers; gross spread mean bash.70/fill (sample of 10 of 20 receipts, range bash.00-1.94; coins.llama.fi prices 2026-11-16); gas ~410k gas @ 0.021 gwei = bash.017/call; est net ~/day; 3 other filler addresses win the same reactor (~130 fills/day total, this filler ~2%) so a fresh address quoting is paid too.",
+  "kb": [
+   "attempts:1483",
+   "leads:215",
+   "actors:170"
+  ],
+  "run_id": "dc5cd845bd47455ba43cacf21e89073e",
+  "at": 1794865808
+ }
+}

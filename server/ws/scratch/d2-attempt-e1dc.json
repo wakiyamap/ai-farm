@@ -1,0 +1,8 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-d2-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. D2 Finance's 8 HyperEVM vaults (DefiLlama adapter d2finance, verified source VaultV3, epoch-based capital allocator) have no public function that pays the caller: custodyFunds/returnFunds are onlyTrader (trader = the D2 Strategy contract 0x50f73ffd..., set once, eth_call from a fresh address reverts '!trader'), startEpoch/emergency*/set* are onlyOwner, deposit/mint are onlyWhitelisted during a 1-week funding window, redeem/withdraw are user actions returning the user's own assets. 0 txs to any of the 8 vaults in the last 7 days (newest was Nov 1); current epoch runs Nov 3 - Dec 19, so even the role-gated custody action does not fire until mid-December.",
+  "numbers": "8 vaults, all eth_getCode non-empty; d2HYPE (0x3ebb11ba...5440) totalAssets 92,179.8 HYPE = ~$6.31M @ $68.50/HYPE (coins.llama.fi ts 1795005606); dgnHYPE++ 182.5 units; dgnUpside 317; hXXI BTC ~2,141 USDC; 4 more dust. custodyFunds gross to caller = 0 USD (moves full balance to trader, no fee); hyperevm gas 0.1 gwei (eth_gasPrice 0x5f5e100), ~60k gas ≈ $0.0004/call. 7d window from block 50,979,757 (ts 1794400864, hyperevm ~1.017 blocks/s); newest vault tx block 50,139,807 (ts 1793574626 = Nov 1) → 0 calls in 7d on all 8 vaults (explorer txs, via Etherscan). Role reverts measured by eth_call from 0x1111...1111: custodyFunds → '!trader'; redeem → 'custodied'.",
+  "bot_id": null
+}

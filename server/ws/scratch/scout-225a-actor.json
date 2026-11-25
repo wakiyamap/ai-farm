@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "address": "0x225a38bc71102999dd13478bfabd7c4d53f2dc17",
+  "strategy": "UniswapX V3-Dutch exclusive RFQ filler: 6 rotating EOAs (0xecfc3b6c,0x4e446e5f,0xe18162db,0x83287ce3,0x24cbe9b8,0xf1dfc953) call selector 0xbc4a02e4 on this unverified contract, which fills cosigned exclusive dutch orders on V3DutchOrderReactor 0xb274d5f4b833b61b340b654d600a864fb604a87c and sources the output in-tx via swap leg to 0x51c72848c68a965f66fa7a88855f9f7784502a7f at oracle-rounded prices; token in == out exactly (zero residual in 12/12 samples), so the RFQ spread is booked off-chain, not paid by the reactor",
+  "evidence": "0xfac592cd33277937f72db8115d31d2ae307e2e39ffdd194648811543d530ece9 (fill calldata byte 1472 = exclusiveFiller 0x225a38bc..dc17, only occurrence; 3775.295 USDC in = out, 2.06301048 WETH in = out, gas 230808); 0x138cbeab289dd6acc740ec68c42c22dd03abfa9802f234f4c0bc8f3eb90969d6; ledger actor_daily/events uniswapx.fill 2026-11-05..15: 32-180 fills/day, 750 fills over 11-09..15 (66% of the reactor's 7 fillers / 1144 fills 7d)",
+  "est_profit_usd_day": null,
+  "our_bot_id": null
+}

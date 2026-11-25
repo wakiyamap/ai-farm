@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-stargate-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 867,
+ "chain": "bsc",
+ "slug": "stargate-v2",
+ "name": "Stargate V2",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 6406175,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 867,
+ "run_id": "9d4669bb902c440193438e7c2189b5e6",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BSC stargate-v2, 2 pools (USDT 0x138EB30f..Bc63, USDC 0x962Bd449..6057, both code + token() ok, source stargate-protocol/stargate-v2): only permissionless fn retryReceiveToken pays 0 to caller (receiver gets own funds); 0 UnreceivedTokenCached in 7d, blocks 132972021-134316021 (20k paged getLogs on public node, control 71 OFTReceived); eth_call from fresh addr reverts 0xaba8b6ef UnreceivedTokenNotFound; gas ~$0.004/call (0.05 gwei x 150k, BNB $588.60 coins.llama.fi); rest role-gated (tokenMessaging/creditMessaging/treasurer/planner) - same as arbitrum attempts:2135",
+  "kb": [
+   "attempts:2141",
+   "protocols:714"
+  ],
+  "run_id": "9d4669bb902c440193438e7c2189b5e6",
+  "at": 1795007403
+ }
+}

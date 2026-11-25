@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "smoothy farm claim",
+ "status": "measured",
+ "why": "Last 7d (blocks 133,957,922-135,301,582) one EOA 0xe779927f76fcf902ce7445e5602401bae2e46efe claimed 21,102.07 SMTY ($150.46 at $0.007131, coins.llama.fi 2026-11-23T16:08Z) from farm 0x802c47a70c6cc2e008617688a7062709eb48564a via withdraw (tx 0x72e07f92c6a10fe6980a1898c73d89f563af572b0fdb1b4452b713156ef9fed8, block 134,595,785), gas $0.0067. But it was the staker's own residual accrual: getSmtyBlockReward = 0 SMTY over 134.0M->135.3M (emissions ended), pendingSMTY(0,fresh)=0.",
+ "next_steps": "Contract: farm SmoothyMaster 0x802c47a70c6cc2e008617688a7062709eb48564a, fn claim(uint256 pid,address account) / deposit / withdraw (anyone-callable, eth_call from fresh address passes; pays SMTY 0xbf776e4fca664d791c4ee3a71e2722990e003283 to the account, auto-locks into veSMTY 0x59c5ef73636cc6f01526923e5e9894d5fda8b9d3). 7d count: 1 claim, gross $150 once, gas $0.007/call. Others: nobody races it (protocol is dormant: 18 bank swaps/7d). CAUTION: emission rate is now 0 and fresh caller's pending = 0 - only existing stakers can sweep the idle 5.26M SMTY ($37.5k) pot pro-rata; a new bot must first buy+stake SMTY-BNB LP with no ongoing yield, so treat as near-dead, not a trial candidate."
+}

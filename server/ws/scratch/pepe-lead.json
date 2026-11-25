@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "pepeteam_bridge ExecutorV3.execute (releaseTokens gaslessReward)",
+ "status": "measured",
+ "why": "Public execute() on 0xa106a0e6bdd7aad579c55b7a64956fe274d649db releases cross-chain withdrawals and the bridge pays gaslessReward to tx.origin; in 7d (blocks 26414080-26464324) 9 distinct submitters claimed 38 releases, stranger 0x953c1ba7029c92741a1739dcd18a8a462109b618 netted +3.88 USD on tx 0x5586af55d2915ff7047d98bedf19cbf9e3ad0aea017d4a984cea1faa3aae480f (gross 3.95 USD, gas 0.07 USD); official relayer 0xa0443132eb62818ece5708d79ea962de5a3f3217 took 26/38",
+ "next_steps": "Contract ExecutorV3 0xa106a0e6bdd7aad579c55b7a64956fe274d649db, fn execute(callerChainId,executionChainId,nonce,txHash,contract,callData,signature); 7d counts 43 Executed / 38 ReleaseTokens; 7d reward pool 3.316 USDT + 0.002442 ETH = 7.42 USD total (~1.06 USD/day, ETH 1682.26 coins.llama.fi 2026-11-21T15:25Z); per-release gross median ~0.05 USDT, solo EOA gas 0.04-0.12 USD so single releases usually lose unless several releases are bundled in one tx (bundled sample gross 3.95 gas 0.07); payload+signature only obtainable from the bridge operator API (protocol signer 0xd5ba9d817b496c0f861d464d96a1ec3b8aadb858 signs; anyone who has the signature can submit); official relayer usually wins - small pool, latency not the binding constraint, supply of claims is."
+}

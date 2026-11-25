@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-synapse-cross-chain-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "synapse-cross-chain-bridge",
+ "name": "Synapse Cross Chain Bridge",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 319218,
+ "url": "https://synapseprotocol.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "82af541c60e140dfbcdd7420ca9d63e7",
+ "result": {
+  "verdict": "role_gated",
+  "line": "mint/withdraw NODEGROUP_ROLE-gated (sole member 0x5ba000bb...005ba; fresh-addr mint reverts 'Caller is not a node group'); 7d bridge: 7 TokenMint, 0 deposit/redeem/withdraw, all 7 from Synapse node EOA 0xe93685f3...d950 via MetaRouter 0x90e59578...bd9c; gross to caller 0 (protocol fee pot getFeeBalance(WAVAX)=355.1 WAVAX ~,477, GOVERNANCE-only); gas one mint tx 252,493 gas @9 gwei = bash.016 (AVAX .976 coins.llama.fi); pools onlyOwner withdrawAdminFees - same architecture and verdict as arbitrum (attempts 2635).",
+  "kb": [
+   "attempts:2671",
+   "protocols:1131"
+  ],
+  "run_id": "82af541c60e140dfbcdd7420ca9d63e7",
+  "at": 1795128719
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-zerobase-cedefi",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Vault 0xCc5Df5C68d8c991035B6A437D4e00A99875228E4 on polygon is the same depositor self-service Vault.sol already scoped on arbitrum (KB protocols 511): every write either pays msg.sender itself (stake/requestClaim/claim/cancelClaim/flashWithdrawWithPenalty require user==msg.sender) or reverts on a role (transferToCeffu BOT_ROLE, sendLpTokens airdropAddr, setters DEFAULT_ADMIN); cancelClaim is additionally disabled by an admin flag. No keeper/bounty function exists.",
+  "numbers": "TVL getTVL = 252,627 USDT + 378,988 USDC = 631,615 USD (2026-11-17, matches DefiLlama 631,316). Fresh-address eth_call: claim reverts, cancelClaim 'cancel claim not enable', transferToCeffu AccessControlUnauthorizedAccount(BOT_ROLE), sendLpTokens reverts, flashWithdraw reverts. Activity: 0 vault txs in last 7 days (last tx 2026-11-08 requestClaim 0xb947e01995dcb98ab1102789fec3e10e9d0b18fe4b2f53916164caffcd0e1d22; head block 97496871 confirms list is live); ~11 txs/30 d from ~7 self-service EOAs (explorer txs polygon). Sample claim gas 349,427 x 401.8 gwei = 0.140 POL = 0.011 USD at POL 0.0817 (coins.llama.fi). Deposiitor yield getCurrentRewardRate(USDT) = 11200/10000 = 112%/yr nominal, paid to stakers not callers. Sources: DefiLlama adapter projects/ZEROBASE/index.js, explorer source/creation/txs polygon, eth_call via research lane."
+}

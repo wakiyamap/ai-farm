@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "manaswap",
+  "status": "dead_end",
+  "checked": "UniswapV2-fork DEX, no verified source and no GitHub. Address from DefiLlama registries/uniswapV2.js entry 'ManaSwap'.hyperliquid 0x46BC787Bf21D9178f2dEbAD939e76c7E9Dd0A392 (adapter projects/manaswap 404; api.llama.fi/protocol/manaswap: url empty, github None, deadUrl true, forkedFrom 2197=UniswapV2, tvl 38,415 USD). Factory eth_getCode 20,312 B; allPairsLength()=6 (getter answers); allPairs(0..5) gives 6 pairs, all with code. explorer source hyperevm: Contract source code not verified (blockscout 404 on hyperevm, routescan chain 999 unsupported); stackedPenguin/manaswap-wallet repo is an unrelated Solana/X1 wallet. Dispatcher selectors (bytecode + cast + 4byte) = standard V2 pair (swap 022c0d9f, mint 6a627842, skim bc25cf77, sync ba9a7a56) + feeToSetter-style setters; no reward/claim/harvest/keeper function. Events from receipts: Swap d78ad95f, Mint 4c209b5f, Sync 1c411e9a, Transfer ddf252ad (standard, no renames)."
+}

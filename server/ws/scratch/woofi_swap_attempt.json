@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-woofi-swap",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. WOOFi Swap DEX on arbitrum has no function that pays a stranger: user swaps are self-service, fee/oracle upkeep is onlyAdmin (distributeFees eth_call from a fresh address reverts 'WooFeeManager: !admin'; claimFee/postPrice are onlyAdmin in source), and the one stranger-callable payout, WooRebateManager.claimRebate(), transfers only the caller's own accrued broker rebate - 0 ClaimReward events in the last 7 days, so the pot pays nobody; a stranger's claim pays 0 gross and only pays gas.",
+ "numbers": "claimRebate() eth_call from fresh EOA 0xdA872f7b583Bec2ffce10A65E5BB8b7F9DE3E4B0 returns 0x (no revert); ClaimReward(address,uint256) at 0x7616614084e040028D6a61c0f3A9699c121A6500 blocks 523500000-525641052 (7d): 0 events, control same range+shape WooRouterSwap at 0x4c4AF8DBc524681930a27b2F1Af5bcC8062E6fB7: 1,729 events (~247 swaps/day, DEX active); distributeFees() from fresh EOA reverts 'WooFeeManager: !admin'; arb eth_gasPrice 0.02 gwei (20000000 wei) -> 100k-gas claimRebate ~0.000002 ETH ~ $0.004 (ETH $1803.33, coins.llama.fi ts 1795094405); gross for a stranger $0; TVL 620,743 USD (DefiLlama candidate)"
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-corn-kernels",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward \u2014 Corn Kernels is an off-chain $CORN airdrop points program on the Corn chain (id 21000000, not a farm chain, TVL now 0). Its ethereum footprint is one contract: the canonical-bridge CornSilo proxy 0x8bc93498b861fd98277c3b51d240e7e56e48f23c (impl 0xb1ffce57cac2fd215276037ace92ee1fd1f6a4a7, verified). Every open function (deposit, depositFor, mintAndDepositBitcorn, bridgeToken, bridgeAllTokens, redeemToken, redeemAll) costs the caller its own tokens; everything else is requiresAuth. Nothing pays a stranger.",
+  "numbers": "Adapter: projects/corn-kernels 404; module corn-l2/index.js (last at DefiLlama-Adapters commit b95ebea) = sumTokensExport ethereum owner 0x8bc93498b861fd98277c3b51d240e7e56e48f23c, fetchCoValentTokens. eth_getCode non-empty; getter sharesOf(0x0, WBTC 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599) = 0. Protocol address corn:0x44f49ff0da2498bcb1d3dc7c0f999578f67fd8c6 (Corn chain). TVL Ethereum 269,995 USD (api.llama.fi/protocol/corn-kernels currentChainTvls, 2026-11-21); Corn chain TVL 0 USD (api.llama.fi/v2/chains 2026-11-21). explorer txs: 1 tx in last 7 d (block 26442076, ts 1795006487, redeemAll() by 0x8b765b99d20dd7d58279f49bee8356cbb9027c77; 7 d cutoff ts 1794631434 vs now 1795236234) \u2014 a user redeeming own shares, not a paid keeper call. Source grep: 0 matches reward|bounty|kernel in impl (25 files)."
+}

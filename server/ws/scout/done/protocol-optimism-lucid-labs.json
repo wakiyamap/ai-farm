@@ -1,0 +1,26 @@
+{
+ "id": "protocol-optimism-lucid-labs",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 33,
+ "chain": "optimism",
+ "slug": "lucid-labs",
+ "name": "Lucid Labs",
+ "category": "Bridge",
+ "tvl_usd": 48836,
+ "url": "https://www.lucidlabs.fi",
+ "github": [
+  "LucidLabsFi"
+ ],
+ "listed_days_ago": 33,
+ "run_id": "d04e678157d446f19934ffd1ba733889",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Both optimism contracts (LockReleaseAssetControllers, USDT 0x94b0..e58, 6 dec) have one stranger-callable fn execute(bytes32) that pays the recipient, never the caller, and minBridges()=0 disables it; 0 logs in 7 d (blocks 159566288..159868688 on both controllers + both Aave strategies; control 4,986 USDT logs); lifetime 18x TransferExecuted / 0x TransferExecutable, all via Polymer adapter 0xe3e234..1332, last activity 2026-11-05; gross/call to stranger 0 USD vs gas ~0.0003 USD (0.00102 gwei x 150k, ETH 1692.42); TVL 48,849 USD.",
+  "kb": [
+   "attempts:3653"
+  ],
+  "run_id": "d04e678157d446f19934ffd1ba733889",
+  "at": 1795337004
+ }
+}

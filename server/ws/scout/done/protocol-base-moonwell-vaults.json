@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-moonwell-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 580,
+ "chain": "base",
+ "slug": "moonwell-vaults",
+ "name": "Moonwell Vaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 7184030,
+ "url": "https://moonwell.fi/vaults",
+ "github": null,
+ "listed_days_ago": 580,
+ "run_id": "a36960182dc04212a3eee7c3dbd22595",
+ "result": {
+  "verdict": "unpaid",
+  "line": "11 MetaMorpho vaults (TVL ~7.2M: USDC 2.46M, WETH 1492, cbBTC 15); only permissionless doer FeeSplitter.split() pays fixed recipients not the caller (0.00 USD gross, 0.005 USD gas), 0 calls in last 7d (44 all-time, last ~3 months ago), pot dust 0.003 USDC; PublicAllocator.reallocateTo is caller-PAYS, 1 log/7d not on Moonwell vaults",
+  "kb": [
+   "attempts:1949"
+  ],
+  "run_id": "a36960182dc04212a3eee7c3dbd22595",
+  "at": 1794966853
+ }
+}

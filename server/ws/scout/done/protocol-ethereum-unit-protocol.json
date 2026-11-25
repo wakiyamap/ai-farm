@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-unit-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "unit-protocol",
+ "name": "Unit Protocol",
+ "category": "CDP",
+ "tvl_usd": 184163,
+ "url": "",
+ "github": [
+  "unitprotocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "04165b7a12cd489683e8297bdbbe774c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only permissionless fn is LiquidationAuction02.buyout 0x9cCbb2F0..Daf4 - 0 calls last 7d (blocks 26418621-26468872, 2026-11-15->11-22; topic0 from receipt 0x40765bbc + no-topic scan, control USDC 30714 logs/500blk), 50 CDPs 0 liquidating, fresh-addr eth_call reverts LIQUIDATION_NOT_TRIGGERED; last buyout 2026-06-09 paid 400 UNI + gas 140229 (~0.03 USD @0.112 gwei, ETH 1661 llama); USDP supply 2.63M unpriced, TVL 177k USD",
+  "kb": [
+   "attempts:3625",
+   "protocols:1861"
+  ],
+  "run_id": "04165b7a12cd489683e8297bdbbe774c",
+  "at": 1795329750
+ }
+}

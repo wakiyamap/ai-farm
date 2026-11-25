@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-ample",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 263,
+ "chain": "arbitrum",
+ "slug": "ample",
+ "name": "Ample",
+ "category": "Yield Lottery",
+ "tvl_usd": 42400,
+ "url": "https://ample.money/",
+ "github": null,
+ "listed_days_ago": 263,
+ "run_id": "7f9a7f83a1c24b1288e065277d4ec29d",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "AmpleEarn (EulerEarn fork), 3 arbitrum vaults (USDC 0xd1be1f98, WETH 0xFf2492aa, XAUt0 dormant), TVL 42.2k; only public money-mover claimPayout (merkle-only, pays leaf user not caller): 89 claims/36 txs in 7 d (blocks 524444902-526501734), 69 stranger wallets paid 25.4 USD gross (14.65 USDC + 0.00629 WETH @1707.74 coins.llama.fi 11-22) vs ~0.010 USD gas/claim tx; VRF lottery winners only - farm EV 0.03-0.045 USD/day at 400 USD; base closed identical lead (leads:241) dead_end as betting-style + thin EV.",
+  "kb": [
+   "attempts:3705",
+   "leads:401"
+  ],
+  "run_id": "7f9a7f83a1c24b1288e065277d4ec29d",
+  "at": 1795347483
+ }
+}

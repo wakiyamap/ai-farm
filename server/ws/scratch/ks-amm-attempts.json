@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-kittenswap-amm",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Kittenswap AMM is the deprecated Phase-1 UniV2-fork stack (PairFactory 0xDa12F450580A4cc485C3b501BAB7b0B3cbc3B31B, 70 pools, docs call it 'Phase 1 (Legacy - no longer supported)'). Plain UniV2 pair shape: no reward/claim function anyone can call (pair rewardRate()/periodFinish() revert = no in-pool emissions; skim/sync pay 0). Ecosystem KITTEN emissions go via the dynamic Minter 0xac36d3671f21A5056Cd1751E201574d702748C7A pushed weekly by one address through the Voter; caller receives none of it (MINTER_REWARD() reverts). AMM pools themselves near-dead: 7d Swap events = 3 on one pool, 0 on the other 7 sampled (sample of 8 of 70; control 7,158 logs).",
+  "numbers": "70 pairs; 7d Swap per pool 0,0,0,0,0,0,0,3 (sample 8/70; control WETH Transfer last 5k blocks 7,158 logs); KITTEN 7d out of dynamic Minter = 4 transfers / 1 tx (0xa293a14b..., block 51,021,233, sent by 0x285ae1fc... to Voter, 14.55M gas); TVL $658k; gasPrice 0.1 gwei, HYPE $68.54, KITTEN $0.0010756 (coins.llama.fi 2026-11-18); block range 50,911,478-51,563,054"
+}

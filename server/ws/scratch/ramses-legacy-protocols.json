@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "ramses_legacy",
+ "status": "dead_end",
+ "checked": "2026-11-23 scout run 142002dc: DefiLlama registries/uniswapV2.js 'ramses' arbitrum entry -> factory proxy 0xAAA20D08e59F6561f242b08513D36266C5A29415 (eth_getCode non-0x; allPairsLength()=313, voter()=0xaaa2564deb34763e3d05162ed3f5c2658691f499 via eth_call), impl PairFactory 0xaa9b8a7430474119a442ef0c2bf88f7c3c776f2f (verified etherscan source); staking proxy 0xAAA343032aA79eE9a6897Dab03bef967c3289a06 -> VotingEscrow impl 0xdd4ede1d1be835887f1c4caf22f091f49eb5a0de; RAM token 0xaaa6c1e32c55a7bfa8066a6fae9b42650f262418 (symbol()='RAM' eth_call, verified source 'Ram'). Factory functions all role-gated (pauser/feeManager/treasury/onlyAdmin 0x9314fC56...); createPair pays nothing. Pair impl 0xf5b610b8a2c79c75a62c9357d008b2fa9f242f68 (verified source): claimFees() reverts from fresh address (require msg.sender==gauge); skim(address)+sync() anyone-callable, skim pays balance-minus-reserve dust = 0/0 on all 3 sampled pairs (allPairs 0,150,312; 0x1e50482e9185d9dac418768d14b2f2ac2b4daf39 = WETH/RAM). VotingEscrow.checkpoint() succeeds from fresh address, pays nothing. Shared Voter/Minter (0xaaa256.../0xaaaa0b6b...) already checked by run b4535c67 (attempts:2289): role-free distribute/update_period pay msg.sender nothing. No keeper-bounty design on this protocol."
+}

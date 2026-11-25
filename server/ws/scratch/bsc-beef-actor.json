@@ -1,0 +1,8 @@
+{
+ "chain": "bsc",
+ "address": "0xbeef02961503351625926ea9a11ae13b29f5c555",
+ "strategy": "UniswapX V3 dutch-order RFQ filler. Its own smart account (0xef0100 ERC-4337 proxy, singleton 0xc674c7b1a079c94a48e6130eccfcd2a750a386e8), driven by a paired vanity EOA 0xbeefd70df3680d22aef1b2586ed1691843c92503 (value 0, selector 0x64f5e9e7 wrapping a UniswapX filler execute(bytes,bytes[]) 0xd80158ea), fills cosigned dutch orders on the BSC V3DutchOrderReactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 and hedges in the same transaction against a recurring DEX counterparty 0x8f10b468. Own inventory, not a protocol-paid keeper: the fill and hedge legs are equal size, so the on-chain residual is dust (a few cents) and the spread is booked off-chain in the quote.",
+ "evidence": "ledger events source uniswapx.fill, chain bsc, 13 fills 2026-11-06..15 (actor_daily: 11-09 1, 11-12 4, 11-13 3, 11-14 4, 11-15 1). Flows sampled 5 of 13 with alchemy_getAssetTransfers per fill block: 0xd69e3d0d4808b2413c4a9bb0ed5df5c16b14aa1084d8e6315192e80f51d9b378 (60.00 USDT in / 59.97+0.03 out, 29481.31 JCT in / 29473.11 out), 0xc5182c5048c4a7d992f3724b8892c8d5f39b81bfa9cdf9b25259f1881dea0d37 (210.96 USDT in / 210.16+0.81 out, 5554.14 LAB both ways), 0x716a641c516b112922eeea70ea45b1e5945109693f1e5abe4dfc1797575f6e7a (650.40 USDT in / 650.34+0.06 out, 200500 JCT both ways), 0xa7ce74d455098bc5ae68ef0e8beb07c1b0883b087216df1f67c829a6d9c9186d (828.15 SKYAI in / 823.83+4.31 out, 149.62 ARX in / 149.53 out), 0x32852553e39b4a2e62dbd822736e8fc56395eaec3d8e74882a1737cbd39916dd (27693.17 JCT both ways, 0.09 WBNB back). Gas from receipts: 467652 / 689774 / 835502 gasUsed at 0.0501 gwei effective.",
+ "est_profit_usd_day": 0,
+ "wiki_page": "mechanisms/uniswapx-v3-dutch-fills.md"
+}

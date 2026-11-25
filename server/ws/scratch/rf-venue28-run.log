@@ -1,0 +1,33 @@
+OWNER 0x000000000000000000000000000000000000f007 42
+arbitrum	fork 522766864	mainnet 522837544	gen 5	free	http://127.0.0.1:9002
+base	fork 55308841	mainnet 55412587	gen 388	free	http://127.0.0.1:9001
+ethereum	fork 26306790	mainnet 26381120	gen 368	free	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+ok leased ethereum for 15 min (run 135c03d10e06478fb4a59c47a85dfe07); generation 368
+ok reset ethereum at block 26306742 generation 369
+interval0: None
+arbitrum	fork 522766864	mainnet 522837550	gen 5	free	http://127.0.0.1:9002
+base	fork 55308841	mainnet 55412598	gen 388	free	http://127.0.0.1:9001
+ethereum	fork 26306742	mainnet 26381120	gen 369	leased by 135c03d10e06478fb4a59c47a85dfe07 897s	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+PAYFULL 9398683583154130380
+grant 0x06050552 0x1
+grant 0x06050552 0x1
+grant 0xf404e5f8 0x1
+grant 0xf404e5f8 0x1
+grant 0xA043FDc5 0x1
+grant 0xA043FDc5 0x1
+grant 0x2b772707 0x1
+grant 0x2b772707 0x1
+grant 0xebbcb2ce 0x0
+grant 0xebbcb2ce 0x0
+MOD USDC now 20000000000
+probeA: {"code": "3", "message": "execution reverted: funding under-delivered", "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000"}
+TRACE errors:
+   {'from': '0x000000000000000000000000000000000000f007', 'to': '0xd98d34008d1bbb29013592c637f8e9fca4179fa0', 'fn': '0x7cda801a', 'err': 'execution reverted', 'type': 'CALL'}
+prelude done u0 b0 s0 o0: 20000000000 8000000000000000000 57582275034043643305 543454680
+T1a unpatched standalone: 0x1 gas 0x12d84f 0xcce08508490f4b7fae1c1cf4dc055ebf403b6c3d65ad3526e0c550a385eda11a
+T1b sig-flipped eth_call: {"code": 3, "message": "execution reverted: TransferHelper: TRANSFER_FROM_FAILED", "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000
+T2 probe: {"code": "3", "message": "execution reverted: funding swap failed", "data": "0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000"}
+T2 trace errors: [{"from": "0x000000000000000000000000000000000000f007", "to": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0", "fn": "0x7cda801a", "err": "execution reverted", "type": "CALL"}, {"from": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0", "to": "0x6131b5fae19ea4f9d964eac0408e4408b66337b5", "fn": "0xe21fd0e9", "err": "execution reverted", "type": "CALL"}, {"from": "0x6131b5fae19ea4f9d964eac0408e4408b66337b5", "to": "0x8f10b468b06c6fd214b65f87778827f7d113f996", "fn": "0xd9c45357", "err": "execution reverted", "type": "CALL"}, {"from": "0x8f10b468b06c6fd214b65f87778827f7d113f996", "to": "0xd7a5c6b52756e795
+venue28 done settled= None guard= None

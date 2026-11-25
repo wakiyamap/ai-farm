@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "address": "0x9335582c8544eca22e6101d077f66006126eb2b4",
+  "strategy": "UniswapX V3DutchOrderReactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 filler via executor contract (called by gas EOA 0xc7f01e2c2880379d08463674fac56c3e979ea704 with execute((bytes,bytes),bytes) 0xd0f2d8ac): takes cosigned RFQ Dutch orders as a NON-exclusive filler (4/4 orders named other desks 0xe0763177/0xc2403963/0x52f9eea3 as exclusiveFiller, 25 bps override), fills 5-10 blocks around decayStartBlock, swaps via DEX in-tx, books ~15-30 bps spread, forwards exact margin to 0x3287a2e3 in the same tx",
+  "est_profit_usd_day": 1.7,
+  "evidence": "4 fills in ledger-covered 9 d (Nov 6-14): 0x6118f29ffc38b68d0e684c6fe5c152730db9d818dee684795508fd9218e65377 (+2.96 USDT, gas 252694@0.14gwei=$0.02), 0xcf6be6344aacae5e7be86bb188d1c53a3d45fb51f7edd18e9b87205a8b853b17 (+251.88 JCT ~$0.56, gas 341429=$0.03), 0xc161730a0327323b7e3ac4152e636dbe1ee8822b9d6e2019b8b3c5fa88ca6ae4 (+9.37 USDT, gas 1768400@0.1gwei=$0.10), 0xad29982968adcd0aaef28796fdb05d00a7acdfbe77f8a55604c072ca2b28c42b (+273.71 AKE ~$2.76, gas 385746=$0.03); margins from receipt Transfer deltas, prices coins.llama.fi 2026-11-17 BNB $589.5; reactor addr from Uniswap/UniswapX README BNB table"
+}

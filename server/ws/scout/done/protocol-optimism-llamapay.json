@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-llamapay",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1677,
+ "chain": "optimism",
+ "slug": "llamapay",
+ "name": "LlamaPay",
+ "category": "Payments",
+ "tvl_usd": 64737,
+ "url": "https://llamapay.io",
+ "github": [
+  "LlamaPay"
+ ],
+ "listed_days_ago": 1677,
+ "run_id": "72921219aef74a1bbb43ef96f9a36fc5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "withdraw(address,address,uint216) 0x17a566e4 on the 21 payment contracts (factory 0xde1C04855c2828431ba637675B6929A684f84C7F, count=21) is permissionless (fresh-address eth_call reverts only stream-doesnt-exist) but pays the recipient arg, never the caller; 7d blocks 159611360-159913760: 28 Withdraw events on 1 active USDC contract 0x3891fc27, 28,770.97 USDC (~28,767 USD) paid to payees, gross to caller 0 USD (14 self-claims + 14 third-party calls by 0x8e892c86 paid 0, 13 of 28 amounts zero); gas 0.000001-0.00036 USD/call; escrow 0xb4E9D1F7 idle (0 logs 30d)",
+  "kb": [
+   "attempts:4060",
+   "protocols:2186"
+  ],
+  "run_id": "72921219aef74a1bbb43ef96f9a36fc5",
+  "at": 1795426904
+ }
+}

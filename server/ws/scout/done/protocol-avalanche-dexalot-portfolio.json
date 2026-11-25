@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-dexalot-portfolio",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 822,
+ "chain": "avalanche",
+ "slug": "dexalot-portfolio",
+ "name": "Dexalot Portfolio",
+ "category": "Bridge",
+ "tvl_usd": 2960136,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 822,
+ "run_id": "b22a3cbe713b4b33a09da3365fc4e719",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Dexalot chain-side bridge (PortfolioMain 0x1FD1..34Be, PortfolioBridgeMain 0x246c..9634, MainnetRFQ 0xeed3..7cdd): delivery pays the withdrawing trader, not the caller; processPayload reverts missing BRIDGE_PROVIDER_ROLE from a stranger; 7d: 62 WITHDRAW + 180 DEPOSIT PortfolioUpdated, all 18/18 sampled deliveries by one whitelisted ICM relayer 0x631b..3842; MainnetRFQ.removeFromSwapQueue open but 0 events 7d (control 242); caller pays gas $0.031/delivery (583,861 gas @ 7.5 gwei, AVAX $7.07 coins.llama.fi), gross to caller $0.",
+  "kb": [
+   "attempts:2109",
+   "protocols:687"
+  ],
+  "run_id": "b22a3cbe713b4b33a09da3365fc4e719",
+  "at": 1795001068
+ }
+}

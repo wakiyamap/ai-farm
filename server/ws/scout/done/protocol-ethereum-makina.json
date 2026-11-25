@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-makina",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 377,
+ "chain": "ethereum",
+ "slug": "makina",
+ "name": "Makina",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 37741907,
+ "url": "https://app.makina.finance/",
+ "github": [
+  "MakinaHQ"
+ ],
+ "listed_days_ago": 377,
+ "run_id": "bc017dd7fc1741bbb3980fa9007e55e7",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 13 Makina v2 machines on ethereum (BeaconProxy -> Machine impl 0x6a759cae19aa25b41237089eb0bbbc4473bfb996, verified); only keeper-shaped entry updateTotalAum is onlyAccountingAuthorized with restrictedAccountingMode=1 on all 13 (stranger eth_call reverts 0x5c427cd9), 44 calls/7d by 3 Makina keeper EOAs (0x425bbc2cff0c7e7960baa9bac2f0cb67b41d3bef 30, same mechanic as base); pays the caller 0 (fee shares mint to feeManager); deposit/redeem 36+54/7d only from depositor/AsyncRedeemer contracts; no reward/bounty fn - same dead end as base (protocols:428).",
+  "kb": [
+   "attempts:3009",
+   "protocols:1403"
+  ],
+  "run_id": "bc017dd7fc1741bbb3980fa9007e55e7",
+  "at": 1795199359
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-zerolend-vaults",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 455,
+ "chain": "ethereum",
+ "slug": "zerolend-vaults",
+ "name": "ZeroLend Vaults",
+ "category": "Risk Curators",
+ "tvl_usd": 1791247,
+ "url": "https://zerolend.xyz/",
+ "github": null,
+ "listed_days_ago": 455,
+ "run_id": "be61c66470064f0581981b9765ae2b72",
+ "result": {
+  "verdict": "unpaid",
+  "line": "3 Euler v2 EVK vaults only (eUSDC-58 0xc42d3378 1,492,870 USDC; eRZR-1 0x1ab9e92c 623,580 RZR unpriced; elsRZR-1 0xc364fd96 1,010 lstRZR unpriced); no reward/claim/harvest fn in the 96-fn ABI; touch() pays 0, skim() dust 0.10 USD vs ~0.09 gas (1.245 gwei, ETH 1593.72 USD); 0 direct txs in last 7d on all 3 (etherscan txlist heads 2026-09-21/2025-10-02/2025-09-26, USDC control current)",
+  "kb": [
+   "attempts:3045",
+   "protocols:1431"
+  ],
+  "run_id": "be61c66470064f0581981b9765ae2b72",
+  "at": 1795207672
+ }
+}

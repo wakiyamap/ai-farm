@@ -1,0 +1,6 @@
+{
+ "chain": "optimism",
+ "protocol": "granary_finance",
+ "status": "measured",
+ "checked": "Aave V2 fork ('Granary Genensis Market'). DefiLlama adapter projects/the-granary/index.js @c973008 (deleted from main): optimism registry (LendingPoolAddressesProviderRegistry) 0x872B9e8aea5D65Fbf29b8B05bfA4AA3fE94cC11f -> getAddressesProvidersList -> provider 0xdDe5dC81e40799750B92079723Da2aCAf9E1C6d6 -> getLendingPool -> pool proxy 0x8fd4af47e4e63d1d2d45582c3286b4bd9bb95dfe (impl 0x72fad09e3da8cec0e975bf253c1e5eafdb927fec, Blockscout-verified). All eth_getCode non-0x; getReservesList() answers, 11 reserves. V1-style provider: no IncentivesController/EmissionManager, so no claim/harvest/distribute function exists; the only anyone-callable pays-the-caller function is liquidationCall (The-Granary/Granary-Protocol-v1 LendingPool.sol: external whenNotPaused, no role; paused()=false; eth_call from fresh address reverts on position health, not role). TVL $84.5k (api.llama.fi 2026-11-23)."
+}

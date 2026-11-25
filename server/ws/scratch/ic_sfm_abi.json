@@ -1,0 +1,13 @@
+# via etherscan
+constructorNone(address)
+accrueFee(address)
+controller() view -> (address)
+feeStates(address) view -> (address,uint256,uint256,uint256)
+getFee(address) view -> (uint256)
+initialize(address,(address,uint256,uint256,uint256))
+removeModule()
+updateFeeRecipient(address,address)
+updateStreamingFee(address,uint256)
+event FeeActualized(address,uint256,uint256)
+event FeeRecipientUpdated(address,address)
+event StreamingFeeUpdated(address,uint256)

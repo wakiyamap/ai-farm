@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-qualia",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 38,
+ "chain": "hyperevm",
+ "slug": "qualia",
+ "name": "Qualia",
+ "category": "Risk Curators",
+ "tvl_usd": 68743,
+ "url": "https://kintsu.xyz/blog/introducing-supermon-kintsu-s-automated-yield-engine-built-for-monad",
+ "github": null,
+ "listed_days_ago": 38,
+ "run_id": "68b28ccecef14617bc172f1e1ba41ae1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Qualia hyperevm = Upshift HLpeVault 0x8fFD..7E8a (impl 0x1a23..c3f1, asset USDe 18dec, totalAssets 139,422 USDe @ $1.00). Permissionless claim/processAllClaimsByDate/collectFees/chargeManagementFee pay receiver/feeCollectors, never msg.sender (stranger eth_call claim -> NoSharesForReceiver; whitelist 0). 7d (blocks 51317090-51931908, 11-15..11-22 08:53Z) no-topic scan 21 logs: operator 0xe0b7..8c79 chargeMgmtFee x7 + collectFees x7 + processAllClaims x2; users requestRedeem x3; claim x0; zero stranger callers. Payouts to receivers 298/24.5/2.0 USDe; caller reward 0; gas $0.004-0.012.",
+  "kb": [
+   "attempts:3659"
+  ],
+  "run_id": "68b28ccecef14617bc172f1e1ba41ae1",
+  "at": 1795338033
+ }
+}

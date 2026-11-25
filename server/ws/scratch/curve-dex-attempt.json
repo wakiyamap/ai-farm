@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-curve-dex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Curve DEX on HyperEVM (TVL 153k USD, 68 pools over 3 factories) has no callable function that pays the caller: zero gauges deployed on all 49 stableswap pools, twocrypto/tricrypto pools have no claim functions, and the only permissionless fee function withdraw_admin_fees() pays the factory's fixed fee_receiver (0xf3a431..74ef), not the caller. Nothing a stranger can earn per call.",
+  "numbers": "factories 0x604388Bb1159AFd21eB5191cE22b4DeCdEE2Ae22 (49 pools), 0xc9Fe0C63Af9A39402e8a5514f9c43Af0322b665F (18), 0x5702BDB1Ec244704E3cBBaAE11a0275aE5b07499 (1); gauges 0/49 (get_gauge eth_call loop); 7d TokenExchange 1834 (49 ssng pools, blocks 51132371-51747371, eth_getLogs topic0 0x8b3e96f2...) vs 0 on 18 twocrypto + 1 tricrypto (topic0 0x2bc4e109...); fee_receiver 0xf3a431008396df8a8b2df492c913706bdb0874ef; sample pool admin_balances 2.04e14 + 2.07e14 (18-dec stHYPE/wHYPE, ~0.03 USD); gas 0.1 gwei, ~100k gas/call = 0.0007 USD at HYPE 65.59 USD (coins.llama.fi 2026-11-20 06:29 UTC)"
+}

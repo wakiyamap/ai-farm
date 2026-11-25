@@ -1,0 +1,12 @@
+{
+  "run_id": "abde710eec3f425e8f414c9fbcb2a736",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "1inch Fusion+ public-resolver settlement leg (lead 104): suffix deadline decode, pre/post-deadline census, prestate gain on the 0x111111125421ca6dc452d289314280a0f8842a65 venue",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:625", "protocols:152", "leads:104"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Deadline field located at packed-fill body bytes 18-22 (89e7c650 form byte 114): stratified 26-fill census is 25 pre-deadline / 1 post-deadline, and the single post-deadline settle shows zero ERC20 gain at the resolver EOA (caller ETH delta exactly gasUsed x maxFee, gasUsed 46140) - the permissionless public leg is rare and after-gas ~0, so dead_end per lead 104's own gate. Also filed inbox/meta/2026-11-09-relay-getlogs-topics-fromblock.md: eth_getLogs with topics + fromBlock now -32602 Variadic on all ethereum lanes (reproduced with cast)."
+}

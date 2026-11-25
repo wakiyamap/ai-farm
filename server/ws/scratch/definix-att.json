@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-definix",
+ "outcome": "lead_recorded",
+ "reason": "unclear - Definix is a plain Uni-V2-fork DEX + 2 MasterChef stakers on bsc; the only function anyone can call that pays a recipient is pair skim(address) and it pays 0 right now on the 3 pairs sampled (balance==reserve, 31 pairs total). What is missing: the last-7-day call/event census - bsc eth_getLogs failed every attempt including the same-shape control (all providers failed: no provider available, 2026-11-19) and bsc has no explorer route, so whether any stranger was paid via skim in the week is unproven; 28 of 31 pairs also unmeasured.",
+ "numbers": "factory 0x43eBb0cb9bD53A3Ed928Dd662095aCE1cef92D19 (Sourcify match, V2 ABI), allPairsLength=31, TVL 249,178 USD (llama 2026-11-19); skim 0xbc25cf77 eth_call OK from fresh addr; excess over reserves: pair 0xb2a2048de5afb312fcf076abf505952c12916f0d ex0=0 ex1=0 (8.5 WBNB ~= 4,983 USD at BNB 586.05, coins.llama.fi ts 1795104420), 0xc4b4ac94a73af2a4788aca0204ce0be779999dc9 ex=0/0, 0xea79e7d41d143050c23c1e01ac2990a506ef060a ex=0/0 (8,173 BUSD at 1.0008); reward token DINIX unpriced on llama; BSC gas negligible (<0.10 USD per eth_call-scale tx)."
+}

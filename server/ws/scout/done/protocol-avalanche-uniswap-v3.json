@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-uniswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "avalanche",
+ "slug": "uniswap-v3",
+ "name": "Uniswap V3",
+ "category": "Dexs",
+ "tvl_usd": 4524692,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "96f07ceb2faa415f825856cfa366fa8a",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Canonical v3-core, factory 0x740b1c1de25031C31FF4fC9A62f554A55cdC1baD (owner 0x47eb0cf1): nothing pays a caller - pool.collect reads positions.get(msg.sender) so eth_call from a fresh address returns (0,0), collectProtocol reverts (onlyFactoryOwner), mint/swap/flash take tokens in. 120,000-block Collect census (head 100739518): 4,790 chain-wide vs 97 on 4 of our pools (65 on WAVAX/USDC 0xfae3f424, .92M of .52M TVL). Sample harvest 0x74fb6eff pays the LP 0.4245 WAVAX + 3.304 USDC = .29 gross, gas 512,727 x 7.5 gwei = bash.027 (AVAX .04 llama). LP-only fees, no bounty.",
+  "kb": [
+   "attempts:2406",
+   "protocols:935"
+  ],
+  "run_id": "96f07ceb2faa415f825856cfa366fa8a",
+  "at": 1795068062
+ }
+}

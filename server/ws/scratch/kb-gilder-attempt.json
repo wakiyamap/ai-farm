@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-gilder",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only permissionless paid functions are ConsolidatedYieldReinvestment.sweepPool/compoundIndependent on Base, which transfer a USDC keeper fee (gas reimbursement + 80k gas buffer, cap $5) to msg.sender, but the reward pot is empty: the single pool has 0 attached deposits and sweeps need $100 accrued yield (a $100 single deposit needs 100% yield). Nobody has ever been paid - 0 KeeperFeePaid events since deploy. The whole protocol is dormant: 5 txs in 7 days, all $100 deposits by one EOA.",
+  "numbers": "KeeperFeePaid 7d=0 and full-history=0 (topic0 0x341938e4685ca9cde27f865333b8e870e31279bf933fc3d1a1239b487836fcf8 on proxy 0x909634bDDE8a866a2bd708c5806e6C188D569A3C; control USDC 500 blocks = 3746 logs). CYR proxy total logs ever = 14 (all deploy-era, blocks ~49.49M). LENDING 7d logs = 0; BOND 7d = 5 txs from 0xf273d695fd70ed9fcbbf224374d8e338aafe29fd, each $100 (100e6 USDC arg, receipt shows USDC->GIL Uniswap swap + NFT mint). On-chain: nextPoolId=1, totalAttached=0, keeperFeeCap=5e6, SWEEP_THRESHOLD=100e6, TURBO_SWEEP_THRESHOLD=10000e6 (eth_call latest, block 0x37d52dd ~2026-11-17). sweepPool(0) eth_call from 0x1111..1111 reverts. Fee formula (verified source): fee = gasUsed*tx.gasprice*ETHUSD/1e20 USDC; if fired at current 0.006 gwei a ~500k-gas sweep pays ~$0.006 gross vs ~$0.005 gas (eth_gasPrice 0x5bd262; ETH $1828.75 coins.llama.fi). TVL $118,240 (DefiLlama candidate row)."
+}

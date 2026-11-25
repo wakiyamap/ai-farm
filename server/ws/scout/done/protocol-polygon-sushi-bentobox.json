@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-sushi-bentobox",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1490,
+ "chain": "polygon",
+ "slug": "sushi-bentobox",
+ "name": "Sushi BentoBox",
+ "category": "Yield",
+ "tvl_usd": 294391,
+ "url": "https://www.sushi.com",
+ "github": null,
+ "listed_days_ago": 1490,
+ "run_id": "f0cc16f6c24a4b6a987de78a789c1231",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BentoBox V1 0x0319...3367 harvest(address,bool,uint256) is public (stranger eth_call ok, no role revert) but pays the caller $0 (profit -> vault shares, strategy rewards -> strategy itself); strategies dormant (strategyData(WMATIC)=0): 0 LogStrategyProfit/Invest/Divest in 7d (403,200 blocks; control LogDeposit 3,641) and none in ~115d; gas 43,089 x 280.8 Gwei = 0.0121 POL = $0.001 (POL $0.08245 coins.llama.fi).",
+  "kb": [
+   "attempts:2416"
+  ],
+  "run_id": "f0cc16f6c24a4b6a987de78a789c1231",
+  "at": 1795070829
+ }
+}

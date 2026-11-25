@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "uniswap_v2",
+  "status": "dead_end",
+  "checked": "2026-11-21 scout run 8982098b: Factory 0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f (DefiLlama adapter projects/uniswap-v2/index.js ethereum commented entry + wc entry; eth_getCode not 0x; getter allPairsLength()=528376 answers via eth_call). Etherscan verified source = canonical UniswapV2Factory.sol (event PairCreated(address,address,address,uint256); receipt topic0 0x0d3648bd... = cast keccak, control passed) - only createPair + feeTo/feeToSetter setters (feeToSetter-gated), no reward fn. Pair 0x2b5d7bc14cdf1cbeeea5fcae938850f658505649 (from factory PairCreated log block 26468605 data field; code 11293B; token0()=WETH answers): explorer ABI = canonical UniswapV2Pair (ERC20 + mint/burn/swap/skim/sync/permit). eth_call from fresh 0x1111..1111: sync() OK pays 0, skim(stranger) OK (pays pair excess only, not a reward), mint/burn revert Error(string) (require caller holds LP). Router 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D explorer ABI: 25 entries, swap/liquidity helpers only, zero reward-named fns. No function on factory/pair/router pays the caller: swap fees (0.30%) accrue to LP reserves and feeTo at mint, never to a stranger. Same verdict as arbitrum uniswap_v2 (kb protocols row from 2026-11-19)."
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "sushiswap",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/sushiswap/api.js: base = getUniTVL factory 0x71524B4f93c58fcbF659783284E38825f0622859. eth_getCode non-empty; Blockscout-verified as UniswapV2Factory (SushiSwapFactory.sol, v0.6.12). Getters answer: feeTo()=0x1d2af2b99e253b68d72c76484dd88ffb0ace158c, allPairsLength()=6152 (0x1808), eth_call at block 0x38f5398 (2026-11-20). Full function list from verified source: factory createPair (costs gas), setFeeTo/setFeeToSetter/setMigrator (feeToSetter-gated); pair = standard SushiSwapV2Pair (mint/burn/swap/skim/sync/initialize). Only anyone-can-call reward-shaped fn is skim(to): eth_call from 0x000000000000000000000000000000000000dEaD on pair 0x5598bb9a2826ef523a6cd57048d3760ce5351cb7 succeeds (void) but pays only existing surplus (normally 0). No reward/bounty/harvest/claim/distribute function; mint/burn need an LP position, swap profit is a price race. Slug is V2-only on base (adapter); base TVL $1.07M (api.llama.fi/protocol/sushiswap chainTvls.Base, 2026-11-20), volume $423k/24h, $3.48M/7d (api.llama.fi/summary/dexs/sushiswap?chain=Base) - active swaps, but the protocol pays no fee to the caller. 1 PairCreated in last 7d. Consistent with attempts:2638 (arbitrum sushiswap no_reward) and 2320 (base sushiswap_v3 no_reward)."
+}

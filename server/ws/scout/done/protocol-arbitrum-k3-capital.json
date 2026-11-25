@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-k3-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "arbitrum",
+ "slug": "k3-capital",
+ "name": "K3 Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 943733,
+ "url": "https://k3.capital",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "264a5a58c21a41e3af5e1941dc5d9b3b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "K3 is a curator: no contracts of its own on arbitrum (owner 0xAeE4...F05C is an EOA); ~0.9M USD TVL sits in 38 Euler EVK eVaults it created (factory 0x78df1cf5...80d50, creator() match over 193 vaults); public vault fns (mint/redeem/poke/skim) pay the caller nothing, fee setters are role-gated; representative vault 0x37512f45: 0 Mints last 7d (control 41,257 USDC Transfer logs/10k blocks)",
+  "kb": [
+   "attempts:1902",
+   "protocols:525"
+  ],
+  "run_id": "264a5a58c21a41e3af5e1941dc5d9b3b",
+  "at": 1794956720
+ }
+}

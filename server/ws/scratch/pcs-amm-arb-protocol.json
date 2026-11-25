@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "pancakeswap_amm",
+ "status": "dead_end",
+ "checked": "2026-11-19 scout run 592b0280 (attempt below): DefiLlama slug pancakeswap-amm = adapter projects/pancake-swap/index.js; arbitrum AMM via getUniTVL factory 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E (verified PancakeFactory v0.5.16 on explorer; allPairsLength()=849 at block 525718564; feeTo()=0x82b852d8483111fd2c714a2579ee9d4e83947a60). Pair = PancakePair v0.5.16 (sample 0x4b0b235d92c5785a9044b00737b0f9c4b1748e50): non-view fns mint/burn/swap/skim/sync + ERC20/permit only - no collect, no flash() in this deployment; swap fees go to LPs and feeTo at swap time, nothing pays a caller. Adapter staking side: SmartChefFactory 0xD621A46e8d8D077ceFfd080c6bD4Be60a1783D6c (deployPool onlyOwner), 9 NewSmartChefContract logs 2023-08-14..2024-09-24; harvest() reverts (empty revert) from a fresh address (eth_call, bare revert on zero shares) and 0 Harvest events in 7 days (blocks 523366980..525718564) across all 9 farms; control same query shape: 91 Swap events in 7d on 32 sampled pairs (3 pairs active). No keeper/bounty/reward function anyone can call: dead_end no_reward."
+}

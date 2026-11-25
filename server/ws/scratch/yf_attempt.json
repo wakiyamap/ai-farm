@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-yieldfi",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: the only function that pays its caller (Manager.executeOrder -> gas reimbursement in yToken to msg.sender; source Manager.sol _deposit/_withdraw) is gated by onlyMinterAndRedeemer (role MINTER_AND_REDEEMER); a fresh address eth_call reverts (0x). No permissionless reward fn exists on Manager/yUSD(YTokenL2)/vyUSD(vyTokenL2). Separately, the Arbitrum deployment is idle: 0 order executions and 0 user order requests in the window, so even role holders are earning nothing right now.",
+  "numbers": "eth_getCode Manager=1588 hex (proxy); yUSD symbol()=yUSD, manager()=0x03ACc..., exchangeRate()=0x0f3c36=998454 scaled. eth_getLogs on Manager 0x03ACc... (query proven by finding 4 events in 30d, all topic0 0x1516f6e8=AssetAndShareManaged from manageAssetAndShares/onlyOperator, pays no caller): Deposit+Withdraw (executed orders, fire only from executeOrder) 7d = 0; OrderRequest (user deposit/redeem requests) 30d = 0. Block range latest=0x1f4eabf2; from -2,625,000 blocks (~7d) and -11,250,000 (~30d) at ~0.23s/block (block ts checked). executeOrder(4uint) from 0x...dEaD reverts (role). Gas: eth_gasPrice=0.0201 gwei (20,071,680 wei); a ~250k-gas executeOrder ~$0.009 at ETH=$1809.54 (coins.llama.fi coingecko:ethereum). Gross paid to a caller over the 7d window = $0 (no executions). Sources: rpc.py arbitrum (eth_getCode/eth_call/eth_getLogs/eth_gasPrice/eth_blockNumber), explorer source (verified src), github YieldFiLabs/yfi-sdk."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-unit",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found - no Unit smart contract on ethereum. The whole ethereum footprint is one MPC-guardian hot wallet (EOA, eth_getCode 0x, nonce 111,857, last tx 2026-11-21 00:02:59 UTC): plain transfers in/out plus a shared disperseEther helper that pays the caller nothing. Same architecture as the avalanche and base dead_ends; nothing for a stranger to call.",
+  "numbers": "eth_getCode(0xBEa9f7FD27f4EE20066F18DEF0bc586eC221055A)=0x (rpc.py ethereum); nonce 0x1b2f1=111857; last tx 0xd7f5442895250971779d7e3fc8246a3aaf2ff58483c8fdc5206ecb1843081f22 block 26460062 ts 1795222979 (2026-11-21T00:02:59Z) via explorer txs; disperse helper 0x4bbe9b84aac9804557e8a90b7186324f20357e5c creator 0x10fefa957f048065abe27380bbb79b390943d01f block 22125100 (explorer creation); docs.hyperunit.xyz/developers/key-addresses/mainnet: 1 ethereum address, fee payers Base-only; api.llama.fi/protocol/unit 2026-11-21: chainTvls.Ethereum 96,758,197 USD, methodology 'HyperUnit Hot wallets For BTC/ETH/SOL'; projects/unit/index.js 404. 0 reward functions, no 7-day count needed."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-wowswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1749,
+ "chain": "bsc",
+ "slug": "wowswap",
+ "name": "WOWswap",
+ "category": "Dexs",
+ "tvl_usd": 25108,
+ "url": "https://wowswap.io",
+ "github": [
+  "wowswap-io"
+ ],
+ "listed_days_ago": 1749,
+ "run_id": "984995cc70a444d6b11040a63a5985b5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: Reserve.liquidate is role_gated ('Only pair'); sweepFee/fill/liquidatePosition callable by anyone but pay 0 (sweepFee trace: no transfer, gas 118,374 = 0.0033 USD at 0.05 gwei, BNB 556.38); 0 events over 7d (blocks 133957575 2026-11-16 to 135257575 2026-11-23) on 55 contracts (2 reserves + 53 pairs; control CAKE 89 logs), xWOW only 1 Approval; BUSD reserve debt 40,839 BUSD unpriced, 6/53 pairs with dust loans (max 400).",
+  "kb": [
+   "attempts:4075",
+   "protocols:2200"
+  ],
+  "run_id": "984995cc70a444d6b11040a63a5985b5",
+  "at": 1795431305
+ }
+}

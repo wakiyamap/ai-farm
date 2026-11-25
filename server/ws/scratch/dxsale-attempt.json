@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-dxsale",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the DxSale Arbitrum deployment is just token/LP lockers (LockerV3 0x51f411d4... + 2 storage registries); every callable function is self-service - unlockToken(uint256) pays out the CALLER's own locked LP (eth_call from a fresh address reverts 'user doesnt have a locker!'), createLocker costs the user 0.1 ETH in fees, platformRelease is owner-gated - so nothing on it ever pays an unrelated caller. The protocol is also fully dormant: 0 events in 7 days and 0 in 365 days on all four contracts, last transaction 2025-08-06.",
+ "numbers": "7d events: 0 across 4 contracts (eth_getLogs blocks 523537990-525567990 = 598,943 s; control same shape: 3,001 USDC Transfer logs / 1,000 blocks on 0xaf88d065e77c8cc2239327c5edb3a432268e5831); 365d events: 0; last tx 2025-08-06 block 36,569,035 tx 0x3f2ccb515e0de12865fc3d1fdc421f27e6e06c5ece207f9798400645f7ff0761 (unlockToken); lockerNumberOpen()=23 ever; TVL 132,895 USD (DefiLlama) = 2021 locks (DXLOCKERLP record startTime 0x613ad36b = 2021-09-09); createLocker fee 0.1 ETH value sent to platform (tx 0xc6fa710675893bea31018db24ee24a55aa0f6285efc7f3deec347567099f76be)"
+}

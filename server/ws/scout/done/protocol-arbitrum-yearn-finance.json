@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-yearn-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "yearn-finance",
+ "name": "Yearn Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 174467,
+ "url": "https://yearn.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "062047efd670429fa3813d31698be287",
+ "result": {
+  "verdict": "unpaid",
+  "line": "56 vaults, 174.5k USD TVL: 0 StrategyReported in 7d AND 30d across all 56 (blocks 523,133,470-525,725,470; same-shape control returned 2 logs), so nobody was paid; vault entry process_report is REPORTING_MANAGER role-gated, buy_debt makes the caller pay; only 2 vaults hold debt (22,777.6 USDC CompoundV3 Lender + 9.15 Tricrypto LP), biggest (yPT-USDe, 64k USDe) runs an empty queue; gross per call 0 USD, nothing to sample.",
+  "kb": [
+   "attempts:2641",
+   "protocols:1113"
+  ],
+  "run_id": "062047efd670429fa3813d31698be287",
+  "at": 1795122220
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-superfluid",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The only open-callable reward function on Superfluid/Arbitrum is stream liquidation (host.callAgreement -> cfaV1, open msg.sender). In the last 7 d there were 5 AgreementLiquidatedV2 events; the 4 that paid the liquidator paid only dust (sum 5.098e-8 ETHx = $0.00009 gross at ETH $1772.52), against ~$0.02-0.08 gas per tx, so gross << gas. One dedicated bot (0x9224413b9177e6c1d5721b4a4d1d00ec84b07ce7) took 26 of 26 liquidations in 30 d. No patrician/PIC (type 2, TOGA seat) liquidation in 30 d, so no PIC reward on Arbitrum either. Reward pot is effectively empty for a stranger.",
+ "numbers": "7d: 5 events, liquidator-paid 4 x 0.0000000036-0.000000036 ETHx, gross total 5.098e-8 ETHx = $0.000090 (ETH $1772.52 coins.llama.fi ts 1795110318); gas 1.17e-5-4.35e-5 ETH/tx = $0.021-0.077 @ effGasPrice 0.024 gwei; 1 USND type-0 event paid the target 0.12 USND not the liquidator. 30d: 26 events, all by 0x922441...; type-2 = 0. Sources: subgraph arbitrum-one/protocol-v1 + eth_getLogs topic0 0xb8381a3c... on ETHx/USND + tx receipts. Block time ~0.3 s so 7 d = ~2.1 M blocks. protocols:1074."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "orderly_bridge",
+  "status": "dead_end",
+  "checked": "Orderly L2 Vault escrow on polygon. Address from DefiLlama adapter projects/orderly-network/index.js OWNER_MAP.polygon: TransparentUpgradeableProxy 0x816f722424b49cf1275cc86da9840fbd5a6167e9 (eth_getCode non-empty; getters answer: crossChainManagerAddress() 0xb182dc69 = 0xa0a07a78c7d31e6f8698f48fc9219f9a3030f38c, swapOperator() 0x6f2c0e15 = 0x0). Implementation 0x4f8c0f4f794dc5b6d4f1c0883e3fab402867f083 verified on etherscan/polygon as 'Vault' (OrderlyNetwork evm-cross-chain, 30 files). Every money-out function is role-gated: withdraw, withdraw2Contract, rebalanceMint, rebalanceBurn = onlyCrossChainManager (custom error OnlyCrossChainManagerCanCall; eth_call withdraw from 0x1111..1111 reverts); delegateSwap/delegateSwapWithExpiration = onlySwapOperator and swapOperator = address 0 (nobody). attemptTransferNative requires msg.sender == address(this). The any-call functions (deposit, depositTo payable, delegateSigner) pull funds FROM the caller and pay nothing. Same shape as attempts:2378/2379/2380/2381 (arbitrum, avalanche, optimism), all role_gated."
+}

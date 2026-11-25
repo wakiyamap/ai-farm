@@ -1,0 +1,1319 @@
+#!/usr/bin/env python3
+"""Farm dashboard: one read-only page with everything the human checks.
+
+Runs as farmgate (reads gate state) on 127.0.0.1:8090; publish it with
+Tailscale Serve. GET / renders HTML; GET /data.json returns the same data.
+Standard library only. Nothing here can change anything.
+"""
+import datetime as dt
+import glob
+import html
+import json
+import os
+import sqlite3
+import subprocess
+import sys
+import threading
+import time
+import urllib.request
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+sys.path[:0] = ["/opt/farm/pylib", "/opt/farm/lib"]
+
+WS = "/srv/farm/ws"
+OPS = "/var/lib/farm/ops.db"
+LEDGER = f"{WS}/ledger/ledger.db"
+KB = f"{WS}/kb/knowledge.db"
+STATE = "/var/lib/farmgate"
+RELAY = "http://127.0.0.1:8545"
+BIND = ("127.0.0.1", 8090)
+
+
+JST = dt.timezone(dt.timedelta(hours=9))
+
+
+def jst(value, fmt="%m-%d %H:%M"):
+    """Render a UTC timestamp (ISO string, epoch, or 'MM-DDTHH:MM' fragment) in JST."""
+    try:
+        if isinstance(value, (int, float)):
+            t = dt.datetime.fromtimestamp(value, dt.timezone.utc)
+        elif isinstance(value, str) and len(value) == 11 and value[5] == "T":   # 'MM-DDTHH:MM' from substr()
+            t = dt.datetime.strptime(f"{dt.datetime.now(dt.timezone.utc).year}-{value}", "%Y-%m-%dT%H:%M").replace(tzinfo=dt.timezone.utc)
+        else:
+            t = dt.datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+            if t.tzinfo is None:
+                t = t.replace(tzinfo=dt.timezone.utc)
+        return t.astimezone(JST).strftime(fmt)
+    except (ValueError, TypeError, OverflowError):
+        return str(value)
+
+
+def q(db, sql, args=()):
+    try:
+        con = sqlite3.connect(f"file:{db}?mode=ro", uri=True, timeout=5)
+        con.row_factory = sqlite3.Row
+        rows = [dict(r) for r in con.execute(sql, args).fetchall()]
+        con.close()
+        return rows
+    except sqlite3.Error as exc:
+        return [{"error": str(exc)}]
+
+
+def units(pattern):
+    out = subprocess.run(["systemctl", "list-units", "--plain", "--no-legend", "--all", pattern],
+                         capture_output=True, text=True, check=False).stdout
+    res = []
+    for line in out.splitlines():
+        parts = line.split(None, 4)
+        if len(parts) >= 4:
+            res.append({"unit": parts[0], "active": parts[2], "sub": parts[3]})
+    return res
+
+
+def timers():
+    """next/last per timer. `systemctl show` leaves NextElapseUSecRealtime empty for
+    OnUnitInactiveSec timers (paper-reviewer, meta), so read list-timers, which resolves both."""
+    import re
+    out = subprocess.run(["systemctl", "list-timers", "--all", "--no-legend",
+                          "farm-*.timer", "ledger-ingest.timer"],
+                         capture_output=True, text=True, check=False).stdout
+    stamp = re.compile(r"[A-Z][a-z]{2} (\d{4}-\d\d-\d\d \d\d:\d\d:\d\d) ([A-Z]{3,4})")
+    found = {}
+    for line in out.splitlines():
+        m = re.search(r"(\S+)\.timer", line)
+        if not m:
+            continue
+        times = stamp.findall(line)
+        def conv(i):
+            if i >= len(times):
+                return "—"
+            t, tz = times[i]
+            try:
+                d = dt.datetime.strptime(t, "%Y-%m-%d %H:%M:%S")
+                d = d.replace(tzinfo=dt.timezone.utc if tz == "UTC" else JST)
+                return jst(d.isoformat())
+            except ValueError:
+                return t
+        # the NEXT column is "-" when nothing is scheduled; then the only stamp is LAST
+        if line.lstrip().startswith("-"):
+            found[m.group(1)] = f"{m.group(1)}: next — · last {conv(0)}"
+        else:
+            found[m.group(1)] = f"{m.group(1)}: next {conv(0)} · last {conv(1)}"
+    found.pop("farm-acl-fix", None)                  # 5-minute housekeeping, not an agent schedule
+    return [found[k] for k in sorted(found)]
+
+
+_gate_cache = {"t": 0, "v": None, "log": None}
+
+
+def _gate_log_stamp():
+    """15l: (mtime_ns, size) of gate.log; every promote / fund / sweep / stop appends a record."""
+    try:
+        st = os.stat(f"{STATE}/gate.log")
+        return (st.st_mtime_ns, st.st_size)
+    except OSError:
+        return None
+
+
+def gate_status(max_age=300):
+    # 10i: `gate-ctl status` reads balances, USDC and prices on every chain (about 900 Alchemy CU).
+    # With the page open and refreshing, a 60 s cache meant about 1.3M CU a day.
+    # 15l: the cache is also dropped when gate.log changed, so a stopped bot leaves the live list
+    # at once (pnl.json, read fresh, no longer has its baseline).
+    import time as _t
+    stamp = _gate_log_stamp()
+    if _gate_cache["v"] is not None and _t.monotonic() - _gate_cache["t"] < max_age \
+            and (stamp is None or stamp == _gate_cache["log"]):
+        return _gate_cache["v"]
+    v = _gate_status()
+    _gate_cache.update(t=_t.monotonic(), v=v, log=stamp)
+    return v
+
+
+def _gate_status():
+    try:
+        r = subprocess.run(["/opt/farm/bin/gate-ctl", "status"], capture_output=True, text=True, timeout=60, check=False)
+        return json.loads(r.stdout) if r.returncode == 0 else {"error": r.stderr.strip()[-300:]}
+    except (OSError, ValueError, subprocess.TimeoutExpired) as exc:
+        return {"error": str(exc)}
+
+
+def relay_health():
+    try:
+        with urllib.request.urlopen(f"{RELAY}/health", timeout=5) as r:
+            return json.loads(r.read())
+    except (OSError, ValueError) as exc:
+        return {"error": str(exc)}
+
+
+SWEEP_OPS = ("sweep", "sweep_usdc", "sweep_usdc_inflight", "sweep_usdc_fix")   # 15k: gate.log records with a PnL
+
+
+def pnl_history(days=14):
+    """Daily realized PnL from gate.log sweeps is not stored per day; use pnl.json for today
+    and the gate log for past days' sweep records."""
+    hist = {}
+    try:
+        with open(f"{STATE}/gate.log", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                if r.get("op") in SWEEP_OPS and isinstance(r.get("usd"), (int, float)):     # 15k: USDC legs too
+                    day = jst(r["at"], "%Y-%m-%d")
+                    hist[day] = hist.get(day, 0.0) + r["usd"]
+    except OSError:
+        pass
+    # today's figure comes from the sweep log too (pnl.json holds the same numbers)
+    today = dt.datetime.now(JST).date()
+    return [(str(today - dt.timedelta(days=i)), round(hist.get(str(today - dt.timedelta(days=i)), 0.0), 2))
+            for i in range(days - 1, -1, -1)]
+
+
+def sessions_today():
+    """Session reports are filed under UTC dates; show the last 20 across the two files a JST day spans."""
+    now = dt.datetime.now(dt.timezone.utc)
+    rows = []
+    for d in (now - dt.timedelta(days=1), now):
+        try:
+            with open(f"{WS}/logs/sessions/{d.strftime('%Y-%m-%d')}.jsonl", encoding="utf-8") as f:
+                for line in f:
+                    try:
+                        rows.append(json.loads(line))
+                    except ValueError:
+                        pass
+        except OSError:
+            pass
+    return rows[-20:]
+
+
+def inbox(name):
+    files = sorted((f for f in glob.glob(f"{WS}/inbox/{name}/*") if os.path.isfile(f)),   # done/ etc. are archives
+                   key=os.path.getmtime, reverse=True)[:10]
+    out = []
+    for p in files:
+        try:
+            with open(p, encoding="utf-8", errors="replace") as f:
+                head = f.read(400)
+        except OSError:
+            head = ""
+        out.append({"file": os.path.basename(p), "mtime": jst(os.path.getmtime(p)),
+                    "head": head.strip().splitlines()[0][:120] if head.strip() else ""})
+    return out
+
+
+def paper_bots():
+    out = []
+    for d in sorted(glob.glob(f"{WS}/bots/paper/*/")):
+        bid = os.path.basename(d.rstrip("/"))
+        st = subprocess.run(["systemctl", "show", f"paper@{bid}.service", "-p", "SubState", "--value"],
+                            capture_output=True, text=True, check=False).stdout.strip()
+        decision = "—"
+        rp = f"{d}review.md"
+        if os.path.exists(rp):
+            try:
+                import re
+                with open(rp, encoding="utf-8", errors="replace") as f:
+                    text = f.read(20000)
+                # newest entry first: "Decision: fix" or "unchanged since <run>, decision fix stands"
+                m = re.search(r"^\s*decision:\s*(promote|fix|wait|demote)\b|decision\s+(promote|fix|wait|demote)\s+stands",
+                              text, re.I | re.M)
+                if m:
+                    decision = (m.group(1) or m.group(2)).lower()
+                    if m.group(2):
+                        decision += " (unchanged)"
+            except OSError:
+                pass
+        out.append({"id": bid, "service": st or "not started", "review": decision})
+    return out
+
+
+# --- 11b: what phases 7 to 11a added and this page did not show yet -----------------------------
+FEED = "http://127.0.0.1:8546"
+GATE_CONF = "/etc/farm/gate.json"
+RUNNERS = "/srv/farm/runners"
+ALCHEMY_MONTHLY_CU = 95_200_000     # monthly allowance of the Alchemy plan
+ALCHEMY_CYCLE_DAY = 1               # UTC day of the month the allowance restarts; set it to the billing day if that differs
+USD_PER_M_CU = 0.53                 # 50 USD / 95.2M CU (decision 2026-11-12)
+PROMPT_WARN, PROMPT_MAX = 56000, 60000      # assemble-prompt: memo to meta above 56,000, refuses above 60,000
+SERVICES = ("rpc-relay", "farm-feed", "farm-signer", "farm-watchdog", "farm-search", "qwen-server")
+QUIET_OPS = {"deploy_executor_sent", "sweep_usdc_sent"}     # each is followed by its own result record
+LOSS_WARN = 2 / 3                   # warn when a live bot has used this share of max_live_loss_usd
+
+_price_cache = {}
+
+
+def _safe(default, fn, *a):
+    try:
+        return fn(*a)
+    except Exception:                 # noqa: BLE001 - one broken source must not blank the page
+        return default
+
+
+def _farmchains():
+    try:
+        import farmchains
+        return farmchains
+    except Exception:                 # noqa: BLE001
+        return None
+
+
+def usdc_units(chain, raw):
+    try:
+        return raw / _farmchains().usdc_scale(chain)
+    except Exception:                 # noqa: BLE001 - no farmchains: Binance-Peg USDC has 18 decimals, the rest 6
+        return raw / (1e18 if chain == "bsc" else 1e6)
+
+
+def native_price(chain, max_age=300):
+    """Native/USD from the chain's Chainlink feed, through the relay's research lane (public nodes
+    first, so normally no Alchemy CU). None when it cannot be read or is implausible."""
+    import time as _t
+    hit = _price_cache.get(chain)
+    if hit and _t.monotonic() - hit[0] < max_age:
+        return hit[1]
+    fc = _farmchains()
+    try:
+        body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": "eth_call",
+                           "params": [{"to": fc.ETH_USD_FEED[chain], "data": "0x50d25bcd"}, "latest"]}).encode()   # latestAnswer()
+        req = urllib.request.Request(f"{RELAY}/{fc.feed_chain(chain)}?lane=research", data=body,
+                                     headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            price = int(json.loads(r.read())["result"], 16) / 1e8
+        if not fc.price_ok(chain, price):
+            return None
+    except Exception:                 # noqa: BLE001
+        return None
+    _price_cache[chain] = (_t.monotonic(), price)
+    return price
+
+
+def feed_health():
+    try:
+        with urllib.request.urlopen(f"{FEED}/health", timeout=5) as r:
+            return json.loads(r.read())
+    except (OSError, ValueError) as exc:
+        return {"error": str(exc)}
+
+
+def cycle_bounds(now):
+    day = max(1, min(int(ALCHEMY_CYCLE_DAY), 28))
+    y, m = now.year, now.month
+    if now.day < day:
+        y, m = (y, m - 1) if m > 1 else (y - 1, 12)
+    ny, nm = (y, m + 1) if m < 12 else (y + 1, 1)
+    return dt.datetime(y, m, day, tzinfo=dt.timezone.utc), dt.datetime(ny, nm, day, tzinfo=dt.timezone.utc)
+
+
+def alchemy_month(now=None):
+    """Alchemy CU since the cycle began, as the relay counted them (ops.db rpc_stats). farm-feed's
+    subscriptions are not in rpc_stats; today's feed CU is shown next to it."""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    start, end = cycle_bounds(now)
+    rows = q(OPS, "SELECT lane, sum(cu) cu, min(day) first FROM rpc_stats WHERE provider='alchemy' AND day>=? GROUP BY 1",
+             (start.strftime("%Y-%m-%d"),))
+    if rows and "error" in rows[0]:
+        return {"error": rows[0]["error"]}
+    lanes = {r["lane"]: int(r["cu"] or 0) for r in rows}
+    total = sum(lanes.values())
+    since = start
+    firsts = [r["first"] for r in rows if r.get("first")]
+    if firsts:
+        try:
+            since = max(start, dt.datetime.strptime(min(firsts), "%Y-%m-%d").replace(tzinfo=dt.timezone.utc))
+        except ValueError:
+            pass
+    days = (now - since).total_seconds() / 86400
+    projected = round(total + total / days * (end - now).total_seconds() / 86400) if total and days >= 0.5 else None
+    return {"since": since.strftime("%Y-%m-%d"), "ends": end.strftime("%Y-%m-%d"), "cu": total, "lanes": lanes,
+            "allowance": ALCHEMY_MONTHLY_CU, "projected_cu": projected, "usd": round(total / 1e6 * USD_PER_M_CU, 2)}
+
+
+def rpc_by_chain():
+    return q(OPS, "SELECT chain, sum(CASE WHEN lane='live' THEN cu ELSE 0 END) live, "
+                  "sum(CASE WHEN lane='paper' THEN cu ELSE 0 END) paper, "
+                  "sum(CASE WHEN lane='research' THEN cu ELSE 0 END) research, sum(ok) ok, sum(failed) failed, "
+                  "CASE WHEN sum(ok)+sum(failed)>0 THEN sum(latency_ms)/(sum(ok)+sum(failed)) END avg_ms "
+                  "FROM rpc_stats WHERE day=date('now') AND provider='alchemy' GROUP BY 1 ORDER BY sum(cu) DESC")
+
+
+def services():
+    names = [f"{s}.service" for s in SERVICES]
+    out = subprocess.run(["systemctl", "show", *names, "-p", "Id,LoadState,ActiveState,SubState"],
+                         capture_output=True, text=True, check=False).stdout
+    res = []
+    for block in out.strip().split("\n\n"):
+        kv = dict(line.split("=", 1) for line in block.splitlines() if "=" in line)
+        if kv.get("LoadState") in (None, "not-found"):
+            continue                                 # e.g. the local model server under another unit name
+        res.append({"unit": kv.get("Id", "?").replace(".service", ""), "active": kv.get("ActiveState", "?"),
+                    "sub": kv.get("SubState", "?")})
+    for u in units("fork@*.service"):
+        res.append({"unit": u["unit"].replace(".service", ""), "active": u["active"], "sub": u["sub"]})
+    return res
+
+
+def gate_log_tail(n=12):
+    """The newest gate.log records, newest first: promote, fund, sweep (with its PnL), stop, failures."""
+    try:
+        with open(f"{STATE}/gate.log", "rb") as f:
+            f.seek(0, 2)
+            size = f.tell()
+            f.seek(max(0, size - 65536))
+            lines = f.read().decode("utf-8", "replace").splitlines()
+    except OSError:
+        return []
+    if size > 65536:
+        lines = lines[1:]                            # the first line is cut somewhere in the middle
+    rows = []
+    for line in lines:
+        try:
+            r = json.loads(line)
+        except ValueError:
+            continue
+        if not isinstance(r, dict) or r.get("op") in QUIET_OPS:
+            continue
+        chain, bits = r.get("chain", ""), []
+        if isinstance(r.get("usd"), (int, float)):
+            bits.append(f"PnL {r['usd']:+.4f} USD")
+        if isinstance(r.get("wei"), int):
+            bits.append(f"{r['wei'] / 1e18:.6f} native")
+        if isinstance(r.get("usdc"), int):
+            bits.append(f"{usdc_units(chain, r['usdc']):.2f} USDC")
+        if r.get("capital_usd") is not None:
+            bits.append(f"capital {r['capital_usd']} USD")
+        if r.get("nonce") is not None:
+            bits.append(f"nonce {r['nonce']}")
+        for k in ("why", "note", "archived", "label"):
+            if r.get(k):
+                bits.append(str(r[k])[:140])
+        rows.append({"at": jst(r.get("at")), "op": r.get("op"), "bot": r.get("bot", ""), "chain": chain,
+                     "detail": " · ".join(bits), "by": f"{r.get('by', '?')}/{r.get('role', '?')}"})
+    return rows[-n:][::-1]
+
+
+def pnl_state():
+    try:
+        with open(f"{STATE}/pnl.json", encoding="utf-8") as f:
+            p = json.load(f)
+    except (OSError, ValueError):
+        return {}
+    if not isinstance(p, dict):
+        return {}
+    if p.get("day") != dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d"):
+        p["realized_usd"] = {}                       # the gate resets it on its first call of the UTC day
+    return p
+
+
+def max_live_loss():
+    try:
+        with open(GATE_CONF, encoding="utf-8") as f:
+            return float(json.load(f).get("max_live_loss_usd", 30))
+    except (OSError, ValueError, TypeError):
+        return 30.0
+
+
+def live_loss(g, pnl):
+    """Per live bot: what the gate funded (pnl.json baseline, at the current price) minus what the
+    wallet holds now - the number the watchdog stops a bot on. Approximate: balances are up to
+    5 minutes old."""
+    out = {}
+    for bot, v in (g.get("live") or {}).items():
+        base, ubase = (pnl.get("baseline") or {}).get(bot), (pnl.get("baseline_usdc") or {}).get(bot)
+        if not base and not ubase:
+            if not os.path.isdir(f"{WS}/bots/live/{bot}"):
+                continue                 # 15l: stopped since the cached status (archived, swept)
+            out[bot] = {"note": "no baseline"}
+            continue
+        funded, priced = 0.0, True
+        for chain, wei in (base or {}).items():
+            p = native_price(chain) if wei else 0.0
+            if p is None:
+                priced = False
+                break
+            funded += wei / 1e18 * p
+        if not priced:
+            out[bot] = {"note": "price unavailable"}
+            continue
+        for chain, raw in (ubase or {}).items():
+            funded += usdc_units(chain, raw)
+        value = sum(x for x in (v.get("balances_usd") or {}).values() if isinstance(x, (int, float)))
+        out[bot] = {"funded_usd": round(funded, 2), "value_usd": round(value, 2), "loss_usd": round(funded - value, 2)}
+    return out
+
+
+DAY_FILE = "/var/lib/farmgate/dash-pnl-day.json"    # 15j: farm-dash's own live-PnL snapshot per UTC day
+_day_lock = threading.Lock()
+
+
+def live_pnl(ll):
+    """15j: per live bot, PnL since promotion = -(loss since promotion), rounded to cents."""
+    return {b: round(-x["loss_usd"], 2) for b, x in (ll or {}).items() if isinstance(x.get("loss_usd"), (int, float))}
+
+
+def pnl_today(cur, now=None, path=None):
+    """15j: live PnL since the UTC day's snapshot. The first call of a UTC day (the 00:00 thread, or
+    the first request) closes the previous day into history and snapshots `cur`. A bot not in the
+    snapshot was promoted after it and starts at 0."""
+    path = path or DAY_FILE
+    now = now or dt.datetime.now(dt.timezone.utc)
+    day = now.strftime("%Y-%m-%d")
+    with _day_lock:
+        try:
+            with open(path, encoding="utf-8") as f:
+                s = json.load(f)
+            if not isinstance(s, dict):
+                s = {}
+        except (OSError, ValueError):
+            s = {}
+        hist = s.get("history") if isinstance(s.get("history"), dict) else {}
+        changed = False
+        if s.get("day") != day:
+            if s.get("day") and isinstance(s.get("last_total"), (int, float)):
+                hist[s["day"]] = s["last_total"]
+            hist = {k: hist[k] for k in sorted(hist)[-14:]}
+            s = {"day": day, "since": now.strftime("%H:%M UTC"), "start": dict(cur), "history": hist}
+            changed = True
+        start = s.setdefault("start", {})
+        for b in cur:
+            if b not in start:
+                start[b] = 0.0                       # promoted after the snapshot: PnL 0 at promotion
+                changed = True
+        by_bot = {b: round(v - start[b], 2) for b, v in cur.items()}
+        total = round(sum(by_bot.values()), 2)
+        if s.get("last_total") != total:
+            s["last_total"] = total
+            changed = True
+        if changed:
+            tmp = f"{path}.tmp"
+            with open(tmp, "w", encoding="utf-8") as f:
+                json.dump(s, f)
+            os.replace(tmp, path)
+    return {"since": s["since"], "by_bot": by_bot, "total": total, "history": s.get("history", {})}
+
+
+def swept_total():
+    """15j: PnL of every sweep in gate.log (bots already stopped), all time."""
+    total = 0.0
+    with open(f"{STATE}/gate.log", encoding="utf-8") as f:
+        for line in f:
+            try:
+                r = json.loads(line)
+            except ValueError:
+                continue
+            if isinstance(r, dict) and r.get("op") in SWEEP_OPS and isinstance(r.get("usd"), (int, float)):
+                total += r["usd"]
+    return round(total, 4)
+
+
+def pnl_summary(d):
+    """15j: one line for the brief and the tile: live PnL since promotion and today, sweeps."""
+    lp = d.get("live_pnl") or {}
+    t = d.get("live_pnl_today") or {}
+    gains = round(sum(v for v in lp.values() if v > 0), 2)
+    losses = round(sum(v for v in lp.values() if v < 0), 2)
+    swept_today = round(sum((d.get("realized_today") or {}).values()), 4)
+    return {"total": round(gains + losses, 2), "gains": gains, "losses": losses, "today": t.get("total", 0.0),
+            "since": t.get("since", "?"), "swept_today": swept_today, "swept_total": d.get("swept_total")}
+
+
+def day_snapshot_loop():
+    """15j: at 00:00:20 UTC take the day's live-PnL snapshot (one fresh gate status)."""
+    while True:
+        now = dt.datetime.now(dt.timezone.utc)
+        nxt = (now + dt.timedelta(days=1)).replace(hour=0, minute=0, second=20, microsecond=0)
+        time.sleep(max(30.0, (nxt - now).total_seconds()))
+        try:
+            g = gate_status(60)
+            g = g if isinstance(g, dict) and "error" not in g else {}
+            if g:
+                pnl_today(live_pnl(live_loss(g, pnl_state())))
+        except Exception as exc:                     # noqa: BLE001 - the page keeps working; the first request snapshots
+            print(f"farm-dash: day snapshot failed: {exc!r}", file=sys.stderr)
+
+
+def prompt_sizes():
+    import time as _t
+    rows = []
+    for p in sorted(glob.glob(f"{RUNNERS}/*/prompt.md")):
+        try:
+            st = os.stat(p)
+        except OSError:
+            continue
+        if _t.time() - st.st_mtime > 7 * 86400:
+            continue                                 # leftovers of renamed instances
+        rows.append({"instance": os.path.basename(os.path.dirname(p)), "bytes": st.st_size,
+                     "state": "OVER 60,000: cannot start" if st.st_size > PROMPT_MAX
+                     else "over 56,000" if st.st_size > PROMPT_WARN else "ok", "built": jst(st.st_mtime)})
+    return rows
+
+
+def decisions(n=6):
+    files = sorted((f for f in glob.glob(f"{WS}/decisions/human/*") if os.path.isfile(f)), key=os.path.getmtime, reverse=True)[:n]
+    return [{"mtime": jst(os.path.getmtime(p)), "file": os.path.basename(p)} for p in files]
+
+
+def extras(gate_max_age=300):
+    g = gate_status(gate_max_age)                    # cached: collect() has just asked for it
+    g = g if isinstance(g, dict) and "error" not in g else {}
+    pnl = _safe({}, pnl_state)
+    return {
+        "feed": _safe({"error": "feed health unreadable"}, feed_health),
+        "alchemy_month": _safe({"error": "rpc_stats unreadable"}, alchemy_month),
+        "rpc_chains": _safe([], rpc_by_chain),
+        "services": _safe([], services),
+        "gate_log": _safe([], gate_log_tail),
+        "realized_today": pnl.get("realized_usd") or {},
+        "sweep_pending": {k: pnl.get(k) for k in ("usdc_in_flight", "sweep_unsure") if pnl.get(k)},
+        "live_loss": (ll := _safe({}, live_loss, g, pnl)),
+        "live_pnl": (lp := live_pnl(ll)),                                                       # 15j
+        "live_pnl_today": _safe({"since": "?", "by_bot": {}, "total": 0.0, "history": {}}, pnl_today, lp) if g else
+                          {"since": "?", "by_bot": {}, "total": 0.0, "history": {}},
+        "swept_total": _safe(None, swept_total),
+        "graduation": _safe(dict(_GRAD_EMPTY), graduation, g, lp),                             # 16c
+        "max_live_loss_usd": max_live_loss(),
+        "prompts": _safe([], prompt_sizes),
+        "decisions": _safe([], decisions),
+        "lead_counts": _safe([], q, KB, "SELECT status, count(*) n FROM leads GROUP BY 1 ORDER BY 2 DESC"),
+    }
+
+
+# --- 16c: grad bots and graduation candidates (decisions/human/2026-11-24-graduate-and-builder-focus.md) ---
+import re as _re
+
+GRAD_PREFIX, TRIAL_PREFIX = "grad-", "trial-"
+GRAD_MAX_LIVE = 5                   # decision 2.: at most 5 live grads at a time
+GRAD_MIN_HOURS = 72                 # decision 1.: live for 72 hours or more
+GRAD_MIN_PNL = 1.0                  # decision 1.: +1 USD or more since promotion (gate status)
+GRAD_MIN_WINS = 3                   # decision 1.: 3 or more `send_result: won` in the bot's log
+SEND_RE = _re.compile(r"""send_result["']?\s*[:=]\s*["']?([A-Za-z_]+)""")
+TS_RE = _re.compile(r"^\W{0,2}(\d{4}-\d\d-\d\d[T ]\d\d:\d\d:\d\d(?:\.\d+)?(?:Z|[+-]\d\d:?\d\d)?)")
+LOG_READ_MAX = 256 * 1024 * 1024    # first read of one log file: at most its last 256 MiB
+JOURNAL_MAX_AGE = 300               # the journal fallback is asked at most every 5 minutes per bot
+_log_scan = {}                      # path -> {"key", "off", "counts"}: incremental, appends are read once
+_journal_cache = {}                 # bot -> (monotonic, since, counts, error)
+_journal_budget = [4]               # journalctl calls left in this graduation() call (keeps the page fast)
+
+
+def _epoch(v):
+    """gate.log / log-line time (epoch s or ms, or ISO 8601; naive = UTC) -> epoch seconds or None."""
+    if isinstance(v, bool):
+        return None
+    if isinstance(v, (int, float)):
+        return v / 1000 if v > 1e12 else float(v)
+    if isinstance(v, str) and v:
+        try:
+            t = dt.datetime.fromisoformat(v.strip().replace("Z", "+00:00").replace(" ", "T", 1))
+        except ValueError:
+            return None
+        return (t if t.tzinfo else t.replace(tzinfo=dt.timezone.utc)).timestamp()
+    return None
+
+
+def promote_times(path=None):
+    """16c: bot -> epoch of its newest `promote` record in gate.log (a refused promote writes none
+    with op 'promote', or carries ok=false / an error, and is skipped)."""
+    out = {}
+    try:
+        with open(path or f"{STATE}/gate.log", encoding="utf-8") as f:
+            for line in f:
+                if '"promote"' not in line:
+                    continue
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                if not isinstance(r, dict) or r.get("op") != "promote" or not r.get("bot"):
+                    continue
+                if r.get("ok") is False or r.get("error"):
+                    continue
+                t = _epoch(r.get("at"))
+                if t is not None:
+                    out[r["bot"]] = t
+    except OSError:
+        pass
+    return out
+
+
+def _line_epoch(line):
+    """Time of one log line when it carries one: a JSON object with ts/time/at/timestamp, or a
+    leading ISO time. None = unknown (the line is counted)."""
+    s = line.lstrip()
+    if s.startswith("{"):
+        try:
+            r = json.loads(s)
+        except ValueError:
+            r = None
+        if isinstance(r, dict):
+            for k in ("ts", "time", "at", "timestamp", "t"):
+                if k in r:
+                    t = _epoch(r[k])
+                    if t is not None:
+                        return t
+            return None
+    m = TS_RE.match(s)
+    return _epoch(m.group(1)) if m else None
+
+
+def _count_lines(lines, since, counts):
+    for line in lines:
+        if "send_result" not in line:
+            continue
+        m = SEND_RE.search(line)
+        if not m:
+            continue
+        t = _line_epoch(line)
+        if since is not None and t is not None and t < since:
+            continue                                 # before this promotion (paper-era or an earlier promote)
+        v = m.group(1).lower()
+        counts[v] = counts.get(v, 0) + 1
+
+
+def _scan_file(path, since):
+    """Counts of send_result values in one file since `since`; only bytes appended since the last
+    call are read. A truncated or replaced file (other inode, smaller) is read again."""
+    st = os.stat(path)
+    key = (st.st_dev, st.st_ino, since)
+    c = _log_scan.get(path)
+    if not c or c["key"] != key or st.st_size < c["off"]:
+        c = {"key": key, "off": max(0, st.st_size - LOG_READ_MAX), "counts": {}, "partial": b""}
+    if st.st_size > c["off"]:
+        with open(path, "rb") as f:
+            f.seek(c["off"])
+            data = c["partial"] + f.read(st.st_size - c["off"])
+        c["off"] = st.st_size
+        head, sep, tail = data.rpartition(b"\n")
+        c["partial"] = tail                          # an unfinished last line waits for its newline
+        if sep:
+            _count_lines(head.decode("utf-8", "replace").splitlines(), since, c["counts"])
+    _log_scan[path] = c
+    return c["counts"]
+
+
+def _journal_counts(bot, since):
+    import time as _t
+    hit = _journal_cache.get(bot)
+    if hit and hit[1] == since and _t.monotonic() - hit[0] < JOURNAL_MAX_AGE:
+        return hit[2], hit[3]
+    if _journal_budget[0] <= 0:
+        return (hit[2], hit[3]) if hit and hit[1] == since else ({}, "deferred to a later refresh")
+    _journal_budget[0] -= 1
+    counts, err = {}, ""
+    cmd = ["journalctl", "-u", f"bot@{bot}.service", "-o", "cat", "--no-pager", "-q"]
+    if since is not None:
+        cmd += ["--since", f"@{int(since)}"]
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=20, check=False)
+        _count_lines(r.stdout.splitlines(), since, counts)
+        if not r.stdout.strip():
+            err = (r.stderr.strip().splitlines() or ["empty"])[-1][:120]
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        err = str(exc)[:120]
+    _journal_cache[bot] = (_t.monotonic(), since, counts, err)
+    return counts, err
+
+
+def send_counts(bot, since):
+    """16c: won / all send_result lines of a live bot since its promotion. Files under
+    bots/live/<bot>/logs/ first; when they hold no send_result line, the bot@ unit's journal."""
+    counts, files, unreadable = {}, 0, 0
+    root = f"{WS}/bots/live/{bot}/logs"
+    for dirpath, dirnames, filenames in os.walk(root):
+        if dirpath[len(root):].count(os.sep) >= 2:
+            dirnames[:] = []
+        for n in filenames:
+            p = os.path.join(dirpath, n)
+            if os.path.islink(p) or not os.path.isfile(p):
+                continue
+            try:
+                for k, v in _scan_file(p, since).items():
+                    counts[k] = counts.get(k, 0) + v
+                files += 1
+            except OSError:
+                unreadable += 1
+    source = f"logs ({files} file(s)" + (f", {unreadable} unreadable)" if unreadable else ")")
+    if not counts:
+        jc, err = _journal_counts(bot, since)
+        if jc:
+            counts, source = jc, "journal"
+        else:
+            source += f"; journal: {err or 'no send_result'}"
+    return {"won": counts.get("won", 0), "sends": sum(counts.values()), "results": counts, "source": source}
+
+
+def graduation(g, lp, now=None):
+    """16c: per live bot hours live / won / sends, the graduation candidates (decision 1.) and the
+    trial bots one condition short of it."""
+    import time as _t
+    now = now or _t.time()
+    live = g.get("live") or {}
+    pt = promote_times()
+    _journal_budget[0] = 4
+    paper = {os.path.basename(p.rstrip("/")) for p in glob.glob(f"{WS}/bots/paper/*/")}
+    stats = {}
+    for bot in live:
+        d = f"{WS}/bots/live/{bot}"
+        if not os.path.isdir(d):
+            continue                                 # stopped since the cached status
+        t, src = pt.get(bot), "gate.log"
+        if t is None:
+            try:
+                t, src = os.stat(d).st_mtime, "directory time (no promote record)"
+            except OSError:
+                t, src = None, "unknown"
+        s = _safe({"won": 0, "sends": 0, "results": {}, "source": "error"}, send_counts, bot, t)
+        stats[bot] = dict(s, hours_live=None if t is None else round((now - t) / 3600, 1),
+                          promoted=jst(t) if t else "?", promote_source=src, pnl=lp.get(bot))
+    cands, near = [], []
+    for bot, r in sorted(stats.items()):
+        if not bot.startswith(TRIAL_PREFIX) or bot.endswith("-ethereum"):
+            continue                                 # one-shots, grads and ethereum are not graduated
+        miss = []
+        h = r["hours_live"]
+        if h is None or h < GRAD_MIN_HOURS:
+            miss.append(f"live {0 if h is None else h:.0f}/{GRAD_MIN_HOURS} h")
+        if r["pnl"] is None or r["pnl"] < GRAD_MIN_PNL:
+            miss.append("pnl " + ("?" if r["pnl"] is None else f"{r['pnl']:+.2f}") + f" < +{GRAD_MIN_PNL:g}")
+        if r["won"] < GRAD_MIN_WINS:
+            miss.append(f"won {r['won']}/{GRAD_MIN_WINS}")
+        grad = GRAD_PREFIX + bot[len(TRIAL_PREFIX):]
+        item = {"bot": bot, "hours_live": h, "pnl_since_promote_usd": "" if r["pnl"] is None else f"{r['pnl']:+.2f}",
+                "won_of_sends": f"{r['won']}/{r['sends']}",
+                "grad": "live" if grad in live else "in paper" if grad in paper else "—", "short_of": ", ".join(miss)}
+        if not miss:
+            cands.append(item)
+        elif len(miss) == 1:
+            near.append(item)
+    return {"stats": stats, "candidates": cands, "near": near,
+            "grad_live": sorted(b for b in stats if b.startswith(GRAD_PREFIX)),
+            "grad_paper": sorted(b for b in paper if b.startswith(GRAD_PREFIX)), "grad_max": GRAD_MAX_LIVE}
+
+
+_GRAD_EMPTY = {"stats": {}, "candidates": [], "near": [], "grad_live": [], "grad_paper": [], "grad_max": GRAD_MAX_LIVE}
+
+
+def _with_sends(d, rows):
+    st = (d.get("graduation") or {}).get("stats", {})
+    return [dict(r, hours_live=st.get(r["bot"], {}).get("hours_live", ""),
+                 won_of_sends=(f"{st[r['bot']]['won']}/{st[r['bot']]['sends']}" if r["bot"] in st else "")) for r in rows]
+
+
+def render_grad(d, live_rows):
+    """16c: grad bots, then the other live bots (trial, one-shot), then the graduation candidates."""
+    gr = d.get("graduation") or _GRAD_EMPTY
+    rows = live_cols(d, live_rows)
+    grads = _with_sends(d, [r for r in rows if r["bot"].startswith(GRAD_PREFIX)])
+    others = _with_sends(d, [r for r in rows if not r["bot"].startswith(GRAD_PREFIX)])
+    paper = [b for b in d.get("paper", []) if b["id"].startswith(GRAD_PREFIX)]
+    over = len(gr["grad_live"]) > gr["grad_max"]
+    in_paper = ", ".join("%s (review %s)" % (b["id"], b["review"]) for b in paper)
+    note = "<p class='muted' style='font-size:12px'>grad bots in paper: " + e(in_paper) + "</p>" if paper else ""
+    warn = badge(False, "more than %d live grads" % gr["grad_max"]) if over else ""
+    return f"""<h2>Grad bots ({len(grads)} of {gr['grad_max']})</h2>{warn}{table(grads)}{note}
+<h2>Live bots: trial and one-shot ({len(others)})</h2>{table(others)}
+<h2>Graduation candidates ({len(gr['candidates'])})</h2>{table(gr['candidates'])}
+<p class="muted" style="font-size:12px">trial bots (not ethereum) live ≥ {GRAD_MIN_HOURS} h, PnL since promotion ≥ +{GRAD_MIN_PNL:g} USD and ≥ {GRAD_MIN_WINS} <code>send_result: won</code> since promotion · grad = <code>grad-&lt;target&gt;-&lt;chain&gt;</code></p>
+<h2>One condition short ({len(gr['near'])})</h2>{table(gr['near'])}"""
+
+
+def grad_brief(d):
+    """16c: lines for brief.txt."""
+    gr = d.get("graduation") or _GRAD_EMPTY
+    lp, today = d.get("live_pnl") or {}, (d.get("live_pnl_today") or {}).get("by_bot", {})
+    L = [f"grad bots live: {len(gr['grad_live'])} of {gr['grad_max']}"
+         + (f" · in paper: {', '.join(gr['grad_paper'])}" if gr["grad_paper"] else "")]
+    for b in gr["grad_live"]:
+        s = gr["stats"].get(b, {})
+        L.append(f"  grad {b}: pnl since promotion " + ("?" if lp.get(b) is None else f"{lp[b]:+.2f}")
+                 + ("" if today.get(b) is None else f" · today {today[b]:+.2f}")
+                 + f" · won {s.get('won', 0)} of {s.get('sends', 0)} sends · live {s.get('hours_live')} h")
+    L.append(f"graduation candidates (trial, not ethereum, live >= {GRAD_MIN_HOURS} h, pnl >= +{GRAD_MIN_PNL:g}, "
+             f"won >= {GRAD_MIN_WINS}): " + (str(len(gr["candidates"])) if gr["candidates"] else "none"))
+    for c in gr["candidates"]:
+        L.append(f"  - {c['bot']}: live {c['hours_live']} h · pnl {c['pnl_since_promote_usd']} · won {c['won_of_sends']} sends · grad {c['grad']}")
+    if gr["near"]:
+        L.append("  one condition short: " + "; ".join(f"{c['bot']} ({c['short_of']})" for c in gr["near"]))
+    srcs = {s.get("source", "") for s in gr["stats"].values()}
+    if gr["stats"] and all(not s.get("sends") for s in gr["stats"].values()):
+        L.append("  note: no send_result line found for any live bot since its promotion ("
+                 + "; ".join(sorted(srcs))[:300] + ")")
+    return L
+
+
+def mcu(n):
+    return f"{n / 1e6:.2f}M" if isinstance(n, (int, float)) else "?"
+
+
+def warnings(d):
+    """Things that want a look, as short lines (page badges and the top of the brief)."""
+    w = []
+    g = d["gate"] if "error" not in d["gate"] else {}
+    for s in d.get("services", []):
+        if s["active"] != "active":
+            w.append(f"{s['unit']} is {s['active']}/{s['sub']}")
+    for bot, v in (g.get("live") or {}).items():
+        if "ActiveState=active" not in v.get("service", ""):
+            w.append(f"live bot {bot} is not running ({v.get('service', '?')}): a stopped promote or an unfinished stop")
+    cap = d.get("max_live_loss_usd", 30)
+    for bot, x in d.get("live_loss", {}).items():
+        if x.get("note") == "no baseline":
+            w.append(f"{bot}: no baseline in pnl.json, the live-loss stop cannot judge it")
+        elif x.get("loss_usd", 0) >= cap * LOSS_WARN:
+            w.append(f"{bot}: {x['loss_usd']} USD lost since promotion (the watchdog stops it at {cap:g})")
+    for k, v in d.get("sweep_pending", {}).items():
+        w.append(f"pnl.json {k}: {', '.join(v)} - a sweep transfer is unresolved; run `gate stop <id>` again")
+    f = d.get("feed", {})
+    if "error" in f:
+        w.append(f"farm-feed /health: {f['error']}")
+    elif f.get("exhausted"):
+        w.append("farm-feed used up its daily CU budget: every subscription is off until 00:00 UTC")
+    elif f.get("blocked_filters_today"):
+        w.append(f"farm-feed dropped {f['blocked_filters_today']} log filter(s) today (per-filter CU cap)")
+    for c, v in (f.get("chains") or {}).items():
+        if v.get("status") in ("down", "reconnecting"):
+            w.append(f"farm-feed {c}: {v['status']} {v.get('error', '')}".rstrip())
+    m = d.get("alchemy_month", {})
+    if m.get("projected_cu") and m["projected_cu"] > m.get("allowance", 0):
+        w.append(f"Alchemy is on course for {mcu(m['projected_cu'])} CU by {m['ends']}, above the {mcu(m['allowance'])} allowance "
+                 "(when it runs out, sends stop too)")
+    for p in d.get("prompts", []):
+        if p["state"] != "ok":
+            w.append(f"prompt of {p['instance']} is {p['bytes']:,} bytes ({p['state']})")
+    gr = d.get("graduation") or {}
+    if len(gr.get("grad_live", [])) > gr.get("grad_max", GRAD_MAX_LIVE):                     # 16c
+        w.append(f"{len(gr['grad_live'])} grad bots are live, the decision allows {gr['grad_max']}")
+    return w
+
+
+def extra_tiles(d):
+    m, f, sv = d.get("alchemy_month", {}), d.get("feed", {}), d.get("services", [])
+    down = [s["unit"] for s in sv if s["active"] != "active"]
+    tiles = []
+    if "error" in m:
+        tiles.append(("Alchemy CU this cycle", "?", m["error"][:60], False))
+    else:
+        proj = m.get("projected_cu")
+        tiles.append(("Alchemy CU this cycle", mcu(m.get("cu")),
+                      f"of {mcu(m.get('allowance'))} · on course for {mcu(proj) if proj else '?'} · about ${m.get('usd')}",
+                      not proj or proj <= m.get("allowance", 0)))
+    if "error" in f:
+        tiles.append(("Feed CU today", "?", "farm-feed not answering", False))
+    else:
+        nsub = sum(len(c.get("subscriptions", [])) for c in (f.get("chains") or {}).values())
+        tiles.append(("Feed CU today", str(f.get("cu_today", "?")),
+                      ("EXHAUSTED · " if f.get("exhausted") else "") + f"budget {f.get('daily_cu_budget', '?')} · {nsub} subscription(s)",
+                      not f.get("exhausted")))
+    tiles.append(("Services", f"{len(sv) - len(down)}/{len(sv)}", ", ".join(down) if down else "all active", bool(sv) and not down))
+    gr = d.get("graduation") or {}                                                             # 16c
+    tiles.append(("Grad bots", f"{len(gr.get('grad_live', []))}/{gr.get('grad_max', GRAD_MAX_LIVE)}",
+                  f"{len(gr.get('candidates', []))} candidate(s) · {len(gr.get('near', []))} one short",
+                  len(gr.get("grad_live", [])) <= gr.get("grad_max", GRAD_MAX_LIVE)))
+    return tiles
+
+
+def render_warnings(d):
+    w = warnings(d)
+    return "<p>" + " ".join(badge(False, x) for x in w) + "</p>" if w else ""
+
+
+def live_cols(d, live_rows):
+    """The live table plus: loss since promotion against the watchdog's stop, realized today, nonces."""
+    live = (d["gate"].get("live") or {}) if "error" not in d["gate"] else {}
+    cap = d.get("max_live_loss_usd", 30)
+    out = []
+    for r in live_rows:
+        x = d.get("live_loss", {}).get(r["bot"], {})
+        loss = x.get("note") or f"{x.get('loss_usd', '?')} of {cap:g} (funded {x.get('funded_usd', '?')})"
+        swept = d.get("realized_today", {}).get(r["bot"])
+        pnl = d.get("live_pnl", {}).get(r["bot"])
+        today = (d.get("live_pnl_today") or {}).get("by_bot", {}).get(r["bot"])
+        out.append(dict(r, pnl_since_promote_usd="" if pnl is None else f"{pnl:+.2f}",           # 15j
+                        pnl_today_usd="" if today is None else f"{today:+.2f}",
+                        loss_since_promote_usd=loss, swept_today_usd="" if swept is None else round(swept, 4),
+                        nonces=json.dumps(live.get(r["bot"], {}).get("nonces", {}))))
+    return out
+
+
+def intermediate_rows(d):
+    bal = (d["gate"].get("intermediate_balances_usd") or {}) if "error" not in d["gate"] else {}
+    chains = []
+    for k in bal:
+        c = k.split(":", 1)[0]
+        if c not in chains:
+            chains.append(c)
+    return [{"chain": c, "native_usd": bal.get(c, 0), "usdc": bal.get(f"{c}:usdc", 0)} for c in chains]
+
+
+def render_money(d):
+    g = d["gate"] if "error" not in d["gate"] else {}
+    inter = intermediate_rows(d)
+    total = round(sum(r["native_usd"] + r["usdc"] for r in inter), 2)
+    return f"""<div class="grid">
+<section><h2>Intermediate wallet (${e(total)})</h2>{table(inter)}
+<p class="muted" style="font-size:12px">{e(g.get('intermediate', ''))} · a promote on a chain with 0 is refused until it is funded</p></section>
+<section><h2>Gate log (latest {len(d.get('gate_log', []))})</h2>{table(d.get('gate_log', []))}</section>
+</div>"""
+
+
+def feed_rows(f):
+    chains, subs = [], []
+    for c, v in (f.get("chains") or {}).items():
+        if v.get("status") != "idle" or v.get("cu_today") or v.get("subscriptions"):
+            chains.append({"chain": c, "status": v.get("status"), "connects": v.get("connects"), "cu_today": v.get("cu_today"),
+                           "subscriptions": len(v.get("subscriptions", [])), "error": v.get("error", "")})
+        for s in v.get("subscriptions", []):
+            flt = s.get("filter") or {}
+            topics = flt.get("topics") or [""]
+            subs.append({"chain": c, "kind": s.get("kind"), "state": s.get("state"), "waiters": s.get("waiters"),
+                         "idle_s": s.get("idle_s"), "cu_today": s.get("cu_today"),
+                         "filter": (f"{len(flt.get('address', []))} address(es), topic0 {str(topics[0])[:18]}…" if flt
+                                    else f"head {s.get('head')}"), "error": s.get("error", "")})
+    return chains, subs
+
+
+def render_infra(d):
+    f, m = d.get("feed", {}), d.get("alchemy_month", {})
+    if "error" in f:
+        feed_html = f"<p class='badge bad'>▲ {e(f['error'])}</p>"
+    else:
+        chains, subs = feed_rows(f)
+        feed_html = (f"<p>{e(f.get('cu_today'))} of {e(f.get('daily_cu_budget'))} CU today · /head on "
+                     f"{e(', '.join(f.get('heads_offered_on') or []) or 'no chain')} · up {e(round(f.get('uptime_s', 0) / 3600, 1))} h</p>"
+                     + (table(chains) + table(subs) if chains or subs
+                        else "<p class='muted'>no subscriptions: no bot is waiting on the feed</p>"))
+    month = ("" if "error" in m else
+             f"<p class='muted' style='font-size:12px'>cycle {e(m.get('since'))} → {e(m.get('ends'))}: {e(mcu(m.get('cu')))} of "
+             f"{e(mcu(m.get('allowance')))} · {e(' · '.join(f'{k} {mcu(v)}' for k, v in sorted(m.get('lanes', {}).items())))} · "
+             "the relay's count, without farm-feed</p>")
+    return f"""<div class="grid">
+<section><h2>Alchemy today, by chain</h2>{table(d.get('rpc_chains', []))}{month}</section>
+<section><h2>Feed (8546)</h2>{feed_html}</section>
+</div>
+<div class="grid">
+<section><h2>Services</h2>{table([dict(unit=s['unit'], state=f"{s['active']}/{s['sub']}") for s in d.get('services', [])])}</section>
+<section><h2>Prompt sizes (memo above 56,000, refused above 60,000)</h2>{table(d.get('prompts', []))}
+<h2>decisions/human (latest)</h2>{table(d.get('decisions', []))}
+<h2>KB leads by status</h2>{table(d.get('lead_counts', []))}</section>
+</div>"""
+
+
+def brief_top(d):
+    g = d["gate"] if "error" not in d["gate"] else {}
+    L = []
+    cap = d.get("max_live_loss_usd", 30)
+    for bot, x in d.get("live_loss", {}).items():
+        nonces = json.dumps((g.get("live") or {}).get(bot, {}).get("nonces", {}))
+        L.append(f"  live {bot}: " + (x.get("note") or f"loss since promotion {x.get('loss_usd')} of {cap:g} USD "
+                                                          f"(funded {x.get('funded_usd')}, wallet {x.get('value_usd')})") + f" · nonces {nonces}"
+                 + (f" · pnl today {t:+.2f}" if (t := (d.get("live_pnl_today") or {}).get("by_bot", {}).get(bot)) else ""))
+    s = pnl_summary(d)                                                                          # 15j
+    L.append(f"live PnL since promotion {s['total']:+.2f} USD (gains {s['gains']:+.2f}, losses {s['losses']:+.2f}) · "
+             f"today (UTC, since {s['since']}) {s['today']:+.2f} · swept today {s['swept_today']:+.4f} · "
+             f"swept all time {'?' if s['swept_total'] is None else format(s['swept_total'], '+.4f')}")
+    winners = sorted(((v, b) for b, v in (d.get("live_pnl") or {}).items() if v > 0), reverse=True)
+    if winners:
+        L.append("  in profit: " + ", ".join(f"{b} {v:+.2f}" for v, b in winners))
+    L += grad_brief(d)                                                                          # 16c
+    if d.get("realized_today"):
+        L.append("swept today (UTC, gate realized_usd) " + json.dumps(d["realized_today"]))
+    inter = intermediate_rows(d)
+    if inter:
+        L.append("intermediate wallet: " + " · ".join(
+            f"{r['chain']} {r['native_usd']}" + (f" + USDC {r['usdc']}" if r["usdc"] else "") for r in inter if r["native_usd"] or r["usdc"])
+            + " · zero on: " + (", ".join(r["chain"] for r in inter if not r["native_usd"] and not r["usdc"]) or "none"))
+    m = d.get("alchemy_month", {})
+    if "error" in m:
+        L.append(f"alchemy this cycle: ERROR {m['error']}")
+    else:
+        L.append(f"alchemy this cycle ({m.get('since')} to {m.get('ends')}, relay count, without feed): {mcu(m.get('cu'))} of "
+                 f"{mcu(m.get('allowance'))} CU, on course for {mcu(m['projected_cu']) if m.get('projected_cu') else '?'}, "
+                 f"about ${m.get('usd')} · by lane {json.dumps(m.get('lanes'))}")
+    f = d.get("feed", {})
+    if "error" in f:
+        L.append(f"feed: ERROR {f['error']}")
+    else:
+        chains, subs = feed_rows(f)
+        L.append(f"feed: {f.get('cu_today')} of {f.get('daily_cu_budget')} CU today, exhausted={f.get('exhausted')}, "
+                 f"/head on {f.get('heads_offered_on')}, {len(subs)} subscription(s)")
+        for s in subs:
+            L.append(f"  feed {s['chain']} {s['kind']} {s['state']}: {s['filter']} cu {s['cu_today']} waiters {s['waiters']} {s['error']}".rstrip())
+        for c in chains:
+            if c["status"] in ("down", "reconnecting"):
+                L.append(f"  feed {c['chain']}: {c['status']} {c['error']}".rstrip())
+    sv = d.get("services", [])
+    down = [f"{s['unit']} {s['active']}/{s['sub']}" for s in sv if s["active"] != "active"]
+    L.append(f"services: {len(sv) - len(down)}/{len(sv)} active" + (" · NOT active: " + ", ".join(down) if down else ""))
+    w = warnings(d)
+    if w:
+        L += ["", "## Needs a look"] + [f"- {x}" for x in w]
+    L += ["", "## Gate log (newest first, JST)"]
+    for x in d.get("gate_log", []):
+        L.append(f"- {x['at']} {x['op']} {x['bot']} {x['chain']} {x['detail']} [{x['by']}]".replace("  ", " "))
+    L += ["", "## Alchemy today by chain (CU)"]
+    for x in d.get("rpc_chains", []):
+        if "error" in x:
+            L.append(f"- ERROR {x['error']}")
+        else:
+            L.append(f"- {x['chain']}: live {x['live']} paper {x['paper']} research {x['research']} · ok {x['ok']} failed {x['failed']} · {x['avg_ms']} ms")
+    L += ["", "## Prompt sizes (bytes)", "- " + (" · ".join(f"{p['instance']} {p['bytes']}" + ("" if p["state"] == "ok" else f" ({p['state']})")
+                                                           for p in d.get("prompts", [])) or "(none readable)")]
+    L += ["", "## decisions/human (latest)"] + [f"- {x['mtime']} {x['file']}" for x in d.get("decisions", [])]
+    L += ["", "## KB leads by status", "- " + " · ".join(f"{x.get('status')} {x.get('n')}" for x in d.get("lead_counts", []) if "error" not in x)]
+    return L
+
+
+def collect(gate_max_age=300):
+    return {
+        "now": dt.datetime.now(JST).strftime("%Y-%m-%d %H:%M JST") + " (" + dt.datetime.now(dt.timezone.utc).strftime("%H:%M UTC") + ")",
+        "gate": gate_status(gate_max_age),
+        "relay": relay_health(),
+        "agents": units("agent@*.service"),
+        "paper": paper_bots(),
+        "live_units": units("bot@*.service"),
+        "timers": timers(),
+        "runs": [dict(r, started=jst(r["started"])) for r in q(OPS, "SELECT instance AS role, started_at AS started, service_result AS result, tokens, round(cost_usd,2) AS cost "
+                       "FROM runs ORDER BY started_at DESC LIMIT 15")],
+        "rpc": q(OPS, "SELECT lane, provider, sum(ok) ok, sum(failed) failed, sum(cu) cu, sum(cache_hits) cache FROM rpc_stats "
+                      "WHERE day=date('now') GROUP BY 1,2 ORDER BY 1,2"),
+        "ledger": q(LEDGER, "SELECT chain, protocol, count(*) n, max(block) last_block FROM events GROUP BY 1,2 ORDER BY 1,2"),
+        "ledger_runs": [dict(r, started=jst(r["started"])) for r in q(LEDGER, "SELECT started_at AS started, events, cu_seed, cu_agent FROM runs ORDER BY id DESC LIMIT 3")],
+        "kb": {t: (q(KB, f"SELECT count(*) n FROM {t}") or [{}])[0].get("n") for t in ("protocols", "actors", "leads", "attempts")},
+        "leads": q(KB, "SELECT chain, substr(target,1,60) target, status FROM leads ORDER BY updated_at DESC LIMIT 8"),
+        "sessions": sessions_today(),
+        "inbox_human": inbox("human"),
+        "inbox_meta": inbox("meta"),
+        "inbox_live": inbox("live"),
+        "pnl": pnl_history(),
+        **extras(gate_max_age),
+    }
+
+
+def e(x):
+    return html.escape(str(x) if x is not None else "")
+
+
+def table(rows, cols=None):
+    if not rows:
+        return "<p class='muted'>none</p>"
+    cols = cols or list(rows[0].keys())
+    h = "<table><thead><tr>" + "".join(f"<th>{e(c)}</th>" for c in cols) + "</tr></thead><tbody>"
+    for r in rows:
+        h += "<tr>" + "".join(f"<td>{e(r.get(c))}</td>" for c in cols) + "</tr>"
+    return h + "</tbody></table>"
+
+
+def badge(ok, text):
+    cls = "ok" if ok else "bad"
+    icon = "●" if ok else "▲"
+    return f"<span class='badge {cls}'>{icon} {e(text)}</span>"
+
+
+def sparkline(series, w=320, h=48):
+    vals = [v for _, v in series]
+    if not vals:
+        return ""
+    lo, hi = min(min(vals), 0), max(max(vals), 0)
+    span = (hi - lo) or 1
+    pts = []
+    for i, (_, v) in enumerate(series):
+        x = 4 + i * (w - 8) / max(len(series) - 1, 1)
+        y = 4 + (hi - v) * (h - 8) / span
+        pts.append(f"{x:.1f},{y:.1f}")
+    zero_y = 4 + (hi - 0) * (h - 8) / span
+    return (f"<svg viewBox='0 0 {w} {h}' width='{w}' height='{h}' role='img' aria-label='daily realized PnL, 14 days'>"
+            f"<line x1='4' y1='{zero_y:.1f}' x2='{w-4}' y2='{zero_y:.1f}' class='zero'/>"
+            f"<polyline points='{' '.join(pts)}' class='line'/>"
+            + "".join(f"<circle cx='{p.split(',')[0]}' cy='{p.split(',')[1]}' r='3' class='dot'/>" for p in pts[-1:]) + "</svg>")
+
+
+def render(d):
+    g = d["gate"]
+    gate_ok = "error" not in g
+    frozen = g.get("frozen", True)
+    halted = g.get("halted", True)
+    live = g.get("live", {}) if gate_ok else {}
+    relay = d["relay"]
+    research_cu = relay.get("alchemy_cu_today", {}).get("research", 0) if "error" not in relay else "?"
+    tiles = [
+        ("Capital at risk", f"${g.get('capital_usd', '?')}", f"of ${g.get('max_capital_usd', '?')}", gate_ok),
+        ("Today's loss", f"${g.get('daily_loss_usd', '?')}", f"limit ${g.get('max_daily_loss_usd', '?')}", gate_ok and not frozen),
+        (lambda s: ("Live PnL", f"{s['total']:+.2f}", f"today {s['today']:+.2f} · gains {s['gains']:+.2f} / losses {s['losses']:+.2f}",
+                    s["total"] >= 0))(pnl_summary(d)),                                          # 15j
+        ("Live bots", str(len(live)), "promotions " + ("FROZEN" if frozen else "open"), not frozen),
+        ("Signer", "HALTED" if halted else "ready", "gate stop --all" if halted else "", not halted),
+        ("Alchemy CU today", f"{sum(relay.get('alchemy_cu_today', {}).values()) if 'error' not in relay else '?'}",
+         f"research {research_cu}", "error" not in relay),
+    ]
+    tiles += extra_tiles(d)
+    tile_html = "".join(
+        f"<div class='tile'><div class='label'>{e(t)}</div><div class='value {'' if ok else 'bad'}'>{e(v)}</div><div class='sub'>{e(s)}</div></div>"
+        for t, v, s, ok in tiles)
+    live_rows = [{"bot": k, "service": v.get("service", "").replace("ActiveState=", "").replace(" SubState=", "/"),
+                  "address": v.get("address", "")[:10] + "…", "balances_usd": json.dumps(v.get("balances_usd", {}))} for k, v in live.items()]
+    agents = [{"unit": a["unit"].replace("agent@", "").replace(".service", ""), "state": f"{a['active']}/{a['sub']}"} for a in d["agents"]]
+    sessions = [{"role": s.get("role"), "outcome": s.get("outcome"), "target": str(s.get("target", ""))[:50], "notes": str(s.get("notes", ""))[:90]} for s in d["sessions"]]
+    pnl_total = round(sum(v for _, v in d["pnl"]), 2)
+    inbox_h = d["inbox_human"]
+    inbox_m = d["inbox_meta"]
+    inbox_l = d["inbox_live"]
+
+    return f"""<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farm</title><meta http-equiv="refresh" content="30">
+<style>
+:root{{--bg:#fafaf9;--fg:#1c1917;--muted:#78716c;--line:#e7e5e4;--card:#fff;--ok:#15803d;--bad:#b91c1c;--accent:#44403c}}
+@media (prefers-color-scheme:dark){{:root:not([data-theme=light]){{--bg:#0c0a09;--fg:#f5f5f4;--muted:#a8a29e;--line:#292524;--card:#1c1917;--ok:#4ade80;--bad:#f87171;--accent:#d6d3d1}}}}
+*{{box-sizing:border-box}}body{{margin:0;padding:16px;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}}
+h1{{font-size:18px;margin:0 0 4px}}h2{{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:22px 0 8px}}
+.muted{{color:var(--muted)}}.tiles{{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}}
+.tile{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}}.label{{font-size:12px;color:var(--muted)}}
+.value{{font-size:24px;font-weight:600;margin:2px 0}}.value.bad{{color:var(--bad)}}.sub{{font-size:12px;color:var(--muted)}}
+table{{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px}}
+th,td{{text-align:left;padding:6px 9px;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-word}}th{{color:var(--muted);font-weight:500;font-size:12px}}
+tr:last-child td{{border-bottom:0}}.badge{{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;border:1px solid var(--line)}}
+.badge.ok{{color:var(--ok)}}.badge.bad{{color:var(--bad)}}.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}}
+svg .line{{fill:none;stroke:var(--accent);stroke-width:2}}svg .zero{{stroke:var(--line);stroke-width:1}}svg .dot{{fill:var(--accent)}}
+pre{{font-size:12px;white-space:pre-wrap;color:var(--muted);margin:0}}
+</style></head><body>
+<h1>Farm <span class="muted" style="font-weight:400;font-size:13px">{e(d['now'])} · refreshes every 30 s, balances every 5 min (fresh in brief.txt)</span>
+<button id="copy" class="badge" style="float:right;cursor:pointer;background:var(--card);color:var(--fg)" title="brief.txt をクリップボードへ">Copy for Claude</button>
+<a class="muted" href="/brief.txt" style="float:right;font-size:12px;font-weight:400;margin:4px 10px 0 0">brief.txt</a></h1>
+<script>
+document.getElementById('copy').onclick=async function(){{
+  const b=this;b.textContent='…';
+  try{{const t=await (await fetch('/brief.txt',{{cache:'no-store'}})).text();
+      await navigator.clipboard.writeText(t);b.textContent='Copied '+(t.length/1024).toFixed(0)+' KB';}}
+  catch(e){{b.textContent='Copy failed — open brief.txt';}}
+  setTimeout(()=>b.textContent='Copy for Claude',4000);
+}};
+</script>
+{"" if gate_ok else f"<p class='badge bad'>▲ gate unavailable: {e(g.get('error'))}</p>"}
+<div class="tiles">{tile_html}</div>
+{render_warnings(d)}
+
+<div class="grid">
+<section><h2>Swept PnL of stopped bots, 14 days (total ${e(pnl_total)})</h2>{sparkline(d['pnl'])}
+<p class="muted" style="font-size:12px">{e(d['pnl'][0][0])} → {e(d['pnl'][-1][0])}; today {e(d['pnl'][-1][1])}</p>
+<p class="muted" style="font-size:12px">Live PnL by UTC day (15j): {e(' · '.join(f"{k[5:]} {v:+.2f}" for k, v in sorted(((d.get('live_pnl_today') or {}).get('history') or {}).items())) or 'from 15j on')}
+· today {e(format((d.get('live_pnl_today') or {}).get('total', 0.0), '+.2f'))} (since {e((d.get('live_pnl_today') or {}).get('since', '?'))})</p></section>
+<section><h2>Inbox: human ({len(inbox_h)})</h2>{table(inbox_h, ['mtime','file','head'])}</section>
+</div>
+
+{render_grad(d, live_rows)}
+{render_money(d)}
+<div class="grid">
+<section><h2>Paper bots</h2>{table(d['paper'])}</section>
+<section><h2>Agents</h2>{table(agents)}<p class="muted" style="font-size:12px">{'<br>'.join(e(t) for t in d['timers'])}</p></section>
+</div>
+
+<h2>Session reports (latest 20)</h2>{table(sessions)}
+<h2>Recent runs</h2>{table(d['runs'])}
+
+<div class="grid">
+<section><h2>Inbox: meta ({len(inbox_m)})</h2>{table(inbox_m, ['mtime','file','head'])}</section>
+<section><h2>Inbox: live ({len(inbox_l)})</h2>{table(inbox_l, ['mtime','file','head'])}</section>
+</div>
+
+<div class="grid">
+<section><h2>RPC today</h2>{table(d['rpc'])}</section>
+<section><h2>Ledger</h2>{table(d['ledger'])}{table(d['ledger_runs'])}</section>
+</div>
+<div class="grid">
+<section><h2>KB</h2><p>{' · '.join(f"{e(k)} {e(v)}" for k, v in d['kb'].items())}</p>{table(d['leads'])}</section>
+</div>
+{render_infra(d)}
+<p class="muted" style="font-size:12px;margin-top:24px">Read-only. To act: ssh, then <code>gate …</code> / <code>paper …</code>. Emergency: <code>gate stop --all</code>.</p>
+</body></html>"""
+
+
+def read_text(path, limit):
+    try:
+        with open(path, encoding="utf-8", errors="replace") as f:
+            t = f.read(limit + 1)
+    except OSError as exc:
+        return f"(unreadable: {exc})"
+    return t if len(t) <= limit else t[:limit] + "\n… (cut)"
+
+
+def brief(d):
+    """Plain-text situation report for pasting into a chat with Claude."""
+    g = d["gate"]
+    L = [f"# Farm brief {d['now']}", ""]
+    if "error" in g:
+        L.append(f"gate: ERROR {g['error']}")
+    else:
+        L.append(f"capital ${g.get('capital_usd')} / ${g.get('max_capital_usd')} · daily loss ${g.get('daily_loss_usd')} / ${g.get('max_daily_loss_usd')} · "
+                 f"frozen={g.get('frozen')} halted={g.get('halted')} · live bots {len(g.get('live', {}))}")
+        for k, v in g.get("live", {}).items():
+            L.append(f"  live {k}: {v.get('service', '')} balances {json.dumps(v.get('balances_usd', {}))}")
+    r = d["relay"]
+    L.append("alchemy CU today " + (json.dumps(r.get("alchemy_cu_today")) if "error" not in r else f"relay ERROR {r['error']}"))
+    L += brief_top(d)
+    L += ["", "## Paper bots"]
+    for b in d["paper"]:
+        L.append(f"- {b['id']}: {b['service']}, review={b['review']}")
+    L += ["", "## Agents"]
+    for a in d["agents"]:
+        L.append(f"- {a['unit']}: {a['active']}/{a['sub']}")
+    L += [f"- {t}" for t in d["timers"]]
+    L += ["", "## Recent runs (JST)"]
+    for x in d["runs"]:
+        L.append(f"- {x['started']} {x['role']}: {x['result']} tokens={x.get('tokens') or ''} cost={x.get('cost') or ''}")
+    L += ["", "## Session reports (latest 20, oldest first)"]
+    for x in d["sessions"]:
+        L.append(f"- [{x.get('role')}/{x.get('model')}] {x.get('outcome')} — {x.get('target')}")
+        if x.get("notes"):
+            L.append(f"    {x['notes']}")
+        if x.get("bot_ids"):
+            L.append(f"    bots={x['bot_ids']} kb={x.get('kb_rows')}")
+    for name, full in (("human", True), ("meta", False), ("live", True)):
+        rows = d[f"inbox_{name}"]
+        L += ["", f"## inbox/{name} ({len(rows)})"]
+        for x in rows:
+            L.append(f"- {x['mtime']} {x['file']}: {x['head']}")
+            if full:
+                L.append(read_text(f"{WS}/inbox/{name}/{x['file']}", 6000).rstrip())
+                L.append("")
+    L += ["", "## Latest review decisions"]
+    for b in d["paper"]:
+        head = read_text(f"{WS}/bots/paper/{b['id']}/review.md", 1500).rstrip()
+        L.append(f"### {b['id']}")
+        L.append(head)
+        L.append("")
+    L += ["## RPC today"]
+    for x in d["rpc"]:
+        L.append(f"- {x['lane']}/{x['provider']}: ok {x['ok']} failed {x['failed']} cu {x['cu']} cache {x['cache']}")
+    L += ["", "## KB leads (recent)"]
+    for x in d["leads"]:
+        L.append(f"- {x['chain']} {x['status']}: {x['target']}")
+    return "\n".join(L) + "\n"
+
+
+class H(BaseHTTPRequestHandler):
+    def log_message(self, *a):
+        pass
+
+    def do_GET(self):
+        try:
+            d = collect(60 if self.path.startswith("/brief.txt") else 300)
+            if self.path.startswith("/data.json"):
+                body, ctype = json.dumps(d, default=str, indent=1).encode(), "application/json"
+            elif self.path.startswith("/brief.txt"):
+                body, ctype = brief(d).encode(), "text/plain; charset=utf-8"
+            else:
+                body, ctype = render(d).encode(), "text/html; charset=utf-8"
+            self.send_response(200)
+        except Exception as exc:  # the page must never go blank
+            body, ctype = f"<pre>dashboard error: {html.escape(repr(exc))}</pre>".encode(), "text/html"
+            self.send_response(500)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+
+if __name__ == "__main__":
+    print(f"farm-dash: http://{BIND[0]}:{BIND[1]}/", file=sys.stderr)
+    threading.Thread(target=day_snapshot_loop, name="day-snapshot", daemon=True).start()     # 15j
+    ThreadingHTTPServer(BIND, H).serve_forever()

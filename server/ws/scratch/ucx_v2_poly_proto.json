@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "uncx_network_v2",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/uncx-network-v2/index.js is 404; slug maps to projects/unicrypt/index.js + config.js (raw.githubusercontent.com, 2026-11-19), which lists 3 polygon lockers; all have code (eth_getCode) and answering getNumLockedTokens() 0x783451e8 (146 / 1 / 30 locked tokens): 0xadb2437e6f65682b85f814fbc12fec0508a7b1d0 (Quickswap locker, verified source UniswapV2Locker solc 0.6.12 via explorer), 0x1f241ef7e9ecdda8862256fc769fe7ec9240d94c (UniswapV2Locker 0.8.7), 0x939d71ade0bf94d3f8cf578413bf2a2f248bf58b (UniswapV2Locker 0.8.19). Source: every state function (relock/withdraw/incrementLock/splitLock/transferLockOwnership/migrate) requires userLock.owner == msg.sender ('LOCK MISMATCH'); eth_call withdraw(0xadbf1854e5883eb8aa7baf50705338739e558e5b,0,0,1) from fresh 0x..cafebab3 reverts, from lock owner 0x60e2e1b2a317edfc870b6fc6886f69083fb2099a returns 0x (positive control). The one open-to-anyone function lockLPToken CHARGES the caller (ethFee or secondary-token burn + liquidityFee%% to devaddr), pays nothing. withdraw sends LP to msg.sender (lock owner) = principal back, not a reward."
+}

@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead18",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 18,
+ "target": "moonwell core-market liquidations (mToken LiquidateBorrow + OEV wrapper) as a breadth class",
+ "run_id": "a337721ddc854dfca2a9a993d8b38af0",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "492 LiquidateBorrow / 412 txs / 67 senders in 6.80 d on 17 core mToken markets (mUSDC 381, 286,520 USD repaid); repay median 2.93 USD, p90 882, max 43,439; gross@8% 3,325 USD/day; winners' tips 0.0009-64.36 gwei = 0.03-209 USD gas on 1.6-2.9M gas vs one quiet attempt ~0.37 USD; only repay >= 50 USD (top 25%) clears a contested attempt; 51/237 re-takes within 16 blocks (3.2 s = farm R)",
+  "kb": [
+   "attempts:1467",
+   "leads:18"
+  ],
+  "run_id": "a337721ddc854dfca2a9a993d8b38af0",
+  "at": 1794861572
+ }
+}

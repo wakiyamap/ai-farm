@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-alien-base-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: AlienBase V3 is a Uniswap-V3-fork DEX on Base with an ALB MasterChef farm (Distributor 0xe98af15f...) + Bunni auto-compound layer. Its permissionless reward/keeper functions (Distributor.updatePool/massUpdatePools, BunniHub.compound) pay the caller 0: emissions mint only to team/treasury/investor/this (based.sol:545-548) and ALB/LP fees accrue to staked LPs via self-claim harvest, so a stranger with no position nets negative (gas only). Admin fns (add/set/updateAllocPoint/updateEmissionRate/setTeam*/setProtocolFee) are onlyOwner. No function pays an unrelated caller for calling.",
+  "numbers": "TVL ~534,000 USD (api.llama.fi/protocol/alien-base-v3, 2026-11-18). Farm Distributor 0xe98af15fdc6f64ef81e53e0ae8ac8da31c577fc4; ALB minted to it 4x in blocks 0x3866013-0x3872343 (~50k blocks ~2.7h) at latest 0x3872343; control 60 ALB Transfers same window (query shape valid, lane not spent). Gross USD per permissionless caller call = 0. Source: repo alienbase-xyz/alienbase-contracts (BasedDistributorV2.sol) + explorer(blockscout) + relay eth_getLogs/eth_call."
+}

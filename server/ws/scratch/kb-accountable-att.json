@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-accountable",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the only permissionless functions on the single arbitrum strategy (accrueInterest, updateLateStatus, processAvailableWithdrawals) pay the caller nothing: fee shares mint to the investment manager, not msg.sender, and the rewards distributor is unset (0x0). A keeper EOA calls them ~4x/day at its own gas cost; no stranger is paid.",
+  "numbers": "7d counts (Blockscout full coverage to proxy 0x12dfb13428d6086835158103902edc1455e84659, cut 1794321353): accrueInterest 28, processAvailableWithdrawals 7 (both 100% by keeper 0x185a0d7a4e0686cd3221c7cb8fca59e6d3e4ecec), borrow 21 (borrower EOA 0x272bb989f1a272758cb8070f94cb6540e9c20005). Gross to caller per call: $0 (receipt 0xd11a755c9801328012aded59e3657228396e299d63b901b0a8baa498eaea9beb logs fee-share Transfers to 0xd85e704a.../0x4b07aaa3..., none to caller; 3 receipts checked). Gas: 127,413 gas x 0.02 gwei = $0.0046/call at ETH $1819.30 (coins.llama.fi 1794926072). Keeper holds 0 vault shares. Vault 0x9fe29a3fec55414f70454e2dbe6522f48ced3e85 totalAssets 547,321 USDC. eth_call from fresh address succeeds on all 3 fns (not role_gated)."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-3f",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 176,
+ "chain": "ethereum",
+ "slug": "3f",
+ "name": "3F",
+ "category": "Leveraged Farming",
+ "tvl_usd": 39299953,
+ "url": "https://www.3f.xyz/",
+ "github": [
+  "3FLabs"
+ ],
+ "listed_days_ago": 176,
+ "run_id": "3a8417e342664a189e7f12f7da19045c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "3F (grunt) on ethereum: only stranger-callable reward fn is preLiquidate (0x3078f50a) on 42 MorphoBorrowPositions (bonus=1-LTV of RWA collateral vs USDC); eth_call from fresh addr reverts PositionHealthy (liquidationLtv 0.98, healthy); 7d getLogs on Morpho 26,406,482-26,456,882: 0 Liquidate + 7 Repay all by 2 operator EOAs (0x029b9aac.., 0x95026a33..), 0 preLiquidate calls -> 0 USD gross to strangers, gas ~0.25 USD (0.463 gwei, ETH 1755.64); Facility/Retargetter/facilitators all FACILITATOR/EXECUTOR role-gated",
+  "kb": [
+   "attempts:2939",
+   "protocols:1349"
+  ],
+  "run_id": "3a8417e342664a189e7f12f7da19045c",
+  "at": 1795185040
+ }
+}

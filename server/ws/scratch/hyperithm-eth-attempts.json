@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-hyperithm",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Hyperithm on ethereum has no contracts of its own that pay a stranger: TVL is Morpho MetaMorpho 1.1 vaults owned by two Hyperithm EOAs (no caller incentive, reallocate onlyAllocatorRole, caps onlyCuratorRole - same as the Arbitrum finding protocols:524), one EulerEarn vault 0x3cd3718f8f047aA32F775E2cb4245A164E1C99fB whose only state-advancing fn reallocate() reverts NotAllocatorRole from a fresh address, and 3 plain governed ERC20 Midas tokens (mHYPER/mHyperETH/mHyperBTC, mint/burn role-gated). No skim/reward/claim/harvest functions anywhere; nothing to call.",
+ "numbers": "EulerEarn 0x3cd3...: name 'Hyperithm Euler USDC', totalAssets 10,967.62 USDC(6dp) at block 26459402 2026-11-20; reallocate() from 0x000...98765 revert 0xf7137c0f=NotAllocatorRole; 7d no-topic getLogs blocks 26409002 (2026-11-13) -> 26459402 (2026-11-20) = 0 logs, control same shape+window on Saturn VaultV2 0x7f876bf3 = 157 logs. Midas proxies symbols mHYPER/mHyperETH/mHyperBTC read on chain; impl 0x3f0ec5b26ec6e50907abea87a798bf395189bcd5 ABI = ERC20 + M_HYPER_MINT/BURN/PAUSE_OPERATOR_ROLE only. Listed tvl_usd 63,378,260 (candidate); Morpho owner EOAs 0xC56EA16EA06B0a6A7b3B03B2f48751e549bE40fD / 0x16fa314141C76D4a0675f5e8e3CCBE4E0fA22C7c (eth_getCode 0x). Gas/reward: none to measure."
+}

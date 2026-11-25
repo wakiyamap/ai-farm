@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-mev-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "hyperevm",
+ "slug": "mev-capital",
+ "name": "MEV Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 750953,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "9d19c021adc04165a16f7ad86e85d9b2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "5 MetaMorpho V1.1 ERC4626 vaults (WHYPE vault 0xd19e3d00\u2026 totalAssets 11,001 WHYPE ~68k = ~whole 751k TVL); no function anyone can call pays the caller (user ops pay 0; admin role-gated; skim pays recipient not caller); last 7d: 4/5 vaults had 0 txs, 13 multicalls all from registered allocator 0xd582ccfa\u2026 paying own gas 285k gas @0.1 gwei ~ bash.002, bash gross to strangers",
+  "kb": [
+   "attempts:1922"
+  ],
+  "run_id": "9d19c021adc04165a16f7ad86e85d9b2",
+  "at": 1794960841
+ }
+}

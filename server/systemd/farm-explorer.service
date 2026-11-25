@@ -1,0 +1,33 @@
+# Local read-only door to the Etherscan V2 API for agents (phase 12e). It holds the API key
+# (systemd credential from /etc/farm/explorer.key, root 0600); agents call it through
+# /opt/farm/bin/explorer and never see the key. Listens on loopback. No state on disk.
+[Unit]
+Description=Farm explorer (Etherscan API, key kept here)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+DynamicUser=yes
+LoadCredential=key:/etc/farm/explorer.key
+LoadCredential=conf:/etc/farm/explorer.json
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 -I -B /opt/farm/bin/farm-explorer
+Restart=always
+RestartSec=10
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryMax=256M
+SyslogIdentifier=farm-explorer
+
+[Install]
+WantedBy=multi-user.target

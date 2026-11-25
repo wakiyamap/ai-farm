@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-layerzero-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. LayerZero V2 on bsc is bridge infrastructure, same as arbitrum/avalanche/base: endpointV2 exposes no function paying msg.sender and the only external payout, UlnV3.withdrawFee(address,uint256), pays only fees[msg.sender] - a fresh address holds 0 (eth_call reverts 0x34084fb8 InvalidAmount(1,0)). All 7d fee withdrawals (29 NativeFeeWithdrawn, 18.607 BNB ~ 10,611 USD) went to the two LayerZero fee receivers themselves, which call it themselves; the 392 OFT escrow proxies have no stranger-claimable function (withdrawPlannerFee reverts from a fresh address).",
+ "numbers": "7d window blocks 133,284,000-134,627,683 (269 x 5000-block eth_getLogs pages, 0 errors): 29 NativeFeeWithdrawn = 18.607 BNB ~ 10,611 USD (BNB 570.25 coins.llama.fi @1795147791); recipients 0xe93685f3... 10.38 BNB/14, 0xb8ff877e... 8.23 BNB/15; caller = each receiver itself (receipts 0xa6d1863d..., 0xb4aec932...); gas 44,219-49,282 @ 0.06 gwei = ~0.0017 USD/tx; TVL 24.33M USD (api.llama.fi currentChainTvls.Binance 2026-11-20)"
+}

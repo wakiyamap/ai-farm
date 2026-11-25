@@ -1,0 +1,12 @@
+{
+  "run_id": "15ae98ae828b4b4e846663d0e4cb3e94",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Spark SavingsRateAdjuster execute keeper/poke class (sDAI savings-rate updates) fresh scout per 2026-11-08 beyond-liquidations keeper list",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:795", "protocols:175"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Scouted the last unscouted non-liquidation keeper example: Maker-style SSA execute events (SavingsRateUpdated/DAIRateUpdated) are 0 over 180 days topic-only with a 4641-log same-shape control, so the sDAI savings-rate keeper class has no cadence and no EV. The SSA contract address itself is not pinned in this workspace (Spark registry archaeology 404'd); reopen is only worthwhile if a Spark-source event signature or SSA address surfaces."
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-hop-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "hop-protocol",
+ "name": "Hop Protocol",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 2257948,
+ "url": "",
+ "github": [
+  "hop-protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "16d3c0aaf8684b379b54dc394d08bfb0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Hop v1 ethereum L1 bridges: only caller-paid fns bondWithdrawal/bondTransferRoot are onlyBonder (fresh-addr eth_call reverts 'ACT: Caller is not bonder'; whitelist 0xa6a688F1...9203e getIsBonder=true); withdraw permissionless but pays recipient's own funds (3/3 samples: Hop relayer 0x3689251c..., 0 to caller); 0 events on all 10 L1 bridges+CCTP in 7d blocks 26417136-26467393 (11-15..22, no-topic; control 4620 logs; last activity 2026-11-10; 30d 119 logs=87 Withdrew+13 TransferSentToL2+14 root-confirmed); strangers paid 0 USD, gas 0.02 USD/call (0.1173 gwei, ETH 1681.24)",
+  "kb": [
+   "attempts:3548"
+  ],
+  "run_id": "16d3c0aaf8684b379b54dc394d08bfb0",
+  "at": 1795312070
+ }
+}

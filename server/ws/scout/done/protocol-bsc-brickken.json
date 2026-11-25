@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-brickken",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1027,
+ "chain": "bsc",
+ "slug": "brickken",
+ "name": "Brickken",
+ "category": "RWA",
+ "tvl_usd": 29036837,
+ "url": "https://www.brickken.com",
+ "github": null,
+ "listed_days_ago": 1027,
+ "run_id": "dd8c76ba734146d4bc25626ffe846042",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BSC factory 0xCe4529Fe88df480BD777d3e32dfD7032e6C685ff idSTOs=32 (blk 134,356,794; source Brickken/protocol-public contracts/sto). Only payout fn getTokens(index,onBehalfOf) reverts from a fresh address (UserIsNotWhitelisted): KYC-whitelist gated, pays investor not caller; buyToken open but caller pays; finalize/partialWithdraw are role-gated. Only ACTIVE issuance raised $0 since 2026-08-31; latest funded 92,000 USDT is in ROLLBACK awaiting refunds. TVL $29.03M (llama 2026-11-18); gas 0.05 gwei ~$0.005/call. 7d getLogs failed on bsc lane (public: limit exceeded).",
+  "kb": [
+   "attempts:2216",
+   "protocols:780"
+  ],
+  "run_id": "dd8c76ba734146d4bc25626ffe846042",
+  "at": 1795025952
+ }
+}

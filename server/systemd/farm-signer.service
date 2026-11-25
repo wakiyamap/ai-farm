@@ -1,0 +1,24 @@
+[Unit]
+Description=Farm signer (holds keys; policy-checked signing for live bots)
+After=rpc-relay.service
+Requires=rpc-relay.service
+
+[Service]
+Type=exec
+User=farmgate
+Group=farmgate
+RuntimeDirectory=farm
+RuntimeDirectoryMode=0755
+ExecStart=/usr/bin/python3 -I /opt/farm/bin/farm-signer
+Restart=always
+RestartSec=5
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/var/lib/farmgate /run/farm
+ReadOnlyPaths=/srv/farm/ws/bots/live
+SyslogIdentifier=farm-signer
+
+[Install]
+WantedBy=multi-user.target

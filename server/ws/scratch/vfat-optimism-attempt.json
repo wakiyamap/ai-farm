@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-vfat-io",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. vfat.io on Optimism is the Sickle v1 smart-wallet stack (same as the arbitrum/avalanche dead-ends). All keeper entry points (Automation compoundFor/harvestFor/exitFor/rebalanceFor/executeFor) require per-sickle owner consent plus an admin-managed automator whitelist (or an onlyAdmin custom automator); eth_call executeFor from a fresh address reverts NotApprovedAutomator 0xcc7a4658. All 621 automation actions in the last 7 days were done by the single whitelisted EOA 0xb0bada5d45d939a03c6d211d24a61a4418d7cd13 (vfat's own bot), so no stranger is ever paid.",
+ "numbers": "7d (blocks 159405170-159707595, 31x10k eth_getLogs chunks): 621 events (272 NftCompoundedFor, 184 NftRebalancedFor, 162 AutomatedFor, 3 NftExitedFor), 621 txs, 22 sickles, automator 0xb0bada...cd13 in 621/621; approvedAutomatorsLength()=1; keeper pay: 1 of 5 sampled txs charged 4e-06 ETH ($0.0062, TransactionCostCharged) vs gas $0.0054; gas per call $0.0014-0.0059 (0.77M-3.19M gas @ ~0.0013 gwei, ETH $1773.42 coins.llama.fi); TVL $560,660 (api.llama.fi)"
+}

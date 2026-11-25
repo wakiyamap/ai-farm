@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-veda",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 633,
+ "chain": "bsc",
+ "slug": "veda",
+ "name": "Veda",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 470835,
+ "url": "https://veda.tech",
+ "github": [
+  "Veda-Labs"
+ ],
+ "listed_days_ago": 633,
+ "run_id": "edcd5ebb87b840ea8b9842dc82da92bc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Veda bsc = one boringVault v0 ('Lombard BTC', $470,835 TVL): every non-view fn role-gated by RolesAuthority 0xF3E03eF7 (stranger eth_call -> UNAUTHORIZED on updateExchangeRate/bulkDeposit/completeWithdraw; claimFees vault-only) and nothing pays a caller (fees -> payout 0xA9962a5B). 7d scan blocks 132,819,211-134,247,987 (286x5000, 20 logs): 5x updateExchangeRate by 0xfa8af0b4 via relayer 0x757fad4e (111,365 gas = $0.0034 at BNB $591.42, paid $0.00), 3x bulkWithdraw dust by 0xd23086c4, 1x FeesClaimed dust, 0 deposits.",
+  "kb": [
+   "attempts:1994",
+   "protocols:592"
+  ],
+  "run_id": "edcd5ebb87b840ea8b9842dc82da92bc",
+  "at": 1794977052
+ }
+}

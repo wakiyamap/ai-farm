@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-limitless-exchange",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 781,
+ "chain": "base",
+ "slug": "limitless-exchange",
+ "name": "Limitless Exchange",
+ "category": "Prediction Market",
+ "tvl_usd": 312558,
+ "url": "https://limitless.exchange",
+ "github": null,
+ "listed_days_ago": 781,
+ "run_id": "b379124ef92c4fa68c041705ddde7e09",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Polymarket-stack CLOB on Base: CTFExchange 0x05c7... fillOrder/fillOrders/matchOrders are onlyOperator (fills 40 and 29 per 10k-block windows on 2026-11-18, ~60-145 fills/h, sample of 6 fills 0.11-13.05 USDC gross, fee field 0 in all 6); OrderFilled has no reward field and public CTF redeem/split/merge pay only the caller's own balance - no function pays a stranger; legacy exchange 0xa440... dead since 2026-05-25",
+  "kb": [
+   "attempts:2088",
+   "protocols:674"
+  ],
+  "run_id": "b379124ef92c4fa68c041705ddde7e09",
+  "at": 1794996439
+ }
+}

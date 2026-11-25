@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-lagoon",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Lagoon's Arbitrum contracts are 213 ERC-7540/4626 vaults (v0.2.0 Vault + v0.6.0 LagoonVault classes); every maintenance function (settleDeposit, settleRedeem, updateNewTotalAssets, claim*OnBehalf, close) is onlySafe/onlyValuationManager/onlyOwner, and a stranger eth_call settleDeposit(uint256) reverts OnlySafe(address). The source contains no reward/incentive/fee-to-caller at all, so even the curator's own settles pay nobody; in the last 7 days all 85 vault txs across 11 active vaults came from curator EOAs/Safes (3 settleDeposit by the vaults' own safe()). Same verdict as the Ethereum row (protocols id 160).",
+ "numbers": "213 vault proxies (factory logs, full range); 11 active / 85 txs / 195 logs in blocks 523,152,800-525,252,800 (7d); 3x settleDeposit gasUsed 196,559 @ 0.02 gwei = 3.93e-6 ETH = $0.007 (ETH $1,806.31, coins.llama.fi 2026-11-18); gross to caller $0; configured vault 0x99CD..5261 totalAssets 1,334.76 USDC; Arbitrum TVL 7.69M USDC + 2.59M USDT0 (api.llama.fi/protocol/lagoon)"
+}

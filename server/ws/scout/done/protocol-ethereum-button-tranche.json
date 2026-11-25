@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-button-tranche",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1087,
+ "chain": "ethereum",
+ "slug": "button-tranche",
+ "name": "Button Tranche",
+ "category": "Yield",
+ "tvl_usd": 191825,
+ "url": "https://app.button.finance/",
+ "github": null,
+ "listed_days_ago": 1087,
+ "run_id": "7ce5ce47be234dbe8b5e5b409e693d5e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no function pays a caller: BondController (impl 0x8c624d6a336ede5da3bda01574cf091a938ea906, verified source) has only user-driven deposit/redeem/redeemMature and mature() (anyone after maturityDate, pays fee to owner, feeBps=0, reverts from fresh address), and the protocol's own EOA matures each weekly AMPL bond in the same tx that creates the next (7d, blocks 26412905-26463417: 1 BondCreated + 1 Mature + 3 RedeemMature, TVL 158.9k USD = 120,272 AMPL live bonds @ 0.916 coins.llama.fi)",
+  "kb": [
+   "attempts:3298"
+  ],
+  "run_id": "7ce5ce47be234dbe8b5e5b409e693d5e",
+  "at": 1795260975
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-aave-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "aave-v2",
+ "name": "Aave V2",
+ "category": "Lending",
+ "tvl_usd": 13561114,
+ "url": "https://aave.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "63053330971043869dbf30b66c04f265",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "liquidationCall on the frozen Aave V2 Polygon pool 0x8dFf5E27EA6b7AC08EbFdf9eB090F32ee9a30fcf pays 5.0 pct bonus to strangers: 227 LiquidationCall / 149 txs / 10 liquidators (0x5ac9bc14 184) in 7 d to block 97,636,508; priced debt cover 3,338.72 USD (bonus about 167 USD), median cover 0.64 USD, largest sample pays 82.43 USD for 0.037-0.049 USD gas (5 largest; 5.0 pct exact on 4 of 5); lead leads:268 measured, trial bot trial-aave2-polygon parked at review_wait (attempts:2070); note the 7-param LiquidationCall topic0 0xe413a321...5286 (attempts:2815)",
+  "kb": [
+   "attempts:2815",
+   "leads:268"
+  ],
+  "run_id": "63053330971043869dbf30b66c04f265",
+  "at": 1795161169
+ }
+}

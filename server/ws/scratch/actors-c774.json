@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "address": "0xc774f30484818f06a261a89a1d66367e6bbe3e5a",
+  "strategy": "Not an earning actor: it is AlchemistRouter, the stateless user-facing router of AlchemistV3 lending (proxy 0xded3a04612ff12b57317abe38e68026fc9d28114) on the MYT vault mixWETH (0x91b8657aea26caa8a0e9d6dd4e24727ccf32f822, underlying WETH 0x4200000000000000000000000000000000000006). 8 incoming calls/7d from 5 EOAs (withdrawUnderlying x4, withdrawETH x2, claimRedemption x1, depositETHToVaultOnly x1); users move their own funds through it. The router never sends a tx (0 of its 200 latest are outbound), holds 0 balance and collects no fee (protocolFee lives on the Alchemist).",
+  "evidence": "7d window blocks 159514696 (2026-11-14T03:49:29Z) - 159817096 (2026-11-21T03:49:29Z), eth_getBlockByNumber timestamps; sample calls: 0x512f789cbd085abd64624f170d5411cdab2e66ddb3dc26a2a1e34d6358481028 (withdrawUnderlying, redeems ~0.4683 WETH to caller in-tx), 0x4ee06d924c67ca99650febfff09c10626e81fc5ed9fe60ff889c79fd2351d0c2 (claimRedemption), 0x93be0e30445f2a89b47077b741bc6120e73ede6b0d0dbe9cd9864c58753e2d50 (withdrawETH), 0xc3cf4a3dba3e09f37022d23edf11ab0c70dc321b96e4b410bcb69c79dbcb2587 (depositETH 20 ETH, 2026-11-10, just before the window); creation 0x22ee2758df38df24b76c9324bc411eb11a378822f7660348d3f99ec1bccee8c5 by 0xf456a36b04b0951cd19d6d8aa0c0b3b0a07f9ff2 (block 150271807); source AlchemistRouter.sol via explorer (blockscout); underlyingToken() 0x2495a599 and myt() 0x45b01c1a read on chain",
+  "est_profit_usd_day": 0
+}

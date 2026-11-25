@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-dnax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 373,
+ "chain": "bsc",
+ "slug": "dnax",
+ "name": "Dnax",
+ "category": "Dexs",
+ "tvl_usd": 42003,
+ "url": "https://dnax.us/",
+ "github": [
+  "CarbonDeploy"
+ ],
+ "listed_days_ago": 373,
+ "run_id": "23007a33dc25490cbe9f9455d4b02331",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bancor Carbon v1 fork on bsc, single proxy 0xafc43faE...a1B9 (impl CarbonController 0x62b2b60e...): only pay function withdrawFees is ROLE_FEES_MANAGER-gated (2 members 0x61e7093f/0x28ee97cc; fresh-address eth_call reverts AccountUnauthorized 0x4ca88867); fee pot 0.666 BNB (371 USD @556.46 2026-11-22) + 0.70 USDC (18 dec); 0 FeesWithdrawn in 7d blocks 133758364-135101814 (166 TokensTraded, callers pay via routers); gas 66954 x 0.05 gwei = 0.002 USD; last withdraw 2026-08-20 by role member.",
+  "kb": [
+   "protocols:1962",
+   "attempts:3761"
+  ],
+  "run_id": "23007a33dc25490cbe9f9455d4b02331",
+  "at": 1795361057
+ }
+}

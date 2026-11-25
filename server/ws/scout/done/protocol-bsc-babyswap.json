@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-babyswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "babyswap",
+ "name": "BabySwap",
+ "category": "Dexs",
+ "tvl_usd": 1298908,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "4519c1c01ea84856a47713300487ece3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PancakeV1 MasterChef 0xdfAa..C730 (factory 0x8640..89Da, 1769 pairs): withdraw/deposit/leaveStaking callable by anyone but pay 0 - BONUS_MULTIPLIER=0 and chef+SyrupBar BABY balances=0 (pot empty, BabyToken owner 0x5da2..d6e4 != chef so mintFor reverts); 7d getLogs (blocks 133264785-134608785, single call, shape verified): 2 events only, both Withdraw on 2026-11-15 (0xaf25cade..2256, 0x6d6a4b5c..4acd), each paid 0 BABY to caller (sample of 2 of 2), gas 142k/131k @0.05 gwei = $0.0041/$0.0038 (BNB $576.21 llama ts1795139449); chef staking TVL $0 of $1.28M protocol.",
+  "kb": [
+   "attempts:2720",
+   "protocols:1168"
+  ],
+  "run_id": "4519c1c01ea84856a47713300487ece3",
+  "at": 1795139639
+ }
+}

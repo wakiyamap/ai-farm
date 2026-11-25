@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-mento-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "mento-v2",
+ "name": "Mento V2",
+ "category": "Algo-Stables",
+ "tvl_usd": 6547807,
+ "url": "https://app.mento.org",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "7ad22dd68c6d4374b82594a6fdb429f3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Mento V2 ethereum = reserve treasury, not protocol contracts: 6.52M USD TVL sits in Gnosis Safe 0xd0697f70...CC1E (sUSDS 4,234,485 + USDT 1,222,799 + stETH 254) + 4 EOAs (Mento's own DefiLlama adapter fork owners); no Broker/BiPoolManager/FPMM on chain 1 (mento-sdk has no ETHEREUM chainId, deployments-v2 has no chain-1 broadcast); Safe answers getThreshold()=3/VERSION()=1.3.0 but exposes no anyone-callable paying function: 0 reward calls, gross 0.",
+  "kb": [
+   "attempts:3573",
+   "protocols:1819"
+  ],
+  "run_id": "7ad22dd68c6d4374b82594a6fdb429f3",
+  "at": 1795317870
+ }
+}

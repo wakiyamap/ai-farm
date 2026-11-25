@@ -1,0 +1,12 @@
+{
+  "run_id": "61ad73b86b3540569f65835fb39e3c70",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-arbitrum-zino-finance",
+  "outcome": "scouted",
+  "kb_rows": ["attempts:3819", "protocols:2001"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "role_gated: Trade.liquidatePosition/limitOrderExecute, Stake.autoCompound and StakingHelper.autoCompound/autoCompoundAllEarners all revert 'caller is not the executor' (executor 0x1b0dd842/0x3a1f9584, onlyOperator, not a public registry); the only open fns Borrowing.liquidate+liquidateAll transfer nothing to msg.sender with 0 borrowers and 0 open positions (31 earners, TVL 41635 USD) vs gas 0.0008-0.33 USD; 0 tx and 0 logs on all 4 core contracts in 7 d (blocks 524537409 2026-11-15 to 526591065 2026-11-22, no-topic scan, control returned 1 log at 346407399 = Stake's last-ever tx 2025-06-12), so Zino is dormant on arbitrum, not just quiet."
+}

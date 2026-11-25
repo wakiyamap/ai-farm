@@ -1,0 +1,8 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-babyswap",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. BabySwap is a PancakeSwap V1 MasterChef fork (Sourcify exact match, solc 0.7.4). The caller-paid functions (deposit/withdraw/enterStaking/leaveStaking/emergencyWithdraw on MasterChef 0xdfAa0e08e357dB0153927C7EaBB492d1F60aC730) are public (no role gate) but pay 0: BONUS_MULTIPLIER()=0 so getMultiplier returns 0 -> cakeReward=0, and the reward pot is empty (MasterChef BABY balance=0 and SyrupBar 0x930c4047... balance=0). No stranger was paid a BABY reward in the last 7 days: only 2 chef events (both Withdraw, 2026-11-15), each with a 0x0 BABY transfer to the caller; the rest was principal return (LP tokens / staked BABY). BabyToken.owner() is not the chef so mintFor reverts, blocking deposit on funded pools. No keeper/stranger reward function exists.",
+ "numbers": "Chef 0xdfAa0e08e357dB0153927C7EaBB492d1F60aC730; BABY 0x53E562b9B7E5E94b81f10e96Ee70Ad06df3D2657 $0.00017277 (coins.llama.fi ts1795133280); BONUS_MULTIPLIER=0, cakePerBlock=12e18, poolLength=200, chef BABY bal=0, SyrupBar(0x930c4047d26467e4dec0fd199fb44a92298da9be) BABY bal=0. 7d eth_getLogs on chef over 1344000 blocks (to latest 134608785): 2 events, both Withdraw (no Deposit): tx 0xaf25cade..2256 blk133770347 2026-11-15 withdraw(190,1.37LP) 0 BABY paid; tx 0x6d6a4b5c..4acd blk133792447 2026-11-15 leaveStaking 121.12 BABY principal, 0 BABY reward. Gas 142048/131220 gas @0.05gwei = 7.1e-6/6.6e-6 BNB = $0.0041/$0.0038 (BNB $576.21, coins.llama.fi WBNB ts1795139449). DefiLlama currentChainTvls Binance $1,280,864, staking $0. Gross to caller $0 << gas $0.004.",
+ "bot_id": null
+}

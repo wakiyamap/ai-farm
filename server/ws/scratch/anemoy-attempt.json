@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-anemoy-capital",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Anemoy LTF is a Centrifuge V3 KYC-restricted fund: Tranche 0x8c21...4b86 + AsyncVault 0x1adc...f283 + AsyncRequestManager 0xf482...61ae. Every function that pays pays the investor (deposit/redeem/claim); no caller reward exists in the sources, ARM entry reverts NotAuthorized() from a fresh address and FullRestrictions requires memberlist (KYC) membership to hold shares. Nothing for a stranger to take.",
+ "numbers": "7d window blocks 55960007-58984008 (eth_getLogs): ARM 0 logs, Tranche 5 Transfers in 2 txs, AsyncVault 4 logs (same 2 txs). Investor 0x5978...c4bb: deposit 398,035 USDC -> 356,474 shares (tx 0xf5dd86e6..., gas 737,906 = $0.011) and redeem ~400,066 USDC (tx 0xfc64f696..., gas 408,849 = $0.004). Gross to a stranger caller = $0. ETH $1807.60 (coins.llama.fi). TVL 4.62M (DefiLlama candidate data)."
+}

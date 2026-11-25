@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-dexalot-portfolio",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 822,
+ "chain": "bsc",
+ "slug": "dexalot-portfolio",
+ "name": "Dexalot Portfolio",
+ "category": "Bridge",
+ "tvl_usd": 613372,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 822,
+ "run_id": "ad90aa9a52d5406f8d227bb49743fe32",
+ "result": {
+  "verdict": "role_gated",
+  "line": "bsc PortfolioMain proxy 0xfa92d9Caf17f5B478d2d89b084DEc2e27A391324 (impl 0x6dc9f4Ba, v2.7.0): payouts all role-gated (processXFerPayload = PORTFOLIO_BRIDGE_ROLE held by 0x246c87368580acd6e9ca46bf112ad91978389634; collectBridgeFees/collectNativeBridgeFees = DEFAULT_ADMIN_ROLE; all revert from a stranger), deposits pay 0. 7d PortfolioUpdated 45 (24 DEPOSIT, 21 WITHDRAW, blocks 133.50M-134.30M); sample 5/21 withdrawals: relayer EOAs 0x0e183f1d/0x7ddb0773/0xe93685f3, gas 158,974 = 0.0056 USD (BNB 589.14 coins.llama.fi), gross to caller 0 USD.",
+  "kb": [
+   "attempts:2110",
+   "protocols:688"
+  ],
+  "run_id": "ad90aa9a52d5406f8d227bb49743fe32",
+  "at": 1795001462
+ }
+}

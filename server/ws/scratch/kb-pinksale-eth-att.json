@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-pinksale",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. PinkSale's only ethereum contracts (per the DefiLlama adapter, the source of its 8.79M USD TVL) are two token lockers; the only function that pays, unlock(uint256), pays msg.sender behind require(userLock.owner == msg.sender) and reverts 'You are not the owner of this lock' from a fresh address, so a stranger can never earn from it. Over the last 7 days all 8 unlock/vest payouts were self-claims by lock owners; nothing pays a keeper or caller fee.",
+  "numbers": "Locker 0x33d4cC8716Beb13F814F538Ad3b2de3b036f5e2A (PinkLock, 286 locks) + 0x71B5759d73262FBb223956913ecF4ecC51057641 (PinkLock02, 21495 locks), addresses from projects/pinksale/index.js, code + getTotalLockCount() via rpc.py. 7d window blocks 26415148 (2026-11-14) to 26465402 (2026-11-21), 50254 blocks. No-topic eth_getLogs: v1 0 logs (control: 11 on v2 same shape), v2 11 logs (LockVested 5, LockRemoved 3, LockAdded 2, LockUpdated 1; topic0 = cast keccak of source events). Gross to a stranger = 0 USD: 3 sampled payout txs (e.g. 0x7b7879cecedd56be52..., 0x346286df9e739368f8...) all had tx.from == lock owner paid. eth_call unlock(1)/(1000005) from 0x7777..7777 reverts with owner error (role_gated). Gas not applicable - no earning call exists."
+}

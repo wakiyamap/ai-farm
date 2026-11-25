@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-yieldwolf",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: earn(pid)/earnMany on the YieldWolf master are callable by anyone (no role revert) but all 6 Earn events in the last 7 days paid bountyReward 0; the two best current pools pay only a few units of FLAKE, an unpriced defunct-DEX token, less than gas. executeRule had 0 events in 7 days.",
+  "numbers": "7d window blocks 100470072 (2026-11-16T10:45Z) to 101158257 (2026-11-23T10:56Z) from eth_getBlockByNumber timestamps. Master 0xc9070B3EFE0aacC5AfB4B31C5DbDCA7C6B4bAAA9 logs in window (no-topic scan, 69x10k chunks): 16 total = 6 Earn (topic0 0xdcc11642... from receipts, all bountyReward=0), 5 Deposit, 5 Withdraw; 0 ExecuteRule (topic0 0x1496e299...). Earn caller: 0x953c1ba7029c92741a1739dcd18a8a462109b618 via 0x87f983c6b8373a2bdd95554acb2837c30db4685f (receipts of 0x21c09d5e..., 0x2e1484a3..., 0x9ae1b154..., 0x5a92eebe...; effGP 7.53 nAVAX). eth_call earn(pid) fresh address, 23 pids sampled of 155: pid56 2.755178976840791842, pid64 4.738192431049358254, rest 0 or revert. Bounty token FLAKE 0x9559873d5b9e0176e923399cbd2863aea1fb19b9 (symbol()/decimals()=18 read on chain); price: coins.llama.fi and CoinGecko return nothing -> usd unpriced. Gas: eth_estimateGas earn(56) = 526,829 gas x 7.53 nAVAX (7d receipt effGP) = 0.00397 AVAX = $0.027 at WAVAX $6.72 (coins.llama.fi 2026-11-23T10:57Z). TVL $29,188 (candidate, api.llama.fi 2026-11-23)."
+}

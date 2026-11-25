@@ -1,0 +1,22 @@
+{
+ "id": "protocol-ethereum-switcheo-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 968,
+ "chain": "ethereum",
+ "slug": "switcheo-finance",
+ "name": "Switcheo Finance",
+ "category": "Dexs",
+ "tvl_usd": 978805,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 968,
+ "run_id": "6e4a8ea8f0a9481f800bc0886d9023d2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BrokerV2 vault 0x7ee7Ca6E75dE79e618e88bDf80d0B1DB136b22D0: trade/networkTrade are onlyAdmin (stranger eth_call reverts), public fns (deposit/withdraw/executeSwap/markNonce) pay msg.sender 0; 7d blocks 26412415-26462676: 3 txs / 3 logs (topic0s all ABI-mapped, control 794), zero trades in 34 d, only one user withdrawal 2026-11-15 and a claimFees no-op on the empty payable fallback; stranger gross 0 USD, TVL 903k USD.",
+  "kb": [],
+  "run_id": "6e4a8ea8f0a9481f800bc0886d9023d2",
+  "at": 1795254508
+ }
+}

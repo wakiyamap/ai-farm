@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-yieldfi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 679,
+ "chain": "arbitrum",
+ "slug": "yieldfi",
+ "name": "YieldFi",
+ "category": "Yield Aggregator",
+ "tvl_usd": 175928,
+ "url": "https://yield.fi/",
+ "github": [
+  "YieldFiLabs"
+ ],
+ "listed_days_ago": 679,
+ "run_id": "b4aaec3cd5cc425bbbbbf071544760cf",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only Manager.executeOrder pays its caller (gasFeeShares reimbursed to msg.sender, yToken) and it is onlyMinterAndRedeemer (fresh-addr eth_call reverts 0x); on arb 0 order executions (Deposit/Withdraw) 7d and 0 user OrderRequests 30d (only 4 AssetAndShareManaged operator calls), gross 7d = $0, gas ~$0.009/call (0.0201 gwei, ETH $1809.54 coins.llama.fi).",
+  "kb": [
+   "attempts:2029",
+   "protocols:621"
+  ],
+  "run_id": "b4aaec3cd5cc425bbbbbf071544760cf",
+  "at": 1794983852
+ }
+}

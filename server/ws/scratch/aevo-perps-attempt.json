@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-aevo-perps",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the only Arbitrum contracts are the Socket bridge vaults; their one publicly-callable fn unlockPendingFor(address,address) transfers the user's pending unlock to the receiver argument and pays the caller 0 (no fee or reward to msg.sender; connector deliveries are done by the protocol's own relayers). It was not even called in the last 14 days. Nothing anyone can call for pay here.",
+  "numbers": "unlockPendingFor 7d calls: 0 (PendingTokensTransferred topic c77b48bb..., 3 vaults; 0 over 14d also). Controls same shape: TokensUnlocked 2, TokensDeposited 4 in 7d. Gross per unlockPendingFor call to caller: 0 USD (tokens go to receiver_ arg). Pending pot 265,036,214 raw = 265.04 USDC (6d) on vault 0x7711... (user funds, not keeper reward). Gas: full bridge-receive tx 377,929 gas @ 0.0201 gwei = 7.6e-6 ETH = $0.0136 (ETH $1,783.99 coins.llama.fi 2026-11-19); unlockPendingFor itself <100k gas < $0.005. Arbitrum TVL 697,172 USD (api.llama.fi/protocol/aevo-perps)."
+}

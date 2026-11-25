@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-sodax",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 98,
+ "chain": "ethereum",
+ "slug": "sodax",
+ "name": "SODAX",
+ "category": "Bridge",
+ "tvl_usd": 167735,
+ "url": "https://www.sodax.com/",
+ "github": null,
+ "listed_days_ago": 98,
+ "run_id": "70afa67530b5460aa8247f7afcc70cf5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "recvMessage (SpokeAssetManager 0x39E77f86..) gated by require(executors[tx.origin]) allowlist: fresh-address eth_call reverts 'unauthorized executor'; 7d: 32 deliveries from 2 registered executors (0xa4026a97.., 0x69588038..), 23 user transfers; 5-sample caller paid 0 on-chain, gas 155k-190k @ 0.44-1.02 gwei = $0.12-0.28 (ETH $1740.20 coins.llama.fi 2026-11-20); fees accrue only to withdrawFee() onlyOwner (ConnectionV3 balance 0)",
+  "kb": [
+   "attempts:2905"
+  ],
+  "run_id": "70afa67530b5460aa8247f7afcc70cf5",
+  "at": 1795178247
+ }
+}

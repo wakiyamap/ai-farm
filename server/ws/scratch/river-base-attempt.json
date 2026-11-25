@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-river-omni-cdp",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Only pay-caller family is liquidate/liquidateTroves on the 5 Collateral(V2) proxies; both revert (anonymous custom error; BSC/ethereum slices of the same protocol revert these with 'nothing to liquidate', not role-gated). Nothing paid a stranger in 7 d: just 1 tx touched the 11 protocol contracts (a user satUSD swapOut via NYM), troves silent; book is 2 healthy troves with 78.9 satUSD total debt. Matches BSC/ethereum dead ends; base slice is NYM/smart-vault deposits ('unproductive positions').",
+ "numbers": "7d window blocks 57966672 (2026-11-15 23:01:50) - 60990673 (2026-11-22 23:01:50), timestamp-anchored: 17 logs on 11 protocol addrs from 1 tx (0x2af90b432d72d27f..., router swap, 1.64M gas); satUSD token 62 logs (44 Transfer user txs); 0 Liquidation/keeper payouts. Book: WETH TM coll 0.023672 WETH = $40.69 (ETH $1719.04 coins.llama.fi ts 1795388765), debt 16.603 satUSD = $16.47; clBTC TM coll 0.002071 clBTC (BTC-ref $126), debt 62.303 satUSD = $61.81 (satUSD $0.9922 coins.llama.fi ts 1795378082); total debt $78.3. Base gas 0.006 gwei -> ~$0.004 per 400k-gas liquidation. Sources: DefiLlama adapter projects/satoshi-protocol (river-omni-cdp 404), eth_getCode non-empty on all 12, getters collateralToken()/getEntireSystemColl() read on chain; no ABI (Blockscout 503 all session, etherscan not_on_plan, Sourcify 404, no V2 repo on github Satoshi-Protocol org), selectors via cast sig matched BSC-found values (0x86b9d81f, 0x653d46e7)."
+}

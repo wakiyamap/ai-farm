@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-dydx-v3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "dydx-v3",
+ "name": "dYdX V3",
+ "category": "Derivatives",
+ "tvl_usd": 5637452,
+ "url": "https://dydx.trade",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e9df9e286b0f47c29f42fb9acf22838b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "dYdX V3 ethereum = StarkEx periphery 0xD54f + legacy Solo/Vault escrow (5.5M USD TVL, halved in 30 d wind-down): 7 d (blocks 26,416,815-26,467,071) shows only users redeeming themselves - Perp 7 txs (3 escape + 4 withdraw, sample 40 USDC to caller's own balance, gas 0.37 USD), Solo 81 txs (LogLiquidate 0 of 381 logs, sample operate 0.22 USD gas), Vault 0; no public function pays the caller (updateState=operator, callFunction=global operator).",
+  "kb": [
+   "attempts:3534"
+  ],
+  "run_id": "e9df9e286b0f47c29f42fb9acf22838b",
+  "at": 1795308369
+ }
+}

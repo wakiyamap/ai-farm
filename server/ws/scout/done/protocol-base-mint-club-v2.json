@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-mint-club-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1019,
+ "chain": "base",
+ "slug": "mint-club-v2",
+ "name": "Mint Club V2",
+ "category": "Launchpad",
+ "tvl_usd": 471751,
+ "url": "https://mint.club",
+ "github": null,
+ "listed_days_ago": 1019,
+ "run_id": "a64d323aa35845259bcc100deed8a3e3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No stranger-payable function on base: staking v1/v1.1/v1.2 (0x364e0f81.., 0x3460E2fD.., 0x9Ab05EcA.. poolCount 223) pay claim() only to msg.sender's own accrued rewards (stranger eth_call claim(0) succeeds, pays 0x); RewardClaimed sample of 22 events in 6x50k blocks over 7d, 6 distinct stakers, all self-paid; creation/claim fees go to owner-set protocolBeneficiary; bond 0xc5a076ca.. exposes only createToken/mint/burn (user curve buys/sells).",
+  "kb": [
+   "attempts:2210",
+   "protocols:774"
+  ],
+  "run_id": "a64d323aa35845259bcc100deed8a3e3",
+  "at": 1795023841
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-alphax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 826,
+ "chain": "bsc",
+ "slug": "alphax",
+ "name": "AlphaX",
+ "category": "Derivatives",
+ "tvl_usd": 1807611,
+ "url": "https://alphax.com/",
+ "github": [
+  "AlphaX-Protocol"
+ ],
+ "listed_days_ago": 826,
+ "run_id": "a2cd81a8b8d24046b094940e4395b12e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "AlphaX BSC is only a custodial DEXVault proxy 0x8259f6010A030BCD54335503bA91BBA70a534Ca6 (impl 0x6302e7948736baf985804f0dc6132baf6d86cc92, off-chain accounting per repo README); all 31 impl selectors are deposits, 2-of-3-signature user withdrawals (users self-submit, pay own gas ~0.6 gwei = 0.05 USD at BNB 589 USD) or onlyOwner admin - no function pays a caller; sample of 2 windows of 5071 blocks: 6 Deposit + 3 Withdraw and 1 + 1.",
+  "kb": [
+   "attempts:2114"
+  ],
+  "run_id": "a2cd81a8b8d24046b094940e4395b12e",
+  "at": 1795002279
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-mufex",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the whole DefiLlama TVL of MUFEX on bsc is two Gnosis Safe v1.3.0 treasury proxies (253,004 + 17,176 USDT) plus one operator-gated custody wallet (0 USDT); no publicly callable function pays the caller (batchCollectTokens reverts 'only operator'). Website and GitHub Pages are dead; 7-day log activity not measurable this session (scout-lane bsc getLogs returned 'all providers failed: public: limit exceeded', documented lane-spent pitfall), but the verdict rests on the function surface, not on a zero count.",
+ "numbers": "TVL bsc 269,905 USD (api.llama.fi/protocol/mufex currentChainTvls, 2026-11-18). USDT balances via eth_call balanceOf on 0x55d3...7955: 253,004.6 (0x60b4) + 17,176.3 (0x763e) + 0 (0x16BE). Selectors of 0x16BE resolved via 4byte.directory (createWallet, batchCollectTokens, isOperator...). Source of 0x3e5c impl: explorer source arbitrum (GnosisSafe 1.3.0). Listed 2023-08-02 (listedAt 1690969719), deadUrl true."
+}

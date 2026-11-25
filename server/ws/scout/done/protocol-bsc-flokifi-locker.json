@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-flokifi-locker",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1412,
+ "chain": "bsc",
+ "slug": "flokifi-locker",
+ "name": "FlokiFi Locker",
+ "category": "Token Locker",
+ "tvl_usd": 8200588,
+ "url": "https://flokifi.com",
+ "github": null,
+ "listed_days_ago": 1412,
+ "run_id": "a7f83ce4b8dd4e8c95bb5b8d7bd6dfb6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "vest/partialVest/extendLock/collectV3PositionFees all revert 'Vault:onlyKeyHolder:UNAUTHORIZED' from a fresh address (vaults 0xBb02..B45D, 0xB774..CE4b; V3 diamond 0x3261..d7B4 has no vest; factory 0x8b01..f9b8, VaultKey NFT 0x50f1..23fe) - only the VaultKey NFT holder claims their own vested tokens, no caller reward (docs: fixed 50-100 USDT lock fees to protocol); 0 factory events in 2x100k-block windows (head 134431495 and head-700k) vs control USDC 58,620 Transfers in 3x5000 same shape: gross 0 USD to strangers in the last 7 days",
+  "kb": [
+   "attempts:2358",
+   "protocols:896"
+  ],
+  "run_id": "a7f83ce4b8dd4e8c95bb5b8d7bd6dfb6",
+  "at": 1795059286
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-xgld",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The only permissionless callable in the xGLD BSC stack is claim(bytes32) (XGLDRedeemer 0x2ac5...003c / XGLDBoostProxy 0x0a4d...57b0e); fresh-address eth_call reverts InvalidRequest (0x41abc801), not a role error. It pays the stored recipient's own redemption principal, nothing to the caller - over the last 7 days all 4 claims were self-claims (tx.from == recipient). No keeper/bounty reward exists; mint side is RFQ + role-gated and docs require whitelisted users, so no stranger earnings stream.",
+ "numbers": "TVL $1,677,543 (candidate/DefiLlama). 7d full scan of Claimed(bytes32,address,uint256) topic 0x0508a8b4... on 0x2ac5abd45fea3d72afc1c68500ba4a677153003c: 4 events, blocks 133,581,000-134,083,243 (101 getLogs of 5000 blocks, no gaps); control same-shape token Transfer query returned 4 logs. Gross paid to callers over 7d = 0. Gross moved by the 4 claims = 10.35 XAUt (~$39.9k principal at $3,849.93, coins.llama.fi 2026-11-17; largest 9.078845 XAUt tx 0xe960bc2f085707fcdf79bc1376179a8463930daae7ce088e1cb9277ae064c32f). Gas per claim 92,142 x 0.05 gwei = 0.0000046 BNB = $0.003 (BNB $592.16, coins.llama.fi). Role reverts from fresh address: OnlyMinter 0x9cdc2ed5, OnlyBurner 0x6e078346."
+}

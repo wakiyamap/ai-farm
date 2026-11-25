@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-tulipa-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 550,
+ "chain": "avalanche",
+ "slug": "tulipa-capital",
+ "name": "Tulipa Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 28404,
+ "url": "https://www.tulipa.capital",
+ "github": null,
+ "listed_days_ago": 550,
+ "run_id": "b9e688bb265b4187a22ac7caa3ec788b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Tulipa on avalanche = 2 Lagoon ERC-4626 vaults (0x3048925b USDC 16705.28 USDC, 0xb893c8d7 BTC.b 0.1979 BTC.b; impl 0x33f65c8d); all keeper fns role-gated (settle*/expire=onlySafe, updateNewTotalAssets=onlyValuationManager), stranger reverts OnlySafe 0xfde82f1f / OnlyValuationManager 0x14c9222d, caller gets no bounty; 0 txs on either vault in 7d (latest 2026-11-09, 13.4d ago); gas ~$0.01/call @ AVAX 6.68",
+  "kb": [
+   "attempts:3799",
+   "protocols:1990"
+  ],
+  "run_id": "b9e688bb265b4187a22ac7caa3ec788b",
+  "at": 1795369880
+ }
+}

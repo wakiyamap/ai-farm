@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hyperswap-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only reward-style function on the AMM (HyperswapPair.forceClaimFees) reverts 'HyperswapPair only factory's owner' for strangers and pays a fixed feeTo (0xdfc8be0a...8ae5ba), not the caller; the open alternative skim(address) pays only token excess (0 Skim events in 7d on sampled pairs). No keeper/bounty that pays a stranger exists; mint/swap/burn are user trades.",
+  "numbers": "Factory 0x724412C00059bf7d6ee7d4a1d0D5cd4de3ea1C48 (from DefiLlama-Adapters registries/uniswapV2.js), allPairsLength=3342, code 20357B, eth_call getters ok. SWAP ERC20 0x03832767bdf9a8ef007449942125ad605acfadb8. forceClaimFees eth_call from 0x1111..1111 reverted role-gated on 3 pairs (eth_call @latest). Last 7d (head 51563662, eth_getLogs): PairCreated=3, Swap/Skim/Sync on 8 sample pairs=0 (control: 20 Swap/Sync since block 45M on same 8; SWAP Transfer 1873/7d). Gross to caller 0 USD; gas 0.1 gwei x ~50-200k = <$0.02 (HYPE $68.63, coins.llama.fi 2026-11-18). TVL 5.13M (api.llama.fi/tvl/hyperswap-v2). Pools quiet: e.g. 0x92ecd8...4993 139k/14k reserves, no txs since 2025 except launch-day forceClaimFees (etherscan txs)."
+}

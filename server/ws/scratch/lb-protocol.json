@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "lunarbase",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/lunarbase/index.js lists 2 Base proxies; repo Lunarbase-Lab/LunarBaseIntegrations mainnet/addresses.json (impl 0x4e87177c1084Fc322a44105654F05bDE83D4d7E2 unverified on explorer; ABI from repo abi/Pool.abi.json). ETH/USDC pool 0x0000eFC4ec03a7c47D3a38A9Be7Ff1d52dD01b99 live: unpaused, isFresh=true, X()=ETH, Y()=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (USDC, 6 dec), getXReserve=6.64 ETH, getYReserve=18.69k USDC, blockDelay=75 blocks. cbBTC/USDC 0xcB1c06554772BC855D81a6be648cC599710e1b99 paused()=true with getXReserve=getYReserve=0 (dead). upd(uint160,uint24,uint24,uint256) 0xfda0a43b (pricing epoch update) role-gated: eth_call from fresh 0xdEaD reverts UnauthorisedAccess(address) (0x73c9f7e4), from operator1 0x45483e7754f0f9505ae9e2c6513b6e46f28f282e returns OK. Swap entrypoints open to anyone (stranger eth_call swapExactInNative 0.01 ETH -> 17.0547 USDC ok) but the caller PAYS a fee, no payout function exists; PartnerFeeTaken only pays the single owner-configured whitelisted partner 0x8f10b468b06c6fd214b65f87778827f7d113f996 (setPartnerOperator/setPartnerFee are admin functions). No reward/bounty/claim function that pays a stranger."
+}

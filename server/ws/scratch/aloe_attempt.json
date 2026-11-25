@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-aloe",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Callable-by-anyone reward functions exist but pay nothing now: Factory.claimRewards reverts because rewardsToken == address(0) (never governed in), and the keeper function Borrower.warn(uint40) (pays ante/4 ETH to anyone) has had zero Warn/Liquidate events in the last 7d and even 365d; current borrowers are healthy so warn reverts from a stranger. Protocol is near-dormant: 27k USD TVL, 2 borrower-relevant logs in 7d (1 user Withdraw on a Lender).",
+ "numbers": "7d window blocks 524588705 (2026-11-15, ts 1794784724) to 526642039 (2026-11-22, ts 1795389524). Borrower logs 7d: 0 (no-topic scan of all 28 borrower addrs; control: same query shape on the 14 Lenders returned 2 logs in the same window). Warn(topic0 0x8c2b3b4f..)/Liquidate(0x46494603..) from cast keccak, chunked full-history scan: 20 events all-time (10+10), last on 2025-03-13 (block 315336410), i.e. 0 in 365d. warn bounty = ante/4 = 0.003/4 = 0.00075 ETH = 1.29 USD (ETH 1722.01 USD coins.llama.fi ts 1795389609); sample warn tx 0xfe21ce9645be21133fe3cb6ffba4f3b68e1b0782b41574a3ef413aeb36c89ac4 gasUsed 371535 (full liquidation), gas price 0.0202 gwei (eth_gasPrice 0x134edf0) => gas < 0.02 USD. eth_call warn() from 0x1111 reverts on the 3 latest borrowers. eth_call claimRewards([lender0],0x1111) reverts (rewardsToken=0). Factory rewardsToken getter 0xd1af0c7d returned 0x0. 28 borrowers ever, all created by/owned by Aloe app wallet 0x00000000000078b629b7c06f5339060648468aa6."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-set-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "set-protocol",
+ "name": "Set Protocol",
+ "category": "Indexes",
+ "tvl_usd": 9104613,
+ "url": "",
+ "github": [
+  "SetProtocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b6278730b41949af9218102cdc0d0898",
+ "result": {
+  "verdict": "no_reward",
+  "line": "SetV2 controller 0xa4c8d221 (773 sets) has 18 registered modules (all named via explorer source), none anyone-callable-with-caller-payment: accrueFee anyone-callable but pays caller 0 (5 txs/7d, senders Index-Coop keeper 0x03efacbf x3 + 2 EOAs, control 9 FeeAccrued logs), ClaimModule.claim manager-gated pays the set (0 logs 7d, no-topic scan), RebalanceModule/StreamingFinalizer absent; taker-class NAV arb already dead_end/blocked_infra (attempts 3325/3320)",
+  "kb": [
+   "attempts:3604",
+   "protocols:1845"
+  ],
+  "run_id": "b6278730b41949af9218102cdc0d0898",
+  "at": 1795325406
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "uniswap_fee_releaser.released",
+  "protocol": "uniswap_protocol_fees",
+  "kind": "revenue_release_exchange",
+  "chains": {
+    "ethereum": ["0x0D5Cd355e2aBEB8fb1552F56c965B867346d6721"],
+    "arbitrum": ["0xB8018422bcE25D82E70cB98FdA96a4f502D89427"],
+    "base": ["0xFf77c0ED0B6b13A20446969107E5867abc46f53a"]
+  },
+  "event": "Released(uint256,address,address[])",
+  "topic0": "0x0143172ff1dd87f3691e870b3fb5616db820278d26d2d16c3e03330a240a6c38",
+  "indexed": ["nonce", "recipient"],
+  "data": ["assets_offset", "assets_len"],
+  "actor_field": "tx_from",
+  "note": "Uniswap fee switch (repo Uniswap/protocol-fees): searcher pays a fixed threshold of UNI (burned; on Base bridged UNI) to the Releaser (Firepit) and receives the full TokenJar balance of up to 20 chosen assets. Amounts here are NOT profit: assets_len is the number of assets released; value = same-tx Transfers from the TokenJar (eth 0xf38521f130fcCF29dB1961597bc5d2B60F995f85, arb 0x95E337C5B155385945D407f5396387D0c2a3A263, base 0x9bD25e67bF390437C8fAF480AC735a27BcF6168c) minus threshold UNI. infra/uniswap-fee-releaser.md"
+}

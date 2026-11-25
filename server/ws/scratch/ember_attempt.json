@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-ember",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: Ember's two Base vaults (Ember Hilbert BTC 0x9C2d...3df3, Ember Hilbert USDC 0xF93A...7637, both proxies to impl 0xca795b26..2e91 = EmberVault, source from the verified Ethereum impl 0xd0ac2cd8..896d) expose no anyone-can-call function that pays the caller. The settle/collect functions (processWithdrawalRequests, collectPlatformFee, updateVaultRate, parkingLot processDepositsUpTo) revert Unauthorized() 0x82b42900 from a fresh address or are onlyRateManager, and even for the role-holder they move the depositor's own assets or platform fees, not a bounty. Permissionless deposit/mint/redeemShares/cancelPendingWithdrawalRequest are user flows funded by the caller.",
+  "numbers": "7d Nov10-17 (Blockscout tx listings, same-shape control returned rows): BTC vault 0 txs (last tx Nov 4 14:58Z), USDC vault 1 tx (updateVaultRate by 0x291C3315707A8Ebcd6a6D202cA639002eA4Ff01D, Nov 13 13:02Z), parkingLot 1 tx (user deposit Nov 16 21:35Z). Operator 0x6C5D5FB09FF589343Fad52868706144758A77D4A processed withdrawals Oct 6 and Oct 21 (~biweekly); next parking-lot processing 2026-12-03. Fresh-address estimateGas reverts: 0x82b42900 Unauthorized on collectPlatformFee and processWithdrawalRequests(1) on both vaults; redeemShares(1,fresh) reverts 0x39996567 InsufficientShares; withdraw reverts 0xa339e0ec UseRedeemShares. TVL Base 13.71M USD (api.llama.fi currentChainTvls 2026-11-17); pending withdrawal queue len 4 (BTC vault)."
+}

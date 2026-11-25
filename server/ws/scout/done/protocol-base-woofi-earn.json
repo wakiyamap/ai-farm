@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-woofi-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1462,
+ "chain": "base",
+ "slug": "woofi-earn",
+ "name": "WOOFi Earn",
+ "category": "Yield",
+ "tvl_usd": 394360,
+ "url": "https://woofi.com/en/trade/",
+ "github": null,
+ "listed_days_ago": 1462,
+ "run_id": "855dd7b7dd0f455c96e15300847feb9b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "3 WooSuperChargerVaultV2 vaults on base (TVL 93k: ETH 5.8k + USDC 65.6k + cbBTC 51.7k, fi-api.woo.org); no function pays a caller: settles are onlyAdmin (start/endWeeklySettle revert '!ADMIN' from fresh addr, 3/3 vaults, eth_call), borrow/repay onlyBorrower, deposits/withdraws self-service; only stranger-callable fn WooLendingManager.accureInterest (0xa373ed4e) pays $0 and was last called 26 d ago by admin EOA 0x3668ba88; ETH vault got 1 tx in last 7 d (tx 0x48a27667); gas 0.006 gwei (~$0.0005/call).",
+  "kb": [
+   "attempts:2372",
+   "protocols:905"
+  ],
+  "run_id": "855dd7b7dd0f455c96e15300847feb9b",
+  "at": 1795061536
+ }
+}

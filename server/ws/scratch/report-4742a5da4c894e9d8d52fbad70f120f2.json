@@ -1,0 +1,12 @@
+{
+  "run_id": "4742a5da4c894e9d8d52fbad70f120f2",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "build-lane board recheck with no target (no unfinished bot, whype-gap fix route closed 1293, one-shot wbCOIN exit-failed 1257, leads 179-188 all dead_end, 48-h ledger quiet post-crash)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1296"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Closed short per rule 6: the whole board was empty the hour this session ran (lead 188 died at attempts:1295 while I started); verified the one-shot fallback was already exhausted (wbCOIN has no pool exit, ~-840 USD net) and swept a 48-h ledger top - only closed liquidation classes and tracked harvest/revenue sources remain. Build queue awaits the 13:10Z researcher leads batch, which lands after this session ends."
+}

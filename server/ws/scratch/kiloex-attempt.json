@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-kiloex",
+ "outcome": "lead_recorded",
+ "reason": "unclear: KiloEx BSC is an order-book perp DEX (Revox-style); keeper execute functions take a _feeReceiver arg. orderBook.executeOrders reverts 'OrderBook: not keeper' from a fresh address (keeper-gated), but positionRouter.executeIncreasePosition(bytes32,address) does not revert for a stranger - unresolved whether a stranger is paid there. 7-day counts/callers/gross not measurable this session: bsc eth_getLogs all providers failed: no provider available (scout+research lanes, control same error), explorer bsc etherscan not_on_plan + blockscout timeout, keyless api.bscscan.com Cloudflare-blocked.",
+ "numbers": "contracts (eth_getCode non-empty, minExecutionFee() getter = 6.8e-5 units 0x3dd87bd84000): orderBook 0x746c180268825B52FC5ea8057ecf3768037692E2, positionRouter 0x298e94D5494E7c461a05903DcF41910e0125D019, perpTrade 0x7C09a8df940cF1D14d4C24f90aCa39EE619f0864, kiloPerpView 0x92A381C496eeE6C4686A4169aFf4aF94eAfeAFCc (source: kiloex-ts-sdk@1.1.13 addressMap[Ze.BSC], npm). Binance-chain TVL $547,384 (api.llama.fi/protocol/kiloex, 2026-11-18). BSC block time ~0.45s (relay blocks 134,373,627->134,388,627 timestamps), 7d ~1.34M blocks. Execute topics computed with cast keccak (ExecuteIncreaseOrder 0x7a823b78..., ExecuteDecreaseOrder 0x7bc7bb07..., ExecuteIncreasePositionV3 0x2b085712..., ExecuteDecreasePositionV3 0xd5f49c9b...)."
+}

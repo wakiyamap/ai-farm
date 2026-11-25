@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-teahouse-managed",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only keeper-type function on the managed vaults (HighTableVault) is enterNextCycle/enterNextCycleETH (weekly cycle settle), gated by AUDITOR_ROLE: eth_call from a stranger reverts with OnlyAvailableToAuditors() (0x96ecaba8). It pays no reward to the caller anyway - performance/management fees go to the fee-config platform/manager vaults; no reward/bounty/incentive function exists anywhere in HighTableVault.sol or TeaVaultV2.sol, and everything else on the contract is user-facing (deposit/withdraw/claim of one's own funds).",
+  "numbers": "TVL $108,190 (session context, DefiLlama). 6 active managed vaults verified by eth_getCode + globalState(). 3 vaults advanced a cycle in the last 7 days (cycleStartTimestamp 2026-11-16, state getters); USDT vault dormant since 2026-05-04. enterNextCycle sole recent caller = auditor 0xbcb12a8f5da3b77b8402888c674b42e2e0511a83 (explorer txs). Sample tx 0xff045f02...a1f30 (block 524664210): gasUsed 142,211, effGasPrice 0.02001 gwei -> 2.85e-6 ETH = $0.005 (ETH $1761.11 coins.llama.fi); on-chain payments 2.86 + 0.13 USDC to fee vaults 0x3e0ab2b9/0xd0022fb6, $0 to caller. Note: past-range eth_getLogs failed all lanes with public-node archive 403 (scout lane spent per pitfalls/research-lane-spent-public-fallback), so 7-day counts come from state getters + Etherscan tx list, not a log scan."
+}

@@ -1,0 +1,31 @@
+# Local metasearch for agents (RustXNG, a Rust rewrite of SearXNG; AGPL-3.0, unmodified).
+# Keyless "standard" provider profile only: engines whose terms allow automated use.
+# Listens on loopback; agents call it through /opt/farm/bin/websearch. No state on disk.
+[Unit]
+Description=Farm web search (RustXNG)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+DynamicUser=yes
+Environment=RUST_LOG=warn
+ExecStart=/opt/farm/lib/rustxng --profile standard --bind 127.0.0.1 --port 29483
+Restart=always
+RestartSec=10
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryMax=1G
+SyslogIdentifier=farm-search
+
+[Install]
+WantedBy=multi-user.target

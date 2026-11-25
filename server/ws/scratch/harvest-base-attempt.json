@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-harvest-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Harvest on Base (186 vaults, 68 active, $9.42M) is the same architecture already measured dead_end on arbitrum (protocols:1092): vault maintenance (doHardWork/rebalance) is onlyControllerOrGovernance and the shared Controller 0xf90ff0f7c8db52bf1bf869f74226ead125efa745 doHardWork(address) is onlyHardWorkerOrGovernance behind a governance-managed hardWorkers whitelist (stranger eth_call reverts 'only hard worker can call this'). One keeper EOA runs all of it and receives no token transfer for calling.",
+ "numbers": "7d (blocks 56656294..59680390, eth_getLogs on Controller, topic0 0x43ffccb0...43bc): 630 doHardWork runs (SharePriceChangeLog), 630 distinct txs; 15/15 evenly-spaced caller samples = 0xfeed4c53d827aebebed6066788065ea1027c7e70 (same keeper EOA as arbitrum), 1 other sample routed via 0x781388759eacb9892f60d77d9a99c9be2f7f4ada; sampled receipts tx 0x7ca77c11...3313d and 0x018a91e2...da46: 3 ERC20 Transfers each, 0 to caller; gas 403121-411911 @ 0.01 gwei = $0.007 (WETH $1755.41 coins.llama.fi ts 1795132798). Top vault 0x7872893e528Fe2c0829e405960db5B742112aa97 (IPOR_WETH_base $2.7M) is a Morpho PlasmaVault, all maintenance fns restricted. Source: blockscout verified VaultV2InKind 0xc74ba1db3140380757d1ea21dac8c8c790c184e8, Controller 0.6.12; vault list api.harvest.finance/vaults"
+}

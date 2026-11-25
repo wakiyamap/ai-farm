@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "deltausd",
+  "status": "dead_end",
+  "checked": "DeltaUSD (dUSD) is a synthetic dollar whose own contracts live on BSC, not Base. dUSD token + mint/redeem 0x1851302297e318d658829fd94b89d5ae6528cb9e and operator 0x929c98a6e23721f379b5e27cc694744a2b6d46c2 (DefiLlama adapter projects/deltausd/index.js + PR #22167) both return eth_getCode = 0x on Base. Website deltausd.com title: 'Synthetic Dollar on BNB Chain & X Layer'; every address in its JS bundle is 0x-code on Base (reserve EOA 0x12edd10a11fd9c94f9ac1b085a627f3745730899, X Layer acct 0xacc5b404eb5b31728e225040830162a9482a81f9, 0x450fb16f..., 0x8129a878..., 0xEeE...EeEe); only viem boilerplate mentions chain 8453. The DefiLlama 'base' TVL that put this candidate in the queue counts only the reserve EOA's positions in THIRD-PARTY protocols: Aave V3 (dataProvider 0x0f43731eb8d45a581f4a36dd74f5f358bc90c73a), Morpho Blue 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb market 0x2ea32f6f734f87db12a3b72cfe2b7381837f115411eb57171f672e2d03ed7cf7 (SOL loan / JitoSOL collateral) and Aerodrome pool 0xf634058dc94e6bf8e828e27621320c423bc8b18e + gauge 0xd424ba8ca9d4e278753de76651a0095451e65cd1; PR #22167 also mentions an Extra Finance Xlend position. No DeltaUSD-owned contract on Base => no callable reward/keeper function; nothing for a farm bot to call here."
+}

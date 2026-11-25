@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "steer_protocol",
+  "status": "dead_end",
+  "checked": "Scout 2026-11-21 run 1c57e775. DefiLlama adapter projects/steer/index.js: ethereum vaults from subgraph api.subgraph.ormilabs.com .../steer-protocol-mainnet/prod/gn (alive). Vault impl 0x52db9bcb9efdbaaa8e1d2326e0b69c57bf14c333 (MultiPositionLiquidityManager, etherscan): tend(uint256,(int24[],int24[],uint16[]),bytes) is onlyRole(MANAGER_ROLE); poke() public but pays nothing. Orchestrator proxy 0x4867dc4e325c3ff0f676a6316d69180f15bcd463 (impl 0x0e6e4a924cb706189d9d8231991df70fd43313a3): executeAction(address,uint256,bytes[],uint256[],bytes32) - fresh-address eth_call reverts NOT_A_KEEPER (keeper-registry license); keeper-from control passes license (reverts 'Votes lacking'). KeeperRegistry 0x86fd6c835feea48e1f344d0312d9b081441ced69: maxNumKeepers 3, currentNumKeepers 3 (full). rewardPerAction() = 0. GasVault reimbursement only covers keeper gas. PanopticDynamicJobs: 2 jobExecutions ever, last 2026-07-13 (1783978763), 0 in 7d (control: same query without time filter returns the 2). Sources: npm @steerprotocol/contracts@3.1.7, explorer source, subgraph, rpc.py eth_call."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-valantis-sthype-restaking",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the escrow's only permissionless maintenance function checkpointRewards() is callable from a fresh EOA (eth_call returns 0x, no revert) but transfers nothing to the caller and the undistributed reward pot is 0; nobody calls it standalone (0 in 7 days - all 31 RewardsCheckpointed events are emitted inside user/role operation txs). Every other entry point is role-gated (fundRewards REWARD_DISTRIBUTOR, Overseer MANAGER/REBASER/FEE_RECIPIENT, stHYPE MINTER/BURNER/REBASER) or user self-service paying the stored owner only (executeWithdrawal, redeem).",
+  "numbers": "7d escrow logs blocks 51,142,157-51,444,557 (eth_getLogs, same-shape control 64 logs): Checkpoint 31 / Deposit 21 (15 unique payers) / WdRequested 6 / RewardsFunded 4 x 100 HYPE from 0x4eb038eb501045daa520b972fcad48c429531e10 / WdCancelled 1 / WdExecuted 1 (tx 0x51de4b7f44c83a96ade8ba27938d1a2b965457164ba7e2b8a9cc7f6a98c8bccb, 9.68 wstHYPE, caller = owner 0x255099dc67d553efd1702c4e8befae709239bb9b). Standalone checkpointRewards() calls: 0. Gas: 84,259 (eth_estimateGas fresh address) x 1e8 wei/gas (effectiveGasPrice in receipts 0x51de4b7f/0x6f4d7830) x HYPE $70.0022 (coins.llama.fi) = $0.0006 per call; gross paid to caller $0. rewardState().undistributedRawShares = 0. DefiLlama tvl_usd 8,262,409."
+}

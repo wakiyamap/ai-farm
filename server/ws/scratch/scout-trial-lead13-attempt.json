@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "trial-base-lead13",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. 7d (2026-11-09..16, ledger morpho_blue.liquidate base): 7,874 occurrences, 181 distinct takers; 12 USDC-loan markets cover 7,796 (99%) with 4,690 paid (seized>repaid) and sum paid gross ~$4.08M at 2026-11-16 prices. Sample of 20 (5 largest by gross + 15 newest): top-5 gross $59k-$148k, median sample gross $2.6 (trickle events are dust $0.04-$20); median winner priority fee 15 gwei (range 0-26 gwei, baseFee ~0.005 gwei); one standalone liquidation ~262k-415k gas -> ~$0.01-0.16 at trickle gas, ~$9.6 at 15 gwei rush (ETH $1,834, Morpho blue-api). Takeable->taken block gap not measurable from events (market oracles per blue-api emit no OracleUpdated - 0 logs in 20k-block window, on-demand readers): rush captures show a flat 15 gwei priority across takers = same-block gas-auction race, trickle captures go at ~0 priority (no competition in-block).",
+ "numbers": "7874 occ / 181 takers 7d (ledger events morpho_blue.liquidate chain=base ts>=1794262277); paid 4690, sum paid gross $4.08M; top gross tx 0x1991f259... $148,433 gross on $1.58M repaid (blk 57579532); median sample gross $2.6; winner prio median 15 gwei (receipts eff-baseFee); attempt gasUsed 261532-4219174 measured, standalone ~300k; prices Morpho blue-api 2026-11-16 22:2xZ (WETH $1834, cbBTC $65434); oracle gap: 0 OracleUpdated logs for 0x663BECd1.. on-demand oracle in blocks 57.5595-57.5795M"
+}

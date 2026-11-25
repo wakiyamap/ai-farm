@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-yield-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1823,
+ "chain": "arbitrum",
+ "slug": "yield-protocol",
+ "name": "Yield Protocol",
+ "category": "Lending",
+ "tvl_usd": 190234,
+ "url": "https://www.yo.xyz/",
+ "github": [
+  "yieldprotocol"
+ ],
+ "listed_days_ago": 1823,
+ "run_id": "f598352ced5f434caf321914b64c0d52",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated (queue duplicate of protocol-arbitrum-yo-protocol attempts:1973): yo.xyz YoVaults on arbitrum (yoUSD Edge 0x5DD8BFa6C5C68D05d25EF6143E05C11E26c4cDB7, impl 0xc84a6e01) have no function that pays a caller - fulfillRedeem/cancelRedeem are requiresAuth (fresh eth_call reverts Unauthorized 0x82b42900), oracle single-updater, feeRecipient=0x0; 7d: 152 user RedeemRequests, 0 RequestFulfilled (30d: 12 in 3 txs, all operator 0x0439e941841f97dc1334d1a433379c6fcdcc2162, caller takes $0); Edge totalAssets 443,522 USDC at block 525663148.",
+  "kb": [
+   "attempts:2566",
+   "protocols:577"
+  ],
+  "run_id": "f598352ced5f434caf321914b64c0d52",
+  "at": 1795104863
+ }
+}

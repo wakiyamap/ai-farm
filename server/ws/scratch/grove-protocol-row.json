@@ -1,0 +1,6 @@
+{
+ "chain": "avalanche",
+ "protocol": "grove_finance",
+ "status": "dead_end",
+ "checked": "Grove (Sky-ecosystem capital allocator, DefiLlama slug grove-finance) footprint on avalanche is ONE contract per the DefiLlama adapter projects/grove/index.js: ALMProxy 0x7107DD8F56642327945294a18A4280C78e153644 holding the chain's $264.2M (250M JAAA units @0x58f93d6b1ef2f44ec379cb975657c132cbed3b6b, 17.9M GACLO-1 @0x2C0aDFF8e114f3cA106051144353aC703D24B901, 0 USDC @0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e; balances via eth_call 2026-11-17). Verified source (explorer source avalanche, ALMProxy.sol, solc 0.8.25): state-changing entrypoints are only doCall/doCallWithValue/doDelegateCall, all onlyRole(CONTROLLER); no claim/reward/harvest/redeem-type functions exist. CONTROLLER() getter answers 0x70546d1c...21529. eth_call doCall from fresh 0x...dEaD reverts AccessControlUnauthorizedAccount (0xe2517d3f). Routescan full history: 9 external txs to the proxy EVER, last on 2026-10-07 (block 97,144,628) -> 0 in last 7 days; proxy 0 logs in recent 5,000 blocks vs control 5,178 USDC Transfers same window/shape. Verdict role_gated: nothing for a stranger to call."
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-cbridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1835,
+ "chain": "arbitrum",
+ "slug": "cbridge",
+ "name": "cBridge",
+ "category": "Bridge",
+ "tvl_usd": 607253,
+ "url": "https://cbridge.celer.network/#/transfer",
+ "github": [
+  "celer-network"
+ ],
+ "listed_days_ago": 1835,
+ "run_id": "882057a2a6e84c6ba85bc615f383e70e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "cBridge 2.0 Router 0x1619DE6B...feca + OriginalTokenVault 0xFe31bFc4...0f76 on arbitrum: no function pays the caller (withdraw/relay/executeDelayedTransfer pay the receiver argument); 7d 453 txs to router (308 relay by Celer relayer bots, 134 send, 5 withdraw, 1 addLiquidity; Blockscout paged); 3/3 sampled withdraws caller==receiver, gross to caller $0, gas ~$0.006/withdraw (173-185k gas x 0.0201 gwei, ETH $1771.90 coins.llama.fi 2026-11-19 16:56Z)",
+  "kb": [
+   "attempts:2576"
+  ],
+  "run_id": "882057a2a6e84c6ba85bc615f383e70e",
+  "at": 1795107506
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-ample",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers, with a catch. AmpleEarn (EulerEarn fork, USDC vault 0x1688aeb3ec7b23a22e2418fdf5bccc67ecf39c0f) has one anyone-callable function that moves money, claimPayout (Merkle proof is the sole authorization), and it pays the leaf's user, not the caller. In the last 7 days 134 stranger wallets were paid 5.54 USDC gross (USDC vault; +0.01 USD on the WETH vault), so strangers were paid gross > gas, but only as VRF-drawn weekly lottery winners - to capture it the farm must deposit and win, there is no caller fee. setMerkleRoots is payout-manager role, cancelPayout onlyOwner.",
+  "numbers": "233 ClaimPayout events / 7 d across the 12 base vaults (eth_getLogs blocks 55,543,920-58,643,920; 188 on USDC vault, 45 WETH vault); USDC gross 5.536 USDC, median 0.0018, max 3.37; 134 unique recipients; sample tx 0x6ef99501ec111b28c747006df1344ec628d41a06027d8827c457406d457404f3 (4 claims 1.63 USDC, 304,756 gas). Gas 150-305k/claim tx at 0.006 gwei (eth_gasPrice 6,000,189 wei) = 0.0017-0.0033 USD (ETH 1822.25 USD coins.llama.fi). totalAssets 149,720 USDC; weekly round pool 161 USDC (payoutPool(35)) on 150k TVL ~ 5.6% APR; fresh-address eth_call claimPayout reverts PayoutClaimed 0x88523d20 (state, not role)."
+}

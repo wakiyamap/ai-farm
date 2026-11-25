@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-morph-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 749,
+ "chain": "ethereum",
+ "slug": "morph-bridge",
+ "name": "Morph Bridge",
+ "category": "Bridge",
+ "tvl_usd": 11658224,
+ "url": "https://bridge.morphl2.io/",
+ "github": null,
+ "listed_days_ago": 749,
+ "run_id": "f4cd22067e9c426e8a9183c5fea2c1f4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only open call is proveAndRelayMessage on messenger 0xDC71366EFFA760804DCFC3EDF87fa2A6f1623304: 35 relays in blocks 26410600-26460854 (2026-11-14 to 21, no-topic scan, topic0 0x4641df4a from receipts) by multiple EOAs (3 in 5-tx sample), gross to caller 0 ETH / 0 USD (withdrawal ETH goes to recipient, relayer fee captured on L2), gas 164532 @ 0.109 gwei = 0.028 USD (ETH 1565.35 llama 2026-11-21T03:45Z); gateway finalizeWithdraw* onlyCallByCounterpart, deposit* user-paid.",
+  "kb": [
+   "attempts:3172"
+  ],
+  "run_id": "f4cd22067e9c426e8a9183c5fea2c1f4",
+  "at": 1795232877
+ }
+}

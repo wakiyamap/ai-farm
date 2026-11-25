@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-sushiswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1320,
+ "chain": "base",
+ "slug": "sushiswap-v3",
+ "name": "SushiSwap V3",
+ "category": "Dexs",
+ "tvl_usd": 1661141,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": 1320,
+ "run_id": "8588f0050f3d4734a7e39825818cdb8d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Standard Uniswap V3 fork, TVL $1.66M: factory 0xc35dadb6...74c4, NFTPM 0x80c7dd17...14de, SwapRouter 0xfb7ef66a...b9f (DefiLlama adapter + sushiswap/v3-periphery deployments/base; eth_getCode and owner()/WETH9() checked). No callable function pays the caller: LP fees accrue to positions, NFTPM collect is owner/approved-gated, pool.collect reads positions[msg.sender], no reward/incentive/keeper fn in source (grep 0 hits), rewardTokens null on all Base pools (yields.llama.fi 2026-11-19). Live: NFTPM last 15 txs span 4.3 days (block 59236392), callers LP EOAs, no keepers paid.",
+  "kb": [
+   "attempts:2320",
+   "protocols:861"
+  ],
+  "run_id": "8588f0050f3d4734a7e39825818cdb8d",
+  "at": 1795051751
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-thedeep",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 491,
+ "chain": "bsc",
+ "slug": "thedeep",
+ "name": "TheDeep",
+ "category": "Liquidity Manager",
+ "tvl_usd": 89677,
+ "url": "https://app.thedeep.ink/",
+ "github": null,
+ "listed_days_ago": 491,
+ "run_id": "2d57ae02504447a2b33aa01edde469af",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ICHI vaults (factory 0x131c...241D, 52 vaults, Sourcify-verified): only work fn rebalance() is onlyOwner (stranger eth_call -> 'Ownable: caller is not the owner'); no collectFees/collectRewards in any of 52 bytecodes; 165 rebalances 7d (blocks 133771218..135114676, 11-15..11-22), all 165 by keeper 0x8bc0aee1...ecae; fees go to factory feeRecipient 0xcf1b...31ae, not caller; gas 708,813 @0.055 gwei = 0.022 USD/call (BNB 557.34, llama 17:05Z).",
+  "kb": [
+   "attempts:3789",
+   "protocols:1981"
+  ],
+  "run_id": "2d57ae02504447a2b33aa01edde469af",
+  "at": 1795367436
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "run_id": "3dfd007a45844bbe8092cef60f983a01",
+ "role": "scout",
+ "model": "qwen3.8-flash-next",
+ "target": "protocol-ethereum-saffron-vaults",
+ "outcome": "scouted",
+ "kb_rows": ["protocols:1329", "attempts:2912"],
+ "wiki_pages": [],
+ "bot_ids": [],
+ "injection_seen": false,
+ "notes": "role_gated: ethereum factory 0x7fE8...b200 + 98 UniV3Vaults; claim/deposit/withdraw pay only token-holding msg.sender (fresh eth_call reverts 'NCT'), adapter onlyVault, createVault onlyOwner - no keeper payout; 0 events across all 98 vaults+adapters+factory in last 7d (no-topic scan, control USDC 8886 logs/83 blk), last event block 26401732 (~7.6d ago) was a depositor withdrawing own funds; TVL 1.34M USD."
+}

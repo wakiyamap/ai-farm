@@ -1,0 +1,21 @@
+{
+ "id": "trial-arbitrum-lead12",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "arbitrum",
+ "lead_id": 12,
+ "target": "aave-watcher-arbitrum universe coverage for dormant debtors (dormancy beyond 25h)",
+ "retries": 1,
+ "run_id": "8e5832917a6242f2bd5a55d675ce4e58",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Aave v3 arbitrum liquidations 7d: 331 occurrences, 27 distinct takers (ledger aave_v3.liquidation, pool 0x794a...14ad); sample of 20 (5 largest gross + 15): median gross $74.9 (all-331 median $6.18), one attempt's gas $0.12 (1.66M gas @ ~0.019 gwei), winner tip 0.018 gwei, takeable-to-taken median 1 block (~0.25 s, 16/20 taken at once: first-block race, R=3 s) -> pays_strangers, trial only",
+  "kb": [
+   "attempts:1485",
+   "leads:12"
+  ],
+  "run_id": "8e5832917a6242f2bd5a55d675ce4e58",
+  "at": 1794865903
+ }
+}

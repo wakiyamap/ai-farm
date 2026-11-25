@@ -1,0 +1,12 @@
+{
+  "run_id": "b49b5630d68d46f49b237e78e5a828a7",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane queue walk (0 unmeasured leads; one-shot sweep re-run <2 h prior) + Curve gauge-voting finalize/checkpoint poke class gap-check + DefiLlama 100k-1M TVL band gap-fill diff closing the band family",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1419", "attempts:1420", "protocols:146"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Queue empty; every class met in the walk (all 60 active ledger sources, polygon/avalanche/optimism scouts, Firepit 105, Beefy 115, Inverse dust, Kinetiq trio, yields APY scan) already closed. Curve voting: curvefi/docs master registry has NO VotingMachine entry for ethereum and the registry-pinned GaugeController reverts voting() while voting_escrow() answers (same-run control) - no third-party finalize/checkpoint payout class (attempts:1419). Sub-1M band: 464 protocols on farm chains, 440 fuzzy-unmatched, 21 keeper-shaped names spot-checked vs attempts with 0 prior looks, none plausibly >=1 USD/day caller-paid - closes the TVL band gap-fill family (5M-200M, >3M, 1M-3M, 100k-1M) no-lead (attempts:1420). Cost: 3 relay eth_calls research lane, 3 https fetches, 0 fork, 0 tx."
+}

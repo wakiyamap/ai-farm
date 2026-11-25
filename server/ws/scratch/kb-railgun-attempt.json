@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-railgun",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Railgun BSC (proxy 0x590162bf..A10, impl 0x4799527d..F221): shield/transact are open to anyone (eth_call shield([]) from a fresh address succeeds, no role revert) but pay the caller nothing - unshield base goes to the note-npk address bound in the transaction data and the 0.015% fee goes to the protocol treasury (source RailgunLogic.transferTokenOut); Staking.claim is self-only (reverts for a fresh address). No keeper/reward function pays a stranger. Also a privacy pool, which S forbids for farm bots. Missing: exact 7-day event counts (relay bsc getLogs failed: public limit exceeded, 14:33-14:37 UTC) - activity instead shown by nextLeafIndex delta 443 leaves / 5.6 days.",
+ "numbers": "TVL Binance $720,208 (api.llama.fi 2026-11-19); nextLeafIndex 57,297 @133,442,304 -> 57,740 @134,520,328 = 443 new leaves / ~5.6 d (~79/day), block ts 1794844701->1795098815 (0.45 s/block); lastEventBlock 134,516,437 (~45 min old at check); gasPrice 0.05 gwei x 300k gas = 1.5e-5 BNB = $0.0089 at BNB $591.72 (coins.llama.fi ts 1795099212); unshield fee 0.015% -> treasury, caller receives 0; 7 contracts confirmed with code (bsc.ts addresses); bsc eth_getLogs: 9 failed calls (public: limit exceeded / no provider available) vs working eth_call/eth_getCode same window."
+}

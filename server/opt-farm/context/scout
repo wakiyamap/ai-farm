@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+"""Dynamic context for a scout session (phase 14b): takes the next candidate from scout/queue
+(atomic rename into scout/doing/) and prints it with the steps for its kind."""
+import json
+import os
+import sys
+
+WS = os.environ.get("SCOUT_WS", "/srv/farm/ws")
+Q, DOING = f"{WS}/scout/queue", f"{WS}/scout/doing"
+run_id = os.environ.get("FARM_RUN_ID", "manual")
+
+STEPS = {
+"protocol": """1. Contracts on {chain}: DefiLlama adapter (`curl -s https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/{slug}/index.js`; if 404, `curl -s https://api.llama.fi/protocol/{slug} | jq '.github, .url'`), the protocol's docs or GitHub. Confirm each address with `eth_getCode` (not 0x) and one getter that answers.
+2. Source or ABI: `explorer source {chain} <addr>` (ethereum, arbitrum, polygon, hyperevm), else the chain's Blockscout API from python with a User-Agent, else the GitHub repo.
+3. Look for functions anyone can call that pay the caller or a recipient argument: reward, bounty, incentive, keeper fee, harvest, poke, compound, rebalance, settle, checkpoint, distribute, epoch or round advance, auction bid / take / claim, redemption{liq}. Skip functions behind onlyOwner, a role, a whitelist or a keeper registry.
+4. For each such function: `eth_call` it from a fresh address (a role revert = role_gated); find its event or callers over the last 7 days (eth_getLogs, `explorer txs`); write the count, who calls (addresses), what one call pays (gross USD, from at most 5 sample calls) and its gas (USD on {chain}).
+5. Verdict: pays_strangers (a stranger was paid in the last 7 days and gross > gas), unpaid (callable, pays 0 or the reward pot is empty), role_gated, no_reward (no such function), not_found (no contracts on {chain}), unclear (say what is missing).""",
+"trial": """1. Read the lead: `kb query --json "SELECT * FROM leads WHERE id={lead_id}"`.
+2. Over the last 7 days at its entry on {chain}: the number of occurrences and of distinct takers (one query each). Then a sample of at most 20 (the 5 largest by gross, plus others): for each, the taker, blocks from takeable to taken, the winner's priority fee, the gross (USD). Plus the gas of one attempt on {chain} (USD). Write medians from the sample; do not compute every occurrence.
+3. Verdict: pays_strangers when at least one occurrence paid and gross > one attempt's gas (a trial bot can try it); otherwise unpaid / role_gated / unclear.
+4. Update the lead with `kb-file.py update leads {lead_id}`: put the numbers at the front of `next_steps`; for pays_strangers set `status` to `measured` and start `next_steps` with `TRIAL CANDIDATE:`. Never lower another field.""",
+"actor": """1. What does {address} do on {chain}? Its recent transactions (`explorer txs {chain} {address}` where supported, `alchemy_getAssetTransfers` through rpc.py, `ledger query` on its rows): which contract and function it calls, how often, what it receives in the same transaction.
+2. Is it paid by a protocol for a public job (keeper fee, bounty, auction, arbitrage profit in-transaction) or is it a user moving its own funds? Write the count per day, gross per call, gas per call (USD).
+3. Add an `actors` row (`kb-file.py add actors`): chain, address, strategy (one line), evidence (tx hashes), est_profit_usd_day.
+4. Verdict: pays_strangers (the same call from a fresh address would be paid), role_gated (only it may call), no_reward (own funds, not a job), unclear.""",
+}
+
+
+# 16a: Stellar (Soroban) is read through the relay with curl; no rpc.py, no explorer, no cast.
+RELAY = "curl -s -X POST 'http://127.0.0.1:8545/stellar' -H 'Content-Type: application/json' -d"
+STELLAR_STEPS = {
+"protocol": """Stellar is not EVM. Read the scout.md section "Stellar" first. Every chain read: """ + RELAY + """ '<json-rpc body>'.
+1. Contracts: Soroban contract ids are strkeys starting with C (56 characters), accounts start with G. Take them from the DefiLlama adapter (`curl -s https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/{slug}/index.js`; if 404, `curl -s https://api.llama.fi/protocol/{slug} | jq '.github, .url'`), the protocol's docs or GitHub (deployment json files). Confirm each id answers: `getLedgerEntries` with `params.keys = [$(python3 /srv/farm/ws/tools/stellar-key.py instance C...)]` (never build a LedgerKey by hand), or `getEvents` with that contractId returning events.
+2. Source: the protocol's GitHub (Rust, `#[contractimpl]`). A function that calls `require_auth()` on an admin, owner, manager or keeper address is role_gated; one that calls `require_auth()` only on the caller's own address, or none, is callable by anyone.
+3. Look for functions anyone can call that pay the caller: reward, bounty, keeper fee, harvest, compound, rebalance, distribute, epoch or round advance, auction create / fill / bid, redemption. Liquidations are recorded but the farm does not build them now.
+4. For each: its events over the last 7 days with `getEvents` (first call: startLedger = latest minus about 120,000 ledgers, checked with `getLedgers` (pagination.limit 1) close times; filters [{{"type":"contract","contractIds":["C..."]}}], "xdrFormat":"json", pagination.limit 100. Next calls: NO startLedger, `"pagination":{{"cursor":"<cursor from the last answer>","limit":100}}`. Each call scans at most about 10,000 ledgers, so an empty or short page is not the end: keep going until the cursor's ledger (cursor number >> 32) reaches latestLedger, about 12 calls for 7 days; dedupe by event id). Write the count, the distinct callers, what one call pays (gross USD, at most 5 sample calls via `getTransaction`) and the fee per call (stroops, 1 XLM = 10^7 stroops, XLM price from coins.llama.fi `coingecko:stellar` + time).
+5. Verdict: pays_strangers / unpaid / role_gated / no_reward / not_found / unclear, as for EVM. If the KB refuses chain `stellar`, write chain `any` and start `target` with `stellar `.""",
+}
+
+
+def take():
+    try:
+        files = sorted(f for f in os.listdir(Q) if f.endswith(".json"))
+    except FileNotFoundError:
+        return None
+    for f in files:
+        src = f"{Q}/{f}"
+        try:
+            item = json.load(open(src, encoding="utf-8"))
+        except (ValueError, OSError):
+            continue
+        dst = f"{DOING}/{item['id']}.json"
+        try:
+            os.rename(src, dst)          # atomic: another scout that got there first makes this fail
+        except OSError:
+            continue
+        item["run_id"] = run_id
+        with open(dst, "w", encoding="utf-8") as fh:
+            json.dump(item, fh, indent=1)
+        return item
+    return None
+
+
+item = take()
+left = len([f for f in os.listdir(Q) if f.endswith(".json")]) if os.path.isdir(Q) else 0
+print(f"- queue: {left} candidates left after this one")
+if not item:
+    print("- candidate: none. End now: session report with outcome `no_candidate`.")
+    sys.exit(0)
+print(f"- candidate id: {item['id']}")
+print(f"- kind: {item['kind']}")
+print()
+print("### Candidate")
+print("```json")
+print(json.dumps(item, indent=1))
+print("```")
+print()
+print("### Steps for this candidate")
+steps = item.get("steps") or STEPS.get(item["kind"], "Measure what the candidate describes; write numbers and a verdict.")
+if not item.get("steps") and item.get("chain") == "stellar":
+    steps = STELLAR_STEPS.get(item["kind"], steps)    # 16a
+fmt = dict(item)
+fmt.setdefault("slug", "")
+fmt.setdefault("address", "")
+fmt.setdefault("lead_id", "")
+fmt["liq"] = "" if item.get("chain") == "ethereum" else ", liquidation"
+try:
+    print(steps.format(**fmt))
+except (KeyError, IndexError, ValueError):
+    print(steps)
+print()
+print(f"Close it with: scout-done {item['id']} --verdict <verdict> --line \"<one line with the numbers>\" --kb <rows you wrote>")

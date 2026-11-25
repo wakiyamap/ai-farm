@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-stargate-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1700,
+ "chain": "optimism",
+ "slug": "stargate-v1",
+ "name": "Stargate V1",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 470215,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 1700,
+ "run_id": "6cb1e8a2657547309ee0fd9420df66d4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Router 0xB0D502E9 (factory 0xe3b53af7, 8 pools token-confirmed): the only permissionless fns (retryRevert 0x60a3b95c, clearCachedSwap 0x403a9f7a, callDelta 0xfba6e280, instantRedeemLocal) pay the recipient their own funds and $0 to msg.sender; fresh-address eth_call: callDelta(1,true) ok (258,487 gas = $0.0005 at 0.001 gwei, ETH $1796.31), retryRevert/clearCachedSwap revert on state not role; 7d router events Revert/CachedSwapSaved/RedeemLocalCallback = 0 (32x9.5k windows, control 51 pool logs) - nothing pending, nothing pays a keeper.",
+  "kb": [
+   "attempts:2510"
+  ],
+  "run_id": "6cb1e8a2657547309ee0fd9420df66d4",
+  "at": 1795091810
+ }
+}

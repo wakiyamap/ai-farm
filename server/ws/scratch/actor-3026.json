@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "address": "0x302649ccdfc232ee49a28755c8a6c06e707b7d15",
+  "strategy": "Not a keeper - a beacon-proxy pipeline converting EOA 0x824c7d5e's own USDT stash to USDC: EOA 0x1f56 (creator, pays all gas) calls 0x05afc977 -> Gelato Relay executor 0xb274d5f4b833b61b340b654d600a864fb604a87c executeWithCallback -> callback does USDT->aUSDT->aUSDC->USDC through Aave V3 (Pool 0x794a61358d6845594f62e2bafc10423170e6b79d, aUSDT 0x6ab707aca953edaefbc4fd23ba73294241490620, aUSDC 0x724dc807b04555b71ed48a6896b6f41593b8c637) via unverified router 0xe5ec006540be4f7cbb2cbc7be79708a6d96f90dc. Pass-through: holds zero balance before/after; USDC out goes back to 0x824c; no protocol reward in-tx.",
+  "evidence": "0x32c3f2843c52c83cafc61e567b67dae6b7e71c795ed06d41a0ba883a7b251c64 (debug_traceCall: 349.54 USDT from 0x824c7d5e -> router -> aUSDT, 349.31 USDC from aUSDC back to 0x824c); 0xbaf54c54717065d7cf8f56c8fecf6be1b858a064e687acaa6d830f10094ed83c (10000 USDT -> 9991.91 USDC); 0x4d8452953087ea61357132fc05c7e997726a9522d9ed74d6771a40f4b0f0a72a (10000 -> 9991.41); eth_getLogs USDT Transfer to candidate: 35 txs in 1 day (blocks 0x1f4445e7..0x1f48e327), 214 txs in 7 days",
+  "est_profit_usd_day": 0
+}

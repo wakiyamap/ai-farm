@@ -1,0 +1,21 @@
+{
+ "id": "trial-base-lead383",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 383,
+ "target": "morpho_blue liquidate batch executor 0xe3da43da (USDC-loan cbBTC/cbXRP/cbETH/cbADA + eUSD-loan bsdETH, driver EOA 0x999919d1)",
+ "retries": 1,
+ "run_id": "c5c1ba1f1317459fb8571a5c019073d5",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7 d base Morpho Blue liquidate: 5,001 events / 1,407 txs / 130 distinct takers (lead's 6 markets: 4,441 ev / 105 takers); sample of 20: per-event gross median 36.16 USD at today's prices (top 160,581, min 0.18, 20/20 paid), takeable->taken median 1 block (18/20 first-block), winner priority fee median 15 gwei vs 0.005 base; one attempt gas 0.15-0.3 USD at base fee, 1.7-3.1 USD at 15 gwei to win; pays_strangers, but first-block race (farm live trial 0/25).",
+  "kb": [
+   "attempts:3615",
+   "leads:383"
+  ],
+  "run_id": "c5c1ba1f1317459fb8571a5c019073d5",
+  "at": 1795327477
+ }
+}

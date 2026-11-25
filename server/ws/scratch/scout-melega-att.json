@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-melegaswap",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. UniswapV2-fork DEX; the keeper surface is the vault 0xb2d57B1A40E61AAb3F88361228E1188E0fB6A21C harvest() - open to any EOA (notContract+whenNotPaused, no role revert from fresh eth_call) and it transfers callFee=0.25% of the harvested MARCO to msg.sender. 4 EOA callers took it in the last 7 d (97+59+2+1), top two hold zero vault shares. The farm's own executor contracts cannot call it (notContract: msg.sender==tx.origin required) - only a plain EOA bot qualifies.",
+  "numbers": "7 d window blocks 133824487 (2026-11-15 23:34:49 UTC) - 135167937 (2026-11-22 23:34:49 UTC); 159 Harvest events (topic0 0x71bab65c... from source signature, returned logs on this contract); caller reward 2.98/40.50/84.14 MARCO min/median/max = $0.0005/$0.0068/$0.0141 (MARCO $0.0001680882 coins.llama.fi ts 1795378082, 18 dec on chain); gas 178,552 used x effective 0.05 gwei (eth_getTransactionReceipt x3) = 0.00000893 BNB = $0.005 (BNB $558.12 ts 1795390523); 157/159 calls gross>gas; total 7 d keeper pay 8,755 MARCO = $1.47; factory allPairsLength 517; protocol TVL ~$90-92k (DefiLlama)."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-eva-markets",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 206,
+ "chain": "ethereum",
+ "slug": "eva-markets",
+ "name": "eva Markets",
+ "category": "RWA",
+ "tvl_usd": 4904581,
+ "url": "https://www.eva.markets",
+ "github": null,
+ "listed_days_ago": 206,
+ "run_id": "4b3123d58b20463dbbd76f384344da57",
+ "result": {
+  "verdict": "unpaid",
+  "line": "No function pays the caller: vault claimRequest is anyone-callable (FCFS) but all 4 claims in 7d were self-claims of 5,072-20,139 USDC own principal (gas 134,581-247,403 ~= 0.28 USD at 1.09 gwei x ETH 1733); skim/queueRequestsBatch/depositIdleToMarket revert Unauthorized from a stranger and skim mints yield to the mastermind operator (3,179 USDC 7d); updateState/collectFees callable, pay 0; contracts = 3 OFT vaults (evaUSDC 0x741bD193, evaUSDT 0x501eBf66, evaETH 0xdBECD077) over 3 Wildcat markets, eth_getCode non-empty",
+  "kb": [
+   "attempts:2952"
+  ],
+  "run_id": "4b3123d58b20463dbbd76f384344da57",
+  "at": 1795187384
+ }
+}

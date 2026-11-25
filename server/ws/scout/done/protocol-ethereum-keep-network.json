@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-keep-network",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "keep-network",
+ "name": "KEEP Network",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 656341,
+ "url": "https://app.threshold.network/",
+ "github": [
+  "keep-network"
+ ],
+ "listed_days_ago": null,
+ "run_id": "c40da8c70f0548d8b2fdfd7aa660b1a8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: KEEP Network = legacy tBTC v1 bridge + KEEP staking (llama keep-network, adapter projects/keep.js); TVL 633,908 ETH-side + 239,875 TBTC + 202,636 staking USD (api.llama.fi 2026-11-21); no stranger-payable fn (redeem/mint pay the caller their own, claims pay the staker, faucet/grant role-gated); tBTC totalSupply 4.0 (eth_call); 0 txs on tBTC token in 7d window ts 1794711379-1795316179 (2026-11-15..22; last tx 1794565955 = 2026-11-13; control: same explorer txs query returned 27 older rows); Bridge proof-submission payer unverified, moot at 4.0 tBTC.",
+  "kb": [
+   "attempts:3568",
+   "protocols:1814"
+  ],
+  "run_id": "c40da8c70f0548d8b2fdfd7aa660b1a8",
+  "at": 1795316309
+ }
+}

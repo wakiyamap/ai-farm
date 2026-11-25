@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "lybra_v2 excessIncomeDistribution",
+  "status": "measured",
+  "why": "The public stETH excess-income Dutch auction paid the caller in stETH in seven successful calls over 7 days. Six were by 0x4545e97854655807732b30057a4d4181e08bc2e2 and one by 0x0b711dfaa26754ddebddce858561a643a7b9428d (tx 0x38d56edd2e563544078f13983a5ea8f23402d93af1d8ee8484ea0c7b165475d6). The latter got 0.001458892 stETH for 2.066407 eUSD; current Curve quote for that eUSD is 1.933415 USDC, giving about $0.584 gross and $0.173 gas, or $0.411 net at today's prices. This is an intended public purchase of rebasing yield, not a skim of pool reserves.",
+  "next_steps": "Contract 0xa980d4c0C2E48d305b582AA439a3575e3de06f0E, function excessIncomeDistribution(uint256) selector 0x6bef22ee; seven LSDValueCaptured events in timestamp-checked blocks 26430151-26480394. Sample of five largest stETH sales of seven: gross $0.197-$0.821/call, gas $0.064-$0.173/call, net $0.063-$0.693/call at 2026-11-23 prices before executor/swap costs. eUSD was priced by the configurator's Curve metapool 0x2673099769201c08e9a5e63b25fbaf25541a6557 get_dy_underlying(0,2) quote to USDC; verify timing against Lido rebase and reaction-time rule before treating revenue as attainable, plus quote depth and route cost. Six of seven auctions were taken by one incumbent; no first-block timing claim established."
+}

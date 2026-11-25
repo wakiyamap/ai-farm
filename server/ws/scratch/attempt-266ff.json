@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "actor-optimism-0x266ff938ee4f87aac248e7346086977ed5557afb",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers - the address is a slow hourly EOA keeper on the HAI (Lets Get HAI) OracleJob workUpdateCollateralPrice('RETH'): the job pays the caller 0.05 HAI from StabilityFeeTreasury with no access control on the work function (17 distinct recipients in 7 d, including this address once), so a fresh address making the same call is paid. Not a new lead: protocol 'hai' is protocols:277 measured with leads 211/212/213/251 (first-block contest on the hourly tick, cheap-chain trials run); this actor's own numbers (1 win / 148 calls) just show how far a naive 1-hour poke sits behind the incumbent winners.",
+  "numbers": "7 d window blocks 159584146-159886546 (ts 1794767069..1795371869, 2026-11-15..22, 2 s blocks): job 0xf4f18205 Rewarded events (topic0 0xb3b7a071... taken from receipt) = 3108 = 444/day, 17 recipients, top 4 (0xc9dfc714 1234, 0x82c1ff92 841, 0xd4b894ea 432, 0xa88e2855 404) = 92.5%; candidate: 148 calls (nonce 0x366-0x2d2), 1 reward = 0.05 HAI (rewardAmount() = 5e16 wei, read on chain) = 0.0604 USD gross at HAI 1.2073 USD (coins.llama.fi ts 1795363670); gross/day 0.009 USD; gas/call 144743 gas failed / 248712 gas success (receipts), measured native burn 0.0001026 ETH over 3.50 d (balance block 159735156 vs latest, incl L1 fees) = 2.9e-5 ETH/day = 0.050 USD/day at ETH 1712.32 USD (coins.llama.fi ts 1795371778); net ~ -0.04 USD/day"
+}

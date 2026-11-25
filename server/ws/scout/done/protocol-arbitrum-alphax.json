@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-alphax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 826,
+ "chain": "arbitrum",
+ "slug": "alphax",
+ "name": "AlphaX",
+ "category": "Derivatives",
+ "tvl_usd": 463679,
+ "url": "https://alphax.com/",
+ "github": [
+  "AlphaX-Protocol"
+ ],
+ "listed_days_ago": 826,
+ "run_id": "a7d10338072f47b19273a2dce292c1dd",
+ "result": {
+  "verdict": "no_reward",
+  "line": "AlphaX arbitrum is a custodial DEX vault (proxy 0xEc0377A6Bc71c4A28288A5CfD307b80c53A7E1e1, impl DEXVaultV1 0x3afa8602...): verified source has no reward/claim/keeper function paying a caller; 7d logs 522937670-525356870: 130 withdrawals (~$86.6k USDT+USDC) all submitted by one protocol EOA 0xf5cb7c01... paying own gas 212k gas = $0.008, 305 deposits (~$103k) self-made by users; vault TVL $482k matches DefiLlama 481,678",
+  "kb": [
+   "attempts:2113",
+   "protocols:691"
+  ],
+  "run_id": "a7d10338072f47b19273a2dce292c1dd",
+  "at": 1795001945
+ }
+}

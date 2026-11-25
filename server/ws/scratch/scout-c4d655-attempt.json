@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "actor-ethereum-0xc4d655cff6f6ec8e5c492f49fb921b7be7656e57",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. The EOA is the most active collector of the Bancor Carbon Vortex fee sweep (Vortex proxy 0xd053dcd7, impl CarbonVortex 0xc56eb3d0): execute(address[]) is permissionless and pays msg.sender rewardsPPM=5000 (0.5%) of everything swept from CarbonController + Bancor Vault 0x60917e54 (rest burns BNT); verified from verified source and _allocateRewards(msg.sender). A fresh address calling it is paid too, but the pot is tiny and already split among 9 collectors in 7d, and the same mechanism's lead (leads:198) was measured 30d and closed dead_end at ~1.06 USD/day whole-pool - no new lead added, existing rows cover it.",
+  "numbers": "7d (ledger carbon_vortex.fee_collected, actor filter): 20 sweep txs (~2.9/day; ~3-4 execute() txs/day incl. empty from explorer txs 25 txs/5.8d); swept total 2830.6 BNT + 332 DAI + 290 USDT/USDT0 + 0.0315 MKR ~= 1305 USD at DefiLlama coins.llama.fi today (BNT 0.2282, MKR 1168.1, ETH 1812.02) -> 0.5% reward = ~6.5 USD gross / ~0.93 USD/day, ~0.33 gross/sweep. Gas: 680k-873k gas/call (3 receipts sampled), eff 0.12-0.23 gwei = ~0.15-0.30 USD/call -> net ~0.4 USD/day. Earner 30d measurement (leads:198): whole keeper pool 1.06 USD/day across 3 recurring collectors, median pot 0.05 USD."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-enosys-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1273,
+ "chain": "ethereum",
+ "slug": "enosys-bridge",
+ "name": "Enosys Bridge",
+ "category": "Bridge",
+ "tvl_usd": 323925,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1273,
+ "run_id": "a1803a8a5cc14970a2ba0e0ac3aa7403",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: approveExecute (250 bps validator fee) reverts SignerNotActive from a fresh address (eth_call), succeeds from signer 0x600bf80c; 0 Executed in 7d (blocks 26413974-26463887), 17 in 57d by signers 0x600bf80c/0x4370b2b6, last fee 0.250 QNT = 35 USD gross vs 126,342 gas = 0.138 USD; public claimValidatorFees pays fixed recipients (pots 2,776 USD + 529 USD), caller gets 0",
+  "kb": [
+   "attempts:3342"
+  ],
+  "run_id": "a1803a8a5cc14970a2ba0e0ac3aa7403",
+  "at": 1795269844
+ }
+}

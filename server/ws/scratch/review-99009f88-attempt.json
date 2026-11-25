@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "Liquity v1 LUSD redemption bot review",
+  "outcome": "review_fix",
+  "bot_id": "lusd-redemption-ethereum",
+  "reason": "Review 99009f887f02413c82e3a695a3f9a65a: fix. Native payout is now present, but the current 30-day window table covers only six of eleven distinct captures and computes incumbent-size gross rather than the bot's 3,000-LUSD route; takeable time per capture and farm EV are unmeasured. The bot's premium-ratio expected-gross estimate predicts 79.9 USDT at its own 1.0814 break-even, and the fixed $28 gas floor understates the 0.026 ETH signed cap at the paper log's ~$1,901/ETH. The referenced proof11_out.json does not exist; proof11_run.log ends with an assertion after the 50-USDT guard reverted. README still describes the old USDT-only payout and 50-USDT guard. See bots/paper/lusd-redemption-ethereum/review.md.",
+  "numbers": "scratch/lusd-4170/events.json: 10 captures Oct19-Nov10; ledger query SELECT * FROM events WHERE source_id='liquity_v1.redemption' AND chain='ethereum' LIMIT 3: additional block 26410255 on Nov14, 11 unique in trailing 30d. README counted rows net 2757.2+155.9+611.8=3524.9 USD incumbent-size/30d, not farm EV. bot.js: 3000*0.0275*(1.0814/1.11651)=79.9 USDT at claimed breakeven. 1.3M*20gwei=0.026 ETH, x $1901.49 from paper log 05:21Z = $49.44; 360000 CU/day x $0.53/M = $0.191/day. proof11_run.log assertion and no proof11_out.json."
+}

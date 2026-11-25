@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-atoma",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. ATOMA is two ERC-4626 basis-trade vaults on Arbitrum (Index + RWA, impl 0x8c348fc2391b9544924e62f16230957054a22f1c verified). Every keeper function (settleEpoch, updateTotalAssets, crystallizePerformanceFee, collectWithdrawalFees) is onlyOperator and reverts NotOperator from a stranger; the operator EOAs receive no payment from the contract for calling. The one permissionless paying function, claimWithdrawal, only redeems the caller's own escrowed withdrawal (a stranger reverts NothingToClaim), so there is no free reward to farm.",
+ "numbers": "7d window blocks 522,916,194-524,976,524 (2026-11-10..17, eth_getLogs on both vaults): TotalAssetsUpdated 415 (all by operator EOAs, ~60/day, min update interval 30 min); EpochSettled 2 (1 per vault, txs 0x580f72261d8e... by 0x8959..8190, 0xe675ffa5a1df... by 0xc367..613b); WithdrawalClaimed 3 by 3 depositor EOAs, payouts $98 / $5,079 / $100 (own principal+yield, e.g. tx 0xa924808e...), withdrawal fee 0.5%. Gas: ~115k gas used per claim (receipt), 0.02 gwei effective, ETH $1,826 (coins.llama.fi 2026-11-17) => ~$0.005 per call. totalAssets: Index $296,782, RWA $341,105. Role reverts: 0x7c214f04 NotOperator on all four keeper fns from 0x1111...1111; 0x969bf728 NothingToClaim on claimWithdrawal(454)."
+}

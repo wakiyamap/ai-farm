@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-odyssey-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 468,
+ "chain": "base",
+ "slug": "odyssey-finance",
+ "name": "Odyssey Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 621952,
+ "url": "https://app.odyssey.finance/en",
+ "github": null,
+ "listed_days_ago": 468,
+ "run_id": "6e9ccb8aa9284030813082c79a5823be",
+ "result": {
+  "verdict": "unpaid",
+  "line": "updateSnapshot() is the only anyone-callable action on Odyssey base (registry 0xee156d8e..9534, 32 SynthStrategy positions, 25 open) and pays 0 (336,907 gas ~ bash.003 at 0.005 gwei, ETH 787.39 coins.llama.fi); collectPendingFees is keeper/owner-gated (getKeepers()=[]; stranger reverts SenderCanNotCollectFee 0x904e494c) and pays fixed feeCollector 0xd44a3e93..6817, not the caller; 0 events of any kind on all 32 positions over 7d (blocks 55,731,647-58,755,647, 244x50k pages; control USDC same shape 5,761 logs/488 blocks).",
+  "kb": [
+   "attempts:1839",
+   "protocols:479"
+  ],
+  "run_id": "6e9ccb8aa9284030813082c79a5823be",
+  "at": 1794942622
+ }
+}

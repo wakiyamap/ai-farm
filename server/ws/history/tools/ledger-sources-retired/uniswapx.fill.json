@@ -1,0 +1,15 @@
+{
+ "id": "uniswapx.fill",
+ "protocol": "uniswapx",
+ "kind": "dutch_order_fill",
+ "chains": {
+  "bsc": ["0x00000000a55e50c71b70db3c8b58749cd1e18eb2"],
+  "arbitrum": ["0xb274d5f4b833b61b340b654d600a864fb604a87c"],
+  "base": ["0x000000008a8330b5d1f43a62bf4c673a49f27ba0", "0x000000001ec5656dcdb24d90dfa42742738de729"]
+ },
+ "event": "Fill(bytes32,address,address,uint256)",
+ "topic0": "0x78ad7ec0e9f89e74012afa58738b6b661c024cb0fd185ee2f616c0a28924bd66",
+ "indexed": ["order_hash", "filler", "swapper"],
+ "data": ["nonce"],
+ "actor_field": "filler"
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-yo-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 607,
+ "chain": "arbitrum",
+ "slug": "yo-protocol",
+ "name": "YO Protocol",
+ "category": "Yield Aggregator",
+ "tvl_usd": 603036,
+ "url": "https://app.yo.xyz",
+ "github": [
+  "yoprotocol"
+ ],
+ "listed_days_ago": 607,
+ "run_id": "3de45e65363346e4b6dee4221a510930",
+ "result": {
+  "verdict": "role_gated",
+  "line": "yoUSD+yoUSD Edge YoVault proxies (impl 0xc84a6e01..., RolesAuthority 0x9524e250...): fulfillRedeem/cancelRedeem/manage revert Unauthorized (0x82b42900) from a fresh address and pay the receiver not the caller; only open fn requestRedeem pays no bounty (fresh caller reverts InsufficientShares); 7d (blocks 523168175-525214798, eth_getLogs): 150 RedeemRequest on Edge + 29 on yoUSD, 1 operator RequestFulfilled of 32,133 USDC (caller reward 0); gross to stranger bash.00, gas ~bash.005/call (0.02 gwei x 150k, ETH 802 llama.fi); $YO rewards claimed on Base via Merkl only (docs).",
+  "kb": [
+   "attempts:1973"
+  ],
+  "run_id": "3de45e65363346e4b6dee4221a510930",
+  "at": 1794972373
+ }
+}

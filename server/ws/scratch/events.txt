@@ -1,0 +1,19 @@
+
+Pay( 
+AddToBalance(uint256 indexed projectId, uint256 value, address caller) 
+AllowMigration(ITerminal allowed) 
+Migrate(uint256 indexed projectId, ITerminal indexed to, uint256 _amount, address caller) 
+Configure(uint256 indexed fundingCycleId, uint256 indexed projectId, address caller) 
+Tap( 
+Redeem( 
+PrintReserveTickets( 
+DistributeToPayoutMod( 
+DistributeToTicketMod( 
+AppointGovernance(address governance) 
+AcceptGovernance(address governance) 
+PrintPreminedTickets( 
+Deposit(uint256 amount) 
+EnsureTargetLocalWei(uint256 target) 
+SetYielder(IYielder newYielder) 
+SetFee(uint256 _amount) 
+SetTargetLocalWei(uint256 amount) 

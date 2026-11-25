@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-pepeteam-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1328,
+ "chain": "polygon",
+ "slug": "pepeteam-bridge",
+ "name": "PepeTeam Bridge",
+ "category": "Bridge",
+ "tvl_usd": 37705,
+ "url": "https://bridge.pepe.team",
+ "github": null,
+ "listed_days_ago": 1328,
+ "run_id": "739ea332572b421fa54d64bd5c571826",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ExecutorV3.execute() (public, operator-signed) -> releaseTokens pays gaslessReward to caller: 4 releases in 7d (blocks 97397571-97805123, 2026-11-16..23, all 4 of 4 sampled), all by EOA 0xb5b1d430 (18/18 in 30d), gross 0.0035-0.0038 USD/call (USDC.e/USDT, coins.llama.fi 04:09Z) vs gas 0.0047-0.0052 USD/call (186-220k gas @ 309-332 gwei, POL 0.07639) - gross < gas, pool 0.0148 USD/7d (~0.002 USD/day); CoinBridge POL lane 0 events 7d (control: ERC20 bridge 5)",
+  "kb": [
+   "attempts:3974"
+  ],
+  "run_id": "739ea332572b421fa54d64bd5c571826",
+  "at": 1795407451
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperbeat-lst",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 417,
+ "chain": "hyperevm",
+ "slug": "hyperbeat-lst",
+ "name": "Hyperbeat LST",
+ "category": "Liquid Staking",
+ "tvl_usd": 11180300,
+ "url": "https://app.hyperbeat.org/staking",
+ "github": null,
+ "listed_days_ago": 417,
+ "run_id": "8687ac70496a4d8db8204a71bcfa0116",
+ "result": {
+  "verdict": "role_gated",
+  "line": "beHYPE LST (StakingCore 0xCeaD893b, WithdrawManager 0x9d0B0877, impls verified): keeper fns updateExchangeRatio (~1/day by operator EOA 0xe15f1788) + finalizeWithdrawals are PROTOCOL_ADMIN-gated (eth_call from fresh EOA reverts 0xea8e4eb5 NotAuthorized); only permissionless fns are user actions (stake/withdraw/claimWithdrawal) paying the user/treasury, not the caller; 7d explorer listing (25 txs) = user withdraw() only, queue 5742 finalized / 30 pending / 8137.58 HYPE liquid; gas 0.1 gwei x HYPE 8.34 = bash.00014 per 21k; gross to a stranger caller 0.",
+  "kb": [
+   "attempts:1817",
+   "protocols:458"
+  ],
+  "run_id": "8687ac70496a4d8db8204a71bcfa0116",
+  "at": 1794937237
+ }
+}

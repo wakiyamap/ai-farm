@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-pods-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Verified Pods Options factory, sample option and helper, plus Pods stETH vault contain no public function that pays an unrelated caller. Vault round processing is controller-restricted or unpaid; option withdrawals return the caller's own position.",
+  "numbers": "7 d window 2026-11-16T22:36:35Z block 0x1934c9e to 2026-11-23T22:36:35Z block 0x19410e0 (timestamps from eth_getBlockByNumber). No-topic eth_getLogs for five checked contracts: 0 logs; same-shape historical control at block 0x17c4835: 3 vault logs, including tx 0x0fa77092dad55cdce594f4bc176e394ea48c96942cef23540383de8f8403f2df. Public caller reward functions identified: 0; gross per paid call and gas: N/A. Fresh address 0x000000000000000000000000000000000000dEaD calling vault startRound() via eth_call reverted 0xdb83b03d; source onlyRoundStarter and !isProcessingDeposits explain this. Sources: https://docs.options.pods.finance/developers/deployed-contracts ; https://github.com/pods-finance/yield-contracts/blob/main/README.md ; Etherscan verified source for 0x43ff98eb7ec681a7dbf7e2b2c3589e79d5ce11e3, 0x9d7503ecbc2677984be4b7af9584385186b26c63, 0xcb674df88ec8103fef28d1995efd400905c6adf6, 0x463f9ed5e11764eb9029762011a03643603ad879."
+}

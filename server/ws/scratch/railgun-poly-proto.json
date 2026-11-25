@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "railgun",
+  "status": "unmeasured",
+  "checked": "DefiLlama api.llama.fi/protocol/railgun /address = 0xe76c6c83af64e4c60245d8c7de953df673a7a33d (that is the Ethereum proxy; on polygon eth_getCode=0x at latest, balance 0, explorer creation 'no data', explorer txs 0 via etherscan, 2026-11-19). Adapter projects/railgun/index.js 404. docs.railgun.org/wiki has no contracts/addresses page; Blockscout API Cloudflare-403; GitHub API rate-limited, org Railgun-Privacy lists only circuits-v2/contract/circuits-ppoi. Repo Railgun-Privacy/contract@main (pushed 2026-08-15): RailgunSmartWallet.sol exposes only shield/transact; fee/treasury setters onlyOwner -> no caller-paid reward function in the v13 contract. Polygon TVL 453,408 USD (api.llama.fi 2026-11-19) but no polygon contract address could be pinned from docs/explorer. Verdict unclear: missing a verified polygon contract address."
+}

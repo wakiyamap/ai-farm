@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-pooltogether-v4",
+  "outcome": "lead_recorded",
+  "reason": "unclear. PoolTogether V4 is on OP (AaveV3YieldSource 0x4ecB5300D9ec6BCA09d66bfd8Dcb532e3192dDA1 verified; YieldSourcePrizePool 0x79bc8bd53244bc8a9c8c27509a2d573650a83373 verified, both code-checked and getters answer). The only reward function I could pin down is claimRewards(address), which is onlyManagerOrOwner (Safe 0x8d352083f7094dc51cd7da8c5c0985ad6e149629) = role_gated; the prize pool's live traffic is user withdrawFrom calls, and awardPrize() from a fresh address reverted. Missing: the legacy PTv4 claim/award path was never confirmed (contracts unverified, scout RPC lane spent), and no stranger was seen paid any fee in 7 days.",
+  "numbers": "TVL 214,750 USD (DefiLlama 2026-11-18). Deploy batch blocks 14042969-14043071 Sep 2022 (Blockscout txlist of 0x4d40eb12...). yield source 0 txs in last 7 days (last 2025-12-03, Blockscout). Sample active prize-pool tx 0x65034ffb08285dedb3dc284049131743d0dee7c0d0283d35c5e80339fb024553 gas_used 342,646 gasPrice 118,797 wei = ~0.0001 USD (Blockscout). relay scout lane 305,614/300,000 CU at /health 2026-11-18."
+}

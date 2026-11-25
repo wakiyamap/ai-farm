@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-saffron-vaults",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Same UniV3Vault/UniV3LimitedRangeAdapter/RestrictedVaultFactory structure as on ethereum (protocols:1329): every state-changing function pays only a participant — vault deposit()/withdraw()/claim() pay msg.sender only if it holds the vault's claim/bearer tokens (fresh-address claim() reverts 'NCT'), adapter functions are onlyVault, factory createVault/createAdapter/initializeVault are onlyOwner. No keeper/bounty function exists, and the protocol is dormant: zero logs from all 64 vaults and the factory in the last 7 days (last event 2026-10-21).",
+ "numbers": "Factory 0xd4E8582e36AF0E0d5c1bcd8303984870b086d3d2 nextVaultId()=65, 64 vaults all vaultTypeId=1 (eth_call vaultInfo(1..64)). 7d window blocks 524429932 (ts 1794737280, 2026-11-15) .. 526486498 (ts 1795342079, 2026-11-22): 0 logs across 64 vaults (2 getLogs batches of 32 addresses, no topics) + 0 factory logs; control same-shape USDC getLogs = 17 logs (relay-probe). Last vault event block 516888860 ts 1792579149 (2026-10-21 10:39 UTC, FundsWithdrawn 0x11cb540b... matching cast keccak, topic0 from receipt). 88d lookback (from block 498509932, 2026-08-26): 176 logs (104 vault + 72 factory), i.e. activity died ~32 days before the 7d window. TVL 28,806 USD (candidate, api.llama.fi). eth_call claim() from 0x1111...1111 on vault 1: revert 'NCT'. Gas: not priced — no callable reward function."
+}

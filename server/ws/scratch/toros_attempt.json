@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-toros",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Toros = dHedge vault-2.0 PoolLogic vaults (67 on arbitrum, all proxyType 2 -> logic 0x3e0208316d82bec06b5e6c829bdf93f530c4ba1c). The only keeper-like entry execTransaction(address,bytes) reverts 'dh24' from a stranger eth_call (manager 0xfbd2b421..def5 / trader 0x4f93.. / owner only); mintManagerFee is permissionless but pays the manager/DAO, caller gets 0. Nothing in the 7-day window paid a stranger: 839 execTransactions, all by the vaults' own traders; no reward/bounty/fee-to-caller mechanism in the verified source.",
+  "numbers": "67 vaults (getManagedPools @ factory 0xffFb5fB14606EB3a548C113026355020dDF27535); TVL sum ~$2.27M (getFundSummary scan, top pool Bitcoin Shield $436k); 7d TransactionExecuted = 839 (eth_getLogs blocks 523239974-525569874, topic0 0x14464fb6..); sample call gasUsed 287,126 (tx 0x030d9c30..) x 0.02 gwei (eth_gasPrice 0x1312d00) = 0.0000057 ETH ~ $0.01 at ETH $1801.26 (coins.llama.fi 2026-11-19); gross to caller $0."
+}

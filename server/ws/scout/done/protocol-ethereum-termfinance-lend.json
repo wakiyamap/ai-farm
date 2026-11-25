@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-termfinance-lend",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1190,
+ "chain": "ethereum",
+ "slug": "termfinance-lend",
+ "name": "TermFinance Lend",
+ "category": "Lending",
+ "tvl_usd": 3348413,
+ "url": "https://term.finance",
+ "github": null,
+ "listed_days_ago": 1190,
+ "run_id": "9c6c7984382c41d1910c96d6ee0a0da1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "TermFinance Lend = Fluid/TermLabs Term diamond 0xb4b1de03..e47f; only stranger-callable fn is TermAuction.completeAuction (no role gate, source pays caller 0, no reward keyword); rest DEVOPS/ADMIN/servicer-gated; 0 txs to the diamond in last 7 d (latest 2026-11-10 multicall 0xc7841813.., control same listing), 7 open auctions all ended before 2026-07-28; TVL 3.35M USDC flat since Aug (api.llama.fi 2026-11-21).",
+  "kb": [
+   "attempts:3317"
+  ],
+  "run_id": "9c6c7984382c41d1910c96d6ee0a0da1",
+  "at": 1795264739
+ }
+}

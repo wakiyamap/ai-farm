@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-benqi-staked-avax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1733,
+ "chain": "avalanche",
+ "slug": "benqi-staked-avax",
+ "name": "Benqi Staked Avax",
+ "category": "Liquid Staking",
+ "tvl_usd": 173137558,
+ "url": "https://app.benqi.fi/savax",
+ "github": null,
+ "listed_days_ago": 1733,
+ "run_id": "258495172e764514a4aa1deb2cac4d19",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: sAVAX proxy 0x2b2c81e08f1af8835a78bb2a90ae924ace0ea4be (totalPooledAvax 24.04M AVAX = 171.7M USD @7.14); accrueRewards/deposit/withdraw all revert ROLE_* from a fresh address and their only 7d caller is one keeper EOA 0x565f0fe9...e83 (420 calls); accrueRewards 0 calls in 20,000 txs over 98d (2026-08-13..11-19); anyone-callable submit/redeem/requestUnlock pay only the caller's own stake (7d: submit 219 = 43,952 AVAX in, redeem 151); stranger gross 0 USD vs 0.003 USD gas (7.52 gwei).",
+  "kb": [
+   "attempts:2534"
+  ],
+  "run_id": "258495172e764514a4aa1deb2cac4d19",
+  "at": 1795097945
+ }
+}

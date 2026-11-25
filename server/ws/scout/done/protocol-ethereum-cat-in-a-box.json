@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-cat-in-a-box",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1357,
+ "chain": "ethereum",
+ "slug": "cat-in-a-box",
+ "name": "Cat in a Box",
+ "category": "Lending",
+ "tvl_usd": 155408,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1357,
+ "run_id": "334054b057b2443a97b73927444f1b46",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only anyone-pay function is stabilisePeg (burn boxETH, get same-amount stETH, ~0.11% fee); 7d (blocks 26414121-26464373): 3 calls on v1 CDP 0x7f0A0c71 by EOAs 0x0000..cd64/89ce and 0x183d..3602, each 0.006-0.010 stETH out (10-17 USD @1677.52 llama 1795275539) but boxETH bought at ~1.0001 WETH in same tx so spread ~0 vs gas 0.10-2.15 USD; all other CDP events in 7d = 0 (no-topic scan; topic0 from receipt 0xf6d9..bcd8a); poke/liquidate credit the account, never the caller.",
+  "kb": [
+   "attempts:3372",
+   "protocols:1681"
+  ],
+  "run_id": "334054b057b2443a97b73927444f1b46",
+  "at": 1795275680
+ }
+}

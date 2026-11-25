@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "address": "0xcad97616f91872c02ba3553db315db4015cbe850",
+  "strategy": "Across relayer: 7702-delegated EOA (delegate 0xabc6f9915b90556f0a765b053d886ec78a44ab7e, nonce ~468k) drives its own fill executor 0xfd03abcaadaf3f930fa4e37eb2f6ea3a44a41b7f0 (the registered relayer address in the fills) with one call fillV3Relay (selector 0x260595cf) ~130x/hour, filling other users' deposits (1351 distinct depositors in 24h) from BSC/Base/Arbitrum/Polygon/OP/Linea/zkSync into Ethereum (pays outputAmount WETH from inventory); profit = inputAmount - outputAmount spread, repaid later on the repayment/origin chain, nothing received in the fill tx itself",
+  "est_profit_usd_day": 120,
+  "evidence": "0xb2361e4043131d66de00cb4647138da301531af5408cd666f698f9aecbdd4981 (fill, 227 WETH fills analyzed); 0x445d6e7733e0a8e93f9d76f1146dbd3d920e4590d8b38cd8bf39c6cc747bc591 (latest); eth_getLogs FilledRelay topic 0x44b559f1 on SpokePool 0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5 relayer=fd03abca blocks 26424613-26431790 (24h): 2000 logs = relay cap, >=2000/day; 1h control blocks 26431027+: pool 502 fills, fd03abca 131 (26%), 10 distinct relayers; 232/502 open (no exclusivity), 43 taken post-deadline; median spread $0.070 (BaseWETH->EthWETH subset n=227, median take ~34 bps, mean $1.42 skewed by big fills); gas 114,655 @ 0.1224 gwei eff = 1.4e-5 ETH = $0.025 @ ETH $1810.40 coins.llama.fi 2026-11-17"
+}

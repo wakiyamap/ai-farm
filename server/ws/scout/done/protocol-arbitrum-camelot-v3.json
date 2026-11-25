@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-camelot-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1318,
+ "chain": "arbitrum",
+ "slug": "camelot-v3",
+ "name": "Camelot V3",
+ "category": "Dexs",
+ "tvl_usd": 2440467,
+ "url": "https://camelot.exchange/",
+ "github": null,
+ "listed_days_ago": 1318,
+ "run_id": "874b375e86624ea7b5740f9ace2b9a36",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Camelot V3 = Algebra AMM v1.9 CL DEX (factory 0x1a3c9B1d..FD35B, NFPM 0x00c7f308..CDCD15, SwapRouter 0x1F721E2E..9e18): every external fn is onlyOwner/onlyFactoryOwner/farmingAddress-gated or a user action (createPool/mint/collect/burn/swap/flash) that pays the LP/recipient, nothing pays a caller; farmingAddress=0x0 (no incentive layer); 48,838 NFPM positions, 152 Swap events on 2 sampled pools per 10k-block window (~42 min), 0 new pools/7d, TVL 2.44M USD",
+  "kb": [
+   "attempts:2319",
+   "protocols:860"
+  ],
+  "run_id": "874b375e86624ea7b5740f9ace2b9a36",
+  "at": 1795051307
+ }
+}

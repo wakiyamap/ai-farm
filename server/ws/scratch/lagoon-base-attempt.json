@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-lagoon",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Lagoon base vaults (ERC7540, hopperlabsxyz/lagoon-v0 v0.5.x) pay nobody: valuation updateNewTotalAssets is onlyValuationManager and settleDeposit/settleRedeem/close are onlySafe - eth_call from a fresh address reverts OnlySafe(0xac47b4226149312a4574bc2388df2fc8557123e0). All 7d settle calls on base were made by curator EOAs through the per-vault safes; no stranger paid, no reward/incentive/keeper function in the repo src. Matches the ethereum-side dead_end (protocols id 160).",
+  "numbers": "impl 0x45b6969152a186bafc524048f36a160fac096d50 (v0.5.1) + 0xe50554ec802375c9c3f9c087a8a7bb8c26d3dedf (v0.5.0) via beacons 0x16648324d68b86e341051767e749f9f074714228 / 0xee6a60be216058afd7a0643795b4f1e197c8b150 (eth_call 0x5c60da1b); 7d (blocks 55949574..58973574) SettleDeposit+SettleRedeem on 2 valid named vaults = 2 logs, on 32 of 38 beacon-factory vaults = 2 logs; callers 0xef2dad9bec85f416987d4d1521149366... via 0xac47b422, 0x5904bfe5d9d96b57c98aaa935337e7aa228ed528 via 0xd201b094, 0x46565eedb0bb948ae787dd105cce300f736da28e via 0x78138875; reward to caller 0 USD; settle gasUsed 252693-256895 @ 0.006 gwei = ~0.003-0.01 USD (ETH 1806.31 USD, coins.llama.fi); optin factory 0 ProxyDeployed logs on base (control: beacon factory 38)."
+}

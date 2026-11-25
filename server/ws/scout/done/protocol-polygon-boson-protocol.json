@@ -1,0 +1,26 @@
+{
+ "id": "protocol-polygon-boson-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 845,
+ "chain": "polygon",
+ "slug": "boson-protocol",
+ "name": "Boson Protocol",
+ "category": "RWA",
+ "tvl_usd": 227402,
+ "url": "https://www.bosonprotocol.io",
+ "github": [
+  "bosonprotocol"
+ ],
+ "listed_days_ago": 845,
+ "run_id": "5f4d284e7c314ba6bdc0640fe93ca00c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Boson v2.5.1 diamond 0x59A4C19b55193D5a2EAD0065c54af4d516E18Cb5: completeExchange/expireVoucher/expireDispute anyone-callable (fresh-address eth_call reverts InvalidState, not role) but pay the caller 0 - no keeper fee in source; 0 txs to the diamond in last 7d (last tx block 96221157 = 2026-10-26; getLogs control returns 1 log at 96221120-96221200); gas 281.55 gwei x POL 0.08174 USD = 2.24 USD per 97,212-gas state change; TVL 227k USD is listed offers only",
+  "kb": [
+   "attempts:2122"
+  ],
+  "run_id": "5f4d284e7c314ba6bdc0640fe93ca00c",
+  "at": 1795004151
+ }
+}

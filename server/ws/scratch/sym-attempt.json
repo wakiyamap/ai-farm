@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-symbiosis",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Symbiosis destination-side completions on arbitrum are onlyMPC/onlyBridge: BridgeV2.receiveRequestV2 reverts 'BridgeV2: forbidden' from a fresh address; the anyone-callable variant receiveRequestV2Signed needs an MPC signature and pays the caller nothing (bridgingFee goes to the bridge contract, owner-withdrawable). All 113 completions in 7d were submitted by one EOA 0x67f9b3e561383493b3f874feae0c53c2cd23851d; no stranger is paid on-chain.",
+ "numbers": "7d (blocks 0x1f2f2fc6-0x1f5419c6): 113 BurnCompleted (87 USDC / 22 WETH / 4 SIS) + 525 SynthesizeRequest; fees to bridge contract 21600000 raw USDC=$21.60 + 0.0055 WETH=$9.94 + 9 SIS=$0.13 = $31.67 total, avg $0.28/call; gasUsed 150k-230k @ 0.02 gwei ~= $0.006/call (WETH $1806.98, USDC $0.9998, SIS $0.0148, coins.llama.fi 2026-11-19 11:48 UTC). Sample txs 0x6c64a08bafc492ec0688053971ebe0be961f1c7bbea72433f8b1d0f76f79728d, 0x073345d030da904756d0491a9d9160ea954eff0339c3c65a992cb8ca55438d20 (eth_getLogs + eth_getTransactionReceipt via rpc.py)."
+}

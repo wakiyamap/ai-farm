@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-guru-network-classic",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the protocol's only BSC contract (DefiLlama adapter: 0xD600Ec98cf6418c50EE051ACE53219D95AeAa134, tvlGuru Universal TVL Finder) has no function that pays a caller - all 85 public selectors are TVL-computing views/helpers; the 3 state functions reset/rescue/setUWLD all revert from a fresh address (role-gated). ftm.guru site is dead (deadUrl), no GitHub, so no other BSC product contracts can be identified; the BSC TVL is whatever this finder aggregates (staking()=pool2()=0).",
+ "numbers": "tvl()=576,711.17 BUSD (eth_call 0xe5328e06, block 134521522, 2026-11-19; usd()=BUSD 0xe9e7CEA3DedcA5984780Bafc599bd69add087d56 read from contract; DefiLlama reports 578,804 USD; BUSD~1 USD); staking()=0, pool2()=0; 85 selectors from bytecode resolved via OpenChain; reset()/rescue() revert from 0x...dEaD; DAO()=0x5c146cD18fa53914580573C9b9604588529406Ca has no code (EOA); bsc eth_getLogs refused all session (scout lane CU 301,302/300,000, relay /health), so 7-day caller count unverified - immaterial (nothing pays a caller)."
+}

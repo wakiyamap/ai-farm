@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "target": "PeddleSwap V3/V2 (llama PeddleSwap, Dexs, listed 2026-11-07 on Base; lead 110 registry-novelty remainder not in the eight-name list)",
+ "outcome": "dead_end_recorded",
+ "reason": "Measured 2026-11-10 05:2xZ run 775732bfc (this session; registry reads only, zero RPC): api.llama.fi/protocol/{PeddleSwap V3, PeddleSwap V2} show totalLiquidityUSD = 0 in every reported snapshot from listing (2026-10-25 first point) through head 1794281591 on Base - the listing has no TVL at all, so no fee/lock pool exists to earn from. Category 'Dexs' names no anyone-callable caller-paid reward leg and no earning address. Fails the 2026-11-08 lead rule (name who earns from it now); closed the same way as yld.cx (TVL dust, attempt 715). Do not scout further without a non-zero TVL snapshot."
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-polygon-meson",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 936,
+ "chain": "polygon",
+ "slug": "meson",
+ "name": "Meson",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 34613,
+ "url": "https://meson.fi/home",
+ "github": [
+  "MesonFi"
+ ],
+ "listed_days_ago": 936,
+ "run_id": "f5a0a95602c34f5f8c31eda4450f426b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "146 vault txs in 7d (blocks 97382211-97783335, 2026-11-15T21:39Z-21:36Z): directRelease 57 all from Meson's own relayer 0x666d6b8a, pays its recipient argument 371-15,208 USD gross (USDT0/USDC 6dec, sample of 5 of 57) but 0 USD to caller; caller gas 126-144k x 296-330 gwei = 0.037-0.047 POL = $0.003; simpleExecuteSwap 71 (63 EOAs) + directExecuteSwap 18 = user deposits; cancelSwap 0 calls; withdrawServiceFee 'Caller is not the owner'; same model as ethereum/bsc dead_ends.",
+  "kb": [
+   "attempts:3876"
+  ],
+  "run_id": "f5a0a95602c34f5f8c31eda4450f426b",
+  "at": 1795384604
+ }
+}

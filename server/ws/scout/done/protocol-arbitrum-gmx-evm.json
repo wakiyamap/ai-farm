@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-gmx-evm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1194,
+ "chain": "arbitrum",
+ "slug": "gmx-evm",
+ "name": "GMX EVM",
+ "category": "Derivatives",
+ "tvl_usd": 180391928,
+ "url": "https://gmx.io",
+ "github": null,
+ "listed_days_ago": 1194,
+ "run_id": "d8d35428c5074b1eaabb5c68cb8acd64",
+ "result": {
+  "verdict": "role_gated",
+  "line": "GMX v2 synthetics: executeOrder(bytes32,..) on OrderHandler 0xa5d2d452 reverts Unauthorized(ORDER_KEEPER) from a fresh address; 7d scan EventEmitter EventLog2/OrderExecuted blocks 523193030-525433030 (112 chunks, 0 err): 35,232 executions (~5,033/day) all via role-gated handlers (0x2dc23150 29,575; 0xa5d2d452 3,941; 0xbc4c6139 1,534; 0x01b85c1e 182), keeper fee 0.2-0.315% of size x 37% (median ~3-5 USD) goes to the wrapper's configured recipient not msg.sender (attempt 257), gas <1 USD; same protocol as gmx_v2 row 14 / lead 22, closed under no-latency-race decision",
+  "kb": [
+   "attempts:2264",
+   "protocols:816"
+  ],
+  "run_id": "d8d35428c5074b1eaabb5c68cb8acd64",
+  "at": 1795037270
+ }
+}

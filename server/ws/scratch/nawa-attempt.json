@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-nawa-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only permissionless payout function is claim()/claimFor(user) on the Nawa USDT Vault: they push the caller's (or the recipient's) own claimable USDT to that user, pay the caller no bounty/fee, and the claimable pot is empty (totalClaimable=0, 0 Claimed events ever). No reward accrues to a stranger who calls. The real work (updateAum oracle, approveRequest/approveAndPay/payApproved, fundFromBackstop) is all role-gated to the protocol's own addresses.",
+  "numbers": "Vault proxy 0x6FE78B942C566fE2b8D0881cf3577C1B1511F204 (impl 0xabba41142d2bf47a847987603347f94120d45043, source explorer-verified NawaUSDTVault.sol). 7d window blocks 0x192f964=26409316 (2026-11-13 23:24 UTC) to latest 0x193bd9b=26459547 (2026-11-20 23:19 UTC): no-topic scan of the vault returned 7 logs, ALL AumUpdated (topic0 0x4b06034d, oracle-only, gated by aumUpdater) — 0 Claimed, 0 Deposited, 0 RedemptionRequested in 7d. Full-history Claimed scan (from creation block 25524815) = 0 items; same-shape controls return non-zero: Deposited 25 items, RedemptionRequested 7 items. totalClaimable=0, approvedOutstanding=0, pendingRedemptionAum=411000 USDT, latestAum=150000 USDT (eth_call @latest). claimFor(fresh) from 0x1111.. reverts NothingToClaim (0x969bf728), not a role revert. USDT 6dp, asset() read on chain; ETH $1618.63 coins.llama.fi @1795216810, gasPrice 0.151 gwei -> claim gas ~$0.02 (unpaid anyway). TVL Ethereum $560,765 (api.llama.fi currentChainTvls)."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-lorenzo-susd1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 402,
+ "chain": "bsc",
+ "slug": "lorenzo-susd1+",
+ "name": "Lorenzo sUSD1+",
+ "category": "Yield",
+ "tvl_usd": 79916579,
+ "url": "https://lorenzo-protocol.xyz/home",
+ "github": null,
+ "listed_days_ago": 402,
+ "run_id": "d9cfae322e6a4212b4239709f363fa84",
+ "result": {
+  "verdict": "no_reward",
+  "line": "sUSD1+ vault bsc 0x4F2760B32720F013E900DC92F65480137391199b (impl 0x972c27ee69b19d7648cef365700c22713a9a31fd, OTF-Contract source): no function pays a caller - all public fns (deposit/requestWithdraw/withdraw/confirmShare/refundShare/burn/supply/unsupply) move the caller's own funds, keepers (setUnitNav etc.) onlyManager; 7d scan 41x5000 blocks: 2 WithdrawFinished (user's own 97.5M + 99.1M shares), 0 deposits/claims; gross 0 USD vs gas <0.01 USD.",
+  "kb": [
+   "attempts:1799"
+  ],
+  "run_id": "d9cfae322e6a4212b4239709f363fa84",
+  "at": 1794935351
+ }
+}

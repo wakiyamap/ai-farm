@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-juicebox-v3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1314,
+ "chain": "ethereum",
+ "slug": "juicebox-v3",
+ "name": "Juicebox V3",
+ "category": "Launchpad",
+ "tvl_usd": 100316,
+ "url": "https://juicebox.money/",
+ "github": null,
+ "listed_days_ago": 1314,
+ "run_id": "51434ef72dfa4c99a95221da5e1b72ab",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Juicebox V3 ETH terminals: only permissionless value fn is distributePayoutsOf (no role check) and it pays the caller 0 unless a project sets a wildcard split to msg.sender; 0 calls in last 7d (blocks 26414006-26464254; control: 29 events/72d incl. 27 in tx 0x5b8fe836d19573a1.. 29d ago), gas ~0.11 USD/call at 0.2586 gwei x ~250k, ETH 1690.90 USD; useAllowanceOf/processFees/migrate are requirePermission; TVL 94,384 USD",
+  "kb": [
+   "attempts:3365",
+   "protocols:1674"
+  ],
+  "run_id": "51434ef72dfa4c99a95221da5e1b72ab",
+  "at": 1795274038
+ }
+}

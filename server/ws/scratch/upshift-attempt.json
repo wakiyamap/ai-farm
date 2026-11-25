@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-upshift",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Upshift's Base contracts are 4 proxy vaults (3 TokenizedVault + 1 LendingPoolv3). Maintenance functions anyone can call (chargeManagementFee, collectFees, chargePerformanceFees, claim, processAllClaimsByDate) revert-tested from a fresh address: OK, no role gate - but none transfers anything to msg.sender: fees go to the protocol fee collector 0x3a3eeb72c992b1456ebb755d33e891a04fa8c677, claims pay the redeemer's own principal. The main vault charges 0% management and 0% withdrawal fee and the fee pot (totalCollectableFees) is 0 on all four vaults, so a caller earns $0 while paying gas.",
+ "numbers": "Sample 37 logs / last 7d (eth_getLogs blocks 55967500..58991526): ManagementFeeCharged x28 (7 per vault x 4), all from operator EOA 0xe0b7deab801d864650dec58cbd1b3c441d058c79; charged amount 0 on 0x2c41/0xc1bE/0xd9c5, 519-530 wei/day on 0x4e2D (=$0). FeesCollected x1 (empty). WithdrawalProcessed x3: 668.08 + 3995.91 + 0.01 USDC to redeemers (their own funds), claimed by the operator txs 0x5d0b25412d8b0444fa6fb512c648c39515ad5de9a383f4e4f0f873961aa52b98, 0x2e4fdfbb1a99771ddde171eb66d85891e70a91a99f837605b1d844fe34f6d3f2 (selector 0xf3cbf47c). No claim()/fee call by a stranger in 7d. TVL: getTotalAssets(0x2c41)=1,078,190 USDC (adapter sum ~1,040,202). Gas base: eth_gasPrice 0.006 gwei x ~100k = 0.0000006 ETH = $0.0011 at ETH $1811.92 (coins.llama.fi 2026-11-18). Gross to caller per call: $0."
+}

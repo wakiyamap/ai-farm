@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-woofi-swap",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. WOOFi Swap on avalanche (TVL 515,609 USD candidate) is a pure SPMM swap stack: the only keeper work (oracle price posting, WooracleV2_2.postPrice/postPriceList) is onlyAdmin (eth_call from a stranger reverts 'WooracleV2_2: !Admin'), and the only anyone-can-call state-changing functions are user swaps plus claimFee sweeps (pool claimFee() -> feeAddr, CrossRouter claimFee(token) -> feeRecipient) that pay the caller 0. No function pays a stranger: nothing to earn, and the stack is nearly dormant (router last tx 2026-11-07, pool 0 txs in 7d). The yield sits in Earn vaults, already dead_end (attempts 2373).",
+  "numbers": "gross/call to stranger = 0 USD (claimFee pays feeAddr; unclaimedFee()=0 at 2026-11-19, eth_call 0xe4d43ec1 on pool 0x5520...9FA4); gas: 7.5 gwei (eth_gasPrice 0x1bf08eb96) x 100k gas = 0.00075 AVAX = 0.0053 USD at AVAX 7.127 USD (coins.llama.fi coingecko:avalanche-2, ts 1795094716); 7d tx counts (Routescan txlist blocks 100470088-100772488): pool 0, router 0 (last 2026-11-07 block 99707188 swap 0x7dc20382), oracle 0 (last 2026-05-18); same-shape control returned rows"
+}

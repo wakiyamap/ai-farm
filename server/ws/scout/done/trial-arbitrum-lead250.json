@@ -1,0 +1,20 @@
+{
+ "id": "trial-arbitrum-lead250",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "arbitrum",
+ "lead_id": 250,
+ "target": "flat_money_v2 OrderExecutionModule executeOrder",
+ "run_id": "d929156a309e40dbb49a535b97f1ae14",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d on arbitrum (blocks 522705297-525125297): 45 executeOrder occurrences, 1 distinct taker (0x45d83e65.. takes all 45); sample 19 of 45: median takeable->taken 11 blocks (range 7-22), winner priority fee 0 (all 45), gross median 0.138 USD (199-262 sat WBTC @ 63,674); one attempt's gas 761k @ 0.02 gwei = 0.027 USD (0.036 at 1M gas) -> gross 4-5x gas; class total 6.2 USD/7d.",
+  "kb": [
+   "attempts:1849",
+   "leads:250"
+  ],
+  "run_id": "d929156a309e40dbb49a535b97f1ae14",
+  "at": 1794944983
+ }
+}

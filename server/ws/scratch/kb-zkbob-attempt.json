@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-zkbob",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The Polygon zkBob pool is in wind-down (UI closingDate 2025-02-01): every mutating function is behind a role (transact = onlyOperator centralized relayer, redeemUpTo/disableWithdrawalQueue = redemptionOperator, withdrawFee = operator or configured fee receiver, fillMigrationOrder expired 2023-12-01) and no function pays its caller - transact fees accrue to the operator and redeemUpTo pays queued claimants. Zero calls to the pool in the last 7 days (last tx 47 days ago, and it failed).",
+  "numbers": "Polygon TVL $125,195 (api.llama.fi/protocol/zkbob 2026-11-19); pool USDC balance 125,225 (eth_call balanceOf 0x3c499c54.., latest block 97,568,827); pool calls last 7d = 0 (explorer txs polygon 0x72e6..; last tx block 94,847,599 ts 1790976539 ~47d ago FAILED; last successful transact() block 90,570,464 ts 1784560693 ~121d ago); withdrawalClaimsCount = 4; stranger eth_call reverts 'ZkBobPool: not an operator' / 'not authorized'; gas 278.8 gwei x 21000 = ~$0.0005 (POL $0.082146, coins.llama.fi 1795060817)"
+}

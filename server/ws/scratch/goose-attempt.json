@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-goose",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Goose USDVault has anyone-callable unLockDeposit/withdraw but no reward function: withdraw pays the redeemer's own principal to redeemLock.account and the caller 0; redeem is balance-gated; price updates are onlyManager/onlyOwner. 0 calls in the last 7 days (dormant since 2026-01-22) and the book TVL is not backed - custodian is an EOA holding 0 USDT0 while LP supply x frozen price claims $3.35M.",
+ "numbers": "7d events 0 (control USDT0 Transfer 1113 logs/2k blocks); last vault tx 2026-01-22 block 424205756 0x6fdc0517ce9593c7d8d6ce372082b5c4353fe4aca973b1df0de0cdb2e353dfd7 (withdraw, 86323 gas, 0.020032 gwei, ~$0.003 at ETH $1806.42 coins.llama.fi 2026-11-18); USDT0 bal vault 325, custodian 0; lp totalSupply 3,022,621.46 x price 1.107438 = 3.35M book; depositLockTime 30d redeemLockTime 7d (DataStorage 0x7da1ea975cfa94c230fe527b9d36a62a77448ef3); 136 deposits, 92 redeems lifetime"
+}

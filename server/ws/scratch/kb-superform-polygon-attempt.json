@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-superform",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Same Superform v1 stack as arbitrum (protocols:750): all keeper-style functions on CoreStateRegistry 0x3721b0e122768ceddfb3dec810e64c361177f826 revert NOT_PRIVILEGED_CALLER (0xc2703cd6) from a fresh address (processPayload, updateWithdrawPayload, proposeRescueFailedDeposits); the only open ones (finalizeRescueFailedDeposits, forwardDustToPaymaster) pay depositors/paymaster, not the caller. The stack is also nearly dormant: no external tx to the CSR in the last 7 days, and every processPayload comes from one protocol relayer.",
+  "numbers": "TVL 142,906 USD (candidate). Factory 0xD85ec15A9F814D6173bF1a89273bFB3964aAdaEC getSuperformCount()=62 (eth_call block latest 97541653). Role reverts: processPayload(1)/proposeRescue -> 0xc2703cd6, executeQueuedWithdrawal -> 0x445b0c3a, finalizeRescueFailedDeposits -> 0x3527c425 (state, not role). 7-day CSR txs: 0 (explorer txs list: all 24 recent txs shown are from one relayer 0x23c658fe050b4eaeb9401768bf5911d11621629c; last tx 0x20f3eceffabdd8924d4e26813bc8549fc3defc23f97a051225e81ddb008094da block 96283903 ts 2026-10-27, 22.5 days before check at block 97541653). SuperVaults not on polygon (aggregator 0x10AC0b33... eth_getCode 0x; repo tree has no 137). Relay note: scout lane CU spent today (305154/300000) -> public fallback, polygon public getLogs capped at 100 blocks."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-autofinance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. AUTOfinance (Tokemak AutoPilot) on Arbitrum has 1 AutoPool vault (0xf63b7f49...320c, USDC, TVL 515k USD per queue). Its only keeper-ish functions are role-gated: updateDebtReporting (AUTO_POOL_UPDATE_DEBT_REPORTING_ROLE) and flashRebalance (SOLVER) on an admin-granted OZ AccessController; eth_call from a fresh address reverts AccessDenied(). No stranger payment: the keeper claims destination rewards to the vault itself, 0 transfers to caller.",
+  "numbers": "7d eth_getLogs blocks 0x1f307eeb-0x1f557eeb: 8 updateDebtReporting calls (DestinationDebtReporting topic 0x1db39a4d...), all from EOA 0x1a65e4844a3af0f1733ee9e1a474dc7db3c396a3; gross to caller 0 USDC; gasUsed 949k-997k/call (receipts 0xece37..0xf3705) x gasPrice 20000016 wei (eth_gasPrice 2026-11-19 18:5x UTC) = ~1.9e-5 ETH = ~0.034 USD at ETH 1781.77 (coins.llama.fi ts 1795113913); 0 RebalanceStarted/Completed in 7d (control: same-shape query returned 8)."
+}

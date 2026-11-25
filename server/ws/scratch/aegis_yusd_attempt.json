@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-aegis-yusd",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Every keeper-like function on the Aegis YUSD vault/rewards contracts on bsc sits behind an AccessControl role, a whitelist or a user signature; a stranger calling them pays gas and receives nothing. All on-chain activity in 7 days is the protocol's own ERC-4337 wallet depositing daily funding income - there is no caller reward to compete for.",
+  "numbers": "TVL $1.23M (DefiLlama 2026-11-18). Vault 0x02bf8f0e046f471709e578b1e633077096ce65cf: depositIncome -> AccessControlUnauthorizedAccount, mint -> NotWhitelisted (eth_call from 0x1111..1111 @latest). AegisRewards 0x93efaa2d2f6c3600d794233ed7e751d086e5b75e: finalizeRewards/withdrawExpiredRewards role-gated; pot 3138.87 YUSD; 0 claims in 7d. Activity: 1 tx/day, bundler 0xd0dcacd0135d463b553bf7ac8c68f32fa178c279 -> AA wallet 0x3ebd570ed38b1b3b4bc886999fcf507e9d584859, e.g. tx 0x34be67aad26dcfb73593f616a486025de84a816d491ccfd7c8d7fdb319fa085c (2026-11-16) depositIncome 42.40 YUSD, 93697 gas @ 0.06 gwei = 5.6e-6 BNB = $0.003 (BNB $591.74, coins.llama.fi). Scan = 7 daily 5000-block windows over 7d; control USDC getLogs same shape 34427 logs."
+}

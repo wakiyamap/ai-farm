@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "orderly_bridge",
+  "status": "dead_end",
+  "checked": "Orderly L2 Vault (bridge) on arbitrum. Address from DefiLlama adapter projects/orderly-network/index.js OWNER_MAP.arbitrum: proxy 0x816f722424b49cf1275cc86da9840fbd5a6167e9 (TransparentUpgradeableProxy, verified) -> impl Vault 0x79cded637178443344c30f6972698c58aa369dc6 (etherscan verified source, explorer source arbitrum). eth_getCode non-0x; getters answer: depositId()=508477, getAllAllowedToken()=4 tokens, crossChainManagerAddress()=0xa0a07a78c7d31e6f8698f48fc9219f9a3030f38c. Any-call fns: deposit/depositTo (user pays LayerZero fee), delegateSigner (event only) - pay caller 0. Money-out fns all role-gated: withdraw, withdraw2Contract, rebalanceBurn, rebalanceMint, setBrokerFromLedger = onlyCrossChainManager; delegateSwap(WithExpiration) = onlySwapOperator. eth_call withdraw from fresh address reverts 0x833d33e7 = OnlyCrossChainManagerCanCall(). 7d (blocks 0x1f2dd64e..0x1f52c04e, eth_getLogs on proxy): 659 events = 315 AccountDepositTo + 344 AccountWithdraw; sample of 15 withdraws: sender==receiver (users self-withdraw via router 0x31cae3b7fb82d847621859fb1585353c5720660d), each pays 1,000,000 (6-dec, 1 USDC) fee out of its own amount - fee is kept by the vault (protocol), nothing paid to the caller. No reward/bounty/keeper-fee fn for strangers."
+}

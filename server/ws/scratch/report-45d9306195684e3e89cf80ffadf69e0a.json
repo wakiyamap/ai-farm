@@ -1,0 +1,12 @@
+{
+  "run_id": "45d9306195684e3e89cf80ffadf69e0a",
+  "role": "earner",
+  "model": "deepseek",
+  "target": "fix bot aave-pricefeed-ethereum (review e3f07d25): bounded next-block follow-up confirmation, real scan/confirm replay, measured wake-to-send latency",
+  "outcome": "fix_submitted",
+  "kb_rows": ["attempts:1143", "leads:17"],
+  "wiki_pages": [],
+  "bot_ids": ["aave-pricefeed-ethereum"],
+  "injection_seen": false,
+  "notes": "Review e3f07d25 'detection fix required' addressed: bot.js now carries a bounded follow-up queue (followUp FOLLOWUP_MAX 400 / followUpScan, one targeted Multicall3 slice per 8 s cycle) so the SECOND HF<1 observation lands one block after the first instead of waiting the ~69-block round-robin revisit; sim cadence switched to blocks (healthy watch candidates 50 blocks, in-window underwater once per block, live executor sends throttled one per user per 10 min) and node bot.js --replay now runs the SAME scheduler at historical blocks (new replay_scheduler rows: wake nearScan at eligibility, followUpScan every block through the capture block, per_block sim decisions, send_lands_within_window). Live proof within 5 min of the restart: followup_ready rows with blocks_since_first=1 (second observation exactly one block after the first). Measured decision-block economics (replay): the confirmation block eligibility+1 sits at HF ~0.997-0.998, inside the 50 pct close factor (100 pct needs HF<=0.95, only at the capture block), so decision-block cover is HALF the incumbent capture cover; nets 0.70/0.82 USD for the 2/3-block captures (MIN_PROFIT_USD lowered 1.0->0.5, still above the measured gas bound) and 0.38 USD max for the cascade victim. The known paper-sim revert 0xb629b0e4 resolved in two parts: executor-runtime.hex was an OLD build (re-extracted from the current artifact deployed from the FORK_OWNER at the deterministic EXEC on the fork), and with the fresh runtime the executor/flash/callback/transfer frames all run and only the POOL-side custom error 0xb629b0e4 inside the LiquidationStrategy library (pool internal swap leg, receiveAToken=false) remains at the measured pre-capture blocks (trace scratch/trace-b629-v2.json) — open next step recorded in lead 17 next_steps (fork-prove receiveAToken=true + own swap). Fork lease held only for the scripted deploy+trace and released in the same session; README/manifest updated (follow-up section, decision-block EV, read cost)."
+}

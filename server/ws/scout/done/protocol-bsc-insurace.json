@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-insurace",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "insurace",
+ "name": "InsurAce",
+ "category": "Insurance",
+ "tvl_usd": 64630,
+ "url": "",
+ "github": [
+  "InsurAce-Protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b0a6163f5f434fe0bb51ecafd30a5915",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: StakersPoolV2 0xd50E...78eF + veINSUR 0x8937...D76d gate every non-onlyOwner fn (harvestRewards/settlePendingRewards/claimPayout/rebalancePools) behind SecurityMatrix 0xaa54d33d whitelist of 2 InsurAce contracts (fresh-EOA harvestRewards eth_call reverts 'allowedCaller'); INSUR reward epoch ended at block 50,137,134 vs head 135,296,246; 7d no-topic getLogs 133,953,500-135,296,246 (2026-11-16 to 11-23): 0 events on both pools, 3 INSUR Transfers all wallet-to-wallet (control, same call); gas 0.05 gwei ~0.03 USD/call (BNB 571.45, llama 15:40Z); INSUR unpriced on llama.",
+  "kb": [
+   "attempts:4148",
+   "protocols:2266"
+  ],
+  "run_id": "b0a6163f5f434fe0bb51ecafd30a5915",
+  "at": 1795448584
+ }
+}

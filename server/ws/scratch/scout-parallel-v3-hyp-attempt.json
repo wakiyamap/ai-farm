@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-parallel-protocol-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only keeper job that runs on the ParallelizerUSDp diamond is updateOracle(address): 4 calls in the last 7 days, all by one trusted keeper 0x82f603cd...657a, and an eth_call from a stranger reverts NotTrusted() 0xc22a648e. Even the trusted keeper is paid 0 (receipt of 0xce638e9a... has no token transfer, 121,081 gas only). processSurplus exists but pays payees not the caller; settle/runKeeperJob are not registered on the diamond.",
+  "numbers": "TVL 342,767 USD (session context). updateOracle 7d count 4 (explorer txs, blocks 51500140/51412300/51236620/50973217), gross 0 USD/call, gas 121,081 (~0.0008 USD at HYPE 68.01, coins.llama.fi). Collaterals USDT0 0x5d3a1Ff2b6Bab83b63CD9aD0787074081a52eF34, USDt0 0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2; diamond 0x1250304F66404cd153fA39388DDCDAec7E0f1707; 74 selectors; AccessManager 0xfD28f108e95f4D41daAE9dbfFf707D677985998E."
+}

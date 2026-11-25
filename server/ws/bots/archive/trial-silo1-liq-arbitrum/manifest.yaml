@@ -1,0 +1,63 @@
+id: trial-silo1-liq-arbitrum
+author: builder/claude-mythos-5-2
+chains:
+- arbitrum
+strategy: 'trial: Silo v1 flash liquidations on Arbitrum (the silo hands over an insolvent borrower''s whole collateral, the
+  executor sells just enough of it on Uniswap V3 to repay the whole debt and keeps the rest as ETH), checked every 30 s on
+  a timer'
+copied_from: EOA 0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3 through its executor 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd,
+  tx 0x05e65899e9ae2fbc48d82a746e2d3f1ab191c28c1919e979f78db81ee56421a1 (block 524,033,995, silo 0xa1cada48eb6be2247e35b3a0f152c255d015f256);
+  second operator EOA 0xfff88151d0db4a143e3d31f60ebe7ca866d04241 through 0x10d1b4a53ed2702632386adde9232b6b1bf39ae6, tx 0x06a3b92dd072995e2e386510f3c525da06006dcb4f82b4c5a440537336243677
+capital_usd: 10
+allowed_contracts: []
+send_route: public
+max_loss_per_tx_usd: 1
+max_loss_guarantee: Silo1LiqTake.sol:74 owner-only; lines 75-89 require zero initial WETH, a positive WETH gain of at least
+  minProfit, and zero WETH after unwrap; lines 135-140 revert if any other silo asset remains after the atomic sale. Approvals
+  are reset within each swap and repayment. bot.py:315-318 skips a silo if any asset has no WETH sale route; lines 325-349
+  estimate gas, cap the fee at 0.05 gwei and gas at 3.0m, refuse a cap of 0.90 USD or more at 5000 USD/ETH, and send only
+  if simulated gross exceeds the signed gas cap with minProfit=cap+1. No principal leaves the bot wallet. Priority fee is
+  1 wei/gas, less than 0.01 pct of gross.
+expected_value: 'Trial: send-measured win rate, no counted EV. Competition, 30 days to block 525,581,460 (scratch/trial-silo1-liq-arbitrum/competition.py
+  -> competition.json; Liquidate topic over all 61 silos = 5 logs in 2 txs, same-shape Borrow control = 104 logs): (1) 2026-11-09
+  block 522,482,164, operator 0xfff88151 via 0x10d1b4a5, silo 0xea996128, tx index 1, gas 2,478,484 at the base fee 0.0207
+  gwei, taken 1 block (1 s) after the borrower turned insolvent; (2) 2026-11-14 block 524,033,995, operator 0xd9fffdf0 via
+  0x5ac9bc14, silo 0xa1cada48, tx index 7, gas 1,022,667 at base fee + 1 wei, taken 166 blocks (42 s) after insolvency. Neither
+  paid a priority fee. The bot aims at cases like (2): at its parent block the bot''s own code finds the borrower and simulates
+  gain 9.53e13 wei (0.17 USD) against a signed cap of 4.13e13 wei and expected gas 2.1e13 wei, about 0.13 USD net; with a
+  30 s sweep it reaches such a case about 15 s after insolvency on average. Cadence is about one take per two weeks, so this
+  measures whether a slow keeper wins anything here; it does not earn. At head 15 of the 269 watched borrowers are insolvent
+  and none can be taken (bad debt: collateral does not cover the debt, or the silo lacks liquidity; scratch/trial-silo1-liq-arbitrum/dryrun-result.json).'
+executor: scratch/trial-silo1-liq-arbitrum/contracts/out/Silo1LiqTake.sol/Silo1LiqTake.json
+executor_args: '{bot}'
+executor_note: Constructor takes only bot owner. take(silo,user,weth,routes,minProfit) uses call-time targets. Silo.flashLiquidate
+  sends collateral and calls back; the callback accepts only the active silo, buys owed assets, repays debt, and sells every
+  other asset to WETH. Every approval is cleared in the same transaction. The callback reverts if any non-WETH silo asset
+  remains. take() requires zero initial WETH, checks positive gain, unwraps it, checks zero WETH and pays native ETH to the
+  bot wallet. Paper mode uses fresh artifact deployedBytecode with the immutable paper owner; live mode requires EXECUTOR_ADDR_ARBITRUM
+  or EXECUTOR_ADDR. The bot skips a silo if any asset has no WETH V3 route.
+fork_evidence: 'python3 scratch/trial-silo1-liq-arbitrum/proof.py 524033994 proof-fix-31c8c821.json (one lease, reset, deploy,
+  fund, guard, success, empty case, release). Parent block 524033994 of paid tx 0x05e65899e9ae2fbc48d82a746e2d3f1ab191c28c1919e979f78db81ee56421a1.
+  Fresh stranger revert 0x4e67f62e1a0c2ae9fbcbeb5bca7388605b3098fff40cc5cf00f3c515373e8285 (NotOwner); high-minProfit guard
+  revert 0xc5d6d05717f4c3460c4e8eace2bcad2967a676f30e8868032f03d4a34d0b5dbc (NoProfit); successful take 0x8cb14350d1ba1f45fabcfc7f448f1956abfc5cf934eecc0304207e60dd7b01b4
+  (owner native delta +5857352253371 wei net of 89475800000000 wei gas at the fork 0.1 gwei; gross 95333152253371 wei). After
+  success, executor native, WETH, USDC.e and third silo asset balances all zero; router and silo allowances for all three
+  assets zero. Borrower is solvent after. The second take 0x1770d379461c04f699817053fae03e59e581c6718fb08da18f43fad1457394d6
+  reverts NoProfit(0). Full receipt data: scratch/trial-silo1-liq-arbitrum/proof-fix-31c8c821.json.'
+awaited_events: 'A 30 s timer: one Multicall3 eth_call asks isSolvent for every watched borrower (269 with debt worth 0.0003
+  ETH or more, of 9,196 with any debt, in 30 of 61 silos). Last takes by others: 2026-11-14 (block 524,033,995) and 2026-11-09
+  (block 522,482,164). Next: unknown, about one per two weeks; more likely when ETH or a silo asset moves several percent
+  in a day.'
+good_signs: an insolvent row with a new pair followed by opportunity and paper_sim rows with gross_wei above cap_wei; live
+  send_result won with positive net_wei.
+bad_signs: No new insolvent pair in 14 days; every new case ends in simulate_revert (bad debt or no route); sends lost with
+  blocks_after_winner small; check_error or read_budget rows.
+rpc_reads_per_min: 2 (one Multicall3 eth_call per 30 s). Every 2 h three eth_getLogs for new borrowers; once a day about 125
+  eth_call to rebuild the watch list; a newly insolvent borrower adds about 10 calls (routes, estimate, two simulations).
+alchemy_cu_per_day: 'Sweep 2,880 x 26 = 74,880 CU; new-borrower logs 12 x 235 = 2,820 CU; daily watch rebuild 3,276 CU (measured,
+  dryrun-result.json); daily retry of the 15 standing bad-debt cases about 500 CU: about 81,500 relay CU per day = 0.043 USD
+  at 0.53 USD per million CU. Code cap 95,000 CU per day. No feed filter.'
+legal_note: Silo.flashLiquidate is the protocol's public liquidation entry (no modifier in the verified source); the liquidator
+  keeps the collateral above the repaid debt, which is the incentive the protocol intends. The bot reads confirmed state on
+  a timer, watches no pending transactions and moves no price.
+expedite: false

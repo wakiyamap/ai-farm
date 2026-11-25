@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "jpeg_trading",
+  "status": "dead_end",
+  "checked": "On Base the whole protocol is ONE Euler EVK vault: 0xcc639251bd612A0930990162c15227D1Ba996354 (BeaconProxy -> EVault impl 0x30a9a9654804f1e5b3291a86e83eded7cf281618, source euler-vault-kit, verified via Blockscout 2026-11-22). Sources: DefiLlama adapter projects/jpeg-trading/index.js (lists exactly this base address) and euler-labels 8453/products.json ('JPEG Trading x Yieldpoint', USDC lending market accepting Yieldpoint yUTY collateral, configured by JPEG Trading). Confirmed 2026-11-22: eth_getCode nonempty; name()='EVK Vault eUSDC-125'; asset()=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (Base USDC, 6 decimals); totalAssets()=28,000 USDC; totalBorrows()=26,535.62 USDC. Public entry points touch()/convertFees() callable by strangers, pay the caller nothing (EVK source); accumulatedFees()=0, feeReceiver()=0x0."
+}

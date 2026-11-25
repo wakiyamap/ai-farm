@@ -1,0 +1,6 @@
+{
+  "query": "query($lastId:String!){ Loan(limit:1000, where:{ id:{ _gt:$lastId } }, order_by:{ id: asc }){ id chainId borrowShares currentDebtStable currentCollateralSats liquidationTriggerCount totalCollateralLiquidated lastLiquidationTriggeredAt lastLiquidationTriggeredBy lastHealthCheckCR } }",
+  "variables": {
+    "lastId": "loan-8453-99"
+  }
+}

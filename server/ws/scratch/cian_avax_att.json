@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-cian-automation",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. CIAN Automation on avalanche = WalletFactory 0x15cbFF12...36d2A + 3,253 proxy wallets (ControllerLib: all functions onlyOwner/onlyAutomationOrOwner) + Automation 0x056c41b8...ffbae whose autoExecute* entrypoints are whitelist-gated by ERC2612Verifier (account must have signed a permit for the operator; stranger eth_call reverts, keeper returns true). Last 7 days: 166 txs to Automation, 100% from one CIAN keeper EOA 0x4a8e72d9442dd4d8da918b1759c6b3022c995895, and no call transfers anything to the caller on-chain (0 keeper-mentioning logs in sample receipts; source has no transfer to msg.sender), so even a permitted caller earns 0 gross.",
+  "numbers": "166 Automation txs in last 7d (Snowtrace txlist page of 1000 down to 2026-09-17, 2026-11-18): autoExecuteOnSubAccount 111, doFlashLoanOnSubAccount 55, all 166 from the same EOA; sample tx 0x3cdf3a80d9cf223c67a36612cf9ee2dcab7b6874516542d80cae5da482822eb9 gasUsed 1,000,000 @ 7.55 gwei = 0.00755 AVAX = $0.052 (AVAX $6.88 coins.llama.fi); gross to caller $0; TVL avax $582,141 (api.llama.fi); 3,253 accounts (data.cian.app)"
+}

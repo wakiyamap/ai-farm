@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-valantis-sthype-restaking",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 16,
+ "chain": "hyperevm",
+ "slug": "valantis-sthype-restaking",
+ "name": "Valantis stHYPE Restaking",
+ "category": "Restaking",
+ "tvl_usd": 8262409,
+ "url": "https://app.valantis.xyz",
+ "github": null,
+ "listed_days_ago": 16,
+ "run_id": "6d8114bd976e41458c7325f2e26dcea6",
+ "result": {
+  "verdict": "unpaid",
+  "line": "StakedHypeEscrow 0x0447d033...da0e: checkpointRewards() permissionless (fresh-EOA eth_call ok, 84,259 gas = bash.0006 at 0.1 gwei / HYPE $70 llama) but pays caller $0 (no transfer, undistributedRawShares=0) and 0 standalone calls in 7d (31 checkpoint events all inside op txs: 21 deposits, 6 wdRequests, 4x100 HYPE fundRewards role-only from 0x4eb038eb..531e10, 1 cancel, 1 execute-by-owner); all other entry points role-gated or pay stored owner only",
+  "kb": [
+   "attempts:1581",
+   "protocols:291"
+  ],
+  "run_id": "6d8114bd976e41458c7325f2e26dcea6",
+  "at": 1794890476
+ }
+}

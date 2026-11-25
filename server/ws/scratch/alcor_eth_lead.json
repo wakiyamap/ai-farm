@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "alcor_bridge withdrawals submitAndRelease",
+  "status": "measured",
+  "why": "Courier fee to msg.sender on Withdrawals 0xb0a50dd6d0be3bfc089e0f92fa4605bb495584cd (release 0x98e5d096 / submitAndRelease 0x3697c55a). 7d 2026-11-16..11-23: 24 releases, 7 fee-bearing paid $6.60 gross (5 USDT 6.3854 + 2 USDC 0.2197, prices 0.999/0.9999 coins.llama.fi @1795460949), every one collected by courier EOA 0x78cafec4468b74d08ddce1bfe8a8ed1bacc6245c (e.g. txs 0xebbdb8c6.. +2.6654 USDT, 0x6c71be92.. +1.6655 USDT); 17 fee=0 self-claims by recipient EOAs (0xaee8e293.. x13). Same address and mechanism the bsc leg closed as dead_end (leads:396, attempts:3687: cost-recovery fee, courier monopoly).",
+  "next_steps": "Contract 0xb0a50dd6d0be3bfc089e0f92fa4605bb495584cd, fn submitAndRelease(0x3697c55a) / release(0x98e5d096); 7d count 24 releases, 7 with fee; gross $6.60/7d; measured gas $0.08-3.13/call (7 receipts, 381988-1041714 gas, eff 0.11-1.77 gwei, ETH $1741.83) = $5.24 total; only 3 of 7 fee-bearing calls netted positive (best +$1.71); taking only fee>gas proofs nets ~+$2.8/week at 3 calls. Incumbent courier takes all fee-bearing proofs; bsc trial of the identical mechanism (attempts:3687) closed 'too small at any win rate' at $0.73/wk - ethereum is 9x that gross but 50-100x the gas. Proof payloads from GET telos.alcor.exchange/api/bridge/v1/proofs/w:<id>."
+}

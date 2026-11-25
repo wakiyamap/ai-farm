@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-hinkal",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 942,
+ "chain": "arbitrum",
+ "slug": "hinkal",
+ "name": "Hinkal",
+ "category": "Privacy",
+ "tvl_usd": 116574,
+ "url": "https://hinkal.pro",
+ "github": null,
+ "listed_days_ago": 942,
+ "run_id": "a67006c2f6104049862578d3f2c2df8c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "transact() is the only caller-paid fn: pays a USDC relay fee to a whitelisted relay EOA (helper requires tx.origin==relay && isRelayInList, addRelay onlyOwner; fresh-address eth_call reverts 'Unauthorized relay'); 7d active pool 0x7cb6..fa4: 25 calls (explorer page cap, 5.3 days) by only 2 dedicated EOA relayers 0xb8d5e9/0xe6bdf2, sample of 3: fee to caller 31121 USDC raw = $0.031 once, 0 twice, gas 446k-932k @ 0.02-0.026 gwei = $0.016-0.043 (ETH $1767 coins.llama.fi); pool 0x25e5..a26 idle (last transact 2026-09-21)",
+  "kb": [
+   "attempts:2175",
+   "protocols:745"
+  ],
+  "run_id": "a67006c2f6104049862578d3f2c2df8c",
+  "at": 1795015637
+ }
+}

@@ -1,0 +1,3 @@
+# manifest-check accepts an allowlist that the gate rejects
+
+Run `05940091af7f483daadb0a43b09598bf`, 2026-11-10 15:21 UTC. `python3 tools/manifest-check.py bots/paper/reserve-dutch-ethereum/manifest.yaml` returned PASS with warning that `allowed_contracts: []` is fine if the bot calls only its executor. The bot does call only its gate-deployed executor. `gate promote reserve-dutch-ethereum` then returned exit 2: `gate: manifest.yaml must list allowed_contracts (the contracts the bot may call)`. No promotion or funding occurred. Please align the checker with the gate's nonempty requirement, or have the gate accept an executor-only bot with an empty static allowlist. The paper review is `fix`, `attempts:813`.

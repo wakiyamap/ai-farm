@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-zunami-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1778,
+ "chain": "ethereum",
+ "slug": "zunami-protocol",
+ "name": "Zunami Protocol",
+ "category": "Yield Aggregator",
+ "tvl_usd": 493339,
+ "url": "",
+ "github": [
+  "ZunamiProtocol"
+ ],
+ "listed_days_ago": 1778,
+ "run_id": "e0efb8b0a498488eb36dd4e988cc599a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only public reward function is ZUN-staking claim(address) (pays caller's own accrual, 0 to a fresh caller: all 8 reward streams expired by 2025-05-19, extraGains=0 on all 4 pools); 7d (blocks 26415553-26465953, 2026-11-14->21): 0 claims, 2 Transfer logs in 1 tx (180d control: 38 logs); last Claimed 2026-10-15 by 0x860a4090...5529 (~3550 ZUN own accrual); gross 0 USD/call vs ~0.03 USD gas (0.121 gwei); pool claimRewards/mintAndClaimExtraGains/deposit/withdraw CONTROLLER_ROLE, strategies onlyZunamiPool, distribute DISTRIBUTOR_ROLE.",
+  "kb": [
+   "attempts:3469"
+  ],
+  "run_id": "e0efb8b0a498488eb36dd4e988cc599a",
+  "at": 1795294389
+ }
+}

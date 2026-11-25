@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "address": "0xd767473b74397fa9c1e7a2bdb210020c648a6836",
+ "strategy": "USD.ai (DefiLlama usd-ai) keeper engine: unverified contract (owner 0xc7b1c76e344cff744cdb9c94ad91392e997bb25b); 7-10 rotating fleet EOAs race fn 0x085c8c5e(address proxyWallet,bytes), ~1 succeeds per burst every 30-270 min; winner runs the user USDai proxy-wallet job (delivers PYUSD, repays USDaiFlashMinter 0x360e68fa, Curve USDai/USDC pool 0x52a5b1a8 swaps); contract collects ~2x10 USDC fee and pays fixed EOA 0xb666fd9b55572a3cf6d42b16fb550787670a000f exactly 8.03 USDC per job - the caller EOA receives nothing in-tx; 2-12 fills/day (ledger uniswapx.fill Fill events). Failed racers pay gas ~0.01 USD each (829k gas @ 0.02 gwei, $0.03 at ETH 1828.80 coins.llama.fi)",
+ "evidence": "0xb776c741657263c557a017282bad39401615bda7e9c5ba94de0cd1027f11e12c (caller 0x9572561ebe198566bba3b4e7c53f82ac27587431, gasUsed 829282, pays 0xb666fd9b 8.027477 USDC); 0x47a6f78e651baa48dbb6cc7a5d5a833466de7263d38faded13e79cbae921e91a (different caller 0x8d10551fbb0da1eadf34b25210fe75f278fa9321, same fixed payment 8.025872 USDC to 0xb666fd9b); explorer txs sample blocks 524759124-524843291 (6.5 h): 23 calls, ~90% FAILED, 1 success/burst; ledger actor_daily uniswapx dutch_order_fill n=2..12/day 2026-11-05..15",
+ "est_profit_usd_day": 55
+}

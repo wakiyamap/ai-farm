@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-metacoin-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1348,
+ "chain": "bsc",
+ "slug": "metacoin-swap",
+ "name": "MetaCoin Swap",
+ "category": "Dexs",
+ "tvl_usd": 40423,
+ "url": "",
+ "github": [
+  "MetacoinPlatform"
+ ],
+ "listed_days_ago": 1348,
+ "run_id": "3b7069342c7842bb84bd3f8842492c30",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: metacoin_swap exchange 0x1dd2...0820 + vault 0x1ac2...d366 on bsc (DefiLlama adapter); 32 selectors decoded, 26 resolved (4byte) - all user deposit/withdraw or admin, no claim/harvest/keeper fn; fresh-addr eth_call: exitWallet pays 0, clearWalletExit/redeem revert on own-wallet state; 7d (blocks 133867117@2026-11-16 -> 135209735@2026-11-23, no-topic getLogs, shape control): 3 logs / 2 txs, one EOA 0x2b9a...8294a withdrew own 0.00005 USDT + 9677.59 EPN, stranger paid: none; gas 0.002-0.004 USD; TVL 40,224 USD, deadUrl.",
+  "kb": [
+   "attempts:3985",
+   "protocols:2122"
+  ],
+  "run_id": "3b7069342c7842bb84bd3f8842492c30",
+  "at": 1795409793
+ }
+}

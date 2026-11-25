@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-ether-fi-stake",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1357,
+ "chain": "ethereum",
+ "slug": "ether.fi-stake",
+ "name": "ether.fi Stake",
+ "category": "Liquid Staking",
+ "tvl_usd": 3445676457,
+ "url": "https://www.ether.fi",
+ "github": null,
+ "listed_days_ago": 1357,
+ "run_id": "dc650e1a9c6e43eb906f9eb703f04bcb",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Stake engine on ethereum (LiquidityPool 0x308861..., 2.30M ETH) pays no keeper: fulfillRequests reverts OnlyOracleOperations, rebase/LP.withdraw revert IncorrectCaller (stranger eth_call); claims (WithdrawalNFT claimWithdraw, 25/25 txs 7d) pay the staker's own principal, 0 to caller; PriorityWithdrawalQueue dead - 0 logs/7d (control 462 on LP); LP 7d: 212 Deposit, 168 Withdraw, 40 Rebase, 40 ProtocolFeePaid (fee charged, not paid); gas 0.2095 gwei = bash.053/150k gas (ETH 1684.61 coins.llama.fi 2026-11-21 15:45Z)",
+  "kb": [
+   "attempts:3374",
+   "protocols:1682"
+  ],
+  "run_id": "dc650e1a9c6e43eb906f9eb703f04bcb",
+  "at": 1795276110
+ }
+}

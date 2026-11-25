@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-gmx-v1-evm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "gmx-v1-evm",
+ "name": "GMX V1 EVM",
+ "category": "Derivatives",
+ "tvl_usd": 1521024,
+ "url": "https://gmx.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "56e2d1309c03423091c09e75178a8a1a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Vault 0x9ab2De34A33fB459b538c43f251eB825645e8595 (DefiLlama gmx.js): stranger eth_call reverts 'Vault: invalid liquidator' (liquidatePosition, pays liquidationFeeUsd 5 USD), 'Vault: forbidden' (buy/sellUSDG, withdrawFees), 'swaps not enabled'; feeReserves 0 on all 6 tokens; 7d scan 100,147,722-100,813,020 (67 getLogs) = 69 logs, 14 user GLP redemptions, 0 LiquidatePosition (0 in six 10k windows back to 42d); only 9.5k USD longs left (guaranteedUsd WAVAX 8,698 + BTC.b 788); gas 0.05-0.08 USD/call (984k-1.0M gas at 7.5-11.25 gwei, AVAX 6.917 USD coins.llama.fi 1795125739)",
+  "kb": [
+   "attempts:2659",
+   "protocols:920"
+  ],
+  "run_id": "56e2d1309c03423091c09e75178a8a1a",
+  "at": 1795126114
+ }
+}

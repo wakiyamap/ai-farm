@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-krystal-auto-farm-vault",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Both contract families behind this listing are single-owner/operator vaults with no function that pays a caller. Auto-Farm Vaults (PrivateVaultFactory 0x99029ddf03de6446524f7ffa6585458b58dc1eee, 3211 vaults on bsc, 15 created in 7d): multicall is onlyAuthorized (owner|admin|whitelisted caller), deposits/sweeps onlyOwner - stranger eth_calls revert. Legacy share vaults: exit/rebalance/compound onlyRole(ADMIN_ROLE_HASH) and even the automator fee is paid to config.platformFeeRecipient, never msg.sender. 7d vault activity is entirely the owner EOA acting on its own vault.",
+  "numbers": "3211 autofarm vaults since block 74360617, 15 created last 7d (VaultCreated topic0 0x35853896..., eth_getLogs via relay); 4 vaults sampled, 2-6 logs each in 7d, all tx.from = owner 0x766ad2fc5d27472cf6d97c2f52bd5acaf093920c; legacy: 0 new vaults 7d (control 15 on autofarm factory), sampled legacy vault getTotalValue()=0 and 0 logs 7d; bsc gasPrice 0.05 gwei, BNB $592.22 (coins.llama.fi 2026-11-18) -> ~$0.006/200k gas; BSC TVL of listing $138.6k (api.llama.fi)",
+  "bot_id": null
+}

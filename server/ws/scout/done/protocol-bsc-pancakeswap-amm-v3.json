@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-pancakeswap-amm-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1323,
+ "chain": "bsc",
+ "slug": "pancakeswap-amm-v3",
+ "name": "PancakeSwap AMM V3",
+ "category": "Dexs",
+ "tvl_usd": 582593169,
+ "url": "https://pancakeswap.finance/swap",
+ "github": null,
+ "listed_days_ago": 1323,
+ "run_id": "484b5537420847fcadbec4960772dcb5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Pancake V3 core on bsc (factory 0x0BFbCF..1865 live: getter feeAmountTickSpacing(500)=10, PoolCreated 2 logs/4k blocks) has no permissionless caller-paid fn: pool/NFPM collect pay the LP, factory collectProtocol is onlyOwner; Collect event 0 logs/~4k blocks at head (KB 216: 0/50k blocks; same-run control USDT Transfer 7175 logs/100 blocks); farm side = KB 203 (harvest owner-gated). No per-call gross/gas.",
+  "kb": [
+   "protocols:869",
+   "attempts:2325"
+  ],
+  "run_id": "484b5537420847fcadbec4960772dcb5",
+  "at": 1795052815
+ }
+}

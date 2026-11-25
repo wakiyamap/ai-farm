@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-tokenworks",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 406,
+ "chain": "ethereum",
+ "slug": "tokenworks",
+ "name": "TokenWorks",
+ "category": "NFT Automated Strategies",
+ "tvl_usd": 1904417,
+ "url": "https://www.nftstrategy.fun/",
+ "github": null,
+ "listed_days_ago": 406,
+ "run_id": "59e08b742937401782b823dbc6a51ec2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "processTokenTwap (6 strategies + factory, anyone-callable, pays caller 0.5% of burn in ETH) but pots are dust: ethToTwap 7-9 wei on all strategies, factory 0.00034 ETH; 7d no-topic scan: 10 NFTSoldByProtocol totaling ~77 wei, sole caller is one keeper bot (0xa8b3ce28 via relayer 0xe7adf436) paid 0 ETH in sample trace 0x50247ddd; gas 234,515 est = .2 at 5.83 gwei, ETH 593.46 (coins.llama.fi ts 1795202112).",
+  "kb": [
+   "attempts:3025",
+   "protocols:1418"
+  ],
+  "run_id": "59e08b742937401782b823dbc6a51ec2",
+  "at": 1795202813
+ }
+}

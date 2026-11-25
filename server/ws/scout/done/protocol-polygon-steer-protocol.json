@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-steer-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1266,
+ "chain": "polygon",
+ "slug": "steer-protocol",
+ "name": "Steer Protocol",
+ "category": "Liquidity Manager",
+ "tvl_usd": 141283,
+ "url": "https://app.steer.finance",
+ "github": null,
+ "listed_days_ago": 1266,
+ "run_id": "c418fb5392fe4c1780b5f3e4537ecb68",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only keeper fn on the active v2 vaults is Orchestrator 0x76c9557c63ecfb3a3215a9e7fda9245b672f521a executeAction: 7d = 40 executions by 2 bonded keeper EOAs (0x7aaeafe6..., 0xba2e8941...), gross = GasVault reimbursement 12.88 POL (~$1.05, sample of 5 of 40) which exactly equals keeper gas cost (0.31-0.41 POL = $0.025-0.033/run), rewardPerAction()=0; fresh-address eth_call reverts NOT_A_KEEPER (5 USDC bond at KeeperRegistry 0x40402363fd11729183108b10dc96776675229ae7); v3 executeJob dormant since 2025-11-27.",
+  "kb": [
+   "attempts:2300",
+   "protocols:846"
+  ],
+  "run_id": "c418fb5392fe4c1780b5f3e4537ecb68",
+  "at": 1795047322
+ }
+}

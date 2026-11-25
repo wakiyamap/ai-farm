@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-vaultcraft",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1632,
+ "chain": "arbitrum",
+ "slug": "vaultcraft",
+ "name": "VaultCraft",
+ "category": "Yield",
+ "tvl_usd": 512641,
+ "url": "https://vaultcraft.io/",
+ "github": [
+  "Popcorn-Limited"
+ ],
+ "listed_days_ago": 1632,
+ "run_id": "319e77a297214518bbc5789de1ece2a0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "17 vaults (12 defi-db + 5 registry 0x25172C73...2219); TVL $512k is 511,964 FRAX in 0xf10878bc (Popcorn StakingVault); open functions claim(address)/claimProtocolFees()/takeFees()/fulfillRedeem() pay the user arg or fixed recipient, not the caller, and distributeRewards pulls tokens from the caller; 0 Claimed/DistributeRewards and 0 Transfer on all 17 vaults in 7d (blocks 523,283,830-525,583,830; control 11,808 USDC Transfers/4k blocks); pot empty (protocolFees=[], accruedRewards=[]); dormant since 2025-07-09 (last claim paid 0, 55,465 gas ~ $0.003), last distributeRewards 2023-12-26.",
+  "kb": [
+   "attempts:2479"
+  ],
+  "run_id": "319e77a297214518bbc5789de1ece2a0",
+  "at": 1795083313
+ }
+}

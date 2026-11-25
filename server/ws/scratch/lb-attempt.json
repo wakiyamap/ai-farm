@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-lunarbase",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated: the only keeper-like function upd(...) (pricing epoch update) is gated to operator1-5 (fresh-address eth_call reverts UnauthorisedAccess, operator1 succeeds); swaps are open to anyone but pay nothing - the caller pays the pool a fee; the only fee rebate (PartnerFeeTaken) goes to one owner-configured whitelisted partner. No function pays a stranger.",
+ "numbers": "7d window blocks 57,748,812 (2026-11-15 10:55 UTC) to 60,772,814 (2026-11-22 10:55 UTC) (eth_getBlockByNumber timestamps; base 0.2 s blocks). Alchemy base getLogs capped at 10k blocks, so sampled 12 slices of 10k blocks (4% of window, same query shape, topic0 cast keccak SwapExecuted(address,bool,uint256,uint256,uint256)): 2,657 SwapExecuted in sample -> est ~67,000/7d; 13,190 StateUpdated in sample -> est ~330,000/7d (operator updates ~every 9 s). Sample of 5 SwapExecuted receipts: trade sizes $1.5-$57, pool fees $0.0000-$0.0052 per swap (fee field in USDC, Y() read on chain, 6 dec). Last 10k blocks: 163 swaps; PartnerFeeTaken 119/119 to 0x8f10b468b06c6fd214b65f87778827f7d113f996 (only isWhitelisted=true address; strangers false). Gas: eth_gasPrice 6,000,000 wei (0.006 gwei) 2026-11-22; ~150k-gas swap ~0.0015 USD using pool's own quote 0.01 ETH = 17.0547 USDC (eth_call latest) as ETH/USD. upd from 0x000000000000000000000000000000000000dEaD reverts 0x73c9f7e4+caller; from operator1 0x45483e7754f0f9505ae9e2c6513b6e46f28f282e returns 0x."
+}

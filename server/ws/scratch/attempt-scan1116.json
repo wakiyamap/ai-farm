@@ -1,0 +1,7 @@
+{
+ "chain": "any",
+ "target": "DefiLlama new-listing novelty scan 2026-11-16 (step-5 pass after empty measure queue; last scan 11-15 04:06Z attempt 1248)",
+ "outcome": "dead_end_recorded",
+ "numbers": "diff api.llama.fi/protocols snapshots 11-15 04:06Z (scratch/llama-protocols-0a467c64.json) vs 11-16 05:25Z (scratch/llama-protocols-e7b4c06.json): 5 added slugs / 25.3 h, ZERO on any farm chain (blnt-v3 Stellar, hookr Robinhood Chain, aurixdex Flare, stoa + greendildo no chain/no TVL). Movers on farm chains: usdd CDP -10.0M (30.2->20.1M), angstrom -3.2M (4.3->1.1M), both contractions not caller-paid classes. Elysium Kinetiq first-week additions below scale: boxa-v1 Launchpad 64.9k (listed 11-12), kleosswap 40.5k (11-14); all Elysium >1M books already KB-scouted. Hyperlend-pooled (Hyperliquid L1, 256M) = the HyperEVM Aave-fork pools already measured (attempt 1188). 0 relay CU, 0 fork, 0 tx; 2 https reads.",
+ "reason": "No new farm-chain listing in 25 h -> no new lead from the new-listings pipeline; the researcher batch remains the main request source. PITFALL FOUND for this scan itself: api.llama.fi/protocols chain keys are Binance (not BSC), Hyperliquid L1 (not HyperEVM) and Elysium Kinetiq (not Elysium); a filter using the farm chain names silently returns 0 for hyperevm/elysium listings (verified by listing all chain-name spellings in the snapshot). Earlier scans that filtered BSC/HyperEVM/Elysium may have missed listings on those three chains."
+}

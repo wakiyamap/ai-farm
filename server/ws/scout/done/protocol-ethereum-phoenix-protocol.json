@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-phoenix-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 219,
+ "chain": "ethereum",
+ "slug": "phoenix-protocol",
+ "name": "Phoenix Protocol",
+ "category": "Yield Aggregator",
+ "tvl_usd": 42408,
+ "url": "https://phusd.behodler.io",
+ "github": null,
+ "listed_days_ago": 219,
+ "run_id": "ffbd05cc73b74a359f649cce718c8e51",
+ "result": {
+  "verdict": "unpaid",
+  "line": "SYAHarvester 0xbB0D5e0C...0F7E3 harvest(address[],uint256,uint256) is public (fresh-address eth_call pays msg.sender 0.000156 ETH = 0.27 USD) but 0 calls in 7 d (4 lifetime txs, all owner config on 2026-11-09 deploy day, explorer txs); gas 2,373,386 = 0.89 USD at 0.2185 gwei exceeds the pot, which grows only ~0.062 USD/day (1% discount on ~42k TVL surplus) -> harvest is Unprofitable-reverted today, crosses gas about every ~11 days, nobody takes it.",
+  "kb": [
+   "attempts:4203",
+   "protocols:2320"
+  ],
+  "run_id": "ffbd05cc73b74a359f649cce718c8e51",
+  "at": 1795464150
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-ambit-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only function anyone could earn on is MarketLiquidation.liquidate (discount to the caller); from a fresh EOA it reverts Authorization_NotAuthorized(caller) and getAuthorized() lists exactly one address 0xeA83BF408Ce75E149714eF68FB9B9BAeF01e615a, so a stranger cannot take it. The whole protocol is also dormant: 0 logs on MarketLiquidation and 0 on the registry-resolved Market over the last 7 days.",
+  "numbers": "7d window blocks 0x7fa06b2 (2026-11-16 ~00:00 UTC, ts checked) to 0x80e6b66..135171726 (2026-11-23 00:03 UTC, ts checked; bsc ~0.45 s blocks, 806400 blocks = 4.2 d so window taken at 1.34M blocks). eth_getLogs no-topic scan: MarketLiquidation 0x8e452EF...4869d 0 logs, Market 0x6A8F71e...d231 0 logs; control same shape USDT 0x55d3983...97955 over 100-9000 blocks returns logs (response-size errors = non-empty, not a silent []). liquidate(address,uint256) sel 0xbcbaf487 from 0x000...099 reverts 0xcf0838f6 Authorization_NotAuthorized(address) (openchain); getAuthorized() -> [0xeA83BF408Ce75E149714eF68FB9B9BAeF01e615a]. Registry getter eth_call 0x38bc01b5 answered. TVL 53,499 USD, borrowed via depositorVault.getLiabilities(market) (llama adapter), category Lending. Gas: no sample calls exist to measure; BSC liquidation would cost ~300-500k gas at 0.1 gwei (~0.02-0.04 USD at BNB ~55-65 USD, coins.llama.fi today, unpriced detail left as estimate)."
+}

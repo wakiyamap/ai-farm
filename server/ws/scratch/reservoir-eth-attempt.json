@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-reservoir-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The ethereum CDP core (CreditEnforcer, PSM x3, SavingModule, DAM, RusdMintBridge, verified source on explorer) has no callable function that pays the caller: every external fn is a 1:1 user swap (mint rUSD against USDC, redeem rUSD for USDC) and the protocol keeps adapter yield; no liquidate/auction/reward/claim/poke exists in the source. Activity is near-zero anyway, so no stranger was paid in 7 days.",
+  "numbers": "rUSD 0x09D4214C... totalSupply 225136e18 (eth_call latest, block at 2026-11-21). CreditEnforcer 0x04716DB6...: last tx block 26409199 ts 1794610883 (2026-11-14) via explorer txs; 7d window start ts 1794627268 (now 1795232068 minus 604800) -> 0 calls last 7d; historical callers are users (0x3185e080abf6d491d51376bba1a6b63cb5553d5c, 0xb16fbe532574da9dfddd1accb42b2fe065598ff5, ...) calling mintStablecoin(uint256). PSM source has no fee lines; SM.update onlyRole(MANAGER). Gross per call to a stranger: 0 (no reward fn to call). Gas: n/a, nothing to send. DefiLlama ethereum TVL 430254 USD (candidate). Sources: docs.reservoir.xyz address page; explorer source trees scratch/reservoir-{dam,ce,psm,sm,bridge}."
+}

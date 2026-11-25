@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "lybra_v2",
+  "status": "measured",
+  "checked": "DefiLlama lybra-v2 TVL adapter path returned 404 and protocol API has no GitHub or URL. DefiLlama fee adapter fees/lybra-v2.ts identifies vault 0xa980d4c0C2E48d305b582AA439a3575e3de06f0E. Explorer verified LybraStETHVault source; eth_getCode nonempty, getAsset() returned stETH 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84, configurator() returned 0xc8353594eeedc5ce5a4544d3d9907b694c4690ff, and its getEUSDAddress() returned eUSD 0xdf3ac4f479375802a821f7b7b46cd7eb5e4262cc. Verified source shows public excessIncomeDistribution(uint256), liquidation, superLiquidation, and rigidRedemption. 7-day no-topic eth_getLogs scan of vault blocks 26430151-26480394 (2026-11-16 21:02:11 to 2026-11-23 21:02:11 UTC) returned 16 logs: seven LSDValueCaptured, seven FeeDistribution, one LiquidationRecord, one other event; no RigidRedemption. Fresh-address eth_call of excessIncomeDistribution(1) reverted for no current LSD excess, not role. One liquidation had keeperReward zero. Fee adapter: https://github.com/DefiLlama/dimension-adapters/blob/master/fees/lybra-v2.ts; verified explorer source: https://etherscan.io/address/0xa980d4c0c2e48d305b582aa439a3575e3de06f0E#code. Coverage is this evidenced stETH vault; other V2 vaults were not enumerated because the TVL adapter is gone."
+}

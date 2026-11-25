@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-tristero-margin",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 226,
+ "chain": "ethereum",
+ "slug": "tristero-margin",
+ "name": "Tristero Margin",
+ "category": "Derivatives",
+ "tvl_usd": 97949,
+ "url": "https://www.tristero.com/",
+ "github": null,
+ "listed_days_ago": 226,
+ "run_id": "b76df09bb85e4ef0ba009fbf8a9ce9b6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only keeper-ish fn is Escrow(0xe400000df2..).liquidate(uint128,bytes), gated to the filler NFT owner (no bonus: caller gets seized collateral minus protocol fee); Vault(0xB49781E8..) is deposit/withdraw + onlyOwner setters; 0 events on both in 7d (blocks 26429780-26480023 from timestamps, no-topic scan, control USDC 1695 logs/16 blocks); last escrow tx 2026-06-05 = liquidate(17) paying filler 0.012005 WBTC (~738 USD collateral, not profit); gas 184,501 @0.2105 gwei = 0.067 USD; totalPositions 18, vault getTVOL 125,237 AUSD (unpriced peg)",
+  "kb": [
+   "attempts:4204"
+  ],
+  "run_id": "b76df09bb85e4ef0ba009fbf8a9ce9b6",
+  "at": 1795464276
+ }
+}

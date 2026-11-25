@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-hinkal",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 946,
+ "chain": "ethereum",
+ "slug": "hinkal",
+ "name": "Hinkal",
+ "category": "Privacy",
+ "tvl_usd": 132108,
+ "url": "https://hinkal.pro",
+ "github": null,
+ "listed_days_ago": 946,
+ "run_id": "7a20348540e944639a6172068c9a324e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only caller-paid fn on the active pool 0x7cb60446... is transact() (USDC relay fee); eth_call from a fresh address reverts 'Unauthorized relay' (centrally whitelisted relayers). 7d (blocks 26413586 2026-11-14 -> 26463844 2026-11-21): 143 pool txs (~20/day, no-topic getLogs scan), 2 relayer EOAs 0xe6bdf21e/0xb8d5e90d received 34 USDC transfers = 1,128 USDC; best sample fee 249.667 USDC (0.25% of a 99,750 USDC op, 0x7272f272) vs gas 1,085,780 @ 0.1734 gwei = $0.32 (ETH $1697.20 coins.llama.fi 1795268715); 2 of 3 sampled calls paid the caller 0; second pool 0x25e5e82f idle since 2026-09-21.",
+  "kb": [
+   "attempts:3338",
+   "protocols:1655"
+  ],
+  "run_id": "7a20348540e944639a6172068c9a324e",
+  "at": 1795269321
+ }
+}

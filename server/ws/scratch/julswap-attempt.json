@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-julswap",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. UniV2 (BSCswap) fork tracked via factory 0x553990F2CBA90272390f62C5BDb1681fFc899675 (Sourcify-verified 'BSCswapFactory'); factory ABI has only owner setters (setFeeTo/setFeeToSetter) and the repo router (julswap/julswap-contract BSCswapRouter.sol) is a standard Router02 - every callable function pays its own caller (LP/swapper), no keeper/bounty function anyone can call for payment. DEX is dormant on top of that.",
+ "numbers": "TVL $311k (api.llama.fi 2026-11-19); volume $340/24h, $3,379/7d, $14,959/30d (api.llama.fi/summary/dexs/julswap); factory allPairsLength=1046 (eth_call block 134,435,001); Swap events on JUL/WBNB pair 0x0c8f9a56544cc988f1873a038de2f3e4c6fe6f27: 0 in 2x5,000-block windows (recent + 3d ago), control WBNB Transfer 3,208 logs/218 blocks same run; LP fee take 7d at 0.25% ≈ $8 gross across all pools."
+}

@@ -1,0 +1,370 @@
+{
+  "proxyAdmin": "0x5379F32C8D5F663EACb61eeF63F722950294f452",
+  "nativeRelayer": "0xE1D2CA01bc88F325fF7266DD2165944f3CAf0D3D",
+  "timelock": "0x2D5408f2287BF9F9B05404794459a846651D0a59",
+  "opMultiSig": "0x18F59e8dDDef9e000863082a37fc56a2a5475D01",
+  "usdPlaceholder": "0x115dffFFfffffffffFFFffffFFffFfFfFFFFfFff",
+  "tokens": {
+    "ada": "0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47",
+    "alpaca": "0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F",
+    "btcb": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+    "busd": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+    "cake": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    "dodo": "0x67ee3Cb086F8a16f34beE3ca72FAD36F7Db929e2",
+    "doge": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
+    "dot": "0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402",
+    "eth": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+    "high": "0x5f4Bde007Dc06b867f86EBFE4802e34A1fFEEd63",
+    "ltc": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94",
+    "matic": "0xCC42724C6683B7E57334c4E856f4c9965ED682bD",
+    "the": "0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11",
+    "tusd": "0x14016E85a25aeb13065688cAFB43044C2ef86784",
+    "usdt": "0x55d398326f99059fF775485246999027B3197955",
+    "usdc": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "wbnb": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "xrp": "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE"
+  },
+  "oracle": {
+    "alpacaV2Oracle": "0x0Ece0910fCB2838Fbfd6bC01da17F1E96ae1D812",
+    "alpacaV2Oracle02": "0xB265D1b4eb6Fc969B7C23eBa3A2d661C4c09E143",
+    "chainlinkOracle": "0x634902128543b25265da350e2d961C7ff540fC71",
+    "oracleMedianizer": "0x553b8adc2Ac16491Ec57239BeA7191719a2B880c",
+    "simpleOracle": "0x166f56F2EDa9817cAB77118AE4FCAA0002A17eC7"
+  },
+  "sharedConfig": {
+    "fixFeeModel500Bps": "0x5c40022195b143c63E8E49d0a1f26C164799fBB6",
+    "doubleSlope1": "0xe44bDd3f0b69f2c294A0250825BCF31eE3af4314",
+    "doubleSlope2": "0x89c53B34b5E6A1D0b2922941749e9Ee05ce58b42",
+    "doubleSlope3": "0x4132392C57B9D2DE1BA393A03f23Fcb880Bf8EE1"
+  },
+  "sharedStrategies": {
+    "pancakeswap": {
+      "strategyLiquidate": "",
+      "strategyLiquidateIb": "0xa70bc3Ef35382f1222A75fBA9BDD413a9F21Ab7b",
+      "strategyLiquidateIbV3": "0x980d31235aFfAad592f59b21B0c49B932E7a68A0"
+    }
+  },
+  "yieldSources": {
+    "pancakeSwap": {
+      "routerV2": "0x10ED43C718714eb63d5aA57B78B54704E256024E",
+      "routerV3": "0x1b81D678ffb9C0263b24A97847620C99d213eB14",
+      "factoryV3": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+    }
+  },
+  "moneyMarket": {
+    "moneyMarketDiamond": "0x7389aaf2e32872cABD766D0CEB384220e8F2A590",
+    "facets": {
+      "adminFacet": "0x7232A9E4C156d5828B5660353fBe5e6bE7F9d674",
+      "borrowFacet": "0xdE6F41147Ab3749d1f8E82d267A1FfD8e7599A5D",
+      "collateralFacet": "0x8cE125c65605f937AE16645a3642d3A335852936",
+      "diamondCutFacet": "0x2E28CbF8995969d4ea1F03FfB6f25dab8afEE45C",
+      "diamondLoupeFacet": "0xaDB5Be7b114Ca6721e00778F97e615B85D095952",
+      "flashloanFacet": "0xC934E6332f3af8B27da447eDa0273bd3867efAF2",
+      "lendFacet": "0x0d8AE68ee3eE728Ed7AE9E99Edc10f2cfc3959b1",
+      "liquidationFacet": "0x891D268a3Adc285BAa1A8d8704167A865e76446f",
+      "nonCollatBorrowFacet": "0xF22133299081534780777D1504A6B38955195b03",
+      "ownershipFacet": "0x09E6Fb57dfB952D44D915a335c29A7F485Df4CDE",
+      "viewFacet": "0xD53DEeFe0d1F5f0e2476044bdDfC399e50032345"
+    },
+    "interestBearingTokenImplementation": "0x7f5EfBA7Fc83B69445Bbc704A2C5a03c66550425",
+    "debtTokenImplementation": "0xbAdedB738a08fe68b7a1c0038F64D62656D0d5D7",
+    "markets": [
+      {
+        "name": "WBNB",
+        "tier": "COLLATERAL",
+        "token": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+        "ibToken": "0x2928623eFF453Fb8C9BC744041637a4D2D5Fc56b",
+        "debtToken": "0x855894fe37CFaeE188A1acCc5dd4b38d504F09E9",
+        "interestModel": "0xe44bDd3f0b69f2c294A0250825BCF31eE3af4314"
+      },
+      {
+        "name": "USDC",
+        "tier": "COLLATERAL",
+        "token": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+        "ibToken": "0x547593f6aFa897bb05828FBb8D587Ca31D9fF519",
+        "debtToken": "0x049C15F84850FC0d76eFe3b0940a44fC3edD6e2E",
+        "interestModel": "0x4132392C57B9D2DE1BA393A03f23Fcb880Bf8EE1"
+      },
+      {
+        "name": "USDT",
+        "tier": "COLLATERAL",
+        "token": "0x55d398326f99059fF775485246999027B3197955",
+        "ibToken": "0x90476BFEF61F190b54a439E2E98f8E43Fb9b4a45",
+        "debtToken": "0xd9D0a0B8B9dc0f845797B678F00c6d7FAD577B56",
+        "interestModel": "0x4132392C57B9D2DE1BA393A03f23Fcb880Bf8EE1"
+      },
+      {
+        "name": "BUSD",
+        "tier": "COLLATERAL",
+        "token": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+        "ibToken": "0x3f38BA29AcC107E6F0b059a17c9bAb0598d0f249",
+        "debtToken": "0x7ffbcda33cD2F7812f9Da4c1189E745379F95B79",
+        "interestModel": "0x4132392C57B9D2DE1BA393A03f23Fcb880Bf8EE1"
+      },
+      {
+        "name": "BTCB",
+        "tier": "COLLATERAL",
+        "token": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+        "ibToken": "0x6C9Cb3739d6B390A4BAcc4D5F0a2629cF5c383B3",
+        "debtToken": "0x457a325E5c63aE73F684d9477826e07F56da749B",
+        "interestModel": "0x89c53B34b5E6A1D0b2922941749e9Ee05ce58b42"
+      },
+      {
+        "name": "ETH",
+        "tier": "COLLATERAL",
+        "token": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+        "ibToken": "0x0A4FE32De91bE99a3EFAC80F6576976293B95369",
+        "debtToken": "0x57496afdB38A0da228046c93695778c757075dEa",
+        "interestModel": "0x89c53B34b5E6A1D0b2922941749e9Ee05ce58b42"
+      },
+      {
+        "name": "HIGH",
+        "tier": "CROSS",
+        "token": "0x5f4Bde007Dc06b867f86EBFE4802e34A1fFEEd63",
+        "ibToken": "0x0c9E2653B17b60E9aD9465D1cF478bD6d76a03F0",
+        "debtToken": "0xeB27c21EBA6765608681ec96B0d9F697726884DA",
+        "interestModel": "0xe44bDd3f0b69f2c294A0250825BCF31eE3af4314"
+      },
+      {
+        "name": "Cake",
+        "tier": "COLLATERAL",
+        "token": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+        "ibToken": "0x848204278E491f5f15B3F2dce593e6af9552b372",
+        "debtToken": "0xE0ECA72bEe09695C82d9DD5422267270495eA0c2",
+        "interestModel": "0xe44bDd3f0b69f2c294A0250825BCF31eE3af4314"
+      },
+      {
+        "name": "XRP",
+        "tier": "COLLATERAL",
+        "token": "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE",
+        "ibToken": "0xACb41b8bddF67727F07bf375b01edC40Ed51c4ff",
+        "debtToken": "0x9c04F5D68fc754D79fBCAc8fC56469C0264F85DC",
+        "interestModel": "0x89c53B34b5E6A1D0b2922941749e9Ee05ce58b42"
+      },
+      {
+        "name": "DOGE",
+        "tier": "COLLATERAL",
+        "token": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
+        "ibToken": "0x72Ad41ecf9C6C1171F19FaCCBA2b347D64AFe57f",
+        "debtToken": "0xBda539AFD66fEE61499B22769E4e413dc158f271",
+        "interestModel": "0xe44bDd3f0b69f2c294A0250825BCF31eE3af4314"
+      },
+      {
+        "name": "LTC",
+        "tier": "COLLATERAL",
+        "token": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94",
+        "ibToken": "0x42b2D846785636CfB393b5EC48C6581f47c37EC3",
+        "debtToken": "0x22c583069619eA08F260758E34Bc525B5833d11b",
+        "interestModel": "0xe44bDd3f0b69f2c294A0250825BCF31eE3af4314"
+      },
+      {
+        "name": "THE",
+        "tier": "ISOLATE",
+        "token": "0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11",
+        "ibToken": "0x91E3A9B3f5a2c02Dd5cd40733fe4d52a87A213d9",
+        "debtToken": "0x2C8A7592828007eF33D87B49732F174D9A0b6759",
+        "interestModel": "0xe44bDd3f0b69f2c294A0250825BCF31eE3af4314"
+      }
+    ],
+    "accountManager": {
+      "implementation": "0x456b43F8D71cA6666ca5eC848254D6E0A076Bc4e",
+      "proxy": "0xD20B887654dB8dC476007bdca83d22Fa51e93407"
+    },
+    "repurchaser": "0x40d48e2fe8a9f65b114fd85489fda955dfe86c35"
+  },
+  "miniFL": {
+    "implementation": "0x15474B03710187eB9de4401d99E75680eD240b27",
+    "proxy": "0x4579587AE043131999cE3d9C66199726972E3Fb7",
+    "pools": [
+      {
+        "id": 1,
+        "name": "ibWBNB",
+        "stakingToken": "0x2928623eFF453Fb8C9BC744041637a4D2D5Fc56b",
+        "rewarders": []
+      },
+      {
+        "id": 2,
+        "name": "debtWBNB",
+        "stakingToken": "0x855894fe37CFaeE188A1acCc5dd4b38d504F09E9",
+        "rewarders": []
+      },
+      {
+        "id": 3,
+        "name": "ibUSDC",
+        "stakingToken": "0x547593f6aFa897bb05828FBb8D587Ca31D9fF519",
+        "rewarders": []
+      },
+      {
+        "id": 4,
+        "name": "debtUSDC",
+        "stakingToken": "0x049C15F84850FC0d76eFe3b0940a44fC3edD6e2E",
+        "rewarders": []
+      },
+      {
+        "id": 5,
+        "name": "ibUSDT",
+        "stakingToken": "0x90476BFEF61F190b54a439E2E98f8E43Fb9b4a45",
+        "rewarders": []
+      },
+      {
+        "id": 6,
+        "name": "debtUSDT",
+        "stakingToken": "0xd9D0a0B8B9dc0f845797B678F00c6d7FAD577B56",
+        "rewarders": []
+      },
+      {
+        "id": 7,
+        "name": "ibBUSD",
+        "stakingToken": "0x3f38BA29AcC107E6F0b059a17c9bAb0598d0f249",
+        "rewarders": []
+      },
+      {
+        "id": 8,
+        "name": "debtBUSD",
+        "stakingToken": "0x7ffbcda33cD2F7812f9Da4c1189E745379F95B79",
+        "rewarders": []
+      },
+      {
+        "id": 9,
+        "name": "ibBTCB",
+        "stakingToken": "0x6C9Cb3739d6B390A4BAcc4D5F0a2629cF5c383B3",
+        "rewarders": []
+      },
+      {
+        "id": 10,
+        "name": "debtBTCB",
+        "stakingToken": "0x457a325E5c63aE73F684d9477826e07F56da749B",
+        "rewarders": []
+      },
+      {
+        "id": 11,
+        "name": "ibETH",
+        "stakingToken": "0x0A4FE32De91bE99a3EFAC80F6576976293B95369",
+        "rewarders": []
+      },
+      {
+        "id": 12,
+        "name": "debtETH",
+        "stakingToken": "0x57496afdB38A0da228046c93695778c757075dEa",
+        "rewarders": []
+      },
+      {
+        "id": 13,
+        "name": "ibHIGH",
+        "stakingToken": "0x0c9E2653B17b60E9aD9465D1cF478bD6d76a03F0",
+        "rewarders": [
+          {
+            "name": "high",
+            "address": "0x527c87bDBEB012f9f27A75dC3D5CC3F0Dd51B3bB",
+            "rewardToken": "0x5f4Bde007Dc06b867f86EBFE4802e34A1fFEEd63"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "name": "debtHIGH",
+        "stakingToken": "0xeB27c21EBA6765608681ec96B0d9F697726884DA",
+        "rewarders": [
+          {
+            "name": "high",
+            "address": "0x527c87bDBEB012f9f27A75dC3D5CC3F0Dd51B3bB",
+            "rewardToken": "0x5f4Bde007Dc06b867f86EBFE4802e34A1fFEEd63"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "name": "ibCake",
+        "stakingToken": "0x848204278E491f5f15B3F2dce593e6af9552b372",
+        "rewarders": []
+      },
+      {
+        "id": 16,
+        "name": "debtCake",
+        "stakingToken": "0xE0ECA72bEe09695C82d9DD5422267270495eA0c2",
+        "rewarders": []
+      },
+      {
+        "id": 17,
+        "name": "ibXRP",
+        "stakingToken": "0xACb41b8bddF67727F07bf375b01edC40Ed51c4ff",
+        "rewarders": []
+      },
+      {
+        "id": 18,
+        "name": "debtXRP",
+        "stakingToken": "0x9c04F5D68fc754D79fBCAc8fC56469C0264F85DC",
+        "rewarders": []
+      },
+      {
+        "id": 19,
+        "name": "ibDOGE",
+        "stakingToken": "0x72Ad41ecf9C6C1171F19FaCCBA2b347D64AFe57f",
+        "rewarders": []
+      },
+      {
+        "id": 20,
+        "name": "debtDOGE",
+        "stakingToken": "0xBda539AFD66fEE61499B22769E4e413dc158f271",
+        "rewarders": []
+      },
+      {
+        "id": 21,
+        "name": "ibLTC",
+        "stakingToken": "0x42b2D846785636CfB393b5EC48C6581f47c37EC3",
+        "rewarders": []
+      },
+      {
+        "id": 22,
+        "name": "debtLTC",
+        "stakingToken": "0x22c583069619eA08F260758E34Bc525B5833d11b",
+        "rewarders": []
+      },
+      {
+        "id": 23,
+        "name": "ibTHE",
+        "stakingToken": "0x91E3A9B3f5a2c02Dd5cd40733fe4d52a87A213d9",
+        "rewarders": [
+          {
+            "name": "the",
+            "address": "0x5706ef757a635A986032cfe14e7B12EBA9f118Fd",
+            "rewardToken": "0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11"
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "name": "debtTHE",
+        "stakingToken": "0x2C8A7592828007eF33D87B49732F174D9A0b6759",
+        "rewarders": [
+          {
+            "name": "the",
+            "address": "0x5706ef757a635A986032cfe14e7B12EBA9f118Fd",
+            "rewardToken": "0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11"
+          }
+        ]
+      }
+    ]
+  },
+  "rewarders": [
+    {
+      "name": "high",
+      "address": "0x527c87bDBEB012f9f27A75dC3D5CC3F0Dd51B3bB",
+      "rewardToken": "0x5f4Bde007Dc06b867f86EBFE4802e34A1fFEEd63"
+    },
+    {
+      "name": "the",
+      "address": "0x5706ef757a635A986032cfe14e7B12EBA9f118Fd",
+      "rewardToken": "0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11"
+    }
+  ],
+  "moneyMarketReader": "0x4913DEC75cC0e061Ba78ebbDb2584905760be4C6",
+  "smartTreasury": {
+    "implementation": "",
+    "proxy": ""
+  },
+  "pathReader": {
+    "pcsV3PathReader": "",
+    "uniswapV2LikePathReader": ""
+  }
+}

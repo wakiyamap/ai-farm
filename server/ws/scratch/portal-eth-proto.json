@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "portal",
+  "status": "dead_end",
+  "checked": "Wormhole/Portal bridge. Addresses from wormhole-sdk-ts mainnet constants (core/base/src/constants/contracts/{core,tokenBridge,relayer}.ts), verified with eth_getCode (all proxies) + getters (core messageFee()=0x0 answers) + ERC-1967 slots: TokenBridge proxy 0x3ee18B2214AFF97000D974cf647E7C347E8fa585 (impl 0x381752f5458282d317d12c30d2bd4d6e1fd8841e), Core 0x98f3c9e6E3fAce36bAAd05FE09d375Ef1464288B (impl 0x3c3d457f1522d3540ab3325aa5f1864e34cba9d0), Relayer proxy 0x27428DD2d3DD32A4D7f7C497eAaa23130d894911 (impl 0x90995dbd1aae85872451b50a569de947d34ac4ee, verified source via explorer). Only caller-paid functions: TokenBridge.completeTransfer(bytes)+3 variants pay the sender-chosen VAA fee to msg.sender (Bridge.sol:464 'The msg.sender gets paid the associated fee'; fee zeroed when caller==recipient; no role gate, payloadID-3 restricted to designated proxy); Relayer.deliver(bytes[],bytes,address,bytes) open-callable but caller pre-funds msg.value and keeps only the quote margin. 15/15 sampled redemptions 2026-11-14..21 had fee=0 (9/10 direct callers were the recipients)."
+}

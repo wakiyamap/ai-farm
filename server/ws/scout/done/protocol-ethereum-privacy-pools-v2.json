@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-privacy-pools-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 13,
+ "chain": "ethereum",
+ "slug": "privacy-pools-v2",
+ "name": "Privacy Pools V2",
+ "category": "Privacy",
+ "tvl_usd": 780850,
+ "url": "https://privacypools.com/",
+ "github": null,
+ "listed_days_ago": 13,
+ "run_id": "fab9e83f01184299a0e9524e2f05eb3f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No stranger-payable function: transact pays its proof-bound processor (6 relayer contracts ran all 258 transacts + 2 ragequits in 7d, gas 0.85-1.41M = 2.8-4.9 USD each, ETH 1744.55 USD), vetting-fee sweep is ENTRYPOINT_MANAGER_ROLE (reverts NotAuthorized, 0 sweeps/7d); 167 deposits/7d, TVL 877k USD.",
+  "kb": [
+   "attempts:2860"
+  ],
+  "run_id": "fab9e83f01184299a0e9524e2f05eb3f",
+  "at": 1795169107
+ }
+}

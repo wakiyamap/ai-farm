@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-deltausd",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found: DeltaUSD has no contracts of its own on Base. Its dUSD token/mint-redeem (0x1851302297e318d658829fd94b89d5ae6528cb9e) and operator (0x929c98a6e23721f379b5e27cc694744a2b6d46c2) are BSC deployments (eth_getCode 0x on Base, control contract 0x0f43731eb8d45a581f4a36dd74f5f358bc90c73a returned 14,872 chars in the same run). The DefiLlama base TVL is the reserve EOA 0x12edd10a11fd9c94f9ac1b085a627f3745730899's positions in third-party protocols (Aave V3, Morpho Blue SOL/JitoSOL basis market, Aerodrome gauge), so there is no protocol function on Base to call and no stranger-paid reward to harvest.",
+  "numbers": "Base chainTvls 41,911 USD at ts 1795330535 (2026-11-22, api.llama.fi/protocol/deltausd) = ETH 32.57 + JITOSOL 364,606 - SOL 322,727 (Morpho basis position dominates), prices from DefiLlama. eth_getCode latest on base via rpc.py: 6/6 protocol addresses = 0x; control Aave dataProvider = 14,872 hex chars. Adapter source: raw.githubusercontent.com DefiLlama-Adapters projects/deltausd/index.js; PR #22167/#22175 (github.com/DefiLlama/DefiLlama-Adapters/pull/22167)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-pancakeswap-stableswap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. PancakeSwap StableSwap on BSC is a pure Curve/Saddle-style AMM core (factory 0x25a55f9f2279a54951133d503490342b50e5cd15, 31 pools): every function in both pool implementations is either a user operation (add/remove liquidity, exchange) or onlyOwner admin (withdraw_admin_fees reverts 'Ownable: caller is not the owner' from a stranger); no claim/reward/checkpoint/compound/liquidate/auction function exists and pool.minter() reverts (no gauge layer). A stranger could only earn swap/arbitrage edge, not a paid keeper call. Same conclusion on arbitrum (attempt 2345).",
+  "numbers": "pairLength()=31 pools; 2 impls (21,932 B x4, 18,731 B x27); 68/58 dispatch selectors, none pay a caller (4byte lookup); withdraw_admin_fees eth_call revert from 0x...0001; activity control: 260 TokenExchange logs in last 15,000 blocks across all 31 pools (head 134,425,314), 73% from one swapper 0x1e0d2191a75d2cd74aeb917459d3f9cd8a9a280c; bnb_gas()=4029 gas units; gasPrice 0.05 gwei, BNB $578.96 (coins.llama.fi) => ~$0.003 per 100k-gas call; TVL 3,190,275 USD (DefiLlama candidate)"
+}

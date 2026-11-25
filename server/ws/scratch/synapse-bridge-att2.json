@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-synapse-cross-chain-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. No function anyone can call pays the caller: bridge mint/withdraw (the keeper-style ops) require NODEGROUP_ROLE (getRoleMemberCount=1, sole member 0x5ba000bb06230e0582e111f08e1f2f2f200005ba; eth_call mint from fresh address reverts 'Caller is not a node group'), admin fns are GOVERNANCE_ROLE, the 3 StableSwap pools (SwapFlashLoan impl) have only user ops + onlyOwner. Even a role-holder gets no payout: fees accrue to the protocol fees[] mapping (getFeeBalance=0 for both USDC variants), gross to caller = 0.",
+  "numbers": "TVL $103.5k arbitrum (api.llama.fi currentChainTvls, 2026-11-19). 7d bridge events: 12, all TokenMint via MetaRouter 0x31cae3b7fb82d847621859fb1585353c5720660d (sel 0xcfc32570), blocks 523531541..525722131, eth_getLogs on 0x6F4e8eBa4D337f874Ab57478AcC2Cb5BACdc19c9; 0x TokenDeposit/TokenRedeem/TokenWithdraw. Callers = 5 Synapse node EOAs (top 0x7ddb0773...e654 x6). Gross paid to callers per call: 0 (fees[] to protocol). Gas: gasPrice 0.02 gwei (eth_gasPrice), ETH $1760.57 (coins.llama.fi ts 1795120815) -> ~150k-gas call ~ $0.005."
+}

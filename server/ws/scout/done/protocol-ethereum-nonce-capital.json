@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-nonce-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 48,
+ "chain": "ethereum",
+ "slug": "nonce-capital",
+ "name": "Nonce Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 281289524,
+ "url": "https://nonce-capital.xyz/",
+ "github": null,
+ "listed_days_ago": 48,
+ "run_id": "78ebdff4effe4e36869d92fcc1a96397",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No own contracts: curates Veda BoringVault stack (3 vaults 0xf0bb/0x08c6/0x5f46 + 3 accountants, all code+getters OK); updateExchangeRate reverts UNAUTHORIZED x3 from stranger, claimFees vault-only, manage UNAUTHORIZED; 7d: 21 ExchangeRateUpdated (7/acct, topic0 from receipt), all 7 txs by keeper 0x43e9...a9b8 via multicall batching 8 accts, contract pays keeper 0, gas 0.000248 ETH/tx med = 0.43 USD @ WETH 1750.84 (coins.llama.fi 2026-11-20T10:36Z); same stack+keeper as optimism protocols:302.",
+  "kb": [
+   "attempts:2868",
+   "protocols:1285"
+  ],
+  "run_id": "78ebdff4effe4e36869d92fcc1a96397",
+  "at": 1795171177
+ }
+}

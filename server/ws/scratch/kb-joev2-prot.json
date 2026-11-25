@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "joe_v2",
+  "status": "dead_end",
+  "checked": "Joe V2 (original Liquidity Book V2.0, DefiLlama slug joe-v2, tvlCodePath registries/traderJoeV2.js key 'traderjoe-lb'). Factory 0x1886d09c9ade0c5db822d85d21678db67b6c2982 from the registry (eth_getCode non-empty; getNumberOfLBPairs() 0x4e937c3a returns 43). LBFactory verified via explorer source (etherscan, LBFactory v0.8.10); LBPairImplementation() 0x509ceb90 -> impl 0x69e036972c08e990d29d0f653e203745d691f17b verified as LBPair. 43 unique pairs enumerated from LBPairCreated logs (topic0 0x2c8d104b27c6b7f4492017a6f5cf3803043688934ebcaa6a03540beeaf976aff, factory creation block 47891979..latest). External functions from verified LBPair/LBFactory source: swap, flashLoan, mint, burn, increaseOracleLength (user actions, caller pays), collectFees(account,ids) open but pays the _account argument (LP), collectProtocolFees role-gated to factory.feeRecipient(), setFeesParameters/forceDecay onlyFactory, factory setters onlyOwner. No reward/bounty/keeper payout anywhere in src (grep 'reward' empty). Same shape as joe_v2_1 arbitrum (attempts 2311, no_reward)."
+}

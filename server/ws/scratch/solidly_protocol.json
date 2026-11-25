@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "solidly_v2",
+  "status": "dead_end",
+  "checked": "Protocol docs https://docs.solidly.com/resources/contract-addresses.html identify V2 Minter 0x77780aA5e04e0EB5004767352748399d9D6eAee0, Voter 0x777034fEF3CCBed74536Ea1002faec9620deAe0A, Rebaser 0x77760C63940eC0454b977A31ED65D6440Ec5Fb92. All three have nonempty eth_getCode and responsive getters (_token, length, token). Explorer verified BaseV2Minter logic 0x54d712cfacaeab1be6b8d3fb7548d6ac346c3c5e and ve_distV2 logic 0xa2fb2a895bcb8d8e7b8fdf5060061f99736c8818; Voter logic 0xc14cab30312e5e093aef611057b9f95f3a469d89 was unverified but its explorer ABI and recent receipt were inspected. Public update_period() sends SOLID to rebaser and voter only, emitting caller as an event field. Rebaser checkpoint_token() requires depositor; claim(uint256) requires tokenId authorization and pays its owner or deposits into its veNFT. Voter distributeMany() sent SOLID to distributor and omnichain gauge, not the caller. Fresh-address eth_call of update_period, checkpoint_total_supply, distributeMany and claim was run; claim reverted tokenId auth. See attempt for 7-day counts and costs."
+}

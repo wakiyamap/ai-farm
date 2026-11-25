@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "cybertime",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/cybertime/index.js + api.llama.fi/protocol/cybertime (deadUrl true, TVL 35,479 USD). Six farm contracts confirmed with eth_getCode (non-empty) and Sourcify v2 (exact_match; CTFFarming.sol / NFTLFarming.sol, MasterChef forks): CTFFarmV1 0x750c8Ee365b1EA4dAf114Bd73Aeb31fc5B742D8B, CTFFarmV2 0x1F8f4492bd0D8004E323e0014f76c99e54D1242b, CFTFarmV3Old 0x08985ff15dE1ed66dDBfD08a2705A8B3612A61Fd, CFTFarmV3 0xCE997537498793d25dAb0F289e161DB26914275A, NFTLFarmV1 0x57Bc258169b03047D7778c41014c9cF7779ACA76, NFTLFarmV2 0x45Eec2D2f9b01D91eCC685945A904C895CAbB7a3. Public (no owner/role) functions: claim(pid)/deposit/withdraw/emergencyWithdraw/updatePool/massUpdatePools. Source: claim pays msg.sender's own accrued CTF/NFTL only (require user.amount>0); updatePool/massUpdatePools pay the caller nothing. No keeper-bounty function exists."
+}

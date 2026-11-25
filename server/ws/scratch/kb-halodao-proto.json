@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "halodao",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/halodao/index.js (deleted from main 2026-06-22; read at commit 5011426d): polygon TVL = 4 vaults holding stable LP balances: 0x8123C64D6607412C7Ac9E880f12245ef22558b14 (xSGD:USDC), 0xaEad273bc7E17DD6951ceD3264B1dBa8A19114C2 (wTCAD:USDC), 0x95AB308bE1e209eB6FfdD3279B5ea71D365AD30B (wTAUD:USDC), 0xbF772a745533f6bAd97C58D2cb6B241eF7487242 (wTGBP:USDC). All 4 have code (eth_getCode); getters answer: name()='Token XSGD', symbol()='HLP' (Halo LP settlement vault), totalSupply, balanceOf. Not Balancer V1 (getCurrentTokens/getSwapFee revert), not Uni V2 (getReserves/token0/token1 revert). Source unverified on etherscan+blockscout; halodaohq GitHub org 404. No claim/claimRewards/distribute/harvest/poke/sync/skim/settle/collect/redeem selectors anywhere in bytecode (grep of 12 selector hashes, 0 hits each). DefiLlama marks protocol dead (deadUrl=true, empty url). 7d eth_getLogs topicless on all 4: 0 logs (blocks 97418000 ts1794832469 2026-11-16 -> 97821300 ts1795432555 2026-11-23; USDC Transfer control same shape same lane returned 37). Blockscout txlist: whole history 4/1/1/1 txs each, mostly approvals; last tx 2026-10-03 (ts 1790991009, 51 d ago)."
+}

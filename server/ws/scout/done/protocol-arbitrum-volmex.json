@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-volmex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "volmex",
+ "name": "Volmex",
+ "category": "Yield",
+ "tvl_usd": 131112,
+ "url": "https://volmex.finance/",
+ "github": [
+  "volmexfinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "beb9b304021a42528460ccbe72a61346",
+ "result": {
+  "verdict": "no_reward",
+  "line": "4 VolmexProtocol proxy vaults on arbitrum (DAI: 0xE46277336d9CC2eBe7b24bA7268624F5f1495611, 0xf613b55131cf8a69c5b4f62d0d5e5d2c2d9c3280; USDC.e: 0xF9b04Aad2612D3d664F41E9aF5711953E058ff52, 0xdf87072ac4722431861837492edf7adbfec0efa9), TVL 131,157 USD; public collateralize/redeem/redeemSettled are user ops paying the caller 0 (fees <=5% accrue to accumulatedFees, owner-only claim); only 1 call in 7 days (redeem tx 0x0d7f44b3...4351, 2026-11-18); settle onlyOwner",
+  "kb": [
+   "attempts:2640",
+   "protocols:1112"
+  ],
+  "run_id": "beb9b304021a42528460ccbe72a61346",
+  "at": 1795122125
+ }
+}

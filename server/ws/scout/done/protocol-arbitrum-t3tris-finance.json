@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-t3tris-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 144,
+ "chain": "arbitrum",
+ "slug": "t3tris-finance",
+ "name": "T3tris Finance",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 12821247,
+ "url": "https://t3tris.finance/",
+ "github": [
+  "t3tris-finance"
+ ],
+ "listed_days_ago": 144,
+ "run_id": "1d77c719140d4fd5a57ce5d9bc0f8668",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Settle/claim fns (settleDeposits 0x69872acd, settleRedemptions 0x677a273f, claimFees) are AccessControl-gated: stranger eth_call reverts AccessControlUnauthorizedAccount(SETTLE_DEPOSITS_ROLE 0xae32f200); only 7d settle was 1 settleRedemptions by curator 0x00aa3aba (559k gas, $0.02), pays curator/treasury not caller; 5 txs/7d across all 7 verified vaults (main vault $10.0M grossTVL); no reward/incentive fn exists -> role_gated, near-zero activity too.",
+  "kb": [
+   "attempts:1649",
+   "protocols:343"
+  ],
+  "run_id": "1d77c719140d4fd5a57ce5d9bc0f8668",
+  "at": 1794904325
+ }
+}

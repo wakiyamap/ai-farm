@@ -1,0 +1,6 @@
+{
+  "chain": "optimism",
+  "protocol": "union_protocol",
+  "status": "dead_end",
+  "checked": "Union v1 uncollateralized credit (DefiLlama slug union-protocol, adapter projects/union-finance). Contracts on OP (adapter + Blockscout verified): userManager proxy 0x8E195D65b9932185Fcc76dB5144534e0f3597628 (impl UserManagerOp 0x13cacaadd4379f1984cd69b744ebe7dae8528690), uToken proxy 0xE478b5e7A423d7CDb224692d0a816CA146A744b2 (impl UErc20 0xa05584a9cec2ae466840c96f5028c3440b7f3055), comptroller 0x06a31efa04453c5f9c0a711cdb96075308c9d6e3 (impl 0xd3664e708972c0d1848de9a916eb440458b68e01); stakingToken DAI 0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1, unionToken 0xb025ee78b54b5348bd638fe4a6d77ec2f813f4f9. eth_getCode non-empty, totalStaked=52,494 DAI, totalBorrows=39,470 DAI (eth_call). Only public reward path: userManager.withdrawRewards() (no role; eth_call from fresh addr succeeds) pays UNION from comptroller. 7d: 15 LogWithdrawRewards (topic0 0x9074ae8f...), ALL amount=0; comptroller UNION pot only 2.742 UNION so accruals (e.g. 116.2 UNION for 0x62e5c0b4...) cannot be paid. Last nonzero payout 0.2673 UNION on 2026-10-16 (block 0x96eed7c). 0 borrow/repay/mint/redeem on uToken in 60d; 8 unstakes 7d (wind-down). UNION has no DefiLlama price. Other public fns (accrueInterest, repayInterest, debtWriteOff, batchUpdateFrozenInfo) pay the caller nothing."
+}

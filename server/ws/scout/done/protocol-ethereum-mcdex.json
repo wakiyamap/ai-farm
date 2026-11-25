@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-mcdex",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "mcdex",
+ "name": "MCDEX",
+ "category": "Dexs",
+ "tvl_usd": 806437,
+ "url": "https://mux.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "28d8a166b10441229692c7703336e67c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MCDEX V2 Perpetual 0x220a9f0D..77f76 globally settled 2021-03-02 (status()=2 SETTLED): 0 calls in last 7d (blocks 26,417,630-26,467,373; 37d control returns 7); liquidate() and AMM updateIndex() revert 'wrong perpetual status', settle() open-to-anyone but self-withdrawal only (last tx 2026-11-13 moved caller's own 4.237 ETH ~7,041 USD, gas ~0.01 USD at 0.12 gwei); insurance fund 0, contract holds 469.387 ETH ~780k USD idle trader margin.",
+  "kb": [
+   "attempts:3574",
+   "protocols:1820"
+  ],
+  "run_id": "28d8a166b10441229692c7703336e67c",
+  "at": 1795318121
+ }
+}

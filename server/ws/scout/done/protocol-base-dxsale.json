@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-dxsale",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1586,
+ "chain": "base",
+ "slug": "dxsale",
+ "name": "DxSale",
+ "category": "Launchpad",
+ "tvl_usd": 326255,
+ "url": "https://dx.app",
+ "github": null,
+ "listed_days_ago": 1586,
+ "run_id": "a27c201709c5465c926ebbfe53f25ae2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "DxSale Base has no stranger-callable pay function and is dormant: eth_call of all 25 locker selectors from a fresh address -> only view getters succeed, state-changers revert (4 explicit 'Ownable: caller is not the owner', e71c0fa8 reverts even on expired locks); 0 logs/txs in last 7 days on the 18 newest LP lockers and both registries (lpStorage 0x17e8c87d..: 348 locks, tokenStorage 0x0dDd..: 525; eth_getLogs blocks 56415797-59439797, control 2 logs since creation); gross to strangers 0 USD vs sub-cent base gas; last registry tx Jul-2024.",
+  "kb": [
+   "attempts:2456"
+  ],
+  "run_id": "a27c201709c5465c926ebbfe53f25ae2",
+  "at": 1795078592
+ }
+}

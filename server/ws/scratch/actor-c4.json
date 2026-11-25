@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "address": "0xc47756133753280c37b227c24782984e021c4544",
+  "strategy": "Deposit batcher on the Arbitrum batch-claim hub 0x84be56470d45b7f6629a66a219a38681f6ba6172 (protocol identity unknown, protocols 218): EOA that calls deposit batch selector 0xd31cba4a (recipient EOA wallet 0x74bbbb0e7f0bad6938509dd4b556a39a4db1f2cd + 50x(bytes16,bytes16,uint256)); batches ~50 third-party users' USDC deposits per tx and pays gas itself - measured zero USDC income, so either unpaid service or paid in non-USDC (not measured)",
+  "est_profit_usd_day": null,
+  "evidence": "measured 2026-11-11 run 77bb84e0 (attempt 904): deposit batch tx 0x4b1a9c13663081911b80048021816c0e452e579213295ba8a3fcd18064f985c2 (from this EOA, to hub, 50 user->0x74bbbb Transfer logs, no payment to caller, gasUsed 2,576,459 at 0.02 gwei = 0.11 USD); USDC income getLogs topic2=this address over head 1000 blocks = 0 transfers (positive control: same filter returned 603/512 transfers for the two claim agents 0x5e91b404.../0x6c3d445b...); eth_getCode 0 (EOA)"
+}

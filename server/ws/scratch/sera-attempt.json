@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-sera",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Every matching entry point (Sera.matchOrders, SeraSOR.executeIntent, Batcher batchMatch*) requires EXECUTOR_ROLE, granted by admin only; fresh-address eth_call reverts AccessControlUnauthorizedAccount. The protocol's own operator EOA 0xf0d26d482785285e21b6d22f46719dbad2f7d87e called all 10 OrderMatched in the last 7 days via batcher 0x1f4b366f4145a92978df4beeb6bde71bc652f034. Protocol take goes to treasury ledger, never to msg.sender; no bounty/reward/claim function exists. A stranger cannot earn here without the admin-granted role.",
+  "numbers": "10 OrderMatched/7d (eth_getLogs on Sera 0xB5C50C5D.., topic0 keccak OrderMatched(bytes32,address,address,uint256,uint256,bytes32,address,address,uint256,uint256)=0x00b9b17a.., blocks 0x193304a-latest 2026-11-20); all 10 tx.from checked = 0xf0d26d482785285e21b6d22f46719dbad2f7d87e (full set, not a sample). Pairs USDT/USDC vs MYRT 0x3fc98a885e99420d0ce43bcb81bf21a4e3f45e5f (decimals()=6 on chain). protocolTake per match: 0 on USD side, ~4,651,163 units = 4.65 MYRT/match (usd: unpriced, no MYR feed found) to treasury 0x562fffc5.., not caller. Gas per batch tx: 294,707 (receipt 0x2610cd7c..) x 1.63 gwei effGasPrice = 0.000482 ETH = $0.83 at ETH $1,729.62 (coins.llama.fi 2026-11-20 13:34 UTC). TVL $111,772 (DefiLlama)."
+}

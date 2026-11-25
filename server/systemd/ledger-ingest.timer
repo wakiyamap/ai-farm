@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the ledger ingest every 15 minutes
+
+[Timer]
+OnBootSec=3min
+OnUnitInactiveSec=15min
+Unit=ledger-ingest.service
+
+[Install]
+WantedBy=timers.target

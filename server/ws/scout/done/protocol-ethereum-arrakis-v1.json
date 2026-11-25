@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-arrakis-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "arrakis-v1",
+ "name": "Arrakis V1",
+ "category": "Liquidity Manager",
+ "tvl_usd": 1043645,
+ "url": "https://arrakis.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "eabbbf58294a4fc2a5cba7e20c03f268",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated. G-UNI (adapter sorbetfinance; factory 0xEA1aFf9dbFfD1580F6b81A3ad3589E66652dB7D9, 105 pools): rebalance + GUniPool withdraws require msg.sender==GELATO 0x3caca7b48d0573d793d3b0279b5f0029180e83b6 (fresh eth_call reverts 'Gelatofied: Only gelato'); only open fns withdrawManagerBalance/withdrawArrakisBalance pay treasury not caller (0 USD gross vs ~45k gas ~= 9.4 USD @123.5 gwei, ETH 1681.90); 7d (blocks 26,416,209 11-14 .. 26,466,377 11-21): 0 events all 105 pools (no-topic scan, WETH control 13,453 logs/300 blk); 60d: 45 logs/18 txs all LP mint/burn, 0 rebalances; TVL 1.04M",
+  "kb": [
+   "attempts:3495",
+   "protocols:1766"
+  ],
+  "run_id": "eabbbf58294a4fc2a5cba7e20c03f268",
+  "at": 1795299587
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "unsheth",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/unsheth/index.js -> LSDVault V1 0xE76Ffee8722c21b390eebe71b67D95602f58237F and V2 0x51A80238B5738725128d3a3e06Ab41c1d4C05C74 (eth_getCode non-empty for both; V2 getters unshETHAddress/unshethZapAddress/darknetAddress/swapperAddress answer). Verified sources on Etherscan: LSDVault V1/V2, unshETH token 0x0ae38f7e10a43b5b2fb064b42a2f4514cba909ef (plain permissioned-mint ERC20), VDAMM 0x35636b85b68c1b4a216110fb3a5fb447a99db14a, Darknet 0x5fecdd6fe7bc9a406b6d0246d74b555a33678c7a (view-only LSD price oracle). No keeper/reward function anywhere: V2 state functions all onlyOwner/onlyOwnerOrAdmin, deposit onlyZap (Zap 0x3fb65c616358581f1c22090acef985b0e7ef2ae0, last tx 2025-12-23); exit() is holder redemption (last V2 tx exit 2026-10-06, outside 7d); the only open call, V1 synchronize(), transfers nothing (source) and eth_call from a fresh address reverts 'Already synchronized'. VDAMM is an oracle-priced taker-pays AMM (swapLsdToLsd/Eth fees to protocol, not caller). 7d no-topic eth_getLogs of the 5 contracts, blocks 0x1930c08-0x193d0d4 (2026-11-14/2026-11-21): 12 logs = 11 VDAMM SwapLsdToLsd (topic0 d0f18f85.. from cast keccak) + 1 token Approval; 0 events on both vaults (in-scan control)."
+}

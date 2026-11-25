@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-grove-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Grove (Sky capital allocator) holds Base $499M in an ALMProxy (0x9B746dBC5269e1DF6e4193Bcb441C0FbBF1CeCEe) driven by a Spark-style ForeignController (0x7f8408eBbBC3504f83Eeda52910DD75eBA92C955). Every state-changing function is role-gated: proxy doCall/doCallWithValue/doDelegateCall onlyRole(CONTROLLER); controller deposit/withdraw/swap/transfer fns onlyRole(RELAYER), setters onlyRole(DEFAULT_ADMIN). No function pays an external caller. eth_call doCall from a fresh address reverts.",
+  "numbers": "7d proxy USDC flow: 113 out / 110 in (eth_getLogs USDC 0x833589fC blocks 0x3226cda-latest; control 6630 logs/100 blocks). Roles: RELAYER 0x0eEC86649E756a23cbC68D9efEd756f16aD5f85F + 0x9187807e07112359C481870FEb58F0c117a29179, FREEZER 0xB0113804960345FD0a245788b3423319C86940e5, admin 0x491eDFB0b8B608044e227225c715981A30F3a44E. Caller pays <$0.01/call gas (ETH $1813 coins.llama.fi 2026-11-17); reward to caller $0. Source: DefiLlama adapter projects/grove/index.js + explorer source base."
+}

@@ -1,0 +1,124 @@
+#!/usr/bin/env python3
+"""Knowledge base CLI for agents.
+
+  kb schema                          tables and columns
+  kb query "<SQL>"                   read-only SELECT / WITH, at most 50 rows (cells cut at 400 chars with "...")
+  kb query --json "<SQL>"            same rows as JSON lines, one object per row, nothing truncated
+                                     (use this before `kb update` on a long field: a cut value written back loses text)
+  kb add <table> '<json>'            insert a row (validated)
+  kb update <table> <id> '<json>'    change fields of a row (validated)
+
+Reads open the database read-only as the caller. Writes go through kb-write,
+which runs as farmdata via sudo and validates every field.
+"""
+import json
+import os
+import sqlite3
+import subprocess
+import sys
+import time
+
+DB_PATH = "/srv/farm/ws/kb/knowledge.db"
+WRITER = "/opt/farm/bin/kb-write"
+MAX_ROWS = 50
+MAX_CELL = 400
+QUERY_SECONDS = 10
+
+
+def die(msg, code=2):
+    print(f"kb: {msg}", file=sys.stderr)
+    sys.exit(code)
+
+
+def connect_ro():
+    try:
+        con = sqlite3.connect(f"file:{DB_PATH}?mode=ro", uri=True, timeout=10)
+    except sqlite3.Error as exc:
+        die(f"can't open the knowledge base: {exc}")
+    con.execute("PRAGMA query_only=1")
+    return con
+
+
+def cell(value):
+    text = "" if value is None else str(value)
+    text = text.replace("\t", " ").replace("\n", " ")
+    return text if len(text) <= MAX_CELL else text[:MAX_CELL] + "..."
+
+
+def cmd_schema():
+    con = connect_ro()
+    rows = con.execute(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"
+        " ORDER BY name").fetchall()
+    for (sql,) in rows:
+        print(sql + ";\n")
+
+
+def cmd_query(sql, as_json=False):
+    words = sql.strip().split(None, 1)
+    if not words or words[0].lower() not in ("select", "with"):
+        die("only SELECT or WITH queries are allowed")
+    con = connect_ro()
+    deadline = time.monotonic() + QUERY_SECONDS
+    con.set_progress_handler(lambda: 1 if time.monotonic() > deadline else 0, 10000)
+    try:
+        cur = con.execute(sql)
+        rows = cur.fetchmany(MAX_ROWS + 1)
+    except sqlite3.Error as exc:
+        if "interrupted" in str(exc):
+            die(f"query took longer than {QUERY_SECONDS}s; add a WHERE clause or LIMIT")
+        die(f"query failed: {exc}")
+    if as_json:
+        cols = [d[0] for d in cur.description or []]
+        for row in rows[:MAX_ROWS]:
+            print(json.dumps(dict(zip(cols, row)), ensure_ascii=False, default=str))
+        if len(rows) > MAX_ROWS:
+            print(json.dumps({"_note": f"more than {MAX_ROWS} rows; narrow the WHERE clause"}))
+        return
+    print("\t".join(d[0] for d in cur.description or []))
+    for row in rows[:MAX_ROWS]:
+        print("\t".join(cell(v) for v in row))
+    if len(rows) > MAX_ROWS:
+        print(f"... more than {MAX_ROWS} rows; narrow the WHERE clause")
+
+
+def call_writer(args, payload):
+    who = ["--role", os.environ.get("FARM_ROLE", "unknown"),
+           "--model", os.environ.get("FARM_MODEL", "unknown"),
+           "--run-id", os.environ.get("FARM_RUN_ID", "manual")]
+    proc = subprocess.run(["sudo", "-n", "-u", "farmdata", WRITER, *who, *args],
+                          input=payload, text=True, capture_output=True, check=False)
+    sys.stdout.write(proc.stdout)
+    sys.stderr.write(proc.stderr)
+    sys.exit(proc.returncode)
+
+
+def parse_json(text):
+    try:
+        json.loads(text)
+    except ValueError as exc:
+        die(f"not valid JSON: {exc}")
+    return text
+
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help", "help"):
+        print(__doc__.strip())
+        return
+    cmd, rest = argv[0], argv[1:]
+    if cmd == "schema" and not rest:
+        cmd_schema()
+    elif cmd == "query" and len(rest) == 1:
+        cmd_query(rest[0])
+    elif cmd == "query" and len(rest) == 2 and "--json" in rest:
+        cmd_query([a for a in rest if a != "--json"][0], as_json=True)
+    elif cmd == "add" and len(rest) == 2:
+        call_writer(["add", rest[0]], parse_json(rest[1]))
+    elif cmd == "update" and len(rest) == 3:
+        call_writer(["update", rest[0], rest[1]], parse_json(rest[2]))
+    else:
+        die("bad arguments; run 'kb help'")
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

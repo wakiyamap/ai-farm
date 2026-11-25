@@ -1,0 +1,149 @@
+---
+type: infra
+chains: [base, arbitrum, ethereum, bsc, polygon, avalanche, optimism, hyperevm, elysium]
+protocols: [aave_v3, morpho_blue, compound_v3, moonwell, compound_v2, exactly, llamalend, sparklend, revert_lend]
+author: researcher/gpt-6.1-sol
+updated: 2026-11-13
+---
+# Census taker evidence part1
+
+Index and limitations: `infra/liquidator-census-evidence-2026-11-13.md`.
+
+## Taker 1: base 0x9cbb82b990ed997d440db1119d07519777c00005
+
+Operator: payout51c*; event count 1161; nominal gross $1669085.64; slowness unmeasured.
+
+Sample tx senders (Atlas senders are relayers, not solver owners): `0x01f973383af228622836a466227adc931ca463f6`, `0x3c29a270dc6c52673e9f59d47636a7069575cba9`, `0x92e83da3bda8bf72aa855fb587f626d1b2770190`, `0xacb1aa42c2b87398005f130f110fb4a7d47294e0`, `0xd8637f7b633a6edb7bdf5a95dfff7f2b99cc0541`, `0xe34fa7c2c84c31e847bc4256c73c4105305150c1`.
+
+Decoded solver signers / direct submitters: `0xdaf673a781884c9702800d0cb75bbd857cefaace` via `0x124724870e330980285bc8c7bb5afe0663385a81ca94077a870ae47e866196b9`, `0x01379ecc41e900c971e16ea8a8edbbab2aadc88d` via `0x6e0fcea2f6c1201597c681413ed122b226d4e401689d06173a11e19f3436c22e`, `0xc0b414fce9dabc71cfb3825985ac8ab4795f9f85` via `0xf789353de273d3a10c3eea51d36a6c0e55cd519102dd3f223ef39463c2a53d2d`, `0x24c04aae27cb252787175fa317b24d7e9b29a2a9` via `0xf314a16830feee2aac8b8458a849af98ab3d627f56b65ae6e58fd90b136ada68`, `0xbe0ece6d7dcab9112daaffb640aac80e3d62d3da` via `0xa9ff8da85ad8760b53876cabb4efca0c4d8ed2f3c23e4a43a5a73febc4828b1a`, `0xd02b5853557e8f221727162540d49ecd4b4bb225` via `0x5de5efd7414966bc890fb0149b94cdf6bbf4533e6c1a8a2becaf8c53bf9cfc76`.
+
+| protocol / full market key | events | priced | repaid USD | nominal gross USD |
+|---|---:|---:|---:|---:|
+| `morpho_blue.liquidate:0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836` | 763 | 763 | 29695508.90 | 1301890.79 |
+| `morpho_blue.liquidate:0xd4a903dc6d949519060c7707f9604fdc9772c046e05c2e3a8fce0bd7196e4109` | 297 | 297 | 2292907.90 | 290650.30 |
+| `morpho_blue.liquidate:0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda` | 67 | 67 | 1254033.53 | 54978.51 |
+| `morpho_blue.liquidate:0x73527ddd796e6d4f48387adaae36f6f3d49d606d7f2a15eb0c931416a58875d8` | 20 | 20 | 127689.66 | 16186.01 |
+| `morpho_blue.liquidate:0x9125d0fa03c3137166df68bcc72283477830de2a4a5536512374c573ad4583c3` | 3 | 3 | 34874.86 | 4420.76 |
+| `morpho_blue.liquidate:0x7dc02ff6c536b1d49d7fba770438d79f5bd1f1c78884629b7d1aaee19675782b` | 9 | 9 | 6642.57 | 842.02 |
+| `morpho_blue.liquidate:0xd7520ad198b497b6eb75bc690268f4597630dbc12e305e9d4105843bab36e41d` | 2 | 2 | 925.08 | 117.26 |
+
+Sampled txs: `0x124724870e330980285bc8c7bb5afe0663385a81ca94077a870ae47e866196b9`, `0x1fba6ed9d99ab987f209ad422f85b75bebcd7f6c31acb39d34bf1329104c2b7f`, `0xe7d413cf4916b5015d724aa57fdfc33506bd055f3479fb0e9c65ba5c85d1d7c7`, `0xe4f84d88137a031c7b8b0d743620978bed3402546377d494fd6a16b23fe22b49`, `0x5912eae1a42a8998285d10300cf5eec557de8542ef6f7ff2f500fcc0bc97810d`, `0x6e0fcea2f6c1201597c681413ed122b226d4e401689d06173a11e19f3436c22e`, `0xf314a16830feee2aac8b8458a849af98ab3d627f56b65ae6e58fd90b136ada68`, `0xa9ff8da85ad8760b53876cabb4efca0c4d8ed2f3c23e4a43a5a73febc4828b1a`, `0x5de5efd7414966bc890fb0149b94cdf6bbf4533e6c1a8a2becaf8c53bf9cfc76`, `0xf789353de273d3a10c3eea51d36a6c0e55cd519102dd3f223ef39463c2a53d2d`.
+
+Positive flash evidence: `0x124724870e330980285bc8c7bb5afe0663385a81ca94077a870ae47e866196b9` FlashLoan(address,address,uint256), `0x1fba6ed9d99ab987f209ad422f85b75bebcd7f6c31acb39d34bf1329104c2b7f` FlashLoan(address,address,uint256), `0x5912eae1a42a8998285d10300cf5eec557de8542ef6f7ff2f500fcc0bc97810d` FlashLoan(address,address,uint256), `0x5de5efd7414966bc890fb0149b94cdf6bbf4533e6c1a8a2becaf8c53bf9cfc76` FlashLoan(address,address,uint256), `0x6e0fcea2f6c1201597c681413ed122b226d4e401689d06173a11e19f3436c22e` FlashLoan(address,address,uint256), `0xa9ff8da85ad8760b53876cabb4efca0c4d8ed2f3c23e4a43a5a73febc4828b1a` FlashLoan(address,address,uint256), `0xe4f84d88137a031c7b8b0d743620978bed3402546377d494fd6a16b23fe22b49` FlashLoan(address,address,uint256), `0xe7d413cf4916b5015d724aa57fdfc33506bd055f3479fb0e9c65ba5c85d1d7c7` FlashLoan(address,address,uint256), `0xf314a16830feee2aac8b8458a849af98ab3d627f56b65ae6e58fd90b136ada68` FlashLoan(address,address,uint256), `0xf789353de273d3a10c3eea51d36a6c0e55cd519102dd3f223ef39463c2a53d2d` FlashLoan(address,address,uint256).
+
+## Taker 2: ethereum 0xeef1b06e23a39f05b6b34ff1052d7a6ca3a00005
+
+Operator: payout51c*; event count 9; nominal gross $1105312.85; slowness unmeasured.
+
+Sample tx senders (Atlas senders are relayers, not solver owners): `0x3038400cb371731a6dc4882920c5a274cc9ba923`, `0x68e856ba729ba60d71c615257d002d97678aa3c9`, `0x6cdc112445e144c6e928d6eeecfd4fe00019e737`, `0x7e8f8451dab2c0170d93f95f544f00ed9f733523`, `0x8d64d775efe48c75d5dff5b3e7f58c6f384a1e05`, `0xe476367785bc9dcec25d415201e191d22f75f286`.
+
+Decoded solver signers / direct submitters: `0x3038400cb371731a6dc4882920c5a274cc9ba923` via `0xac57dea69c3aa3255260db32fcdd9699be5733af29cc9cd804184db506f88305`, `0x68e856ba729ba60d71c615257d002d97678aa3c9` via `0x1b027ca20f526ceaf775b617ee20573a27e845e20193ba2235b80c928c6e6de9`, `0xe476367785bc9dcec25d415201e191d22f75f286` via `0xf5ff0c7106886a61fddb7a03ab7da7b3ae50cd4ba62e1f418b7a07f98434a3eb`, `0x7e8f8451dab2c0170d93f95f544f00ed9f733523` via `0xb49a73338d2696f408e08ee701f2178052993a9d1e0a7640174a55713c4be083`, `0x8d64d775efe48c75d5dff5b3e7f58c6f384a1e05` via `0xfd8646cec44966ebee3bef5131b9d1a4a8e70ad682d1fa1397eda97348aed60c`, `0x6cdc112445e144c6e928d6eeecfd4fe00019e737` via `0x423b11a672b92d3c206fd84292100da817ab5d4b7c52fbea2a7c89b4354822f2`.
+
+| protocol / full market key | events | priced | repaid USD | nominal gross USD |
+|---|---:|---:|---:|---:|
+| `aave_v3.liquidation:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2/0xdac17f958d2ee523a2206206994597c13d831ec7` | 1 | 1 | 22989451.15 | 1034525.30 |
+| `aave_v3.liquidation:0xdac17f958d2ee523a2206206994597c13d831ec7/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` | 1 | 1 | 1361832.24 | 68091.61 |
+| `aave_v3.liquidation:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` | 1 | 1 | 12514.40 | 625.72 |
+| `compound_v3.buy_collateral:0xc3d688b66703497daa19211eedff47f25384cdc3/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984` | 1 | 1 | 4477.32 | 508.56 |
+| `compound_v3.buy_collateral:0x3afdc9bca9213a35503b077a6072f3d0d5ab0840/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` | 1 | 1 | 11033.69 | 483.73 |
+| `aave_v3.liquidation:0x8292bb45bf1ee4d140127049757c2e0ff06317ed/0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9` | 1 | 1 | 4001.44 | 300.11 |
+| `compound_v3.buy_collateral:0xc3d688b66703497daa19211eedff47f25384cdc3/0x514910771af9ca656af840dff83e8264ecf986ca` | 1 | 1 | 2577.77 | 292.80 |
+| `morpho_blue.liquidate:0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc` | 1 | 1 | 6214.71 | 272.46 |
+| `morpho_blue.liquidate:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64` | 1 | 1 | 4848.36 | 212.56 |
+
+Sampled txs: `0x38ca2a076cbbb18e0477be0dfed2f95f8d85d7b9cafa96bf8b8627b7b8c3ccee`, `0xbf33cd0fdfc55ba7f8186c7902c22c5640ccbe88a9ffe5d5c4f52d74dc926812`, `0xac57dea69c3aa3255260db32fcdd9699be5733af29cc9cd804184db506f88305`, `0xf5ff0c7106886a61fddb7a03ab7da7b3ae50cd4ba62e1f418b7a07f98434a3eb`, `0xb49a73338d2696f408e08ee701f2178052993a9d1e0a7640174a55713c4be083`, `0xfd8646cec44966ebee3bef5131b9d1a4a8e70ad682d1fa1397eda97348aed60c`, `0x423b11a672b92d3c206fd84292100da817ab5d4b7c52fbea2a7c89b4354822f2`, `0x1b027ca20f526ceaf775b617ee20573a27e845e20193ba2235b80c928c6e6de9`.
+
+Positive flash evidence: `0x1b027ca20f526ceaf775b617ee20573a27e845e20193ba2235b80c928c6e6de9` FlashLoan(address,address,uint256,uint256), `0x38ca2a076cbbb18e0477be0dfed2f95f8d85d7b9cafa96bf8b8627b7b8c3ccee` FlashLoan(address,address,uint256,uint256), `0x423b11a672b92d3c206fd84292100da817ab5d4b7c52fbea2a7c89b4354822f2` FlashLoan(address,address,address,uint256,uint8,uint256,uint16), `0xac57dea69c3aa3255260db32fcdd9699be5733af29cc9cd804184db506f88305` FlashLoan(address,address,address,uint256,uint8,uint256,uint16), `0xb49a73338d2696f408e08ee701f2178052993a9d1e0a7640174a55713c4be083` FlashLoan(address,address,uint256,uint256), `0xbf33cd0fdfc55ba7f8186c7902c22c5640ccbe88a9ffe5d5c4f52d74dc926812` FlashLoan(address,address,uint256,uint256), `0xf5ff0c7106886a61fddb7a03ab7da7b3ae50cd4ba62e1f418b7a07f98434a3eb` FlashLoan(address,address,address,uint256,uint8,uint256,uint16), `0xfd8646cec44966ebee3bef5131b9d1a4a8e70ad682d1fa1397eda97348aed60c` FlashLoan(address,address,uint256,uint256).
+
+## Taker 3: ethereum 0xbc034f2327b1d2fc51fe9e197dbc35c17f592672
+
+Operator: bc034; event count 33; nominal gross $771209.09; slowness unmeasured.
+
+Sample tx senders (Atlas senders are relayers, not solver owners): `0x2ff82bd25ccc62981db54e01b05bd22ab95af1c0`, `0x5168763828548020027232e15668d1cfebbe982f`, `0x9fbe93b1694c8bc435bfe47fc10249da6cc61cc8`, `0xd4d6a5d9e188a8d26a0a9360b02ffce681b06cb6`, `0xe29b3e21f98ba8bb9ab645c78ffee1e0e3f12ad0`.
+
+Decoded solver signers / direct submitters: `0x2ff82bd25ccc62981db54e01b05bd22ab95af1c0` via `0x805826be60104462b80f1007020191e39766b780187814b9a97845ce8c0ceb7f`, `0xe29b3e21f98ba8bb9ab645c78ffee1e0e3f12ad0` via `0xceb7f68dd1ad855c737ae9227cb551fbd1b386fcfbdad37530097a6b66ea88aa`, `0x5168763828548020027232e15668d1cfebbe982f` via `0x5ca80516040042f9f6c46805847f30d586b0880482df2d9baedfb97c876c7bdd`, `0xd4d6a5d9e188a8d26a0a9360b02ffce681b06cb6` via `0x1c8b5118d1d566662783a2f115e4dbeac7802ce7916b54dae0fe54f8ebdf41d0`, `0x9fbe93b1694c8bc435bfe47fc10249da6cc61cc8` via `0xc2cfad80ac2c1dac4f7fdc7af480e2fa9d52befd2b0d60b24334cd11558ad69f`.
+
+| protocol / full market key | events | priced | repaid USD | nominal gross USD |
+|---|---:|---:|---:|---:|
+| `aave_v3.liquidation:0xdac17f958d2ee523a2206206994597c13d831ec7/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` | 9 | 9 | 12340225.25 | 617011.26 |
+| `morpho_blue.liquidate:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2` | 3 | 3 | 2082946.41 | 91319.15 |
+| `compound_v3.buy_collateral:0xc3d688b66703497daa19211eedff47f25384cdc3/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599` | 1 | 1 | 692334.21 | 44191.55 |
+| `aave_v3.liquidation:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` | 3 | 3 | 238135.43 | 11906.77 |
+| `compound_v3.buy_collateral:0xc3d688b66703497daa19211eedff47f25384cdc3/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` | 2 | 2 | 41329.43 | 1811.94 |
+| `aave_v3.liquidation:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0` | 1 | 1 | 20881.21 | 1252.87 |
+| `morpho_blue.liquidate:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64` | 1 | 1 | 18157.12 | 796.03 |
+| `morpho_blue.liquidate:0x461da96754b33fec844fc5e5718bf24298a2c832d8216c5ffd17a5230548f01f` | 1 | 1 | 15884.33 | 696.39 |
+| `morpho_blue.liquidate:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99` | 1 | 1 | 13259.08 | 581.30 |
+| `morpho_blue.liquidate:0xb8fef900b383db2dbbf4458c7f46acf5b140f26d603a6d1829963f241b82510e` | 1 | 1 | 13124.23 | 575.38 |
+| `aave_v3.liquidation:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` | 2 | 2 | 5725.18 | 286.26 |
+| `aave_v3.liquidation:0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f/0x8236a87084f8b84306f72007f36f2618a5634494` | 1 | 1 | 2924.92 | 248.62 |
+| `morpho_blue.liquidate:0x7a25fb17b8bd83a934ad87d9d1725188fc129992ca816f3145b4ab7f673c98c3` | 1 | 1 | 5168.04 | 226.57 |
+| `morpho_blue.liquidate:0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49` | 1 | 1 | 4283.03 | 187.77 |
+| `aave_v3.liquidation:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/0x514910771af9ca656af840dff83e8264ecf986ca` | 1 | 1 | 1103.74 | 77.26 |
+| `aave_v3.liquidation:0xdac17f958d2ee523a2206206994597c13d831ec7/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599` | 1 | 1 | 664.53 | 33.23 |
+| `morpho_blue.liquidate:0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd` | 1 | 1 | 113.70 | 4.98 |
+| `morpho_blue.liquidate:0x864c9b82eb066ae2c038ba763dfc0221001e62fc40925530056349633eb0a259` | 1 | 1 | 29.31 | 1.28 |
+| `compound_v2.liquidate:0x8e4e0257a4759559b4b1ac087fe8d80c63f20d19/0x6eda4b59bac787933a4a21b65672539cef6ec97b` | 1 | 1 | 5.80 | 0.46 |
+
+Sampled txs: `0x805826be60104462b80f1007020191e39766b780187814b9a97845ce8c0ceb7f`, `0x2a740b89e12637c9d97488ea4544638f52e55ea26c470b28ae6342df50df964b`, `0xceb7f68dd1ad855c737ae9227cb551fbd1b386fcfbdad37530097a6b66ea88aa`, `0x5ca80516040042f9f6c46805847f30d586b0880482df2d9baedfb97c876c7bdd`, `0x1c8b5118d1d566662783a2f115e4dbeac7802ce7916b54dae0fe54f8ebdf41d0`, `0x8b7c61efe2ab4fa4b6950af45d43b699389701816214a65506b0b23aaf9b1140`, `0xaa45423b6ed16bd7b0326ae7b30344afab7673af125c642ccc90ad5077cc2a37`, `0x4e956142a86b1d132b47b81448e7f3793bd0d0049d2db2f7d1782dcd0a10ead6`, `0xcefdce67cce0ade0089cd400ce344a73668364643b5ca86ba3f9c8e9f81b6291`, `0xc2cfad80ac2c1dac4f7fdc7af480e2fa9d52befd2b0d60b24334cd11558ad69f`.
+
+Positive flash evidence: `0x4e956142a86b1d132b47b81448e7f3793bd0d0049d2db2f7d1782dcd0a10ead6` FlashLoan(address,address,uint256), `0x5ca80516040042f9f6c46805847f30d586b0880482df2d9baedfb97c876c7bdd` FlashLoan(address,address,uint256), `0x8b7c61efe2ab4fa4b6950af45d43b699389701816214a65506b0b23aaf9b1140` FlashLoan(address,address,uint256), `0xaa45423b6ed16bd7b0326ae7b30344afab7673af125c642ccc90ad5077cc2a37` FlashLoan(address,address,uint256), `0xc2cfad80ac2c1dac4f7fdc7af480e2fa9d52befd2b0d60b24334cd11558ad69f` FlashLoan(address,address,uint256), `0xceb7f68dd1ad855c737ae9227cb551fbd1b386fcfbdad37530097a6b66ea88aa` FlashLoan(address,address,uint256).
+
+## Taker 4: base 0xd12810b19b596347a3afac206d3ca65d08594b3f
+
+Operator: d128; event count 724; nominal gross $543589.63; slowness unmeasured.
+
+Sample tx senders (Atlas senders are relayers, not solver owners): `0x01f973383af228622836a466227adc931ca463f6`, `0x255435d3f49b9c7094a60646a7f8f1b8bd483bd9`, `0x92e83da3bda8bf72aa855fb587f626d1b2770190`, `0xd8637f7b633a6edb7bdf5a95dfff7f2b99cc0541`, `0xdcd7d20b14c9d6214418a93dead5f55c270bd6f1`, `0xe34fa7c2c84c31e847bc4256c73c4105305150c1`, `0xeeacf719dbbbe9a2a06c076ab6bd5beb08e8c41d`.
+
+Decoded solver signers / direct submitters: `0xb7cd3d37611168f2548ae9587cb884c60fa9befa` via `0xb766b342f8a809eb95eabbad09513c1d7ce8a60d5bca91c32a3f7dc77863efa4`, `0x2e592ee3240ffa60b5d0ce2596e22fc79214e897` via `0xbad9212cad606bae8acbe3946e4cc537dbd36c026296e3621b7898530265a723`, `0x35666ffafa8bb97f65df762d1c6147c3f84288b3` via `0x4d85b4f223b636558696ff4c992a8fa848924ee2a9735ba7b69c4c77db5b8d2b`, `0x9e3a908da5155b6f6863fcecc87750cb97fdc39b` via `0xe74c16d71c45e29031725669ec1082c1c5ab0a93dc14d77d89fe3cf73a77168f`, `0xb857ec5d3453d3d7852575216626519ab2d92e2a` via `0xea2ccbe0139673f64a13acb2f1dea8a77aab2bb70e131b3fcee69fcf45ab0060`, `0x12ae878b0fd27bff78a43301ab6517c293d10fbb` via `0x2cc8831c01af3c4d51c683c5deafc44db39585091ddbad222cfac7c932170fdc`, `0xb583b3603dc71c2dac067f2af32817341f438585` via `0xe74c16d71c45e29031725669ec1082c1c5ab0a93dc14d77d89fe3cf73a77168f`.
+
+| protocol / full market key | events | priced | repaid USD | nominal gross USD |
+|---|---:|---:|---:|---:|
+| `morpho_blue.liquidate:0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836` | 260 | 260 | 8035169.57 | 352272.57 |
+| `morpho_blue.liquidate:0xd4a903dc6d949519060c7707f9604fdc9772c046e05c2e3a8fce0bd7196e4109` | 128 | 128 | 996748.07 | 126348.35 |
+| `morpho_blue.liquidate:0x7dc02ff6c536b1d49d7fba770438d79f5bd1f1c78884629b7d1aaee19675782b` | 55 | 55 | 137629.40 | 17445.98 |
+| `morpho_blue.liquidate:0x09276541cfecb6920a80679a1deced4dde3ae64bf5fc2c9c1f9c21e0c152e1a5` | 69 | 69 | 96361.51 | 12214.84 |
+| `morpho_blue.liquidate:0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda` | 122 | 122 | 257638.59 | 11295.22 |
+| `morpho_blue.liquidate:0x9125d0fa03c3137166df68bcc72283477830de2a4a5536512374c573ad4583c3` | 20 | 20 | 88470.53 | 11214.57 |
+| `morpho_blue.liquidate:0xd7520ad198b497b6eb75bc690268f4597630dbc12e305e9d4105843bab36e41d` | 15 | 15 | 18710.01 | 2371.69 |
+| `morpho_blue.liquidate:0x73527ddd796e6d4f48387adaae36f6f3d49d606d7f2a15eb0c931416a58875d8` | 21 | 21 | 18334.37 | 2324.08 |
+| `aave_v3.liquidation:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913/0x4200000000000000000000000000000000000006` | 14 | 14 | 38035.49 | 1901.77 |
+| `compound_v3.buy_collateral:0xb125e6687d4313864e53df431d5425969c15eb2f/0x4200000000000000000000000000000000000006` | 1 | 1 | 45017.36 | 1392.29 |
+| `aave_v3.liquidation:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf` | 2 | 2 | 23174.89 | 1390.49 |
+| `morpho_blue.liquidate:0x1c21c59df9db44bf6f645d854ee710a8ca17b479451447e9f56758aee10a2fad` | 1 | 1 | 22120.81 | 969.81 |
+| `morpho_blue.liquidate:0xe458a501c1103ca3b256f2bcb45d223263fb34b6349d82675494ce3a94ce1327` | 7 | 7 | 6968.79 | 883.37 |
+| `aave_v3.liquidation:0x4200000000000000000000000000000000000006/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913` | 2 | 2 | 14857.17 | 742.86 |
+| `aave_v3.liquidation:0x4200000000000000000000000000000000000006/0x4200000000000000000000000000000000000006` | 1 | 1 | 9664.63 | 483.23 |
+| `aave_v3.liquidation:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913/0x63706e401c06ac8513145b7687a14804d17f814b` | 2 | 2 | 1494.33 | 149.43 |
+| `morpho_blue.liquidate:0x13c42741a359ac4a8aa8287d2be109dcf28344484f91185f9a79bd5a805a55ae` | 1 | 1 | 2386.32 | 104.62 |
+| `aave_v3.liquidation:0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42/0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf` | 1 | 1 | 1153.48 | 69.21 |
+| `aave_v3.liquidation:0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452/0x4200000000000000000000000000000000000006` | 1 | 1 | 194.73 | 9.74 |
+| `aave_v3.liquidation:0x6bb7a212910682dcfdbd5bcbb3e28fb4e8da10ee/0x63706e401c06ac8513145b7687a14804d17f814b` | 1 | 1 | 55.12 | 5.51 |
+
+Sampled txs: `0xb766b342f8a809eb95eabbad09513c1d7ce8a60d5bca91c32a3f7dc77863efa4`, `0x19cfbbd0f8c7bb7bb435c6fce64c714ab2498cd45a55087c1bbfa25ba87a45ec`, `0x17b14e6a8bf2e8a0730869c289ba318b2f2b8bcf6ab47bc892d6aae61dfd942d`, `0x4d85b4f223b636558696ff4c992a8fa848924ee2a9735ba7b69c4c77db5b8d2b`, `0xac4a2835e86bdf154af06103f7966d43b27c365cd9af9e1f591adf8daaa56059`, `0x67f411190c52c29c6194925fe317a5c23fb3af13a70325ca2923418251306449`, `0xbad9212cad606bae8acbe3946e4cc537dbd36c026296e3621b7898530265a723`, `0xea2ccbe0139673f64a13acb2f1dea8a77aab2bb70e131b3fcee69fcf45ab0060`, `0xe74c16d71c45e29031725669ec1082c1c5ab0a93dc14d77d89fe3cf73a77168f`, `0x2cc8831c01af3c4d51c683c5deafc44db39585091ddbad222cfac7c932170fdc`.
+
+Positive flash evidence: `0x17b14e6a8bf2e8a0730869c289ba318b2f2b8bcf6ab47bc892d6aae61dfd942d` FlashLoan(address,address,uint256), `0x19cfbbd0f8c7bb7bb435c6fce64c714ab2498cd45a55087c1bbfa25ba87a45ec` FlashLoan(address,address,uint256), `0x2cc8831c01af3c4d51c683c5deafc44db39585091ddbad222cfac7c932170fdc` FlashLoan(address,address,uint256), `0x4d85b4f223b636558696ff4c992a8fa848924ee2a9735ba7b69c4c77db5b8d2b` FlashLoan(address,address,uint256), `0x67f411190c52c29c6194925fe317a5c23fb3af13a70325ca2923418251306449` FlashLoan(address,address,uint256), `0xac4a2835e86bdf154af06103f7966d43b27c365cd9af9e1f591adf8daaa56059` FlashLoan(address,address,uint256), `0xb766b342f8a809eb95eabbad09513c1d7ce8a60d5bca91c32a3f7dc77863efa4` FlashLoan(address,address,uint256), `0xbad9212cad606bae8acbe3946e4cc537dbd36c026296e3621b7898530265a723` FlashLoan(address,address,uint256), `0xe74c16d71c45e29031725669ec1082c1c5ab0a93dc14d77d89fe3cf73a77168f` FlashLoan(address,address,uint256), `0xea2ccbe0139673f64a13acb2f1dea8a77aab2bb70e131b3fcee69fcf45ab0060` FlashLoan(address,address,uint256).
+
+## Taker 5: base 0xed989ee258ecc93769a8478c9973667b17462dfe
+
+Operator: ed989; event count 452; nominal gross $358195.80; slowness unmeasured.
+
+Sample tx senders (Atlas senders are relayers, not solver owners): `0x01f973383af228622836a466227adc931ca463f6`, `0x255435d3f49b9c7094a60646a7f8f1b8bd483bd9`, `0xd8637f7b633a6edb7bdf5a95dfff7f2b99cc0541`, `0xdcd7d20b14c9d6214418a93dead5f55c270bd6f1`, `0xeeacf719dbbbe9a2a06c076ab6bd5beb08e8c41d`.
+
+Decoded solver signers / direct submitters: `0x176efd46471f43923742b6a6959828b29d061326` via `0xcb1081633dabaad1519262b3cbfd762f894ba3bb75c0faf830487e38a54be01a`, `0x92ebd0557307bfad6d9d14199de1de96fdd16497` via `0xf645080aeb2af59dadee59b9c1e1f5ae21caec7b1d7470833ed5ebf4dd8c4d20`, `0x6dc667b1fd4a3954a819e7ff1995a6f226d5011b` via `0xae085f7d8faacbad347f79f31488efc819cd4c8a7cf7670fc56ba77abb6a52d7`, `0xd79df6e9b324acb1c197c2ee1591a017eb938616` via `0x06a9f9298394410ca1b6ffece505f29965e2b69fd20ab81c804e2dfcfc480cf7`, `0x4862a1254405b5e50761ef9ccde9bfdb831ccf0b` via `0x06e8283995964ceff92fac89ff1832ab8c4813bba32465ab6c1f0ef583b221c1`.
+
+| protocol / full market key | events | priced | repaid USD | nominal gross USD |
+|---|---:|---:|---:|---:|
+| `morpho_blue.liquidate:0x9103c3b4e834476c9a62ea009ba2c884ee42e94e6e314a26f04d312434191836` | 179 | 179 | 5122078.73 | 224558.78 |
+| `morpho_blue.liquidate:0x8793cf302b8ffd655ab97bd1c695dbd967807e8367a65cb2f4edaf1380ba1bda` | 149 | 149 | 1976084.69 | 86634.19 |
+| `morpho_blue.liquidate:0x7dc02ff6c536b1d49d7fba770438d79f5bd1f1c78884629b7d1aaee19675782b` | 17 | 17 | 142119.16 | 18015.10 |
+| `morpho_blue.liquidate:0xd4a903dc6d949519060c7707f9604fdc9772c046e05c2e3a8fce0bd7196e4109` | 35 | 35 | 126924.52 | 16089.02 |
+| `morpho_blue.liquidate:0x09276541cfecb6920a80679a1deced4dde3ae64bf5fc2c9c1f9c21e0c152e1a5` | 62 | 62 | 73438.88 | 9309.15 |
+| `morpho_blue.liquidate:0xe458a501c1103ca3b256f2bcb45d223263fb34b6349d82675494ce3a94ce1327` | 6 | 6 | 20983.09 | 2659.83 |
+| `morpho_blue.liquidate:0xfdfecf85a4dd90a7637ae2aaf28b35061166f0e62bfc714c565eed9f7e959783` | 1 | 1 | 8108.87 | 600.98 |
+| `morpho_blue.liquidate:0x76629002c9fdb20fb2092053a4f22c5c65e04a81887218b9546f2a2d82b4c0a8` | 3 | 3 | 2593.43 | 328.74 |
+
+Sampled txs: `0xd65e56212164ba2b51c0df70355ac9cf2e78532ed6ec4c3332ed622fe7d64c9d`, `0xcb1081633dabaad1519262b3cbfd762f894ba3bb75c0faf830487e38a54be01a`, `0x6455702040fad6640f2896a9dc969b32af80f93eda1d58c7da3312f4f0166838`, `0xdd9083311b2eadb5b17429233ebc2c8524393ef2e2af30d171a1b806989c3771`, `0xf645080aeb2af59dadee59b9c1e1f5ae21caec7b1d7470833ed5ebf4dd8c4d20`, `0x4fb0b72ea4cc922c62ee970fe9666ffda60f9659832e9596586a84050b3dc534`, `0xae085f7d8faacbad347f79f31488efc819cd4c8a7cf7670fc56ba77abb6a52d7`, `0x1b8fb638e5cb7518c24acd0ec15d4b49a3c322a658746454518f977aff886a77`, `0x06e8283995964ceff92fac89ff1832ab8c4813bba32465ab6c1f0ef583b221c1`, `0x06a9f9298394410ca1b6ffece505f29965e2b69fd20ab81c804e2dfcfc480cf7`.
+
+Positive flash evidence: `0x06a9f9298394410ca1b6ffece505f29965e2b69fd20ab81c804e2dfcfc480cf7` FlashLoan(address,address,uint256), `0x06e8283995964ceff92fac89ff1832ab8c4813bba32465ab6c1f0ef583b221c1` FlashLoan(address,address,uint256), `0x1b8fb638e5cb7518c24acd0ec15d4b49a3c322a658746454518f977aff886a77` FlashLoan(address,address,uint256), `0x4fb0b72ea4cc922c62ee970fe9666ffda60f9659832e9596586a84050b3dc534` FlashLoan(address,address,uint256), `0x6455702040fad6640f2896a9dc969b32af80f93eda1d58c7da3312f4f0166838` FlashLoan(address,address,uint256), `0xae085f7d8faacbad347f79f31488efc819cd4c8a7cf7670fc56ba77abb6a52d7` FlashLoan(address,address,uint256), `0xcb1081633dabaad1519262b3cbfd762f894ba3bb75c0faf830487e38a54be01a` FlashLoan(address,address,uint256), `0xd65e56212164ba2b51c0df70355ac9cf2e78532ed6ec4c3332ed622fe7d64c9d` FlashLoan(address,address,uint256), `0xdd9083311b2eadb5b17429233ebc2c8524393ef2e2af30d171a1b806989c3771` FlashLoan(address,address,uint256), `0xf645080aeb2af59dadee59b9c1e1f5ae21caec7b1d7470833ed5ebf4dd8c4d20` FlashLoan(address,address,uint256).
+

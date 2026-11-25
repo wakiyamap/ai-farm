@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-dodo-amm",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward - DODO AMM (v1.5 DVM/DPP/DSP pools) on base has no function anyone can call that pays the caller or a recipient argument. The ABIs (blockscout) of one pool of each type list only swap/ERC20/owner functions; claimRewards/claimBaseTokens/claimQuoteToken selectors revert on all three (no such function), sync() updates reserves and transfers nothing, and ratioSync() reverts NOT_OWNER from a fresh address. Swap fees accrue to the LP token value and to a fixed _MAINTAINER_ - swappers pay, nobody collects. The protocol is NOT dormant: 2,731 DODOSwap in 7 days across 189 active pools of 1,069 created. Same conclusion as arbitrum (protocols:1091) and avalanche (protocols:1122).",
+  "numbers": "factories dvm 0x0226fCE8c969604C3A0AD19c37d1FAFac73e13c2, dpp 0xc0F9553Df63De5a97Fe64422c8578D0657C360f7, dsp 0x200D866Edf41070DE251Ef92715a6Ea825A5Eb80 (eth_getCode non-empty); 1,069 pools enumerated from NewDVM/NewDPP/NewDSP logs; DODOSwap topic0 0xc2c0245e..b37b0f, blocks 56678009..59702265 (7d, 34 getLogs x 32 addresses): 2,731 events, 189 active pools, top 0x73543879fda6f4ca837d409b08622d3f172045f5 2,126 swaps; claim-style eth_call from 0x1111 reverts on 3 sampled pools (DVM 1.0.2 / DSP 1.0.1 / DPP Advanced 1.0.0); ratioSync NOT_OWNER; gasPrice 0.006 gwei, ETH 1747.80 USD (coins.llama.fi ts 1795131436) -> 100k-gas call ~0.001 USD; TVL 339,639 USD (candidate)"
+}

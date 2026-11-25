@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "hundred_finance",
+ "status": "measured",
+ "checked": "Compound v2 fork. Comptroller proxy (Unitroller) 0x0f390559f258eb8591c8e31cf0905e97cf36ace2 (eth_getCode non-empty; getAllMarkets() returns 11 hTokens), implementation 0xe8a3327f353863292dcc972b160fe55dbf123fca (verified source via explorer: Comptroller.sol claimComp public, getCompAddress()=HND 0x10010078a54396f62c96df8532dc2b4847d47ED3). liquidationIncentiveMantissa=1.08e18 (read). HND reward pot = HND.balanceOf(comptroller) = 2.833 HND (usd: unpriced, coins.llama.fi 2026-11-23 13:30 UTC has no price for coingecko:hundred-finance nor arbitrum:0x1001...ed3) -> HND claims dead. accrueInterest() callable from anyone (eth_call ok) but standard Compound: pays caller 0. No DefiLlama adapter (projects/hundred-finance/index.js 404); addresses from hundred-finance/hundred-dev README + on-chain getAllMarkets. 7d window blocks 524756580 (2026-11-16 13:14) .. 526815320 (2026-11-23 13:14) (timestamps verified via eth_getBlockByNumber): 2 LiquidateBorrow, 0 Borrow (control: same query shape on same range returned the 2 LiquidateBorrow). hFRAX underlying 0x17fc002b466eec40dae837fc4be5c67993ddbd6f has no code at latest (decimals/totalSupply revert) - market possibly deprecated. TVL 35,635 USD."
+}

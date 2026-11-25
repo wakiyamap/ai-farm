@@ -1,0 +1,20 @@
+{
+ "id": "stellar-blend-liquidation-auctions-60d",
+ "kind": "stellar",
+ "tier": 1,
+ "age": 0,
+ "chain": "stellar",
+ "slug": "blend-pools-v2",
+ "name": "Blend V2 pools: liquidation auctions over the retained history (count only)",
+ "steps": "Read the scout.md section \"Stellar\" first. Reads: curl -s -X POST 'http://127.0.0.1:8545/stellar' -H 'Content-Type: application/json' -d '<json-rpc body>'. Count only: the farm builds no liquidation bot now (decision 2026-11-22). This is to know whether Stellar liquidations exist at all and how they are filled.\n1. Pools: every Blend V2 pool from the DefiLlama adapter `projects/blend-pools-v2` and the V2 pool factory (deploy events). Write each C... id. Use `python3 /srv/farm/ws/tools/stellar-key.py instance C...` if you need getLedgerEntries.\n2. Window: the whole retained history (Alchemy keeps about 60 days; find the oldest ledger getEvents accepts, check close times with getLedgers pagination.limit 1). Page getEvents with pagination.cursor (no startLedger after the first call); each call covers about 10,000 ledgers, an empty page is not the end.\n3. Per pool: count new_auction and fill_auction (or the names in pool/src for auction create / fill; check the topic shape on one real event) split by auction type (liquidation, bad debt, interest). For each liquidation auction: ledgers from creation to fill, who filled (distinct fillers, contract or account), lot and bid value in USD at the fill for a sample of at most 10 (coins.llama.fi with time), fee in stroops.\n4. Verdict line: total liquidation auctions in the window, how many distinct fillers, median ledgers to fill, median filler margin in USD. verdict pays_strangers if fillers other than the pool's own keeper took them with positive margin, else unpaid / unclear.",
+ "run_id": "c96baaac4ddd4980ae1ab66e9587e0fe",
+ "result": {
+  "verdict": "unclear",
+  "line": "60 d window (64588990@2026-09-24 to 65625957@2026-11-23): factory deploy events 0/104 pages (control OK); liquidation-auction count unmeasured - relay topic filter needs exact full topic arrays (partial = silent 0, prior 7 d zero suspect) and no full V2 pool list obtainable (llama cache 404, expert API 402); source: filler in fill_auction data, types 0=liq/1=bad-debt/2=interest, stale after 500 ledgers",
+  "kb": [
+   "attempts:4019"
+  ],
+  "run_id": "c96baaac4ddd4980ae1ab66e9587e0fe",
+  "at": 1795416444
+ }
+}

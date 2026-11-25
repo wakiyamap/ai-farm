@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-dfyn-network",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Dfyn is a stock UniswapV2 fork on polygon (factory + Router02 + Synthetix-style StakingRewards farms); no public function that pays a fixed reward to any caller. getReward() on farms pays msg.sender only their own accrued rewards (fresh-address earned = 0, pays 0); factory/router setters are owner-gated; router use is arbitrage swaps, mostly by one bot.",
+ "numbers": "factory 0xE7Fb3e833eFE5F9c441105EB65Ef8b261266423B allPairsLength=1789; router 0xA102072A4C07F06EC3B4900FDC4C7B80b6c57429 factory()/WETH() getters answer (WETH=0x4c28f48448720e9000907BC2611F73022fdcE1fA, 18 dec); earned(fresh,DFYN)=0 at farm 0x0656Bd61A18Fd8E4bd48F90e41D043CdfEc96aE0; RewardPaid logs 7d = 0 (from block 97231115, control DFYN Transfers non-empty); router 7d txs ~all swapExactTokensForTokens from 0x29417d1823b63a504ce8ef05e194885d07e4fd1f (explorer txs); TVL 335,618 USD (DefiLlama candidate data)"
+}

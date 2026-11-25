@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-accountable",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 349,
+ "chain": "ethereum",
+ "slug": "accountable",
+ "name": "Accountable",
+ "category": "Uncollateralized Lending",
+ "tvl_usd": 252516,
+ "url": "https://accountable.capital/",
+ "github": null,
+ "listed_days_ago": 349,
+ "run_id": "1f236835a7ba44068a5b656feae0c2ce",
+ "result": {
+  "verdict": "unpaid",
+  "line": "43 vaults on 6 adapter factories (largest totalAssets 1,000,109.96 USDC at 0x2b5895b7); accrueInterest/updateLateStatus/processAvailableWithdrawals succeed from a fresh address (not role_gated) but pay $0: 0 ERC-20 transfers in 3 sampled keeper receipts (0xbfe60e23, 0xff01d88e, 0xd415a5aa) vs gas $0.45-0.52 (116k-133k gas x 2.388 gwei, ETH $1629.13 llama 1795195814); one keeper EOA 0x185a0d7a...3e4ecec calls accrueInterest every ~6 h (25 txs/5 d, proxy 0x4c376df2); 7d activity 229 proxy + 355 vault logs, 9 of 43 strategies.",
+  "kb": [
+   "attempts:2997",
+   "protocols:1396"
+  ],
+  "run_id": "1f236835a7ba44068a5b656feae0c2ce",
+  "at": 1795196251
+ }
+}

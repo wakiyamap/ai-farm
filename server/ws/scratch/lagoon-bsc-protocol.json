@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "lagoon",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/lagoon bsc: optinProxyFactory 0x3f680ab9e51eeed9381de5275f4995611ff884d5 (has code), fallbackVaults [0x236582bb8e6b5d382e346d2ee80e1a7273d4cd4a 'SPY ETF']. Vault proxy getters answer: name()='SPY ETF', safe()=0x8d644f8f1f2e3deb83eda0328dbad3e336cd0ac1, asset()=0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48 (SPYx, 18 dec), totalAssets()=0.1652 SPYx (block 134269286). EIP1967 impl 0x7175e7e5c246e2e5c8c54ede2ee0180e39fca879, version()='v0.5.0'; source hopperlabsxyz/lagoon-v0 tag v0.5.0 src/v0.5.0/Vault.sol: settleDeposit/settleRedeem onlySafe+onlyOpen, claimSharesOnBehalf/updateTotalAssetsLifespan/expireTotalAssets onlySafe, updateNewTotalAssets onlyValuationManager, initiateClosing/pause onlyOwner; user fns (requestDeposit/withdraw/redeem) pay no caller. eth_call from stranger 0x1111..1111 reverts 0xfde82f1f(safe=0x8d644f8f..) = role_gated. Activity: 8x5000-block eth_getLogs windows spread over last 7d (0.45s blocks) on the vault: 0 logs; control USDC 0x8AC7..580d 21,410 logs/1000 blk same run. BscScan/Blockscout APIs keywalled (not_on_plan/402). Same codebase as ethereum lagoon (KB: dead_end, onlySafe-gated). 2026-11-18 run b332feb8."
+}

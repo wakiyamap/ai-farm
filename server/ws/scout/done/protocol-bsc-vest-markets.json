@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-vest-markets",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 967,
+ "chain": "bsc",
+ "slug": "vest-markets",
+ "name": "Vest Markets",
+ "category": "Derivatives",
+ "tvl_usd": 27118,
+ "url": "https://alpha.vestmarkets.com",
+ "github": null,
+ "listed_days_ago": 967,
+ "run_id": "a89f07788b714ed2b256ca0d7f9f2ad7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BSC footprint = SrcBridge proxy 0xef14da66876476C1A75dC057343B97b6Bd372c41 (impl SrcBridge 0xe54e9592..., Sourcify exact_match) holding 27,138.90 USDC (= TVL); withdraw() pays the recipient argument, caller 0; 7 d (blocks 133822356..135165807, 1,343,451 blocks, no-topic scan of the proxy): 1 call total, Withdrawed 701 USDC by the protocol's own operator 0x0eee2e82... (hasRole BRIDGE_OPERATOR_ROLE=true), gas 109,957 x 0.05 gwei = 0.0031 USD, caller gross 0 - same dead end as arbitrum (attempts:2686) and ethereum (attempts:3257)",
+  "kb": [
+   "attempts:3900",
+   "protocols:2059"
+  ],
+  "run_id": "a89f07788b714ed2b256ca0d7f9f2ad7",
+  "at": 1795390155
+ }
+}

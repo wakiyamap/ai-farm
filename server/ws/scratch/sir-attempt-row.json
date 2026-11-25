@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-sir",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Public fee collection pays the caller zero; proceeds accrue to stakers, and auction lots go only to the winning bidder. Three recent SIR rewards were claimed by their own LP recipients; no fee auction or bid event occurred in the measured seven-day window.",
+  "numbers": "Window blocks 26429925 (2026-11-16 20:16:59 UTC) to 26480164 (2026-11-23 20:15:59 UTC), eth_getBlockByNumber timestamps. No-topic eth_getLogs at SIR 0x4Da4fb565Dcd5D5C5dB495205c109bA983A8ABa2: 10 logs total, 3 RewardsClaimed, 0 AuctionStarted/BidReceived/AuctionedTokensSentToWinner; the 10 logs are the same-contract control, and event topic0 signatures were derived with cast keccak from verified Staker.sol. Reward txs 0xc80f0ab81cf48181e4eb6f407cf43fb1e492fc1f394d0371d3d1f723c54f8dcc, 0xb0a8e866f106e3faf8de993a595c923c50bae91bc409a699be40f012620ae7cb, 0x207df50504e3ac133a83fa80f3678599e2444cbe3fd87248620f207c4a705ad7: each tx.from equals RewardsClaimed contributor. Fresh address eth_call collectFeesAndStartAuction(WETH) returned 0.010674578036580682 WETH fees to stakers, gross caller reward 0; eth_estimateGas 71821 gas, eth_gasPrice 0.17369682 gwei, ETH/USD 1732.5899585 from coins.llama.fi coingecko:ethereum at 2026-11-23 20:15:06 UTC, estimated gas 0.0216 USD. WETH address 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 from SIR verified constructor. Source: https://github.com/SIR-trading/Core/blob/master/src/Staker.sol, explorer verified SIR source."
+}

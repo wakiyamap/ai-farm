@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "actor-ethereum-0x39ab5f6f1269590225edaf9ad4c5967b09243747",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Inverse Finance FIRM DBR-deficit keeper: public forceReplenish(user,amount) on market 0x48ba574e (WBTC) for sole deficit borrower 0x52555b437...; zero caller capital, replenisherReward paid in DOLA to msg.sender in the same tx. The address is a newcomer challenger (regular cadence only from ~2026-11-17; sporadic earlier) splitting the capped ~4.8 DOLA/day pool with incumbent 0x31a9dd (lead 73 stays blocked_infra: same-block race, thin net).",
+  "numbers": "24h: 31 calls, gross 31x0.054 avg = 1.68 USD, gas 193,673 x ~0.115 gwei x $1810.90 = 0.040 USD/call = 1.25 USD -> net +0.43 USD/day. 7d: 51 events, gross 3.45 DOLA = 3.43 USD (avg 0.068, median 0.051, max 0.47), gas 2.06 USD -> net +1.37 over 7d. Market 0x48ba 24h: 85 events, 4.84 DOLA pool, 54/31 split incumbent/challenger. Other FIRM market 0x79ef6d: 1152 events/7d avg 0.113 DOLA (~18.5 DOLA/day, 90% incumbent). Sources: DBR 0xad038eb6 ForceReplenish scan blocks 26389512..26439912 (scratch/fr7d.json), receipts 0x4e8a6b88...,0x71d5f7db..., prices DefiLlama 2026-11-18."
+}

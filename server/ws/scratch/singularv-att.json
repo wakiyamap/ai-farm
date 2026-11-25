@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-singularv",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - SingularV is a Morpho risk curator whose ethereum contracts are 3 MetaMorpho V2 vaults (819k USD) + 3 MetaMorphoV1_1 vaults (14k). The only permissionless maintenance function is VaultV2.accrueInterest(): eth_call from a stranger succeeds, but it pays the caller 0 - fee shares go to performanceFeeRecipient/managementFeeRecipient, both the curator 0x46057881e0b9d190920fb823f840b837f65745d5. allocate/deallocate are role-gated (isAllocator/isSentinel); no reward/bounty/auction functions exist. Nothing a stranger could earn on.",
+  "numbers": "7d AccrueInterest events on the 2 big V2 vaults (0x5E5b30c5fD07da26d1e515dfEDb1D37C93417652, 0xF39AC02DEc8faE8292d5f42202e4Cd885356256B): 140 events / 73 txs, all on the ETH vault; USDC vault 0 (control: same getLogs shape returned 140 for the ETH vault in the same call); sample of 5 txs: all EOAs calling router 0xd78f89b311c27c4c71487aeb73742665cd13b941 (deallocate/withdraw selectors) = user ops, none a paid keeper; blocks 26408004-26458404, topic0 cast keccak of source event. Gross per accrueInterest call = 0 USD (source VaultV2.sol: no payment to msg.sender). Gas 156,800 / 149,455 gas (eth_estimateGas from 0x...dEaD) x 5.54 gwei (eth_gasPrice 2026-11-20T19:29Z) x $1590.49/ETH (coins.llama.fi 1795203146) = $1.38 / $1.32. Fee recipients read on chain = curator EOA/ops 0x4605...745d5."
+}

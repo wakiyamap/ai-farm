@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-opium",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Verified active Core routes payouts only to position owners or fee recipients, and Unipool getReward pays only the caller's own accrued stake. No public maintenance bounty or stranger payment was found; current seven-day Core and Unipool logs are empty with a positive same-shape pool control.",
+  "numbers": "7 d window by eth_getBlockByNumber timestamps: block 26430802 at 2026-11-16 23:12:35 UTC through block 26481055 at 2026-11-23 23:14:47 UTC. Relay eth_getLogs no-topic: Core 0 logs, Unipool 0 logs, listed Mooniswap pool control 17 logs (same shape). Eligible stranger reward calls sampled: 0; gross USD: 0 for identified public reward paths; gas USD: not applicable. Fresh address 0x1111111111111111111111111111111111111111 earned() = 0; getReward() eth_call succeeded. Core address from registry getCore() and registry from Core getRegistry(); verified source and ABI via explorer."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-cassa",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 169,
+ "chain": "ethereum",
+ "slug": "cassa",
+ "name": "Cassa",
+ "category": "Risk Curators",
+ "tvl_usd": 115185,
+ "url": "https://www.cassa.fyi/",
+ "github": null,
+ "listed_days_ago": 169,
+ "run_id": "901a583aa241470b80d39f148a47dcec",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only keeper-style fn settle() on ITUT vault 0x16FC..Fa79 is onlyAdmin (stranger eth_call reverts CassaITUT_Unauthorized 0xb4001508); other public fns are user ERC4626 deposit/redeem and router swaps paying no caller; 0 txs on vault/policy/router in last 7 days (last 2026-02-16, team EOAs only, control: same explorer txs query returns Feb txs); TVL 115k USD; the one beta.cassa.fyi market is a TEST market (asset MOCK).",
+  "kb": [
+   "attempts:2935"
+  ],
+  "run_id": "901a583aa241470b80d39f148a47dcec",
+  "at": 1795183910
+ }
+}

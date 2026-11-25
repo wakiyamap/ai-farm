@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-wan-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Same CrossDelegateV7 architecture as the Arbitrum lock (protocols:962): the only keeper-like functions (smgRelease/smgMint/NFT variants) are storeman-role-only - live calldata from a stranger reverts 'CrossDelegateV7: caller is not authorized' while the storeman relayer succeeds on the same pre-block. All 7-day activity came from that one relayer; the storeman fee pot is empty, so nothing pays a stranger. Consistent dead_end with protocols:965.",
+  "numbers": "7d (blocks 133124121-134135905, 203x5000 windows, control 35144 logs USDC same run): 45 logs/29 txs = 13 smgRelease + 3 smgMint all from 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7, 12 userLock from user EOAs. getStoremanFee('Aries_072')=0. Sample release 19.3 BNB (~$11,362) to recipient, caller paid 220600 gas x 0.05 gwei = $0.01 (BNB $588.71, coins.llama.fi 2026-11-19). Lock 0xc3711bdbe7e3063bf6c22e7fed42f782ac82baee, impl 0xe1e64dfb20883a1869114fd97526d51417213c65."
+}

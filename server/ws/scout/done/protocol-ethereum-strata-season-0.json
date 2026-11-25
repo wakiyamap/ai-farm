@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-strata-season-0",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 482,
+ "chain": "ethereum",
+ "slug": "strata-season-0",
+ "name": "Strata Season 0",
+ "category": "Farm",
+ "tvl_usd": 116247,
+ "url": "https://strata.markets",
+ "github": null,
+ "listed_days_ago": 482,
+ "run_id": "5175a477439b4333a2df9484b78be1c9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "pUSDe vault 0xA62B204099277762d1669d283732dCc1B3AA96CE (impl pUSDeVault 0x7fe8d7ef...b851): no stranger-payable reward fn (only ERC4626 deposit/withdraw/redeem, all transitions onlyOwner); PointsPhase, 1:1 convertToAssets, 115,978 USDe TVL, 31 logs/20 txs/7d all self-directed (Withdraw receiver==owner, max 1,866 USDe); gross to caller $0 vs gas $0.07-0.17 (0.756 gwei x ETH $1596.67).",
+  "kb": [
+   "attempts:3059",
+   "protocols:1441"
+  ],
+  "run_id": "5175a477439b4333a2df9484b78be1c9",
+  "at": 1795209674
+ }
+}

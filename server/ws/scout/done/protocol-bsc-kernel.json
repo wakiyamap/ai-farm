@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-kernel",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 696,
+ "chain": "bsc",
+ "slug": "kernel",
+ "name": "Kernel",
+ "category": "Restaking",
+ "tvl_usd": 1046323,
+ "url": "https://kelpdao.xyz/restake/?utm_source=0x798fF1e6D7AFd28c333eE6eBe03125d30ec6eF10",
+ "github": null,
+ "listed_days_ago": 696,
+ "run_id": "cb89f86f3d1a4e678057d5ad47412bbe",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Kernel BSC (KelpDAO restaking, TVL 1,047,880 USD): no caller-reward fn in the whole deployed surface (StakerGateway 0xb32dF5B3...3394, registry 0xd0B91Fc0...4ABB 32 assets, vaults deposit/withdraw onlyFromStakerGateway -> stranger eth_call UnauthorizedCaller, setDepositLimit role revert, addAsset/removeAsset onlyAdmin; bytecode = repo v0.6 ABI 1:1). 7d eth_getLogs on gateway: 27 events = 15 unstakeNative + 12 unstake, 25 EOAs, 0 keepers, 0 stakes. Gas 0.05 gwei ~0.06 USD/call (BNB 592.35 USD, coins.llama.fi).",
+  "kb": [
+   "attempts:2043",
+   "protocols:632"
+  ],
+  "run_id": "cb89f86f3d1a4e678057d5ad47412bbe",
+  "at": 1794986669
+ }
+}

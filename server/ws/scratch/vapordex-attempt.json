@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-vapordex-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. VaporDex on avalanche is a Uniswap V2 fork (Factory V1 0xC009a670..., Router V1 0x19C0FC45...) plus a Uniswap V3 fork (Factory V2 0x62B672E5..., Position Manager 0xC967b238...) and a liquid-mining diamond (VPND LM 0xAe950fdd0CC79DDE64d3Fffd40fabec3f7ba368B, repo VaporFi/liquid-mining) - the DEX cores have no pay-the-caller keeper function, and the only keeper functions (automatedClaimBatch, collectBoostFees, collectUnlockFees) are behind an LAuthorizable registry and pay season users / fee receivers rather than the caller. Verified by eth_call from a fresh address reverting with the OnlyAuthorized custom error.",
+  "numbers": "TVL 229,689 USD (DefiLlama candidate record, 2026-11-19). 10 doc-listed avalanche contracts all eth_getCode non-empty; LiquidMiningDiamond facets() 0x7a0ed627 returns 15 facets (getter answers). eth_call from 0xdEaDBEEF...0001: collectBoostFees() 0xb2e07cf4 and collectUnlockFees() 0x238e2b2b both revert data 0x2c52e074 = keccak('LAuthorizable__OnlyAuthorized()') (cast sig). Liveness sample: 2 logs on the diamond in blocks 0x600BD30-0x600E43F (9.5k blocks ~ 25 min at the measured 0.1575 s/block). Gas not measured: nothing callable-free to price. Sources: docs github.com/VaporFi/gitbook-vapordex developers/contracts.md; VaporFi/liquid-mining staging src/facets/*.sol + deployments/LiquidMiningDiamond.json; relay eth_call/eth_getLogs/eth_blockNumber on avalanche, 2026-11-19 03:40-03:58 UTC."
+}

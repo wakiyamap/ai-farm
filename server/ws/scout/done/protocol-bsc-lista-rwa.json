@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-lista-rwa",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 341,
+ "chain": "bsc",
+ "slug": "lista-rwa",
+ "name": "Lista RWA",
+ "category": "RWA",
+ "tvl_usd": 4048799,
+ "url": "https://lista.org/rwa",
+ "github": null,
+ "listed_days_ago": 341,
+ "run_id": "52ae59ef39e1456681641603b6db3f86",
+ "result": {
+  "verdict": "unpaid",
+  "line": "4 BSC contracts (RWAEarnPool JTRSY 0x60512aeb + JAAA 0x82664f43 USDT, Dowsure Vault 0x3a81b9d9, BpnEarnPool 0x85811ca9); stranger-callable claimWithdraw/claimRedeem pay the user's own redemption to a recipient arg, caller reward 0 (adapter fns all onlyRole BOT/MANAGER); last 7d (blocks 132792784-134135292): 10 logs, 0 claims, only Lista keeper NotifyInterest ticks (chunk control 269 scans 0 errors; USDC control 38167 logs/5000blk); 30d: 3 claims all self-claims; gas ~0.003 USD/call (BNB 591.96 USD, 0.05 gwei)",
+  "kb": [
+   "attempts:1758",
+   "protocols:419"
+  ],
+  "run_id": "52ae59ef39e1456681641603b6db3f86",
+  "at": 1794926440
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-extra-finance-xlend",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 692,
+ "chain": "optimism",
+ "slug": "extra-finance-xlend",
+ "name": "Extra Finance Xlend",
+ "category": "Lending",
+ "tvl_usd": 138542,
+ "url": "https://xlend.extrafi.io/",
+ "github": null,
+ "listed_days_ago": 692,
+ "run_id": "16bcc496ccee43889ab4cd61f579ed39",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Aave v3-core fork on optimism (pool proxy 0x345d2827f36621b02b783f7d5004b4a2fec00186, dataHelper 0xCC61E9470B5f0CE21a3F6255c73032B47AaeA9C0, repo ExtraFi/xlend-contracts): only permissionless paid function is liquidationCall (5% bonus, fresh-address eth_call reverts business error 45 = not role-gated); 2 liquidations in last 7 days by 2 different strangers (6 in 30d), all dust: gross bonus 0.004-1.12 USD/call vs gas 0.26-1.47 USD/call (sample of 2 of 2; ETH 1810 USD coins.llama.fi) -> unpaid",
+  "kb": [
+   "attempts:2037",
+   "protocols:626"
+  ],
+  "run_id": "16bcc496ccee43889ab4cd61f579ed39",
+  "at": 1794985345
+ }
+}

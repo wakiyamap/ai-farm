@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-infinifi",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Every reward-style maintenance function on Base reverts UNAUTHORIZED from a fresh address (core-role gated): farm.claimRewards(bytes) (rewards further disabled, rewardContract()=0), MANUAL_REBALANCER.singleMovement, Outland outpost.processMessage. The only actively-called non-user function (processMessage, 10 txs / 7d, all by 0x612d2350e696c71ad5f043f2f4522484c7ca2b9a which holds OUTLAND_KEEPER) pays 0 in its receipt; gateway mint/redeem flows are users paying, not being paid. Protocol itself is nearly dormant: accounting/farm last tx 2026-07-24, core 2026-08-03.",
+ "numbers": "eth_call from fresh addr: farm.claimRewards 0xe190febc, rebalancer.singleMovement 0xcc579008, outpost.processMessage 0xdcdb0957 all revert 'UNAUTHORIZED'. 7d activity (explorer txs, control = gateway txs dated 2026-11-17): accounting+farm 0 txs (last block 49,058,788 = 2026-07-24), core 0 (last 2026-08-03), gateway 9 user txs, outpost 10 txs (1 caller 0x612d2350..., hasRole(OUTLAND_KEEPER)=true). processMessage receipt (0x15cde85a...) gasUsed 57,430 @ 0.0062 gwei (0x5e9ac0) = 3.6e-7 ETH = $0.0006 at ETH $1,803.16 (coingecko); gross to caller $0. farm assets()=338,887 USDC vs candidate tvl $329,560. Contracts per InfiniFi-Labs/infinifi-protocol addresses.8453.json"
+}

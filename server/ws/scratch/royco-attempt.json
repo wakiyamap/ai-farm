@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-royco-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Royco V2 on Avalanche is one savUSD Dawn market whose EntryPoint executeDeposit/executeRedemption are permissionless (canCall(stranger)=true) and pay the caller a user-set executor bonus, but 0 requests executed and 0 paid in the last 7 days (last execution block 99,902,374, ~15d before 100,565,252), escrow is empty, and historically a single executor 0x80683624...3624 took all 21 third-party executions for $0.02-0.07 bonus per redemption (~= gas). Nothing a stranger can call today for profit.",
+  "numbers": "7d executions: 0 (Snowtrace getLogs 100,260,000-100,565,252 on EP 0x63da..581b, 0 logs; control full-history same query returns 72 logs). Lifetime: 9 DepositExecuted (bonus ~0 each) + 15 RedemptionExecuted (bonus NAV 0.02-0.07 USD each, e.g. 48900137333864851 wei = $0.049 in tx 0x82b94ba13aa0327ce94cfa8ccd6de46eaa5d70d79ba93eac6f57f93af9d54aea), 21 of 24 third-party all by 0x806836249febbf6ca3008bff6c3257110f435480, 3 self-executed. Gas: gasUsed 385,670 (tx 0x82b94ba1...), gasPrice 7.5 gwei (eth_gasPrice 0x1bf08eb96), AVAX $7.2649 -> ~$0.021/call. EP savUSD escrow 0.00. Day factory 0 markets on avax."
+}

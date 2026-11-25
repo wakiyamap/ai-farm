@@ -1,0 +1,905 @@
+# Nova Markets Docs
+
+> How Nova works: trading Hyperliquid and Nova markets, providing liquidity to the Conviction Pool, and the Conviction Drops that decide what lists next.
+
+This is the complete text of the Nova documentation at https://docs.nova.markets, generated from the site on 2026-11-06. If this file and the site disagree, the site is right.
+
+Official addresses of Nova Markets: website https://nova.markets, app https://app.nova.markets, docs https://docs.nova.markets, X https://x.com/novadotmarkets, Telegram https://t.me/novadotmarkets. Nova Markets is not affiliated with the forex brokers or the bitcoin cloud-mining services that use a similar name.
+
+Each page below starts with its title, its address on the site, and the address of the same page as Markdown. The glossary comes first because the other pages use its terms; the rest follow the order of the site's menu.
+
+---
+
+# Glossary
+
+Address: https://docs.nova.markets/#/glossary
+Markdown: https://docs.nova.markets/glossary.md
+Section: Reference
+
+Every keyword in these docs, one line each. When a page uses a term, this is what it means.
+
+## Conviction Markets
+
+- **Conviction Markets:** The new primitive for market formation: decides what Nova lists next
+- **Conviction Drop:** One listing event: the backing, the launch of the winning market, and the distribution of its Conviction Token. "The Drop" for short
+- **Conviction Points:** Your balance. Earned by trading and by providing liquidity to the Conviction Pool; spent on Conviction Drops
+- **Backers:** Everyone who spent points in a Drop. The winner's backers are those who spent on the market that listed; they get a boosted share
+- **Conviction Token:** The token that gives holders a lifetime share of its fees. One per listed market; pays 75% of its market's trading fees (opening and closing) pro rata to its holders
+- **Candidate:** One of the 3 proposed markets you can back in a Drop, shortlisted by the Nova team from community proposals. A candidate that loses can stand again in a later Drop
+- **Sealed:** While a Drop is open, nothing that shows who backed what is published. At the Drop, the full Drop becomes public, permanently
+
+## Trading
+
+- **Nova market:** A market listed from a Conviction Drop, trading against the Conviction Pool at the oracle price
+- **Conviction Pool:** The one pool behind every Nova market: the counterparty to every trade, funded by depositors
+- **Opening fee:** The per-market fee to open a position, charged on notional. Together with the closing fee, this is the trading fee Conviction Tokens pay from
+- **Closing fee:** The same rate as the opening fee, charged on notional when the position closes. Open plus close is twice the one-side fee
+- **Spread & price impact:** Adjustments to the oracle price at execution: a fixed per-market spread, plus dynamic impact from your size and the market's skew
+- **Holding fees:** The two costs of keeping a position open: the borrowing fee (paid to the pool) and the funding fee (paid between longs and shorts; it can pay you)
+- **Lists / graduates:** A market *lists* on Nova when it wins its Drop; it *graduates* from Nova directly to Hyperliquid when it shows sustained activity
+- **Liquidation price:** Shown before you open: where losses, fees included, close the position automatically
+- **Epoch:** The Conviction Pool's clock: open PnL is marked on epoch boundaries, and withdrawals settle on them
+
+---
+
+# What is Nova?
+
+Address: https://docs.nova.markets/#/what-nova
+Markdown: https://docs.nova.markets/what-nova.md
+Section: Introduction
+
+**Nova is the perpetuals exchange reshaping market formation for Hyperliquid.** Nova introduces Conviction Markets, the market formation primitive on the House of All Finance. **Decide what lists next on Hyperliquid and earn from every market, forever.**
+
+There are 10x more capital markets that should exist onchain than actually do. The infrastructure to create them hasn’t been built. The first solver for capital origination is Nova.
+
+**Hyperliquid is where flows converge. Nova is where new flows enter.**
+
+The process of deciding which markets should exist, sizing them, sourcing their first liquidity, and assembling their first traders has historically sat inside exchange listing committees and bank structuring desks and has not been rebuilt for onchain finance. The rebuild to unbundle that work and run it as an efficient market process needs to happen with a new primitive for market formation.
+
+Conviction Markets is that primitive.
+
+Market demand is distributed. The people closest to latent demand are not exchange teams. They are domain experts, obsessive traders, niche communities, researchers, hedgers, people living inside the information flow before it becomes consensus. A commodities desk knows a venue should exist for a specific asset before any listing committee has discussed it. A macro analyst has been tracking an index for years and knows exactly who would trade a perpetual on it.
+
+Conviction Markets gives these participants a direct economic path from identifying demand to originating a market and retaining a claim on what they helped create. A market is proposed and becomes immediately tradable. Real capital at risk reveals whether demand is real or theoretical. If the market proves sustained activity, it moves into a full orderbook inheriting the liquidity and trader base it already accumulated during formation.
+
+Most exchanges acquire traders after a market is listed. By then, those traders may already have positions, habits, PnL history, and venue preference somewhere else. The exchange is competing for flow after the market already has a home.
+
+**Securitization did this to bank balance sheets. AMMs did this to market making. Conviction Markets do this to market formation.**
+
+The earliest moment to win a trader is the moment they first believe a market should exist. Conviction Markets captures traders at exactly that moment before there is an orderbook, before the market is widely known, before other venues are competing for the same flow. These traders have positions and history with the market from inception. They are not arriving later as mercenary flow. They are part of the market’s formation. Every Conviction Market is a trader acquisition funnel.
+
+The next billion-dollar markets start here.
+
+---
+
+# What is Conviction Markets?
+
+Address: https://docs.nova.markets/#/what-conviction-markets
+Markdown: https://docs.nova.markets/what-conviction-markets.md
+Section: Introduction
+
+Nova introduces Conviction Markets, the new primitive for market formation, where aligned incentives accelerate liquid listings by rewarding traders and LPs with lifetime fee sharing from all listed markets.
+
+**Conviction Markets is more than a better listing process. It is a market formation mechanism.** Discovery, validation, liquidity formation, trader capture, and economic alignment are all the product of one system.
+
+Markets can be proposed, traded, and capitalized before they move to an orderbook on Hyperliquid.
+
+Participants earn direct fee sharing from all listed markets on Nova, and when a market shows sustained activity it graduates from Nova directly to Hyperliquid, bringing its liquidity, traders, and Conviction Token with it.
+
+The creator, early traders, and liquidity providers earn revenue share from every trade for as long as the market exists. They become equity-like participants in the market rather than early users who get replaced once volume arrives. This is not an incentive program with an expiry date. It is a structural alignment between the people who originated the market and its ongoing economics. Revenue share makes them permanent.
+
+## How Conviction Markets work
+
+1. Participants receive **[Conviction Tokens](https://docs.nova.markets/#/revshare)** for each new listed market: the ERC-20 token that rewards holders with a lifetime share of the market’s fees.
+2. Participate by backing a market in the **[Conviction Drop](https://docs.nova.markets/#/conviction)**: spend **[Conviction Points](https://docs.nova.markets/#/points)** backing the market you want to see listed next and receive **Conviction Tokens** of the listed market. Back the winning market to receive a boosted share of its **Conviction Tokens**.
+3. Earn **Conviction Points** by trading and by providing liquidity to the **[Conviction Pool](https://docs.nova.markets/#/conviction-pool)**.
+4. Propose a market to be backed in the **Conviction Drop** and receive 10% of its **Conviction Tokens** if it gets listed.
+
+When a market shows sustained activity it graduates from Nova directly to Hyperliquid, and it brings its Conviction Tokens and traders with it.
+
+More information on [Telegram](https://t.me/novadotmarkets).
+
+---
+
+# Quick Start
+
+Address: https://docs.nova.markets/#/quick-start
+Markdown: https://docs.nova.markets/quick-start.md
+Section: Introduction
+
+Earn Conviction Points and use them to earn direct fee sharing from all of Nova’s markets and decide what lists next.
+
+## What you need
+
+- An email address, a Google, Apple or X account, or an EVM wallet.
+- USDC.
+- Your X account, optional: it puts your name on the leaderboard, and proposing a market needs it.
+
+## 1. Sign in
+
+Sign in with email, Google, Apple or X, and Nova creates a wallet for you. Or connect the wallet you already use. Linking your X account is offered once, and you can skip it.
+
+## 2. Deposit
+
+Click Deposit, at the top of every page. From an EVM wallet, send USDC from any of the supported chains; it lands in your Nova balance on Arbitrum in under a minute. A wallet created at sign-in is shown its address: send it USDC on Arbitrum only, or press **Or deposit any crypto** to fund it with any other token, which arrives as USDC. See [Deposits and transfers](https://docs.nova.markets/#/get-started).
+
+## 3. Earn Conviction Points by trading or providing liquidity
+
+Pick a market, Hyperliquid perps or Nova markets and start trading. You earn Conviction Points from your first trade. Providing liquidity to the [Conviction Pool](https://docs.nova.markets/#/conviction-pool) earns them too, continuously.
+
+## 4. Your first Conviction Drop
+
+At each Drop, three candidate markets stand for listing. Spend points on the ones you believe in. Skipping is free, and an unspent balance only grows. At the Drop, everyone who backed receives the new market's [Conviction Token](https://docs.nova.markets/#/revshare): a lifetime share of its fees.
+
+Next:
+
+- [Conviction Tokens](https://docs.nova.markets/#/revshare): what you receive, and why it pays for life.
+- [Conviction Drops](https://docs.nova.markets/#/conviction): the rules of backing.
+- [Fees and funding](https://docs.nova.markets/#/fees): what a trade costs, and the one fee that can pay you.
+
+---
+
+# Conviction Tokens
+
+Address: https://docs.nova.markets/#/revshare
+Markdown: https://docs.nova.markets/revshare.md
+Section: Conviction Markets
+
+The token that gives holders a lifetime share of each market’s fees. Every listed market has one.
+
+## Getting Conviction Tokens
+
+- Back a market in the Conviction Drop. Everyone who backs receives, pro rata and the winner's backers get a boosted share.
+- Propose a market that is listed on a Conviction Drop.
+- Buy in the open market.
+
+A Conviction Token pays **75% of its market's trading fees** pro rata to its holders. Trading fees are the opening fee and the closing fee. What that is worth depends on how much the market trades, the larger the volume the more it is worth.
+
+## Claiming your accrued fees
+
+Fees accrue in USDC and stay there until you claim. Claim your share at any time.
+
+## Trading Conviction Tokens
+
+Conviction Tokens are ERC-20 tokens and can be transferred or traded. The app points you to the marketplace where each token's liquidity lives. Selling passes future fees to the buyer; what has already accrued stays yours.
+
+---
+
+# Conviction Drops
+
+Address: https://docs.nova.markets/#/conviction
+Markdown: https://docs.nova.markets/conviction.md
+Section: Conviction Markets
+
+Conviction Markets is the new primitive for market formation. You earn Conviction Points, spend them on the proposed markets you believe in, and receive [Conviction Tokens](https://docs.nova.markets/#/revshare), a lifetime share of each listed market's fees, at the Drop.
+
+## Backing a market at the Drop
+
+A **Conviction Drop** is one listing event: the backing, the launch of the winning market, and the distribution of its Conviction Token. Each Drop opens and closes on dates Nova announces. Each Drop has 3 proposed markets that you can back, shortlisted by the Nova team from the community proposals. **The candidate with the most points spent on it wins.**
+
+- Back a market at any moment while the Drop is open.
+- Once you back a market the points are spent and backing a market is permanent.
+- Back one, two or all three candidates, with as many of your points as you like.
+- Adding more is always allowed. Withdrawing is not: spent points stay spent.
+- You keep earning points while the Drop is open, and what you earn can back a market too.
+- Skipping is free and unlimited. You keep earning while you sit out.
+
+While a Drop is open, nothing that shows who backed what is published: no names, no amounts, no running totals, not even how many have taken part. At the Drop the winner lists, the tokens go out to everyone who backed any of the 3 markets, and the result becomes public, permanently: each candidate’s backers, the points behind it and its top backers. Backing the winner market gives you a boost in received Conviction Tokens.
+
+Losing candidates are not gone: a candidate that loses can stand again in a later Drop.
+
+## Proposing a market
+
+Anyone with an X account can propose, and it costs nothing: a ticker and one sentence on why it should trade on Nova, posted on X. Others back the proposals they believe in with posts of their own, and the Drop's candidates are shortlisted from the most backed. If it lists, the proposer receives a 10% share of its Conviction Tokens.
+
+[More on Proposing a Market](https://docs.nova.markets/#/propose).
+
+---
+
+# Conviction Points
+
+Address: https://docs.nova.markets/#/points
+Markdown: https://docs.nova.markets/points.md
+Section: Conviction Markets
+
+Earned by trading and by providing liquidity to the Conviction Pool, and yours until you use them. Spend on Conviction Drops and receive Conviction Tokens.
+
+## What they are
+
+Conviction Points are the balance you back markets with. Every Conviction Drop is decided by them, and every Drop's token distribution is computed from them. While a Drop is open, Conviction Points continue being accrued.
+
+## How you earn Conviction Points
+
+- **Trade Nova’s markets or on Hyperliquid through Nova’s Trading Terminal.** Every trade earns, start trading at https://app.nova.markets.
+- **Deposit in the Conviction Pool.** The pool shares a daily points budget among its depositors every hour, in proportion to their capital and the time it stays. Deposit at https://app.nova.markets/earn/liquidity-pools.
+- **Referrals.** A share of what the people you bring in earn. It costs them nothing, and everyone earns extra.
+
+Points from Hyperliquid trades reach your balance within seconds. Points from Nova trades and from the pool are credited once an hour.
+
+## Referrals
+
+Attribution is explicit and permanent: once an account registers your code, a share of its base activity accrues to you: 10% to you, 5% extra to them. One level deep. No recursion, and no retroactivity: activity before registration counts for no one.
+
+## Spend, or stack
+
+Backing spends points. Skipping is free and unlimited, and you keep earning while you sit out, so a balance started on day one, left alone, walks into a later Drop big enough to decide it. Being early is never wasted: your balance compounds until you choose to use it.
+
+## Spending and receiving Conviction Tokens
+
+You spend points at Conviction Drops to receive Conviction Tokens, any amount, on one candidate or several. The full rules of backing live in [Conviction Drops](https://docs.nova.markets/#/conviction).
+
+## Rates
+
+Set by Nova for periods of their own, independent of the Drops. What applies today is in the app. Changes are never retroactive.
+
+---
+
+# Propose a Market
+
+Address: https://docs.nova.markets/#/propose
+Markdown: https://docs.nova.markets/propose.md
+Section: Conviction Markets
+
+List your market on Hyperliquid and earn a 10% revenue share, forever.
+
+[Image: The [Propose a market](https://app.nova.markets/proposals) page. If your market lists, you receive 10% of its Conviction Tokens.]
+
+Every market on Nova starts as a proposal. Proposing one and backing one are both posts on X: conviction you put your name to, in public.
+
+## Propose a market
+
+1. Sign in and link your X account: a proposal is credited to it.
+2. Press **Propose a market**, type the ticker and one sentence of conviction: why it should trade on Nova.
+3. Press **Post to submit proposal** and post it on X. Your proposal then joins the board, under your name.
+
+Proposing costs nothing. If the market lists, you receive 10% of its Conviction Tokens.
+
+## Back a proposal
+
+Every proposal on the board can be backed. Press **Back** on the one you believe in and post your support on X: your X account joins its backers, once per account. **Share** copies its link, with your invite code in it.
+
+The board sorts by **Top**, the proposals with the most backers, or by **New**.
+
+## From the board to the Drop
+
+The board is a social selection. The proposals that gather the most conviction are shortlisted by the Nova team as the candidates of the next [Conviction Drop](https://docs.nova.markets/#/conviction), where everyone backs them with Conviction Points and the winner lists.
+
+---
+
+# Referrals
+
+Address: https://docs.nova.markets/#/referrals
+Markdown: https://docs.nova.markets/referrals.md
+Section: Conviction Markets
+
+Refer users and earn direct fee sharing from their trades and boosted Conviction Points.
+
+Sign-up using a referral and receive a 5% boost on all your earned Conviction Points.
+
+Refer a user and receive 10% of all their earned Conviction Points.
+
+[Image: Check your referrals in the Referrals menu, at the top of the app, or on the Referrals page.]
+
+---
+
+# Placing a trade
+
+Address: https://docs.nova.markets/#/trade
+Markdown: https://docs.nova.markets/trade.md
+Section: Trading
+
+Trade any market on Nova’s Trading Terminal and earn Conviction Points.
+
+[Image: Nova’s Trading Terminal]
+
+## The trade panel
+
+Pick a side, set the size, confirm. Leverage and margin mode sit at the top of the panel.
+
+**Market** fills immediately at the best price available, and never worse than the slippage cap you set. **Limit** rests at the price you name and fills only there, or not at all.
+
+**Take profit** and **stop loss** are exits. Tick the box and set both prices while you place the entry, and they are attached to it. Or place them later from the same trade panel, against a position you already hold: each one becomes its own order, listed under Open Orders, where you can see it and cancel it.
+
+**Reduce only** keeps an order from ever opening more than you have. It can shrink a position or close it, never flip it.
+
+| Field | What it does |
+| --- | --- |
+| **Market / Limit** | Market fills now. Limit rests on the book at your price |
+| **Long / Short** | Long profits when the price rises, short when it falls |
+| **Amount** | Size. Type it, or use the slider |
+| **Reduce only** | The order can only shrink a position |
+| **Take profit / Stop loss** | Sets your exits, with the entry or later on their own |
+| **Slippage** | Market orders only. The worst price you accept |
+
+**Order Value** is the notional, **Margin Required** is what it locks, **Fees** is what it costs.
+
+A position is editable after it opens: add or remove collateral, adjust leverage, close part of it. Each edit re-checks the liquidation price before it applies.
+
+[Video: Trade Panel]
+
+## Choosing a market to trade
+
+On Nova’s Trading Terminal, you can trade both Hyperliquid’s and Nova’s markets.
+
+|  | Hyperliquid perps | Nova markets |
+| --- | --- | --- |
+| **What it is** | Markets that are listed on Hyperliquid | Markets that are listed on Nova |
+| **Counterparty** | The Hyperliquid order book | The Conviction Pool |
+| **Settles on** | Your Hyperliquid balance | Your Nova balance |
+
+Both sit behind one interface and one trade panel. Switch with the market selector.
+
+## Examples
+
+| You want to | Do this |
+| --- | --- |
+| Go long 250 USDC of BTC now | Market, Long, 250, Submit Order |
+| Buy only at 78,000 | Limit, Long, price 78,000, size, Submit Order |
+| Set a target and a stop | Tick Take profit / Stop loss, set both prices |
+| Close now | Close on the position row, Market |
+| Close part of it | Close on the position row with a smaller amount, or an opposite order with Reduce only ticked |
+| Flip to the other side | Close on the position row, Reverse |
+| Close everything | Close All, in the positions table |
+
+## Your position
+
+The row shows size, entry price, mark price, PnL, margin, and the liquidation price. Adding margin pushes the liquidation price away, removing it brings it closer.
+
+**Close** on the row offers three ways out: **Market** closes now, all of it or the amount you set; **Limit** closes at a price you name; **Reverse** closes the position and opens the same size on the other side. **Close All** closes every position at market.
+
+> Liquidation triggers on the mark price, an oracle price rather than the last trade.
+
+## On Nova markets
+
+Same trade panel. Your counterparty is the Conviction Pool, so a large order moves your own execution price, shown before you confirm. The opening fee is set when you open, the closing fee when you close, and holding fees accrue while you hold.
+
+- **The 1000× tier.** On some markets the leverage slider ends on a fixed 1000×. Those orders go to a pair of their own, with its own fee, minimum and liquidation threshold: see [Markets and parameters](https://docs.nova.markets/#/markets).
+- **A limit close is your take profit.** On a Nova market, Limit sets the position’s take profit at your price: it closes all of it, and replaces a take profit already set.
+- **An order the oracle never answers.** A market order fills when the price nodes answer it. If they never do, after about 50 seconds the app offers to claim its USDC back.
+
+Start trading now at https://app.nova.markets.
+
+---
+
+# Deposits and transfers
+
+Address: https://docs.nova.markets/#/get-started
+Markdown: https://docs.nova.markets/get-started.md
+Section: Trading
+
+Your Nova balance is USDC on Arbitrum. Deposit into it, move it to Hyperliquid and back, and send it out.
+
+## Deposit USDC
+
+Click **Deposit**, at the top of every page. What it opens depends on how you signed in:
+
+### With an EVM wallet
+
+MetaMask, Rabby, or any wallet you connect: the USDC it holds on Arbitrum is already your Nova balance. Deposit brings USDC from another chain: pick the chain, type the amount to receive, then approve and deposit. Circle delivers the USDC to your wallet on Arbitrum, in under a minute.
+
+[Video: Depositing USDC from another chain]
+
+- **Asset:** USDC
+- **From:** Ethereum, Base, OP Mainnet, Polygon PoS, Avalanche, Linea, Unichain
+- **Minimum:** 1 USDC received
+- **Fee:** Circle’s fee, 0 to 13 bps depending on the chain, plus about 0.08 USDC for delivery. Shown before you confirm
+
+### With email, Google, Apple or X
+
+Signing in with one of those creates a Nova wallet for you, and Deposit opens its funding window. Fund it one of two ways:
+
+- **Send USDC on Arbitrum** to the address shown: copy it, or scan its QR code. Only USDC, and only on Arbitrum.
+- **Or deposit any crypto**: press it, pick the token you hold and its network, and follow the steps. It arrives in your Nova balance as USDC on Arbitrum.
+
+[Video: Funding a wallet created at sign-in]
+
+> Sent straight to the address, only USDC on Arbitrum reaches your Nova balance. Another token, or USDC on another network, lands at the same address on that network instead. To fund with anything else, use **Or deposit any crypto**.
+
+## Move between Nova and Hyperliquid
+
+Nova markets trade from your Nova balance, Hyperliquid perps from your Hyperliquid balance. Move USDC across with **Nova ⇄ Hyperliquid**, under the trade panel or in the account menu.
+
+| Direction | Minimum | Cost |
+| --- | --- | --- |
+| **Nova to Hyperliquid** | 5 USDC | Free. Credited in about 15 to 20 seconds |
+| **Hyperliquid to Nova** | 0.01 USDC | Hyperliquid’s gas, under a cent; Hyperliquid keeps 1 USDC on the account for it. Arrives in seconds |
+
+Coming back from Hyperliquid, a wallet created at sign-in receives the USDC by itself. An EVM wallet confirms one last transaction on Arbitrum to claim it, which takes a little ETH there for gas.
+
+[Video: Moving USDC between Hyperliquid and Nova]
+
+> Sent by hand to Hyperliquid’s bridge contract, less than 5 USDC is not credited and cannot be recovered. The app refuses a transfer under 5 USDC before you sign.
+
+## One balance on Hyperliquid
+
+When you enable trading, Nova switches your Hyperliquid account to unified mode: one USDC balance for spot and perps, nothing to move between them. An account that still keeps the two balances apart is offered **Switch to unified** in the transfer window.
+
+## Withdraw
+
+**Withdraw**, in the account menu, sends USDC from your Nova balance to any address on Arbitrum. To withdraw what is on Hyperliquid, move it to Nova first.
+
+> A withdrawal is sent on Arbitrum only and cannot be undone. Check that the address receives USDC on Arbitrum.
+
+---
+
+# Fees and funding
+
+Address: https://docs.nova.markets/#/fees
+Markdown: https://docs.nova.markets/fees.md
+Section: Trading
+
+What a trade costs, on both kinds of market, and the one fee that can pay you.
+
+## Hyperliquid perps
+
+[Hyperliquid's own maker and taker fees](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees), plus a **builder code of 3.5 bps** from Nova.
+
+## Nova markets
+
+Fees are calculated on the position's notional: collateral times leverage. Each trade pays an **opening fee** when it opens and a **closing fee** when it closes. Both use the same rate, set per market, and both are charged on notional, not on collateral and not on PnL. The rate of every listed market, read from the chain, is in [Markets and parameters](https://docs.nova.markets/#/markets).
+
+Open plus close is twice the one-side fee. A market’s fixed 1000× tier has a rate of its own, listed on the same page. Trading fees (opening and closing) are what the market's Conviction Token holders are paid from.
+
+- **Spread and price impact**, applied to the oracle price at execution (below).
+- **Holding fees** while the position is open: a borrowing fee to the pool, and funding between traders (below).
+
+Everything that applies is in the trade panel before you confirm.
+
+## Spread and price impact
+
+Your execution price is the oracle price adjusted by two things. A small **fixed spread**, set per market: smaller, less liquid underlyings carry a wider one. And a **dynamic price impact** that scales with your size against the underlying's real depth, and with the market's open-interest skew: a trade that makes the imbalance worse pays more, and a trade that reduces it pays less, and it can even execute better than the oracle price. This is what an order book's depth does elsewhere, done explicitly: size and direction pay their real cost, and the book stays balanced without shrinking the caps.
+
+## Holding fees
+
+Two components accrue while a position is open, both visible on the position row.
+
+- **Borrowing fee**, paid to the Conviction Pool. It scales with how much of the pool's capacity your side of the market is using: a crowded side pays more per hour than a quiet one. This is the pool's compensation for backing your leverage.
+- **Funding fee**, paid between traders: the crowded side pays the light side, and Nova takes none of it. It is the one fee that can work in your favour: hold the light side of a skewed market and funding pays you.
+
+Rates and countdowns are in the market header; on your position both are folded into PnL.
+
+## Liquidations
+
+Every position shows its **liquidation price** before you open it. It sits where your losses, fees included, reach the market’s liquidation threshold, deliberately short of 100%, so the position is always closed while there is still margin to close it with. Cross it and the position is liquidated: the remaining collateral, minus the liquidation fee, is gone to the pool.
+
+The liquidation threshold is set per market and can change with leverage. Check the table for each market in [Markets and parameters](https://docs.nova.markets/#/markets).
+
+The shape of it, with a 90% threshold: at 10×, a roughly 9% move against you liquidates. More leverage moves the liquidation price closer. Liquidations are executed automatically the moment the oracle price crosses the trigger, run by Nova at launch. Your take profit and stop loss, if set, always fire first when their prices come first.
+
+## The rest
+
+|  |  |
+| --- | --- |
+| **Deposit from another chain** | Circle’s fee, 0 to 13 bps depending on the chain, plus about 0.08 USDC for delivery |
+| **Nova to Hyperliquid** | Free |
+| **Hyperliquid to Nova** | Hyperliquid’s gas, under a cent |
+| **Withdrawal** | Nothing from Nova |
+
+---
+
+# Conviction Pool
+
+Address: https://docs.nova.markets/#/conviction-pool
+Markdown: https://docs.nova.markets/conviction-pool.md
+Section: Earn
+
+Deposit on the Conviction Pool and earn direct fee share from all Nova’s Markets and earn Conviction Points.
+
+## What is the Conviction Pool?
+
+The Conviction Pool is the pool that exists to provide liquidity for every Nova market launched in Conviction Markets. You deposit USDC; each newly listed market plugs straight into it, and markets can quickly grow in Open Interest.
+
+## Depositing
+
+Open the Conviction Pool on [Earn](https://app.nova.markets/earn/liquidity-pools) and type an amount on the **Deposit** side. Your shares are minted at once, at the current share price.
+
+- **USDC on Arbitrum.** Approve, then deposit.
+- **USDC on another chain**, from an EVM wallet: pick the chain in the menu next to the amount (Ethereum, Base, OP Mainnet, Polygon PoS, Avalanche, Linea or Unichain). The form lists every step and its cost before you sign: approve and send on that chain, Circle brings the USDC to your wallet on Arbitrum in under a minute, then the pool takes it. The pool’s two transactions on Arbitrum need a little ETH there for gas.
+- **A wallet created at sign-in** (email, Google, Apple or X) deposits from Arbitrum: fund it first, with USDC on Arbitrum or any crypto, as [Deposits and transfers](https://docs.nova.markets/#/get-started/g-in-social) shows.
+
+[Video: Depositing in the Conviction Pool from another chain]
+
+Stop after the bridge and nothing is lost: the USDC waits in your wallet on Arbitrum, the form keeps the amount, and one click finishes the deposit.
+
+## What it collects
+
+- **15% of all trading fees** from Nova markets (opening and closing).
+- **Borrowing fees** from every open position, for as long as it stays open.
+- **Liquidation proceeds** when a position is liquidated.
+- **Trader losses.**
+- **Conviction Points**, on the capital you leave in.
+
+The other side of it: when traders close in profit, the pool pays them.
+
+## How pool capital accrues
+
+The Conviction Pool has a daily points budget, shared every hour among the capital in it, pro rata to how much and for how long. Capital earns from the moment it is deposited until the withdrawal is claimed; capital waiting out the withdrawal delay still counts. The pool’s page shows the budget and what $1,000 earns. Only capital in the pool earns; nothing accrues to funds that have left.
+
+## Epochs
+
+Deposits are instant. Withdrawals are requests that settle after a delay counted in epochs, then you claim.
+
+| Action | Settles |
+| --- | --- |
+| **Deposit** | Instantly, at the current share price |
+| **Withdrawal** | After the withdrawal delay, counted in epochs, then claim your USDC |
+| **Cancel** | Immediately, while still pending |
+
+The epoch, the time left in it and the delay are shown before you confirm.
+
+---
+
+# NLP Vault
+
+Address: https://docs.nova.markets/#/nlp-vault
+Markdown: https://docs.nova.markets/nlp-vault.md
+Section: Earn
+
+Market making on the markets mature enough to be listed on Hyperliquid. Your USDC is used to quote both sides of those books.
+
+## What it collects
+
+- **A share of the trading fees** those markets generate.
+- **The market making result**, which can be positive or negative. Depositors hold it in full.
+
+Nothing to claim: your shares grow through the share price.
+
+## Depositing
+
+With USDC on **HyperEVM**, the network the vault is on. The deposit is requested, and settles at the next valuation.
+
+[Video: Depositing in the NLP]
+
+## Withdrawing
+
+> Free, any time, but **asynchronous: up to 7 days**. The capital is in live positions and has to be unwound.
+
+## Infrastructure
+
+- **Vault:** [Lagoon Finance](https://lagoon.finance/), whose vault infrastructure is audited
+- **Keys:** [Fordefi](https://fordefi.com/) MPC, policy controls on every signature
+- **Vault contract:** [0xeeed7bb939d65938fe8f40dd898cd5942e32f09e](https://hypurrscan.io/evm/address/0xeeed7bb939d65938fe8f40dd898cd5942e32f09e)
+- **MM account:** [0x01e187f06c9e7871986f0ed4e9d2bf528af9b2cf](https://hypurrscan.io/address/0x01e187f06c9e7871986f0ed4e9d2bf528af9b2cf)
+
+---
+
+# Pricing and oracles
+
+Address: https://docs.nova.markets/#/pricing
+Markdown: https://docs.nova.markets/pricing.md
+Section: How it actually works
+
+How the Pricing and Oracle feeds for Nova’s markets work.
+
+## Oracle Pricing
+
+Nova’s markets are pool based perpetuals. Every trade executes against the Conviction Pool at the oracle price of the underlying, adjusted for price impact, plus the market’s opening and closing fee.
+
+## The price network
+
+Nova uses a custom real-time Chainlink node network to fetch the median price for each order. The nodes do not rely on Chainlink alone for prices: they pull from multiple centralized and decentralized exchanges and from multiple independent oracle providers.
+
+Five nodes answer each request. The trading contract waits for at least three of them and fills the order at the median of their answers.
+
+The network filters out outlier price action from any single exchange, whether it is caused by a manipulation attempt or by a temporary lack of liquidity. The oracle contracts are listed in [Nova Smart Contracts](https://docs.nova.markets/#/contracts).
+
+## The feed
+
+Each node aggregates prices across the underlying's real markets, so no single venue's print is ever the price. The reason is leverage: at 10×, a wick of a tenth of a percent on one exchange is a 1% error in your PnL. An aggregated median cannot be wicked by one thin book, which protects both your liquidation price and the pool that takes the other side.
+
+## Fresh at execution
+
+A market order is priced after you send it. Your transaction requests a price, the nodes answer onchain, and the order fills at the median of their answers. There is no stale price to trade against: if the price does not arrive in time, the order does not fill and you can reclaim its collateral.
+
+Limit orders, stops, take profits and liquidations are priced by the same nodes. They report the high and the low since the order became active, so an order fills if its price was reached.
+
+## Spread and price impact
+
+Execution adjusts the oracle price twice. A small **fixed spread** per market covers the underlying's baseline liquidity, wider for smaller markets. A **dynamic impact** then scales with your size against the underlying's real depth and with the market's open-interest skew: worsen the imbalance and you pay more, reduce it and you pay less, sometimes better than oracle. This is the work an order book's depth does elsewhere, done explicitly: size pays its real cost, and nobody leans on the pool with unlimited size at a flat price.
+
+## Manipulation resistance
+
+The defences stack. The price is an aggregated median, so moving it means moving the underlying's actual markets against their full depth. The impact curve makes one-sided size expensive, so a manipulator pays their way in and out. And each market carries exposure bounds, so whatever edge remains cannot be scaled into a number that matters.
+
+---
+
+# Pool mechanics
+
+Address: https://docs.nova.markets/#/pool-mechanics
+Markdown: https://docs.nova.markets/pool-mechanics.md
+Section: How it actually works
+
+One Conviction Pool behind every market: what that means precisely, and why deposits move on epochs.
+
+## The counterparty
+
+Every position on every Nova market has the same other side: the Conviction Pool. When a trader closes in profit, the pool pays the difference; when a trader closes at a loss or is liquidated, the pool keeps it. There is no peer on the other end of your trade, and no borrowed asset: the leverage is synthetic, backed by the pool.
+
+## What it collects, what it pays
+
+Into the pool: 15% of every trading fee (opening and closing); borrowing fees from every open position, for as long as it stays open; liquidation proceeds; and trader losses. Out of the pool: trader profits. The rest of each trading fee does not stay in the pool: most of it pays the holders of the market's [Conviction Token](https://docs.nova.markets/#/revshare), a lifetime share of its fees (the exact split is in [Markets and parameters](https://docs.nova.markets/#/markets)). And **funding** is paid between longs and shorts to keep each market's book balanced; it can even work in a trader's favour, and the pool never touches it. Depositors also earn Conviction Points continuously while their capital is at work.
+
+## The share price tells the truth
+
+A share's price is simple arithmetic: what was deposited, plus every fee the pool has earned, minus the traders' net profit against it, including the unrealised profit and loss of positions still open, snapshotted at each epoch. You enter and exit at a price that already reflects the pool's exposure: there is no way to deposit just ahead of good news, or leave just ahead of bad, at a stale number.
+
+## Why epochs
+
+Pool capital is live: it is the counterparty to positions whose value moves every second. Open PnL is snapshotted at epoch boundaries, and that settled mark is the only price shares move at: a deposit enters instantly at that mark, and withdrawals are **requests** that settle on a boundary, then you claim. This is what makes the pool fair to sit in: nobody trades its shares against a swing the mark has not settled yet. A deposit starts backing trades, and earning, from the epoch it enters.
+
+## Leaving
+
+A withdrawal is requested, waits its delay counted in epochs, then is claimed in its window. The delay exists because your capital is backing open positions and has to be released, and it scales with the pool's health: the better collateralised the pool, the shorter the wait (1 to 3 epochs; an epoch is 3 days). Your shares keep earning fees for the whole lock. Cancel a pending request and the capital goes straight back to work.
+
+## Can the pool fail to pay a winner?
+
+The exposure is bounded on purpose. Each market carries open-interest caps sized against the pool, so the sum of what traders could win is limited relative to what the pool holds: a hot streak draws the share price down, it does not leave a winner unpaid. Above full backing, the pool builds a buffer: fees accumulating past 100% collateralisation sit as a cushion between traders and depositors before any drawdown touches deposits. The open-interest cap of each market is listed in [Markets and parameters](https://docs.nova.markets/#/markets).
+
+## One pool, every market
+
+A newly listed market plugs into the pool and trades with full depth from its first minute: no market raises its own liquidity, and no market trades against a thin, drainable pot of its own. Each market is capped in how much of the pool's capacity it may use, so no single market can monopolise the depth or the risk. The other side of the coin, said plainly: the pool's exposure spans the whole board. Depth is shared, and so is risk: one market's bad day is diluted across every market's fees.
+
+---
+
+# Nova Smart Contracts
+
+Address: https://docs.nova.markets/#/contracts
+Markdown: https://docs.nova.markets/contracts.md
+Section: How it actually works
+
+The technology Nova is built on, the contracts behind it, and who controls them.
+
+## Hyperliquid markets
+
+Nova uses Hyperliquid and adds a builder fee for trades on Hyperliquid markets. The fee is listed in [Fees and funding](https://docs.nova.markets/#/fees).
+
+- **Builder address:** [0x3f950B0A5221048097057AF9FD162c3cdf81E9DD](https://hypurrscan.io/address/0x3f950B0A5221048097057AF9FD162c3cdf81E9DD)
+
+## Nova’s markets
+
+Nova uses a 1:1 fork of [Gains Network](https://gains.trade) for Nova’s markets, using battle tested technology that has had billions of dollars in volume and secured millions in TVL.
+
+Nova has made no changes to the Gains Network code. Nova’s markets run on Arbitrum. Nova controls every admin key of the contracts below.
+
+## Contract addresses
+
+Each address links to the contract on Arbiscan.
+
+- **Trading contract:** [0x1410FA3F87F6A6ea221E5D2aB608C23005eC34f3](https://arbiscan.io/address/0x1410FA3F87F6A6ea221E5D2aB608C23005eC34f3)
+- **Conviction Pool:** [0x9cA80193712F372e2ff33A00127292884F6F8598](https://arbiscan.io/address/0x9cA80193712F372e2ff33A00127292884F6F8598)
+- **Open PnL feed:** [0xdf27970cA86FC94668cC31c8Ba372eE37397B58d](https://arbiscan.io/address/0xdf27970cA86FC94668cC31c8Ba372eE37397B58d)
+- **Collateral (USDC):** [0xaf88d065e77c8cC2239327C5EDb3A432268e5831](https://arbiscan.io/address/0xaf88d065e77c8cC2239327C5EDb3A432268e5831)
+- **Governance Safe:** [0xBA86498b08a2fac8e987eeaB5Eeb5930689b293F](https://arbiscan.io/address/0xBA86498b08a2fac8e987eeaB5Eeb5930689b293F)
+- **14-day timelock:** [0x35016C7cF14bA1080D486143A98fcB3fA9bF1ea4](https://arbiscan.io/address/0x35016C7cF14bA1080D486143A98fcB3fA9bF1ea4)
+- **3-day timelock:** [0xc2A8e52b78DEA6675f924690e6E53556652bab01](https://arbiscan.io/address/0xc2A8e52b78DEA6675f924690e6E53556652bab01)
+- **10-hour timelock:** [0xCE44101fC58c0ecbAB80Be524dD302c2Db9CbD82](https://arbiscan.io/address/0xCE44101fC58c0ecbAB80Be524dD302c2Db9CbD82)
+- **Proxy admin:** [0x5a780c806b8394C575eaE1781fdBCCa5506090Bb](https://arbiscan.io/address/0x5a780c806b8394C575eaE1781fdBCCa5506090Bb)
+- **Price oracle 1:** [0x72132Ef9553b9F7E23e1223330b3d4183Dd7e4D8](https://arbiscan.io/address/0x72132Ef9553b9F7E23e1223330b3d4183Dd7e4D8)
+- **Price oracle 2:** [0x33DD0e108Cd992d0D19E080c88611dF0143655FB](https://arbiscan.io/address/0x33DD0e108Cd992d0D19E080c88611dF0143655FB)
+- **Price oracle 3:** [0xB184bd3CF9C45b60b98E4d647b574A97e56a8135](https://arbiscan.io/address/0xB184bd3CF9C45b60b98E4d647b574A97e56a8135)
+- **Price oracle 4:** [0xbe3A28B484c0CEF6774c630d2E1F07c7245FE17C](https://arbiscan.io/address/0xbe3A28B484c0CEF6774c630d2E1F07c7245FE17C)
+- **Price oracle 5:** [0xF1b2cc388873d1c3D1acfa947B252d4eD7bbfFDB](https://arbiscan.io/address/0xF1b2cc388873d1c3D1acfa947B252d4eD7bbfFDB)
+- **Referral registry:** [0x8650e771cde34e86B4b65B636aaeC9Ff9fD9782f](https://arbiscan.io/address/0x8650e771cde34e86B4b65B636aaeC9Ff9fD9782f)
+- **Referral distributor:** [0xbeDe0Ad86877F6c6FeCe639f04B6F81896f82973](https://arbiscan.io/address/0xbeDe0Ad86877F6c6FeCe639f04B6F81896f82973)
+- **Manager key:** [0x2Daf8D24Ef74808A11324fD89143F2B26763068c](https://arbiscan.io/address/0x2Daf8D24Ef74808A11324fD89143F2B26763068c)
+
+The NLP Vault has its own contracts, listed on the [NLP Vault](https://docs.nova.markets/#/nlp-vault) page.
+
+## Who controls what
+
+A multisig Safe governs the contracts. Changes to code and to roles go through a timelock, so each one is visible onchain before it takes effect.
+
+| Holder | Delay | What it controls |
+| --- | --- | --- |
+| **Governance Safe**, 2 of 3 signers | None | Lists markets and sets their fees, leverage and liquidation settings. Sets the fee split and collects the treasury share. Replaces a price oracle. Pauses trading. |
+| **3-day timelock** | 3 days | Changes roles and the code of the trading contract. Changes the treasury address. Adds a collateral or a price oracle. Sets the daily limits of the Conviction Pool. |
+| **10-hour timelock** | 10 hours | Changes roles and the code of the trading contract in an emergency. |
+| **14-day timelock** | 14 days | Upgrades the Conviction Pool and the proxy of the trading contract. Changes the pool’s withdrawal rules and the contracts it is linked to. |
+| **Manager key** | None | Sets open-interest caps, market depth, and borrowing and funding rates. It cannot change code, change roles or withdraw funds. |
+
+The Safe is the proposer and the executor on all three timelocks. The key that deployed the contracts holds no role.
+
+An upgrade to the Conviction Pool waits 14 days. That is longer than the longest withdrawal wait, which is 3 epochs of 3 days, 9 days in total.
+
+## Gains Network audits
+
+These are the audits of the Gains Network contracts that Nova forks.
+
+- **Halborn.** [Gains Trade Smart Contract Security Assessment](https://www.halborn.com/audits/gains-trade/gains-trade-smart-contract-security-assessment).
+- **CertiK.** [All eight CertiK audit reports for Gains Network](https://skynet.certik.com/projects/gains-network).
+
+## Gains Network docs
+
+The full technical reference for the contracts is in the [Gains Network docs](https://docs.gains.trade).
+
+---
+
+# Markets and parameters
+
+Address: https://docs.nova.markets/#/markets
+Markdown: https://docs.nova.markets/markets.md
+Section: How it actually works
+
+The markets listed on Nova, the settings each one trades with, and where each trading fee goes. Everything in the tables is read from the chain.
+
+## Listed markets
+
+The trading contract holds 456 pair entries. A pair can be traded only when its open-interest cap is above zero. Four of them can be traded today, listed in the app as three markets.
+
+### HYPE (Hyperliquid)
+
+One market in the app, traded through two pairs on the trading contract. An order goes to the pair its leverage belongs to: 1000× is HYPE1000/USD.
+
+| Setting | HYPE/USD | HYPE1000/USD |
+| --- | --- | --- |
+| **Leverage** | 1.1× to 200× | 1000× |
+| **Trading fee, each side** | 0.05% (5 bps) | 0.01% (1 bp) |
+| **Minimum position** | $200 | $500 |
+| **Open-interest cap** | 1,500,000 USDC | 100,000 USDC |
+| **Fixed spread** | None | None |
+| **Liquidation threshold** | 90% up to 25×, falling to 75% at 60× and above | 80% at every leverage |
+
+### ANT (Anthropic)
+
+ANTH/USD on the trading contract.
+
+- **Leverage:** 1.1× to 200×
+- **Trading fee, each side:** 0.03% (3 bps)
+- **Minimum position:** $200
+- **Open-interest cap:** 100,000 USDC
+- **Fixed spread:** 0.06%
+- **Liquidation threshold:** 80% at every leverage
+
+### KNTQ (Kinetiq)
+
+- **Leverage:** 1.1× to 10×
+- **Trading fee, each side:** 0.1% (10 bps)
+- **Minimum position:** $200
+- **Open-interest cap:** 50,000 USDC
+- **Fixed spread:** 0.2%
+- **Liquidation threshold:** 90% at every leverage
+
+The trading fee is charged when a position opens and again when it closes. Price impact and holding fees are explained in [Fees and funding](https://docs.nova.markets/#/fees).
+
+## Where each trading fee goes
+
+The trading contract splits every trading fee the same way on every market.
+
+| Recipient | Share of each trading fee |
+| --- | --- |
+| **Nova treasury** | 82.5% |
+| **Conviction Pool depositors** | 15% |
+| **Referrer** | 2.5% |
+
+When a trade has no referrer, that 2.5% is shared between the other recipients in the same proportions: 84.6% to the treasury and 15.4% to the pool.
+
+This is the split the contracts enforce. Conviction Token payouts are computed offchain on top of it, from Nova’s treasury share.
+
+---
+
+# FAQ
+
+Address: https://docs.nova.markets/#/faq
+Markdown: https://docs.nova.markets/faq.md
+Section: Reference
+
+## Getting started
+
+**Q: Why does Nova exist?**
+
+There are 10x more capital markets that should exist onchain than actually do. Deciding which markets exist has always been committee work; Nova turns it into a market process that measures demand with real capital and lists what wins. Conviction Markets is the new primitive for market formation.
+
+**Q: What do I need?**
+
+An email address, a Google, Apple or X account, or an EVM wallet, and USDC. Linking your X account is optional: it puts your name on the leaderboard, and proposing a market needs it.
+
+**Q: Is Nova a different exchange from Hyperliquid?**
+
+Yes, they are two different exchanges. You trade both on Nova's Trading Terminal, and both count towards Conviction Points. Markets on Nova that see great volumes graduate to Hyperliquid and take their Conviction Tokens and traders with them.
+
+**Q: Why trade here rather than on Hyperliquid?**
+
+Your volume works twice. Execution is the same, but every trade on Nova earns Conviction Points, points decide what lists next, and backing a listing pays a lifetime share of its fees. On Hyperliquid alone your volume is just volume; on Nova it compounds.
+
+**Q: No margin, but my balance is not empty.**
+
+Your funds are on the other venue: Nova markets trade from your Nova balance, Hyperliquid perps from your Hyperliquid balance. Move them across with Nova ⇄ Hyperliquid. See [Deposits and transfers](https://docs.nova.markets/#/get-started).
+
+## Costs
+
+**Q: What does Nova add on Hyperliquid fees?**
+
+A builder code of 3.5 bps. The rest is Hyperliquid's own fee.
+
+**Q: What does a Nova market cost, all in?**
+
+An opening fee and a closing fee, the same rate, set per market: each listed market’s rate is in [Markets and parameters](https://docs.nova.markets/#/markets). Spread and price impact on the execution price, and holding fees while the position is open: a borrowing fee to the pool, and funding between traders, which can also pay you. Every number is in the trade panel before you confirm.
+
+**Q: Can I edit a position after opening it?**
+
+Yes: add or remove collateral, adjust leverage, or close part of it. Take profit and stop loss can be attached at entry or added later.
+
+**Q: What happens during a liquidation?**
+
+Every position shows its liquidation price up front. If the oracle price crosses it, the position is closed automatically and the remaining collateral, minus the liquidation fee, goes to the pool. Your take profit and stop loss fire first if their prices come first. See [Fees and funding](https://docs.nova.markets/#/fees).
+
+**Q: Do I pay funding to Nova?**
+
+No, funding is paid between traders.
+
+## Conviction Points
+
+**Q: How do I earn them?**
+
+By trading Nova’s markets or Hyperliquid through Nova’s Trading Terminal, by depositing in the Conviction Pool, and through referrals: 10% of what your referrals earn comes to you, and they earn 5% extra.
+
+**Q: What are the rates?**
+
+Set by Nova and adjusted regularly. What applies today is in the app.
+
+## Conviction Markets
+
+**Q: Can I see how the Drop is going?**
+
+No, and neither can anyone else, until the Drop.
+
+**Q: What if my market does not win?**
+
+You still receive the new market's Conviction Token, pro rata. The winner's backers get a boosted share; skipping the Drop receives nothing. And your candidate is not gone: losers stay, and can run again.
+
+**Q: Can I change my backing?**
+
+You can always add more, to the same candidate or another, and you can split across the slate. You cannot withdraw points already spent.
+
+**Q: What does proposing cost?**
+
+Nothing, but it takes a linked X account: the proposal is credited to it. If it lists, the proposer receives a 10% share of its Conviction Tokens.
+
+## Earn
+
+**Q: Which one do I use?**
+
+The [Conviction Pool](https://docs.nova.markets/#/conviction-pool) is the counterparty to Nova's markets, and it is the one that earns Conviction Points. The [NLP Vault](https://docs.nova.markets/#/nlp-vault) does market making on markets listed on Hyperliquid.
+
+**Q: How fast can I get out?**
+
+Getting in is instant; getting out is not. Pool withdrawals wait 1 to 3 epochs, 3 to 9 days depending on the pool's health; the vault takes up to 7 days.
+
+---
+
+# Risks and disclaimers
+
+Address: https://docs.nova.markets/#/risks
+Markdown: https://docs.nova.markets/risks.md
+Section: Reference
+
+## Trading
+
+- **Leverage.** A position at maximum leverage is liquidated by a small move.
+- **Oracle prices.** Liquidation runs on a mark price from an oracle.
+- **Size.** On Nova markets a large order moves your own execution price.
+- **Gaps.** A stop does not protect against a gap.
+
+## Earn products
+
+- **You are the counterparty.** Trader profits come out of your deposit.
+- **Exit is not instant.** Epochs on the pool, up to 7 days on the vault.
+- **Fees are compensation, not a guarantee.**
+
+## Protocol
+
+- **Smart contract risk.** Onchain code carries software risk.
+- **Hyperliquid.** Matching, settlement and balances depend on it.
+- **Operated components.** Keepers relay orders and oracles are run. Nova is centralised today.
+
+## Disclaimers
+
+**Not financial advice.** Nothing here is financial, investment or trading advice.
+
+**Risk of loss.** Leverage can cost you your entire capital. Deposits are at risk. Any yield figure shown anywhere is an illustration, never a guarantee.
+
+**Conviction Points.** An accounting entry. No ownership, no claim, rates adjusted, and no promise of a token or an airdrop. A Conviction Token pays only what its market generates, which can be zero.
+
+**Regulatory.** You are responsible for determining whether your use of the protocol complies with the laws that apply to you.
+
+**No guarantees.** Nova may modify any aspect of the protocol, including fees, points rates and listings.

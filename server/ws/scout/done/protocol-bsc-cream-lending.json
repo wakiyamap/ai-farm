@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-cream-lending",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "cream-lending",
+ "name": "CREAM Lending",
+ "category": "Lending",
+ "tvl_usd": 80601,
+ "url": "https://cream.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "bff27529d73c43d99bd6a2d701352f9a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LiquidityMining.claimAllRewards(address) public + pays holder arg (native BNB), but reward window ended 2022-05-26 and all speeds are 0 now: 7d (blocks 133,947,326 2026-11-16 to 135,290,696 2026-11-23) had 2 TransferReward events totaling 0.004743 BNB = 2.72 USD (BNB 572.50, coins.llama.fi 11-23 14:50Z), both emitted inside holders' own mint/borrow txs (gas 0.11 and 0.35 USD) and 0 claim calls; a claim today pays ~0 (LM 16.92 BNB = 9,689 USD is leftover old accrual; 76 LM logs in 7d over 47 markets).",
+  "kb": [
+   "attempts:4135"
+  ],
+  "run_id": "bff27529d73c43d99bd6a2d701352f9a",
+  "at": 1795446469
+ }
+}

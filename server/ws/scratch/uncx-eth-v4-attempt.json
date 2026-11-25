@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-uncx-network-v4",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. UNCX Network V4 on ethereum is 3 UniV4 LP lockers (adapter projects/unicrypt-v4, uncx-network-v4 path is 404): UniV4LiquidityLockerV3 0x147aeca171a79466fe9e2c03f21b45155ff403f8, V2 0x30529ac67d5ac5f33a4e7fe533149a567451f023, V1 0x6a76da1eb2cbe8b0d52cfe122c4b7f0ca5a940ef. Verified sources gate every value-moving function behind lock.owner (collect also the one AUTO_COLLECT_ACCOUNT 0xd45dd91df475bfd944335160f538c1a14888dc1c); the only open function lockNFTPosition charges the caller flatFee instead of paying. eth_call collect/unlockLiquidity from fresh address revert NotOwner() (0x30cd7471).",
+  "numbers": "7d to 2026-11-20, blocks 26407498-26457898 (eth_blockNumber 0x193b22a): no-topic eth_getLogs on all 3 lockers = 12 logs / 4 txs, all lockNFTPosition (0xf62f5a23) by 4 distinct end users (0x158393d3, 0x3e4af054, 0x014c816a, 0x3eeb628b); 0 collect, 0 unlockLiquidity, 0 relock; gross paid to callers 0 (lockNFTPosition charges 0.1 ETH flatFee on the V3 locker, 100 ETH on the other two, per flatFee() read). NotOwner revert data 0x30cd7471 from eth_call collect(120,addr)/unlockLiquidity(120) from 0x1111111111111111111111111111111111111111. Sources: explorer source (Etherscan, compiler 0.8.26)."
+}

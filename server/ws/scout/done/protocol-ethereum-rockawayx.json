@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-rockawayx",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 236,
+ "chain": "ethereum",
+ "slug": "rockawayx",
+ "name": "RockawayX",
+ "category": "Risk Curators",
+ "tvl_usd": 137553159,
+ "url": "https://rockawayx.com/",
+ "github": null,
+ "listed_days_ago": 236,
+ "run_id": "942832d7335e40ca94265a2d50d47171",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Upshift Tori vault 0xcd69123b: claim()/processAllClaimsByDate() permissionless (no sender whitelist) but pay the receiver, not the caller - 56 claims in 8 txs in 7d, 7 by keeper 0xe0b7deab at bash.08-0.34 gas/call (sample of 3 of 7: bash.27 gas paid out 5,126 trUSD=,115 to receivers, caller got bash); Accountable strategy 0x0F0a9d3F accrueAndProcess() permissionless, 0 calls and bash to caller in 7d; 13 Morpho VaultV2 = base dead_end shape; publishRate role-gated, depositGateway=0x0.",
+  "kb": [
+   "attempts:2959",
+   "protocols:1368"
+  ],
+  "run_id": "942832d7335e40ca94265a2d50d47171",
+  "at": 1795189498
+ }
+}

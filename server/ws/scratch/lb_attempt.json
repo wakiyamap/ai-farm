@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-liminal-basis",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Liminal Basis hub contracts on HyperEVM (chain 999) expose no permissionless paid function: the only keeper-style entry points (RedemptionPipeV2.fulfillRedeems / fulfillFastRedeems, NAVOracle.setTotalAssets) are behind FULFILL_MANAGER_ROLE / VALUATION_MANAGER_ROLE (stranger eth_call reverts AccessControlUnauthorizedAccount), and standard-redemption fulfilment pays the caller $0 anyway (fees go to the designated liquidityProvider 0x6a8c4a63.. as NAV credit; instant-redemption fee 0.3% also to LP/treasury). All 7-day fulfilling activity is one keeper bot.",
+  "numbers": "7d window to block 51,531,199 (ts 1,794,943,401; explorer txs lists, control = same-shape lists return user txs): fulfillRedeems 8 calls over 4 RedemptionPipes (xHYPE 0x19f488.. 3, limUSD 0x2E8c.. 3, xBTC 0xfDF0.. 1, xLEND 0xCE12.. 1), all from 0x56485380ba2af7581b96e8811a78dbea4bd7db9a; fulfillFastRedeems 0. Sample receipts: 0x0559d197.. fulfills 13 standard redemptions = 50,722.95 USDC to users, fee to caller 0, gasUsed 830,437; 0x372c2e15.. (limUSD RP) 22 entries = 164,726.21 USDC, gasUsed 1,162,578. Gas USD: effGasPrice 0.1046 gwei -> 8.7e-5 HYPE = $0.006 and 1.2e-4 HYPE = $0.008 (HYPE $67.83, coins.llama.fi hyperevm:0x0000000000000000000000000000000000000000). Protocol TVL $24.6M (api.llama.fi/protocol/liminal-basis)."
+}

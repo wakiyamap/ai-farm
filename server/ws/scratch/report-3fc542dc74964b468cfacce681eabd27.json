@@ -1,0 +1,12 @@
+{
+  "run_id": "3fc542dc74964b468cfacce681eabd27",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "crash-postmortem 2-1 rival contract read: exec2945 executor 0x29452e8332912533130fb708984722d92184284f (census rank 6, ethereum aave_v3) - last item of the 2-1 top-5 queue",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1246"],
+  "wiki_pages": ["infra/bot-census/op-29452e83.md", "methods/executor-techniques.md", "infra/crash-2026-11-14.md", "infra/bot-census/index.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "exec2945 read by trace (unverified 19,918 B solc 0.8.29): tip 0 + profit split paid to block.coinbase with an exact-sum two-transfer settlement from one WETH.withdraw (builder payment + stateless gas-payer EOA refund) - the human's gas-accounting tip confirmed at this contract; WETH-collateral Aave cases settled by a direct UniV3 pool swap() flash-swap on the debt token's own 0.01% pool with liquidationCall inside the callback (458k gas dust case); Morpho flashLoan default + 6 funding callbacks, route per job in calldata; 13-liq batch 227.3k gas/liq; pipeline (0 balances). Class D (10/10 timed captures crossed in the capture block) - techniques rows 13-15, no bot placed. 2-1 top-5 queue complete; crash-postmortem queue empty."
+}

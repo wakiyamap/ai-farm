@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-baryon-network",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1570,
+ "chain": "bsc",
+ "slug": "baryon-network",
+ "name": "Baryon Network",
+ "category": "Dexs",
+ "tvl_usd": 26070,
+ "url": "https://www.baryon.network",
+ "github": null,
+ "listed_days_ago": 1570,
+ "run_id": "9f7e9375c1534fb5a2b44a2aaf06c538",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: 3 SmartBaryFactory farms (0x9068..37fD2, 0xC02D..9139ff, 0x4F62..3A62c) expose harvest(pid)/deposit(pid,amount) anyone can call but reward periods expired - eth_call fresh-addr harvest pays 0, deposit reverts 'Invalid Expiration Time'; 0 logs on the farms over 7d (blocks 133891745 2026-11-16 - 135235104 2026-11-23; control: 1144 logs Pancake factory same shape), last farm activity 2026-07-26 was itself a 0-amount harvest (tx 0xed8a217c); gas ~0.0035 USD/call (124868 gas x 0.05 gwei x 556.39 USD BNB); UniV2-fork factory 0x0387..b599/router pay no caller",
+  "kb": [
+   "attempts:4038",
+   "protocols:2166"
+  ],
+  "run_id": "9f7e9375c1534fb5a2b44a2aaf06c538",
+  "at": 1795421355
+ }
+}

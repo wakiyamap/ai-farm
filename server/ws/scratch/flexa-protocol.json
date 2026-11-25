@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "flexa",
+  "status": "dead_end",
+  "checked": "Flexa = AMP token + escrow. AMP 0xff20817765cb7f73d4bde2e66e067e58d11095c2 (eth_getCode non-empty, decimals()=18, verified source 'Amp' via explorer). FlexaCollateralManager 0x706D7F8B3445D8Dfc790C524E3990ef014e7C578 (verified source; owner/withdrawalPublisher 0xebb46688.../fallbackPublisher/partitionManager getters answer; maxWithdrawalRootNonce=23698). DefiLlama flexa TVL $810,159 (api.llama.fi 2026-11-22) = exactly the AMP balance at 0x706d (1,674,976,602 AMP, Blockscout holders); no projects/flexa adapter, legacy sumTokens registry. All state-changing manager fns role-gated (owner/withdrawalPublisher/fallbackPublisher/partitionManager require-s); only public entries: ERC-1363 transferAndCall self-redemption with Merkle proof and requestRelease (event-only, pays nothing). No reward/bounty/distribute function anywhere in either verified source. flexahq GitHub org has 0 public repos now."
+}

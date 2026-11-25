@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-dexfi-aggregator",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only stranger-callable reward path is Vault.harvest(uint256) (proven to succeed from a fresh address, blacklist empty), but it pays the caller nothing: in debug_traceCall from 0xc0ffee all WETH out of harvest goes to the fixed treasury 0x6af0c089... (feeAmount) and the fixed keeper 0xb034f984... (paidDebtAmount), msg.sender gets no transfer. publish() is owner-gated, farm.harvest() vault-only; harvest itself is done ~99% by the registered harvester contract 0x55ad99b7 (called via keeper 0xb034 through relayer 0x55555cfddd...) at 4-5x/day/vault.",
+  "numbers": "eth_getLogs topic0 Harvested(address,uint256,uint256,uint256,uint256,uint256)=0x2a86a2dac4c093ea22ea0b6ce2656ba747d1c7c6a105875b1859e73b1dfae4f2, blocks 0x360d712..latest(0x38efb92, 7d, base): 9068 events, 8977 by 0x55ad99b7826e98e35a81e5dd0c8d0ab6174b6e18, 64 by zapper 0x16ee7453..., ~27 by user deposit txs; 1946 vaults, TVL base 618k USD (api.llama.fi currentChainTvls 2026-11-19). Median per-harvest from event data (n=8977): reinvest 5.1e-5 ETH (~$0.09), feeAmount 1.1e-5 ETH (~$0.019, to treasury), paidDebt 1.2e-5 ETH (~$0.021, to keeper); top sample fee 6.2e-3 ETH (~$10.9) still pays keeper only. Caller pays gas ~1.0M gas x 0.006 gwei = 6e12 wei ~ $0.01 (eth_estimateGas on 0xfa0e5925..., eth_gasPrice 0x5b8d80) + OP L1 fee. WETH 0x4200000000000000000000000000000000000006 price 1747.14 USD (coins.llama.fi, ts 1795131289)."
+}

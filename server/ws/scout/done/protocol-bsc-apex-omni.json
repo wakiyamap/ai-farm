@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-apex-omni",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 872,
+ "chain": "bsc",
+ "slug": "apex-omni",
+ "name": "Apex Omni",
+ "category": "Derivatives",
+ "tvl_usd": 2623530,
+ "url": "https://omni.apex.exchange",
+ "github": null,
+ "listed_days_ago": 872,
+ "run_id": "8f80e8e35ca24658b07b1c2b8bdb613a",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BSC bridge 0x78f1354EC30a634C8ebdB503381B1db9D18e872D (app config, 18.5 kB code; getters USDC_ADDRESS/signers answer) exposes 12 entry points only (deposit, withdrawErc20, withdrawETH, factTransferErc20, calcSigHash + 7 views) - no reward/liquidate/keeper fn; withdrawErc20 from fresh address reverts 'invalid allSigners length' (Stark-signed, pays recipient=own funds); bridge empty (USDC/USDT/BUSD/BNB ~0 vs llama Binance TVL 2,570,640 USD), stopDeposit=true on all chains; gas 0.05 gwei ~0.004 USD/call; 7d event count not measured - bsc eth_getLogs failed all lanes (public: limit exceeded)",
+  "kb": [
+   "attempts:2144",
+   "protocols:717"
+  ],
+  "run_id": "8f80e8e35ca24658b07b1c2b8bdb613a",
+  "at": 1795008406
+ }
+}

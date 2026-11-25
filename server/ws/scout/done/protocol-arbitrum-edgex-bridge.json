@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-edgex-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 831,
+ "chain": "arbitrum",
+ "slug": "edgex-bridge",
+ "name": "edgeX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 46133018,
+ "url": "https://pro.edgex.exchange",
+ "github": null,
+ "listed_days_ago": 831,
+ "run_id": "1209a7343fd54d949519b0d682ff0c33",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Custodial escrow: 46,090,766 USDC in ERC-4337 smart wallet 0xc64e528c (SingleOwnerMSCA), only anyone-callable fn addDeposit() pays 0; 0 token transfers in/out over 7d (eth_getLogs 6x404k blocks, control 3,534 USDC transfers/1k blocks), last escrow tx 2026-10-03; 4 other TVL contracts (2x MultiSigPoolV5WithPermit, Nitro Bridge, L1ERC20Gateway) have only user-paid deposits and role-gated withdrawals, last activity 2026-06-04..2026-09-30",
+  "kb": [
+   "attempts:2116",
+   "protocols:693"
+  ],
+  "run_id": "1209a7343fd54d949519b0d682ff0c33",
+  "at": 1795002803
+ }
+}

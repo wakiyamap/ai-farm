@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "termfinance_lend",
+ "status": "dead_end",
+ "checked": "DefiLlama slug termfinance-lend (TVL 3.35M ethereum, borrowed 2.82M, currentChainTvls 2026-11-21), module term-finance/index.js (Ormi Labs subgraph term-finance-mainnet). Main contract TermDiamond 0xb4b1de03f229220edbbb31a224b2a004b3c3e47f (eth_getCode non-0x; dispatch answers - unknown selector reverts 'Diamond: Function does not exist'; facetAddresses() returns 19 facets). Verified source via explorer: TermDiamond (impl 0x3d2e2dbe93be3645311713b6cc980b16f5519390), TermControllerFacet 0xff6d0eb2e2bb598b645598ccfd1e81790b8fca1b (all functions onlyRole DEVOPS/ADMIN), per-term auction ERC1967Proxy -> TermAuction impl 0xe94dfe01cbd8f86299b6bd260a52908345b8cb9a. Only stranger-callable fn: completeAuction(CompleteAuctionInput) - no role modifier (only onlyWhileAuctionClosed + whenCompleteAuctionNotPaused); source has no reward/bounty/incentive and no transfer to msg.sender. cancelAuction/cancelAuctionForWithdrawal/pause/unpause are onlyRole(ADMIN_ROLE); repo upkeep is servicer-role (TermRepoServicer). Protocol is the newer Fluid/TermLabs Term (diamond + auctions), not the old TermStructure v1 vaults."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-arcade-xyz",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1404,
+ "chain": "ethereum",
+ "slug": "arcade.xyz",
+ "name": "Arcade.xyz",
+ "category": "NFT Lending",
+ "tvl_usd": 155791,
+ "url": "",
+ "github": [
+  "arcadexyz"
+ ],
+ "listed_days_ago": 1404,
+ "run_id": "1cdf3f1f0fa24f53bbda8da6fe36ac56",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Arcade.xyz ethereum: RepaymentController.claim/redeemNote revert RC_OnlyLender unless caller owns the LenderNote; LoanCore repay/forceRepay/claim onlyRole(REPAYER_ROLE); anyone-callable repay pays the caller 0 (caller fronts principal+interest) - 0 logs across V2/V3 cores + controllers over 7 d (blocks 26,414,280-26,464,526, WETH control 19,266/500 blk); 11 active loans, last RC call block 26,100,948 (2026-08-31), last origination 2025-11-24; TVL 142k USD, borrowed 2.28M USD (api.llama.fi 2026-11-21).",
+  "kb": [
+   "attempts:3384",
+   "protocols:1689"
+  ],
+  "run_id": "1cdf3f1f0fa24f53bbda8da6fe36ac56",
+  "at": 1795277401
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-noon",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 653,
+ "chain": "ethereum",
+ "slug": "noon",
+ "name": "Noon",
+ "category": "Yield",
+ "tvl_usd": 39006430,
+ "url": "https://app.noon.capital",
+ "github": null,
+ "listed_days_ago": 653,
+ "run_id": "53ccf8b1113e4edb8133d39b30eb7241",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: sUSN vault 0xE24a..B91D's only keeper fn rebase(uint256) needs REBASE_MANAGER_ROLE (stranger eth_call reverts AccessControl); 7 rebases in 7d (blocks 26409925-26460180, 2026-11-14..21) each PUSH 5,501-9,334 USN into the vault by manager 0x3769..76ae via 0x2fa9..83c4 (gas 133k = $0.36), caller paid 0; 18 deposits + 4 withdrawal claims are user self-service; USN 35.38M USN totalAssets @ $0.998 (coins.llama.fi ts 1795224162) - nothing on ethereum pays a stranger for calling",
+  "kb": [
+   "attempts:3131"
+  ],
+  "run_id": "53ccf8b1113e4edb8133d39b30eb7241",
+  "at": 1795224809
+ }
+}

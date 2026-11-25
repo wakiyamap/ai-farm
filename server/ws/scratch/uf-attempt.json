@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-unifarm",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. No public function that pays the caller: cohort contracts (UnifarmV22.sol / Cohort.sol, source from etherscan) expose only user stake/unStake plus views; all admin fns onlyOwner; unStake from a stranger reverts 'UNSTAKE: Invalid User Entry' and pays the staker, never a third party. Protocol fully dormant on ethereum: 0 event logs in 7 d and 90 d across all 37 DefiLlama-adapter addresses; last tx on a cohort was 2022-09-28.",
+ "numbers": "37 addresses from projects/unifarm/index.js (19 cohorts + 17 proxies + liquidity 0xD13dF6B426358C2471bC6dea75167c3c106Ef881). 7 d = blocks 26415929 (2026-11-14) to 26466185 (2026-11-21): 0 logs. 90 d = from 25818185 (~2026-08-23): 0 logs. Control: relay-probe getlogs-range ethereum from 26465000, 673 logs / 8 blocks (lane fine). eth_call unStake(0x2222..,0) from 0x1111.. -> revert 'UNSTAKE: Invalid User Entry'. Getter paused() = false. Last cohort tx 0x7accab0b..ff142b block 15630127 ts 1664347511 (2022-09-28). TVL 179,061 USD (DefiLlama candidate row). Gas/reward: none to measure (no caller-paid fn)."
+}

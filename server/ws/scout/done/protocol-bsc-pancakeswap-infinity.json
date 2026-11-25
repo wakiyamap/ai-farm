@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-pancakeswap-infinity",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 560,
+ "chain": "bsc",
+ "slug": "pancakeswap-infinity",
+ "name": "PancakeSwap Infinity",
+ "category": "Dexs",
+ "tvl_usd": 66334286,
+ "url": "https://pancakeswap.finance/",
+ "github": null,
+ "listed_days_ago": 560,
+ "run_id": "f9333b534c6c49f5918ab4bd5f2662d0",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no anyone-call function pays the caller: only donate is role-free and it settles FROM msg.sender (pays LPs); CLPoolManager 0xa0Ff...058B active (19,557 Swap + 113 ModifyLiquidity + 0 Donate in 5000 blocks to 134,219,740; control Swap non-zero); Donate over 7d: 2 in a 30,000-of-1,343,000-block sample, both caller 0x4bd5...0112, receives 0; Vault collectFee onlyRegisteredApp, protocol-fee collect onlyOwner; gas ~$0.006/call (0.05 gwei x 200k, BNB $595.16 coins.llama.fi).",
+  "kb": [
+   "attempts:1940",
+   "protocols:554"
+  ],
+  "run_id": "f9333b534c6c49f5918ab4bd5f2662d0",
+  "at": 1794964880
+ }
+}

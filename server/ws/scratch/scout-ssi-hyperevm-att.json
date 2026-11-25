@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-sosovalue-indexes",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found. SoSoValue Indexes has no contracts on hyperevm: the DefiLlama adapter (module ssi-protocol/index.js) reads only three Base SSI token proxies and books the basket's HYPEREVM_HYPE leg as chain-native HYPE, and the docs list every contract (3 index tokens, USSI, swap, factory, issuer, rebalancer, feeManager, stakeFactory, assetLocking, owner) as Key Addresses (on Base) - all twelve return eth_getCode 0x on hyperevm. The HyperEVM side is only the protocol's custody balance of native HYPE (mint/burn/rebalance are quote-driven and executed through the Base issuer, whose entry points are role-gated per KB 598/617), so there is no function anyone can call and nothing to be paid there.",
+  "numbers": "hyperevm (DefiLlama 'Hyperliquid L1') TVL $5,462,886 on 2026-11-18 = 9,541.1742 HYPE (MAG7 basket) + 70,188.8141 HYPE (DEFI basket) + 0 (MEME) = 79,729.99 HYPE x $68.9256 (coins.llama.fi coingecko:hyperliquid) = $5.49M; getBasket() (0xcd6ef2b0) eth_call on base, hyperevm head block 51,571,691. eth_getCode = 0x for all 12 documented Base addresses on hyperevm; control same run: 262 and 10,344 hex chars for two contracts from block 51,571,691. Callable functions on hyperevm: 0, calls in last 7 d: 0, gross $0, gas n/a."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "caviar_v1",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/caviar/index.js points to factory 0xa964d6e8d90e5cd12592a8ef2b1735dae9ba0840 (ethereum); eth_getCode nonempty and pairs(address,address,bytes32) returns pair 0x77c337720f4cc389c98da98aca6065cd859d0672 for NFT 0xd70f41dd5875eee7fa9dd8048567bc932124a8d2, ETH base, zero merkle root (Create receipt tx 0x1db309b1e8cf8fa1d6b66048b7f592b01ae8e8e1e14ca67abc2e6344afc88e20). Pair eth_getCode nonempty and baseToken() returns zero address. Etherscan verified Caviar.sol and Pair.sol: create/deposit/trade/wrap/unwrap/remove return only exchanged assets or owner minimum LP; no open reward, bounty, harvest, auction, or keeper payout. close()/withdraw() require caviar.owner(); fresh-address eth_call close() reverts Close: not owner. No eligible reward function for 7-day payout measurement."
+}

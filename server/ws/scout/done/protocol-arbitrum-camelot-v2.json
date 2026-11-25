@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-camelot-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1454,
+ "chain": "arbitrum",
+ "slug": "camelot-v2",
+ "name": "Camelot V2",
+ "category": "Dexs",
+ "tvl_usd": 2897717,
+ "url": "https://camelot.exchange/",
+ "github": null,
+ "listed_days_ago": 1454,
+ "run_id": "77b27d531996478eb58bd34cfee75583",
+ "result": {
+  "verdict": "no_reward",
+  "line": "camelot-v2 slug = 2 Algebra factories: A 0x1a3c9B1d.. = exact set swept as camelot_v3 (KB:860, no reward fn; control 3,858 swaps on pool 0xb1026b8e in 300k blocks) + B 0xd490f2f6.. (verified AlgebraFactory v0.8.17, created 2023-03-31): 195 pools, 0 Swap events in last 7d (7 batches of 32 addrs; same-shape control non-zero; sampled pool USDC.e bal 3 wei). All fns onlyOwner/role/farming-gated or user actions (createPool, mint, swap, collect, burn, flash); TVL $2.9M sits on A pools; gas 0.0203 gwei.",
+  "kb": [
+   "attempts:2370"
+  ],
+  "run_id": "77b27d531996478eb58bd34cfee75583",
+  "at": 1795061154
+ }
+}

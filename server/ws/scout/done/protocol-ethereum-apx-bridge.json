@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-apx-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1645,
+ "chain": "ethereum",
+ "slug": "apx-bridge",
+ "name": "APX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 106323,
+ "url": "https://www.asterdex.com/en/referral/c6eF10",
+ "github": null,
+ "listed_days_ago": 1645,
+ "run_id": "6a5379406da14ed0871b76bd48e4a79f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "claim(bytes,bytes) on ApolloxExchangeTreasury 0xb40EEd68 is stranger-callable but pays the caller 0: 24 Claimed in 7d (blocks 26415136 2026-11-14 -> 26465423 2026-11-21), all called by one EOA 0x6348bb01 and all paid (16.5-894.9 USD sample of 5) to the protocol's own ApolloxWithdraw proxy 0x5ccb98a2 whose fee path is OPERATE_ROLE-gated; gas 0.03-0.08 USD/call.",
+  "kb": [
+   "attempts:3438",
+   "protocols:1728"
+  ],
+  "run_id": "6a5379406da14ed0871b76bd48e4a79f",
+  "at": 1795288216
+ }
+}

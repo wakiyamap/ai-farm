@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-sablier-legacy",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: withdrawFromStream and cancelStream both require onlySenderOrRecipient (confirmed by eth_call revert from random address); takeEarnings in v1.0.0 is onlyOwner. No function a stranger can call and be paid for. 0 activity in last 7 days on both v1.0.0 and v1.1.0 contracts.",
+  "numbers": "Contracts: 0xCD18eAa163733Da39c232722cBC4E8940b1D8888 (v1.1.0, nextStreamId=105528), 0xA4fc358455Febe425536fd1878bE67FfDBDEC59a (v1.0.0, nextStreamId=5582). 7d window: blocks 0x1931b96 (ts 1794719387) to 0x193e073 (ts 1795324187). eth_getLogs on both addresses, no topics: 0 events (control: 3 WithdrawFromStream events found in 0x1920000-0x1931b96 window, topic0 0x36c3ab437e6a424ed25dc4bfdeb62706aa06558660fab2dab229d2555adaf89c confirmed correct). Source: verified on etherscan; onlySenderOrRecipient modifier at line 973 of v1.0.0 Sablier.sol; eth_call withdrawFromStream(105000,1) from 0x1234...5678 reverted 'caller is not the sender or the recipient of the stream'."
+}

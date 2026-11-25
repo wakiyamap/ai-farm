@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-hybra-v4",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The keeper-callable functions (GaugeManager.distributeAll/distribute, Minter.update_period) are role-free and eth_call succeeds from a fresh address, but the source (code-423n4/2025-10-hybra-finance) never pays msg.sender - no MINTER_REWARD. One EOA keeper does the weekly sweep and eats the gas; nothing a stranger is paid. V4/CL pools are a plain V3 fork (user actions only).",
+ "numbers": "7d DistributeReward logs on GaugeManager 0x742CAA5bA7C92ca6CFeBfD0e73c21739b3b65d5e: 56 events in 1 tx (0x14128fe9fa1f9b34d51c4d8251d2aa0d13e0f8d93746f03be010805e3ca74f3e, block 0x30a8aef), all from EOA 0x8bfaB3f44E0E4c98192f5C464e9a11cE3eAC9C06; keeper tx gasUsed 7,887,138 @ 0.25 gwei = 0.00197 HYPE = $0.13 (HYPE $67.77, coins.llama.fi 2026-11-17); gross to caller $0; sweep distributed 11.68M HYBR (sum of 56 DistributeReward data, 18 decimals) across 56 gauges; source of calls: eth_getLogs + eth_getTransactionReceipt via relay"
+}

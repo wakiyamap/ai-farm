@@ -1,0 +1,9 @@
+[Unit]
+Description=Run the claude researcher once a day, 12 h after the codex researcher's usual slot
+
+[Timer]
+OnCalendar=*-*-* 07:10:00 UTC
+Unit=agent@researcher-claude.service
+
+[Install]
+WantedBy=timers.target

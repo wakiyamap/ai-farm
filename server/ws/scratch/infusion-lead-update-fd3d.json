@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "infusion fee_distributor claim",
+  "status": "dead_end",
+  "why": "No third-party bounty. Infusion FeeDistributor.claim may be triggered by a stranger, but pays claimReceiver[_user] or _user according to the official source. A fresh wallet without an LP lock gets zero; calling for the LP pays the LP. depositFees distributes fees to lockers and pays its caller zero. The observed 7-day pot was $5.40 across 11 distributors and 1 self-claim, with no way to earn it atomically as a stranger (attempts:3908 and current run).",
+  "next_steps": "Closed. At the exact parent block 58413933 of paid tx 0x87f54203944e783fb891f5836e1cb9cb28fd73355fc0c9e0a81e0b24be9ff0e7, eth_call claim(address,address[]) from fresh 0x...f001 returns [0,0] for itself and [1558627050908422 WETH wei,2723772 USDC units] for LP 0x953c1ba7029c92741a1739dcd18a8a462109b618; the latter pays the LP. Tx receipt block is 58413934, correcting the old lead's erroneous 58414446. Only reopen for an independently documented caller bounty or a new atomically sellable, unlocked profit path; merely more LP fees do not change the result."
+}

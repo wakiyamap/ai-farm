@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-b-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "b.protocol",
+ "name": "B.Protocol",
+ "category": "Liquidations",
+ "tvl_usd": 667622,
+ "url": "https://app.bprotocol.org/",
+ "github": [
+  "backstop-protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "52ea7bdf1de345b18bbe5cf4b84b917e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "B.Protocol ethereum (Maker/Compound/Liquity-BAMM modules, bKeeper 0xeaE019ef..., BAMMs 0x00ff66ab/0x54bc9113/0x896d8a30): role-free keeper fns (checkUpkeep eth_call from 0x1111.. succeeds, upkeepNeeded=false) pay caller 0; 543,525 LUSD (~546k USD of 664.7k TVL) sits idle in Liquity SP; 0 txs to any of the 6 contracts in 7d (blocks 26416198 2026-11-14 -> 26466454 2026-11-21, explorer txs; busiest contract last tx 2026-07-10), others dead since 2022-23; gross 0 USD vs gas 0.109 gwei.",
+  "kb": [
+   "attempts:3499",
+   "protocols:1769"
+  ],
+  "run_id": "52ea7bdf1de345b18bbe5cf4b84b917e",
+  "at": 1795300420
+ }
+}

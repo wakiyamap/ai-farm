@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-chamber-vaults",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Chamber Vaults (ex-dHEDGE) on Base has no function anyone can call that pays the caller. The only permissionless maintenance fn is PoolLogic.mintManagerFee() (148 calls in 7d by varied EOAs); it mints fee shares to the DAO and the pool manager and pays the caller 0. execTransaction(s) is role-gated (reverts from a stranger); deposit/withdraw are user actions that PAY fees. Same verdict as the Arbitrum deployment (protocols:1087, attempts:2611).",
+  "numbers": "257 pools (getDeployedFunds, factory 0x49Afe3abCf66CF09Fab86cb1139D8811C8afe56F); 7d: 374 PoolEvent ops / 22 active pools (eth_getLogs blocks 56674955-59699211); mintManagerFee 148 events/7d (topic0 0x755a8059...), caller payout 0, gas 968,943 x effGasPrice 7,496,557 wei/gas = 7.26e-6 ETH = 0.0127 USD (ETH 1754.64, coins.llama.fi ts 1795130102); top pools 'Alpha infinity/21' 6.51M + 'Sigma' 3.05M USD-units vs llama tvl 10.73M"
+}

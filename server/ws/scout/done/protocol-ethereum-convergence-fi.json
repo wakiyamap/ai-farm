@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-convergence-fi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 847,
+ "chain": "ethereum",
+ "slug": "convergence-fi",
+ "name": "Convergence Fi",
+ "category": "Yield",
+ "tvl_usd": 653547,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 847,
+ "run_id": "df6ce505babc487cb80dcbb5a2282db4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "writeStakingRewards (anyone-callable, time-gated 1x/7d+8h) ran 1x in 7d (block 26447758, 2026-11-19, gasUsed 3,728,421 = 0.53 USD @ 0.0908 gwei, ETH 1562.81 USD llama 11-21 05:47 UTC) and pays the caller 0; CVG emissions are 0/cycle (42 CvgCycleProcess logs with rewardAmount=0, topic0 from receipt; CVG unpriced on llama); processSdtRewards pulls ~2.8-3.5 USD CRV per clone as staker yield, not keeper pay; only 2 EIP-7702 team wallets (0xa88e98bb, 0x953c1ba7) call anything, 19 self-claims by ~8 stakers.",
+  "kb": [
+   "attempts:3207",
+   "protocols:1552"
+  ],
+  "run_id": "df6ce505babc487cb80dcbb5a2282db4",
+  "at": 1795240205
+ }
+}

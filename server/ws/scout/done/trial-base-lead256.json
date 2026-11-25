@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead256",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 256,
+ "target": "revert_lend liquidate",
+ "run_id": "4e6ef4911d3548fc99ab3d614c9c9588",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Sample of 17 of 17 (whole 7 d window, blocks 55,818,178-58,842,178, vault 0x36aeae0e411a1e28372e0d66f02e57744ebe7599): 17 Liquidates, 6 distinct takers; 11 paid nominal bonus >=3 USDC (sum 302 USDC/7 d; 5 largest realized 75/64/49/46/44 USD); takeable->taken median 2-5 blocks = <=1 s (0.2 s blocks), winner tx index median 2, winner priority fee median 4.504 gwei (paid) / 2.200 (all); one attempt 731,720 gas = 0.008 USD at 0.006 gwei + ~1e-5 USD L1 (ETH 1823.05 coins.llama.fi 23:50Z); all paid takes are first-block <=1 s races, stale tail pays only 0.13-0.25 USDC.",
+  "kb": [
+   "attempts:1917",
+   "leads:256"
+  ],
+  "run_id": "4e6ef4911d3548fc99ab3d614c9c9588",
+  "at": 1794959936
+ }
+}

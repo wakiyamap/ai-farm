@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "trial-base-lead248",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Over 2026-11-10..17 Base USDCx had 6 patrician stream liquidations paying 10.84 USD in total to the TOGA PIC seat, an open outbidding seat (fork-proven loss-free); gross over 7 d is 600x one attempt's 0.018 USD gas, so a trial bot can try it. Caveats: liquidations land ~5.7 s after the stream goes critical (feed-timed), the seat needs a ~101.5 USDCx bond and a human rule exception (bond streamed back over >= 7 d) is still pending.",
+  "numbers": "occ=6 patrician (7 USDCx events, 1 pleb excluded); distinct takers 2 seat holders (0x173e031e 5/2.62 USDCx, 0xac8f3481 1/8.22); sample 6-of-6 median: take-after-critical 5.7 s (~28 blocks @0.2 s, = (deposit-reward)/flowRateAtLiquidation), maxPriorityFeePerGas 0.001 gwei all 6 (eff 0.006 gwei), gasUsed median 1,700,613 = 0.018 USD/attempt (ETH 1789.41, USDC 0.99987, coins.llama.fi); gross 10.8367 USDCx = 10.84 USD; 1 NewPIC 7 d, bond 101.49 USDCx; source subgraph-endpoints.superfluid.dev/base-mainnet/protocol-v1 + eth_getTransactionReceipt via relay (tx 0xfd0c460b, 0xe14d2b26, 0xadf8cf57, 0x22aedb7c, 0xb6424943, 0x02912ea5)"
+}

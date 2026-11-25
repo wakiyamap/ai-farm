@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-defi-saver-asset-management",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "defi-saver-asset-management",
+ "name": "Defi Saver Asset Management",
+ "category": "CDP Manager",
+ "tvl_usd": 214522,
+ "url": "https://defisaver.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "24eb52dcc5ba4b9782cd55ed394e8474",
+ "result": {
+  "verdict": "role_gated",
+  "line": "StrategyExecutorL2.executeStrategy is the only keeper write; BotAuth.approvedCallers whitelist (addCaller onlyOwner) reverts stranger with 0x75e5153c BotNotApproved; 24 calls/7d all from DeFi Saver's own 2 EOAs (0x16dd89d6, 0x068e8ad7, Blockscout txlist), gross to caller 0 USD (no token transfers to keeper in 5 sampled receipts, GasFeeTakerL2 pays FeeRecipient not caller), gas 1.65-2.36M @ ~0.0001-0.005 USD; TxSaverExecutor 0 calls since creation.",
+  "kb": [
+   "attempts:2800"
+  ],
+  "run_id": "24eb52dcc5ba4b9782cd55ed394e8474",
+  "at": 1795157597
+ }
+}

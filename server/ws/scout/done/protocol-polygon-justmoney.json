@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-justmoney",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1592,
+ "chain": "polygon",
+ "slug": "justmoney",
+ "name": "JustMoney",
+ "category": "Dexs",
+ "tvl_usd": 32253,
+ "url": "https://about.just.money",
+ "github": null,
+ "listed_days_ago": 1592,
+ "run_id": "27b5f745f5894ada8400228fb0899eac",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniV2 fork (JMSwapFactory 0xd36aba9e.., 30 pairs, TVL 32,253 USD): no caller-reward function anywhere (factory: createPair public + owner/moderator setters; Pair: standard mint/burn/swap/skim/sync); pools earn only taker arb - 2,124 swaps/7d (blocks 97,408,097-97,811,297, 11-16 to 11-23, no-topic scan control) by 42 bot contracts (top 422 calls), nothing pays the caller",
+  "kb": [
+   "attempts:4045",
+   "protocols:2171"
+  ],
+  "run_id": "27b5f745f5894ada8400228fb0899eac",
+  "at": 1795422744
+ }
+}

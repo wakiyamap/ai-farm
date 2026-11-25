@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-adamant-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "adamant-finance",
+ "name": "Adamant Finance",
+ "category": "Yield",
+ "tvl_usd": 25133,
+ "url": "",
+ "github": [
+  "eepdev"
+ ],
+ "listed_days_ago": null,
+ "run_id": "e0c05be0437f4283bec9348b4e436ecb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: strategy harvest() (onlyHumanOrWhitelisted = msg.sender==tx.origin, any EOA; eth_call from fresh addr succeeds on 0xFd6cF4aD...9778a) pays caller 0 - reward->vault, fee->strategist; 0 logs on all 29 strategies in 7d (blocks 524749222-526806403) and 0 in 85d, whole protocol: 4 logs / 1 user zap-out tx in 7d (control: same-shape vault filter returned them); vaults dust (curve 2pool balance 21.9 LP), TVL 25,240 USD (llama 2026-11-23); gas 0.02 gwei so gross 0 < gas anyway",
+  "kb": [
+   "attempts:4102"
+  ],
+  "run_id": "e0c05be0437f4283bec9348b4e436ecb",
+  "at": 1795437975
+ }
+}

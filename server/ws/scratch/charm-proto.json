@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "charm_finance_v2",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter charm-fi-vaults-v2 (api.llama.fi/protocol/charm-finance-v2 module field; projects/charm-finance-v2/index.js is 404). Factory AlphaProVaultFactory 0x5B7B8b487D05F77977b7ABEec5F922925B9b2aFa (verified code, numVaults()=103 via eth_call 0x264a6208). Full vault list read via vaults(uint) (0x8c64ea4a); source of AlphaProVault.sol + AlphaProVaultFactory.sol from explorer source (verified clone impl). No reward/bounty/incentive word or transfer to msg.sender anywhere in source: rebalance() is the only public state-changing fn (plus deposit/withdraw for LPs); collectProtocol(to) reverts 'governance' from fresh address, collectManager(to) reverts 'manager', sweep/setters onlyManager. rebalance() from fresh address: OK on vaults with rebalanceDelegate==0 (0xc142b0c17cf7a0b2d195d6c832ad0a44b0d78814, 0xa5e9fa870c50f4fd352a82ffe16a63646864686d), reverts 'PE' (period-not-elapsed, timing not role) on the two active vaults; on vaults with a delegate set it is manager/delegate-only."
+}

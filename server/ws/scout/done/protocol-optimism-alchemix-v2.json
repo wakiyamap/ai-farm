@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-alchemix-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "alchemix-v2",
+ "name": "Alchemix V2",
+ "category": "Synthetics",
+ "tvl_usd": 33462,
+ "url": "https://alchemix.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "fe70dc023be241a68403bc71425f6829",
+ "result": {
+  "verdict": "unpaid",
+  "line": "No caller-paying function: poke/liquidate whitelist-gated (isWhitelisted(fresh)=false), harvest/exchange/burnCredit keeper-gated (fresh-address eth_call reverts), refreshStrategies() anyone-callable but transfers 0; 0 events in 7 d across the 4 contracts (blocks 159,623,071-159,927,231, Nov 16-23; control 18,987 USDC Transfers same shape), last tx 2026-04-29 FAILED, TVL 33.7k USD, gas would be 0.61 USD (339,769 gas x 1.01 gwei, ETH 1763.82).",
+  "kb": [
+   "attempts:4166"
+  ],
+  "run_id": "fe70dc023be241a68403bc71425f6829",
+  "at": 1795453819
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-spectra-v2",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 899,
+ "chain": "stellar",
+ "slug": "spectra-v2",
+ "name": "Spectra V2",
+ "category": "Yield",
+ "tvl_usd": 763574,
+ "url": "https://app.spectra.finance/fixed-rate",
+ "github": null,
+ "listed_days_ago": 899,
+ "run_id": "ffc21bf07a0a4fde9ea364d76dfec3d9",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Stellar Spectra V2: registry CCUGRASBWD5SXDYMS7NM437FQ7KNKHFX74D2VRJVTRU4J2TWDMURUW3V 0 getEvents over 60d retention 64578123-65614922 (control same shape: 5 events on CAS3J7..OWMA USDC); Rust repo perspectivefi/spectra-core-stellar-public has no keeper/reward/epoch/auction fn that pays a stranger (all entrypoints require caller/maker/admin auth, claim_rewards pays holder); TVL 763574 USD; XLM 0.12786 USD 14:58Z; PT/router/engine addrs unpublished so per-fn 7d counts incomplete; EVM siblings dead_end.",
+  "kb": [
+   "attempts:3759",
+   "protocols:1960"
+  ],
+  "run_id": "ffc21bf07a0a4fde9ea364d76dfec3d9",
+  "at": 1795360887
+ }
+}

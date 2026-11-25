@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "moonwell-whale2-base paper review of Moonwell core liquidations",
+  "outcome": "review_demote",
+  "reason": "Demoted under decisions/human/2026-11-06-no-latency-race.md and 2026-11-11-moonwell-stopped.md. Corrected 14-day census (attempts 923-924, blocks 55512916-56090651) found zero captures that were both pre-block liquidatable and executable by enabled routes with profit above the bot's send floor. The two proposed whale captures were healthy at C-1 and on watch-only collateral; the only pre-block capture used unsupported mADA debt and estimated about 0.6 USD gross. Paper log 16:38-17:28Z shows an mcbETH shortfall detected as opportunity_watch_only, no profitable simulate/send. Manifest check passed, but no fork reproduction was needed after the route failed the human scope decision. Review archived with the bot.",
+  "numbers": "50 ledger captures / 14 days in moonwell_core.liquidate_borrow[_ext], 0 eligible enabled-route captures; block 55648812 liquidity 213.84 USD, shortfall 0 (attempt 924); 55572125 about 0.6 USD gross on unsupported mADA debt (attempt 924); stated 830000 Alchemy CU/day at 180 s extrapolated from stopped bot's 10M CU/day at 15 s; paper cursor 54607316 vs head 56138083 at 17:28Z",
+  "bot_id": "moonwell-whale2-base"
+}

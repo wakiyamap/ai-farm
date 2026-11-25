@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-fluity",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid — the caller-paid functions are TroveManager liquidate(address)/liquidateTroves(uint256)/batchLiquidateTroves(address[]), which send msg.sender 0.5% of the liquidated collateral plus 200 fUSD gas compensation, but the whole protocol is a single open trove (50 BNB, 14999.75 fUSD, ICR ~191% vs MCR 110%), so all three revert 'TroveManager: nothing to liquidate' today and zero liquidations and zero redemptions happened in 7 days.",
+  "numbers": "7 d = blocks 133949547 (2026-11-16 15:13Z) to 135293493 (2026-11-23 15:17Z) via eth_getBlockByNumber timestamps. TroveManager 0x...b7C5 0 logs and BorrowerOperations 0x...5906 0 logs over that window (no-topic eth_getLogs; control same shape on bsc USDC 0x...580d 2000 blocks = 21438 logs, same run). 31 logs over all 6 Fluity contracts = 8 txs from 4 EOAs (0xd6f151c8, 0x53227a6d, 0x10522996, 0xfa1f780a), all own-account SP deposit/withdraw, FLTY swap or approve; none paid a caller. Gross if one liquidation landed: 0.25 BNB (0.5% x 50) = 143 USD at BNB 571.85 (coins.llama.fi 1795446918) + 200 fUSD (usd: unpriced, no DEX price read); gas ~0.011 USD at eth_gasPrice 0.05 gwei. getEntireSystemColl 50 BNB, getEntireSystemDebt 14999.75 fUSD, SP getTotalLUSDDeposits 3860.25 fUSD, MCR 1.1e18, CCR 1.5e18, LUSD_GAS_COMPENSATION 200e18 (eth_call 2026-11-23). Source: Sourcify v2 exact_match matchId 30533848, contracts/TroveManager.sol; _sendGasCompensation(activePool, msg.sender, ...) at lines 539/678."
+}

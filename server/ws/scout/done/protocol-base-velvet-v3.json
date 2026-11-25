@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-velvet-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 817,
+ "chain": "base",
+ "slug": "velvet-v3",
+ "name": "Velvet V3",
+ "category": "Yield",
+ "tvl_usd": 125586,
+ "url": "https://dapp.velvet.capital/Referred/6956901b440d4fc522b2eb7b",
+ "github": null,
+ "listed_days_ago": 817,
+ "run_id": "74cf0f38a4314eaaa405419ca84539f5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Velvet V3 on Base (PortfolioFactory 0xf93659fb357899e092813bc3a2959ceDb3282a7f, 2415 portfolios): no function pays a stranger - updateWeights/updateTokens/claimRewardTokens onlyAssetManager, updateTokenList reverts 0x7f3d from a fresh address; FeeModule.chargeProtocolAndManagementFees (anyone, eth_call ok) pays caller $0; last 7d: 0 factory txs (last 2026-10-11) and 0 Deposited/Withdrawn/Transfer across 96 sampled portfolios (same-run USDC control 36,903 logs); gas/call ~$0.001 (0.006 gwei, ETH $1796.64 coins.llama.fi).",
+  "kb": [
+   "attempts:2106",
+   "protocols:685"
+  ],
+  "run_id": "74cf0f38a4314eaaa405419ca84539f5",
+  "at": 1795000360
+ }
+}

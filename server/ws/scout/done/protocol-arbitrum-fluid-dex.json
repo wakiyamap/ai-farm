@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-fluid-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 742,
+ "chain": "arbitrum",
+ "slug": "fluid-dex",
+ "name": "Fluid DEX",
+ "category": "Dexs",
+ "tvl_usd": 26413088,
+ "url": "https://www.fluid.io/",
+ "github": null,
+ "listed_days_ago": 742,
+ "run_id": "1a3d6c77f0f84d848e28f9a1657bf55d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "FluidDEX DexT1 arbitrum: resolver 0x1De4...E6D -> 23 pools, identical verified poolT1 code; stranger-callable = user ops only (swap/deposit/withdraw/borrow/payback) + views; fallback auth-gated (fresh eth_call -> FluidDexError 51002 NotAnAuth); no collectFees/reward/liquidation fn pays a caller (fees taken inside _swapIn); 18,088 Swap logs / 7 d across 23 pools (blocks 522854010-525274010, top pool 0xde632c3a 7,738), ~$0.005 gas/swap (0.02 gwei x ETH $1811 coins.llama.fi); Fluid keeper revenue is in fluid_lending (protocols:16, trial promoted).",
+  "kb": [
+   "attempts:2064",
+   "protocols:652"
+  ],
+  "run_id": "1a3d6c77f0f84d848e28f9a1657bf55d",
+  "at": 1794991644
+ }
+}

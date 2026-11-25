@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-sodax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 96,
+ "chain": "arbitrum",
+ "slug": "sodax",
+ "name": "SODAX",
+ "category": "Bridge",
+ "tvl_usd": 141180,
+ "url": "https://www.sodax.com/",
+ "github": null,
+ "listed_days_ago": 96,
+ "run_id": "6f580e0dadb747d68967f2caa990d8e0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: SpokeAssetManager 0x348BE44F.../recvMessage + ConnectionV3 0x4555aC13.../verifyMessage require tx.origin in owner-managed executors allowlist (fresh-address eth_call reverts); 7d: 88 recvMessage deliveries, 88/88 by one executor 0xa4026a97d3bf3caed9489cfac61ac8863d2ddb83, caller paid $0 on-chain (gross 0, pays ~168k gas = ~$0.006 @ 0.02 gwei, ETH $1827.91 coins.llama.fi); bridge fees sit in ConnectionV3 (0.004 ETH), withdrawFee onlyOwner",
+  "kb": [
+   "attempts:1629",
+   "protocols:325"
+  ],
+  "run_id": "6f580e0dadb747d68967f2caa990d8e0",
+  "at": 1794900053
+ }
+}

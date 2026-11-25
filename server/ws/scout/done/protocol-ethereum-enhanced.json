@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-enhanced",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 95,
+ "chain": "ethereum",
+ "slug": "enhanced",
+ "name": "Enhanced",
+ "category": "Yield",
+ "tvl_usd": 143789,
+ "url": "",
+ "github": [
+  "Enhanced-Finance"
+ ],
+ "listed_days_ago": 95,
+ "run_id": "b6c680e75e8e456dbc4000621b66943e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "One PAXG/USDC covered-call vault 0xB7DA7B8FfCa7cA4bFf6b68024D4BA50Ef337d049: every keeper fn (nextCycle/createOrder/buyback/settle/endVault) onlyOperator, pays caller 0 (fresh addr -> NotOperator 0x7c214f04); operator EOA 0xcaa7e7e9f6dcf5ea653c620deda55dd38687f1ae sent 32/32 keeper txs; 7d: only 2 depositor self-calls (1.03 PAXG in, 3.67 PAXG withdraw req), 0 premium/claim events, 0 USDC out (3167.94 USDC to depositors since 2026-07-23 launch, last 2026-11-12); TVL 38.25 PAXG ~36.5k (PAXG 569.16 llama 2026-11-20T12:31Z); gas 0.31 gwei ~ bash.13/call.",
+  "kb": [
+   "attempts:2904",
+   "protocols:1323"
+  ],
+  "run_id": "b6c680e75e8e456dbc4000621b66943e",
+  "at": 1795178261
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-polygon-team-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1601,
+ "chain": "polygon",
+ "slug": "team-finance",
+ "name": "Team Finance",
+ "category": "Token Locker",
+ "tvl_usd": 237925,
+ "url": "https://www.team.finance",
+ "github": [
+  "team-finance"
+ ],
+ "listed_days_ago": 1601,
+ "run_id": "922c35b9fbcb4e5cb1cf6ef176a79919",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: withdrawTokens/collectUniswapV3LPFees/mintNFTforLock require msg.sender == withdrawalAddress (fresh-address eth_call reverts 'Unauthorised to unlock'); 0 withdrawals in 7d on both polygon vaults (0x3eF7...56c7 v3 proxy, 0x586c...f55c v2; same-shape 30d control returns 1 each, both self-withdrawals), 0 v3 deposits 7d; a stranger's call pays 0 and costs 0.024-0.11 POL gas = bash.002-0.009 (POL bash.0824 coins.llama.fi 2026-11-19)",
+  "kb": [
+   "attempts:2464"
+  ],
+  "run_id": "922c35b9fbcb4e5cb1cf6ef176a79919",
+  "at": 1795080638
+ }
+}

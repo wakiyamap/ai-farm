@@ -1,0 +1,19 @@
+{
+ "id": "actor-ethereum-0x82cfdff27cec8b15951c73c35db9d4a3913c02bf",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "ethereum",
+ "address": "0x82cfdff27cec8b15951c73c35db9d4a3913c02bf",
+ "run_id": "457b7ba1f03c4cadbd883882d4ff562e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Reserve revenue-trading EOA (prop market-maker): EVC batch() forwardRevenue+manageTokens opens the DTF revenue Dutch auctions - 117 TradeStarted/5d (94% of all starters; 66 batches/16d incl 17 FAILED) plus 12 settleTrade/7d, then flips the lot on Uniswap; caller paid 0.000000 ETH ex-gas (measured balance before/after, txs 0x475c307f, 0x68f64b39), pays own gas 8.24M gas = 2.81 USD per batch and 2.06M = 0.34 USD per settle at ETH 1819.64 USD (DefiLlama 2026-11-17); profit is its own auction-to-Uniswap spread, not a protocol fee -> no_reward",
+  "kb": [
+   "attempts:1539",
+   "actors:204"
+  ],
+  "run_id": "457b7ba1f03c4cadbd883882d4ff562e",
+  "at": 1794880751
+ }
+}

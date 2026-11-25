@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-nullmask",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only caller-paid reward is the relay-fee argument of shieldedWithdrawal/Transfer/Swap, paid to msg.sender only if it is on the admin-managed allowedRelayers whitelist (setRelayer admin-only; a stranger calling with fee>0 reverts NotRelayer, fee=0 pays 0). Deposit flows are guard-only and sweepProtocolFees pays the treasury, not the caller. All 15 sampled withdrawals (incl. the 5 largest fees) came from one whitelisted relayer 0xb3d4518cadc7054ec43c61a668c21c3772353f9d; all 1,563 Deposit events came from the guard EOA.",
+ "numbers": "7d window blocks 26429642 (2026-11-16 19:20) to 26479886 (2026-11-23 19:20 UTC), no-topic scan of proxy 0xd64EF1417EB047ed0b54736a5a41F01178C391c6: 18,577 logs, all topic0s resolved from verified source. shieldedWithdrawal 1,516 calls (sum of caller fees 2.3682 ETH; fee range 0.00078-0.0195 ETH in a 15-sample; gas ~4.5M/call, at 0.172 gwei = 0.00077 ETH ~ 1.34 USD, so fee ~ gas reimbursement, net ~0). shieldedTransfer 2, shieldedSwap 0, Deposit 1,564 (all guard txs), DepositPending 1,570, ReceivingKeyRegistered 802, ProtocolFeesSwept 10 (all from 0x1699d1a8c0cbaeaf12e48d70e0a78b35b0c038ef, paid to treasury). ProtocolFeeCharged 7d sums: DEPOSIT 0.7519 ETH + WITHDRAWAL 0.7354 ETH = 1.49 ETH ~ 2,586 USD to treasury. ETH 1737.49 USD (coins.llama.fi coingecko:ethereum, 2026-11-23 19:25 UTC). Pool holds 21.885 ETH + USDT (Ethereum TVL 50.5k USD, DefiLlama)."
+}

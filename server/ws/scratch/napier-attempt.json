@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-napier",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: verified V1/V2 contract code offers holder yield and restricted fee collection, with no payment to an unaffiliated caller. A sampled V2 pool auto-remits admin fees to fee_receiver.",
+  "numbers": "2026-11-23 UTC eth_call on V2 factory getPoolList(): 74 pools; sampled pool 0x2f54543f9505ad01d5da6952b93956cbecaf4a0e, principal token 0x368fb44afee5fd09edb945a4f56d57828a2a1303. Fresh 0x...dEaD collect(receiver=self,owner=self): 0 WETH shares and empty rewards; collect(owner=0x...bEEF): revert PrincipalToken_NotApprovedCollector (0xca6142a8). collectCuratorFees and collectProtocolFees from fresh address: revert AccessManaged_Restricted (0x1009dc06). Gross for stranger without held YT: 0 WETH; 7-day count/gas not applicable because no eligible caller-paid function. Sources: DefiLlama Napier v1.js/v2.js, explorer verified V1 Tranche.sol, V2 PrincipalToken.sol, CurveTwocryptoOptimized.vy, relay eth_call latest."
+}

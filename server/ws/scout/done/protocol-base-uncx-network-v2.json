@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-uncx-network-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1645,
+ "chain": "base",
+ "slug": "uncx-network-v2",
+ "name": "UNCX Network V2",
+ "category": "Token Locker",
+ "tvl_usd": 1396834,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 1645,
+ "run_id": "09d1365ac82d4543bebbeb57001f8ce9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "4 Base lockers (UniV2 0xc4e637d3 1477 locks, Sushi 20, Aerodrome 22, WithFees 0): every value function reverts 'NOT OWNER' from a fresh address (owner passes as control); open functions (lockLPToken, incrementLock, getReward, updateFeeTracking) charge the caller or pay lock.owner/devaddr, never the caller. 7 days (blocks 56441324-59465324): 6 events total = 4 self-service withdraws + 2 Aerodrome getReward both by lock-14 owner 0x0c3ea09e paying himself 5.3 and ,061 (WETH+EDEL, coins.llama.fi 1795083897); gas 180,230 = bash.0018; stranger gross bash. Same as v3/v4 and polygon v2.",
+  "kb": [
+   "attempts:2483",
+   "protocols:992"
+  ],
+  "run_id": "09d1365ac82d4543bebbeb57001f8ce9",
+  "at": 1795084914
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-origin-ether",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1288,
+ "chain": "base",
+ "slug": "origin-ether",
+ "name": "Origin Ether",
+ "category": "Liquid Staking",
+ "tvl_usd": 2410867,
+ "url": "https://www.originprotocol.com/oeth",
+ "github": null,
+ "listed_days_ago": 1288,
+ "run_id": "a870d8e76dd44527b2cfca2f3726d618",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Super OETH Base (vault 0x98a0CbeF..CC93, superOETHb 0xdBfEfD2E..60A3, 4 strategies): rebase() reverts 'Caller not authorized', collectRewardTokens() 'Caller is not the Harvester', AMO calls 'Caller is not the Strategist', claimWithdrawal 'Not requester'; only allocate()/addWithdrawalQueueLiquidity() open and both pay 0. 7d blocks 56248841-59288841: 23 logs/21 txs, 16 rebases all by Origin EOA 0x739212d5..f38b; rebase 0x49bae52b paid 0.3817 ETH (677 USD) to trustee 0xbb077e71 and 0 to the caller; gas 246407 at 0.006 gwei = 0.0026 USD (ETH 1775.37 llama). Stranger gross 7d: 0 USD.",
+  "kb": [
+   "attempts:2306",
+   "protocols:850"
+  ],
+  "run_id": "a870d8e76dd44527b2cfca2f3726d618",
+  "at": 1795048727
+ }
+}

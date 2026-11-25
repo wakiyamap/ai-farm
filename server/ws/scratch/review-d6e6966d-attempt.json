@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "aave-pricefeed-ethereum paper review",
+  "outcome": "review_fix",
+  "bot_id": "aave-pricefeed-ethereum",
+  "reason": "No promotion: current replay_scheduler for block 26384827 first sends in the incumbent capture block, so the $1.83 two-block row is an ordering race. The sole remaining positive-net pre-capture row (26399074) is at most $2.23/16.1d=$0.139/day, below the running bot's conservative $0.254/day relay read cost. Even including the contested row gives $0.252/day, still below read cost. Mechanism, wallet payout, loss guard and fork success/revert passed; lower actual CU and remeasure EV/timing.",
+  "numbers": "Source: bots/paper/aave-pricefeed-ethereum/logs/bot.jsonl heartbeats 2026-11-14 00:35:04-01:08:56Z: +999 rpc_reqs/2032s and 256 scan cycles -> 42,477 requests/day, 10,885 Multicall3 cycles/day; README method costs 10 CU per ordinary request, 15 CU Multicall3 -> 0.479M CU/day=$0.254/day at $0.53/M. README per-occurrence table blocks 26384827 and 26399074: net 1.83+2.23=4.06 USD/16.1d; replay_scheduler at 23:59:28Z first sends 26384827 in capture block, leaving 2.23/16.1d. Independent fork ethereum reset 26399071 with current artifact: success tx 0x0cf2641aed4d2c1710c3039073aa3b506226070ba884bf8c11b3e31d380a4415 +2.115149 USDC owner, 565699 gas; guard revert tx 0x1fcb50cabf5c3ad6442f02f917d761bdef6569e83cb8105137ea6a0715220814 preserved owner balance."
+}

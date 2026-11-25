@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-kpk",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 398,
+ "chain": "ethereum",
+ "slug": "kpk",
+ "name": "KPK",
+ "category": "Risk Curators",
+ "tvl_usd": 170950271,
+ "url": "https://kpk.io/",
+ "github": [
+  "karpatkey"
+ ],
+ "listed_days_ago": 398,
+ "run_id": "7366d4b8c3744b809230717359062a3e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "KPK ethereum = 28 curated-vault addresses (Morpho v1/v2, Euler v2, Gearbox v3.1 L3, Symbiotic, Aleph, Upshift; own totalAssets() sum 8.88M of the 70.95M listing) + Safe mandates; the only role-free call is VaultV2 accrueInterest() (397 events/7d over the 7 v2 vaults, 221,112 gas = bash.62 at 1.747 gwei baseFee) and it pays the caller bash (fee shares to kpk); forceDeallocate makes the caller pay, Euler reallocate/submitCap, Gearbox acl setters and Morpho rebalance are role-gated.",
+  "kb": [
+   "attempts:3022",
+   "protocols:1415"
+  ],
+  "run_id": "7366d4b8c3744b809230717359062a3e",
+  "at": 1795202217
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "chain": "any",
+  "target": "stellar-bim-harvest",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found - BIM (slug bim) has no contracts on Stellar, so no caller-paid function exists there. The candidate premise 'about 37M USD on Stellar' did not reproduce: DefiLlama shows 0 USD Stellar TVL for slug bim today; closest figures are the BIM token market cap 33.8M USD (CoinGecko 2026-11-22 12:26 UTC) and aquarius-stellar 36.6M (a different protocol the BIM UI routes through). Stellar presence is only swap-routing in the exchange UI via Soroswap/Aquarius/Sushi, not BIM's own vaults, so steps 2-3 (Rust source require_auth, 7-day getEvents on the vault) had no addresses to run against.",
+  "numbers": "api.llama.fi/protocol/bim 2026-11-22: currentChainTvls {Base 224636, Polygon 15599, OP Mainnet 1378, Plasma 1, others 0}, chains field empty (parent#bim), no Stellar key; api.llama.fi/protocol/bim-aggregator chains [Ethereum] TVL empty; staking-api.bim.finance/vaults: 36 vaults, networks base 25, polygon 4, optimism 3, gnosis 2, ethereum 1, plasma 1 (no stellar); adapter projects/bim chains map 12 EVM chains, no stellar (raw main, last commit 2026-05-25); DefiLlama Stellar chain list: 28 protocols, none named BIM (nearest 37M = aquarius-stellar 36.59M); CoinGecko bim-2 mcap 33,787,743 USD 2026-11-22 ~12:26 UTC, github repos empty; getLatestLedger via relay 127.0.0.1:8545/stellar alive 2026-11-22 12:30 UTC. Base control (same protocol, EVM): leads:252 / attempts:1864 show StrategyAeroGaugeV2 0xBFeF6e2F... harvest(address) pays caller WETH on Base only.",
+  "bot_id": null
+}

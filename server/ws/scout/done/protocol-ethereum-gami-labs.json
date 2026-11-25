@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-gami-labs",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 172,
+ "chain": "ethereum",
+ "slug": "gami-labs",
+ "name": "Gami Labs",
+ "category": "Risk Curators",
+ "tvl_usd": 20980743,
+ "url": "https://gamilabs.io/",
+ "github": null,
+ "listed_days_ago": 172,
+ "run_id": "250f175b93f747b9938ee568b931e0e8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Upshift/TokenizedVault family, 43 active eth vaults, verified source pays msg.sender nowhere: 283 fee events in 7d (214 ManagementFeeCharged + 69 FeesCollected, blocks 26406395..26456795) all sent by operator 0xe0b7deab..; collectFees/processAllClaimsByDate callable from a fresh EOA but pay fee accounts (~$3 pot on $108.9M top vault 0x74aD..) or the redeemers, gross to caller $0, gas $0.08 (99,610 gas @ 0.465 gwei, ETH $1,751); claim() whitelist-gated, chargePerformanceFees reverts FeeAmountTooLow, processAllClaims NothingToProcess.",
+  "kb": [
+   "attempts:2936"
+  ],
+  "run_id": "250f175b93f747b9938ee568b931e0e8",
+  "at": 1795184206
+ }
+}

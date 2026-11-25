@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "uniswapx order fill on reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 (fill((bytes,bytes),bytes))",
+  "status": "measured",
+  "why": "Reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 (Sourcify exact match, verified 2026-05-07; emits UniswapX Fill(bytes32,address,address,uint256), filler = topic2) had 1,386 fills by 24 distinct fillers in 7d (blocks 133,651,370 2026-11-15 01:56 to 134,994,824 2026-11-22 01:56 UTC, eth_getLogs). Top fillers: 0x52f9eea3 (414), 0x225a38bc (318), 0xe0763177 (205). Candidate 0xdd0a4938 took 1 fill in 7d, 6 lifetime (first block 128,279,914 ~2026-10-18): keeper EOA 0x467afbe6 calls its fill() and it keeps the in-tx spread (0.0010072 WBNB ~ $0.55 on 0xe01850c6..., ~3.65 USDT on 0xb587b0ce...), BNB $548.36 coins.llama.fi ts 1795313312.",
+  "next_steps": "Contract: reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2; entry execute/fill((bytes,bytes),bytes) (0x40459ef1 on the filler, standard execute on the reactor); 7d count 1,386 fills, 24 fillers (competition exists, fills taken throughout). Gross/call: spread $0.5-$3.7 sample of 3 of 6 lifetime fills; gas/call 250k-485k gas @0.05 gwei = 0.0000125-0.000024 BNB = $0.007-0.013. Permissionless fill = a fresh address would be paid, but it is a competitive fill market on this reactor; timing race unknown (no feed data)."
+}

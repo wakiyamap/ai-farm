@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-swell-l2-farm",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The protocol's ethereum contracts are a verified SimpleStakingERC20 (0x38D43a6Cb8DA0E855A42fB6b0733A0498531d774) whose only public functions are deposit/withdraw of the caller's own staked principal, plus the plain SWELL governance ERC20 (0x0a6e7ba5042b38349e437ec6db6214aec7b35676). No claim/reward/keeper function exists; the L2 farm incentive was off-chain points. rescueERC20 (the only sweep of unclaimed balance) is onlyOwner.",
+  "numbers": "7d = blocks 26412132 (2026-11-14T08:49:47Z) -> 26462389 (2026-11-21T08:49:47Z), eth_getLogs no-topic scan on 0x38D43a...d774: 6 logs, all Withdraw (topic0 0x9b1bfa7fa9ee420a16e124f794c35ac9f90472acc99140eb2f6447c714cad8eb via cast keccak, confirmed by no-topic scan = only event type), 0 Deposit; 6 withdrawals by 6 distinct stakers of own tokens (e.g. 300 HEX 0x8457CA5040ad67fdebbCC8EdCE889A335Bc0fbFB tx 0xd77fe5cb..., 4.25 rsETH 0xFAe103DC9cf190eD75350761e95403b7b8aFa6c0 tx 0x3603913a...), reward to caller = 0. Fresh-address withdraw eth_call reverts 0x50b1f356 INSUFFICIENT_BALANCE. TVL 1.215M USD (api.llama.fi/protocol/swell-l2-farm, 2026-11-21) sits in the staking contract as user stakes; contract ETH balance 0. Sources: registries/sumTokens.js line 27484 (adapter projects/swell-l2-farm 404), explorer source (verified SimpleStakingERC20, created block 19615250)."
+}

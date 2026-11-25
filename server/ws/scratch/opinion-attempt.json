@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-opinion",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. OPINION is a Polymarket-style CLOB on BSC. The only public reward-style functions are Gnosis CTF split/merge/redeemPositions; redeemPositions pays the caller their own 1:1 collateral, not a keeper bounty. Over the last 7 days all 37,271 exchange txs came from a single operator EOA (0x48e32e982a4a7f2462ce53109934826d8834c717) which settles user trades gasless and captures the fee itself - no stranger is paid for calling. No reward/claim/keeper/auction function exists in the SDK or frontend ABIs or bytecode selectors.",
+ "numbers": "CTF 0xAD1a...D774 holds 2,715,703 USDT (cand TVL $2.71M). 7d (blocks 133335463-134145462): 1191 PayoutRedemption, 780 distinct redeemers, 19675 USDT total, median 0.028 USDT, top 4701 USDT. Exchange 37271 txs, 20/20 same caller. redeemPositions gas ~147k, gasPrice 0.05 gwei => ~$0.004 at BNB $582.81 (coins.llama.fi). eth_call redeemPositions from fresh addr 0x1111..1111 reverts (stranger paid 0). Source: opinion_clob_sdk 0.7.0 config.py + openapi.opinion.trade/openapi/quoteToken."
+}

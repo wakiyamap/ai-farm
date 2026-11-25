@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-privacy-pools-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 597,
+ "chain": "ethereum",
+ "slug": "privacy-pools-v1",
+ "name": "Privacy Pools V1",
+ "category": "Privacy",
+ "tvl_usd": 8296688,
+ "url": "https://privacypools.com/",
+ "github": null,
+ "listed_days_ago": 597,
+ "run_id": "1b5201b543484437b751e90fe54928ba",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Entrypoint.relay() (0x6818809eefce719e480a7526d76bd3e561526b46, permissionless) paid 86 calls / $201.6 gross over 7d (blocks 26409420..26459820): EOA 0xec15c2.. took $122.9 in 48 calls (feeRecipient=self), gross $8.3-50 vs gas $0.16-4.79 (520k-625k gas, ETH $1618) per call; but work is assigned off-chain (feeRecipient fixed in user-signed data, no on-chain queue; 3 EOAs share ~$29/day) and rule S says 'no mixers or privacy pools'.",
+  "kb": [
+   "attempts:3113",
+   "leads:343"
+  ],
+  "run_id": "1b5201b543484437b751e90fe54928ba",
+  "at": 1795220910
+ }
+}

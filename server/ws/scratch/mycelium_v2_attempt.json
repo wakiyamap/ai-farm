@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "mycelium_perpetual_pools v2 12-hour PoolKeeper upkeep (trial-mycelium-v2-arbitrum)",
+  "outcome": "lead_recorded",
+  "reason": "Pre-build measurement: public v2 12-hour upkeep pays strangers; fourteen paid occurrences in seven days, all first-index takes. Trial is mechanically eligible but the win rate must be learned by sending. The v1 sibling has one win in 67 live windows, so keep this a small trial.",
+  "numbers": "scratch/mycelium-v2-measured.json from keeper KeeperPaid logs: 14 x 0.552-0.618 USDC.e = 8.186981 USDC.e in the 12-hour pool, 4 recipient addresses, 14/14 index 1; latest tx 0x4a3734f30e9c80f9e6ad36bd99292776e85ede656887e857bb5ab97273f8293d. Existing v1 live logs: 1 won, 329 lost sends / 67 windows, 0.40682 USD gas lost. Source: verified PoolKeeper.sol and relay eth_call gasPrice()=1 gwei."
+}

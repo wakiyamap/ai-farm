@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-layerzero-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "layerzero-v2",
+ "name": "LayerZero V2",
+ "category": "Bridge",
+ "tvl_usd": 2505801,
+ "url": "https://layerzero.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "85026c22beae43a0b5d459bb406b867d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bridge infra: only callable payout is UlnV3.withdrawFee on sendUln302 0x197d1333 (pays fees[msg.sender]; fresh address reverts 0x34084fb8 InvalidAmount(1,0)); 7d (blocks 100089667-100809667): 8 NativeFeeWithdrawn = 230.72 AVAX (~$1590.67, AVAX $6.8943) self-withdrawn by the 2 protocol fee receivers 0xe93685f3 (103.11) and 0xb8ff877e (127.61), gas $0.022/call, no stranger paid; USDC OFT adapter 0x5634c4a5 withdrawPlannerFee from fresh reverts 0x5bd25eff",
+  "kb": [
+   "attempts:2661",
+   "protocols:1124"
+  ],
+  "run_id": "85026c22beae43a0b5d459bb406b867d",
+  "at": 1795126325
+ }
+}

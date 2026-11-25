@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-gyroscope-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1422,
+ "chain": "polygon",
+ "slug": "gyroscope-protocol",
+ "name": "Gyroscope Protocol",
+ "category": "Dexs",
+ "tvl_usd": 53811,
+ "url": "https://app.gyro.finance/",
+ "github": null,
+ "listed_days_ago": 1422,
+ "run_id": "60a312f5e915443a9fdbf3bc92a0f0c7",
+ "result": {
+  "verdict": "no_reward",
+  "line": "polygon: 105 CLP pools (4 adapter factories, all eth_getCode ok); 7d (blocks 97401343 11-16 -> 97804468 11-23): 97/105 silent, only active pool 'Gyroscope ECLP DAI/USDC' 0x3f9d253d96cb39028bee65f5632ee62d6e059cc3 with 1726 swap txs / 1737 SwapParams logs (arbitrageurs via Balancer vault 0xBA12222222228d8Ba445958a75a0704d566BF2C8, POL 0.0778 USD); verified pool ABIs expose no caller-paid function (no reward/claim/harvest/checkpoint; only ERC20 + authenticate setters + vault-only onSwap/onJoin/onExit) -> no_reward; TVL 54,018 USD",
+  "kb": [
+   "attempts:4000",
+   "protocols:2136"
+  ],
+  "run_id": "60a312f5e915443a9fdbf3bc92a0f0c7",
+  "at": 1795412849
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "address": "0xa0f1c3ad83e07d97b5e7030e177718be175275ea",
+  "strategy": "Unverified clones-with-immutable-args router (impl 0xf3494268c511bfc48a89109335b912b22541a36e) exposing 1inch-UR-style swap(address executor,tuple desc,bytes permit,bytes data) 0x12aa3caf; a fleet of ~7 unlabeled searcher EOAs runs multi-DEX USDT/ETH arbitrage through it (Uniswap V3 pool 0xe0554a476a092703abdb3ef35c80e0d76d32939f vs Uniswap V4 PoolManager, Sushiswap V2 flash swaps, 1inch AGG); profit is returned to the calling EOA as ETH change in the same tx, router skims ~2.5% to EOA 0x4838b106fce9647bdf1e7877bf73ce8b0bad5f97",
+  "evidence": "0x4d9ff8728f998c5c86f8a345b9d4552f057d6105cc0a3d8b3016ee4ebb9f1a78 (V3 0xe0554a47 x V4 PoolManager arb; caller 0x3af24b14590917bf0d07b03bf1114cec3b69ae94 refunded 6.47e-05 ETH, fee 1.65e-6 ETH = 2.5% of gross 6.64e-05); 0x6c0798c21ef3d22fcfd3bdbf16cae7fc079555366feab6d086b6c35a8a2d7c28 (Sushi V2 flash + 1inch AGG + V3 0x11b815efb8 leg; caller refunded 8.57e-05 ETH); eth_getLogs WETH Transfer pool->router, blocks 26381282-26431682: 672 calls in 7d (per-day 130,94,96,91,150,57,54); callers seen: 0x1b878f3a,0x2f4e1a92,0x3af24b14,0x4d16ebd8,0x5c8e47d9,0x4d9ff872,0x6e2c8549",
+  "est_profit_usd_day": 11
+}

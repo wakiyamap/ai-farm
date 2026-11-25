@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-multichain",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the Multichain protocol on arbitrum is the dead 2022-23 bridge. Callable protocol contracts (two Portal MultichainRouter deployments + AnyCall executor/gateways) expose only user-initiated swap*/execute functions and onlyOwner pause - no reward/claim function pays a caller. All had their last transaction in 2022-23 and 0 events in the last 7 days. The 1.27M USD TVL is legacy locked deposits users self-redeem; the DefiLlama config endpoint (config-v2.multichain.org) is down so depositAddr contracts were not enumerable, but the callable surface is exhausted and dead.",
+ "numbers": "last txs: router 0x003301aE7CbF6663262Dd280fB29135ab745c732 block 128805091 (2023-09-07), router 0x27847E69a68dD3650D42204fc404b158261b54a3 ts 1662565655 (2022-12), AnyCallExecutor 0x38264FcCB88DA59Ca4609c729031bFA8E7db24EF ts 1675672396 (2023-02) [etherscan tx lists]; 7d eth_getLogs blocks 523297526-525716726 = 0 logs on both routers (control: USDC 0xFF97..5CC8 15 logs / 200 blocks, same run); USDC/USDT/WETH balances of all 6 checked contracts = 0; TVL 1268506 USD (api.llama.fi 2026-11-19 18:38 UTC)"
+}

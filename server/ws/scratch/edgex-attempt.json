@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-edgex-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. edgeX Bridge on Arbitrum is custodial escrow, not a reward-paying contract. The $46.1M sits in 0xc64e528c..., an ERC-4337 SingleOwnerMSCA smart wallet whose only anyone-callable function is addDeposit() (takes funds, pays nothing); execute/withdraw paths are owner/EntryPoint-gated and edgeX's own signers move the money. The other four TVL contracts (2x MultiSigPoolV5WithPermit StarkEx-era pools, a Nitro message Bridge, an L1ERC20Gateway) likewise have only user-paid deposits and role-gated (onlyRollupOrOwner / signer) withdrawals. No reward/bounty/keeper/harvest/settle/claim function anyone can call.",
+  "numbers": "escrow 0xc64e528c6439a204da1b519e78aa43f9e4b32f00 holds 46,090,766 USDC (eth_call balanceOf @latest, block 0x1f4fa5f7, 2026-11-18) vs DefiLlama edgex-bridge Arbitrum TVL 46,134,387 (api.llama.fi/protocol/edgex-bridge); Transfer logs to and from the escrow over last 7d (6x404k-block chunks, USDT+USDC, eth_getLogs): 0; control 3,534 USDC transfers in last 1,000 blocks; last escrow tx 2026-10-03 (etherscan explorer txs); other TVL contracts last activity 2026-06-04..2026-09-30."
+}

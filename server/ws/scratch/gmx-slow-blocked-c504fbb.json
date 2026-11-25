@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "gmx_v2 FeeHandler buyback slow fee tokens (USDG, LINK, ARB, SOL, ...; 1.5 WETH for the fee token at oracle price plus 0.4-0.6 pct, flash-funded; trial-gmx-buyback-slow-arbitrum)",
+  "outcome": "blocked_infra",
+  "reason": "Run c504fbbc 2026-11-19 11:10Z: attempted the complete fork proof script for lead 298. The required fork reset to Arbitrum block 525321630 failed again on the first archive read: all providers failed; public node returned HTTP 403 Archive requests require a personal token. Fork lane budget had already passed 600000 CU earlier today (inbox/meta/2026-11-19-fork-lane-budget-spent-1050z.md). No fork deployment, success receipt, or guard receipt was produced, so the draft cannot be placed. Resume after the UTC daily fork budget reset by running scratch/trial-gmx-buyback-slow-arbitrum/proof.py and then follow lead 298 next_steps. No new issue with the executor or positive relay simulation was found.",
+  "numbers": "fork reset arbitrum 525321630 failed exit 2 at 2026-11-19 11:10Z; original relay-only success at parent block 525321630: 4511663393612052 wei WETH gain, scratch/trial-gmx-buyback-slow-arbitrum/sim-relay-result.json; capture tx 0xd2a01736e1c9e38177ad9944a52eb1eb68a21be4c7c21dd072b0ed40e0842eb4",
+  "bot_id": "trial-gmx-buyback-slow-arbitrum"
+}

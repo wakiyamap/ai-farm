@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-ostium",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 842,
+ "chain": "arbitrum",
+ "slug": "ostium",
+ "name": "Ostium",
+ "category": "Derivatives",
+ "tvl_usd": 2222993,
+ "url": "https://www.ostium.io/",
+ "github": [
+  "0xOstium"
+ ],
+ "listed_days_ago": 842,
+ "run_id": "5b7a178b372e4a01b480267ae161f570",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Vault 0x20d419a8...7f98 tryNewSettlement/tryResetDailyAccPnlDelta are free to call but pay caller $0 (34,759 gas = $0.0013 at 0.02 gwei, ETH $1,799.65 coins.llama.fi; 0/25 txs in 2-day vault sample call them); paid work (PriceUpKeep/TradesUpKeep performUpkeep) is isForwarder-whitelist gated and stale since 2026-06-05/2026-07-02; vault totalAssets $3.39M",
+  "kb": [
+   "attempts:2120",
+   "protocols:695"
+  ],
+  "run_id": "5b7a178b372e4a01b480267ae161f570",
+  "at": 1795003266
+ }
+}

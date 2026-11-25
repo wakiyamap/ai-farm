@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-monolith-market",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid verdict. liquidate(address,uint256,uint256) and writeOff(address,address) on the 7 Monolith Market lenders are anyone-callable (eth_call from fresh address passes all role checks, reverts only 'insufficient liquidatable debt' / returns false) but zero Liquidated/Redeemed/WrittenOff events in 7 days on any lender and no liquidatable position among the 10 sampled today, so no stranger was paid and the pot is empty. Same conclusion as the 2026-11-16 census (protocols:262); if wstETH or invUSD positions sour, liquidate pays the caller 0-10% collateral incentive (~$0.35 gas/call) and becomes worth re-checking.",
+ "numbers": "7-day blocks 26406194-26457194: 510 logs no-topic over 7 lenders (control), Liquidated 0, Redeemed 0, WrittenOff 0; InterestAccrued 279, Bought 63, Sold 35. 10/10 sampled borrower eth_call liquidate reverts 'insufficient liquidatable debt' (e.g. de640ee0 debt 15015 SwanUSD). Gas 0.668 gwei x ~300k = $0.35 at ETH $1742.96 (coins.llama.fi 2026-11-20 14:45Z). pullGlobalReserves factory-only (Lender.sol L906), redeem charges the caller redeemFeeBps (L438-449)."
+}

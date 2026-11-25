@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-airpuff",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 978,
+ "chain": "ethereum",
+ "slug": "airpuff",
+ "name": "AirPuff",
+ "category": "Leveraged Farming",
+ "tvl_usd": 389713,
+ "url": "https://www.airpuff.io",
+ "github": [
+  "Airpuff"
+ ],
+ "listed_days_ago": 978,
+ "run_id": "4dc4c1d288574b3a96b32da327edeb26",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only stranger-payable function is liquidatePosition on the 25 AirPuffVaultM vaults (no role modifier, pays caller 50% of residual WETH, posts nothing): 0 logs on all 29 ethereum airpuff contracts in 7d (blocks 26412510-26462739 Nov14-21, same-shape WETH control 28,154 logs), 0 Liquidated events in 90d (topic0 from verified source); eth_call reverts 'positionID is not valid' (state, not role); TVL 339,640 USD, ETH lending vault holds 42.41 WETH (69.4k USD @1635.71) - protocol dormant, gross 0 USD/call x 0 calls.",
+  "kb": [
+   "attempts:3271"
+  ],
+  "run_id": "4dc4c1d288574b3a96b32da327edeb26",
+  "at": 1795255886
+ }
+}

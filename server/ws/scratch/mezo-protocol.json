@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "mezo_bridge",
+ "status": "dead_end",
+ "checked": "Contracts from mezo-org/documentation developers/bridge/mezo-bridge.mdx: proxy 0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c (TransparentUpgradeableProxy -> MezoBridge impl 0x58d28da13cb18d1560d3eb0f992d58a1d773a625, source via explorer). eth_getCode non-empty; getters answer: reimbursementPool 0x700c8840acdd035cfe35847bfd928c576f9c92a7, withdrawalFee 0 bps, feeCollector 0xe628a1c34c92f0aa85af998814ce4f03caa5913, bridgeValidatorsCount 10, tbtcToken 0x18084fba666a33d37592fa2633fd49a74dd93a88. Source review: only public entries are bridgeERC20/bridgeTBTC/bridgeTBTCWithPermit (user pays), attestBridgeOut (bridgeValidator role), attestBridgeOutWithSignatures + withdrawBTC (anyone can call, pay only a ReimbursementPool gas reimbursement IF caller is in refundAuthorizations whitelist), initializeBTCBridging/finalizeBTCBridging (anyone, no payment at all). 7d log scan blocks 26412038-26462293 (326 logs, topic0s from this contract's own logs) + Blockscout tx listing (357 txs in window)."
+}

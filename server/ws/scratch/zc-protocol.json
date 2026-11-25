@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "zircuit_staking",
+  "status": "dead_end",
+  "checked": "Zircuit Staking (DefiLlama slug zircuit-staking, adapter projects/zircuit/index.js). Only ethereum contract is the staking pool/factory 0xf047ab4c75cebf0eb9ed34ae2c186f3611aeafa6 (verified source ZtakingPool, contracts/ZtakingPool.sol via explorer). eth_getCode non-0x; getter zircuitSigner() returns 0xe42a95c84f9dd116066effb733e8294931967a0d. Public functions: depositFor, depositETHFor, withdraw, migrate (needs user stake + zircuit-signed authorization sig). All move only the caller's own funds; none pays the caller. migrateWithSig, setZircuitSigner, setStakable, blockMigrator, pause/unpause are onlyOwner. No claim/reward/distribute/harvest function anywhere: NatSpec says it rewards stakers with (off-chain) points. 7d activity (blocks 26412510 2026-11-14T10:03Z to 26462757 2026-11-21T10:03Z, no-topic eth_getLogs on the pool): 52 logs, only Deposit (topic0 0xfeb2000d..., 47) and Withdraw (topic0 0x2c0f148b..., 5), 0 Migrate. Verdict no_reward."
+}

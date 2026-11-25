@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "mountain_protocol",
+ "status": "dead_end",
+ "checked": "USDM token 0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C (ERC1967Proxy, impl 0x7f2f92c4dbda28d8cd7d046e005f65c0540f331e, verified via explorer; DefiLlama adapter projects/mountain-protocol uses same addr). All non-ERC20 state-changing fns are role-gated: mint MINTER_ROLE, burn BURNER_ROLE, blockAccounts/unblockAccounts BLOCKLIST_ROLE, pause/unpause PAUSE_ROLE, setRewardMultiplier DEFAULT_ADMIN_ROLE, addRewardMultiplier ORACLE_ROLE (eth_call from 0x...dEaD reverts 'missing role 0x68e79a...'). None pays the caller - yield accrues to holders via rewardMultiplier exchange rate. No claim/reward/distribute fn exists. Protocol in wind-down (acquisition by Anchorage): minting disabled, reward rate 0% since Phase 2 per docs.mountainprotocol.com wind-down page; Phase 3 = reserves sit as USDC in a Uniswap v4 wUSDM/USDC pool (pool 0xd3d6e5a73a27081ddd95955f5ae2efbb063013e736f79431c3a31f2817898a35) where redemption = swap; LP fees go to the reserve position, not callers. wUSDM wrapper 0x57f5e098cad7a3d1eed53991d4d66c45c9af7812 (symbol read on chain)."
+}

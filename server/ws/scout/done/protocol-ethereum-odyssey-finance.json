@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-odyssey-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 470,
+ "chain": "ethereum",
+ "slug": "odyssey-finance",
+ "name": "Odyssey Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 1059701,
+ "url": "https://app.odyssey.finance/en",
+ "github": null,
+ "listed_days_ago": 470,
+ "run_id": "49e21944bf4f41a0b470bdf31319db1c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only anyone-callable fn is updateSnapshot() (fee checkpoint, 1-week cooldown, pays caller 0; eth_call from fresh addr OK on 3/3 open positions, 125425 gas ~$0.21 @1.05 gwei, ETH $1597); collectPendingFees keeper-gated (registry getKeepers()=[], fresh addr reverts SenderCanNotCollectFee) and pays fixed feeCollector 0xd44a3e93...6817 not caller; 0 events on all 32 positions in 7d and 30d (control USDC same shape 35381 logs/300 blk); TVL $1.009M; same design as base (attempts:1839 unpaid).",
+  "kb": [
+   "attempts:3051",
+   "protocols:1434"
+  ],
+  "run_id": "49e21944bf4f41a0b470bdf31319db1c",
+  "at": 1795208452
+ }
+}

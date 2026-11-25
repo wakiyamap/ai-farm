@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-beta-finance-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "beta-finance-v1",
+ "name": "Beta Finance V1",
+ "category": "Lending",
+ "tvl_usd": 415927,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "18c581976fe445a48793dcdb94bd4d6b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BetaBank 0x972a785b...BE1: liquidate() is the only stranger-payable fn (public, no role; killBountyRate 5% WETH / 3.5% USDC from BetaConfig 0x5933...b9c5) but 0 liquidations in 7 d (blocks 26416277 2026-11-14T22:41Z to 26466525 2026-11-21T22:39Z: 2 bank logs, both Repay+Take in one tx; control: same topic0 query returns 3 in 60-90 d and 126 in 90-180 d) and 0 in 30 d; eth_call liquidate from a fresh address reverts 'liquidate/not-liquidatable' (LTV 0), book is dust (13,858 USD borrowed vs 413,990 supplied); dust bounties ~0.2-0.7 USD gross vs ~0.09 USD gas (0.107 gwei, WETH 1679 USD).",
+  "kb": [
+   "attempts:3505",
+   "protocols:1773"
+  ],
+  "run_id": "18c581976fe445a48793dcdb94bd4d6b",
+  "at": 1795301576
+ }
+}

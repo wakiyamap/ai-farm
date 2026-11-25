@@ -1,0 +1,20 @@
+{
+ "id": "actor-ethereum-0xfd0aa7548823c40be6dd85682f0342f35dee121a",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "ethereum",
+ "address": "0xfd0aa7548823c40be6dd85682f0342f35dee121a",
+ "run_id": "978ca23750c342b793226fcc3f5c43fb",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Across fast-fill EOA: SpokePool 0x5c7b..35c5 fillRelay (0xdeff4b24), 2,958 fills in 7d (~397/day, eth_getLogs topic0 0x44b559f1 topic3=filler), 85% BSC->Eth USDT, gross $820.77/7d = $117/day (median $0.069/fill, 3.4 bps on $2.41M fronted), gas $0.03-0.39/call at ETH $1,815.79 (coins.llama.fi), ~28% of txs revert at ~43k gas; paid by depositor spread, not in-transaction (batch USDT repayments on BSC from 0x4e8e1019, 51,548 in ~8h) - net ~$90/day Eth leg; blockers per protocols:285/leads:226 (inventory + latency race).",
+  "kb": [
+   "attempts:1550",
+   "leads:226",
+   "actors:211"
+  ],
+  "run_id": "978ca23750c342b793226fcc3f5c43fb",
+  "at": 1794883724
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-yield-yak-staked-avax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1479,
+ "chain": "avalanche",
+ "slug": "yield-yak-staked-avax",
+ "name": "Yield Yak Staked Avax",
+ "category": "Liquid Staking",
+ "tvl_usd": 381045,
+ "url": "https://yieldyak.com/liquid-staking",
+ "github": null,
+ "listed_days_ago": 1479,
+ "run_id": "fdf103d9e6c54ddf8eae26a4b5fcf041",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Portal.claimFee (0x4fe8c658...) is stranger-callable but pays the maintainer EOA, not the caller, and the accumulated-fee pot is empty (eth_call reverts 'fee and surplus should be bigger than zero'); claimSurplus is role-gated ('sender not maintainer'); 0 FeeClaimed/OracleUpdate in 7d (72x10k chunks, control WAVAX=8165); protocol dormant, TVL 52960 AVAX x $7.056 = $373.7k, gas ~$0.005/call",
+  "kb": [
+   "attempts:2397",
+   "protocols:928"
+  ],
+  "run_id": "fdf103d9e6c54ddf8eae26a4b5fcf041",
+  "at": 1795065833
+ }
+}

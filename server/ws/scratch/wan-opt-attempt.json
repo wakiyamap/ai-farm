@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-wan-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Wan Bridge Optimism CrossProxy 0xC6Ae1Db6C66d909F7bFEeEb24F9adb8620bf9dbf (impl CrossDelegateV7 0xee91925aacca9b96a77a977ab1dd1688f596858e). The only keeper-like action, smgRelease, reverts 'CrossDelegateV7: caller is not authorized' from a fresh address and only the storeman operator EOA 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7 passes (control: from it the call reaches the status revert 'Rapidity tx exists'). smgWithdrawHistoryFee is anyone-callable but pays the storeman-group fee receiver, not the caller (0 calls in 7d). Same verdict as Arbitrum (attempts:2439) and the other chains.",
+  "numbers": "7d (blocks 159418248-159720648, eth_getLogs on proxy): 12 SmgReleaseLogger + 4 UserLockLogger + 0 WithdrawHistoryFeeLogger events, all 12 releases by 0xd1eb8e69. Fee kept by protocol per release $0.20-$4.42 (5 sample tx inputs, USDC/USDT 6dp), release values $38-$2,204 to the bridging users, not to callers. Gas per smgRelease 236,076 gas @ 0.001007 gwei = 2.4e-7 ETH = $0.0004 (ETH $1,801.60 coins.llama.fi 2026-11-19). TVL $250k (api.llama.fi)."
+}

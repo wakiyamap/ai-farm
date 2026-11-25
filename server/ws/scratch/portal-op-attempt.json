@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-portal",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: completeTransfer(bytes) on the Wormhole/Portal token bridge is permissionless (no role; fresh-address eth_call reverts on VAA parsing, not access control) and its source pays msg.sender the VAA fee field when recipient != caller, but in the 7-day census every one of the 17 redemptions paid its caller zero: the 4 direct calls were self-redemptions of the full amount and the 13 router calls credited the router as recipient. Nobody takes a redemption fee on Portal Optimism, so there is no stranger-paid bounty to copy today.",
+  "numbers": "17 TransferRedeemed/7d (full census, eth_getLogs 32 chunks of 9500 blk, blocks 159444869-159747269 = 159447756..159738099 first/last event); payments to caller 0/17 (receipts: no ERC20 Transfer to caller!=recipient); 4 direct completeTransfer 0xc6878519 (txs 0x0fd4b3216cd488, 0x3a7773b9e494, 0xa81353b9e6ed, 0xbe1588307936), 8 via router 0x1293a54e160d1cd7075487898d65266081a15458, 5 other routers; direct-call gas 253,511-280,558 at effectiveGasPrice 0.0001-0.0013 gwei = 2.5e-8-3.6e-7 ETH = $0.00005-0.0007 (ETH $1804.97 coins.llama.fi 2026-11-19T13:15Z); gross paid to strangers $0.00/call; bridge proxy 0x1D68124e65faFC907325e3EDbF8c4d84499DAa8b impl 0xcc02226ed784f3fe5f3725ff39e8d8cae756c9ce"
+}

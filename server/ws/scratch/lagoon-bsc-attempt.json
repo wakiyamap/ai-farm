@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-lagoon",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated first. Lagoon on BSC is ERC-7540 vault proxies; the adapter's BSC deployment list is optinProxyFactory 0x3f680ab9e51eeed9381de5275f4995611ff884d5 plus fallback vault 'SPY ETF' 0x236582bb8e6b5d382e346d2ee80e1a7273d4cd4a (impl version v0.5.0, hopperlabsxyz/lagoon-v0). Every queue-maintenance function is behind the curator Safe or a role: settleDeposit/settleRedeem onlySafe, claimSharesOnBehalf onlySafe, updateNewTotalAssets onlyValuationManager, pause/initiateClosing onlyOwner; no function anyone can call for a reward. Matches the ethereum lagoon KB dead_end (same codebase).",
+  "numbers": "eth_call from stranger 0x1111..1111: settleDeposit(0) 0xd24ca58a, settleRedeem(0) 0xa627df66, claimSharesOnBehalf([stranger]) 0xf15be6f9 all revert 0xfde82f1f(safe=0x8d644f8f1f2e3deb83eda0328dbad3e336cd0ac1). Vault totalAssets()=165208320438951968 (0.1652 SPYx, 18 dec, block 134269286) - near-empty vault. 8x5000-block eth_getLogs windows across 7d: 0 vault logs; control USDC 0x8AC76a51cc950d9822D68b83fe1ad97b32cd580d 21410 logs/1000 blocks same run. BSC gas ~0.45s blocks. Source: DefiLlama adapter + raw.githubusercontent hopperlabsxyz/lagoon-v0 v0.5.0."
+}

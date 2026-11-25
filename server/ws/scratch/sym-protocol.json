@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "symbiosis",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/symbiosis-finance/config.js: sole BSC holder = portal 0x5Aa5f7f84eD0E5db0a4a85C3947eA16B53352FD4 (eth_getCode non-0x; proxy). ERC1967 impl 0x422a0a054eb5a7424d9e3042862546a3f04e3596; eth_call versionRecipient()='2.0.1', bridge()=0xb8f275fBf7A959F4BCE59999A2EF122A099e81A8. Source symbiosis-finance/core-contracts contracts/synth-core/Portal.sol (selector match 13/17 incl unsynthesize,revertSynthesize,revertBurnRequest; old metaBridge claim(bytes)/claimV2 NOT deployed). Payout fns unsynthesize/metaUnsynthesize/revertSynthesize are onlyBridge (Portal.sol:115 require bridge==msg.sender); open fns synthesize*/revertBurnRequest/metaRevertRequest take tokens in or send cross-chain refund, pay msg.sender nothing on BSC. getLogs for 7d activity counts unavailable: scout lane CU spent (300,120/300,000), bsc public nodes refuse eth_getLogs."
+}

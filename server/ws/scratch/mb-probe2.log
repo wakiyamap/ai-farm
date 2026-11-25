@@ -1,0 +1,13 @@
+{"block": 56265482, "wrapper": "0xd3461e7e5a4daf31ec3766624751c6f1ca91455e", "morpho_err_at_C": null, "probes": {"1": "REVERT:execution reverted", "8": "REVERT:execution reverted", "32": "REVERT:execution reverted", "128": "REVERT:execution reverted", "512": "REVERT:execution reverted"}}
+C 56265482 elapsed 13.1
+{"block": 56160131, "wrapper": "0x844124693a429cb9ed04472a23d6aebfd1395dfe", "morpho_err_at_C": null, "probes": {"1": "REVERT:execution reverted", "8": "REVERT:execution reverted", "32": "REVERT:execution reverted", "128": "REVERT:execution reverted", "512": "REVERT:execution reverted"}}
+C 56160131 elapsed 9.2
+{"block": 56160094, "wrapper": "0x844124693a429cb9ed04472a23d6aebfd1395dfe", "morpho_err_at_C": null, "probes": {"1": "REVERT:execution reverted", "8": "REVERT:execution reverted", "32": "REVERT:execution reverted", "128": "REVERT:execution reverted", "512": "REVERT:execution reverted"}}
+C 56160094 elapsed 9.4
+{"block": 56160057, "wrapper": "0x844124693a429cb9ed04472a23d6aebfd1395dfe", "morpho_err_at_C": null, "probes": {"1": "REVERT:execution reverted", "8": "REVERT:execution reverted", "32": "REVERT:execution reverted", "128": "REVERT:execution reverted", "512": "REVERT:execution reverted"}}
+C 56160057 elapsed 9.3
+Traceback (most recent call last):
+  File "/srv/farm/ws/scratch/mb-probe2.py", line 41, in <module>
+    d0=int(w[2],16); d1=int(d0*0.99)
+           ~^^^
+IndexError: list index out of range

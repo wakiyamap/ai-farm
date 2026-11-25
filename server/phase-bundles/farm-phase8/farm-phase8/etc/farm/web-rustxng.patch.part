@@ -1,0 +1,9 @@
+# web_search through the local RustXNG service (farm-search.service, 127.0.0.1:29483, keyless).
+# The web row replaces dsh's whole default row, so fetchProvider is restated.
+- id: web
+  config:
+    searchProvider: rustxng
+    fetchProvider: http
+- insert:
+    - id: farm-web-search-rustxng
+      name: '@farm/dsh-web-search-rustxng'

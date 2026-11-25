@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-silo-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1544,
+ "chain": "arbitrum",
+ "slug": "silo-v1",
+ "name": "Silo V1",
+ "category": "Lending",
+ "tvl_usd": 412117,
+ "url": "https://app.silo.finance",
+ "github": null,
+ "listed_days_ago": 1544,
+ "run_id": "6575396c98ae46c28b950a8c8198b741",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "flashLiquidate is permissionless (v1.1 source, factory 0x4166487056A922D784b073d4d928a516B074b719, 48 silos): 7d = 1 liquidation tx (0x05e65899..., block 524033995) by EOA 0xd9fffdf0 via router 0x5ac9bc14, seized 0.0010052 WETH $1.81 vs $1.73 USDC debt => gross ~$0.08 > gas $0.037 (1,022,667 gas x 0.0201 gwei, ETH $1801.5 llama); 30d = 2 txs; dust book, TVL $412k; harvestProtocolFees callable by anyone but pays repository owner, caller 0",
+  "kb": [
+   "attempts:2450",
+   "leads:297"
+  ],
+  "run_id": "6575396c98ae46c28b950a8c8198b741",
+  "at": 1795077519
+ }
+}

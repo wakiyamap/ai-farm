@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-monolith-market",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 194,
+ "chain": "ethereum",
+ "slug": "monolith-market",
+ "name": "Monolith Market",
+ "category": "CDP",
+ "tvl_usd": 9017687,
+ "url": "https://monolith.market",
+ "github": [
+  "MonolithMarket"
+ ],
+ "listed_days_ago": 194,
+ "run_id": "d166d049219744c4acedcede3f705784",
+ "result": {
+  "verdict": "unpaid",
+  "line": "7 lenders (V1 f8b349da/0e538766, V2 4ed5c728-SwanUSD +4): liquidate/writeOff anyone-callable (fresh-address eth_call passes roles, reverts 'insufficient liquidatable debt' on 10/10 sampled borrowers; writeOff -> false) but 0 Liquidated/Redeemed/WrittenOff in 7d (blocks 26406194-26457194, no-topic scan, 510-log control) - no stranger paid, pot empty; gas ~$0.35/call (0.668 gwei x 300k, ETH $1742.96).",
+  "kb": [
+   "attempts:2945",
+   "protocols:1354"
+  ],
+  "run_id": "d166d049219744c4acedcede3f705784",
+  "at": 1795185959
+ }
+}

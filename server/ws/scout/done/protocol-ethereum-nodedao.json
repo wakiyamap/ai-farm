@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-nodedao",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1281,
+ "chain": "ethereum",
+ "slug": "nodedao",
+ "name": "NodeDAO",
+ "category": "Liquid Staking",
+ "tvl_usd": 26019396,
+ "url": "https://www.nodedao.com",
+ "github": null,
+ "listed_days_ago": 1281,
+ "run_id": "e4355110a5ae4336b3cef8a67a915304",
+ "result": {
+  "verdict": "unpaid",
+  "line": "VaultManager (0x878bd059) claimRewardsOfUser/OfOperator/OfDao permissionless but 0 calls and 0 paid in 7d (blocks 26413695-26463947, 0 logs on all 4 proxies; WETH control 71 logs); operator/DAO reward pots = 0 ETH, only pot unclaimedRewardsMap(op1)=0.0136 ETH (~23 USD); LiquidStaking isPaused()=1 so claims revert 'Pausable: paused'; last claim txs 2024-03-26.",
+  "kb": [
+   "attempts:3347",
+   "protocols:1661"
+  ],
+  "run_id": "e4355110a5ae4336b3cef8a67a915304",
+  "at": 1795270272
+ }
+}

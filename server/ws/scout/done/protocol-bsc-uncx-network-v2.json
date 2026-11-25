@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-uncx-network-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1645,
+ "chain": "bsc",
+ "slug": "uncx-network-v2",
+ "name": "UNCX Network V2",
+ "category": "Token Locker",
+ "tvl_usd": 37538731,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 1645,
+ "run_id": "82441d816ad848118783c5a311ebc964",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 9 BSC lockers (DefiLlama adapter projects/unicrypt; e.g. 0xc765bddb93b0d1c1a88282ba0fa6b2d00e3e0c83, 7848 locks); withdraw/relock/splitLock/transferLockOwnership/migrate/claimFees all require lock.owner (eth_call claimFees from a fresh address reverts 'NOT OWNER'), lockLPToken is open but the caller pays 0.05 BNB (~9.50 at BNB 89.90); 7-day eth_getLogs across all 9 (blocks 133144124-134485757, 2x5k-block provider gap): 3 events, 2 owner withdraws (LP to caller, gas 79,600 ~ bash.005) + 1 deposit; no stranger paid",
+  "kb": [
+   "attempts:2482",
+   "protocols:991"
+  ],
+  "run_id": "82441d816ad848118783c5a311ebc964",
+  "at": 1795084575
+ }
+}

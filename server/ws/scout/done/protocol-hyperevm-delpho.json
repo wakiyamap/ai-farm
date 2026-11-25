@@ -1,0 +1,26 @@
+{
+ "id": "protocol-hyperevm-delpho",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 103,
+ "chain": "hyperevm",
+ "slug": "delpho",
+ "name": "Delpho",
+ "category": "CDP",
+ "tvl_usd": 704187,
+ "url": "https://www.delpho.xyz",
+ "github": null,
+ "listed_days_ago": 103,
+ "run_id": "d587532eaf92445bb4bff197ebbd5b85",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "liquidate(address) on DelphoStableManager 0xf296cc9c08a92e86b1c3a04b10ccf711d996ea50 is permissionless and pays min(1% of debt, 50 USDV): 5 liquidations in last 7 days (also all-time), fees $2.08-$50.00 each, $74.64 gross total, gas $0.017-$0.024/call (2.4-3.5M gas @ 0.1 gwei, HYPE $69.75 coins.llama.fi), all taken by one EOA keeper 0xaa992ee8818e3356a86dd9d4f4c6feb0092c8a4e; fee arrives as collateral credit in caller's vault account (fallback path), bursty - single price-move window.",
+  "kb": [
+   "attempts:1631",
+   "leads:234",
+   "protocols:327"
+  ],
+  "run_id": "d587532eaf92445bb4bff197ebbd5b85",
+  "at": 1794901002
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-1inch-swap",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "1inch-swap",
+ "name": "1inch Swap",
+ "category": "DEX Aggregator",
+ "tvl_usd": 2134720,
+ "url": "https://1inch.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "21e447e3fbe44b3295c6fca1dfd3a1bc",
+ "result": {
+  "verdict": "no_reward",
+  "line": "legacy Mooniswap AMM: factory 0xbaf9a5d4b0052359326a6cdab54babaa3a3a9643, 387 pools, TVL 2,077,193 USD; 2,913 Swapped events in 7 d (blocks 26415945-26466201, 68 active pools) but every public fn is a user action - FeeCollector 0x2eea44e40930b1984f42078e836c659a12301e40 claim([]) from a fresh address succeeds and pays 0, epoch fns revert, 0 txs to it since block 18510911 (2023-11-06); gas 0.011 USD at 0.1096 gwei, ETH 1,682.56 USD",
+  "kb": [
+   "attempts:3486",
+   "protocols:1760"
+  ],
+  "run_id": "21e447e3fbe44b3295c6fca1dfd3a1bc",
+  "at": 1795297625
+ }
+}

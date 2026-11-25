@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "stoneusd",
+  "status": "dead_end",
+  "checked": "2026-11-17 run 38fedcb2 scout: DefiLlama adapter projects/stakestone-stoneusd/index.js names the only BSC contract 0x8B4E28607bdcacBf937f81F29E3DAFe7Bc1D7c0b (StakeStone USD, ERC-20, 18 dec, totalSupply 129,350.69 -> $134,434 TVL per api.llama.fi). eth_getCode non-empty (6,807 B). Runtime dispatch = 21 selectors: ERC-20 core + AccessControl (hasRole 91d14854, grantRole 2f2ff15d, revokeRole d547741f, renounceRole 36568abe, DEFAULT_ADMIN_ROLE, MINTER_ROLE d5391393) + mint(address,uint256) 40c10f19 + burn(uint256) 42966c68 + accessRegistry() e6f29b05 -> 0x8449e6886bf865d522e10cc420f92b980c6b223d + isBlacklisted(address). Blockscout BSC API 503 and BscScan API keyless refused, so ABI built from runtime bytecode selectors + 4byte.directory. No rebase/claim/harvest/poke/settle/auction/redemption function exists. mint from fresh address reverts AccessControlUnauthorizedAccount(caller, 0x9f2df0fe...=DEFAULT_ADMIN_ROLE); burn only burns the caller's own tokens. accessRegistry is a whitelist/blacklist registry (addWhitelist/removeWhitelist/addBlacklist/removeBlacklist/isWhitelisted/setWhitelistEnabled, ADMIN_ROLE/OPERATOR_ROLE). Token idle: 0 Transfer logs in four 5,000-block windows at ~1h/1d/3.5d/7d before head 134196788 (control same-shape USDC query: 35,079 logs)."
+}

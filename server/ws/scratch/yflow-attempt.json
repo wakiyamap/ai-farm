@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-yieldflow-yield-farming",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only anyone-callable function on the ~80 RangePositionManager vaults is publicCollect() (external nonReentrant, eth_call from fresh address returns (amount0,amount1), no role revert), but verified source (RangePositionManager.sol both versions) shows collected Uniswap fees + masterChef ARB rewards go to recipient=address(this) and are credited to depositor balances / feeReceiver - the caller is paid $0. moveRange/increaseLiquidityAuto are _operatorAddresses-gated; userCollect pays only depositors.",
+  "numbers": "Sample of 5 of ~80 managers (explorer txs): 0x3c3260a79a50ECD154d2e2F00C857A06dD0e5619 and 0x4F59ec4FcF5Ef16bDbf06F84B9e729C39B10fC61 active, ~1 publicCollect/day by 0x43b63ebd7e07bcfa28c91651c6db87f2b2d435a5 (not the on-chain owner 0xf8c8cfdb78e6dd6209d320ca4cac956da25ade38); 0x69a3e2f167B35c88C9778F59Ce8C1fFc546c8078 dormant since 2026-04-22, 0xe3f50A03525EF520818B111beC1F8c5D67fe307E since 2024-05-09. One publicCollect (tx 0x42fb515a2fe86131cb28686196d85dead2d29d78ce43d46234fbcf9a62de3c27, 2026-11-18, vault 0x3c3260a7): gross collected 0.000384 WETH ($0.67 @ ETH $1754.12) + 5.17 ARB ($0.66 @ $0.127575, coins.llama.fi) ~ $1.33 to depositors, caller $0; gas 6,315,535 @ effective 0.02 gwei = 0.000126 ETH = $0.22. Protocol TVL $107,954 (DefiLlama)."
+}

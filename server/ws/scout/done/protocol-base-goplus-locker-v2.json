@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-goplus-locker-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 611,
+ "chain": "base",
+ "slug": "goplus-locker-v2",
+ "name": "GoPlus Locker V2",
+ "category": "Token Locker",
+ "tvl_usd": 270878,
+ "url": "https://gopluslabs.io",
+ "github": null,
+ "listed_days_ago": 611,
+ "run_id": "2c026607bd804431854e3bb93cfa50e6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "GoPlus Locker V2 0xF17A08A7d41F53B24AD07Eb322CBBdA2ebdeC04b on Base: only claim fn unlock(lockId) is validLockOwner-gated (fresh-addr eth_call reverts 'Not lock owner') and returns the owner's own deposit (last OnUnlock block 50,998,104 tx.from==recipient 0xdb90a3b8..31b5a); no keeper/reward fn, lock fees go to fixed feeReceiver 0x521faa..2fd6; 0 locker events in 7d (control 103 lifetime); gross to stranger $0, unlock gas ~$0.0014.",
+  "kb": [
+   "attempts:1978",
+   "protocols:582"
+  ],
+  "run_id": "2c026607bd804431854e3bb93cfa50e6",
+  "at": 1794973552
+ }
+}

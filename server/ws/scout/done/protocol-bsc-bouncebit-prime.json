@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-bouncebit-prime",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 371,
+ "chain": "bsc",
+ "slug": "bouncebit-prime",
+ "name": "BounceBit Prime",
+ "category": "Basis Trading",
+ "tvl_usd": 6295276,
+ "url": "https://prime.bouncebit.io/",
+ "github": null,
+ "listed_days_ago": 371,
+ "run_id": "21d01efa93c843f282b817421713d213",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only bsc contract is the custodial gateway proxy 0x6f776d791612a22A70e206602cfF96185695C580 (impl 0x9250f725.. unverified); holds 0 tokens, totalLocked USDT=6,299,263 (=TVL 6.30M) is role-updated accounting; deposit(address,uint256,address) is whitelist-gated (isWhitelisted(stranger)=false -> reverts 0x1e092104; whitelisted 0x5ea49d4f.. passes gate), feeRate=1000bps; no reward/claim fn (yield is off-chain delta-neutral); 7d activity 0 native calls & 0 ERC20 transfers (same-query control=9), lifetime only 11/10 tiny 10-USDT tests -> no stranger paid, gas ~bash.003.",
+  "kb": [
+   "attempts:1766",
+   "protocols:425"
+  ],
+  "run_id": "21d01efa93c843f282b817421713d213",
+  "at": 1794928384
+ }
+}

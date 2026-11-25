@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "gyroscope_protocol",
+  "status": "dead_end",
+  "checked": "Gyroscope on polygon = Balancer-v2-style CLP pools only (DefiLlama adapter projects/gyroscope/index.js: 4 factories, all eth_getCode non-empty: 2CLP 0x5d8545a7330245150bE0Ce88F8afB0EDc41dFc34, 3CLP 0x90f08B3705208E41DbEEB37A42Fb628dD483AdDa, ECLP 0xD4204551BC5397455f8897745d50Ac4F6beE0EF6, ECLP2 0x1a79A24Db0F73e9087205287761fC9C5C305926b). PoolCreated scan: 105 pools (12+6+3+84). 7d (blocks 97401343 2026-11-16 -> 97804468 2026-11-23): 8/105 pools have any logs; only 'Gyroscope ECLP DAI/USDC' 0x3f9d253d96cb39028bee65f5632ee62d6e059cc3 is real (1737 SwapParams logs, 1726 distinct txs, multiple arbitrageur senders via Balancer vault 0xBA12222222228d8Ba445958a75a0704d566BF2C8). Verified ABI (explorer source): state-changing fns are ERC20 (transfer/approve/permit), admin (pause/unpause/changePauseManager/setCapManager/setCapParams/setSwapFeePercentage authenticate) and vault-only callbacks (onSwap/onJoinPool/onExitPool/queryJoin/queryExit). No reward/claim/harvest/checkpoint/distribute function anywhere -> nothing a stranger can call for pay. Polygon TVL 54,018 USD (api.llama.fi 2026-11-23)."
+}

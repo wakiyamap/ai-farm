@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-union-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: verified core contracts have self-only staking rewards or admin-only fund movement; public maintenance functions pay no caller. Fresh-address calls confirmed Comptroller reward claim is role gated and AssetManager rebalance is admin gated.",
+  "numbers": "7 d timestamp window: Ethereum block 26430397 (2026-11-16 21:51:35 UTC) to 26480639 (2026-11-23 21:51:23 UTC), found by eth_getBlockByNumber timestamps. Comptroller LogWithdrawRewards(address,uint256) topic 0x9074ae8fe137f8dd6d158c0e5f1d0b3169b04ba4be11a18ec03b9269b8e91a1a: 0 events, with no-topic scan of same contract also 0; same-run control USDC Transfer query returned 7170 logs in blocks 26430397-26430493. Fresh address 0x000000000000000000000000000000000000dEaD: Comptroller calculateRewards(0xdead, DAI 0x6b175474e89094c44da98b954eedeac495271d0f) = 0; direct withdrawRewards reverts only user manager; AssetManager rebalance reverts not admin. No stranger payout, so gross/gas per eligible call and actor sample are inapplicable. Sources: DefiLlama union-finance adapter; Etherscan verified implementations listed in protocols row; relay eth_call/eth_getLogs."
+}

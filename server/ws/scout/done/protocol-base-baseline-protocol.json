@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-baseline-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 987,
+ "chain": "base",
+ "slug": "baseline-protocol",
+ "name": "Baseline Protocol",
+ "category": "Liquidity Manager",
+ "tvl_usd": 311457,
+ "url": "https://www.baseline.markets/",
+ "github": [
+  "0xBaseline"
+ ],
+ "listed_days_ago": 987,
+ "run_id": "4d68843bc59e4251a01a1a4094eadf2a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Baseline Mercury relay 0xc81fd894...68e8 on base: claimPoolFees is anyone-callable (fresh eth_call ok) but pays the caller 0 - 6 calls in 7d (all by 0x5996b5c5) sent 6,656.9 VIRTUAL = $2,860 (VIRTUAL $0.4296, llama.fi) to fixed feeRecipient 0x7e261731...64b1, gas 86,024 @ 0.006 gwei (<$0.002); staker claims paid 1,279.9 VIRTUAL = $550/7d but only to stakers (fresh claim = 0); 0 liquidations. Unpaid for a stranger.",
+  "kb": [
+   "attempts:2201"
+  ],
+  "run_id": "4d68843bc59e4251a01a1a4094eadf2a",
+  "at": 1795021943
+ }
+}

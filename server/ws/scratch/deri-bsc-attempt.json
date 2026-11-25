@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-deri-protocol",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Deri Protocol on BSC is sunset-frozen. The v3 pool implementations behind the proxies (futureMain 0x4ad5cb..aB04 impl 0x198d92..0f9d) expose only view + admin selectors (15 total, extracted from runtime bytecode dispatch): no liquidate, trade, addLiquidity, removeLiquidity or claim that a stranger could call for pay. eth_call of liquidate/trade/reward-name candidates revert with empty data. Activity check: 162 x 5000-block eth_getLogs chunks covering 7 days (133814118..134620518) over all 7 pool addresses returned 1 log total (a single maintenance-style event from futureInno 0xD2D9..aC40, tx 0x241d519934a749dac3968f77a995b82c5e843d2eacd766afa92897025ccb41ef, EOA 0xf87f1a..1488 calling through 0x89d62c..c6bf, no payment). Control: BUSD 0xe9e7..d57 getLogs same shape over 6x5000 sampled blocks = 8,788 logs, so the zero is real.",
+ "numbers": "candidate tvl_usd 257,867; liquidity(): futureMain 233,631.91 BUSD, option 23,460.03, futureInno 10,851.67 (BUSD 0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56, 18 decimals, priced ~1.00 USD, coins.llama.fi ts 1795144536); 7-day logs across 7 pools = 1 (control 8,788 BUSD logs in 30k blocks); BSC gasPrice 0.05 gwei, BNB 573.05 USD (coins.llama.fi ts 1795144536) -> a 300k-gas call ~0.009 USD; deployed impl function count 15, reward functions 0"
+}

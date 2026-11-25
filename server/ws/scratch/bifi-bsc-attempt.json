@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-bifi",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the only open-to-anyone paid function on BiFi's BSC MarketManager is interestUpdateReward() (pays msg.sender blocks-since-last-update x rewardPerBlock in BiFiB). rewardPerBlock reads 0 and the last-update counter sits at block 5,418,546 (head 134,615,822) - nobody called it in 4+ years and it would pay 0 anyway; today it reverts with 'emergency' (circuit breaker on, trace from a fresh address). Everything else is role-gated (updateRewardParams onlyOperators, partialLiquidationUser onlyLiquidationManager) or a user self-claim.",
+  "numbers": "TVL 106,461 USD (candidate); borrows per pool via handlerViewProxy(getBorrowTotalAmount()): USDC 66,296.37, USDT 11,164.69, DAI 3,568.69, BUSD 637.96, BNB 3.74, ETH 0.01, BTCB 0.01; BiFiB pot 13,730,514.8 (balanceOf 0x0b5b8cb2e238e3bc597e10 / 1e18) on MM 0x8010f9e14c8286b9312e624370fddc07fee2fc75; getInterestUpdateRewardPerblock()=0, getInterestRewardUpdated()=0x52aa32=5,418,546; head 0x806130e=134,615,822 (eth_call/eth_getStorageAt bsc 2026-11-20); gross per call 0 BiFiB = 0 USD (usd: unpriced, zero gross); gas n/a (call reverts). Sources: Sourcify-verified TokenManager.sol/HandlerManager.sol/TokenHandler.sol on bsc, eth_call reads."
+}

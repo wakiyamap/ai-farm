@@ -1,0 +1,22 @@
+{
+ "id": "protocol-optimism-derive-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1067,
+ "chain": "optimism",
+ "slug": "derive-v2",
+ "name": "Derive V2",
+ "category": "Derivatives",
+ "tvl_usd": 295139,
+ "url": "https://app.derive.xyz",
+ "github": null,
+ "listed_days_ago": 1067,
+ "run_id": "6d153d8c05244960ae331c60cf327c62",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Derive V2 on OP = 15 dormant superbridge escrow vaults (verified Vault.sol, no caller reward anywhere): all 295,117 USD TVL is 295,238.5 USDC in vault 0xbb9cf28bc1b41c5c7c76ee1b2722c33ebb8fbd8c, last tx 2024-03-05 block 117036850; 0 events on all 15 vaults in 7d (31x9,999-block scan, controls OK); only claim-shape fn unlockPendingFor pays the withdrawing user (0 in 7d) and now reverts ConnectorUnavailable (0xb1efb84a); gas 0.00018 USD/call (0.001 gwei x 100k x 1771.46 USD).",
+  "kb": [],
+  "run_id": "6d153d8c05244960ae331c60cf327c62",
+  "at": 1795027959
+ }
+}

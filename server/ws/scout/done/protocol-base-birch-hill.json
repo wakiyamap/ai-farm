@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-birch-hill",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 130,
+ "chain": "base",
+ "slug": "birch-hill",
+ "name": "Birch Hill",
+ "category": "Risk Curators",
+ "tvl_usd": 341376,
+ "url": "https://www.birchhill.io/",
+ "github": null,
+ "listed_days_ago": 130,
+ "run_id": "b863509624ba45c0b5f4368b2bbf8c54",
+ "result": {
+  "verdict": "unpaid",
+  "line": "One contract only: Morpho Vault V2 0xb038cf3e233b78225f6d350ac8319bec8457db4a (341,758 USDC totalAssets); permissionless poke accrueInterest() pays caller bash (fee shares 0.07-2.59 per accrue go to Birch Hill wallet 0x01ba9955...83786), 0 calls in last 7 days vs 53 lifetime (sample of 5; last Nov ~4, eth_getLogs control = same-shape query returns 77 logs), gas ~300k gas x 0.006 gwei = bash.003 (ETH 826.51 coins.llama.fi); forceDeallocate used once ever, penalty to vault; adapter skim() role-gated with skimRecipient=0.",
+  "kb": [
+   "attempts:1650",
+   "protocols:344"
+  ],
+  "run_id": "b863509624ba45c0b5f4368b2bbf8c54",
+  "at": 1794904568
+ }
+}

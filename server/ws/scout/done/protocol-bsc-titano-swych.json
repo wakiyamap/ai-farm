@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-titano-swych",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1518,
+ "chain": "bsc",
+ "slug": "titano-swych",
+ "name": "Titano Swych",
+ "category": "Dexs",
+ "tvl_usd": 668599,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1518,
+ "run_id": "12b67178cc98409c9a094eab8e74ca4e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Vanilla UniswapV2 fork on bsc (factory 0x80f112CD8Ac529d6993090A0c9a04E01d495BfBf, 126 pairs, no collect(); feeTo EOA). Only stranger-callable fn is pair skim(address) (eth_call from fresh addr passes, not role-gated): pot empty (pair balance - reserves = exactly 0 on all 3 funded pools, e.g. 0xcb3a3874 USDT/BUSD 253k/253k) and 0 Skim events in 7 days vs 1,264 Swap control (full 7d eth_getLogs scan 133120874..134463977); a skim would cost ~30k gas x 0.05 gwei x $587.28 BNB = $0.001 (eth_gasPrice, coins.llama.fi) but pays 0.",
+  "kb": [
+   "attempts:2434",
+   "protocols:961"
+  ],
+  "run_id": "12b67178cc98409c9a094eab8e74ca4e",
+  "at": 1795074170
+ }
+}

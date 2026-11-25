@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-gmd-protocol",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid - the four GMD contracts on Arbitrum are live but dormant (no transaction on any of them in the last 37 days). The only non-owner reward path is the MasterChef staking deposit/withdraw, which pays pending WETH to the caller, but the WETH reward pot balance is 0 so even the last claims paid 0.0 WETH. All vault compounding/claim functions (cycleRewards*, _claim*) are onlyOwner. Fresh-address eth_calls succeed (not role_gated) and pay 0.",
+ "numbers": "staking 0x48c8...2e93: WETH pot balance 0.0 WETH, WETHPerSecond 5e-7; Deposit|Withdraw events in last 7d = 0 (eth_getLogs blocks 523,480,000..525,511,386; control same shape = 2 logs in Oct-12 window 514,020,000..514,030,000); last claims 2026-10-12 tx 0x65e654cf172ba8a442d57aaf81f3f814f9fafe25eeaf4333f26d8e777fbcd7d8 paid 0.0 WETH (gas 154,126), 0x9335b085863bc40febae4a5889d8dd69477f9f17521c8f21234ca7b1094134fa (gas 169,948); gas cost 154,126 x 0.02 gwei = $0.0055 at ETH $1,787 (coins.llama.fi 2026-11-19); TVL $655,658 (candidate)."
+}

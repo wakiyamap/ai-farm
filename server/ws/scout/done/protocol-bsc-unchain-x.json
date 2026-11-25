@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-unchain-x",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 607,
+ "chain": "bsc",
+ "slug": "unchain-x",
+ "name": "Unchain X",
+ "category": "Dexs",
+ "tvl_usd": 1056969,
+ "url": "https://unchainx.io",
+ "github": null,
+ "listed_days_ago": 607,
+ "run_id": "bab601085b0c44bcb6040dbc045c34a7",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniV3/PancakeV3-style CLMM: factory 0x82fA7b2C..d40c and its pools expose the canonical Uniswap V3 surface (getPool, createPool, enableFeeAmount / mint, burn, collect, swap, flash, collectProtocol, lmPool) - collect pays the position owner, collectProtocol is fee-owner gated, so nothing pays a stranger; UNXFaucet 0xDC0B8296..a879 claim() reverts for a fresh address (error 0x76259399(address) = allowlist) with 0 logs in 134,236,090-134,241,090 (control 1 UNX Transfer); 11 bundle addresses all have code at 134,241,090; volume 82,727 USD/24 h, TVL 1,056,969 USD.",
+  "kb": [
+   "attempts:1977",
+   "protocols:581"
+  ],
+  "run_id": "bab601085b0c44bcb6040dbc045c34a7",
+  "at": 1794973485
+ }
+}

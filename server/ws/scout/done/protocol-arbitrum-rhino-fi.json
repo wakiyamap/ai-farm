@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-rhino-fi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "rhino.fi",
+ "name": "Rhino.fi",
+ "category": "Bridge",
+ "tvl_usd": 407363,
+ "url": "https://rhino.fi",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "0dc8c339201540f88abae4afde7882bc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "DVFDepositContract behind proxy 0x10417734...28ad0 on arbitrum: all payout fns (withdrawV2 etc.) gated by 'authorized' whitelist (fresh-address eth_call reverts UNAUTHORIZED); sole 7d caller is rhino signer 0x7401e624...e208f: 4636 BridgedWithdrawal in 7d (eth_getLogs 523667065-525718493) paying user recipients 5-1933 USDC.e/USDT, caller keeps 0 (gas 81k*22gwei=$0.003); escrow 155.6k USDC.e + 169.8k USDT + 6.6 ETH (~347k USD)",
+  "kb": [
+   "attempts:2632",
+   "protocols:1105"
+  ],
+  "run_id": "0dc8c339201540f88abae4afde7882bc",
+  "at": 1795120312
+ }
+}

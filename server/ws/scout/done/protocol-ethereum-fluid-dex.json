@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-fluid-dex",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 744,
+ "chain": "ethereum",
+ "slug": "fluid-dex",
+ "name": "Fluid DEX",
+ "category": "Dexs",
+ "tvl_usd": 157315337,
+ "url": "https://www.fluid.io/",
+ "github": null,
+ "listed_days_ago": 744,
+ "run_id": "7f88aeeaab464dec9e7a2f1b1f2272ee",
+ "result": {
+  "verdict": "no_reward",
+  "line": "FluidDEX ethereum: DexResolver 0x7af0C11F5c787632e567e6418D74e5832d8FFd4c -> 50 pools, all verified poolT1 code, only user swap/liquidity ops for strangers (fallback gated: fresh-address eth_call reverts FluidDexError 51002 NotAnAuth), no reward/harvest/claim fn; 7 d blocks 26,410,545-26,460,815: 23,049 Swap + 240 LogArbitrage logs (control USDC Transfer 2,562 per 1,000 blk), callers are routers paying their own gas 0.06-0.79 USD/tx, protocol pays the caller 0 USD gross (ETH 1,569.81 USD, gasPrice 0.668 gwei).",
+  "kb": [
+   "attempts:3170",
+   "protocols:1527"
+  ],
+  "run_id": "7f88aeeaab464dec9e7a2f1b1f2272ee",
+  "at": 1795232644
+ }
+}

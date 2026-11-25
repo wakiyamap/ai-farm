@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-yay",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 775,
+ "chain": "ethereum",
+ "slug": "yay!",
+ "name": "Yay!",
+ "category": "SoFi",
+ "tvl_usd": 442015,
+ "url": "https://portal.yay.space/stake",
+ "github": null,
+ "listed_days_ago": 775,
+ "run_id": "c3687c4f6a1c4dd1b59a3bf99741d295",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ethereum side of Yay! = LST wrappers (YayStoneToken 0xe86142af holds STONE, yayageth proxy 0x0341d2c2, Kelp agETH) + 2 NFT point-stakings + EIGEN merkle claim 0x213E952d; settleRequestedUnstakeIfNeeded(address) is anyone-callable (eth_call from fresh addr: no revert) but pays caller 0 (credits user's own balance); 7d (blocks 26410861-26457897, 11-14..11-21): 4 EIGEN claim txs, max Claimed 0.208 EIGEN = 0.02 USD vs 148,698 gas = 0.16 USD; yayageth customClaim 0 events; instantUnstake only own-funds (2 events, 0.21 ETH).",
+  "kb": [
+   "attempts:3192"
+  ],
+  "run_id": "c3687c4f6a1c4dd1b59a3bf99741d295",
+  "at": 1795236577
+ }
+}

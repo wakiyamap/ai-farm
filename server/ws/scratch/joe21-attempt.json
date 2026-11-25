@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-joe-v2-1",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Joe V2.1 (LFJ Liquidity Book) exists on Arbitrum (LBFactory 0x8e42f2F4101563bF679975178e880FD87d3eFd4e, verified LBPair impl 0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f, 533 pools) but no open function pays the caller: open calls are swap/flashLoan/mint/burn/increaseOracleLength (user actions, no payout; flashLoan makes the caller PAY a premium) and the only fee-moving claim, collectProtocolFees, is role-gated to the FeeBank 0x60233142befce7d4ed73e7793ead2d6190fccaab (reverts 0x3e24df14 from a fresh address). Staking proxies are user-stake appendages (VeJoeStaking claim() pays msg.sender). Same conclusion as the joe_v2_2 avalanche check (attempts 2146).",
+  "numbers": "getNumberOfLBPairs 533 (0x215); Swap events last 7d: 74 across 32 sampled pools (indices 0..527 step 17), blocks 523,426,787..525,473,455; 73 of 74 on DAI/USDC 0x500173f418137090dad96421811147b63b448a0f (top swapper 0x980bf69bb384740fffe8326608da41b8e093e20d, 30); CollectedProtocolFees last 7d on the same sample: 0; collectProtocolFees gas estimate 132,533 @ 0.020004 gwei (eth_gasPrice) = $0.005 at ETH $1,781.85 (coins.llama.fi); protocol TVL $1.04M (candidate, api.llama.fi joe-v2.1 Arbitrum)."
+}

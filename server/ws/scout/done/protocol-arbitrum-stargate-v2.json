@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-stargate-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 867,
+ "chain": "arbitrum",
+ "slug": "stargate-v2",
+ "name": "Stargate V2",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 5818970,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 867,
+ "run_id": "1d79e9aeb57a464db7d96be5d1dc3fb9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Stargate V2 arbitrum: only open recipient-paying fn retryReceiveToken pays 0 to caller (pays the stuck receiver's own funds); 0 UnreceivedTokenCached events in 7d (blocks 522905896-525325096, 3 pools 0xA45B51.., 0xe8CDF2.., 0xcE8CcA..; control 228 OFTReceived in 1d); everything else role_gated (onlyCaller tokenMessaging 0x19cfce47.., creditMessaging 0xf1fcb4cb.., burnAdmin, treasurer, planner); gas ~0.005 USD/call (gasPrice 0.02 gwei, ETH 1791 USD coins.llama.fi)",
+  "kb": [
+   "attempts:2135",
+   "protocols:710"
+  ],
+  "run_id": "1d79e9aeb57a464db7d96be5d1dc3fb9",
+  "at": 1795006543
+ }
+}

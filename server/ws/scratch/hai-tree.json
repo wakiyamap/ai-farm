@@ -1,0 +1,4428 @@
+{
+  "sha": "81f3b1c983065124d7e73d383cc4ed1739fe2dd8",
+  "url": "https://api.github.com/repos/hai-on-op/core/git/trees/81f3b1c983065124d7e73d383cc4ed1739fe2dd8",
+  "tree": [
+    {
+      "path": ".env.example",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "020ea81c821ba81557f2ab331de6d3d38fca4441",
+      "size": 170,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/020ea81c821ba81557f2ab331de6d3d38fca4441"
+    },
+    {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64dbca9587561ea41b1dd6b5002f52b25dc8d83b",
+      "size": 34,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/64dbca9587561ea41b1dd6b5002f52b25dc8d83b"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0f748939e3130ee631c9b83be1f811042b28286c",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/0f748939e3130ee631c9b83be1f811042b28286c"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e5a306d3679a421e2b1550e741ee99bed03d102a",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/e5a306d3679a421e2b1550e741ee99bed03d102a"
+    },
+    {
+      "path": ".github/workflows/docs.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40ea9469dcf279d77b33f02a65ab51710b747af6",
+      "size": 1273,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/40ea9469dcf279d77b33f02a65ab51710b747af6"
+    },
+    {
+      "path": ".github/workflows/export-abis.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9c299e1d43e3f0106bfb73c9e1a09b69b8435920",
+      "size": 1484,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9c299e1d43e3f0106bfb73c9e1a09b69b8435920"
+    },
+    {
+      "path": ".github/workflows/export-interfaces.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cafc0566deed9c34476da51500224a278129b7e0",
+      "size": 1321,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cafc0566deed9c34476da51500224a278129b7e0"
+    },
+    {
+      "path": ".github/workflows/test.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d3ad424d99717d629d9533af9fcca35d9a22964",
+      "size": 1660,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9d3ad424d99717d629d9533af9fcca35d9a22964"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3c8ec1b77447af5e39e1767df682721a2332636",
+      "size": 329,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c3c8ec1b77447af5e39e1767df682721a2332636"
+    },
+    {
+      "path": ".gitmodules",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": ".husky",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "36476986bd4b8f8f4cae0fd8576792183cec6146",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/36476986bd4b8f8f4cae0fd8576792183cec6146"
+    },
+    {
+      "path": ".husky/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9cdc63b07017d57efbf45789ceaecc069064a8b",
+      "size": 1,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c9cdc63b07017d57efbf45789ceaecc069064a8b"
+    },
+    {
+      "path": ".husky/commit-msg",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "314e821479cad5acf5ca5a77b7223ec92eb4de75",
+      "size": 79,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/314e821479cad5acf5ca5a77b7223ec92eb4de75"
+    },
+    {
+      "path": ".husky/pre-commit",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "aaceb1cef9067da3ea72c4577a1b63597522fc0f",
+      "size": 121,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/aaceb1cef9067da3ea72c4577a1b63597522fc0f"
+    },
+    {
+      "path": ".solhint.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88358a5a5d77c136803a8b4bdd4d9af281a57012",
+      "size": 1272,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/88358a5a5d77c136803a8b4bdd4d9af281a57012"
+    },
+    {
+      "path": ".solhintignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30d74d258442c7c65512eafab474568dd706c430",
+      "size": 4,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/30d74d258442c7c65512eafab474568dd706c430"
+    },
+    {
+      "path": "COPYING",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1468d07c88d6a48dae9360ed0094955b54370224",
+      "size": 35184,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1468d07c88d6a48dae9360ed0094955b54370224"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a349057f81d36a3de87c3468b0d1cbc1d76f14f0",
+      "size": 935,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a349057f81d36a3de87c3468b0d1cbc1d76f14f0"
+    },
+    {
+      "path": "LICENSE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4684832738c4f23b1f30e58e4c45d9d55f76a90a",
+      "size": 936,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4684832738c4f23b1f30e58e4c45d9d55f76a90a"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b2f34a072968ebfde03eb1984814a248e0a0bc2",
+      "size": 269,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1b2f34a072968ebfde03eb1984814a248e0a0bc2"
+    },
+    {
+      "path": "build-docs.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4734639f1539debad0b121596c8535b1f87a3b88",
+      "size": 1882,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4734639f1539debad0b121596c8535b1f87a3b88"
+    },
+    {
+      "path": "commitlint.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "422b19445bd83d06acea0d73d2a05410b7b94b44",
+      "size": 67,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/422b19445bd83d06acea0d73d2a05410b7b94b44"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2d3286e3046490a595cc286e127c1bc90c45792f",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/2d3286e3046490a595cc286e127c1bc90c45792f"
+    },
+    {
+      "path": "docs/book.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "daddb2f1694025c3214d91ed2a664b2595517226",
+      "size": 567,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/daddb2f1694025c3214d91ed2a664b2595517226"
+    },
+    {
+      "path": "docs/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "00880d93649cdc0b2e23eaeeba1dbce13e996f83",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/00880d93649cdc0b2e23eaeeba1dbce13e996f83"
+    },
+    {
+      "path": "docs/src/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08919ef8b534be0ac1dcafff8efe49dc5abeb9e8",
+      "size": 268,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/08919ef8b534be0ac1dcafff8efe49dc5abeb9e8"
+    },
+    {
+      "path": "docs/src/SUMMARY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da80c7669eb886a9914ebce8f9d4f57b98c2ea0b",
+      "size": 18402,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/da80c7669eb886a9914ebce8f9d4f57b98c2ea0b"
+    },
+    {
+      "path": "docs/src/detailed",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7f27ad1008e125a9fb4b354541c606a0a3e61533",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/7f27ad1008e125a9fb4b354541c606a0a3e61533"
+    },
+    {
+      "path": "docs/src/detailed/auctions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "369b4370d84e13c8e3f613cce3fcb0f4f8b85202",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/369b4370d84e13c8e3f613cce3fcb0f4f8b85202"
+    },
+    {
+      "path": "docs/src/detailed/auctions/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5be532dc7a24bea74ed146212d40534be620694",
+      "size": 848,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e5be532dc7a24bea74ed146212d40534be620694"
+    },
+    {
+      "path": "docs/src/detailed/auctions/cah.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a4fac8920affea042451f9665aaaa9924c3795a",
+      "size": 3156,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4a4fac8920affea042451f9665aaaa9924c3795a"
+    },
+    {
+      "path": "docs/src/detailed/auctions/dah.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d283b55ac5bbdcfa774a457c31209655eac2a2d4",
+      "size": 2261,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d283b55ac5bbdcfa774a457c31209655eac2a2d4"
+    },
+    {
+      "path": "docs/src/detailed/auctions/sah.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a7951b3d7115783d66f55bbb24fdd0d644f27ca",
+      "size": 1375,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5a7951b3d7115783d66f55bbb24fdd0d644f27ca"
+    },
+    {
+      "path": "docs/src/detailed/intro",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "40c3e8ec6968ec26dca7ed50f97dd07cc60d075d",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/40c3e8ec6968ec26dca7ed50f97dd07cc60d075d"
+    },
+    {
+      "path": "docs/src/detailed/intro/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3127961b7786419cdcd6534a53cefbac7ba65d24",
+      "size": 525,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3127961b7786419cdcd6534a53cefbac7ba65d24"
+    },
+    {
+      "path": "docs/src/detailed/intro/hai.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78c79b8e8cf3f61bd7405a05d351c140f8170bb5",
+      "size": 2849,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/78c79b8e8cf3f61bd7405a05d351c140f8170bb5"
+    },
+    {
+      "path": "docs/src/detailed/intro/protocol.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1234c54365e5a3bdb1c72f73ed7d19593db0637",
+      "size": 3160,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a1234c54365e5a3bdb1c72f73ed7d19593db0637"
+    },
+    {
+      "path": "docs/src/detailed/modules",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e12245ba28a01aa266ac23cfd2071a28b88e7e12",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/e12245ba28a01aa266ac23cfd2071a28b88e7e12"
+    },
+    {
+      "path": "docs/src/detailed/modules/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb926b926cb03015b88f10dab2fe14d3ce86aa8f",
+      "size": 766,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/eb926b926cb03015b88f10dab2fe14d3ce86aa8f"
+    },
+    {
+      "path": "docs/src/detailed/modules/acc_engine.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "313e55e8a27256e59b04e8065f8d8588efd137e8",
+      "size": 5938,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/313e55e8a27256e59b04e8065f8d8588efd137e8"
+    },
+    {
+      "path": "docs/src/detailed/modules/liq_engine.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b36cd02a2026449fb24ee3adf4c0c2e764fb689",
+      "size": 5267,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4b36cd02a2026449fb24ee3adf4c0c2e764fb689"
+    },
+    {
+      "path": "docs/src/detailed/modules/oracle_relayer.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d641b5ceb31d7d3d7a4a4da544345726f7d3466",
+      "size": 3028,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3d641b5ceb31d7d3d7a4a4da544345726f7d3466"
+    },
+    {
+      "path": "docs/src/detailed/modules/pid_controller.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71daede690bde5a292b1e27df803500a074d19d8",
+      "size": 3633,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/71daede690bde5a292b1e27df803500a074d19d8"
+    },
+    {
+      "path": "docs/src/detailed/modules/safe_engine.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca29e6894932fd19118d8f9f2972ef9710a7d549",
+      "size": 14468,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ca29e6894932fd19118d8f9f2972ef9710a7d549"
+    },
+    {
+      "path": "docs/src/detailed/modules/sf_treasury.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61e3573abb96144dcea0b622fc19abaf6f3028dd",
+      "size": 2606,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/61e3573abb96144dcea0b622fc19abaf6f3028dd"
+    },
+    {
+      "path": "docs/src/detailed/modules/tax_collector.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "306b2243e8fe6bc099b4728b675cd5af45d95c9c",
+      "size": 2907,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/306b2243e8fe6bc099b4728b675cd5af45d95c9c"
+    },
+    {
+      "path": "docs/src/detailed/proxies",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "468a0c24fe7873734831cc2a81993f96a29daf17",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/468a0c24fe7873734831cc2a81993f96a29daf17"
+    },
+    {
+      "path": "docs/src/detailed/proxies/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b7a2ad6cce33c8e7e25a6b6d923967d4b169e0b",
+      "size": 319,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5b7a2ad6cce33c8e7e25a6b6d923967d4b169e0b"
+    },
+    {
+      "path": "docs/src/detailed/proxies/actions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9e055e9cd7ba6b4cda40a864f34a4235535e61ef",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/9e055e9cd7ba6b4cda40a864f34a4235535e61ef"
+    },
+    {
+      "path": "docs/src/detailed/proxies/actions/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b82e6fd19f8e3f446a72cc387deffd026275ec6",
+      "size": 264,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8b82e6fd19f8e3f446a72cc387deffd026275ec6"
+    },
+    {
+      "path": "docs/src/detailed/proxies/actions/basic_actions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3460bdc0503393eac2cfc78296827ce7b2b3de5d",
+      "size": 3522,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3460bdc0503393eac2cfc78296827ce7b2b3de5d"
+    },
+    {
+      "path": "docs/src/detailed/proxies/actions/bidding_actions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ada15387aa3e7f06505317260a6689ecb39a88d9",
+      "size": 1131,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ada15387aa3e7f06505317260a6689ecb39a88d9"
+    },
+    {
+      "path": "docs/src/detailed/proxies/actions/rewarded_actions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22cc0db77ee1c4a9f1e465f7978e3068b7fe95e8",
+      "size": 1948,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/22cc0db77ee1c4a9f1e465f7978e3068b7fe95e8"
+    },
+    {
+      "path": "docs/src/detailed/proxies/actions/settlement_actions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea561e6ff32be336049673d1ad840b5883caf426",
+      "size": 1045,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ea561e6ff32be336049673d1ad840b5883caf426"
+    },
+    {
+      "path": "docs/src/detailed/proxies/hai_proxy.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7b1f5d96118df6c557589f6b13b3856bd5d49ca",
+      "size": 2127,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b7b1f5d96118df6c557589f6b13b3856bd5d49ca"
+    },
+    {
+      "path": "docs/src/detailed/proxies/hai_proxy_factory.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6dec139959c6c04eb3dbd294393bfc4cdaf6ad7c",
+      "size": 718,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6dec139959c6c04eb3dbd294393bfc4cdaf6ad7c"
+    },
+    {
+      "path": "docs/src/detailed/proxies/hai_safe_manager.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6364623238f8b36040876e905601bd862f1b3e8",
+      "size": 4435,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b6364623238f8b36040876e905601bd862f1b3e8"
+    },
+    {
+      "path": "docs/src/detailed/settlement",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0f6fe5af49e6c7dc0ebbc1f7e8a0ba1752c87a43",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/0f6fe5af49e6c7dc0ebbc1f7e8a0ba1752c87a43"
+    },
+    {
+      "path": "docs/src/detailed/settlement/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "740351e1b885bf22d6e140f7b575b0fa5f45e010",
+      "size": 577,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/740351e1b885bf22d6e140f7b575b0fa5f45e010"
+    },
+    {
+      "path": "docs/src/detailed/settlement/global_settlement.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d04ce26e5c6d3bc6d737aae755e5416a0e58a76f",
+      "size": 7838,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d04ce26e5c6d3bc6d737aae755e5416a0e58a76f"
+    },
+    {
+      "path": "docs/src/detailed/settlement/ps_sah.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9cda442b7aea6a959f504785733da69b6c706e38",
+      "size": 985,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9cda442b7aea6a959f504785733da69b6c706e38"
+    },
+    {
+      "path": "docs/src/detailed/settlement/ps_surplus_actioneer.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a7a309911ec45c7de6e75995d2a5475a5e74f11",
+      "size": 1335,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7a7a309911ec45c7de6e75995d2a5475a5e74f11"
+    },
+    {
+      "path": "docs/src/detailed/tokens",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5315a056a749d7fc4b2295ad0b040bbb9cc5db62",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/5315a056a749d7fc4b2295ad0b040bbb9cc5db62"
+    },
+    {
+      "path": "docs/src/detailed/tokens/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0131df55f748d91e625f76904aceade5d9582516",
+      "size": 265,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0131df55f748d91e625f76904aceade5d9582516"
+    },
+    {
+      "path": "docs/src/detailed/tokens/join_adapter.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16da231665ed9017d79e3c53043c0adebb4533f4",
+      "size": 6519,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/16da231665ed9017d79e3c53043c0adebb4533f4"
+    },
+    {
+      "path": "docs/src/detailed/tokens/protocol_token.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "969347bb7945aab69a24e87576d18ba1b6cbaea8",
+      "size": 129,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/969347bb7945aab69a24e87576d18ba1b6cbaea8"
+    },
+    {
+      "path": "docs/src/detailed/tokens/system_coin.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58ae62e4f57727944b274544de31364def01f801",
+      "size": 117,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/58ae62e4f57727944b274544de31364def01f801"
+    },
+    {
+      "path": "docs/src/detailed/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d31c91e749ef0ffc79cb292e7fb6a35d8d7321f3",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/d31c91e749ef0ffc79cb292e7fb6a35d8d7321f3"
+    },
+    {
+      "path": "docs/src/detailed/utils/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaf3639192cdcada5e73b651e878a02f3747fed5",
+      "size": 546,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/aaf3639192cdcada5e73b651e878a02f3747fed5"
+    },
+    {
+      "path": "docs/src/detailed/utils/authorizable.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9633f3a0e027ec6230386396c25285d87231f107",
+      "size": 1111,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9633f3a0e027ec6230386396c25285d87231f107"
+    },
+    {
+      "path": "docs/src/detailed/utils/disableable.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3ed282c11981e536fc248ed533d67cda5381688",
+      "size": 879,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c3ed282c11981e536fc248ed533d67cda5381688"
+    },
+    {
+      "path": "docs/src/detailed/utils/factory",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "19de7e4ab41f083828b5f0da3f61d3c448b70124",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/19de7e4ab41f083828b5f0da3f61d3c448b70124"
+    },
+    {
+      "path": "docs/src/detailed/utils/factory/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8447e4223dc0dbfdbc0a00d8d6043771610e485",
+      "size": 489,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b8447e4223dc0dbfdbc0a00d8d6043771610e485"
+    },
+    {
+      "path": "docs/src/detailed/utils/factory/authorizable_child.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd3b1dd5a4ba4b13404ea48ad9c0031e7e8f75f4",
+      "size": 714,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fd3b1dd5a4ba4b13404ea48ad9c0031e7e8f75f4"
+    },
+    {
+      "path": "docs/src/detailed/utils/factory/disableable_child.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ba0cb7fda6fd7ef43d316607108cb9ca757dcc0",
+      "size": 984,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1ba0cb7fda6fd7ef43d316607108cb9ca757dcc0"
+    },
+    {
+      "path": "docs/src/detailed/utils/factory/factory_child.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68c5711675199a01fafa80359cce917d8af78da4",
+      "size": 1275,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/68c5711675199a01fafa80359cce917d8af78da4"
+    },
+    {
+      "path": "docs/src/detailed/utils/modifiable.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b89bb7b698652003eeaf966bc5fcebfc3dbadaaa",
+      "size": 3554,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b89bb7b698652003eeaf966bc5fcebfc3dbadaaa"
+    },
+    {
+      "path": "docs/src/images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7c7fc8c07c0a59695bd06277fe6bc06df735f90a",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/7c7fc8c07c0a59695bd06277fe6bc06df735f90a"
+    },
+    {
+      "path": "docs/src/images/logo.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dcc1ea44cc8a9e331812b147de002e93f6875fc2",
+      "size": 13369,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/dcc1ea44cc8a9e331812b147de002e93f6875fc2"
+    },
+    {
+      "path": "docs/src/theme",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "13578c85d6519e60e07cd347cf61ae35cdc87b36",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/13578c85d6519e60e07cd347cf61ae35cdc87b36"
+    },
+    {
+      "path": "docs/src/theme/css",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f8feb7a14239614b16649b4761862a7fbfa970f4",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/f8feb7a14239614b16649b4761862a7fbfa970f4"
+    },
+    {
+      "path": "docs/src/theme/css/base.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17f522c306ca1195aadd9cec6c8fe5f25d1744ce",
+      "size": 1217,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/17f522c306ca1195aadd9cec6c8fe5f25d1744ce"
+    },
+    {
+      "path": "docs/src/theme/css/colors.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61cd0847397e5492c199785c99c56d2620f30bd2",
+      "size": 1624,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/61cd0847397e5492c199785c99c56d2620f30bd2"
+    },
+    {
+      "path": "docs/src/theme/css/fonts.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61c1a2ab854a726f9753e81665e0db40f5b5ade5",
+      "size": 250,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/61c1a2ab854a726f9753e81665e0db40f5b5ade5"
+    },
+    {
+      "path": "docs/src/theme/favicon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dcc1ea44cc8a9e331812b147de002e93f6875fc2",
+      "size": 13369,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/dcc1ea44cc8a9e331812b147de002e93f6875fc2"
+    },
+    {
+      "path": "docs/src/theme/index.hbs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19a260c4b55cbef7c834a6da58c482d3ebf7b07b",
+      "size": 15324,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/19a260c4b55cbef7c834a6da58c482d3ebf7b07b"
+    },
+    {
+      "path": "docs/src/theme/js",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5c4d7135647ffabd1b5ee876cb6334cce4243719",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/5c4d7135647ffabd1b5ee876cb6334cce4243719"
+    },
+    {
+      "path": "docs/src/theme/js/base.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf14f1018b413a09bd278bbfaaccf24ca50e5a6e",
+      "size": 414,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cf14f1018b413a09bd278bbfaaccf24ca50e5a6e"
+    },
+    {
+      "path": "docs/src/theme/js/solidity.min.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0733f710d8c1f60d3d9eb780c458ae7330e6b55a",
+      "size": 10697,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0733f710d8c1f60d3d9eb780c458ae7330e6b55a"
+    },
+    {
+      "path": "docs/src/theme/js/theme.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c043729a7578726e7d876aa4d0e5de0dafbd6d7",
+      "size": 607,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0c043729a7578726e7d876aa4d0e5de0dafbd6d7"
+    },
+    {
+      "path": "docs/wrapped-token-v3-overview.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4e41c00da16125c56e2c497430882a55c1b3cb5",
+      "size": 12487,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b4e41c00da16125c56e2c497430882a55c1b3cb5"
+    },
+    {
+      "path": "foundry.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1cfe0058b0e85ff3bb3d2c05991166c44c9f2c9a",
+      "size": 1063,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1cfe0058b0e85ff3bb3d2c05991166c44c9f2c9a"
+    },
+    {
+      "path": "funding.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c8f8daefa76bd704b85cfafcb69a59c853fe6e0",
+      "size": 109,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6c8f8daefa76bd704b85cfafcb69a59c853fe6e0"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9c9ea64f86c19585b548950766f688216e872dc",
+      "size": 3867,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c9c9ea64f86c19585b548950766f688216e872dc"
+    },
+    {
+      "path": "remappings.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a7bdec6a4a0844aeee123cfbab862c758940f196",
+      "size": 799,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a7bdec6a4a0844aeee123cfbab862c758940f196"
+    },
+    {
+      "path": "script",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b22138491210c9d4ec3ebff9094ea2506f465fd2",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/b22138491210c9d4ec3ebff9094ea2506f465fd2"
+    },
+    {
+      "path": "script/Common.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c1acc6760825bac24a2cfc0e11a17dab01d3f8f",
+      "size": 12678,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1c1acc6760825bac24a2cfc0e11a17dab01d3f8f"
+    },
+    {
+      "path": "script/Contracts.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3522c79946b2c2151b175f20454e1c6acfbae3a4",
+      "size": 7866,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3522c79946b2c2151b175f20454e1c6acfbae3a4"
+    },
+    {
+      "path": "script/Deploy.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fcee88631d4f562e05aad521b55d78167af0537",
+      "size": 6946,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1fcee88631d4f562e05aad521b55d78167af0537"
+    },
+    {
+      "path": "script/MainnetDeployment.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd4ede23fcef906bd3bdedeaf8e1db218bc96492",
+      "size": 5566,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/bd4ede23fcef906bd3bdedeaf8e1db218bc96492"
+    },
+    {
+      "path": "script/MainnetParams.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2c6d817163d6fc6aad1dc0d0f11cb1145979c7ea",
+      "size": 7752,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2c6d817163d6fc6aad1dc0d0f11cb1145979c7ea"
+    },
+    {
+      "path": "script/MainnetScript.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "724e8bdd291ab130b1708d123925cb7f0b17b1a3",
+      "size": 957,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/724e8bdd291ab130b1708d123925cb7f0b17b1a3"
+    },
+    {
+      "path": "script/Params.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cca97ab1f9937aaa05c7d3fddefe60e65897128b",
+      "size": 7572,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cca97ab1f9937aaa05c7d3fddefe60e65897128b"
+    },
+    {
+      "path": "script/Registry.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f9faaa0e6461b1423fb2be88e1fea52d950704c",
+      "size": 1548,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6f9faaa0e6461b1423fb2be88e1fea52d950704c"
+    },
+    {
+      "path": "script/StepsScript.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c0ab7e469aebb3089dca906fbc54ec0815421ea",
+      "size": 25581,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5c0ab7e469aebb3089dca906fbc54ec0815421ea"
+    },
+    {
+      "path": "script/TestnetDeployment.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cff1fa22ecb369b892961fc6d8fda4d70057976d",
+      "size": 6245,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cff1fa22ecb369b892961fc6d8fda4d70057976d"
+    },
+    {
+      "path": "script/TestnetParams.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3604db776ff2b16f72774d146f3c1de6e3b11c49",
+      "size": 6694,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3604db776ff2b16f72774d146f3c1de6e3b11c49"
+    },
+    {
+      "path": "script/TestnetScript.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3911d9e1544cf3ad718c91a766038cc9805bc9c1",
+      "size": 949,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3911d9e1544cf3ad718c91a766038cc9805bc9c1"
+    },
+    {
+      "path": "script/tenderly",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "aa475bb3e35203a1fac45e9b09513de93e45a8b0",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/aa475bb3e35203a1fac45e9b09513de93e45a8b0"
+    },
+    {
+      "path": "script/tenderly/bootstrap-stability-pool.manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf8f1cd4132473f02ec3f1619e3ae5409c39168b",
+      "size": 40372,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cf8f1cd4132473f02ec3f1619e3ae5409c39168b"
+    },
+    {
+      "path": "script/tenderly/bootstrap-stability-pool.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b4936258d772347d4bcfa5ec5ce3732a8e54d7d",
+      "size": 34698,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4b4936258d772347d4bcfa5ec5ce3732a8e54d7d"
+    },
+    {
+      "path": "script/tenderly/stability-pool-config.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "619611770eecc8d6ca5aaa4f8c5d2ab1719cd681",
+      "size": 17528,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/619611770eecc8d6ca5aaa4f8c5d2ab1719cd681"
+    },
+    {
+      "path": "script/tenderly/verify-stability-pool-manifest.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "232f4c17991dc02178d0d13a8f8532693ef5e163",
+      "size": 7550,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/232f4c17991dc02178d0d13a8f8532693ef5e163"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "88bd9f7c7a3b25ff3ff114bee76f6aba5d73031f",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/88bd9f7c7a3b25ff3ff114bee76f6aba5d73031f"
+    },
+    {
+      "path": "src/contracts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1cfd2b334617a9c78448b537355d9d71e10d8655",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/1cfd2b334617a9c78448b537355d9d71e10d8655"
+    },
+    {
+      "path": "src/contracts/AccountingEngine.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb96506acaf37f11a3e4c212eba5af6b587478d9",
+      "size": 12294,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cb96506acaf37f11a3e4c212eba5af6b587478d9"
+    },
+    {
+      "path": "src/contracts/CollateralAuctionHouse.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0af762453c33fbf44edaf7a38f1aef74fb6c9ec",
+      "size": 15776,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c0af762453c33fbf44edaf7a38f1aef74fb6c9ec"
+    },
+    {
+      "path": "src/contracts/DebtAuctionHouse.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cae6e62b81355680e41b510009fdf7fbb0bce7a7",
+      "size": 7774,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cae6e62b81355680e41b510009fdf7fbb0bce7a7"
+    },
+    {
+      "path": "src/contracts/LiquidationEngine.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d39c8fde3708268107dd8e549819947fcd31d715",
+      "size": 12996,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d39c8fde3708268107dd8e549819947fcd31d715"
+    },
+    {
+      "path": "src/contracts/OracleRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9ae2a76c956212c71d25ac5f16736e396ff8335",
+      "size": 8285,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c9ae2a76c956212c71d25ac5f16736e396ff8335"
+    },
+    {
+      "path": "src/contracts/PIDController.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6cd8cc73bf8e1c05bdc3a5459094ac95f7a949e",
+      "size": 13874,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c6cd8cc73bf8e1c05bdc3a5459094ac95f7a949e"
+    },
+    {
+      "path": "src/contracts/PIDRateSetter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "179bcfe34151d5891584a34b62e56be8ee23b144",
+      "size": 3517,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/179bcfe34151d5891584a34b62e56be8ee23b144"
+    },
+    {
+      "path": "src/contracts/SAFEEngine.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3aea49fe5d4ca9ebb22f7410a3ae3fc5ce2c1b9f",
+      "size": 16788,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3aea49fe5d4ca9ebb22f7410a3ae3fc5ce2c1b9f"
+    },
+    {
+      "path": "src/contracts/StabilityFeeTreasury.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9e8c1487d7ef7b7691de2e7065eb0fb8c60ce8a",
+      "size": 9708,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b9e8c1487d7ef7b7691de2e7065eb0fb8c60ce8a"
+    },
+    {
+      "path": "src/contracts/SurplusAuctionHouse.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ff2a196508afbc4b072a9e9ba4e02ab771217ba",
+      "size": 8716,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5ff2a196508afbc4b072a9e9ba4e02ab771217ba"
+    },
+    {
+      "path": "src/contracts/TaxCollector.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb685e197f39fb58e8fa753b019c06f3228f1933",
+      "size": 16171,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/bb685e197f39fb58e8fa753b019c06f3228f1933"
+    },
+    {
+      "path": "src/contracts/factories",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1ee6320f465c71688459fbd04ceeec443a6af335",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/1ee6320f465c71688459fbd04ceeec443a6af335"
+    },
+    {
+      "path": "src/contracts/factories/AuthorizableChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d1ece3f55b8b6b4714cb70a41121332a1a3bd35",
+      "size": 1229,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1d1ece3f55b8b6b4714cb70a41121332a1a3bd35"
+    },
+    {
+      "path": "src/contracts/factories/BeefyVeloVaultRelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8034b74b68a7d1e4a16d699e2e86d3a314010c7c",
+      "size": 1292,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8034b74b68a7d1e4a16d699e2e86d3a314010c7c"
+    },
+    {
+      "path": "src/contracts/factories/BeefyVeloVaultRelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "008fc291fc4db56e9878edbf8a644fb737a75b0f",
+      "size": 2094,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/008fc291fc4db56e9878edbf8a644fb737a75b0f"
+    },
+    {
+      "path": "src/contracts/factories/ChainlinkRelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8357f182345a6a2f1fbf7deb25821e4e0d95142",
+      "size": 1725,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d8357f182345a6a2f1fbf7deb25821e4e0d95142"
+    },
+    {
+      "path": "src/contracts/factories/ChainlinkRelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c29d70e992ea0a331cd5e78a260d10e35e6354a",
+      "size": 2617,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7c29d70e992ea0a331cd5e78a260d10e35e6354a"
+    },
+    {
+      "path": "src/contracts/factories/CollateralAuctionHouseChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "092e4ab3082afb20810061f347d3cf3b0dc9bff5",
+      "size": 3836,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/092e4ab3082afb20810061f347d3cf3b0dc9bff5"
+    },
+    {
+      "path": "src/contracts/factories/CollateralAuctionHouseFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed508363c17ea96c703c9f4ddd20e436b8e3a063",
+      "size": 5515,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ed508363c17ea96c703c9f4ddd20e436b8e3a063"
+    },
+    {
+      "path": "src/contracts/factories/CollateralJoinChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e057d7b676fc0df829a9e7b623cc5714509e3af",
+      "size": 1252,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2e057d7b676fc0df829a9e7b623cc5714509e3af"
+    },
+    {
+      "path": "src/contracts/factories/CollateralJoinDelegatableChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba7be8152bebe13bfb7e3bd66ea2cc397ecd3028",
+      "size": 1522,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ba7be8152bebe13bfb7e3bd66ea2cc397ecd3028"
+    },
+    {
+      "path": "src/contracts/factories/CollateralJoinFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a7f82463edbfe92a714dc3875ff988cb43e73b42",
+      "size": 4042,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a7f82463edbfe92a714dc3875ff988cb43e73b42"
+    },
+    {
+      "path": "src/contracts/factories/CurveStableSwapNGRelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cfe1713911376cc40b71a64f75daff164d40a66d",
+      "size": 980,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cfe1713911376cc40b71a64f75daff164d40a66d"
+    },
+    {
+      "path": "src/contracts/factories/CurveStableSwapNGRelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2a8a5eacd893b9c4a5d77c8054b265ae75aa41c",
+      "size": 2133,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d2a8a5eacd893b9c4a5d77c8054b265ae75aa41c"
+    },
+    {
+      "path": "src/contracts/factories/DelayedOracleChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4fc737de16405df666f4eeeddd45727ee00cb0c",
+      "size": 875,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c4fc737de16405df666f4eeeddd45727ee00cb0c"
+    },
+    {
+      "path": "src/contracts/factories/DelayedOracleFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73c4c2c709a7b82a21643829699966aee82c4540",
+      "size": 1655,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/73c4c2c709a7b82a21643829699966aee82c4540"
+    },
+    {
+      "path": "src/contracts/factories/DenominatedOracleChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "54caa2ffe2cc698483b2ada62a3a31778bf6f95b",
+      "size": 1035,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/54caa2ffe2cc698483b2ada62a3a31778bf6f95b"
+    },
+    {
+      "path": "src/contracts/factories/DenominatedOracleFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c34affd91c25eb0e20a34a9cbb7cfe7ec8bc205d",
+      "size": 1780,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c34affd91c25eb0e20a34a9cbb7cfe7ec8bc205d"
+    },
+    {
+      "path": "src/contracts/factories/DisableableChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a6bea6d7f7815e69e2a40f1a8fcbbe4fefd8df6",
+      "size": 1149,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6a6bea6d7f7815e69e2a40f1a8fcbbe4fefd8df6"
+    },
+    {
+      "path": "src/contracts/factories/FactoryChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "934c8dda77522b4ca8aa689624a8f762fe34b3ff",
+      "size": 781,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/934c8dda77522b4ca8aa689624a8f762fe34b3ff"
+    },
+    {
+      "path": "src/contracts/factories/RewardPoolChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c919ae854be95c930d67f801293c498fdf155a6",
+      "size": 964,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3c919ae854be95c930d67f801293c498fdf155a6"
+    },
+    {
+      "path": "src/contracts/factories/RewardPoolFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ea1cdb6cfdc5dcba26ad3d35180a3dae45e5f628",
+      "size": 1805,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ea1cdb6cfdc5dcba26ad3d35180a3dae45e5f628"
+    },
+    {
+      "path": "src/contracts/factories/UniV3RelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ac08ce886d000b98be6158b07246a13aaa98fef",
+      "size": 1011,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9ac08ce886d000b98be6158b07246a13aaa98fef"
+    },
+    {
+      "path": "src/contracts/factories/UniV3RelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79168c58dd1ddf59861968c26f42d6547293ce80",
+      "size": 1881,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/79168c58dd1ddf59861968c26f42d6547293ce80"
+    },
+    {
+      "path": "src/contracts/factories/YearnVeloVaultRelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8565cbc2d54d1ed0146c487cb4928748468a811e",
+      "size": 1286,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8565cbc2d54d1ed0146c487cb4928748468a811e"
+    },
+    {
+      "path": "src/contracts/factories/YearnVeloVaultRelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20120658735f76f1eb523db05f332fc37b3faa87",
+      "size": 2088,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/20120658735f76f1eb523db05f332fc37b3faa87"
+    },
+    {
+      "path": "src/contracts/for-test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "433f52a12541b95fe31db1ff5406e50fc5deec4b",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/433f52a12541b95fe31db1ff5406e50fc5deec4b"
+    },
+    {
+      "path": "src/contracts/for-test/DeviatedOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7b66cf395df2ed1085b3a81e16ce31759be939e",
+      "size": 1524,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c7b66cf395df2ed1085b3a81e16ce31759be939e"
+    },
+    {
+      "path": "src/contracts/for-test/HardcodedOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "580f1718ef696d8dfe1e7098091ff6ce609b3d26",
+      "size": 949,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/580f1718ef696d8dfe1e7098091ff6ce609b3d26"
+    },
+    {
+      "path": "src/contracts/for-test/MintableERC20.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c679bcd30c966bc8d2f1a5950e817a4709cfcae4",
+      "size": 1617,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c679bcd30c966bc8d2f1a5950e817a4709cfcae4"
+    },
+    {
+      "path": "src/contracts/governance",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d5b29f94732791c630595051d9c230fb3de4351d",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/d5b29f94732791c630595051d9c230fb3de4351d"
+    },
+    {
+      "path": "src/contracts/governance/HaiDelegatee.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79f9c3f8f77e87b202953ad699b3880beabdecfc",
+      "size": 1757,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/79f9c3f8f77e87b202953ad699b3880beabdecfc"
+    },
+    {
+      "path": "src/contracts/governance/HaiGovernor.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e28aaf45c018e0c9cb21e3990f5aa5fc1dbd04ae",
+      "size": 4780,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e28aaf45c018e0c9cb21e3990f5aa5fc1dbd04ae"
+    },
+    {
+      "path": "src/contracts/jobs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a407eaa1d0537235845b9fa2e9ba3613aa7140e8",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/a407eaa1d0537235845b9fa2e9ba3613aa7140e8"
+    },
+    {
+      "path": "src/contracts/jobs/AccountingJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e56baab0ea692c5941d00ee672c15e0955c45e5",
+      "size": 3531,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9e56baab0ea692c5941d00ee672c15e0955c45e5"
+    },
+    {
+      "path": "src/contracts/jobs/EmissionsControllerJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd050c5c838ab4950df558ff82c7896c2e655d30",
+      "size": 2338,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/dd050c5c838ab4950df558ff82c7896c2e655d30"
+    },
+    {
+      "path": "src/contracts/jobs/Job.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b14ea301261c20f5ad4383251eae89d22e6bf1c9",
+      "size": 2035,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b14ea301261c20f5ad4383251eae89d22e6bf1c9"
+    },
+    {
+      "path": "src/contracts/jobs/LiquidationJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4422d9a4bb6cd041ff17a04d82421232cb33093",
+      "size": 2262,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c4422d9a4bb6cd041ff17a04d82421232cb33093"
+    },
+    {
+      "path": "src/contracts/jobs/OracleJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d1caa6ddee7c4346b5ac72a70f5dcf029bd1e9e",
+      "size": 4495,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2d1caa6ddee7c4346b5ac72a70f5dcf029bd1e9e"
+    },
+    {
+      "path": "src/contracts/jobs/StabilityPoolCoverJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "800df39dc086eb9ae2d7204b9a6f26effeba457c",
+      "size": 2597,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/800df39dc086eb9ae2d7204b9a6f26effeba457c"
+    },
+    {
+      "path": "src/contracts/jobs/StabilityPoolSweepJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0991edfb5eddd6e745a039d2a9864dfd7c6fa417",
+      "size": 2350,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0991edfb5eddd6e745a039d2a9864dfd7c6fa417"
+    },
+    {
+      "path": "src/contracts/oracles",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ef3df9a00e9dcef75bafb706541432be17508ddb",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/ef3df9a00e9dcef75bafb706541432be17508ddb"
+    },
+    {
+      "path": "src/contracts/oracles/AbstractVeloVaultRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa954212ebef15b456efe8337abefce1dd15ade0",
+      "size": 6188,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fa954212ebef15b456efe8337abefce1dd15ade0"
+    },
+    {
+      "path": "src/contracts/oracles/BeefyVeloVaultRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe3ac490a525f5ef22186d0e40a7db40b71dff83",
+      "size": 1835,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fe3ac490a525f5ef22186d0e40a7db40b71dff83"
+    },
+    {
+      "path": "src/contracts/oracles/ChainlinkRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0acf298f88a9b0f216936d3503cdabb96d3b2959",
+      "size": 3983,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0acf298f88a9b0f216936d3503cdabb96d3b2959"
+    },
+    {
+      "path": "src/contracts/oracles/CurveStableSwapNGRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "327b5181259aa530ac291373690e1c17e988faee",
+      "size": 6732,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/327b5181259aa530ac291373690e1c17e988faee"
+    },
+    {
+      "path": "src/contracts/oracles/DelayedOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9eac76b1ddeaf6495f9d9873c0f69193985bdf13",
+      "size": 4004,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9eac76b1ddeaf6495f9d9873c0f69193985bdf13"
+    },
+    {
+      "path": "src/contracts/oracles/DenominatedOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc86f9ea60d7cdf3608cb8d195487d9ccb2e858e",
+      "size": 3262,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cc86f9ea60d7cdf3608cb8d195487d9ccb2e858e"
+    },
+    {
+      "path": "src/contracts/oracles/ERC4626ShareOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9597b3a168d86863d27703ec80cb2e9ee79ea3c",
+      "size": 2381,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c9597b3a168d86863d27703ec80cb2e9ee79ea3c"
+    },
+    {
+      "path": "src/contracts/oracles/HaiVeloV2Oracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a1f0dc78498ab68396f20216a004ea8e88bb4dd",
+      "size": 1970,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2a1f0dc78498ab68396f20216a004ea8e88bb4dd"
+    },
+    {
+      "path": "src/contracts/oracles/PessimisticVeloSingleOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ac753155d0e0842aeb214563bb37bc0c11e4ee6",
+      "size": 43202,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1ac753155d0e0842aeb214563bb37bc0c11e4ee6"
+    },
+    {
+      "path": "src/contracts/oracles/UniV3Relayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a91c500c8e2794a0846e0c203855e29b4b7f320f",
+      "size": 4248,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a91c500c8e2794a0846e0c203855e29b4b7f320f"
+    },
+    {
+      "path": "src/contracts/oracles/YearnVeloVaultRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65cd89ce921d31940d309e9a0fc3851d9b2154ad",
+      "size": 1820,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/65cd89ce921d31940d309e9a0fc3851d9b2154ad"
+    },
+    {
+      "path": "src/contracts/proxies",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1827c99c2f054d97b35edbdae4d1fdc195826c06",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/1827c99c2f054d97b35edbdae4d1fdc195826c06"
+    },
+    {
+      "path": "src/contracts/proxies/HaiProxy.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4d935429286550f7fb9c7484198e718f2d5311f",
+      "size": 1997,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d4d935429286550f7fb9c7484198e718f2d5311f"
+    },
+    {
+      "path": "src/contracts/proxies/HaiProxyFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93bea172d34cbe78a23d2233c35844d192e113fe",
+      "size": 1774,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/93bea172d34cbe78a23d2233c35844d192e113fe"
+    },
+    {
+      "path": "src/contracts/proxies/HaiSafeManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2be987f324330a19d9e635f60e2775be8db647f",
+      "size": 10718,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c2be987f324330a19d9e635f60e2775be8db647f"
+    },
+    {
+      "path": "src/contracts/proxies/SAFEHandler.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c59f3dc3b43c2ec00e1f54cae92c1de3114c9fa1",
+      "size": 701,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c59f3dc3b43c2ec00e1f54cae92c1de3114c9fa1"
+    },
+    {
+      "path": "src/contracts/proxies/actions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "acedc79aae78bbbfd4029a6137975543a54a8492",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/acedc79aae78bbbfd4029a6137975543a54a8492"
+    },
+    {
+      "path": "src/contracts/proxies/actions/BasicActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5236ec021ba440b38f9640bd14e9577e9c352cbd",
+      "size": 15058,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5236ec021ba440b38f9640bd14e9577e9c352cbd"
+    },
+    {
+      "path": "src/contracts/proxies/actions/CollateralBidActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26a53e4f92ed0cef22aebedf23b7cbf6972b19e0",
+      "size": 2049,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/26a53e4f92ed0cef22aebedf23b7cbf6972b19e0"
+    },
+    {
+      "path": "src/contracts/proxies/actions/CommonActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84bdd0a77d52f22a261ea8eed7a20bd6af370c55",
+      "size": 5155,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/84bdd0a77d52f22a261ea8eed7a20bd6af370c55"
+    },
+    {
+      "path": "src/contracts/proxies/actions/DebtBidActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c03577244bad83f549fcd37f299e1ab763c817fd",
+      "size": 3218,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c03577244bad83f549fcd37f299e1ab763c817fd"
+    },
+    {
+      "path": "src/contracts/proxies/actions/GlobalSettlementActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e32ec800b53cdb827141cb76339fd800d49b2de4",
+      "size": 3620,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e32ec800b53cdb827141cb76339fd800d49b2de4"
+    },
+    {
+      "path": "src/contracts/proxies/actions/PostSettlementSurplusBidActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8530558e1245da981b20416291c4fc64d88094f",
+      "size": 561,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e8530558e1245da981b20416291c4fc64d88094f"
+    },
+    {
+      "path": "src/contracts/proxies/actions/RewardedActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14ba95e5c9516c2ff5e7e06f635be68e3643f7ce",
+      "size": 3095,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/14ba95e5c9516c2ff5e7e06f635be68e3643f7ce"
+    },
+    {
+      "path": "src/contracts/proxies/actions/SurplusBidActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "329e4fd4b3322f4dc0eb849c6b26277b71e5c295",
+      "size": 2307,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/329e4fd4b3322f4dc0eb849c6b26277b71e5c295"
+    },
+    {
+      "path": "src/contracts/settlement",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "44d09b5343eba279c482417a81d4f644fcb96e1b",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/44d09b5343eba279c482417a81d4f644fcb96e1b"
+    },
+    {
+      "path": "src/contracts/settlement/GlobalSettlement.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6a3ae2b2d5d595af7132624faeee75a88d28c4b",
+      "size": 16750,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a6a3ae2b2d5d595af7132624faeee75a88d28c4b"
+    },
+    {
+      "path": "src/contracts/settlement/PostSettlementSurplusAuctionHouse.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb9225bcdac134f4ad5ebbce0d2bf2d817b41f65",
+      "size": 7073,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/bb9225bcdac134f4ad5ebbce0d2bf2d817b41f65"
+    },
+    {
+      "path": "src/contracts/settlement/SettlementSurplusAuctioneer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd628d1f88e465ebdd1fc60272580ced52bbcf72",
+      "size": 3493,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cd628d1f88e465ebdd1fc60272580ced52bbcf72"
+    },
+    {
+      "path": "src/contracts/stability-pool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3348039d0d8e46cb20a2a4b67b8cefefaf1bf5a0",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/3348039d0d8e46cb20a2a4b67b8cefefaf1bf5a0"
+    },
+    {
+      "path": "src/contracts/stability-pool/EmissionsController.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed1de65484ddb0f9089d6d4c0621ddfbd0e3de0d",
+      "size": 14286,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ed1de65484ddb0f9089d6d4c0621ddfbd0e3de0d"
+    },
+    {
+      "path": "src/contracts/stability-pool/StabilityPool.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3db98453a3a48a0ce05edb47ce396a90f8a48fe",
+      "size": 36784,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f3db98453a3a48a0ce05edb47ce396a90f8a48fe"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "99c4998e09749e1dfc35cd52c160b7efd4a53a51",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/99c4998e09749e1dfc35cd52c160b7efd4a53a51"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps/BalancerV3StablePoolMathSwapStep.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "114bd75c5e10215661bfeb08f8a55ec5d258af14",
+      "size": 9214,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/114bd75c5e10215661bfeb08f8a55ec5d258af14"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps/BeefyVaultWithdrawalStep.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "afc69250761620487d4f07e945e377ddd1f1d3dd",
+      "size": 2530,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/afc69250761620487d4f07e945e377ddd1f1d3dd"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps/CurveSwapStep.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "708fa50de754528ec4c60a22c1cfaa804e621789",
+      "size": 4409,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/708fa50de754528ec4c60a22c1cfaa804e621789"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps/ERC4626WithdrawalStep.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bc9419e95c256e14b79c5999b044ac41c4b54c7",
+      "size": 2458,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7bc9419e95c256e14b79c5999b044ac41c4b54c7"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps/VeloCLSwapStepViewQuoter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f89bd61835fb0e11f919b9474702fd1db53a995",
+      "size": 13251,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5f89bd61835fb0e11f919b9474702fd1db53a995"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps/VeloLPRemovalStep.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad67d7b7b3b4d003e7b58a6414461dcd2573d7e4",
+      "size": 7690,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ad67d7b7b3b4d003e7b58a6414461dcd2573d7e4"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps/VeloLPRemoveAndSwapStep.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6dba77a4253850a13996eb2f97bc27f9a027dc23",
+      "size": 10242,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6dba77a4253850a13996eb2f97bc27f9a027dc23"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps/VeloSwapStep.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0326cccc477197dda1f874f2cd5f248d371b79b",
+      "size": 5173,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c0326cccc477197dda1f874f2cd5f248d371b79b"
+    },
+    {
+      "path": "src/contracts/stability-pool/strategy-steps/YearnVaultWithdrawalStep.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "142a45a6db730b31a37bdbe424fb3de4ad27f5b9",
+      "size": 2570,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/142a45a6db730b31a37bdbe424fb3de4ad27f5b9"
+    },
+    {
+      "path": "src/contracts/tokens",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "19caba5b09b79a8a9838340f5d2d0c86c8cc281b",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/19caba5b09b79a8a9838340f5d2d0c86c8cc281b"
+    },
+    {
+      "path": "src/contracts/tokens/ProtocolToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11d44f5847edebce4b68c3a53ab8dceab526c62d",
+      "size": 2437,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/11d44f5847edebce4b68c3a53ab8dceab526c62d"
+    },
+    {
+      "path": "src/contracts/tokens/RewardDistributor.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9affd5987c7540dbde6d60add7626c941e88bff",
+      "size": 5412,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d9affd5987c7540dbde6d60add7626c941e88bff"
+    },
+    {
+      "path": "src/contracts/tokens/RewardPool.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0652b3c3679dd9d89c9bc8de65daa5cdd92d367c",
+      "size": 8659,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0652b3c3679dd9d89c9bc8de65daa5cdd92d367c"
+    },
+    {
+      "path": "src/contracts/tokens/StakingManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7de49aabc1f3b8b568cfbd69aed2464dd4ac6337",
+      "size": 17115,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7de49aabc1f3b8b568cfbd69aed2464dd4ac6337"
+    },
+    {
+      "path": "src/contracts/tokens/StakingToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a39a70b2dc0cb114be4eba5408c012a2d3c081bf",
+      "size": 4349,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a39a70b2dc0cb114be4eba5408c012a2d3c081bf"
+    },
+    {
+      "path": "src/contracts/tokens/SystemCoin.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc0c1476690f5e310a7ba663ffe5ba0adb001040",
+      "size": 1083,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fc0c1476690f5e310a7ba663ffe5ba0adb001040"
+    },
+    {
+      "path": "src/contracts/tokens/TokenDistributor.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22b24ff1de9934036b4bf8f27d7208ef4ee5ac94",
+      "size": 3576,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/22b24ff1de9934036b4bf8f27d7208ef4ee5ac94"
+    },
+    {
+      "path": "src/contracts/tokens/VeNFTManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "154c28a7b0388fc5df5c46e738b455dfb1132915",
+      "size": 10372,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/154c28a7b0388fc5df5c46e738b455dfb1132915"
+    },
+    {
+      "path": "src/contracts/tokens/WrappedToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2dfab1a62dd0ec7bd35aea220937fc8bc7e3d148",
+      "size": 3148,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2dfab1a62dd0ec7bd35aea220937fc8bc7e3d148"
+    },
+    {
+      "path": "src/contracts/tokens/WrappedTokenV2.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18451e2a5aa9cd913a6b6352358bbcd7fe9413d8",
+      "size": 5789,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/18451e2a5aa9cd913a6b6352358bbcd7fe9413d8"
+    },
+    {
+      "path": "src/contracts/tokens/WrappedTokenV2NoMigration.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "705cfda4a679fadfdd05b7c72b3b6e06470eae86",
+      "size": 4899,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/705cfda4a679fadfdd05b7c72b3b6e06470eae86"
+    },
+    {
+      "path": "src/contracts/tokens/WrappedTokenV3.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcea562e4c5d1d487a78f2647bbee94976c3c5c9",
+      "size": 12228,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fcea562e4c5d1d487a78f2647bbee94976c3c5c9"
+    },
+    {
+      "path": "src/contracts/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "52f93d332fee5c03b047a6d9d6c1f5b30d1ee572",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/52f93d332fee5c03b047a6d9d6c1f5b30d1ee572"
+    },
+    {
+      "path": "src/contracts/utils/Authorizable.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf4e2cbc68ffb0ca4fc3eb9303d65d418e41bbfe",
+      "size": 2633,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cf4e2cbc68ffb0ca4fc3eb9303d65d418e41bbfe"
+    },
+    {
+      "path": "src/contracts/utils/CoinJoin.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a9af57000b879e1387ce0c196fe06fa1f5f0e42",
+      "size": 1916,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9a9af57000b879e1387ce0c196fe06fa1f5f0e42"
+    },
+    {
+      "path": "src/contracts/utils/CollateralJoin.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0953ab6e1607f27e7ef0487fb398c797a2793149",
+      "size": 3177,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0953ab6e1607f27e7ef0487fb398c797a2793149"
+    },
+    {
+      "path": "src/contracts/utils/Disableable.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bd2ad73815719773b2e5751f7698063c958e3fb",
+      "size": 1780,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7bd2ad73815719773b2e5751f7698063c958e3fb"
+    },
+    {
+      "path": "src/contracts/utils/HaiOwnable2Step.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0be43dd2313b4d627a8391cd453428a965375a5b",
+      "size": 1288,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0be43dd2313b4d627a8391cd453428a965375a5b"
+    },
+    {
+      "path": "src/contracts/utils/Modifiable.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09a60d4a6f13a3a6fa26549504a4e97afa3c08bf",
+      "size": 1484,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/09a60d4a6f13a3a6fa26549504a4e97afa3c08bf"
+    },
+    {
+      "path": "src/contracts/utils/ModifiablePerCollateral.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "686c34fdae94f4c2e3289093b950c9b65e894306",
+      "size": 2739,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/686c34fdae94f4c2e3289093b950c9b65e894306"
+    },
+    {
+      "path": "src/interfaces",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "92a29a471a8d6eebb21610de1804e11c2ba8cac7",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/92a29a471a8d6eebb21610de1804e11c2ba8cac7"
+    },
+    {
+      "path": "src/interfaces/IAccountingEngine.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd8489c35011d8f409dbd4d52ebb855fb7f2575a",
+      "size": 13348,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/bd8489c35011d8f409dbd4d52ebb855fb7f2575a"
+    },
+    {
+      "path": "src/interfaces/ICollateralAuctionHouse.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aba8f689ce97ebd3fb9a6a9b7575b168949b832f",
+      "size": 9773,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/aba8f689ce97ebd3fb9a6a9b7575b168949b832f"
+    },
+    {
+      "path": "src/interfaces/ICommonSurplusAuctionHouse.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ce4252f1c463012a2b1ae8997a653d684416b82",
+      "size": 6377,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1ce4252f1c463012a2b1ae8997a653d684416b82"
+    },
+    {
+      "path": "src/interfaces/IDebtAuctionHouse.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3bcee6473cab556b4a1ade6e6a0b93e83a17906",
+      "size": 9449,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e3bcee6473cab556b4a1ade6e6a0b93e83a17906"
+    },
+    {
+      "path": "src/interfaces/IEmissionsController.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efd3ef32cb3293836fdc3e221cc247665b7e3bbb",
+      "size": 5673,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/efd3ef32cb3293836fdc3e221cc247665b7e3bbb"
+    },
+    {
+      "path": "src/interfaces/ILiquidationEngine.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c400fa1bb5b8df2e5e0b24a4ba5e4edcca6f8ab7",
+      "size": 9842,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c400fa1bb5b8df2e5e0b24a4ba5e4edcca6f8ab7"
+    },
+    {
+      "path": "src/interfaces/IOracleRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbf0068c24fbad6fe89b7adca14be5f7760f1a66",
+      "size": 6713,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fbf0068c24fbad6fe89b7adca14be5f7760f1a66"
+    },
+    {
+      "path": "src/interfaces/IPIDController.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f4cefa2647c94f8ad3eb686eb35596eda2de3bc",
+      "size": 8552,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3f4cefa2647c94f8ad3eb686eb35596eda2de3bc"
+    },
+    {
+      "path": "src/interfaces/IPIDRateSetter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cdb979b854878849f7d4c58527ccbad95cfe59b3",
+      "size": 2362,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cdb979b854878849f7d4c58527ccbad95cfe59b3"
+    },
+    {
+      "path": "src/interfaces/ISAFEEngine.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53f61373fd8b8b79a271bacad3992ab253d646af",
+      "size": 18593,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/53f61373fd8b8b79a271bacad3992ab253d646af"
+    },
+    {
+      "path": "src/interfaces/IStabilityFeeTreasury.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1bd6c9d8271a2fa7042646bab1fc64b8f1a9815",
+      "size": 9593,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c1bd6c9d8271a2fa7042646bab1fc64b8f1a9815"
+    },
+    {
+      "path": "src/interfaces/IStabilityPool.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bb8698d521ed7698d0a70828084e84ebbb512c7",
+      "size": 16260,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7bb8698d521ed7698d0a70828084e84ebbb512c7"
+    },
+    {
+      "path": "src/interfaces/IStrategyStep.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e680824e7f0fa766a51109c3af110d6671f80368",
+      "size": 1058,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e680824e7f0fa766a51109c3af110d6671f80368"
+    },
+    {
+      "path": "src/interfaces/ISurplusAuctionHouse.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7f882ba6b44c6557613acf05456871a7f25ec8d",
+      "size": 2806,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e7f882ba6b44c6557613acf05456871a7f25ec8d"
+    },
+    {
+      "path": "src/interfaces/ISwapStrategy.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c93231632ab5159c2a27680be3ab00268ca61644",
+      "size": 1342,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c93231632ab5159c2a27680be3ab00268ca61644"
+    },
+    {
+      "path": "src/interfaces/ITaxCollector.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "541179d102e73191e9229a623be2ef65f13ca603",
+      "size": 11663,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/541179d102e73191e9229a623be2ef65f13ca603"
+    },
+    {
+      "path": "src/interfaces/external",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2b31805a7a51c5def2c18a6633d9f444c4b8d6b7",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/2b31805a7a51c5def2c18a6633d9f444c4b8d6b7"
+    },
+    {
+      "path": "src/interfaces/external/IAeroMigration.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "411af7f8499c56a98e296346d9404b77e9660bce",
+      "size": 1806,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/411af7f8499c56a98e296346d9404b77e9660bce"
+    },
+    {
+      "path": "src/interfaces/external/IBalancerV3StableMath.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcb202acaa2ab68bb7b62e26d8fa966504cb7dfe",
+      "size": 1949,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fcb202acaa2ab68bb7b62e26d8fa966504cb7dfe"
+    },
+    {
+      "path": "src/interfaces/external/IBeefyVaultV7.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "526cf3023c2e092f06166fe278feec7737f7efdb",
+      "size": 242,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/526cf3023c2e092f06166fe278feec7737f7efdb"
+    },
+    {
+      "path": "src/interfaces/external/ICurveStableSwapNG.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa8e423d71424d870ae3f2ecb70d52ae8474cd0f",
+      "size": 317,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fa8e423d71424d870ae3f2ecb70d52ae8474cd0f"
+    },
+    {
+      "path": "src/interfaces/external/IPessimisticVeloLpOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cbb64b88735b0dd3906e2b5904c68705dd158e4",
+      "size": 196,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7cbb64b88735b0dd3906e2b5904c68705dd158e4"
+    },
+    {
+      "path": "src/interfaces/external/IRewardsDistributor.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dac845b0522b273299cb11b0adbb2aa023a3ca30",
+      "size": 1031,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/dac845b0522b273299cb11b0adbb2aa023a3ca30"
+    },
+    {
+      "path": "src/interfaces/external/IRootVotingRewardsFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad83dc41dea7c7d0837cc8173fb57e2fcef7dabe",
+      "size": 704,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ad83dc41dea7c7d0837cc8173fb57e2fcef7dabe"
+    },
+    {
+      "path": "src/interfaces/external/ISAFESaviour.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a7883ef15e3432d5177309f579b79061a038bb8",
+      "size": 258,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4a7883ef15e3432d5177309f579b79061a038bb8"
+    },
+    {
+      "path": "src/interfaces/external/IStrategyStepExternal.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ed1f5b12eac6a47778457a81da2fd7a768bcef2",
+      "size": 3025,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2ed1f5b12eac6a47778457a81da2fd7a768bcef2"
+    },
+    {
+      "path": "src/interfaces/external/IVeloCLPoolLike.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6481a2253fee1ab9872014838a1f49a0e35178b",
+      "size": 1156,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a6481a2253fee1ab9872014838a1f49a0e35178b"
+    },
+    {
+      "path": "src/interfaces/external/IVeloPool.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1563f2f3786813b419ae655177b4152f551e97a9",
+      "size": 1394,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1563f2f3786813b419ae655177b4152f551e97a9"
+    },
+    {
+      "path": "src/interfaces/external/IVoter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a115f26b93e7456c75e3a1bc785e032a96ea280",
+      "size": 1538,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5a115f26b93e7456c75e3a1bc785e032a96ea280"
+    },
+    {
+      "path": "src/interfaces/external/IVotingEscrow.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24c7436ff9766a3ebf10a0c9c87750d51bf6d590",
+      "size": 868,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/24c7436ff9766a3ebf10a0c9c87750d51bf6d590"
+    },
+    {
+      "path": "src/interfaces/external/IWeth.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae1b2e551533eb646d2c299dda8375d3fa53310e",
+      "size": 249,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ae1b2e551533eb646d2c299dda8375d3fa53310e"
+    },
+    {
+      "path": "src/interfaces/external/IYearnVault.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9c1be31905a9edd53e8b0539cb2faa6c6ab2375",
+      "size": 229,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c9c1be31905a9edd53e8b0539cb2faa6c6ab2375"
+    },
+    {
+      "path": "src/interfaces/external/IYearnVaultV2.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ec4a3ead50d9f07f6eacc8bdbaec6456f670fe5",
+      "size": 567,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3ec4a3ead50d9f07f6eacc8bdbaec6456f670fe5"
+    },
+    {
+      "path": "src/interfaces/factories",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b2d747260c0e1c312063938713037460517fdc4f",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/b2d747260c0e1c312063938713037460517fdc4f"
+    },
+    {
+      "path": "src/interfaces/factories/IAuthorizableChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38aca3cb6f48767443b106c221d331a1dfc02216",
+      "size": 265,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/38aca3cb6f48767443b106c221d331a1dfc02216"
+    },
+    {
+      "path": "src/interfaces/factories/IBeefyVeloVaultRelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45f191aec5c89436f471b8315e6b3c9cb751e5b0",
+      "size": 303,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/45f191aec5c89436f471b8315e6b3c9cb751e5b0"
+    },
+    {
+      "path": "src/interfaces/factories/IBeefyVeloVaultRelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9d90840f801fd3f5772e80ad97220a95a99039a",
+      "size": 1928,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a9d90840f801fd3f5772e80ad97220a95a99039a"
+    },
+    {
+      "path": "src/interfaces/factories/IChainlinkRelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42823ef745bfb781e6eaf2e62764b59ad612bfd6",
+      "size": 283,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/42823ef745bfb781e6eaf2e62764b59ad612bfd6"
+    },
+    {
+      "path": "src/interfaces/factories/IChainlinkRelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd003891833e556e693ea61980ed812b1cfa322f",
+      "size": 2353,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/dd003891833e556e693ea61980ed812b1cfa322f"
+    },
+    {
+      "path": "src/interfaces/factories/ICollateralAuctionHouseChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0edc442c0bd847c2605c9d673e593dc4aaf33b77",
+      "size": 299,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0edc442c0bd847c2605c9d673e593dc4aaf33b77"
+    },
+    {
+      "path": "src/interfaces/factories/ICollateralAuctionHouseFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d340db4819a95ad0514f7d56d338fdcea1309f6",
+      "size": 2980,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9d340db4819a95ad0514f7d56d338fdcea1309f6"
+    },
+    {
+      "path": "src/interfaces/factories/ICollateralJoinChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "55c52a43361cb49ea7187436d453f6ffa487c609",
+      "size": 273,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/55c52a43361cb49ea7187436d453f6ffa487c609"
+    },
+    {
+      "path": "src/interfaces/factories/ICollateralJoinDelegatableChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84fdb8a7486def1d673387afe42109f7e530f4f9",
+      "size": 361,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/84fdb8a7486def1d673387afe42109f7e530f4f9"
+    },
+    {
+      "path": "src/interfaces/factories/ICollateralJoinFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8df35b8047781506d498e8822a92963775f2b737",
+      "size": 3561,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8df35b8047781506d498e8822a92963775f2b737"
+    },
+    {
+      "path": "src/interfaces/factories/ICurveStableSwapNGRelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "708cbed94aae9cc77a23943219344c83b6d28722",
+      "size": 315,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/708cbed94aae9cc77a23943219344c83b6d28722"
+    },
+    {
+      "path": "src/interfaces/factories/ICurveStableSwapNGRelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5e6949555dc4b4282898d05c4f2783c254df5ce",
+      "size": 2041,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e5e6949555dc4b4282898d05c4f2783c254df5ce"
+    },
+    {
+      "path": "src/interfaces/factories/IDelayedOracleChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f56ce3489f6c7e50fa4410d73c51950f44f62a7d",
+      "size": 271,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f56ce3489f6c7e50fa4410d73c51950f44f62a7d"
+    },
+    {
+      "path": "src/interfaces/factories/IDelayedOracleFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97f32a8b115ab7f028f6d2d2a6680546122387fc",
+      "size": 1535,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/97f32a8b115ab7f028f6d2d2a6680546122387fc"
+    },
+    {
+      "path": "src/interfaces/factories/IDenominatedOracleChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9cc39cb3ac9b786beb7279256577a01d32cd15e",
+      "size": 287,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d9cc39cb3ac9b786beb7279256577a01d32cd15e"
+    },
+    {
+      "path": "src/interfaces/factories/IDenominatedOracleFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "266e8f7e428bd03c3278ba104b4c0331f877df2c",
+      "size": 1995,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/266e8f7e428bd03c3278ba104b4c0331f877df2c"
+    },
+    {
+      "path": "src/interfaces/factories/IDisableableChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "012a8c3ab407a477c332874b6b4d82c4cb54d7fa",
+      "size": 261,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/012a8c3ab407a477c332874b6b4d82c4cb54d7fa"
+    },
+    {
+      "path": "src/interfaces/factories/IFactoryChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "706c3f44c57523457f855f050dca0506c42182d7",
+      "size": 565,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/706c3f44c57523457f855f050dca0506c42182d7"
+    },
+    {
+      "path": "src/interfaces/factories/IRewardPoolChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "435e5e15bf723692d66879716a244cd6dd091e55",
+      "size": 258,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/435e5e15bf723692d66879716a244cd6dd091e55"
+    },
+    {
+      "path": "src/interfaces/factories/IRewardPoolFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "deca2046bf721243c82c831c6e99ab59ee1b429f",
+      "size": 2127,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/deca2046bf721243c82c831c6e99ab59ee1b429f"
+    },
+    {
+      "path": "src/interfaces/factories/IUniV3RelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "28691bb5f98ec04935e2c74b5b87ec318e68fb9a",
+      "size": 267,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/28691bb5f98ec04935e2c74b5b87ec318e68fb9a"
+    },
+    {
+      "path": "src/interfaces/factories/IUniV3RelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ad027f82c3122313faa943955de18f393f86ca7",
+      "size": 1780,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4ad027f82c3122313faa943955de18f393f86ca7"
+    },
+    {
+      "path": "src/interfaces/factories/IYearnVeloVaultRelayerChild.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6eac5b42037db69439fc85f62a0fa902ef98f252",
+      "size": 303,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6eac5b42037db69439fc85f62a0fa902ef98f252"
+    },
+    {
+      "path": "src/interfaces/factories/IYearnVeloVaultRelayerFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49b64b970163c8b9a3750259b1e18b44ca1f240b",
+      "size": 1922,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/49b64b970163c8b9a3750259b1e18b44ca1f240b"
+    },
+    {
+      "path": "src/interfaces/governance",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "56dac126fd2ebd659a4b1a15e917e4c676a10ac6",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/56dac126fd2ebd659a4b1a15e917e4c676a10ac6"
+    },
+    {
+      "path": "src/interfaces/governance/IHaiDelegatee.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6e7add00cfdace2e97a7a38ebc6428891b4bae5",
+      "size": 2300,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d6e7add00cfdace2e97a7a38ebc6428891b4bae5"
+    },
+    {
+      "path": "src/interfaces/governance/IHaiGovernor.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87169ca5a7bb629493d88b24d029d3e8d86996dc",
+      "size": 297,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/87169ca5a7bb629493d88b24d029d3e8d86996dc"
+    },
+    {
+      "path": "src/interfaces/jobs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "85050fa73a6447ec10fc1a0c853e6eb215a3cfb3",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/85050fa73a6447ec10fc1a0c853e6eb215a3cfb3"
+    },
+    {
+      "path": "src/interfaces/jobs/IAccountingJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "07138719c98233aab0bac1fd89495aa2aadd4a34",
+      "size": 1813,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/07138719c98233aab0bac1fd89495aa2aadd4a34"
+    },
+    {
+      "path": "src/interfaces/jobs/IEmissionsControllerJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8120d36c101f092ee026c53e2bfb9a9081e6bb62",
+      "size": 859,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8120d36c101f092ee026c53e2bfb9a9081e6bb62"
+    },
+    {
+      "path": "src/interfaces/jobs/IJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaa5a099c3506fd99d1ffe794b7c84a89183503a",
+      "size": 1042,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/aaa5a099c3506fd99d1ffe794b7c84a89183503a"
+    },
+    {
+      "path": "src/interfaces/jobs/ILiquidationJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed3950fe52ad93af9337d55183ed6174899b7bfb",
+      "size": 961,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ed3950fe52ad93af9337d55183ed6174899b7bfb"
+    },
+    {
+      "path": "src/interfaces/jobs/IOracleJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9cd17100215651dbf3ad7af096bbac3f8ce8da96",
+      "size": 1578,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9cd17100215651dbf3ad7af096bbac3f8ce8da96"
+    },
+    {
+      "path": "src/interfaces/jobs/IStabilityPoolCoverJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae5212a09c844477458142f9a68258c43b9f78ba",
+      "size": 1586,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ae5212a09c844477458142f9a68258c43b9f78ba"
+    },
+    {
+      "path": "src/interfaces/jobs/IStabilityPoolSweepJob.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d9a4d31a5355ab785daa01b70f96b5c88905f4f",
+      "size": 1056,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6d9a4d31a5355ab785daa01b70f96b5c88905f4f"
+    },
+    {
+      "path": "src/interfaces/oracles",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "95009bda67d6b05aa06699bb161e18cbab42bcc6",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/95009bda67d6b05aa06699bb161e18cbab42bcc6"
+    },
+    {
+      "path": "src/interfaces/oracles/IAbstractVeloVaultRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b971771b809beaa6d3113e225d9cb470ba3a8ef9",
+      "size": 2355,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b971771b809beaa6d3113e225d9cb470ba3a8ef9"
+    },
+    {
+      "path": "src/interfaces/oracles/IBaseOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "07127358ce738503675aa127ba0fb7ee1d76d2f9",
+      "size": 839,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/07127358ce738503675aa127ba0fb7ee1d76d2f9"
+    },
+    {
+      "path": "src/interfaces/oracles/IBeefyVeloVaultRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d09fda1afcbf843a722d4041f1241df8f80fc1df",
+      "size": 621,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d09fda1afcbf843a722d4041f1241df8f80fc1df"
+    },
+    {
+      "path": "src/interfaces/oracles/IChainlinkOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc6cad9d1859d9b7e54e36ea51b088a4f1c52d83",
+      "size": 963,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cc6cad9d1859d9b7e54e36ea51b088a4f1c52d83"
+    },
+    {
+      "path": "src/interfaces/oracles/IChainlinkRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec9f821ff4ca88e7c39cc07d2a4ccc469b25c04e",
+      "size": 1317,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ec9f821ff4ca88e7c39cc07d2a4ccc469b25c04e"
+    },
+    {
+      "path": "src/interfaces/oracles/ICurveStableSwapNGRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2db16089dc471e5dd69f92239498eb672da62adf",
+      "size": 1651,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2db16089dc471e5dd69f92239498eb672da62adf"
+    },
+    {
+      "path": "src/interfaces/oracles/IDelayedOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "290052408c003b64c207ddd932c2f12ce08405b8",
+      "size": 2371,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/290052408c003b64c207ddd932c2f12ce08405b8"
+    },
+    {
+      "path": "src/interfaces/oracles/IDenominatedOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2ea94d24d730d88481cfcbd781383bcd8cd3c94",
+      "size": 1119,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b2ea94d24d730d88481cfcbd781383bcd8cd3c94"
+    },
+    {
+      "path": "src/interfaces/oracles/IERC4626ShareOracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a37cdee760d1000e265da07968ecb73a1492a96",
+      "size": 1116,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7a37cdee760d1000e265da07968ecb73a1492a96"
+    },
+    {
+      "path": "src/interfaces/oracles/IHaiVeloV2Oracle.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29e9e9b07ce5d644d588b906e06d945d5906e6a0",
+      "size": 583,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/29e9e9b07ce5d644d588b906e06d945d5906e6a0"
+    },
+    {
+      "path": "src/interfaces/oracles/IUniV3Relayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82aa7a8afd8af9ffed29b0a8eb2aee1d478c8113",
+      "size": 1208,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/82aa7a8afd8af9ffed29b0a8eb2aee1d478c8113"
+    },
+    {
+      "path": "src/interfaces/oracles/IYearnVeloVaultRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a2f4e4b8ac49eb7ec6b663e91497960e682ce18",
+      "size": 613,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7a2f4e4b8ac49eb7ec6b663e91497960e682ce18"
+    },
+    {
+      "path": "src/interfaces/proxies",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "def9e8a976d3b5f1868148f926dec11ef4be71b8",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/def9e8a976d3b5f1868148f926dec11ef4be71b8"
+    },
+    {
+      "path": "src/interfaces/proxies/IHaiProxy.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "606081d52371a38efbf1ddc8db864f90ca366090",
+      "size": 803,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/606081d52371a38efbf1ddc8db864f90ca366090"
+    },
+    {
+      "path": "src/interfaces/proxies/IHaiProxyFactory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dca1755ac555d6946edae8fb505863f4e350cec",
+      "size": 1591,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3dca1755ac555d6946edae8fb505863f4e350cec"
+    },
+    {
+      "path": "src/interfaces/proxies/IHaiSafeManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d342b51b6f7007a666533332676f9a3316ae4ba1",
+      "size": 9973,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d342b51b6f7007a666533332676f9a3316ae4ba1"
+    },
+    {
+      "path": "src/interfaces/proxies/actions",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "10ef62fa170db36640864dd94cf4d0b2e0a2aaf3",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/10ef62fa170db36640864dd94cf4d0b2e0a2aaf3"
+    },
+    {
+      "path": "src/interfaces/proxies/actions/IBasicActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9740822a0281b1a8bdcbf22bcf7eb38fa984715",
+      "size": 6405,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b9740822a0281b1a8bdcbf22bcf7eb38fa984715"
+    },
+    {
+      "path": "src/interfaces/proxies/actions/ICollateralBidActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0b841ba8d48d25b97f46a630a3fc38666f4efa4",
+      "size": 1322,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b0b841ba8d48d25b97f46a630a3fc38666f4efa4"
+    },
+    {
+      "path": "src/interfaces/proxies/actions/ICommonActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca81651da056a28a1a3eff88b5402f3cf608d231",
+      "size": 1273,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ca81651da056a28a1a3eff88b5402f3cf608d231"
+    },
+    {
+      "path": "src/interfaces/proxies/actions/IDebtBidActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72c9eb336bcebfbb0445653063f8e26d60c7fc18",
+      "size": 1503,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/72c9eb336bcebfbb0445653063f8e26d60c7fc18"
+    },
+    {
+      "path": "src/interfaces/proxies/actions/IGlobalSettlementActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "511e92e23b918fd4c0537d882cee155bc4eae21a",
+      "size": 1624,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/511e92e23b918fd4c0537d882cee155bc4eae21a"
+    },
+    {
+      "path": "src/interfaces/proxies/actions/IRewardedActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8356bb2f88ad29cc873a2aaf476ddb75e6a8db0",
+      "size": 2668,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f8356bb2f88ad29cc873a2aaf476ddb75e6a8db0"
+    },
+    {
+      "path": "src/interfaces/proxies/actions/ISurplusBidActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "94adda7dec17abe4a8890aaef6860baed6219321",
+      "size": 1101,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/94adda7dec17abe4a8890aaef6860baed6219321"
+    },
+    {
+      "path": "src/interfaces/settlement",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "764fc3cbf8a6246cf428e34585bb61b427dc2033",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/764fc3cbf8a6246cf428e34585bb61b427dc2033"
+    },
+    {
+      "path": "src/interfaces/settlement/IGlobalSettlement.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2dbd0a9b5d6cbd7c3b0eaaa5f74224444dd8f63",
+      "size": 11690,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f2dbd0a9b5d6cbd7c3b0eaaa5f74224444dd8f63"
+    },
+    {
+      "path": "src/interfaces/settlement/IPostSettlementSurplusAuctionHouse.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3f06b4b096d79138f2d784f59de0d5c2ff8039e",
+      "size": 1595,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c3f06b4b096d79138f2d784f59de0d5c2ff8039e"
+    },
+    {
+      "path": "src/interfaces/settlement/ISettlementSurplusAuctioneer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84603880a0dc14cfd44706edf7d7c128730b789a",
+      "size": 1971,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/84603880a0dc14cfd44706edf7d7c128730b789a"
+    },
+    {
+      "path": "src/interfaces/tokens",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "26779e58257a24da3be30ab3132330148176a397",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/26779e58257a24da3be30ab3132330148176a397"
+    },
+    {
+      "path": "src/interfaces/tokens/IProtocolToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec8316ff5ea7f66efeb72b2f727f2a2551c6923d",
+      "size": 1124,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ec8316ff5ea7f66efeb72b2f727f2a2551c6923d"
+    },
+    {
+      "path": "src/interfaces/tokens/IRewardDistributor.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "370f20c1c11defab4277a040b74d8d96657ae003",
+      "size": 5772,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/370f20c1c11defab4277a040b74d8d96657ae003"
+    },
+    {
+      "path": "src/interfaces/tokens/IRewardPool.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ac7f8a0ca809c50c22e2c0ff5e5a0869c78d9df",
+      "size": 8170,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5ac7f8a0ca809c50c22e2c0ff5e5a0869c78d9df"
+    },
+    {
+      "path": "src/interfaces/tokens/IStakingManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a47288e1fb2570b56741e391e51aa85f864fa639",
+      "size": 13330,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a47288e1fb2570b56741e391e51aa85f864fa639"
+    },
+    {
+      "path": "src/interfaces/tokens/IStakingToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5a3f9aff954a445adcf6fcfc46045cdf358c2be",
+      "size": 2876,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c5a3f9aff954a445adcf6fcfc46045cdf358c2be"
+    },
+    {
+      "path": "src/interfaces/tokens/ISystemCoin.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "067a22a3f52c901af806dbfbe33aece9e1cb34fc",
+      "size": 740,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/067a22a3f52c901af806dbfbe33aece9e1cb34fc"
+    },
+    {
+      "path": "src/interfaces/tokens/ITokenDistributor.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d67caf3626f4dcbe12a38ba55bda0dd6e062628",
+      "size": 3798,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2d67caf3626f4dcbe12a38ba55bda0dd6e062628"
+    },
+    {
+      "path": "src/interfaces/tokens/IVeNFTManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41abdc865c632c08485babd7cf0237ae15042ec9",
+      "size": 11764,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/41abdc865c632c08485babd7cf0237ae15042ec9"
+    },
+    {
+      "path": "src/interfaces/tokens/IWrappedToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb1e7ae814c60c900e53205853435a11a13d4d28",
+      "size": 2078,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/eb1e7ae814c60c900e53205853435a11a13d4d28"
+    },
+    {
+      "path": "src/interfaces/tokens/IWrappedTokenV2.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88574238009f8b523e1661546454d527117a5bac",
+      "size": 4800,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/88574238009f8b523e1661546454d527117a5bac"
+    },
+    {
+      "path": "src/interfaces/tokens/IWrappedTokenV2NoMigration.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a78eda69a7a2e3ce592899e15ebfc830f37556d0",
+      "size": 4110,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a78eda69a7a2e3ce592899e15ebfc830f37556d0"
+    },
+    {
+      "path": "src/interfaces/tokens/IWrappedTokenV3.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18f33c7fd6181b4218c54400dc44851f05c15a32",
+      "size": 9464,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/18f33c7fd6181b4218c54400dc44851f05c15a32"
+    },
+    {
+      "path": "src/interfaces/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "394a9bf86813a36d093062ac914e5ada4447cd56",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/394a9bf86813a36d093062ac914e5ada4447cd56"
+    },
+    {
+      "path": "src/interfaces/utils/IAuthorizable.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c876650a165ba7c6f1d04fd74ed47cf84b6923e",
+      "size": 1790,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7c876650a165ba7c6f1d04fd74ed47cf84b6923e"
+    },
+    {
+      "path": "src/interfaces/utils/ICoinJoin.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c652ffe0d7bc31e0acdec8b30b7f128302cfda8",
+      "size": 2539,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0c652ffe0d7bc31e0acdec8b30b7f128302cfda8"
+    },
+    {
+      "path": "src/interfaces/utils/ICollateralJoin.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc606f3cb431a0dc041e3df0152e2e5ef6646722",
+      "size": 2643,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cc606f3cb431a0dc041e3df0152e2e5ef6646722"
+    },
+    {
+      "path": "src/interfaces/utils/IDisableable.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61c732e653a56e97c272a66718a68ad44c97dd30",
+      "size": 1091,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/61c732e653a56e97c272a66718a68ad44c97dd30"
+    },
+    {
+      "path": "src/interfaces/utils/IHaiOwnable2Step.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6559e5715fc237c4b94ce648c31342d7335bbcc",
+      "size": 1673,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d6559e5715fc237c4b94ce648c31342d7335bbcc"
+    },
+    {
+      "path": "src/interfaces/utils/IModifiable.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9b7d25d0de385c6936774bb9bff131b00b59d74",
+      "size": 738,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f9b7d25d0de385c6936774bb9bff131b00b59d74"
+    },
+    {
+      "path": "src/interfaces/utils/IModifiablePerCollateral.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "760f7f2363fee2951a34fbc5b63e19749cc5ea61",
+      "size": 1451,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/760f7f2363fee2951a34fbc5b63e19749cc5ea61"
+    },
+    {
+      "path": "src/libraries",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b890c9977d5c05bc51a65c56755947324bded2ca",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/b890c9977d5c05bc51a65c56755947324bded2ca"
+    },
+    {
+      "path": "src/libraries/Assertions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a952a1cf5a1d6282693b7f0468f10656132f036",
+      "size": 3591,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9a952a1cf5a1d6282693b7f0468f10656132f036"
+    },
+    {
+      "path": "src/libraries/Encoding.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f1bde41fd762461fee2b6ebca8d27c9c7f44654",
+      "size": 1389,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4f1bde41fd762461fee2b6ebca8d27c9c7f44654"
+    },
+    {
+      "path": "src/libraries/FixedPointMathLib.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b544653599d4c7cb2075d12784b47033d8ce109c",
+      "size": 10057,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b544653599d4c7cb2075d12784b47033d8ce109c"
+    },
+    {
+      "path": "src/libraries/LiquidityMath.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96f904efe1484463ab425b168f7747d0dbe97a0f",
+      "size": 475,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/96f904efe1484463ab425b168f7747d0dbe97a0f"
+    },
+    {
+      "path": "src/libraries/Math.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c3f41c8743a0fd9a98ba8d4d339e246f25caf325",
+      "size": 8262,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c3f41c8743a0fd9a98ba8d4d339e246f25caf325"
+    },
+    {
+      "path": "src/libraries/ShareValueHelper.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e0ada3de3aea59f735b0bb648d7e4c37a360723",
+      "size": 2028,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1e0ada3de3aea59f735b0bb648d7e4c37a360723"
+    },
+    {
+      "path": "test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c7090e225ac6f76a09dc8ea0f812e017f2a75815",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/c7090e225ac6f76a09dc8ea0f812e017f2a75815"
+    },
+    {
+      "path": "test/audit",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a832ca144e71fe31ed98b15076a818e6dddd3578",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/a832ca144e71fe31ed98b15076a818e6dddd3578"
+    },
+    {
+      "path": "test/audit/WrappedTokenV3Audit.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6ad5643e0e099810ce059b7924578a553e30a19",
+      "size": 11197,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a6ad5643e0e099810ce059b7924578a553e30a19"
+    },
+    {
+      "path": "test/audit/WrappedTokenV3ForkAudit.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e31c6051b0bb11092db66340e65dd2a8acd4bdb",
+      "size": 4864,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7e31c6051b0bb11092db66340e65dd2a8acd4bdb"
+    },
+    {
+      "path": "test/e2e",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "557385f8fbfe5d7030699da2655a63c74235aa24",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/557385f8fbfe5d7030699da2655a63c74235aa24"
+    },
+    {
+      "path": "test/e2e/Common.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d32c87eaf215baddc6a0c10559e6ae96d71d5e4",
+      "size": 4063,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9d32c87eaf215baddc6a0c10559e6ae96d71d5e4"
+    },
+    {
+      "path": "test/e2e/Deploy.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb886c176095726d44bb11b2b585ba2afc4d4558",
+      "size": 22316,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fb886c176095726d44bb11b2b585ba2afc4d4558"
+    },
+    {
+      "path": "test/e2e/E2EGlobalSettlement.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8e832f5346de812e19456b96fd9fa48cf1c674e",
+      "size": 16383,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f8e832f5346de812e19456b96fd9fa48cf1c674e"
+    },
+    {
+      "path": "test/e2e/E2EGovernor.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cf38ace5c3834c300d00628e45a0a35fa76e8a08",
+      "size": 3757,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cf38ace5c3834c300d00628e45a0a35fa76e8a08"
+    },
+    {
+      "path": "test/e2e/E2EJobs.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8266cbd5461c17fe5f1cbdf87ad04ed90ec23bc8",
+      "size": 3543,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8266cbd5461c17fe5f1cbdf87ad04ed90ec23bc8"
+    },
+    {
+      "path": "test/e2e/E2EOracles.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f06a8ad1a7b50520cf4a852cca28831031eb54a1",
+      "size": 10495,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f06a8ad1a7b50520cf4a852cca28831031eb54a1"
+    },
+    {
+      "path": "test/e2e/E2EStabilityFeeTreasury.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d688e2c560d8082edb31905139f63fb5c3d8484b",
+      "size": 6059,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d688e2c560d8082edb31905139f63fb5c3d8484b"
+    },
+    {
+      "path": "test/e2e/E2ETest.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ea5da242ba7cce30dd794ad69abd71f03080bd7",
+      "size": 16974,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1ea5da242ba7cce30dd794ad69abd71f03080bd7"
+    },
+    {
+      "path": "test/e2e/TestParams.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1005fad42c870babf858ea178f9cec63fe99094a",
+      "size": 5195,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1005fad42c870babf858ea178f9cec63fe99094a"
+    },
+    {
+      "path": "test/e2e/stability-pool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a1e6d4920f1d1f894244ac6d8e3110737478f471",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/a1e6d4920f1d1f894244ac6d8e3110737478f471"
+    },
+    {
+      "path": "test/e2e/stability-pool/E2EStabilityPoolCoverAndRepayDebt.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2635654951ceafef6904d3344bcf9b9440eee72",
+      "size": 42821,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f2635654951ceafef6904d3344bcf9b9440eee72"
+    },
+    {
+      "path": "test/e2e/stability-pool/E2EStabilityPoolEmissions.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18a3d32e2bbea7f3ccfe90ba019415b9052998fd",
+      "size": 38158,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/18a3d32e2bbea7f3ccfe90ba019415b9052998fd"
+    },
+    {
+      "path": "test/e2e/stability-pool/E2EStabilityPoolStrategyPipelines.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b22a7ee1153274557b3437e66ef4996bb5d284f7",
+      "size": 26542,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b22a7ee1153274557b3437e66ef4996bb5d284f7"
+    },
+    {
+      "path": "test/e2e/stability-pool/E2EStabilityPoolStrategySteps.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0965c028e9d1145da0347cc0ef70b0e3cedcec8",
+      "size": 17262,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e0965c028e9d1145da0347cc0ef70b0e3cedcec8"
+    },
+    {
+      "path": "test/mocks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "10e00a59095b0a3197425d9a86e7da98cdc20aa5",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/10e00a59095b0a3197425d9a86e7da98cdc20aa5"
+    },
+    {
+      "path": "test/mocks/AccountingEngineForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42ccd9de8ecff313941a164c3b3f9cbea2ede7ae",
+      "size": 565,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/42ccd9de8ecff313941a164c3b3f9cbea2ede7ae"
+    },
+    {
+      "path": "test/mocks/AccountingJobForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7330d99cb0f7a3c0361b0c7477201e0e2906fe8e",
+      "size": 979,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7330d99cb0f7a3c0361b0c7477201e0e2906fe8e"
+    },
+    {
+      "path": "test/mocks/AeroMigrationMocks.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5f299609ca9b5b1c9df641b34381cc06610ed28",
+      "size": 4277,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e5f299609ca9b5b1c9df641b34381cc06610ed28"
+    },
+    {
+      "path": "test/mocks/AuthorizableForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad3d75f12c4b1593fbc672d4fa50f26c2fedcc5e",
+      "size": 551,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ad3d75f12c4b1593fbc672d4fa50f26c2fedcc5e"
+    },
+    {
+      "path": "test/mocks/BasicRawPIDController.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e003709420e640ee8a9adb092a4a8777702ea9b",
+      "size": 1024,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2e003709420e640ee8a9adb092a4a8777702ea9b"
+    },
+    {
+      "path": "test/mocks/CoinForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d527a5f448bc7fa7b612b4de4a32fc346ac896f",
+      "size": 714,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4d527a5f448bc7fa7b612b4de4a32fc346ac896f"
+    },
+    {
+      "path": "test/mocks/CoinJoinForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32fadb9932ab9e4ee1f87e3bfc14ca2ffb218f66",
+      "size": 373,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/32fadb9932ab9e4ee1f87e3bfc14ca2ffb218f66"
+    },
+    {
+      "path": "test/mocks/CollateralAuctionHouseFactoryForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "660fdf300a717297a54da4a429ac74432e850622",
+      "size": 826,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/660fdf300a717297a54da4a429ac74432e850622"
+    },
+    {
+      "path": "test/mocks/CollateralAuctionHouseForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21f2c21260c69ac90932abb330870bdde288f042",
+      "size": 2087,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/21f2c21260c69ac90932abb330870bdde288f042"
+    },
+    {
+      "path": "test/mocks/CollateralJoinFactoryForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e874253ae75d22ab4134d59168525196138812af",
+      "size": 660,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e874253ae75d22ab4134d59168525196138812af"
+    },
+    {
+      "path": "test/mocks/CollateralJoinForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32080332592e114e81edbef157a1c2ac0aca3422",
+      "size": 449,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/32080332592e114e81edbef157a1c2ac0aca3422"
+    },
+    {
+      "path": "test/mocks/DebtAuctionHouseForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b69d329150551ac5ae92426de86c79c7c5e9bba7",
+      "size": 806,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b69d329150551ac5ae92426de86c79c7c5e9bba7"
+    },
+    {
+      "path": "test/mocks/DelayedOracleForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f50fccc4c9215b43f646eefcb349e176ae2ad10",
+      "size": 1886,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4f50fccc4c9215b43f646eefcb349e176ae2ad10"
+    },
+    {
+      "path": "test/mocks/DisableableForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86344bcd8fee54cfc7e9d3ef934af4d308348f4e",
+      "size": 542,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/86344bcd8fee54cfc7e9d3ef934af4d308348f4e"
+    },
+    {
+      "path": "test/mocks/ERC20ForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2de6affa8fb2ddb91d36026361e80d9719589a60",
+      "size": 479,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2de6affa8fb2ddb91d36026361e80d9719589a60"
+    },
+    {
+      "path": "test/mocks/EmissionsControllerJobForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "472e2d16113ae4d1257214f5389abaf8d007ade6",
+      "size": 589,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/472e2d16113ae4d1257214f5389abaf8d007ade6"
+    },
+    {
+      "path": "test/mocks/HaiAeroHyperlaneMocks.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fee9ab668c6fa810a293d9970b2525bd911dc56",
+      "size": 1634,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5fee9ab668c6fa810a293d9970b2525bd911dc56"
+    },
+    {
+      "path": "test/mocks/HaiSafeManagerForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab3c427fcb3af2dce5a21bfef049c06460100422",
+      "size": 727,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ab3c427fcb3af2dce5a21bfef049c06460100422"
+    },
+    {
+      "path": "test/mocks/JobForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "052f6563f39e7021fe04276b0d29bec6ce70e4c2",
+      "size": 418,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/052f6563f39e7021fe04276b0d29bec6ce70e4c2"
+    },
+    {
+      "path": "test/mocks/LiquidationEngineForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a230a1ff5dfa6e8ecb3d7c84c85d9037c9117f0",
+      "size": 1107,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3a230a1ff5dfa6e8ecb3d7c84c85d9037c9117f0"
+    },
+    {
+      "path": "test/mocks/LiquidationJobForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c09709eb527e4a1ce47f7d0f3dd970eb89cb313c",
+      "size": 474,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c09709eb527e4a1ce47f7d0f3dd970eb89cb313c"
+    },
+    {
+      "path": "test/mocks/ModifiableForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4ad296a0493ea0090b6d011ab928f893b01c9e5",
+      "size": 388,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d4ad296a0493ea0090b6d011ab928f893b01c9e5"
+    },
+    {
+      "path": "test/mocks/ModifiablePerCollateralForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e428f4922aaf70de4c91063f6061988da63aedc",
+      "size": 655,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5e428f4922aaf70de4c91063f6061988da63aedc"
+    },
+    {
+      "path": "test/mocks/OracleForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c6ecf1ee7b106e2ceaad366240fe49ffe6d031e",
+      "size": 1138,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6c6ecf1ee7b106e2ceaad366240fe49ffe6d031e"
+    },
+    {
+      "path": "test/mocks/OracleForTestnet.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e97c3463504f446de4c2f28a53503ebd31c4cf9b",
+      "size": 693,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e97c3463504f446de4c2f28a53503ebd31c4cf9b"
+    },
+    {
+      "path": "test/mocks/OracleJobForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bfb0a1456bfec7c4b683e5a375c53f153f1cf90",
+      "size": 695,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2bfb0a1456bfec7c4b683e5a375c53f153f1cf90"
+    },
+    {
+      "path": "test/mocks/OracleRelayerForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8c77d0aae2dcf3aee8b43e51c2236cce1137caa",
+      "size": 2042,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d8c77d0aae2dcf3aee8b43e51c2236cce1137caa"
+    },
+    {
+      "path": "test/mocks/PIDControllerForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dada0f0a2b0829c88c3960aa154a125302ee1179",
+      "size": 7594,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/dada0f0a2b0829c88c3960aa154a125302ee1179"
+    },
+    {
+      "path": "test/mocks/PostSettlementSurplusAuctionHouseForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ce69a424aa09123410e200b6299c7f2f4d3b719",
+      "size": 930,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7ce69a424aa09123410e200b6299c7f2f4d3b719"
+    },
+    {
+      "path": "test/mocks/RawPIDController.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ac8c4b849a171c294a6111515ac4c4b1c6d1d11",
+      "size": 892,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3ac8c4b849a171c294a6111515ac4c4b1c6d1d11"
+    },
+    {
+      "path": "test/mocks/RewardPoolFactoryForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4bd174323cd21562ee6e8917c3f129d06321dfd9",
+      "size": 423,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4bd174323cd21562ee6e8917c3f129d06321dfd9"
+    },
+    {
+      "path": "test/mocks/RewardsDistributorForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "876ee8045ba304094b127a5420be4d74ae3d43d3",
+      "size": 614,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/876ee8045ba304094b127a5420be4d74ae3d43d3"
+    },
+    {
+      "path": "test/mocks/RootVotingRewardsFactoryForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a1a0701a59c35e5254fc49ff8de8ed5d23bc5a5",
+      "size": 468,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9a1a0701a59c35e5254fc49ff8de8ed5d23bc5a5"
+    },
+    {
+      "path": "test/mocks/SAFEEngineForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "289290853ea6429358c0797dc673b9be9f263fb4",
+      "size": 1069,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/289290853ea6429358c0797dc673b9be9f263fb4"
+    },
+    {
+      "path": "test/mocks/StabilityFeeTreasuryForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "672c84bb6220234b453001931f9dca6e5b32bc3d",
+      "size": 535,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/672c84bb6220234b453001931f9dca6e5b32bc3d"
+    },
+    {
+      "path": "test/mocks/StabilityPoolCoverJobForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3db7c3935973a30c165d4df470c80bd28af0967",
+      "size": 570,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a3db7c3935973a30c165d4df470c80bd28af0967"
+    },
+    {
+      "path": "test/mocks/StabilityPoolSweepJobForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "403ea9a6978655affc829a54f05ccf7555412bed",
+      "size": 570,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/403ea9a6978655affc829a54f05ccf7555412bed"
+    },
+    {
+      "path": "test/mocks/StakingManagerForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0617c97235633d3d159d50075acb8e8c0bf6827d",
+      "size": 480,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0617c97235633d3d159d50075acb8e8c0bf6827d"
+    },
+    {
+      "path": "test/mocks/SurplusAuctionHouseForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0705ad4b6967169e8d11938fdda800094c55f3b9",
+      "size": 931,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0705ad4b6967169e8d11938fdda800094c55f3b9"
+    },
+    {
+      "path": "test/mocks/TaxCollectorForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5844677aa20f13212507dd8ada574dc7084e9903",
+      "size": 1711,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5844677aa20f13212507dd8ada574dc7084e9903"
+    },
+    {
+      "path": "test/mocks/VoterForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51c8c4614bf334d2d9451ee5a82eb4ef3f566a7f",
+      "size": 520,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/51c8c4614bf334d2d9451ee5a82eb4ef3f566a7f"
+    },
+    {
+      "path": "test/mocks/VotingEscrowForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f170a367062ab01b64b196905f7ca9ce2fa4e3b",
+      "size": 1637,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8f170a367062ab01b64b196905f7ca9ce2fa4e3b"
+    },
+    {
+      "path": "test/mocks/WETH9.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5cfc4df967755021967c9b86c12abeaaac7069a",
+      "size": 1804,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d5cfc4df967755021967c9b86c12abeaaac7069a"
+    },
+    {
+      "path": "test/mocks/WrappedTokenV3Mocks.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bcddc19a91548d4466f74d054622fd06baad7a6b",
+      "size": 1358,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/bcddc19a91548d4466f74d054622fd06baad7a6b"
+    },
+    {
+      "path": "test/mocks/stability-pool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0e9f51a7e9fedd6285cbc05e93a3f149dda4831e",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/0e9f51a7e9fedd6285cbc05e93a3f149dda4831e"
+    },
+    {
+      "path": "test/mocks/stability-pool/admin",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4e8b98e2f4bc9b87566d3338c1074d1e35f2c650",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/4e8b98e2f4bc9b87566d3338c1074d1e35f2c650"
+    },
+    {
+      "path": "test/mocks/stability-pool/admin/StabilityPoolAdminForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcc6c2f201def27496b205c2f520b43a661660b0",
+      "size": 2675,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fcc6c2f201def27496b205c2f520b43a661660b0"
+    },
+    {
+      "path": "test/mocks/stability-pool/core",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "23f95c2f1e6f38fc188d1cb79d956bf0544d9b4b",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/23f95c2f1e6f38fc188d1cb79d956bf0544d9b4b"
+    },
+    {
+      "path": "test/mocks/stability-pool/core/EmissionsControllerForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7323178cef8d4133f48d97f6d88dc0915cfc5b26",
+      "size": 1622,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7323178cef8d4133f48d97f6d88dc0915cfc5b26"
+    },
+    {
+      "path": "test/mocks/stability-pool/core/StabilityPoolCoreForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2fe41d11b2546b04341580748b72f0581730469",
+      "size": 4291,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b2fe41d11b2546b04341580748b72f0581730469"
+    },
+    {
+      "path": "test/mocks/stability-pool/cover-flow",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d0528d726cbb903509b38260e7bf391fa379ae2a",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/d0528d726cbb903509b38260e7bf391fa379ae2a"
+    },
+    {
+      "path": "test/mocks/stability-pool/cover-flow/StabilityPoolCoverFlowForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4444d5fff1df77bc4e03673bf2b588bb0173d899",
+      "size": 4417,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4444d5fff1df77bc4e03673bf2b588bb0173d899"
+    },
+    {
+      "path": "test/mocks/stability-pool/strategy-steps",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d26be52e6b680df24de938ac0e771848cab11991",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/d26be52e6b680df24de938ac0e771848cab11991"
+    },
+    {
+      "path": "test/mocks/stability-pool/strategy-steps/StrategyStepsForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d0b2a36ed09c9ba5577d9ba089124555197d9d9",
+      "size": 25335,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0d0b2a36ed09c9ba5577d9ba089124555197d9d9"
+    },
+    {
+      "path": "test/mocks/stability-pool/strategy",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "59b254cbdcee662d3a399cb8e140c1bd105e8625",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/59b254cbdcee662d3a399cb8e140c1bd105e8625"
+    },
+    {
+      "path": "test/mocks/stability-pool/strategy/StabilityPoolStrategyFailureForTest.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "381afbc20063e97638c2b6e826553e088e8a4b23",
+      "size": 8091,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/381afbc20063e97638c2b6e826553e088e8a4b23"
+    },
+    {
+      "path": "test/rrfm",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ed6611055f2b3389619b96aafc1b31fc4e8cbe6e",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/ed6611055f2b3389619b96aafc1b31fc4e8cbe6e"
+    },
+    {
+      "path": "test/rrfm/p",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ab2dd36116e9ef17bbd047ea140f089c2b54e8ec",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/ab2dd36116e9ef17bbd047ea140f089c2b54e8ec"
+    },
+    {
+      "path": "test/rrfm/p/PRawPerSecondCalculator.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0003d0d4fc7e6f5475320f5f212b77030ff97bc1",
+      "size": 15862,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0003d0d4fc7e6f5475320f5f212b77030ff97bc1"
+    },
+    {
+      "path": "test/rrfm/pi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d9169b82275b095dabe6eab895a4ffde1e975fb4",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/d9169b82275b095dabe6eab895a4ffde1e975fb4"
+    },
+    {
+      "path": "test/rrfm/pi/BasicPIRawPerSecondCalculator.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c4bc9de8090ba97bfeb77b9793dc5a8dcaa77f4",
+      "size": 19260,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4c4bc9de8090ba97bfeb77b9793dc5a8dcaa77f4"
+    },
+    {
+      "path": "test/rrfm/pi/PIRawPerSecondCalculator.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b088f5ae41acc69175a8ec841d51bbff024cfae8",
+      "size": 21607,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b088f5ae41acc69175a8ec841d51bbff024cfae8"
+    },
+    {
+      "path": "test/rrfm/pi/PIScaledPerSecondCalculator.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3da6d8978e6343d8a9db046c2e5949081735ee1b",
+      "size": 21744,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3da6d8978e6343d8a9db046c2e5949081735ee1b"
+    },
+    {
+      "path": "test/rrfm/setter",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "97fe2b7512dd900ee2d37d939633081a39018196",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/97fe2b7512dd900ee2d37d939633081a39018196"
+    },
+    {
+      "path": "test/rrfm/setter/PIDRateSetter.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a172748f1017ac65f5ab828f54f5486fe297dd9e",
+      "size": 4162,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a172748f1017ac65f5ab828f54f5486fe297dd9e"
+    },
+    {
+      "path": "test/rrfm/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "79b5279547a2076120a7886e6d1c6d44ff3eb621",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/79b5279547a2076120a7886e6d1c6d44ff3eb621"
+    },
+    {
+      "path": "test/rrfm/utils/mock",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5405664abf9af2f65b515a24d45c49740348a8ad",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/5405664abf9af2f65b515a24d45c49740348a8ad"
+    },
+    {
+      "path": "test/rrfm/utils/mock/MockOracleRelayer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f5b79766fa8c38d27a350969e6d01f99535cef5",
+      "size": 4039,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7f5b79766fa8c38d27a350969e6d01f99535cef5"
+    },
+    {
+      "path": "test/rrfm/utils/mock/MockPIDCalculator.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da81601dbd09dafee995f90bae9126ebff3d3786",
+      "size": 1043,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/da81601dbd09dafee995f90bae9126ebff3d3786"
+    },
+    {
+      "path": "test/rrfm/utils/mock/MockPIDRateSetter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53d5491a421d6d05ccef4fb946404ab70f4e5609",
+      "size": 2734,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/53d5491a421d6d05ccef4fb946404ab70f4e5609"
+    },
+    {
+      "path": "test/scopes",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3b6a62fff466ca45af0a9de37be1d97cd3dd33f1",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/3b6a62fff466ca45af0a9de37be1d97cd3dd33f1"
+    },
+    {
+      "path": "test/scopes/BaseUser.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f42b73c3b68c604a64e0e40ba85a86728cdb69b1",
+      "size": 3481,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f42b73c3b68c604a64e0e40ba85a86728cdb69b1"
+    },
+    {
+      "path": "test/scopes/Base_CType.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e14fff4fceea6ca342b953ffceb60dfd9c6ad6c7",
+      "size": 347,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e14fff4fceea6ca342b953ffceb60dfd9c6ad6c7"
+    },
+    {
+      "path": "test/scopes/DirectUser.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "421daf68d359245efb8dcd924b41e2153e957e82",
+      "size": 9706,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/421daf68d359245efb8dcd924b41e2153e957e82"
+    },
+    {
+      "path": "test/scopes/ETH_CType.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01820350ebff1ad233f8d83e86129051e2f356a8",
+      "size": 265,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/01820350ebff1ad233f8d83e86129051e2f356a8"
+    },
+    {
+      "path": "test/scopes/ProxyUser.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23708366ff1ac9ceca43431144f18552cab7325f",
+      "size": 14898,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/23708366ff1ac9ceca43431144f18552cab7325f"
+    },
+    {
+      "path": "test/scopes/TKN_8D_CType.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51a1a351e4a4463120572cbf6470a85981cd4089",
+      "size": 269,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/51a1a351e4a4463120572cbf6470a85981cd4089"
+    },
+    {
+      "path": "test/scopes/TKN_CType.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "551639723da396a5c8bc4ea1bb28c7299ec2b7c8",
+      "size": 263,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/551639723da396a5c8bc4ea1bb28c7299ec2b7c8"
+    },
+    {
+      "path": "test/simulations",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5e098825e3c2e22aa62b4976baff1e2be9d1f847",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/5e098825e3c2e22aa62b4976baff1e2be9d1f847"
+    },
+    {
+      "path": "test/simulations/SimulationPIDController.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9c827d800118eb28cbeb0f69ec5bead151a15e0",
+      "size": 5732,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b9c827d800118eb28cbeb0f69ec5bead151a15e0"
+    },
+    {
+      "path": "test/simulations/pid-controller",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "36f7654d307916e5d68ad4751e0d809abb08ca04",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/36f7654d307916e5d68ad4751e0d809abb08ca04"
+    },
+    {
+      "path": "test/simulations/pid-controller/decay_with_impulse.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f0c275448916339a02bcf7c1cad48c5e5ace3e3",
+      "size": 1226,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8f0c275448916339a02bcf7c1cad48c5e5ace3e3"
+    },
+    {
+      "path": "test/simulations/pid-controller/decay_with_step.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "29184f91c4c498e7df215b0240916533e8e95747",
+      "size": 1562,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/29184f91c4c498e7df215b0240916533e8e95747"
+    },
+    {
+      "path": "test/simulations/pid-controller/integral_gain_with_impulse.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab70383e7e0cd88ec8e37d1ea69a815d5cd06980",
+      "size": 1132,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ab70383e7e0cd88ec8e37d1ea69a815d5cd06980"
+    },
+    {
+      "path": "test/simulations/pid-controller/integral_gain_with_step.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "462a15ff68e952f1efbcf815519fce8677316ef7",
+      "size": 1534,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/462a15ff68e952f1efbcf815519fce8677316ef7"
+    },
+    {
+      "path": "test/simulations/pid-controller/no_gain_with_impulse.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bada5f074f88af7c3e8ebdf2036d3c81eb5fcc94",
+      "size": 898,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/bada5f074f88af7c3e8ebdf2036d3c81eb5fcc94"
+    },
+    {
+      "path": "test/simulations/pid-controller/no_gain_with_step.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36e8a5d0d6b7f0c685ffadaa6c286c2079b9b1fa",
+      "size": 1562,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/36e8a5d0d6b7f0c685ffadaa6c286c2079b9b1fa"
+    },
+    {
+      "path": "test/simulations/pid-controller/production_setup_with_impulse.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c885c9c205de66d4894d7e3cf4aedf6b2f8d3dfc",
+      "size": 1296,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c885c9c205de66d4894d7e3cf4aedf6b2f8d3dfc"
+    },
+    {
+      "path": "test/simulations/pid-controller/production_setup_with_step.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b520eff7eac950323fe678230258cf5f224db669",
+      "size": 1531,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b520eff7eac950323fe678230258cf5f224db669"
+    },
+    {
+      "path": "test/simulations/pid-controller/proportional_gain_with_impulse.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "677d4f77bba1810d08485fdb0dbe645271ed3f8c",
+      "size": 1131,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/677d4f77bba1810d08485fdb0dbe645271ed3f8c"
+    },
+    {
+      "path": "test/simulations/pid-controller/proportional_gain_with_step.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fab618734a6024b7a09053afd6db422e316d2513",
+      "size": 1532,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fab618734a6024b7a09053afd6db422e316d2513"
+    },
+    {
+      "path": "test/single",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a6f58f9e0bb8dbb4989faa2ceefdbf6515c7032e",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/a6f58f9e0bb8dbb4989faa2ceefdbf6515c7032e"
+    },
+    {
+      "path": "test/single/AccountingEngine.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78ecf8604d21647e64e4a4b94b62014c6050324e",
+      "size": 19492,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/78ecf8604d21647e64e4a4b94b62014c6050324e"
+    },
+    {
+      "path": "test/single/CollateralAuctionHouse.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c8b729b05e0ff1173a0275f3c78f129a705dcb8",
+      "size": 32448,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6c8b729b05e0ff1173a0275f3c78f129a705dcb8"
+    },
+    {
+      "path": "test/single/DebtAuctionHouse.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62b21b521d536e09e89a670c26716c828fb5c00a",
+      "size": 12722,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/62b21b521d536e09e89a670c26716c828fb5c00a"
+    },
+    {
+      "path": "test/single/GlobalSettlement.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c9dcf4a3ddd94d2ea72126dd9df8ff1a9519678",
+      "size": 45677,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1c9dcf4a3ddd94d2ea72126dd9df8ff1a9519678"
+    },
+    {
+      "path": "test/single/SAFEEngine.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4265a55cc6345e3afc791e9ed3525587c20814a",
+      "size": 61594,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a4265a55cc6345e3afc791e9ed3525587c20814a"
+    },
+    {
+      "path": "test/single/SaveSAFE.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4df5d0cf8c6aa384a6997d544f611777a573eaa4",
+      "size": 14164,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4df5d0cf8c6aa384a6997d544f611777a573eaa4"
+    },
+    {
+      "path": "test/single/SettlementSurplusAuctioneer.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd16e6de633a066b2970aa12cadd1e8a99589c1d",
+      "size": 5599,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/bd16e6de633a066b2970aa12cadd1e8a99589c1d"
+    },
+    {
+      "path": "test/single/StabilityFeeTreasury.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fc0af568d9776c892b2fad918fb4410473d3584",
+      "size": 17644,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3fc0af568d9776c892b2fad918fb4410473d3584"
+    },
+    {
+      "path": "test/single/SurplusAuctionHouse.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33b21ed5c6f15e1d886499fa69521ff30f4b9407",
+      "size": 27315,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/33b21ed5c6f15e1d886499fa69521ff30f4b9407"
+    },
+    {
+      "path": "test/single/TaxCollector.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6da7e22ede095290226604fce2bcdf25be4980cb",
+      "size": 47694,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6da7e22ede095290226604fce2bcdf25be4980cb"
+    },
+    {
+      "path": "test/single/TokenDistributor.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3f6348c0eaaa765ba110bd55acf8a3b3cd7596c",
+      "size": 2729,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b3f6348c0eaaa765ba110bd55acf8a3b3cd7596c"
+    },
+    {
+      "path": "test/single/TransferSAFECollateralAndDebt.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "56c11afc183347d1e7252a71ffaad14d3daf34a0",
+      "size": 5823,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/56c11afc183347d1e7252a71ffaad14d3daf34a0"
+    },
+    {
+      "path": "test/unit",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "386ba8bde8617dad8ca2f82a755f59f300b3f1f3",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/386ba8bde8617dad8ca2f82a755f59f300b3f1f3"
+    },
+    {
+      "path": "test/unit/AccountingEngine.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8cbe81dd7ea3f5da22695a2025488da34be044bf",
+      "size": 44544,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8cbe81dd7ea3f5da22695a2025488da34be044bf"
+    },
+    {
+      "path": "test/unit/Authorizable.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8980d9bfaf82050c61296bb727ca74529c207abb",
+      "size": 4469,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8980d9bfaf82050c61296bb727ca74529c207abb"
+    },
+    {
+      "path": "test/unit/CoinJoin.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30720132ea5530933d963a958750353d48fffb81",
+      "size": 6013,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/30720132ea5530933d963a958750353d48fffb81"
+    },
+    {
+      "path": "test/unit/CollateralAuctionHouse.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59f9ef8274991bbdcf675333e648f7ae9881fbac",
+      "size": 66806,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/59f9ef8274991bbdcf675333e648f7ae9881fbac"
+    },
+    {
+      "path": "test/unit/CollateralAuctionHouseFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a69e9355c17b10101102a3e5844c3f97386c152",
+      "size": 11597,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9a69e9355c17b10101102a3e5844c3f97386c152"
+    },
+    {
+      "path": "test/unit/CollateralJoin.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ff1e2bc0d29b60efb230cd28649e2d0dad81199",
+      "size": 9932,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4ff1e2bc0d29b60efb230cd28649e2d0dad81199"
+    },
+    {
+      "path": "test/unit/CollateralJoinFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9f53c9a7486d28554572d7c200c43cb62fa2643",
+      "size": 12510,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e9f53c9a7486d28554572d7c200c43cb62fa2643"
+    },
+    {
+      "path": "test/unit/DebtAuctionHouse.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d185b51f11748a4714f8794b7a68bfdf02613127",
+      "size": 31857,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d185b51f11748a4714f8794b7a68bfdf02613127"
+    },
+    {
+      "path": "test/unit/Disableable.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8503eeb8c87b636d8e45f10770b5288a59a915f1",
+      "size": 3239,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8503eeb8c87b636d8e45f10770b5288a59a915f1"
+    },
+    {
+      "path": "test/unit/Encoding.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86944ac072f87184d15b898762c9d8975c10fd7f",
+      "size": 2011,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/86944ac072f87184d15b898762c9d8975c10fd7f"
+    },
+    {
+      "path": "test/unit/GlobalSettlement.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06ca057df78e698f8315150558467df598103aa1",
+      "size": 47498,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/06ca057df78e698f8315150558467df598103aa1"
+    },
+    {
+      "path": "test/unit/HaiProxy.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6636860df4677c0c4886e49c219216bf86688fb5",
+      "size": 1306,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6636860df4677c0c4886e49c219216bf86688fb5"
+    },
+    {
+      "path": "test/unit/HaiSafeManager.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "55a6694454d1f2efe2ce92e480a7f6806a07b487",
+      "size": 4913,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/55a6694454d1f2efe2ce92e480a7f6806a07b487"
+    },
+    {
+      "path": "test/unit/LiquidationEngine.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a032752894ac65f19c177fd63686a014861904e",
+      "size": 56752,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7a032752894ac65f19c177fd63686a014861904e"
+    },
+    {
+      "path": "test/unit/Math.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fadc6333dce6d048fedfed993f3b230f35f99e4",
+      "size": 1364,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1fadc6333dce6d048fedfed993f3b230f35f99e4"
+    },
+    {
+      "path": "test/unit/Modifiable.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb14a43317cdf7a86032d098976e4ce2e0cc9994",
+      "size": 1925,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/bb14a43317cdf7a86032d098976e4ce2e0cc9994"
+    },
+    {
+      "path": "test/unit/ModifiablePerCollateral.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd4aeacaa3983e12b9a9a83066f6a649211afbfc",
+      "size": 2103,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/fd4aeacaa3983e12b9a9a83066f6a649211afbfc"
+    },
+    {
+      "path": "test/unit/OracleRelayer.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8774b29cc6f90232994480b2ac1b93a182c5c2a0",
+      "size": 36730,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8774b29cc6f90232994480b2ac1b93a182c5c2a0"
+    },
+    {
+      "path": "test/unit/PIDController.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a91ea86873b135e3c2fcd9a2935d35bea3d3a7a",
+      "size": 55437,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4a91ea86873b135e3c2fcd9a2935d35bea3d3a7a"
+    },
+    {
+      "path": "test/unit/PIDRateSetter.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2e72cd83056ff125eb99bb0c1ab161437e24a21",
+      "size": 8186,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e2e72cd83056ff125eb99bb0c1ab161437e24a21"
+    },
+    {
+      "path": "test/unit/PostSettlementSurplusAuctionHouse.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1e33433428a6c89bd2d2d4294e4b584c03ea975",
+      "size": 25310,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a1e33433428a6c89bd2d2d4294e4b584c03ea975"
+    },
+    {
+      "path": "test/unit/RewardDistributor.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6edb4ad61cb82c4a1e27e469ebf08a932e578b7",
+      "size": 14797,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/f6edb4ad61cb82c4a1e27e469ebf08a932e578b7"
+    },
+    {
+      "path": "test/unit/RewardPool.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7201fd9f5de5a2d8e1ab7932c21caa00467cb421",
+      "size": 36760,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/7201fd9f5de5a2d8e1ab7932c21caa00467cb421"
+    },
+    {
+      "path": "test/unit/RewardPoolFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41a55a66a64369154ab63c1d55c2155af4e256e1",
+      "size": 5536,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/41a55a66a64369154ab63c1d55c2155af4e256e1"
+    },
+    {
+      "path": "test/unit/SAFEEngine.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a7d0f632d67f3b31f1514df310519f4b9f7a387d",
+      "size": 62707,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a7d0f632d67f3b31f1514df310519f4b9f7a387d"
+    },
+    {
+      "path": "test/unit/SettlementSurplusAuctioneer.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c6af79d4861ca64fb3bad8f64666973a2326023",
+      "size": 12260,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4c6af79d4861ca64fb3bad8f64666973a2326023"
+    },
+    {
+      "path": "test/unit/StabilityFeeTreasury.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5dbd64dde7cfe72ae30a010ad00d9989826e043c",
+      "size": 43892,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/5dbd64dde7cfe72ae30a010ad00d9989826e043c"
+    },
+    {
+      "path": "test/unit/StakingManager.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3bfc7e65a5bd2e79b486c604bdf227bc4f33f735",
+      "size": 125648,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3bfc7e65a5bd2e79b486c604bdf227bc4f33f735"
+    },
+    {
+      "path": "test/unit/SurplusAuctionHouse.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "763ece87fdcbd837f2042092d5e35eabf5567b3c",
+      "size": 32612,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/763ece87fdcbd837f2042092d5e35eabf5567b3c"
+    },
+    {
+      "path": "test/unit/TaxCollector.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4751acb5f3c5eadd8f5f60be806fc2572ce532a",
+      "size": 34433,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/d4751acb5f3c5eadd8f5f60be806fc2572ce532a"
+    },
+    {
+      "path": "test/unit/jobs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4d1cb9ce934cc9599906beadf0c194eaf205c30b",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/4d1cb9ce934cc9599906beadf0c194eaf205c30b"
+    },
+    {
+      "path": "test/unit/jobs/AccountingJob.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0884dfaf8c4d3ccba563fc191b1882d90681d6c9",
+      "size": 12295,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0884dfaf8c4d3ccba563fc191b1882d90681d6c9"
+    },
+    {
+      "path": "test/unit/jobs/EmissionsControllerJob.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95adb4fca98f524736a9cdc3ea3e277a29093553",
+      "size": 7029,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/95adb4fca98f524736a9cdc3ea3e277a29093553"
+    },
+    {
+      "path": "test/unit/jobs/Job.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6282031501ecd22d1d3b626a2177e17ee158c913",
+      "size": 4366,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6282031501ecd22d1d3b626a2177e17ee158c913"
+    },
+    {
+      "path": "test/unit/jobs/LiquidationJob.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb516a8d104af7429307b0f689ebb5919f1b3b4a",
+      "size": 7074,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/eb516a8d104af7429307b0f689ebb5919f1b3b4a"
+    },
+    {
+      "path": "test/unit/jobs/OracleJob.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0155dada8e0d131a9b19724ebaaf9c3650331a51",
+      "size": 14892,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0155dada8e0d131a9b19724ebaaf9c3650331a51"
+    },
+    {
+      "path": "test/unit/jobs/StabilityPoolCoverJob.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32aa505b646c778067300a021ce9237a7f7e1122",
+      "size": 9518,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/32aa505b646c778067300a021ce9237a7f7e1122"
+    },
+    {
+      "path": "test/unit/jobs/StabilityPoolSweepJob.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0398219fb045c072439bf96fd51fff5bc7cd4a38",
+      "size": 7479,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0398219fb045c072439bf96fd51fff5bc7cd4a38"
+    },
+    {
+      "path": "test/unit/oracles",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f26f5e791ace47509d0da2fdcb2c08654677ed75",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/f26f5e791ace47509d0da2fdcb2c08654677ed75"
+    },
+    {
+      "path": "test/unit/oracles/AbstractVeloVaultRelayer.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1e8011558769ca691f7f4b2d8ef78300e021743",
+      "size": 10575,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/a1e8011558769ca691f7f4b2d8ef78300e021743"
+    },
+    {
+      "path": "test/unit/oracles/BeefyVeloVaultRelayerFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "211a140222842699364b4ffa8d8730d2403dcd1a",
+      "size": 4716,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/211a140222842699364b4ffa8d8730d2403dcd1a"
+    },
+    {
+      "path": "test/unit/oracles/ChainlinkRelayerFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ebd5a2c3f09505f872186bc72f10f51dc32179c",
+      "size": 6939,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/8ebd5a2c3f09505f872186bc72f10f51dc32179c"
+    },
+    {
+      "path": "test/unit/oracles/CurveStableSwapNGRelayer.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35f9c5de35550d7159d7d32706718a0d412a6945",
+      "size": 10827,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/35f9c5de35550d7159d7d32706718a0d412a6945"
+    },
+    {
+      "path": "test/unit/oracles/CurveStableSwapNGRelayerFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4ea96fe39f878adb6ed931a715f16bd3f3dfa09",
+      "size": 6727,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/e4ea96fe39f878adb6ed931a715f16bd3f3dfa09"
+    },
+    {
+      "path": "test/unit/oracles/DelayedOracleFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99f1a785887c4d10f2041c93b23c7cb2e0b5c347",
+      "size": 4467,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/99f1a785887c4d10f2041c93b23c7cb2e0b5c347"
+    },
+    {
+      "path": "test/unit/oracles/DenominatedOracleFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc71b316e0b922598dac9a936b910e1d32034e1c",
+      "size": 4289,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/cc71b316e0b922598dac9a936b910e1d32034e1c"
+    },
+    {
+      "path": "test/unit/oracles/ERC4626ShareOracle.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "794b05b6ac4e64eb33cab74c29ccd4148c13797b",
+      "size": 1813,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/794b05b6ac4e64eb33cab74c29ccd4148c13797b"
+    },
+    {
+      "path": "test/unit/oracles/HaiVeloV2Oracle.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48a5f87017a2d44bd2686a8c777a08a01a2a3e36",
+      "size": 6002,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/48a5f87017a2d44bd2686a8c777a08a01a2a3e36"
+    },
+    {
+      "path": "test/unit/oracles/PessimisticVeloSingleOracle.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27445b167ec312b4a5e8224b403328982a35acdc",
+      "size": 46327,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/27445b167ec312b4a5e8224b403328982a35acdc"
+    },
+    {
+      "path": "test/unit/oracles/UniV3RelayerFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b53c28e7e013469d4a5437507d18e23cce475680",
+      "size": 6221,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b53c28e7e013469d4a5437507d18e23cce475680"
+    },
+    {
+      "path": "test/unit/oracles/YearnVeloVaultRelayerFactory.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37168a551ff34e1aa7b3ed32c926984efe51eed5",
+      "size": 4701,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/37168a551ff34e1aa7b3ed32c926984efe51eed5"
+    },
+    {
+      "path": "test/unit/stability-pool",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "11e5d2dd5a815769c72cd59f256cc80d75ec7b1c",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/11e5d2dd5a815769c72cd59f256cc80d75ec7b1c"
+    },
+    {
+      "path": "test/unit/stability-pool/EmissionsController.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f91bb85d6212da9db67f17e33c34100e2417492",
+      "size": 22835,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/2f91bb85d6212da9db67f17e33c34100e2417492"
+    },
+    {
+      "path": "test/unit/stability-pool/StabilityPool.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "363b09f8d9be0e699309443e9c2866ba98022715",
+      "size": 56452,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/363b09f8d9be0e699309443e9c2866ba98022715"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b02f31beb991573a351a5653bba675ecd54fca00",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/b02f31beb991573a351a5653bba675ecd54fca00"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps/BalancerSwapStepGuards.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "750eb762646521f47fd96ba5e19b5b000031fe2e",
+      "size": 6611,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/750eb762646521f47fd96ba5e19b5b000031fe2e"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps/BalancerSwapSteps.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4fa6b259932fe68412d90d2562acaf7cf61cfa08",
+      "size": 5628,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4fa6b259932fe68412d90d2562acaf7cf61cfa08"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps/CurveSwapStep.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3aa618e8f042977f4ec375aedf50a2ec98223fd8",
+      "size": 4957,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/3aa618e8f042977f4ec375aedf50a2ec98223fd8"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps/ERC4626WithdrawalStep.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9bb7ae4077a744fe0e618126bdbc014e3288c6b",
+      "size": 1640,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b9bb7ae4077a744fe0e618126bdbc014e3288c6b"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps/StrategyStepBranches.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae7751fe7827cf2832ca4f00fe9fb1e5fd7e7312",
+      "size": 18795,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/ae7751fe7827cf2832ca4f00fe9fb1e5fd7e7312"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps/StrategyStepMetadata.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de2bf1ea51001665a9eb382b1ed39d35a46bfff1",
+      "size": 7516,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/de2bf1ea51001665a9eb382b1ed39d35a46bfff1"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps/StrategyStepMinOuts.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2267d4691ba4c4a4c95594e906d8b3780282507",
+      "size": 4260,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b2267d4691ba4c4a4c95594e906d8b3780282507"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps/StrategySteps.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03403d5160ab0e8bd986143da097eafa6609d364",
+      "size": 10382,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/03403d5160ab0e8bd986143da097eafa6609d364"
+    },
+    {
+      "path": "test/unit/stability-pool/strategy-steps/VeloCLSwapStepViewQuoter.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1b3353e830849c93f343e8ef70b8dd1b8a01ab98",
+      "size": 10426,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/1b3353e830849c93f343e8ef70b8dd1b8a01ab98"
+    },
+    {
+      "path": "test/unit/tokens",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "12edf4d7eb548840b4397e0eee051b2c328cbfb7",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/12edf4d7eb548840b4397e0eee051b2c328cbfb7"
+    },
+    {
+      "path": "test/unit/tokens/ProtocolToken.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4997e7f713a1510b4b8012b69c0fcea4db4d562",
+      "size": 3909,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/b4997e7f713a1510b4b8012b69c0fcea4db4d562"
+    },
+    {
+      "path": "test/unit/tokens/StakingToken.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4bd070d976ef3d687812638ab007cdc3e987e9ca",
+      "size": 8796,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/4bd070d976ef3d687812638ab007cdc3e987e9ca"
+    },
+    {
+      "path": "test/unit/tokens/SystemCoin.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "615bb0d2bd42339bb2bf9589e7485f86c2e2c2b2",
+      "size": 3039,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/615bb0d2bd42339bb2bf9589e7485f86c2e2c2b2"
+    },
+    {
+      "path": "test/unit/tokens/TokenDistributor.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59d05381ae957613d84bd0583fd0ec99fb891e87",
+      "size": 20596,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/59d05381ae957613d84bd0583fd0ec99fb891e87"
+    },
+    {
+      "path": "test/unit/tokens/VeNFTManager.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9abf66ed4dfc51895b62f540c5d1e42ef9317e58",
+      "size": 34093,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/9abf66ed4dfc51895b62f540c5d1e42ef9317e58"
+    },
+    {
+      "path": "test/unit/tokens/WrappedToken.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0f46775d8b905f9d0f98fe0deae04a80fe8d4a6",
+      "size": 5224,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c0f46775d8b905f9d0f98fe0deae04a80fe8d4a6"
+    },
+    {
+      "path": "test/unit/tokens/WrappedTokenV2.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c5f2d2c8177bab59fe81d96e2f73833b9fb6166",
+      "size": 20753,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/0c5f2d2c8177bab59fe81d96e2f73833b9fb6166"
+    },
+    {
+      "path": "test/unit/tokens/WrappedTokenV3.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db0ac8f8fdf8d6dbcad2acd3ce9530cf5255673b",
+      "size": 40434,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/db0ac8f8fdf8d6dbcad2acd3ce9530cf5255673b"
+    },
+    {
+      "path": "test/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4b5be93c833753d53be69f12b84a0196fb8ac55c",
+      "url": "https://api.github.com/repos/hai-on-op/core/git/trees/4b5be93c833753d53be69f12b84a0196fb8ac55c"
+    },
+    {
+      "path": "test/utils/HaiTest.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6fae50f2531c4a622dd835d43f9cb5634c727624",
+      "size": 4655,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/6fae50f2531c4a622dd835d43f9cb5634c727624"
+    },
+    {
+      "path": "test/utils/InternalCallsWatcher.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88f2c2fa6d6275f804d1e3a5396e633ff513f860",
+      "size": 593,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/88f2c2fa6d6275f804d1e3a5396e633ff513f860"
+    },
+    {
+      "path": "test/utils/MerkleTreeGenerator.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0a4c7a72d9ba93a9b20e07c7bb8508e92a8feb8",
+      "size": 2357,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/c0a4c7a72d9ba93a9b20e07c7bb8508e92a8feb8"
+    },
+    {
+      "path": "vercel.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "30b00e45085ccac3388578ff18b237720bf5556d",
+      "size": 78,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/30b00e45085ccac3388578ff18b237720bf5556d"
+    },
+    {
+      "path": "workspace.code-workspace",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16f37465c96d861345b1a6b58e4ee916a197a59f",
+      "size": 498,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/16f37465c96d861345b1a6b58e4ee916a197a59f"
+    },
+    {
+      "path": "yarn.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "588a32a35ebe44ac7602c8a2277d152638fada6d",
+      "size": 132520,
+      "url": "https://api.github.com/repos/hai-on-op/core/git/blobs/588a32a35ebe44ac7602c8a2277d152638fada6d"
+    }
+  ],
+  "truncated": false
+}

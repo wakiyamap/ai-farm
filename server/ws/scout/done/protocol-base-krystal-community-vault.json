@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-krystal-community-vault",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 103,
+ "chain": "base",
+ "slug": "krystal-community-vault",
+ "name": "Krystal Community Vault",
+ "category": "Liquidity Manager",
+ "tvl_usd": 199075,
+ "url": "https://krystal.app",
+ "github": null,
+ "listed_days_ago": 103,
+ "run_id": "74390d2cce804511906a3d26500fbd3e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "69 vaults via factory 0xefdf2e68...74f1, impl 0x9916bc61 matches ISharedVault (KrystalDeFi/krystal-vault-contracts-v2, 45/50 selectors); 7d: 23 deposit/20 withdraw/362 execute; execute role-gated (2 Krystal operator EOAs via automator 0x7a03df8b, stranger reverts Unauthorized); open deposit/withdraw pay caller $0 - all fees (platform+owner+gasFeeX64) go to Krystal feeRecipient or vault owner; gas 0.006 gwei ~$0.002/tx, ETH $1827 (coins.llama.fi)",
+  "kb": [
+   "attempts:1632",
+   "protocols:328"
+  ],
+  "run_id": "74390d2cce804511906a3d26500fbd3e",
+  "at": 1794901166
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-veda",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 633,
+ "chain": "arbitrum",
+ "slug": "veda",
+ "name": "Veda",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 1350296,
+ "url": "https://veda.tech",
+ "github": [
+  "Veda-Labs"
+ ],
+ "listed_days_ago": 633,
+ "run_id": "ba93571008314d71b2246f85a17d0a7b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Veda boring-vaults arbitrum (vaults 0x86B5780b, 0x657e8C86; accountants 0x05A1552c, 0x1b293DC3): no fn pays a caller - keeper fns (updateExchangeRate, bulkDeposit/Withdraw, refundDeposit, manage) are solmate requiresAuth, fresh-address eth_call reverts UNAUTHORIZED; 7d blocks 523167159-525227159: 14 ExchangeRateUpdated in 7 txs all from one keeper 0x43e9fa7a60f80711c9d3afe4ce1bb3e8c3f7a9b8, gross $0 to caller, gas 155k/2-update batch @0.02 gwei = $0.006 (ETH $1805 llama); teller Deposits 0 vs control 120 vault Transfers; TVL $1,345,660",
+  "kb": [
+   "attempts:1992",
+   "protocols:591"
+  ],
+  "run_id": "ba93571008314d71b2246f85a17d0a7b",
+  "at": 1794976338
+ }
+}

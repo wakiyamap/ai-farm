@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-maverick-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 888,
+ "chain": "arbitrum",
+ "slug": "maverick-v2",
+ "name": "Maverick V2",
+ "category": "Dexs",
+ "tvl_usd": 132641,
+ "url": "https://www.mav.xyz",
+ "github": null,
+ "listed_days_ago": 888,
+ "run_id": "1c158f437d764cbabbfa6dd104b2e9a1",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No public callable function pays the caller: 76 pools / TVL $132.6k DEX; swap=arb race, flashLoan caller pays, claimProtocolFeeForPool pays team receiver 0xa634f68e..., Reward.getReward pays only position-NFT owners; activity near-dead (router last tx 28d ago, Position NFT 50d, ts 1792589049/1790687086 vs now 1795009051); gas 0.02 gwei (~$0.004/100k); getLogs unusable (scout lane 302854/300000 CU), activity from etherscan tx lists",
+  "kb": [
+   "attempts:2148",
+   "protocols:721"
+  ],
+  "run_id": "1c158f437d764cbabbfa6dd104b2e9a1",
+  "at": 1795009297
+ }
+}

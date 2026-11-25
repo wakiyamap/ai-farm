@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-block-analitica",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "block-analitica",
+ "name": "Block Analitica",
+ "category": "Risk Curators",
+ "tvl_usd": 258462,
+ "url": "https://blockanalitica.com/",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "aaaf5829fd72446cb6a0f6969620eea9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "3 Morpho Flagship vaults (42.07 ETH, 12,906 USDT, 5,053 USDC) + 7 Summer LazyVault fleet commanders (~154k USD) behind HarborCommand 0x09eb323d: reallocate/updateWithdrawQueue/rebalance revert from a fresh address (allocator/curator/onlyKeeper); public tip() accrues to the tipJar at tipRate 0 = 0 gross to the caller; 0 logs on the vaults in 7d (blocks 26,409,040->26,459,298; control 8 logs on the fleet commanders, same shape) and 0 in 30d, 47 in 180d with no reallocate; tip() 40,513 gas = 0.02 USD (0.296 gwei, WETH 1,619.83).",
+  "kb": [
+   "attempts:3082",
+   "protocols:1460"
+  ],
+  "run_id": "aaaf5829fd72446cb6a0f6969620eea9",
+  "at": 1795214458
+ }
+}

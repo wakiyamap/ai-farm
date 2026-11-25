@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-steer-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: the only keeper-relevant callable on the active v2 vaults is Orchestrator.executeAction (keeper triggers vault.tend through it); it is keeper-registry gated (fresh-address eth_call reverts NOT_A_KEEPER; license = 5 USDC bond in KeeperRegistry 0x40402363fd11729183108b10dc96776675229ae7) and its ONLY payment is GasVault gas reimbursement (rewardPerAction()=0), so gross equals gas and no profit margin exists for a stranger. v3 executeJob mechanism dormant on Polygon since 2025-11-27.",
+  "numbers": "7d (subgraph steer-protocol-polygon, head 97560803): 553 orchestratorActions = 40 executeAction executions + 513 votes; 2 keeper EOAs only: 0x7aaeafe60a3f276c7ce95b17bbcbcdb08a7481ce, 0xba2e8941e71394435aeea16c5822b7b6733314c9. Sum gasUsed reimbursed 12.88 POL = $1.05 (~0.32 POL/run). Sample of 5 receipts (e.g. 0xf0674ac16e63c130443d81f60946279591c074d202cf502bef26c64d685d3c97: 1,231,368 gas @ 277.6 gwei): 0.31-0.41 POL = $0.025-0.033 per run gas cost; refund == gas cost; POL $0.0814 from coins.llama.fi polygon:0x0000000000000000000000000000000000001010. Vault TVL polygon $139,921 (api.llama.fi/protocol/steer-protocol)."
+}

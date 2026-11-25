@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-layerzero-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "layerzero-v2",
+ "name": "LayerZero V2",
+ "category": "Bridge",
+ "tvl_usd": 57882213,
+ "url": "https://layerzero.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "2b9cb74c6c5f40db990b8681d34eddef",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only UlnV3.withdrawFee pays and only fees[msg.sender] (fresh addr fees()=0, eth_call amount 1 reverts LZ_MessageLib_InvalidAmount(1,0)); 7d: 29 NativeFeeWithdrawn = 4.87 ETH ~,566 (ETH 1758.32 coins.llama.fi @1795133511) all to LayerZero operator wallets 0xe93685f3 (2.55 ETH/14tx) and 0xb8ff877e (2.24 ETH/13tx), top call 0.294 ETH 17, gas 44-49k @0.009 gwei < bash.001; endpoint 0x1a44076050125825900e736c501f859c50fe728c eid()=30184; same core and verdict as arbitrum and avalanche.",
+  "kb": [
+   "attempts:2692",
+   "protocols:1148"
+  ],
+  "run_id": "2b9cb74c6c5f40db990b8681d34eddef",
+  "at": 1795133803
+ }
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "sodex_bridge",
+ "status": "dead_end",
+ "checked": "SoDEX Bridge (SoSoValue DEX on ValueChain), category Bridge, url https://ssi.sosovalue.com. No DefiLlama adapter (projects/sodex-bridge 404 on main and master; TVL comes from registries/sumTokens.js, module sodex/index.js, github null per api.llama.fi/protocol/sodex-bridge). BSC side = 2 EOA custody addresses from that registry: 0x72b2f19f05c8d78ea7bb9fb9fe551f06f31ba287 (nonce 19322, 26.90 BNB, 252,009 USDC) and 0x00b7aF089770a1ED44648213Cd56d6E4d80411f5 (nonce 304, 3.40 BNB, 19,241 USDC), plus USDT tracked; eth_getCode = 0x for both at block 134132977 -> no contract on bsc, no callable function, no reward to a stranger. Same EOAs are custody on all EVM chains (identical pair on ethereum/base/arbitrum/polygon); SOSO token 0x624e2e7fDc8903165F64891672267AB0FCB98831 is on Base, also 0x code on bsc. Site JS chunks contain no BSC bridge contract address (config served by gw.sosovalue.com, Cloudflare-blocked to curl)."
+}

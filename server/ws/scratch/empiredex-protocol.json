@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "empiredex",
+  "status": "dead_end",
+  "checked": "DefiLlama protocol metadata names registries/uniswapV2.js as its TVL adapter; current registry lines 673-681 list Ethereum factory 0xd674b01E778CF43D3E6544985F893355F46A74A5 (https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/registries/uniswapV2.js). Relay eth_getCode confirms deployed bytecode; allPairsLength() returned 5 at latest on 2026-11-23. Factory allPairs(0) returned pair 0x163b890f4892d593945579028ec44ef0f20a4633; its code is nonempty and factory() returned the factory. Etherscan verified EmpireFactory and EmpirePair source/ABI via explorer source/abi. Factory exposes pair creation and admin fee setters; pair exposes mint, burn, swap, skim, sync, sweep and unsweep. No function pays a public caller reward; sweep/unsweep are callable only by a paired token (msg.sender == token0 or token1), fee setter is restricted, and skim moves excess pool balances rather than an intended caller bounty (skim type excluded under S). No eligible reward function to sample for 7-day calls or USD payout."
+}

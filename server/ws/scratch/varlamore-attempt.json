@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-varlamore-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: The only permissionless reward-named function, SiloVault.claimRewards(), can be called by a stranger but all four curated vaults have zero configured incentive claiming logics; fee shares mint to feeRecipient, not the caller. No stranger payout was found.",
+  "numbers": "4 active non-blacklisted SiloVaults under Safe 0xd8454B3787c6Aab1cf2846AF7882f8c440C3903d; 4/4 incentive modules getAllIncentivesClaimingLogics() = [] at latest; fresh-address eth_call claimRewards() = success on 4/4; gross to caller = 0 token units (source-backed). Seven-day 0 emitted vault events across all four, no-topic scan blocks 26429915 (2026-11-16 20:14:59 UTC) to 26480159 (2026-11-23 20:14:59 UTC); same-shape no-topic control at block 0x15adcf5 returned 2 logs. claimRewards() always emits AccrueInterest, so 0 successful calls in window. Sources: DefiLlama registries/curators.js, projects/helper/curators/configs.js and helper.js; Etherscan verified SiloVault.sol; rpc.py eth_getLogs, eth_call."
+}

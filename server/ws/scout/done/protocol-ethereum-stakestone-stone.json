@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-stakestone-stone",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1150,
+ "chain": "ethereum",
+ "slug": "stakestone-stone",
+ "name": "StakeStone STONE",
+ "category": "Liquid Staking",
+ "tvl_usd": 13736474,
+ "url": "https://stakestone.io/",
+ "github": null,
+ "listed_days_ago": 1150,
+ "run_id": "db9deda1885248259d3f1031284d487c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "StoneVault 0xa62f9c5a.. rollToNextRound() is open to anyone (3 d timer, no role) but pays the caller 0 ETH / 0 USD (withdrawFeeRate 0, 0 FeeCharged in 7 d): 1 roll in 7 d (blocks 26413134 2026-11-14 to 26463388 2026-11-21; 3 in 30 d vs ~10 due), gas 236,568 = 0.087 USD at ETH 1653.36 (coins.llama.fi 12:17 UTC); only callers 0x9f5442e4.. and 0xbd091c37.. are operator wallets fronting 120 ETH in the same tx; rest is self-service (19 requestWithdraw, 13 instantWithdraw, 2 deposit in 7 d) on 12.47M USD TVL.",
+  "kb": [
+   "attempts:3313"
+  ],
+  "run_id": "db9deda1885248259d3f1031284d487c",
+  "at": 1795263829
+ }
+}

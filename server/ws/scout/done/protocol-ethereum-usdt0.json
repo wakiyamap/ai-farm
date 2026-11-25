@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-usdt0",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 615,
+ "chain": "ethereum",
+ "slug": "usdt0",
+ "name": "USDT0",
+ "category": "Bridge",
+ "tvl_usd": 3610253802,
+ "url": "https://usdt0.to",
+ "github": null,
+ "listed_days_ago": 615,
+ "run_id": "793e70cfe7484b1da27b8f3aec94f995",
+ "result": {
+  "verdict": "no_reward",
+  "line": "USDT0 ethereum = LayerZero OFT escrow 0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee (holds 3,699,457,342 USDT): no reward function anyone can call - send is user-paid, lzReceive OnlyEndpoint (stranger eth_call reverts OnlyEndpoint); 7d (blocks 26409643-26459899): 1,092 OFTSent $660.4M out + 2,130 OFTReceived $591.2M in, executor caller pays 113,500 gas (~0.03 USD) and receives 0",
+  "kb": [
+   "attempts:3116"
+  ],
+  "run_id": "793e70cfe7484b1da27b8f3aec94f995",
+  "at": 1795221625
+ }
+}

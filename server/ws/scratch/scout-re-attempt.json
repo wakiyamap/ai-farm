@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "protocol-base-re",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Re's Base contracts (reUSD ShareToken 0x7D2144..., RedemptionGateway 0x380b62..., InstantRedemption 0x36D9..., RedemptionVault 0x9AB6..., ICL 0xD75Ea2...) expose no function that pays a stranger: the only payout fns (redeemInstant, claimWindowPayout) revert KYCRequired() from a fresh address (off-chain KYC whitelist) and pay the redeemer their OWN redemption principal (shares -> sUSDe at NAV), while the caller PAYS a ~0.06% fee to the protocol. All keeper-style fns (updateHighWatermark, releaseFromWindow, withdrawReserved, claimDepositFees) revert AccessManagedUnauthorized (OZ AccessManager 0x47De22...). No reward pool or bounty exists on Base.",
+  "numbers": "7d redeemInstant calls = 2 (eth_getLogs InstantRedemptionRouted on 0x380b, blocks 55651401-58675401 = exactly 7.0 d at 0.2 s/block; control: USDC Transfer over last 5000 blocks = 45,987 logs). Sample 2 of 2, both self-redemptions by KYC users: tx 0x7a8412f0ea9019631b50d4e85ac3e251a3f39197a1e1586035f941fce07628dc 30.13 shares -> 26.64 sUSDe (~33 USD, sUSDe 1.258 coins.llama.fi 2026-11-17), gas 535,792 @ 8.974 gwei = 4.8e-6 ETH = $0.009 (ETH 1821.76 coins.llama.fi); tx 0xfbe78b7553e14b999c21ac42670109ea77128020da62294b1d9af4217e790dc2 910,377 shares -> 805,217 sUSDe (~1.01M USD), fee 483 sUSDe (~$608) to feeVault, gas 535,780 @ 7.066 gwei = $0.007. Gateway lifetime txs small (InstantRedemption 6, Vault 11; 0 tx in 7d each, blockscout txlist).",
+  "bot_id": null
+}

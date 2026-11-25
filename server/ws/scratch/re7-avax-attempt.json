@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-re7-labs",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Re7 Labs on avalanche is a DefiLlama curators-registry aggregator: its whole $4.09M TVL = 25 Euler v2 (EVK) EVaults created by 0x7B41b9891887820A75A51a1025dB1A54f4798521 via factory 0xaf4b4c18b17f6a2b32f6c398a3910bdcd7f26181. The EVault ABI has no claim/harvest function that pays a caller (fees go to feeReceiver = curator, role-gated); the only stranger-paid entry point is liquidate, which paid nobody in the last 7 days: 0 Evict events across all 25 vaults over 60x10k-block windows, and the borrow books are empty (eUSDC-1 holds 4.34M USDC with 0 borrows; only eAUSD-2 has ~497k AUSD borrowed, no evictions, 0 user transfers in 7 days).",
+ "numbers": "251 vaults from factory getProxyListLength 0xfb, 25 Re7-created (creator() match); 0 by second owner 0x3BA1566ED39F865bAf4c1Eb9acE53F3D2062bE65. 7d Evict scan (topic0 0x57d29051d73f2f58150c272342393f1b71266303b825669c5281bc3d88dd713d, blocks 100071000-100661000, ~1.015 s/block): 0/25 vaults. 7d Transfer scan same 25: 0; 30d on eAUSD-2: 0. Control (same getLogs shape, Transfer topic, 10k blocks, WAVAX 0xb31f...66c7): non-empty. gasPrice 7.52 gwei x 450k gas x AVAX $7.21 (coins.llama.fi) ~= $0.024 per liquidate attempt. eUSDC-1 0x258ee5a9f669de89fa59aadf83960fc285783c3e totalAssets 4,336,641 USDC, totalBorrows 0; eAUSD-2 0x2137568666f12fc5a026f5430ae7194f1c1362ab totalBorrows 497,400 AUSD (= totalAssets). All figures research-lane eth_call/eth_getLogs, 2026-11-17 22:5x-23:2xZ."
+}

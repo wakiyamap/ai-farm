@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-thorchain-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. THORChain's avalanche contract is one InboundRouter (0x00dc6100103bc402d490aee3f9a5560cbd91f1d4, 7,521 B code) whose only permissionless entry is user deposits (depositWithExpiry) that pay the caller nothing; outbound (transferOut) is signer-role-gated (eth_call from a stranger reverts) and the signer PAYS the gas and receives 0 on-chain. THORChain rewards accrue in RUNE on the THORChain chain, not on avalanche. 8 bytecode selectors unresolved on 4byte but the contract is only ~12 functions and no reward-paying name fits.",
+ "numbers": "avalanche TVL 783,710 USD (api.llama.fi currentChainTvls, 2026-11-19); AVAX.AVAX pool 93,698 AVAX @ 6.60 USD (Midgard v2 /pools at read); router code 7,521 B at block 0x6025566; deposit gasUsed 38,691 @ 7.46 gwei = 0.00029 AVAX ~ 0.002 USD (tx 0x18b2d8e9); transferOut gasUsed 75,000 @ 10 gwei = 0.00075 AVAX ~ 0.005 USD (tx 0x57c6f767, signer 0xf577a166); transferOut reward to caller = 0; 2 AVAX outbound txs sampled in ~40 Midgard actions (sample, not census)."
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "wildcat_protocol",
+ "status": "dead_end",
+ "checked": "Wildcat V2 uncollateralized credit markets. Contracts from docs (github.com/wildcat-finance/wildcat-docs technical-overview/contract-deployments.md) and DefiLlama adapter projects/wildcat-fi/index.js: WildcatArchController 0xfEB516d9D946dD487A9346F6fee11f40C6945eE4 (eth_getCode non-empty, getRegisteredMarkets() 0x46762101 returns 32 markets). Market ABI from v2-protocol repo deployments/mainnet/WildcatMarket-0xac3216FA.../output.json. Anybody-callable externals checked in src/market/WildcatMarket.sol + WildcatMarketWithdrawals.sol: updateState() (accrue poke, pays caller 0), collectFees() (sweeps withdrawable protocol fees to feeRecipient 0x35A5D1bd68F3139971027b92c1eE9384A0708554 = protocol WildcatFeeRecipient, caller gets 0), executeWithdrawal(address,uint32)/executeWithdrawals (pays the lender account, not caller), repayAndProcessUnpaidWithdrawalBatches (borrower-funded). No liquidation/keeper-reward function; collateral-contract repo has no liquidate(); SphereX is a security hook. Both updateState and collectFees eth_call OK from fresh address 0xc0ffee (no role revert)."
+}

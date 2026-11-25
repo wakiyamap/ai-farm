@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-augury-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: MasterChef fork with no harvest function and a self-claim USDC dividends contract; every function a stranger can call (massUpdatePools, updatePool, collectDividends) pays a caller with no position exactly $0, and in the last 7 days nothing at all moved (0 events on MasterAugur, 0 USDC out of the dividends pot). All admin functions are onlyOperator/onlyOwner.",
+ "numbers": "MasterAugur 0x6ad70613d14c34aa69E1604af91c39e0591a132e (verified source = github augury-finance/core, poolLength=19); DividendsV3 0xf9df350c1e9888452e4e7fd7a014503fa0eab7e4 pays USDC 0x2791bca1f2de4661ed88a30c99a7a9449aa84174 (6 dec on chain); pot balance 693.4 USDC (0x2951d961, eth_call 2026-11-20); calculateUnclaimedDividends(fresh 0x1111...1111)=0; 7d window 0x5cb6a9a-0x5d1d33a (420k blocks ~7d at 1.5 s/blk): MasterAugur logs 0, USDC Transfers from pot 0; control same-shape 31d: MasterAugur 8 logs (last 0xbe48dca4b0039beb9f1e..., block 97,147,387 ~8.5d ago), pot payouts 4 x $0.38-$0.83 (blocks 96,720,076-96,724,277 ~16d ago, batched by 0x93ad580cfe194ccb0514c8be79c068cf77f822a0, tx 0x19247454c3aa69dda535fd585383d43e485740d4cc569368840acdc28de7ef65, gasUsed 3,313,629); stranger collectDividends eth_estimateGas 1,317,750 gas x 278.05 gwei = 0.3664 POL x $0.079 = $0.029 (gasPrice eth_gasPrice, POL price coins.llama.fi 1795161440)"
+}

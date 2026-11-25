@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-saffron-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 117,
+ "chain": "arbitrum",
+ "slug": "saffron-vaults",
+ "name": "Saffron Vaults",
+ "category": "Yield",
+ "tvl_usd": 28806,
+ "url": "https://saffron.finance",
+ "github": null,
+ "listed_days_ago": 117,
+ "run_id": "610cf22e2b634524938ec394e0fa52fa",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: factory 0xd4E8582e36AF0E0d5c1bcd8303984870b086d3d2 nextVaultId=65, 64 UniV3Vaults (verified source); claim()/deposit()/withdraw() pay only msg.sender holding the vault claim/bearer tokens (fresh eth_call claim() reverts 'NCT'), adapter onlyVault, factory createVault onlyOwner - no bounty/keeper function; 0 logs on 64 vaults+factory in 7d (blocks 524429932 2026-11-15..526486498 2026-11-22, control 17 USDC logs), last event block 516888860 2026-10-21; TVL 28,806 USD",
+  "kb": [
+   "attempts:3681"
+  ],
+  "run_id": "610cf22e2b634524938ec394e0fa52fa",
+  "at": 1795342726
+ }
+}

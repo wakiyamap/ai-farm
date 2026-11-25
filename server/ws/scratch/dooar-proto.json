@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "dooar_v2",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/dooar/index.js gives only the BSC factory 0x1e895bFe59E3A5103e8B7dA3897d1F2391476f3c (eth_getCode non-empty; allPairsLength()=3, feeTo()=0x91b24d9deb67d12591c830df19da4285235afa5c; dispatch = exactly the 8 UniV2 factory fns: createPair/feeTo/feeToSetter/allPairs/allPairsLength/getPair/setFeeTo/setFeeToSetter). 3 pairs only: 0x5f5d385397095aaed4daffe336f9815ac598dff5 (USDC/WBNB), 0xba5ae86960fe468ff02d83022c0079670bd8f6a9 (GST/USDC), 0x17db7a395bcc1ec828e732a014dd2a7c43ed30f0 (GMT/USDC); all three share one 11322-byte pair code = UniV2 pair + permit + PERMIT_TYPEHASH + initialize(address,address) + skim(address); no reward/claim/harvest/distribute/liquidation functions anywhere. GitHub: FindSatoshiLab has no V2 BSC source (DOOAR-V3 repo empty); docs.dooar.com dead. bscscan explorer not_on_plan, blockscout 404, so ABI came from bytecode selector extraction + 4byte.directory."
+}

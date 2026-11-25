@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "swell_earn",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/swell-earn-eth/index.js (swell-earn 404): protocol on ethereum = 2 BoringVaults (Raft boring-vault, verified source via etherscan, src/base/BoringVault.sol, 0.8.21): earnETHVault 0x9Ed15383940CC380fAEF0a75edacE507cC775f22, earnBTCVault 0x66E47E6957B85Cf62564610B76dD206BB04d831a (both eth_getCode non-empty; owner(), totalSupply() getters answer). Full ABI: write fns are enter/exit (MINTER/BURNER via Raft Auth) and manage (MANAGER); eth_call from 0x...dEaD reverts 'UNAUTHORIZED' for enter AND manage on both patterns; no harvest/poke/tend/swap/claim, no keeper-incentive function at all. Strategy layer (Euler vaults, Velo gauges) lives on Swellchain, not ethereum. No-topic eth_getLogs on both vaults over last 7 d (blocks 26410613 ts 1794627875 = 2026-11-14 .. 26461013 ts 1795234427 = 2026-11-21): 2 logs in 1 tx (0x5df401a95354a2ced63cd7b17ae400eddd03200f5e6565f5c1eedaa5d359aba7: Transfer + Exit event = one user withdrawal ~0.12 shares), i.e. zero keeper activity; control same-shape USDC 100-block no-topic scan = 11127 logs. TVL 332k USD ethereum (api.llama.fi 2026-11-21, doublecounted). Verdict role_gated."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "hyperbeat_credit",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/hyperbeat-wtoken/index.js (hyperbeat-credit has no own adapter) lists the 6 protocol contracts on HyperEVM: wWHYPE 0x1B01F8CEF529f8799532E5a015dD7Ec8Bf2a7513, wbeHYPE 0x516fd25c9bb62C48395FE1963978d129Dc29fbd1, wUBTC 0x0e2be97f03Ee98b466bEf1cc15CFd0Ca020abc85, wUETH 0x037a67590ac5AE9CA9ae3079Fab6562B2782acF2, wUSOL 0x5c3aBD61DBc9192535011aCd211C388060862589, wXAUt0 0xC315A169F49B167870E7eecb8e7ee5d6275b47d8. All 6: eth_getCode non-empty (identical 3672-byte bytecode, immutables differ) and underlyingToken() answers (wUBTC -> 0x9fdbda0a5e284c32744d2f17ee5c74b284993463; wWHYPE -> 0x5555555555555555555555555555555555555555). Explorer-verified source (wUBTC and wWHYPE): PermissionedWrapper.sol - OZ ERC20 whose only state-changers are wrap(uint256)/unwrap(uint256), a 1:1 exchange gated by WrapperWhitelistRegistry.canWrap (registry 0xac3780b042e56cd10525c8601d553609cfecb8c7), plus operator-only pause/unpause. No reward, bounty, claim, harvest, distribute or liquidation function in the ABI. Docs (docs.hyperbeat.org) have no Credit contract page; it is a collateral-token wrapper layer for Liquid Banking."
+}

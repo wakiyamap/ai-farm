@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-lido-impact-staking",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 545,
+ "chain": "ethereum",
+ "slug": "lido-impact-staking",
+ "name": "Lido Impact Staking",
+ "category": "Liquid Staking",
+ "tvl_usd": 162298,
+ "url": "https://impactstake.com",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "5f9b4f11ba424989abfc75c0e639e794",
+ "result": {
+  "verdict": "role_gated",
+  "line": "7 proxies all on impl NGOLis 0xc8726c5d0579c573af71092ff9b1d6e9e589a202; only maintenance fn handleNGOShareDistribution() is onlyOracle (stranger eth_call reverts OnlyOracle 0xf432bce9) and pays caller 0 anyway (95% wstETH to rewardsOwner, 5% fee to _lis); 0 logs of any kind across all 7 proxies in 7d (no-topic scan; control: same-shape 30d scan = 15 logs: 7 RewardsUpdated + 8 Staked), last batch blocks 26366425-439 ~13d ago by oracle 0x96b260c568d025a15eae91904ead3b22cb584e2f, gas 117277 ~= $0.067/call (0.353 gwei x ETH $1617).",
+  "kb": [
+   "attempts:3074"
+  ],
+  "run_id": "5f9b4f11ba424989abfc75c0e639e794",
+  "at": 1795212656
+ }
+}

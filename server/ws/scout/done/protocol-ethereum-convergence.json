@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-convergence",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "convergence",
+ "name": "Convergence",
+ "category": "Dexs",
+ "tvl_usd": 333558,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "eccb379f751747acb53ebf6a152ab3b5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniV2-fork DEX on ethereum = factory 0x4eef5746ED22A2fD368629C1852365bf5dcb79f1 + 6 SwapPair clones (verified source, deadUrl, TVL $327,833): no function pays a caller - 603 swaps in 7 d (blocks 26416358 2026-11-14 to 26466614 2026-11-21, 3 of 6 pairs, 48 swappers incl. 1inch routers) all pay their own gas; only callables skim/sync work from a fresh address (71,551 gas = $0.013 at 0.1118 gwei, WETH $1,678.10) but pay 0 (balanceOf-reserves = 0 on all 6 pairs); createPair is onlyOwner, setters feeToSetter.",
+  "kb": [
+   "attempts:3509",
+   "protocols:1777"
+  ],
+  "run_id": "eccb379f751747acb53ebf6a152ab3b5",
+  "at": 1795302388
+ }
+}

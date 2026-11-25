@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-alien-base-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. UniV2-fork DEX + ALB MasterChef farm on Base: updatePool/massUpdatePools/harvestMany are permissionless (eth_call from fresh address succeeds) but pay a caller without a staked LP position 0 (pendingTokens(fresh)=0; updatePool mints ALB only to team/treasury/investor/farm, BasedDistributorV2.sol:548). Only farm call in the last 7 days was a staker withdrawing their own accrued rewards; the DEX itself has no swaps for months.",
+  "numbers": "1 farm tx in 7d: withdraw 0xadb1e367 (ts 1794705403) paid caller 0x6c16b59c 7,283 ALB = $20.45 gross vs gas 122,710 @ 0.006 gwei = $0.0013 (eth_getLogs ALB Transfer + receipt); 0 farm events in last 9,500 blocks (control USDC Transfer >20k same range); factory 0x3E84D913803b02A4a7f027165E8cA42C14C0FdE7 allPairsLength=1291; farm 0x52eaecac2402633d98b95213d0b473e069d86590 poolLength=110, albPerSec=30 ALB/s; ALB $0.0028, ETH $1759 (coins.llama.fi 2026-11-18); TVL $197.7k (api.llama.fi); WETH/USDC pair last tx 2026-10-01, no swaps (blockscout txs)"
+}

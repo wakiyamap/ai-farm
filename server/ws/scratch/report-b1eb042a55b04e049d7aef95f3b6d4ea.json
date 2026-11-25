@@ -1,0 +1,12 @@
+{
+  "run_id": "b1eb042a55b04e049d7aef95f3b6d4ea",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-base-uniswap-v2",
+  "outcome": "scouted",
+  "kb_rows": ["protocols:936", "attempts:2405"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "unpaid: Uniswap V2 Base (factory 0x8909dc15e40173ff4699343b6eb8132c65e18ec6, 3,079,054 pairs) - the only permissionless pay fn is Pair.skim(address) 0xbc25cf77 (no revert from a fresh address), but the pot is empty: balanceOf(pair)-reserve = 0 on all 10 largest pools ($0.00 skim-able, V2 sync() keeps balances = reserves); 0 skim calls in 7 d in the direct tx lists of the 6 largest pairs (416 txs, newest 2026-11-11; 41 older skims there); the one traced skim (0xb0669911..76df, 2026-11-11) paid 0 WETH + 0 USDC for 65,050 gas = $0.0006 at WETH $1,796.52 (coins.llama.fi). No reward/bounty/claim/epoch function on the Pair or Factory - LP fees accrue in-reserve."
+}

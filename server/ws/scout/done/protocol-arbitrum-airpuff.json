@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-airpuff",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 981,
+ "chain": "arbitrum",
+ "slug": "airpuff",
+ "name": "AirPuff",
+ "category": "Leveraged Farming",
+ "tvl_usd": 70334,
+ "url": "https://www.airpuff.io",
+ "github": [
+  "Airpuff"
+ ],
+ "listed_days_ago": 981,
+ "run_id": "f3182e5505d94262861c1dd54073a1c2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "0 logs on all 14 adapter contracts in 7 d (blocks 524591656 2026-11-15T23:33Z -> 526644935 2026-11-22T23:33Z; same-shape USDC control 22,937 logs); only anyone-callable paying fn is liquidatePosition(uint256,address) on the 3 AirPuffVault vaults (no role; eth_call reverts 'Liquidation Threshold Has Not Reached'), reward = 50% of residual (liquidatorsRewardPercentage 5000/10000 read on 0xb8Cfb340) but paid later inside keeper-gated executeClosePosition; gas ~0.012 USD (0.02 gwei, ETH 1722.95); whole deployment had 2 txs in ~91 d; TVL 70,334 USD - dormant.",
+  "kb": [
+   "attempts:3905"
+  ],
+  "run_id": "f3182e5505d94262861c1dd54073a1c2",
+  "at": 1795391180
+ }
+}

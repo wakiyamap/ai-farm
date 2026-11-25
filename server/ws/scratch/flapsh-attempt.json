@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-flap-sh",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. flap.sh is a pump.fun-style bonding-curve launchpad on BSC ($2.94M TVL, Binance chain per DefiLlama 2026-11-18). Trading is done by random trader EOAs via buyToken/sellToken/buy/sell (fees go to the protocol fee recipient); the only keeper-shaped functions are addLiquidity (reverts 'missing role ROLE_OPERATOR' from a fresh address) and collectFees (reverts), and claim(address) reverts with custom error 0xac5f6092 for a stranger (self-service claim of one's own rewards). No function anyone can call that pays the caller.",
+  "numbers": "eth_call 2026-11-18 from 0x1111...1111: addLiquidity revert ROLE_OPERATOR; collectFees revert 0x; claim revert 0xac5f6092; version()='v5.27.2'; nonce()=3735261. Logs last 3000 blocks (head 134304088): TVL proxy 37169, MAIN 585. Direct-call sample: gasUsed ~5.96M at 0.12 gwei = $0.42 (BNB $589.25, coins.llama.fi). Contracts: 0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0 (impl 0x52b97e707311589a473bc79c6072cef2f59ce274), 0x5c952063c7fc8610FFDB798152D69F0B9550762b (impl 0xef1e8d3fe13ab8497516b5a117969bd2a86d6cff)."
+}

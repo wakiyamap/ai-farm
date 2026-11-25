@@ -1,0 +1,12 @@
+{
+ "run_id": "c270b42aab824c99bc4316edf0a93caf",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "lead 183 Olympus YieldRepurchaseFacility daily OHM buyback fills: step-2 gross/net + step-3 onset measurement (measure lane)",
+ "outcome": "dead_end_recorded",
+ "kb_rows": ["attempts:1274", "leads:183"],
+ "wiki_pages": [],
+ "bot_ids": [],
+ "injection_seen": false,
+ "notes": "44 fills / 7 d measured per request (median mid-gross 0.543 USD passes the 0.5 bar; all-taker net 2.11 USD/day), but the OHM/WETH pool fee is 0.3 pct (fee() getter; only v3 OHM pool) and the market's median margin over mid is exactly that fee, so net of entry fee + gas the median fill is -0.09 USD and the class sums -1.42 USD/day; onset is not a race (SDA payoutFor flat 20 blocks before every fill, fills paced ~4 h by capacity release) - the fee is. Incumbent trace (+0.09 net) matches the fee model. Lead 183 dead_end; next measure target: lead 184 Elysium WHYPE mean-reversion request (untouched, needs a full session)."
+}

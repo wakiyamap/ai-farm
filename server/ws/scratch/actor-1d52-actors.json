@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "address": "0x1d52f9dc2bbee56fc81a70247c2b93030285c3b7",
+  "strategy": "UniswapX V3-Dutch-order filler: unverified Ownable executor (execute(address reactor, tuple order, bytes callbackData), sel 0x4c067550) driven by gas-EOA 0x6ce9efddac8e3a97d55cad8028c4693893ac8571 fills public user orders on V3DutchOrderReactor 0xb274d5f4b833b61b340b654d600a864fb604a87c (mostly tokenized-stock xStocks MSTRx/GOOGLx/COINx/AAPLs/AALs <-> USDC/USDT via Uni V4) and keeps the spread between the order quote and its fill.",
+  "evidence": "eth_getLogs V3DutchOrderReactor Executed topic2=filler 0x1d52..., blocks 522783818-524861943 (7d): 20 fills, 16 distinct swappers. Sample receipts: 0xaf769823ec0402ca0c3103c26da74abb415f3996a566fd5bf53a12a0b095ccd3 (USDC 1000 in, 8.7989 MSTRx swapped, 8.7807 paid out = +0.018 MSTRx ~ $1.88), 0xb1218b67a665cf1fe2b86b8011595b1d979d4c167e417b25f7457da82a37f625 (WETH->USDC, +0.34 USDC), 0xf2efbf63f764847a39c1dda9f08c9568c86da2a387b7ab6f6764fadded177493.",
+  "est_profit_usd_day": 2
+}

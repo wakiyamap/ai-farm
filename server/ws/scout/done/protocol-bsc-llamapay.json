@@ -1,0 +1,28 @@
+{
+ "id": "protocol-bsc-llamapay",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1673,
+ "chain": "bsc",
+ "slug": "llamapay",
+ "name": "LlamaPay",
+ "category": "Payments",
+ "tvl_usd": 1221741,
+ "url": "https://llamapay.io",
+ "github": [
+  "LlamaPay"
+ ],
+ "listed_days_ago": 1673,
+ "run_id": "d0afa456b30e42e8822dcbaeb0422689",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LlamaPay BSC: factory 0xde1C04855c2828431ba637675B6929A684f84C7F, 35 v3 stream payment contracts one-per-token (count()=35, eth_call head ~134.49M); withdraw(addr,addr,uint216) 0x17a566e4 permissionless but pays the recipient argument, caller 0 (LlamaPay.sol token.safeTransfer(to) only, no keeper fee); payments 0x0226...1c01 = vesting-escrow factory (create/active/permitToken), no bounty; BSC TVL 1,214,003 USD user deposits (api.llama.fi 2026-11-19 11:09Z); 7d Withdraw count unmeasured (scout CU spent 300080/300000, bsc eth_getLogs all providers failed incl. control) - verdict from source.",
+  "kb": [
+   "attempts:2491",
+   "attempts:2493",
+   "protocols:998"
+  ],
+  "run_id": "d0afa456b30e42e8822dcbaeb0422689",
+  "at": 1795087078
+ }
+}

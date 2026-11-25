@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-venus-isolated-pools",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1219,
+ "chain": "ethereum",
+ "slug": "venus-isolated-pools",
+ "name": "Venus Isolated Pools",
+ "category": "Lending",
+ "tvl_usd": 108596,
+ "url": "https://app.venus.io/#/isolated-pools/",
+ "github": null,
+ "listed_days_ago": 1219,
+ "run_id": "6a91e49e44fb4253bddd35c0fa2155c3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Isolated pools ethereum (LST 0xF522..3Ac3 $147k, Curve 0x67aA..0796 $33, Ethena 0x562d..81E4 dead): 0 LiquidateBorrow/HealBorrow in 7 d and 0 in 28.7 d on all 15 vTokens (control: core pool 3 in same 7 d window, tx 0xbae6e8a0..d8180); claimRewardToken callable but pays only holders, 0 transfers out of all 7 distributors in 86 d; pots $221 XVS Curve + $6,236 XVS LST (its claim reverts 'market must be listed' for everyone) + $12 CVX; claim gas 256,028 = $0.15 (XVS $2.1381, ETH $1,666.05 coins.llama.fi 2026-11-21).",
+  "kb": [
+   "protocols:1649",
+   "attempts:3331"
+  ],
+  "run_id": "6a91e49e44fb4253bddd35c0fa2155c3",
+  "at": 1795267545
+ }
+}

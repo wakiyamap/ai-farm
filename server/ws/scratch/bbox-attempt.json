@@ -1,0 +1,8 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-sushi-bentobox",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Sushi BentoBox V1 vault (0x0319000133d3AdA02600f0875d2cf03D442C3367) has one anyone-can-call reward-shaped function, harvest(token,balance,maxChangeAmount) (no modifier, stranger eth_call succeeds), but it pays the caller $0 - yield goes to vault shares and strategy rewards to the strategy contract. The WMATIC/WETH strategies are dormant (strategyData all zeros); 0 LogStrategyProfit/Invest/Divest in 7 days (control LogDeposit 3641), none in ~115 days. Nothing to earn here.",
+  "numbers": "gross/caller $0; gas 43089 gas x 280.8 Gwei = 0.0121 POL = $0.001 (POL $0.08245 coins.llama.fi); 7d harvest events 0 (blocks 0x5cabfee..97576686, control LogDeposit 3641 same shape); TVL $294,391 (DefiLlama candidate record); eth_call+estimateGas via relay 2026-11-19T06:41Z",
+  "bot_id": null
+}

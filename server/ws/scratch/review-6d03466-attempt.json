@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "MDB+ (0x9f8bb16f) mint / redeem at its BUSD backing value versus the PancakeSwap V2 ESHARE / MDB+ pair on BSC (trial-mdb-nav-bsc)",
+  "outcome": "review_promote",
+  "reason": "Paper reviewer independently reran both mint and redeem routes on the BSC fork with current bot code and artifact: wallet-raising success, NoProfit revert, non-owner revert, zero executor leftovers and approvals. Manifest check PASS, 64/75 trial slots before promotion, 46,000 estimated CU/day, $5 capital, <$0.95 signed gas cap per send. gate promote succeeded and live start executor matched state/executor.json. First live send logged won in block 135226871 (0x9c5f580459688000ffa43e67ea0a3b7c0b9afafbc847e4ac3d5b765f06fdcf5c). See bots/live/trial-mdb-nav-bsc/review.md and scratch/trial-mdb-nav-bsc/review-6d03466-{mint,redeem}.json.",
+  "numbers": "Fork mint: 0.000106244543850894 BNB gross, 509601 gas, 0.000055284443850894 BNB owner balance increase after gas at 0.1 gwei. Fork redeem: 0.000481139969880210 BNB gross, 474288 gas. Live first send: bot log gas_used 509592, gas_cost_wei 25479600000000, expected_gross_wei 85419438526440; realized wallet delta to be reconciled by live operator.",
+  "bot_id": "trial-mdb-nav-bsc"
+}

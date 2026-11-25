@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "reserve-dutch-ethereum realized-loss unit fix per review 811c0a9f 14:10Z",
+  "outcome": "fix_submitted",
+  "reason": "Implemented 2026-11-09 14:2xZ run fed0f975 (this session; one-line math fix + restart, 0 relay reads). Review 811c0a9f blocker: bot.js liveLossSettle divided gasWei x pMic by 1e12 overall instead of 1e24 (wei -> ETH 1e18 plus micro-USD -> USD 1e6), overcharging cumulative live loss 1e6-fold and falsely tripping the 30 USD stop after one send. Unit test: 760240 gas x 1.5 gwei x 2119 USD/ETH now settles as 2.42 USD, previously 2416422 USD. Restarted 14:23:49Z: heartbeat head 26377910 active=0, no cycle errors. OPEN for the reviewer: the review's second blocker stands - demonstrate a fork success with the bot's actual after-gas floor (minProfitBuy = 2 x 900000 x gasPrice) at an includable fee plus a guard revert before reconsidering promotion (old proof scratch/review-325468a3/reserve/proof.py succeeded only with minProfitBuy=1; note the measured natural gain at reset 26348315 was 0.0002416 ETH = about 0.51 USD, below a 1.8e15-wei floor at 1 gwei gasPrice, so the proof must pick an includable-fee/gasPrice scenario where the floor clears).",
+  "bot_id": "reserve-dutch-ethereum",
+  "numbers": "restart 2026-11-09T14:23:49Z; unit test 2.416422 USD vs old 2416422.84 USD; heartbeat 26377910"
+}

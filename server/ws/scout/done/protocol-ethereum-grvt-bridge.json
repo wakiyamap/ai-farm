@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-grvt-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 679,
+ "chain": "ethereum",
+ "slug": "grvt-bridge",
+ "name": "Grvt Bridge",
+ "category": "Bridge",
+ "tvl_usd": 38746584,
+ "url": "https://grvt.io",
+ "github": null,
+ "listed_days_ago": 679,
+ "run_id": "ff9b2595fe3e487b8ad6aa00c99eac5d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "GRVTBridgeProxy 0x8bc3249f.. + GRVTL1TreasuryVault 0x1f9D91f8.. (TVL 37.8M USD: SGHO 26.9M, USDY 2.8M, USDT 2.8M): every vault mutator is role-gated (onlyVaultAdmin/Allocator/YieldHarvesterOrAdmin/Rebalancer, yield to yieldRecipient); role-free deposit/claimFailedDeposit pay the caller 0; GRVTToken 0xad29..17cf admin-less ERC20; 7.3d no-topic getLogs on vault+4 proxies = 0 events (control GRVTToken 1009).",
+  "kb": [
+   "attempts:3143",
+   "protocols:1507"
+  ],
+  "run_id": "ff9b2595fe3e487b8ad6aa00c99eac5d",
+  "at": 1795227418
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-pancakeswap-amm-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. PancakeSwap AMM V3 DEX core on BSC (V3 AMM) has no permissionless function that pays the caller: every payout function (pool collect, NFPM collect/decreaseLiquidity, factory collectProtocol) pays the LP or the protocol owner, not whoever calls. Fee accrual is on-swap (no harvest to trigger), and Collect events are dormant (0 in ~4k blocks at head; KB 216 saw 0 in 50k blocks 2026-11-11). The Claimed(...) seen chain-wide is a USDT relay contract, not Pancake V3 (traced). MasterChef farm side = KB 203 (owner-gated harvest).",
+  "numbers": "head 134,416,348 (2026-11-19 01:3xZ). Factory 0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865 code non-zero; getter feeAmountTickSpacing(500)=10 (eth_call 0x22afcccb, fresh from 0xf321a88c...). PoolCreated 2 logs / ~4k blocks 0x802f455-0x80307dc (factory live). Collect topic0 0x6aaba5d46bfa4cab371e70f31e2a5e8746962de66225491d4317c47bbdbf5eef (cast keccak): 0 logs / ~4k blocks at head; KB protocols:216 = 0 logs / 50k blocks 2026-11-11. Control same-run: USDT 0x55d398326f99059ff775485246999027b3197955 Transfer 7175 logs / 100 blocks (lane healthy, control returned non-zero). Sources: pancakeswap/pancake-v3-contracts deployments/bscMainnet.json + PancakeV3Factory.sol/PancakeV3Pool.sol/NonfungiblePositionManager.sol. TVL 582,593,169 USD (DefiLlama session context). No caller-paid function => no per-call gross/gas to quote."
+}

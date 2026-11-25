@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "spice_finance",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/spice-finance/index.js lists four Ethereum vaults: Flagship 0xAe11ae7CaD244dD1d321Ff2989543bCd8a6Db6DF, Leverage 0xd68871bd7D28572860b2E0Ee5c713b64445104F9, VIP 0x6110d61DD1133b0f845f1025d6678Cd22A11a2fe, Blur 0xfC287513E2DD58fbf952eB0ED05D511591a6215B. Each eth_getCode was nonempty and asset() returned WETH 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2; totalAssets() answered. Etherscan verified implementations: 0x484b3673db0bdc785129ae395d8c408095622996 (SpiceFi4626), 0x1a228fb4e23598b3bde807694fa3ee1e0cd22ba0 (Vault), 0x133233691ec1bb91a1813681e6ccebaf277224ac (SpiceFiNFT4626), 0x1ce866c375bd71e77d7541ff2e3dc00404bd5e14 (Blur4626). Leverage liquidateLoan(address,uint256) is onlyRole(LIQUIDATOR_ROLE); fresh-address eth_call reverted with missing role 0x5e17fc5225d4a099df75359ce1f405503ca79498a8dc46a7d583235a0ee45c16. Allocation deposit(address,uint256,uint256) on Flagship and VIP similarly reverted missing STRATEGIST_ROLE. Other public functions are ERC4626 deposits and owner-share withdrawals, not stranger rewards. Blur setTotalAssets is admin-only. No public caller reward path in these four verified implementations."
+}

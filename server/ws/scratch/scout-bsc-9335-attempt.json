@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "actor-bsc-0x9335582c8544eca22e6101d077f66006126eb2b4",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers first, but at negligible scale: the candidate is an executor contract filling UniswapX V3 Dutch orders on V3DutchOrderReactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 (Uniswap/UniswapX README BNB table). A fresh address WOULD be paid: 4/4 of its fills take cosigned RFQ orders whose exclusiveFiller is another top desk (0xe0763177 x2, 0xc2403963, 0x52f9eea3) with a uniform 25 bps exclusivityOverrideBps, and the reactor pays the non-exclusive filler the in-tx spread. But volume is tiny - 4 fills in the 9 d the ledger covered - matching lead 166's dead_end ceiling for this class.",
+  "numbers": "4 fills / 9 covered days = 0.44/day (all 4 ledger events, receipts decoded). Gross per call avg ~$3.9: +2.96 USDT (0x6118f29f), +251.88 JCT ~$0.56 (0xcf6be634), +9.37 USDT (0xc161730a), +273.71 AKE ~$2.76 (0xad299829); ~15-30 bps of notional = the 25 bps override. Gas per call $0.02-0.10 (252k-1.77M gas @ 0.1-0.14 gwei, BNB $589.5 coins.llama.fi 2026-11-17). Net est ~$1.7/day. Exact margin forwarded to 0x3287a2e3 every fill; gas paid by EOA 0xc7f01e2c."
+}

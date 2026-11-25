@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-lydia",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers - the UniV2-fork DEX layer is dormant (0 pairs created, 5 router txs in 7d) but the Croesus MasterChef farm pays real strangers: 27 txs from 7 EOAs harvested 10.22M LYD ($476.48) in 7d at $0.012-0.14 gas. Caveat recorded in the lead: reward is the caller's own accrued stake yield (must hold a stake); total emissions only 2 LYD/s = $8.06/day, pot $12,715.",
+  "numbers": "7d window blocks 100483431 (ts 1794838793, 2026-11-16) - 101171322 (ts 1795442743, 2026-11-23), eth_getBlockByNumber timestamps. Chef events (topic0 from deployed routescan ABI, Deposit 0x90890809..., Withdraw 0xf279e6a1...): 57 logs / 27 txs / 7 senders / 12 staker addrs; full 27-tx receipt sample (all of them, not a subset): 10,215,590 LYD paid to callers, avg $17.65, max $321.10 tx 0x1b0e9e45d6b0af6f3116, min $0; gas per tx $0.012-0.14 (gasUsed x effectiveGasPrice, AVAX $6.9679 coins.llama.fi 2026-11-23T14:09). LYD $0.000046642 (coins.llama.fi 2026-11-23T12:08), decimals 18 read on-chain. lydPerSec()=2e18; chef LYD balance 272,614,189e18 wei = $12,715. Factory allPairsLength()=141. Control: identical no-topic getLogs shape returned 57 logs on chef in same scan."
+}

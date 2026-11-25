@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "actor-optimism-0x3c0546587d27354635a4972390a7b96f962d8bbd",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the address is the verified Alchemix V3 AlchemistRouter on OP Mainnet, a stateless user-facing proxy (no fee, owner or reward logic in src/router/AlchemistRouter.sol; ctor takes only _alchemist=0x930750a3510e703535e943e826aba3c364fFC1De). Every call is an EOA moving its own funds (deposit/withdraw/repay/claimRedemption/selfLiquidate); the caller pays gas and the protocol pays the router nothing - router holds 0 ETH and 0 USDC/mixUSDC/ALCV3. Consistent with ethereum alchemix_v3 dead_end (protocols:193). No keeper revenue to copy here",
+  "numbers": "7d (2026-11-10 03:30..11-17 03:30 UTC): 29 router calls = 4.1/day (16 withdrawUnderlying, 10 depositUnderlying, 1 each selfLiquidate/repay/claimRedemption; Blockscout tx list, all 50-page txs checked, window covered fully); 28 distinct callers (many dust ops, top caller 0x404693c589 with 13/50); gross per call (USD-pegged USDC/mixUSDC/ALCV3 legs, Blockscout token-transfers, 31 txs with ERC-20 legs): median ~6 USD, p75 ~1,802, max 27,410, 7d sum ~58k; gas per call n=10 relay receipts: 660-822k gas at 0.00001-0.00023 gwei = median ~0.0001 USD (ETH $1,827.86 coins.llama.fi 2026-11-17); all-time 563 txs"
+}

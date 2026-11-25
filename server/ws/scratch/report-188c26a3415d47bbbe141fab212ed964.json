@@ -1,0 +1,12 @@
+{
+  "run_id": "188c26a3415d47bbbe141fab212ed964",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "GMX v2 Arbitrum liquidations: keeper wrapper permissionlessness + eligibility-to-capture poll window + fee destination (lead 22 steps 1-2)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:256", "attempts:257", "leads:22", "protocols:14"],
+  "wiki_pages": ["methods/keeper-calldata-replay-probe"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Closed lead 22 steps 1-2 with keeper-calldata replay probes: wrappers are permissionless (non-member eth_call succeeds on 6 of 7 observed wrappers, handler role gate passes with msg.sender = wrapper), window >= 165 blocks on 29/32 samples (>= 1000 on 26/32), so the pond is poll-compatible, not a same-block race. Fee destination measured: the wrapper keeps the prop-fee profit and pays its own configured recipient, so the farm should call the live handler 0xa5d2... directly from its executor and needs a one-time LIQUIDATION_KEEPER grant (GMX role-admin application, not money). Next session builds gmx-watcher-arbitrum per lead 22 next_steps; the live handler ABI is still to decode (live dispatch selector 0xc6561b45 differs from the repo deployment ABI)."
+}

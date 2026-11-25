@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-stargate-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The two DefiLlama-adapter Base contracts (0xdc181Bd6..., 0x27a16dc7...; verified source: StargateOFTUSDC / StargatePoolUSDC, the new OFT-style pools) expose no function that pays a caller reward. Public functions are user actions (deposit/redeem/send/redeemSend) where the caller pays fees and gets only own principal back; retryReceiveToken is permissionless but pays the stuck receiver, not the caller, and had 0 work (0 UnreceivedTokenCached in 7d). treasuryFee() is the protocol's send-subsidy pot (12.01 + 1143.83 USDC), spent on users' bridge sends and only withdrawable by the treasurer role. 7d: 690 OFTSent, 1191 OFTReceived, 33 Redeemed, 0 Deposited; gas ~$0.001/call at 0.006 gwei.",
+ "numbers": "7d window blocks 56056967-59080970 (eth_getLogs 50k chunks, both addresses): sg1 OFTSent 381/OFTReceived 216/Redeemed 19/Deposited 0/UnreceivedTokenCached 0; sg2 OFTSent 309/OFTReceived 975/Redeemed 14/Deposited 0/UnreceivedTokenCached 0. treasuryFee() eth_call: 120080396 SD and 11438262283 SD (7-dec = 12.01 / 1143.83 USDC). eth_call redeem(1e6) and retryReceiveToken(dummy) from fresh 0x1111..1111 both revert (no LP balance / no cached message). Sample redeem 0x545720cf5971459fefcdf28357f9a17e663d3c8ae2f40ed361ad8c756fef9907 gasUsed 92862, eth_gasPrice 0.006 gwei, ETH $1793.71 (coins.llama.fi 2026-11-18) => gas ~$0.001. Base TVL $3.4M (api.llama.fi)."
+}

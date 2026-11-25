@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-premia-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only permissionless caller-reward function on Premia V2 pools is claimRewards(bool)/claimRewards(address,bool) (PoolIO facet), which pays PREM to the calling LP via PremiaMining; it is not role-gated (eth_call from a fresh address returns 0x, no revert) but the reward pot pays essentially nothing: 1 claim in the last 7 days for 0.986 PREM = $0.0029 gross against $0.0048 gas. The protocol's other free functions (withdrawFees, processExpired, update, updateMiningPools) pay a fee receiver / token holder / nobody, not the caller. PREMIA is $0.0029 and pool TVL $78k, so this is a sunset protocol.",
+  "numbers": "6 pools (getPoolList on 0x89b36ce3491f2258793c7408bd46aac725973ba2). 7 d window blocks 524796500 (2026-11-16) to 526820539 (2026-11-23): 3 logs on PremiaMining 0xbc3c01d954282eed8433da4359c1ac1443a7d09a (no-topic scan; control = same query returns these logs, 2 are UpdatePool). 1 claim: tx 0x68eb248f5811344a23f31833d61a1a8a94125defce4d94f4cee8a53e9d58adad, caller 0xc6ef132ede48d791ca94b98cd5f5ecc5e55f181f, Transfer of 0.986 PREM from 0xbc3c01d9. Gross $0.0029 (PREMIA $0.00289747 CoinGecko 2026-11-23 13:43 UTC; token/decimals read on chain: symbol PREMIA, 18, 0x51fc0f6660482ea73330e414efd7808811a57fa2). Gas 140641 x eth_gasPrice 0x13163b0 (0.02 gwei) = 0.0000028 ETH = $0.0048 at ETH $1723.69 (coins.llama.fi 13:45 UTC). Unclaimed pot 220,588 PREM = $639. Sample of 3 of 3 logs in window."
+}

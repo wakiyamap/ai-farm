@@ -1,0 +1,12 @@
+{
+  vaults(first: 100, where: { chainId_in: [1] }) {
+    items {
+      address
+      name
+      symbol
+      chainId
+      totalAssetsUsd
+      curator { name }
+    }
+  }
+}

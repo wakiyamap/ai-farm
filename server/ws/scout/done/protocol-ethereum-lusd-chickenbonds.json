@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-lusd-chickenbonds",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1506,
+ "chain": "ethereum",
+ "slug": "lusd-chickenbonds",
+ "name": "LUSD ChickenBonds",
+ "category": "Yield Aggregator",
+ "tvl_usd": 1489817,
+ "url": "https://www.chickenbonds.org",
+ "github": null,
+ "listed_days_ago": 1506,
+ "run_id": "6e4bbdfdabb34a2786806ad403321703",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ChickenBondManager 0x5761...7137 (TVL 1,492,058 LUSD ~1.49M USD) has no function that pays the caller: public keeper shiftLUSDFromSPToCurve/shiftLUSDFromCurveToSP/startShifterCountdown pay 0 (no payable, no transfer to msg.sender in source; yield delta stays in protocol), rest is behind bond-NFT ownership / bLUSD balance / Yearn governance; 0 CBM logs in last 7d (blocks 26414633@2026-11-14 -> 26464888@2026-11-21; control USDC same shape 50 blocks = 5,076 logs); last activity 2x BondClaimed 10 LUSD by 0x8e5b3ee6... 2026-10-17, last shift window opened 2026-10-12.",
+  "kb": [
+   "attempts:3406"
+  ],
+  "run_id": "6e4bbdfdabb34a2786806ad403321703",
+  "at": 1795281600
+ }
+}

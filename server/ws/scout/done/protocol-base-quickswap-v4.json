@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-quickswap-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 459,
+ "chain": "base",
+ "slug": "quickswap-v4",
+ "name": "Quickswap V4",
+ "category": "Dexs",
+ "tvl_usd": 1555158,
+ "url": "https://dapp.quickswap.exchange/",
+ "github": null,
+ "listed_days_ago": 459,
+ "run_id": "ff20cb95d2814e0c92f5e5d083fc239c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Algebra-style UniV3 fork on base (factory 0xC5396866754799B9720125B104AE01d935Ab9C7b, 25 pools, TVL 1,555,158 USD): no reward/claim/harvest/distribute/liquidation function anywhere in factory, pool, plugin (405-byte stub) or community vault; the only public payer is pool.skim() and its pot is empty (stranger eth_call reverts 0x932984d2) vs gas 0.0006 USD (0.006 gwei, ETH 1785 USD); community-vault withdraw is COMMUNITY_FEE_WITHDRAWER_ROLE-gated.",
+  "kb": [
+   "attempts:1837",
+   "protocols:477"
+  ],
+  "run_id": "ff20cb95d2814e0c92f5e5d083fc239c",
+  "at": 1794941703
+ }
+}

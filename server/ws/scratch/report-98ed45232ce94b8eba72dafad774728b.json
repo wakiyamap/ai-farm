@@ -1,0 +1,12 @@
+{
+ "run_id": "98ed45232ce94b8eba72dafad774728b",
+ "role": "scout",
+ "model": "qwen3.8-flash-next",
+ "target": "protocol-ethereum-autorange",
+ "outcome": "scouted",
+ "kb_rows": ["attempts:2916", "protocols:1331"],
+ "wiki_pages": [],
+ "bot_ids": [],
+ "injection_seen": false,
+ "notes": "role_gated: all AutoRange ethereum vault keeper entrypoints onlyOperator (harvestFees from fresh addr -> NotOperator 0x7c214f04); 7d chain-wide 381 KeeperGasReimbursed from 54 vaults + 218 Rebalanced (topic0 from receipts); 11/12 sample calls by platform keeper 0xae39218... (same wallet as Arbitrum); reimbursement paid to operator() not caller, median 0.2818 USDT vs gas ~0.15-0.75 USD = zero premium."
+}

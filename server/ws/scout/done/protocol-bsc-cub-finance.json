@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-cub-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "cub-finance",
+ "name": "Cub Finance",
+ "category": "Farm",
+ "tvl_usd": 192606,
+ "url": "",
+ "github": [
+  "CubFinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "92b9a1bfd0dd4e5bab8d86c75ac1404e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Pancake-v2 MasterChef fork, 2 farms (CubFarm 0x227e..3e16, CubKingdom 0x2E72..CBBd): no fn pays a caller - updatePool/massUpdatePools callable by anyone (eth_call fresh addr, no role revert) pay 0; deposit/withdraw pay only stakers (pendingCub=0 for stranger). 0 logs from both farms in last 7d (blocks 133,270,000-134,617,576, 270x5000 chunks; control 11,516 WBNB logs/500 blk); last Dep/Wd block 127,291,499 (38.2d ago). CubKingdom cubPerBlock=0, CUB bal 0. CubFarm pot 1.5M CUB (1240 USD) is a staker pot; emissions ~1.6 USD/day farm-wide; poke gas 0.023 USD (BNB 575).",
+  "kb": [
+   "attempts:2742",
+   "protocols:1183"
+  ],
+  "run_id": "92b9a1bfd0dd4e5bab8d86c75ac1404e",
+  "at": 1795143996
+ }
+}

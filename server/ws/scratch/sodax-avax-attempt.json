@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-sodax",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. SODAX hub-and-spoke bridge on avalanche: the only open functions are SpokeAssetManager.transfer(token,to,amount,data) and recvMessage(...); the caller is never paid on-chain. 7d: 77 bridge txs, 5 caller EOAs (67/77 from one router 0xc79f1e68...), callers received 0 native and 0 tokens in 5/5 sampled txs; fees go to protocol (arbitrum row 325: fee pot leaves only via onlyOwner withdrawFee, recvMessage executor-allowlist gated). Same verdict as arbitrum/bsc/ethereum/hyperevm (dead_end).",
+  "numbers": "7d window blocks 100381935 (2026-11-15 09:33Z) - 101058475 (2026-11-22 09:38Z) from eth_getBlockByNumber timestamps. 77 txs w/ Connection event topic0 0x0fcc8c44... (topic0 from receipts; 1 topic0 on no-topic scan): 74 x SpokeAssetManager.transfer selector 0xc6b4180b, 3 x 0xb05beaa0 (swap+bridge via 0xe77e9642...). 5 distinct callers, 0 failed. SpokeAssetManager own logs 0 (control: same chunked shape returned 77 on Connection). 71 USDC (0xB97EF9Ef...6Dd9c48a6E, 6 dec, read on chain) Transfers out of AM in 7d; 5-tx sample: payments to caller 0. Gas median 109,594 @ 7.5 gwei = 0.000822 AVAX = $0.0055 (AVAX $6.6942 coins.llama.fi ts 1795341504). Lock sizes seen: 1005, 1500, 79.68, 302.29, 439.58, 153.26 USDC."
+}

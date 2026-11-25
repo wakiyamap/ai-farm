@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-extended-perps",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The only ethereum contract (per DefiLlama registry) is the StarkEx StarkPerpetual escrow/dispatcher 0x1cE5D7f52A8aBd23551e91248151CA5A13353C65 holding 152,770 USDC; its callable surface is user self-service (deposit/withdraw/escape/registerEthAddress) which pays the caller nothing, plus role-gated operator/governance functions. No reward-like function exists and the contract is dormant: 0 txs and 0 events in the last 7 days; last activity 2026-07-20 (protocol migrated to Arc).",
+  "numbers": "7d window blocks 26,409,651 (2026-11-14 00:31) -> 26,459,908 (2026-11-21 00:31) from eth_getBlockByNumber timestamps: 0 logs on proxy (eth_getLogs); control same-shape 25,575,000-25,575,100 = 3 logs (last proxy event block 25,575,044, 2026-07-20). No-topic scan 24.5M-25.57M (Mar-Jul): 40 logs, only 3 topic0s from July receipts (registerEthAddress/escape/withdraw events) - no reward event, no LogUpdateState. USDC balanceOf 0x2392625b3e = 152,770.00 USDC (6 dec read on chain; price usd, llama TVL matches). eth_call from fresh addr: withdraw(1,1) reverts ASSET_TYPE_NOT_REGISTERED, escape(1,1,1) reverts ESCAPE_ALREADY_USED (both permissionless, pay caller 0), isOperator(fresh)=false (updateState role-gated). Gas: eth_gasPrice 109,282,782 wei = 0.109 gwei, ETH $1620.13 (coins.llama.fi WETH 2026-11-21 00:30:58Z) -> 21k gas ~ $0.004, 300k gas ~ $0.052. Gross reward per call = $0 (no such function)."
+}

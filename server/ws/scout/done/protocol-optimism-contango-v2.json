@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-contango-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1137,
+ "chain": "optimism",
+ "slug": "contango-v2",
+ "name": "Contango V2",
+ "category": "Derivatives",
+ "tvl_usd": 307578,
+ "url": "https://contango.xyz",
+ "github": null,
+ "listed_days_ago": 1137,
+ "run_id": "ffb6e01495a44d428fed62d99f555390",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated (post-sunset build): core 0x6Cae28b3..C24E has no keeper fn; claimRewards(bytes32,address) reverts Unauthorised 0xae10e1de from a stranger, OrderManager.execute (only msg.sender keeperReward path, 0xA64f0dbB..3Cb3) reverts AccessControl missing role 0x902cbe3a and had 0 events in 7d; 7d core logs = 31 (21 PositionUpserted, 9 PositionDonated, 1 RewardsClaimed self-paid by 0xc40bb034 in 0x91e61c9e, gasUsed 391943 @ 1531 wei effGasPrice ~ $1.05 at ETH $1754 coins.llama.fi); same-shape control scan returned the 31 logs.",
+  "kb": [
+   "attempts:2244",
+   "protocols:804"
+  ],
+  "run_id": "ffb6e01495a44d428fed62d99f555390",
+  "at": 1795032356
+ }
+}

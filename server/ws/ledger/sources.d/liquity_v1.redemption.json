@@ -1,0 +1,20 @@
+{
+  "id": "liquity_v1.redemption",
+  "protocol": "liquity_v1",
+  "kind": "redemption_arb",
+  "event": "Redemption(uint256,uint256,uint256,uint256)",
+  "topic0": "0x43a3f4082a4dbc33d78e317d2497d3a730bc7fc3574159dcea1056e62e5d9ad8",
+  "chains": {
+    "ethereum": [
+      "0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2"
+    ]
+  },
+  "indexed": [],
+  "data": [
+    "attempted_lusd",
+    "actual_lusd",
+    "eth_sent",
+    "eth_fee"
+  ],
+  "actor_field": "tx_from"
+}

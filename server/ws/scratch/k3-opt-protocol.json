@@ -1,0 +1,6 @@
+{
+  "chain": "optimism",
+  "protocol": "k3_capital",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/k3/index.js (raw.githubusercontent.com, 2026-11-18) lists for optimism ONLY midasTokens: [0xcC476B1a49bcDf5192561e87b6Fb8ea78aa28C13] - K3 holds a Midas token, it owns no contracts on optimism. That address: eth_getCode non-zero, TransparentUpgradeableProxy (blockscout), impl 0x3f5cb831d550228719567498dd08bebc4b42a6a0 verified as weEUR (RedDuck/Midas): name()='Liquid Euro', decimals()=18, totalSupply()=8,274,695.56 (~K3's whole $9.29M OP TVL, price-consistent). External surface (impl source scratch/k3-optimism-impl): ERC20 transfer/approve/transferFrom + mint/burn/pause/unpause/setMetadata only; mint from fresh addr 0x00f375...0001 reverts 'WMAC: hasnt role' (AccessControl). No reward/bounty/harvest/poke/claim/settle/distribute function exists - yield accrues passively in the underlying eEUR exchange rate. Mirrors k3_capital dead_ends on arbitrum (525), bsc (534), hyperevm (538): curator, nothing callable that pays."
+}

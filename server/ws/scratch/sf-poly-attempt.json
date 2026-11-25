@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-superfluid",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The only open-callable reward function on Superfluid/Polygon is CFA stream liquidation (host.callAgreement, open msg.sender); 8 AgreementLiquidatedV2 in 7 d (6 txs, 2 stranger callers: EOA 0xf9c29c1f and bot contract 0xa7afdc46), all rewards paid to the liquidators themselves, but gross per tx is 0.000003-0.0547 USD vs 0.012-0.048 USD gas: 5 of 6 txs earn far under gas and the one that clears it (2 pUSDx liquidations, $0.0547 gross) nets ~+$0.037 once a week for the whole chain. Prior cross-chain row attempts:1820 measured polygon at < 0.01 USD too; TOGA seat route already CLOSED by the human on base (lead 248).",
+ "numbers": "7d (subgraph-endpoints.superfluid.dev/polygon-mainnet/protocol-v1, since 1794506981): 8 events, 6 txs, 2 callers; gross 7d priced = pUSDx 0.054736 x $1.000007 (llama ts 1795110774) + MATICx 0.0049229 x $0.08053 (llama ts 1795111885) = $0.0551; AGOLD/IXT 0.3437 unpriced (PlanetIX not on llama/coingecko); gas per tx $0.0117-0.0476 (receipts 0x193cc01c, 0x4f4a4e8e, 0x5094387a, 0xe61400c6; 332/278/287/283 gwei, 0.68-2.08M gas); eth_getLogs on 3 tokens topic0 0xb8381a3ce157650e06186e3e8f4dd4dc29236f2688b6eed1893d0a60d7c6386f returns same txs (control non-zero)"
+}

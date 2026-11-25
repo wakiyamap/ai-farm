@@ -1,0 +1,33 @@
+OWNER 0x000000000000000000000000000000000000f007 42
+arbitrum	fork 522766864	mainnet 522828834	gen 5	free	http://127.0.0.1:9002
+base	fork 55308841	mainnet 55399491	gen 388	free	http://127.0.0.1:9001
+ethereum	fork 26306792	mainnet 26380903	gen 367	free	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+ok leased ethereum for 15 min (run 604b2c71d57b433d80980aaf38835f6b); generation 367
+ok reset ethereum at block 26306742 generation 368
+interval0: None
+arbitrum	fork 522766864	mainnet 522828839	gen 5	free	http://127.0.0.1:9002
+base	fork 55308841	mainnet 55399498	gen 388	free	http://127.0.0.1:9001
+ethereum	fork 26306742	mainnet 26380903	gen 368	leased by 604b2c71d57b433d80980aaf38835f6b 898s	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+PAYFULL 9398683583154130380
+grant 0x06050552 0x1
+grant 0x06050552 0x1
+grant 0xf404e5f8 0x1
+grant 0xf404e5f8 0x1
+grant 0xA043FDc5 0x1
+grant 0xA043FDc5 0x1
+grant 0x2b772707 0x1
+grant 0x2b772707 0x1
+grant 0xebbcb2ce 0x0
+grant 0xebbcb2ce 0x0
+MOD USDC now 20000000000
+probeA: {"code": "3", "message": "execution reverted: funding under-delivered", "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000"}
+TRACE errors:
+   {'from': '0x000000000000000000000000000000000000f007', 'to': '0xd98d34008d1bbb29013592c637f8e9fca4179fa0', 'fn': '0x7cda801a', 'err': 'execution reverted', 'type': 'CALL'}
+prelude done u0 b0 s0 o0: 20000000000 8000000000000000000 57582275034043643305 543454680
+pre {"USDC_WINNER": 20000000000, "BUY_WINNER": 8000000000000000000, "SELL_WINNER": 57582275034043643305, "USDC_MOD": 20000000000, "USDC_OWNER": 543454680, "AGV_WINNER": 20463863488764783939}
+probe: {"code": "3", "message": "execution reverted: custom error 0xba3de9a3", "data": "0xba3de9a3"}
+TRACE errors: [{"from": "0x000000000000000000000000000000000000f007", "to": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0", "fn": "0x7cda801a", "err": "execution reverted", "type": "CALL"}, {"from": "0x8f10b468b06c6fd214b65f87778827f7d113f996", "to": "0x8f10b468b06c6fd214b65f87778827f7d113f996", "fn": "0x3ed37eda", "err": "execution reverted", "type": "CALL"}, {"from": "0x8f10b468b06c6fd214b65f87778827f7d113f996"
+venue26 done settled= None guard= None
+EXIT 0

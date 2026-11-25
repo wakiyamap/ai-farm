@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-sunx-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 418,
+ "chain": "arbitrum",
+ "slug": "sunx-bridge",
+ "name": "SunX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 748628,
+ "url": "https://www.sunx.io/",
+ "github": null,
+ "listed_days_ago": 418,
+ "run_id": "83558d3233df47078578833c1579df04",
+ "result": {
+  "verdict": "role_gated",
+  "line": "SunperpVault 0x4d1Be6c39Fe3fB1362ff602a6c0CBB5B3BF64eC7 (impl 0x9ac0c8bade): only money-out functions withdraw/withdrawWhitelist are onlyRole(OPERATE_ROLE) (2 members; all 7 Withdraws in blocks 522,600,268-525,100,268 by operator EOA 0x116dbdbdcf2c, 23,580.81 USD out to 7 user receivers, 1,758.10 USD in via 5 Deposits) and pay the caller 0 - the whole amount goes to action.receiver - vs gas 145,428-161,669 at 2 gwei = bash.52-0.57 (ETH ,775.24, coins.llama.fi); TVL 33,801 (vault 189,257 USDT + 44,544 USDC, Safe 0xa9c99a9f 500,000 USDT, MPC EOA 0xabc02c4f 0).",
+  "kb": [
+   "attempts:1818",
+   "protocols:459"
+  ],
+  "run_id": "83558d3233df47078578833c1579df04",
+  "at": 1794937411
+ }
+}

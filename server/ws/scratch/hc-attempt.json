@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-hypercall",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Hypercall's HyperEVM layer only has the Exchange/Factory/Router/Registry; all directive execution (executeUserDirective, executeRsmDirective — the keeper-like actions incl. liquidation state) is SEQUENCER_ROLE-only and every sampled Exchange tx comes from the single sequencer EOA. The anyone-callable entry points (createAccount, Router.deposit) charge the caller a fee and pay nothing back; the on-chain liquidation auctioneer is not configured, so there is nothing a stranger can call for pay.",
+ "numbers": "Sample of 25 Exchange txs over ~24h (explorer txs 0xE6b7FaA216cabb2b38B392f577C9c826378b2240): 100% from sequencer 0x56a2924217C91EB4d6989Cf4C7b4dF03020E8944, 2 selectors (0x6af113a9, 0x9945c75a). Fresh-address eth_call on both: execution reverted (role). Factory.createAccount(uint96) eth_call from 0xdead OK (returns Account addr); real calls pay in ~0.0218 HYPE (~1.51 USD at HYPE 69.18 USD, coins.llama.fi coingecko:hyperliquid). Gas 0.1 gwei (eth_gasPrice) -> ~0.001-0.003 USD per 100-300k-gas call. TVL 884k USD (candidate, HyperCore custody)."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-paraluni-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Uniswap-V2 fork on BSC with no function that pays a caller or recipient-arg stranger. FeeDistributor.distributeFees(address[]) (proxy 0x3B4AA467E9EeD8d9299b80D153C7BE7f200F0759) and MasterChef updatePool/massUpdatePools are callable by anyone (eth_call from 0x0..01 succeeds, no role revert) but pay 0 to the caller: fees go to fixed protocol pools. Factory/router/pair are standard V2 (swap/mint/burn pay the actor itself). Flagship BNBPair BNB/T42 also shows near-zero usage, so nothing to earn on even as an LP.",
+ "numbers": "factory 0xf3B426a160686082447545e1150829EE5485a91a allPairsLength=46 (eth_call, block 134428965, 2026-11-19); chef poolLength=26; 0 Swap logs on 0xb56b17EE822c64E3E99d3d4946a182Ed18A41D1B in 4 sampled 5000-block windows at 0/30/90/180d ago (eth_getLogs; control: USDT 14007 Transfer logs in 200 blocks); TVL 221850 USD (DefiLlama /protocol/paraluni-dex, candidate 2026-11-19); gross per call to caller 0 USD, gas ~0.003 USD per 100k gas at eth_gasPrice 0.05 gwei x BNB 577.18 USD (coins.llama.fi); no payout so nothing to call"
+}

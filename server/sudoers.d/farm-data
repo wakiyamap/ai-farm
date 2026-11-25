@@ -1,0 +1,3 @@
+# Agents (group farm) write the knowledge stores only through the validating
+# writers, which run as farmdata. Nothing else runs as farmdata.
+%farm ALL=(farmdata) NOPASSWD: <REDACTED>, /opt/farm/bin/wiki-write

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "protocol": "superfluid",
+  "status": "dead_end",
+  "checked": "2026-11-17 run 56e8c1ce (attempts:1820, lead 248): stream liquidations 34 events/7 d, callers got 0.13 USD = caller route dead; TOGA PIC seat 0xA87F76e99f6C8Ff8996d14f550ceF47f193D9A09 paid 113.69 USDCx/28 d but bond breaks L + holding frame, lead 248 CLOSED by human 2026-11-18. 2026-11-19 re-scout scout-2 run 18a8cbf0 (attempts:2594), verdict unpaid: xSUP dust surge lifted 7 d volume to 2,339 AgreementLiquidatedV2 / 685 txs (11-17..19), yet caller-side (pleb) gross only 1,627 SUP ($4.10, SUP $0.00252 coins.llama.fi ts 1795108968) split between bot contract 0x6b008bac (net ~-$9/7 d, gas exceeds gross) and stranger EOA 0x784f5a39 (+$0.5/7 d); median call gross $0.002 vs gas $0.0035-0.029. Patrician rewards 13,936 SUP ($35.1) + 11.43 USDCx went to the TOGA PIC. Contracts verified on chain 19 Nov: Host 0x4c073b3bab6d8826b8c5b229f3cfdc1ec6e47e74 (UUPSProxy -> Superfluid 0x2dc25e22), CFA 0x19ba78b9cdb05a877718841c574325fdb53601bb (UUPSProxy -> ConstantFlowAgreementV1 0xc8bdd45a; MAXIMUM_DEPOSIT() answers), IDA 0xfe6c87be05fedb2059d2ec41ba0a09826c9fd7aa, xSUP 0xa69f80524381275a7ffdb3ae01c54150644c8792 (symbol SUP, decimals 18). Sources: Superfluid base subgraph + relay eth_call/receipts + blockscout.",
+  "wiki_page": "mechanisms/superfluid-toga-pic.md"
+}

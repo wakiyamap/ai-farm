@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-whales-market",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 921,
+ "chain": "base",
+ "slug": "whales-market",
+ "name": "Whales Market",
+ "category": "OTC Marketplace",
+ "tvl_usd": 35102,
+ "url": "https://whales.market/",
+ "github": null,
+ "listed_days_ago": 921,
+ "run_id": "b61acf9d43ec4c0dbc1de6b2a088be00",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Same dead-end as ethereum (protocols:1571): OTC marketplace proxy 0xdf02eeaB..23092 (impl 0xdb6c50ba..ae86), all fns are party trade actions (deposit/refund own funds, 0.5% fee to feeReceiver) or owner/role (withdraw*/update*/grantRole); no reward/claim fn. 2 events in 7 d (blocks 57937299 2026-11-15 to 60961880 2026-11-22; control USDC same shape 7779 logs): NewOrder 0.0001 USDC by 0xd0f98da2 (gas 185498) + CancelOffer by 0x064f850b (gas 120576); gas 0.006 gwei x ETH 1723.04 = ~0.001-0.002 USD/call, gross to caller 0.",
+  "kb": [
+   "attempts:3866"
+  ],
+  "run_id": "b61acf9d43ec4c0dbc1de6b2a088be00",
+  "at": 1795383028
+ }
+}

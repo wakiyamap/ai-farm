@@ -1,0 +1,22 @@
+{
+ "id": "protocol-base-scale",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1144,
+ "chain": "base",
+ "slug": "scale",
+ "name": "Scale",
+ "category": "Dexs",
+ "tvl_usd": 178455,
+ "url": "https://scale.farm",
+ "github": null,
+ "listed_days_ago": 1144,
+ "run_id": "461834276df74e5abde93610d96a9a39",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Scale (ve3,3 Equalizer fork, Base): keeper fns update_period/distribute/distributeFees are permissionless but pay caller 0 (source of Minter 0x4462.., Voter impl 0x2621..); sample of all 25 Voter txs Nov 6-16: distribute x1 (tx 0x6c41bc8, 4 min after epoch, gross 0 to caller), distributeFees x1, claimEverything x20 self-claims; weekly emission ~695k SCALE all to gauges; gas <$0.01.",
+  "kb": [],
+  "run_id": "461834276df74e5abde93610d96a9a39",
+  "at": 1795033587
+ }
+}

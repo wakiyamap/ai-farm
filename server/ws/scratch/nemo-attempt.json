@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-nemo-trading",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. NEMO's two TokenizedVault proxy vaults expose anyone-callable fee functions (chargeManagementFee, collectFees, chargePerformanceFees) and a claim/processAllClaimsByDate redemption path, but nothing pays msg.sender: fees go to protocol-configured feeCollectors/performanceFeeRecipients and redemption pays the withdrawing holder, who must pass the ifSenderWhitelisted investor whitelist. A stranger calling collectFees gets 0; the daily calls are made by the protocol's own operator.",
+  "numbers": "7d (blocks 26405460-26455860, eth_getLogs topic0 from cast keccak, USDC Prime 0x955256B31097dDf47a9E47A95aDfDFB4460D8522 + ETH Prime 0xA422C3018C46ba90a14AcD14f96CB60616F5c91B): ManagementFeeCharged+FeesCollected 7 each per vault; fees paid out 6,804 USDC (USDC Prime, 6dp from asset()) and 0.7286 ETH (ETH Prime WETH 18dp) = ~$1,279 at $1,755.59 coins.llama.fi ts 1795172407; WithdrawalProcessed 15 + WithdrawalRequested 13 on USDC Prime, 4 on ETH Prime; all fee callers = operator 0xe0b7deab801d864650dec58cbd1b3c441d058c79, claims by 0xfcf569e9421fc09cb244b42dba685365a2c37561; gas 69,516/fee call @ 0.1337 gwei = $0.016 (receipt 0x91f090e8902d37df224b18f69679f426ab72c79e615fe881c24be500d2ee13ce); gross to a stranger caller = $0."
+}

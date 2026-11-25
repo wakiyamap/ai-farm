@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-hypha",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1235,
+ "chain": "avalanche",
+ "slug": "hypha",
+ "name": "Hypha",
+ "category": "Liquid Staking",
+ "tvl_usd": 265943,
+ "url": "https://www.hypha.sh/",
+ "github": null,
+ "listed_days_ago": 1235,
+ "run_id": "a6a96c34ba8c4bc99ff58e8069458b1a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Hypha = GoGoPool stAVAX, EOL 2026-08-15 (eol.gogopool.com); vault 0xA25EaF...03e3 totalAssets 36,013.5 AVAX (48.7k @ .90), rate 1.1964 AVAX/stAVAX; only public payout is own redemption (WithdrawQueue.claimUnstake pays requester; vault redeem WITHDRAW_QUEUE_ROLE-gated), no keeper/caller reward in source or EOL page; 0 events for vault+queue in 9x90-block sample windows over last 7d (control WAVAX 198 logs; public avalanche getLogs cap 100 blocks), 16 unstake requests pending, amount 0; gas 7.5 gwei ~ bash.001-0.01/call",
+  "kb": [
+   "attempts:2288",
+   "protocols:836"
+  ],
+  "run_id": "a6a96c34ba8c4bc99ff58e8069458b1a",
+  "at": 1795043594
+ }
+}

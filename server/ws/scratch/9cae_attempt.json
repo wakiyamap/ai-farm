@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0x9cae352d5f99c9f3043e28f2fd9722af1147f9f2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the EOA is a Morpho Blue HyperEVM whale moving its own funds through its own private executor 0xd7a3...d212 (self-deployed at block 12,850,329, sole caller, unverified, owner() reverts 'fg'); the protocol pays it no fee - its only job-like income is two self-captured public liquidations in 20 days, and twice its own position was the one liquidated by other keepers. A fresh address would not be paid for the same 0x7583aac7 call on its executor; the open Morpho liquidation job is already covered by leads from actors 0x44f50d4a / 0xd9fffdf0.",
+  "numbers": "200-tx sample 2026-10-29..11-18 (19.9 d) = ~10 tx/day: 95 executor ops 0x7583aac7 (38 FAILED, ~40%) + 98 self-pings + a few WHT/token ops. 4 Morpho Liquidate events in ledger source morpho_blue.liquidate_hyperevm (2 as liquidator, 2 as borrower). Liq 0xf283280c (11-14): repay 85,056.79 USDT0, gross ~4,857 USD (+5.7%), gas 36.4 HYPE = $2,497. Liq 0x470a9b59 (11-18): repay 3,160.24 USDT0, gross 54.80 USDT0 (+1.8%), gas 0.557 HYPE = $38.2. HYPE $68.59 (coins.llama.fi coingecko:hyperliquid). Est net job income ~2,377 USD / 20 d ~ $119/day, one win dominant."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-usdcx",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 145,
+ "chain": "ethereum",
+ "slug": "usdcx",
+ "name": "USDCx",
+ "category": "Stablecoin Wrapper",
+ "tvl_usd": 56675302,
+ "url": "https://www.circle.com/xreserve",
+ "github": null,
+ "listed_days_ago": 145,
+ "run_id": "3575ad97f05c4b31a056ccaa18a4af3d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "CCTP-style escrow (xReserve 0x8888..e3Ce, impl 0x7d817ce4): only anyone-callable fns are depositToRemote and withdraw, neither pays the caller (maxFee is charged on the remote USDCx domain); 7d blocks 26436466-26456666 = 90 deposits of 1,463,208 USDC principal from 40 EOAs, 0 Withdrawn (no-topic scan, topic0 0x2eef4ec6..); gas 0.463 gwei 13:45Z",
+  "kb": [
+   "attempts:2927",
+   "protocols:1342"
+  ],
+  "run_id": "3575ad97f05c4b31a056ccaa18a4af3d",
+  "at": 1795182387
+ }
+}

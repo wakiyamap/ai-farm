@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-uniswap-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "base",
+ "slug": "uniswap-v2",
+ "name": "Uniswap V2",
+ "category": "Dexs",
+ "tvl_usd": 63159888,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "b1eb042a55b04e049d7aef95f3b6d4ea",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Uniswap V2 Base (factory 0x8909dc15e40173ff4699343b6eb8132c65e18ec6, 3,079,054 pairs, adapter config.base): only permissionless pay fn is Pair.skim(address) 0xbc25cf77 (no revert from a fresh address); pot empty - balanceOf(pair)-reserve = 0 on all 10 largest pools = $0.00 skim-able; 0 skim calls in 7 d in the direct tx lists of the 6 largest pairs (416 txs, newest 2026-11-11; 41 older skims); the one traced (0xb0669911..76df, 2026-11-11) paid 0 WETH + 0 USDC for 65,050 gas = $0.0006 (WETH $1,796.52 coins.llama.fi); no reward/claim fn on Pair or Factory.",
+  "kb": [
+   "attempts:2405",
+   "protocols:936"
+  ],
+  "run_id": "b1eb042a55b04e049d7aef95f3b6d4ea",
+  "at": 1795068090
+ }
+}

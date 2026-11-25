@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-arena-socialfi",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers (small). Arena SocialFi = MOATS 'The Arena' on Avalanche; the DefiLlama adapter entry is gone from registries/friend-tech.js and deadAdapters.json, so the contract came from the app bundle: MultiLockMoat 0x42f33a4f98bc5ba0af733c624683580a013d1c80 (verified on snowtrace). claimAllRewards() (0x0b83a727) is ungated and paid 22 claims by 16 plain EOAs in the last 7 days, all in ARENA. The economics are negligible: $36.20 of rewards a week for 371.4M ARENA ($166k) staked (~1.1%/yr), so a stranger's median claim ($0.018) only just beats the ~$0.005-0.036 gas; the reward only accrues to already-staked ARENA, so there is no free keeper bounty here.",
+  "numbers": "22 RewardClaimed events, blocks 100,397,513-100,699,913 (7 d, snowtrace module=logs on 0x42f33a4f...); 16 distinct callers; total 80,944.8 ARENA = $36.20; median 41.3 ARENA = $0.018; max 41,133 ARENA = $18.39 (tx 0x47a2ddb5df73188466b46972085e59a3cd04478fb85c09a7bd0a0467c865f072). Gas 83,520 / 125,910 / 581,286 gas at 7.5-9.05 gwei = $0.005 / $0.0065 / $0.036 at AVAX $6.92. ARENA $0.0004472, stakingToken ARENA 0xb8d7710f7d8349a506b75dd184f05777c82dad0c, totalStaked 371,405,914 ARENA = $166,084 (prices coins.llama.fi 2026-11-18). DefiLlama TVL 16,977 'AVAX' = $118,198 is the same stake at a stale unit."
+}

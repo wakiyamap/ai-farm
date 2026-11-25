@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-hyperlane",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the one permissionless function that could pay (Mailbox.process) pays the caller 0 on BSC - the callTracer of a real process tx shows no native value flowing anywhere in the transaction, and the relayer only pays gas. Hyperlane pays its relayers from the origin-chain IGP escrow, which claim() sweeps to a single fixed beneficiary address, so the flow is designated-relayer, not stranger-claimable. Warp routes (the 48.4M USD TVL) only expose user-paid transferRemote and mailbox-only handle().",
+  "numbers": "Activity: sample of 26 ProcessId logs in 8 windows x 5000 blocks (40,000 of ~1.34M blocks in the last 7 d, BSC 0.45 s/block, blocks 132,943,035-134,124,034, eth_getLogs on mailbox 0x2971b9Aec44bE4eb673DF1B88cDB57b96eefe8a4) = 3.25 per 5000 blocks, i.e. ~874 processed messages/7 d (~125/day). Same query shape returned logs in 7 of 8 windows (control). Callers: all 6 sampled process txs came from 2 addresses - 0x74cae0ecc47b02ed9b9d32e000fd70b9417970c5 (4) and 0xd441dad9edb3... (2); no strangers. Gross to caller: 0 BNB (callTracer of 0xc0c432b32890e6bb5c6dc473ed8f5452289e1a9b21157c102c8d47b76387efdd: 33 nodes, zero value calls). Gas: 105,186-271,086 gas at 0.1 gwei = 0.0000105-0.0000271 BNB = $0.0062-$0.0161 per call (BNB $593.64, coins.llama.fi coingecko:binancecoin, 2026-11-17 13:00Z). Pots: mailbox 0 BNB, IGP 0.1087 BNB = $64.5 (goes to beneficiary 0xa7eccdb9be08178f896c26b7bbd8c3d4e844d9ba on claim()), ProtocolFee 0 BNB."
+}

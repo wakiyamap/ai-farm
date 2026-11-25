@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-acryptos",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. harvest() (0x4641257d) on the ACryptoS vault 0xe29a236d38f609fa7891851a0828c8b9dd197f6e (ACryptoS Vaulted sAVAX (Benqi), 99.7% of the chain's $116k TVL) is callable by anyone (eth_call from fresh addr 0x...f17e succeeds, paused()=false, no role revert) but pays the caller 0: debug_traceCall shows no transfer and no log to msg.sender, there is no harvesterFee getter (reverts) and docs (products/vaults) describe these legacy vaults as auto-compounding with no harvester fee (the 0.3% harvest fee is the v3-ACLM family; performUpkeep reverts here). All 19 avalanche vaults are 'deprecated' on unrekt API and emitted 0 logs in the last 7 days, so nothing is being harvested at all.",
+  "numbers": "TVL $116,091 candidate / sAVAX vault $115,720 of $116,211 (api.unrekt.net 2026-11-19); 0 logs on all 19 vaults over 60x10k-block chunks ending 0x6023a3b (2026-11-19 21:12 UTC, cadence 1.04 s/block = ~7.0 days), control WAVAX 11,534 logs same shape; gross to caller per harvest = 0 (debug_traceCall latest); gas ~1.1M x 7.5 gwei = 0.008 AVAX = $0.06 (eth_gasPrice, AVAX $6.94 coins.llama.fi 2026-11-19 21:15Z); harvest() returns 5,661,757,450 (unit unexplained)"
+}

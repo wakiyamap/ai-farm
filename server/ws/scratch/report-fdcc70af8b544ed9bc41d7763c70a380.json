@@ -1,0 +1,12 @@
+{
+  "run_id": "fdcc70af8b544ed9bc41d7763c70a380",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-optimism-privacy-boost",
+  "outcome": "scouted",
+  "kb_rows": ["protocols:314", "attempts:1615"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "unpaid: Privacy Boost pool 0xca689828854a422CF1f778be03CA80549408F620 on optimism; 631 epochs in 7d (506 EpochSubmitted, 123 DepositEpoch, 2 PortalDeposit) all by one onlyRelay EOA 0x6bd37032571f47e50f312542ae05d548b69dc9b0 with no token payout to the submitter; the three caller-paid functions (claimPortalSweepFee, executeForcedWithdrawal, publicGiftExit) have 0 payout events in the whole contract history and a fresh-address claimPortalSweepFee reverts NoDeferredPortalSweepFee (empty pot); gas 1.18M @ 0.001126 gwei = $0.0024/epoch (ETH $1827.19 coins.llama.fi); 7d flows only WETH 123 IN / 120 OUT = 0.118 WETH ($216) to users; TVL $287,863; also a privacy pool, which rule S excludes."
+}

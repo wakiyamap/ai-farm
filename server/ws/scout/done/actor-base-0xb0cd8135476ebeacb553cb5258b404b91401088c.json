@@ -1,0 +1,21 @@
+{
+ "id": "actor-base-0xb0cd8135476ebeacb553cb5258b404b91401088c",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "base",
+ "address": "0xb0cd8135476ebeacb553cb5258b404b91401088c",
+ "retries": 1,
+ "run_id": "c336155b66a64b9aa4a65890114fd697",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Morpho Blue Base batch liquidator (executor 0xb0cd8135 driven by EOAs 0xde3fdf15/0x68954b1a): 129 liquidations in 51 txs / 7 d (blocks 58,914,552 11-14 .. 60,069,404 11-21, ledger morpho_blue.liquidate), gross +159.5 USDC (median +0.97/tx, max +19.9 on 9-liq batch), gas 139.8 USD at inclusion -> net 2.8 USD/day; Morpho liquidate pays any caller in-tx, but 15+ liquidators race (top 2101 liq/7d) and the candidate itself reverts often in-block",
+  "kb": [
+   "actors:313",
+   "leads:350",
+   "attempts:3179"
+  ],
+  "run_id": "c336155b66a64b9aa4a65890114fd697",
+  "at": 1795234111
+ }
+}

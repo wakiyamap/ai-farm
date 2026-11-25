@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-hiyield",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 971,
+ "chain": "avalanche",
+ "slug": "hiyield",
+ "name": "HiYield",
+ "category": "RWA",
+ "tvl_usd": 1727737,
+ "url": "https://www.hiyield.xyz",
+ "github": [
+  "lydialabs"
+ ],
+ "listed_days_ago": 971,
+ "run_id": "67757b74cdae4ad4ba11b5311375f706",
+ "result": {
+  "verdict": "unpaid",
+  "line": "claimWithdraw()/queueProcess() callable on both pools (TB 0x847550.., IGB 0xce6050..) but pay 0: queue+claim pots empty, TB pool (1,728,006 USD = ~100% of TVL) paused since 2026-04-17, 0 txs and 0 events in last 7 days (Routescan txlist: TB last tx 2026-04-17 pause, IGB last 2024-11-18); queueProcess called 0 of last 200 TB txs ever - redemptions pay only the caller's own claim, no keeper reward.",
+  "kb": [
+   "attempts:2190",
+   "protocols:758"
+  ],
+  "run_id": "67757b74cdae4ad4ba11b5311375f706",
+  "at": 1795019319
+ }
+}

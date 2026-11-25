@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-vfat-io",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 916,
+ "chain": "avalanche",
+ "slug": "vfat.io",
+ "name": "vfat.io",
+ "category": "Yield Aggregator",
+ "tvl_usd": 378521,
+ "url": "https://vfat.io/yield",
+ "github": null,
+ "listed_days_ago": 916,
+ "run_id": "9563f328355d4764a89b91da33612adb",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Sickle stack; only reward fn = Automation 0x745c4638...3443 compoundFor/executeFor paying caller from GasAccount, but automator whitelist has 1 entry (0xb0bada5d EOA, vfat's own; fresh-address eth_call reverts NotApprovedAutomator): 7d = 71 txs to Automation (67 from that keeper EOA, sample of 5 of 67: gross 0.014-0.023 AVAX vs gas 0.014-0.022 AVAX, margin ~2%, ~bash.14/call gross at AVAX $7.01 coins.llama.fi; total ~1.4 AVAX ~ $10), wallet itself owner-only multicall, TVL 383k",
+  "kb": [
+   "attempts:2166",
+   "protocols:736"
+  ],
+  "run_id": "9563f328355d4764a89b91da33612adb",
+  "at": 1795013657
+ }
+}

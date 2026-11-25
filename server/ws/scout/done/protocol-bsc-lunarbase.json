@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-lunarbase",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 235,
+ "chain": "bsc",
+ "slug": "lunarbase",
+ "name": "Lunarbase",
+ "category": "Dexs",
+ "tvl_usd": 86898,
+ "url": "https://lunarbase.gg/",
+ "github": [
+  "Lunarbase-Lab"
+ ],
+ "listed_days_ago": 235,
+ "run_id": "122c126bcb214e0ca389fb172e23d29d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only state-advance fn upd(uint160,uint24,uint24,uint256) on bsc pool 0x00007904d186680C709519e71f4Dc3e2Df8f1b99 reverts (custom err 0x73c9f7e4) behind operator1..5 registry; ~159.6k upd/7d all by operators (sample 3/3 from 0x45483e77...282e, gas 35.4k = 0.002 USD, pays 0); LP claimFees/executeDeposit 0 events/7d and partnerFees()=0; pool2 0x0B1ce37b...1B99 dead (0 events/7d); 92k swaps/7d are aggregator arbitrage with capital, nothing pays a stranger (sample 106/135 10k-block chunks, 7d = blocks 133723245..135066693)",
+  "kb": [
+   "protocols:1916",
+   "attempts:"
+  ],
+  "run_id": "122c126bcb214e0ca389fb172e23d29d",
+  "at": 1795345694
+ }
+}

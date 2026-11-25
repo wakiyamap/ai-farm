@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-gremlix",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 194,
+ "chain": "arbitrum",
+ "slug": "gremlix",
+ "name": "Gremlix",
+ "category": "Yield Aggregator",
+ "tvl_usd": 90272,
+ "url": "https://gremlix.xyz",
+ "github": null,
+ "listed_days_ago": 194,
+ "run_id": "d9af20510cda4c5aaf44464ad21ae5ef",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only keeper fn is vault.harvest (onlyOwnerOrKeeper; fresh eth_call reverts 'Not owner or keeper') called via Keeper.reconcileAndHarvestBatch (onlyOperator); 20 harvests/7d (blocks 524438077 2026-11-15 -> 526494781 2026-11-22), all by 0xd889abbc10ebe472ffc50b9ca9938038f1e2b07f -> Keeper 0xc6b58f7680a90865acf10ff3931e273cdec852b5, ~101k gas = 0.0035 USD each, gross 0 USDC (performanceFeeBps=managementFeeBps=withdrawalFeeBps=0 on USDC vault 0x973Ae12aC9078E9f9B1708C477A9670bB3fB0886, 89,115 USDC TVL); WBTC vault 0xd519EF31... 0 logs/7d, nothing on vault/strategy/points pays a caller",
+  "kb": [
+   "attempts:3693"
+  ],
+  "run_id": "d9af20510cda4c5aaf44464ad21ae5ef",
+  "at": 1795345076
+ }
+}

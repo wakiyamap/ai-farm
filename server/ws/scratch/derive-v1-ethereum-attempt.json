@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-derive-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Ethereum footprint is two staking modules. claimRewards pays only msg.sender's accrued staking reward, with no caller fee; a fresh account cannot claim one unit on either module. No unrelated-caller reward function appears in the verified implementations.",
+  "numbers": "7 d window: Ethereum block 26430712 at 2026-11-16T22:54:35Z through block 26480954 at 2026-11-23T22:54:35Z (eth_getBlockByNumber timestamps). eth_getLogs no-topic over both staking proxies returned 0 logs, therefore no unknown event topic0 and 0 RewardsClaimed; topic0 0x9310ccfcb8de723f578a9e4282ea9f521f05ae40dc08f3068dfad528a65ee3c7 from cast keccak RewardsClaimed(address,address,uint256) also returned 0. Same-shape no-topic control with two-address array [USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, staking proxy] over head block 26480954 returned 94 logs, including USDC Transfer tx 0x99331984a548db0aa9b152fe4db3f147fb6d5645557ece3bc23a3f9503d428c6. Fresh address 0x0000000000000000000000000000000000001234: getTotalRewardsBalance=0 for both; eth_call claimRewards(address,uint256) with amount 1 reverts INVALID_AMOUNT on both. Gross outsider bounty = none by verified source; gas/USD not applicable because no eligible paid calls."
+}

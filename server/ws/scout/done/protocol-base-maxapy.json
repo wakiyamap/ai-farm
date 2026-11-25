@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-maxapy",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 751,
+ "chain": "base",
+ "slug": "maxapy",
+ "name": "maxAPY",
+ "category": "Yield Aggregator",
+ "tvl_usd": 47654,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 751,
+ "run_id": "8aa1169b6046406198415c9aa45d6560",
+ "result": {
+  "verdict": "role_gated",
+  "line": "2 Base vaults 0x7a63..efae (maxUSDshare, 22,641.84 USDC) + 0xb272..8ae5 (maxETHshare, 15.0808 WETH, unpriced); all keeper calls role-gated (vault.report STRATEGY_ROLE reverts from stranger; strategy.harvest/harvester.batchHarvests KEEPER_ROLE); only open state-changes are user deposit/redeem/claim/donate (pay 0); 0 events in 7d (blocks 57,908,317 2026-11-15 to 60,932,317 2026-11-22; same-shape control = 9,194 logs since genesis, last log 2026-09-22); emergencyShutdown=1 both, lastReport 2025-04-18, TVL 48,584 USD (DefiLlama 2026-11-22), url dead.",
+  "kb": [
+   "attempts:3833",
+   "protocols:2015"
+  ],
+  "run_id": "8aa1169b6046406198415c9aa45d6560",
+  "at": 1795377532
+ }
+}

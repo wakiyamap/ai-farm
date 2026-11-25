@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-binance-staked-eth",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1299,
+ "chain": "ethereum",
+ "slug": "binance-staked-eth",
+ "name": "Binance staked ETH",
+ "category": "Liquid Staking",
+ "tvl_usd": 6630522495,
+ "url": "https://www.binance.com/en/wbeth",
+ "github": null,
+ "listed_days_ago": 1299,
+ "run_id": "775d499881ae489fbcababc903b7b973",
+ "result": {
+  "verdict": "role_gated",
+  "line": "WBETH = 2 contracts (proxy 0xa2E33566...E2e1 -> WrapTokenV3ETH; unwrap queue 0x79973d55...0196 -> UnwrapTokenV1ETH); every keeper fn is role-gated from a fresh address (updateExchangeRate oracle, supplyEth/moveToStaking/moveToUnwrap operator, allocate operator, mint minter); 7d blocks 26413784..26464036 (11-14..11-21): ExchangeRateUpdated 7 all from oracle 0x81720695 (1/day), DepositEth 4 (0.0001-0.0144 ETH), RequestWithdrawEth 2, ClaimWithdraw 1 (0.0119 ETH), Allocate 0; caller gross 0 ETH, gas 0.04 USD (0.396 gwei x 60k, ETH 1687.39 USD); no-topic controls 265 / 3 logs",
+  "kb": [
+   "attempts:3354",
+   "protocols:1666"
+  ],
+  "run_id": "775d499881ae489fbcababc903b7b973",
+  "at": 1795271843
+ }
+}

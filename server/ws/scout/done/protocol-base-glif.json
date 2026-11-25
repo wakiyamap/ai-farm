@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-glif",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1308,
+ "chain": "base",
+ "slug": "glif",
+ "name": "GLIF",
+ "category": "Liquid Staking",
+ "tvl_usd": 443117,
+ "url": "https://glif.io",
+ "github": [
+  "glifio"
+ ],
+ "listed_days_ago": 1308,
+ "run_id": "5e8804c19a3f42149559a64ccfda1f5c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "GLIF base = ICNT vault 0xAeD7..68f3 (PoolV2) + Periphery 0xdbe31f5b: flushDeposits/claimRewards/initializeRewardClaims permissionless (eth_call fresh addr OK) but pay caller 0 (source: rewards -> treasury + LP); 7d getLogs 1541 logs/33 txs (ctrl OK): 757 ClaimedRewards = 31,014 ICNT ~= ,156 (ICNT bash.2307 = TVL 443,117/totalAssets 1,920,385) all to treasury+LP; 21 keeper calls all by one EOA 0x435ea93d.., gas bash.029/batch (2.67M gas @0.006 gwei, ETH 783.40 llama); no stranger paid.",
+  "kb": [
+   "attempts:2314",
+   "protocols:855"
+  ],
+  "run_id": "5e8804c19a3f42149559a64ccfda1f5c",
+  "at": 1795050318
+ }
+}

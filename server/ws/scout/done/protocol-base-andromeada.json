@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-andromeada",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1178,
+ "chain": "base",
+ "slug": "andromeada",
+ "name": "Andromeada",
+ "category": "Dexs",
+ "tvl_usd": 33528,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1178,
+ "run_id": "4a27e6c2d90345e58f704e91aa80a551",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Beta-pair DEX, site dead: factory 0xB9e611...D51 allPairsLength()=6 (eth_call); 7d 58016567-61040567 (2026-11-16->11-23) no-topic getLogs on factory+6 pairs: 61 events, all 20 swaps on 1 pool (WETH/USDbC 0x33f6e2c5) from 3 EOAs via router 0xafc1d86c; only public fn claimFees() (76,557 gas, traced from stranger: no revert, no transfer, pays 0; claimable0/1=0 for stranger and feeTo on all 6 pools); protocol fee auto-pays feeTo 0xdf4490...7f mid-swap (4.1e-8 WETH = 0.00007 USD per 5 sample swaps, ETH 1708.55 coins.llama.fi 11-23 02:03)",
+  "kb": [
+   "attempts:3939"
+  ],
+  "run_id": "4a27e6c2d90345e58f704e91aa80a551",
+  "at": 1795399651
+ }
+}

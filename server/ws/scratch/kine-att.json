@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-kine-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Kine Finance BSC footprint (DefiLlama kinefinance adapter: comptroller 0x3c2ddd48 + 9 'Kollateralized' share markets) is a dormant Compound-style money market: markets expose only mint()/redeem(uint256)/ERC20 (user pays gas, no caller reward), no liquidateBorrow/borrow selectors on kBNB or kMCD impl, comptroller has no claimReward/rewardToken. Zero events in 7 days across all 9 markets (no stranger paid, no opportunity): nothing harvestable even if a reward fn existed.",
+  "numbers": "TVL 270k USD (api.llama.fi currentChainTvls.Binance, 2026-11-20); 7d window blocks 134426610-134628210 (41 chunks of 5000): 0 Transfer + 0 LiquidateBorrow on 9 market addresses; control WBNB same-shape getLogs 11874 logs/500 blocks; gas on bsc ~$0.01-0.03/call (not spent); gross per call 0. Source: rpc.py eth_getLogs/eth_call/eth_getCode 2026-11-20."
+}

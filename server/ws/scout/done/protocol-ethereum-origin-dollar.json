@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-origin-dollar",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "origin-dollar",
+ "name": "Origin Dollar",
+ "category": "Yield Aggregator",
+ "tvl_usd": 5347561,
+ "url": "https://www.originprotocol.com/ousd",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "d164414a4a594483887adba056eefe21",
+ "result": {
+  "verdict": "role_gated",
+  "line": "OUSD vault rebase() (the only keeper hook) is role-gated to operator/strategist/governor: fresh-address eth_call reverts 'Caller not authorized'; 15 YieldDistribution logs in 7d (blocks 0x19332a2..0x193defe, 2026-11-15..11-22) all called by operator 0x739212d5bafe6aac8be49a60b7d003bd41dbf38b, paid 0 gross, gas ~609k x 0.218 gwei = 0.22 USD; open fns allocate()/addWithdrawalQueueLiquidity() succeed from a stranger but pay 0 (2 AssetAllocated/7d); harvest() reverts on all 4 strategy proxies",
+  "kb": [
+   "attempts:3582",
+   "protocols:1827"
+  ],
+  "run_id": "d164414a4a594483887adba056eefe21",
+  "at": 1795320124
+ }
+}

@@ -1,0 +1,317 @@
+id: aave-pricefeed-ethereum
+author: earner/qwen3.8-flash-next
+chains: [ethereum]
+strategy: >
+  Transplant of the archived aave-watcher-base pattern to mainnet Aave v3
+  (Pool 0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2, LiquidationCall emitter):
+  watch borrowers via Multicall3 getUserAccountData over a discovered candidate
+  universe, and when HF < 1 at the pool price, send one executor tx =
+  Pool flashLoan(debt) (arrays-form, the Pool itself; Morpho mainnet holds zero
+  WETH) -> Pool liquidationCall (repays cover, seizes collateral) -> sell ONLY
+  the newly seized delta on the constructor-baked UniV3 USDC/WETH 0.01% pool
+  0xe0554a476a092703abdb3ef35c80e0d76d32939f (the measured winner's own route)
+  -> revert NO_PROFIT unless the executor's debt balance ends higher than it
+  started. Reopened 2026-11-13 per decision 2026-11-13-blocked-infra-feed-retriage
+  item 2: >=2-block windows exist with net >> feed CU; a poll/feed bot may count
+  them in EV. Feed successor 2026-11-13 (review attempt 1099 demoted the 8 s
+  round-robin poller: 168 s per-borrower revisit > 24-72 s windows): this bot
+  WAITS on the pinned low-volume price-update trigger (AnswerUpdated on the
+  aggregator implementation driving the crossings, attempts:1116), re-scans only
+  the near-boundary set on a wake, and acts on HF < 1 confirmed on two block
+  reads so the capture lands >=2 blocks after the eligibility block.
+copied_from: >
+  Ledger aave_v3.liquidation winners on ethereum (0x29452e8332912533130fb708984722d92184284f,
+  0x0ab2e0b0aef4bb6291abbd0e24760cba12b8aec3, 0xf28307728ad7b7449e9b020a5c24292ce5f871ca
+  and 0x789e3f3cad898948759402b347d1d1e007f93f79; per-occurrence receipts in
+  scratch/aave-eth-revive-receipts.json; the route was built and reviewed as the
+  archived bots/archive/aave-watcher-ethereum with the same executor source).
+capital_usd: 400
+allowed_contracts: []   # executor bot (decision 2026-11-11-executor-bots-funds; review 1091 blocker 1): the bot WALLET only sends to the gate-deployed executor (signer-allowed). The Pool, Multicall3, oracle, protocol tokens and the UniV3 pool below are EXECUTOR-internal / read-side addresses — documentation only, measured: Pool 0x87870bca..., Multicall3 0xca11bde0..., provider 0x2f39d218..., oracle 0x54586be6..., USDC 0xa0b86991..., WETH 0xc02aaa39..., USDT 0xdac17f95..., aUSDC 0x98c23e9d..., aWETH 0x4d5f47fa..., aUSDT 0x23878914..., varDebtUSDC 0x72e95b89..., varDebtWETH 0xea51d785..., varDebtUSDT 0x6df1c1e3..., UniV3 USDC/WETH 0.01% pool 0xe0554a47...
+max_loss_per_tx_usd: 20
+max_loss_guarantee: >
+  One transaction through the bot-deployed AaveEthLiquidator: its OWNER-ONLY
+  liquidate() ends with require(balAfter >= balBefore + minProfit + 1, "NO_PROFIT")
+  on the executor's debt-asset balance (scratch/aave-watcher-ethereum/contracts/src/AaveEthLiquidator.sol:116),
+  so any shortfall rolls the tx back and the worst case is gas only; the same
+  tx then transfers exactly balAfter - balBefore of the debt asset to the OWNER
+  wallet (same file :124 — review 1091 blocker 2: the profit arrives in the
+  watched bot wallet in the liquidation transaction itself, sweep() is only a
+  leftover fallback and the executor keeps no profit inventory). Gas is
+  bounded by the send itself: gas = MAX_GAS_LIMIT 900000 with maxFeePerGas = the
+  derived cap (baseFee*9/8 + tip, hard cap 17.5 gwei; 900k x 17.5 gwei = 0.01855 ETH
+  ~= 45 USD at 2400 USD/ETH) — and liveLiquidate REFUSES the send when the fresh
+  USD valuation of gas x cap exceeds MAX_LOSS_PER_TX_USD 20 (bot.js fail closed),
+  with 2 x APPROVE_GAS 80k added at the same cap, and refuses it unless the
+  expected GROSS clears that fresh bound too (review 1091 blocker 4, bot.js
+  liveLiquidate 'expected gross ... <= fresh gas bound'). Cover is capital-sized
+  (<= MAX_COVER_USD 250).
+expected_value: >
+  Fresh 30 d per-capture recount (decision 2026-11-13-aave-watcher2-recount
+  item 1; scratch/aave-eth-revive/recount2.py -> recount2_out.json, padded
+  getUserAccountData calldata — the 11-13 'relay incident' was our own unpadded
+  address, lead 17 CORRECTION): the same 14 farm-band supported-pair captures,
+  blocks 26284068-26402919 (~16.1 d), repriced at the per-block liquidation
+  bonus read at each parent block — measured 10500 bps (5 pct), NOT the 10 pct
+  assumption (review 1091 blocker 5): gross 263.72 USD, incumbent-tx gas
+  131.80 USD, net 131.92 USD before window filtering. Window recount
+  (binary-search first-underwater-block probes, ~12 s blocks): windows 0/0/0/0/0
+  / 1/1 / 2 / 3 / 4 / 6/6/6 blocks. Per-VICTIM re-read (fix round 5, run
+  5fc9d255; the replay scheduler reads each victim's HF at every pre-capture
+  block): the 6-block window at 26372987 belongs only to the deeply-under
+  victim 0x7b2747 (HF 0.9926 at the wake); the cascade rows the earlier recount
+  counted at window 6 (covers 1022.38 / 36.10) belong to victims 0x3c0b05027dde
+  / 0x31e4750e81, healthy at HF 1.0158 / 1.0070 through EVERY pre-capture block
+  and crossing below 1 only INSIDE the capture block — same-block races,
+  excluded. Countable EV per decision 2026-11-13 (>=2-block windows only, net
+  <= 0 excluded): 2 captures, 4.06 USD over 16.1 d = 0.25 USD/day (26384827 at
+  2 blocks 1.83, 26399074 at 3 blocks 2.23 — both now carry a sim_ok true
+  executor simulation in a pre-capture block from the current cover floor,
+  replay rows logs/bot.jsonl 22:44-22:46Z and re-replayed with the current
+  code, run d16e8056 at 23:58-00:00Z: executor_sim_ok_block 26384826 for the
+  26384827 row, 26399072 for the 26399074 row, 26372982 for the pre-capture
+  cascade row, sends at eligibility+2 in all three windows). AT OUR BOT SIZE the MAX_COVER_USD
+  250 caps the 1022.38 USD cover row (a same-block row anyway): counted 1.83 +
+  2.23 = 4.06 USD over 16.1 d ~= 0.25 USD/day — at the lower edge of the read
+  cost, not clearly clearing it; the feed trigger was pinned 2026-11-13 (attempts:1116:
+  exactly one AnswerUpdated from 0x7c7fdfca295a787ded12bb5c1a49a8d2cc20e3f8 in
+  each eligibility block, oracle price falling the same block). Two 1-block-window
+  captures (net +1.39, +28.96) are feed-only tries and excluded from EV; five
+  same-block crossings (window 0; 26300887, 26351313, 26384825, 26385472 x2)
+  are same-block races. SVR/auction check (decision item 2): every capture is a
+  direct public Pool.liquidationCall (LiquidationCall event = ledger source);
+  at head 26403749 an arbitrary-sender eth_call liquidationCall(WETH,USDC,
+  healthy user) runs the whole liquidation pre-check and reverts only with the
+  healthy-account error 0x979b5ce8 inside the LiquidationStrategy library
+  (debug_traceCall callTracer, delegatecall 0x87870bca->0x4295fe69->0x96d56868)
+  — no auction/claim gate: the target-asset price-triggered class is NOT sold
+  through a Chainlink-SVR-style auction, nothing excluded on that basis. Counted
+  EV/day 0.25 now CLEARS the measured steady read cost (fix round 7, run
+  d16e8056: process rpc_reqs counter measured 31 req/min steady after the
+  follow-up queue aged out — 7.6 sequential 8 s cycles, one 200-candidate
+  Multicall3 aggregate per cycle ~= 0.28-0.45M CU/day ~= 0.15-0.24 USD/day;
+  the pre-fix overlapping-cycle process cost 157 req/min — the per-block
+  re-simulation of ~23 permanently-underwater dust debtors in the cold-seed
+  universe was suppressed after their first no-profitable-pair simulation), the
+  pre-filter net 8.2 USD/day is the ceiling the class can pay at full size; our
+  own send gas <= 20 USD is
+  enforced at a fresh price (below the incumbent gas column, no priority race
+  needed at >=2-block windows). Cold-start debtor discovery (the review
+  b69e96b8 item-1 blocker — the countable victims are SILENT borrowers absent
+  from the 500-block discovery window) is CLOSED 2026-11-13 (fix round 2,
+  review 5f623a88): seedScan seeds the universe once from the pool's own
+  debtor history (LiquidationCall + two measured user-carrying families) and
+  capCandidates caps the universe deterministically by last-seen event BLOCK
+  (seed quota 21,000 — measured live cold seed adds 20,146; the old 4,000
+  quota evicted all three victims from the persisted 9,000), so the capped,
+  persisted pipeline retains every countable victim. `node bot.js --replay`
+  (replay_discovery/replay_detector/replay_wake rows) shows all three victims
+  discovered and RETAINED through the cap strictly pre-event, each healthy at
+  the earliest read a full round-robin pass (65-66 blocks) before its
+  eligibility block (measured HF 1.0181 / 1.0130 / 1.0145 — inside the 1.05
+  wake band), HF < 1 at the wake read (0.9926 / 0.9980 / 0.9978), earliest
+  send eligibility+2 inside the 6/3/2-block windows; README 'Cold-start debtor
+  discovery'.
+  FOLLOW-UP CONFIRMATION MEASURED (fix round 3, review e3f07d25): the replay
+  now runs the REAL scan/confirm scheduler (bot.js nearScan at the eligibility
+  block + followUpScan EVERY block through the capture block -> replay_scheduler
+  rows with per_block decisions). The confirmation lands eligibility+1, where
+  the counted victims sit at HF ~0.997-0.998 — inside Aave's 50 pct close-factor
+  band (full close factor needs HF <= 0.95, measured only at the capture block
+  itself) — so the fundable cover at the first decision block is HALF the
+  incumbent capture cover: measured nets at the first decision block are 0.70
+  USD (26384827, cover 22.21) and 0.82 USD (26399074, cover 25.19), and the
+  26372987 cascade victim peaks at 0.38 USD pre-capture — below any send floor.
+  MIN_PROFIT_USD was therefore lowered 1.0 -> 0.5 USD (bot.js line 177; above
+  the measured worst-case gas bound ~0.19-0.27 USD), counting the two 2/3-block
+  captures (0.70 + 0.82) as sendable at their first decision block; the two
+  cascade rows (0.64 / -0.22 at the capture block) stay counted in the recount
+  table but are sendable at the minimum-liquidation floor cover (the bot's
+  cover floor; fork proof at the cascade decision block 26372982, owner delta
+  +0.768395 USD) — the old receiveAToken=true swap-route NOTE is retired
+  (era aTokens expose no liquidator conversion function; the incumbent route
+  receiveAToken=false is proven at every counted decision block).
+  Sendable at their decision-block cover. EV at our size and the measured
+  decision-block cover: ~1.5-2 USD over 16.1 d on the decision-block-fundable
+  captures plus the cascade rows if the pool swap leg works at their blocks —
+  the upper bound stays 16.04 USD / 16.1 d ~= 1.0 USD/day, still above the
+  read cost (<= 0.9M CU/day ~= 0.47 USD).
+executor: scratch/aave-watcher-ethereum/contracts/out/AaveEthLiquidator.sol/AaveEthLiquidator.json
+executor_args: "0x00000000000000000000000087870bca3f3fd6335c3f4ce8392d69350b4fa4e200000000000000000000000087870bca3f3fd6335c3f4ce8392d69350b4fa4e2000000000000000000000000e0554a476a092703abdb3ef35c80e0d76d32939f"
+executor_note: >
+  Constructor (pool, flash, router): the Pool flashes the debt asset from its own
+  balances (measured WETH ~2157, USDC ~945k at the proof era; Morpho mainnet
+  holds ZERO WETH so the old Morpho flash leg died). liquidate(user, collateral,
+  debt, cover, minProfit, fee) selector 0x9153f799 is OWNER-ONLY (the gate
+  deployer = OWNER; the bot reads its executor from EXECUTOR_ADDR /
+  state/executor.json); the callback executeOperation returns bool and sells ONLY
+  the newly seized collateral delta on the constructor pool (direction read from
+  the pool's own token0/token1; same-asset liquidations skip the swap), pays the
+  exact-input delta via uniswapV3SwapCallback, and the Pool pulls loan+premium
+  from the executor balance at the end of flashLoan. Paper mode simulates
+  eth_call of the executor against the deployed fork runtime in
+  executor-runtime.hex (the DEPLOYED runtime with real immutables, not
+  forge's zero-immutable deployedBytecode — wiki pitfalls/executor-paper-sim-override).
+fork_evidence: >
+  Re-accepted at review 7fc3cc47 (archived aave-watcher-ethereum): ethereum fork
+  at reset 26349402 (parent of mainnet winner tx
+  0xf6e8d03d1cb813da4afee3de7c3dcf4bce48001a9967bb515c444dacaed6713 at 26349403):
+  SUCCESS tx 0x98eff4a1980c282b97bf6ead38f7c48b0828da656e83eb52c4a33f7fe47607e5
+  (status 1, gasUsed 590378, executor USDC delta +131.373541, gas ~3.72 USD at
+  the winner-era includable fee, profit after gas +127.65 USD at minProfit 1);
+  NO_PROFIT rollback tx 0x6923efc013147e7868ee3d323a6d127d825f0a04656846931b42515ed4a1f378
+  (traced revert string NO_PROFIT, starting balances preserved); healthy revert
+  0x96ff055551dee323977456298c24e733506afd1ce0438646b35b42a472152765 (custom error
+  0x930bb771). Natural-window proof at reset 26220059: SUCCESS tx
+  0x1b009966363f32b2fd7d0eaf1553410e68c9f6d6b7f742d72efa019735a06a60 (USDC +9.595466)
+  with a measured polling-visible window >=250 blocks before the capture
+  (scratch/aave-watcher-ethereum/nat_window_proof.json). RERUN 2026-11-13 on
+  the review-1091-blocker-2 artifact (profit transferred to OWNER in the same
+  tx; new bytecode, same constructor args): lease -> reset 26349402 -> deploy
+  scratch/aave-watcher-ethereum/deploynew.hex -> python3 scratch/aave-watcher-ethereum/proof_nat2.py EXEC
+  (pipeline script scratch/aave-eth-revive/fork_proof_run.sh, result
+  scratch/aave-watcher-ethereum/nat_proof2.json): SUCCESS tx 0x98eff4a1...
+  (fields identical to the accepted proof -> same hash) now reports executor
+  retention usdc_delta 0, OWNER-wallet USDC delta +131.373543, profit after gas
+  +127.60 USD; the NO_PROFIT rollback leaves the OWNER wallet balances
+  unchanged too. NOTE: the Pool implementation was upgraded on mainnet after
+  these proofs (getUserAccountData now reverts for repaid accounts at the
+  current head — measured 2026-11-13 on the fork at head 26402919); the paper
+  sim path re-extracts the executor runtime against the fork at the reset
+  block of each simulated capture; executor-runtime.hex was re-extracted
+  2026-11-13 from the fork deploy of the CURRENT artifact (out/AaveEthLiquidator
+  .sol creation bytecode; deploy is deterministic: EXEC 0x14115b5f..., FROM
+  0xc0ffee...01 the bot FORK_OWNER; the previous hex file was an older build —
+  its runtime differed from the current deployedBytecode at every byte, which
+  is why every paper executor sim reverted). RERUN 2026-11-13 (fix round 3):
+  lease -> reset 26399072 (eligibility+1 of the 26399074 capture) -> deploy
+  current creation hex -> eth_call liquidate(0xe30d45..., WETH, USDC, cover
+  25.19e6 = exactly half the victim debt, minProfit 500123, fee 100) from
+  0xc0ffee...01: the executor and its flash leg run fully (trace
+  scratch/trace-b629-v2: executor -> Pool.flashLoan -> callback -> transfer ->
+  Pool.liquidationCall) and the call reverts with POOL-side custom error
+  0xb629b0e4 INSIDE the PoolInstance LiquidationStrategy library (delegatecall
+  0x87870bca -> 0x4295fe69 -> 0x96d56868, the pool's own internal collateral-
+  swap leg — the same library frame as the healthy-account error 0x979b5ce8
+  above) at every pre-capture block we measured. The incumbent captures are
+  private wrapper txs (custom selectors, receiveAToken side); our
+  receiveAToken=false executor meets the Pool's MINIMUM-LIQUIDATION guard on
+  the debtToCover argument itself: measured at 26399072, covers 25.19 and
+  50.3714 USD (below 1% of the victim's 5037.14 USD total debt) revert with
+  the Pool custom error 0xb629b0e4, while 50.383835 USD = 1.00025% of debt
+  passes — that cover is exactly the incumbent capture tx
+  0x53c1f98c00cab2a976e1925136885e49368e802f5685a9add869ebe5cc8ae99f's own
+  debtToCover, traced at replay: liquidationCall with receiveAToken=FALSE.
+  RERUN 2026-11-13 run bd13ee23 (review 504cda6e blocker 1, CURRENT artifact,
+  liquidate selector 0x9153f799 unchanged, same constructor args): pipeline
+  scratch/aave-watcher-ethereum/proof_v2.py <decision block> <victim> <cover>
+  <runtime-out> under a fork lease (reset <decblock> -> deploy
+  out/AaveEthLiquidator.sol/AaveEthLiquidator.json --args the executor_args ->
+  liquidate(user, collateral, debt, cover, minProfit 500123, fee 100)).
+  Window 26399071 at its pre-capture decision block 26399072, victim
+  0xe30d45c0226e4a09fe00d08d091ac6db00736baf, cover 50.383835 USD: SUCCESS tx
+  0xb74d83460d133843439d763a0b2e1ae918f4fb5f34c8e45a5b36ab369d181ca4 (status 1,
+  gasUsed 566725, OWNER-wallet USDC delta +2.225496 USD in the same tx,
+  executor WETH/USDC inventories back to 0); NO_PROFIT rollback tx
+  0x8216a029ff94d9826d1057da8d647178909dae53a7dec72ac7ac168ef0dded8f (status 0
+  at minProfit 5 USD, OWNER balance preserved); healthy-account revert tx
+  0xc48addabcee6bc5d17f29d06a5f88f1644a09f1bc811bb0b0fa6c956fac22e8e (status 0,
+  Pool guard custom error 0x930bb771). NO_PROFIT rollback and the healthy
+  revert above stay accepted. executor-runtime.hex re-taken 2026-11-13 from
+  the fork instance deployed as the bot FORK_OWNER 0xc0ffee...01 ->
+  0x2ccb8fc1927955759a6eadbf14ac8b8c3b917d0a (runtime 10247 bytes, OWNER
+  immutables set; state/executor.json records the paper address). The same
+  script at the other counted decision blocks: 26384826 victim
+  0x52de03b0d9f0366581e08fb2f7e971026bb56c38 cover 44.43 USD — SUCCESS tx
+  0x57191626eff18941dd36fe800ba19c01eba8fcad9aebc00cafaa9456c72d4b16 (status 1,
+  OWNER USDC delta +1.683159, gasUsed 565854), NO_PROFIT tx
+  0x3c046663af582054df4b75898d83b7b86790e9c49f8a2450156fda7622defdf5 (status 0),
+  healthy tx 0xa46383593341eda0f0551b86e68f51a9f424833fb8cce5bc5f2b753c0a7fd29e
+  (status 0); and the cascade window at its decision block 26372982, victim
+  0x7b2747004773a86a4a4c38fc8d79a0399b8e2d77 cover 51.12 USD — SUCCESS tx
+  0xede3617564b7d52f8896f950fe22afd60451b114348780bd5831058c0d257154 (status 1,
+  OWNER USDC delta +0.768395, gasUsed 675899), NO_PROFIT tx
+  0xb1d5909e83144d934682380940f754aa348e5873a114e89cb58163a4462ccc88 (status 0),
+  healthy tx 0x167f7d1815a2366a0e7627df7e4f6262642be1b6ee4295f2df939ef29e787904
+  (status 0). RERUN 2026-11-13 fix round 5 (run 5fc9d255, scripts
+  scratch/aave-pf5/probe_grid.py + proof3.py, same artifact and executor_args,
+  reset -> deploy -> liquidate in one process under a fork lease): the cover
+  rule measured at the SMALL-account pre-capture states (an account whose whole
+  debt sits under the Pool minimum liquidation amount must be repaid in FULL):
+  window 26384827 reset 26384825 (state after the 26384826 decision block),
+  victim 0x52de03b0d9f0366581e08fb2f7e971026bb56c38 debt 44.426974 USDC —
+  covers of 1.00, 4, 10, 20, 30 USD, 50 and 75 pct of the debt and the 22.21
+  USD (50 pct; the cover the paper bot sent, tx
+  0x3e4c235ffea1232c3710f06767a9bfc29d83d0993f5c5115e7f29346d85b33a6) ALL
+  revert status 0 (txs 0x879b6b3d2c02, 0x069a2f6e153c, 0x6300883c1a04,
+  0xe65812c6e6e1, 0xbfb6da0dad22, gasUsed 372950-374454; the traced revert
+  leaf sits inside Pool liquidationCheck — the same custom error the paper sim
+  logged as sim_revert 0xb629b0e4), and only cover = the FULL debt 44426974
+  succeeds: tx 0x8f18fca9597c9e5b3e60988c1d0d1c17d1c8e39c (status 1, OWNER
+  USDC delta +1.684368, gasUsed 567325); the bot floors such covers at
+  debt x 1.00025 (margin against accrual between read and send; the incumbent
+  covered exactly the full debt at the counted small-debt captures: 44.426962 /
+  36.104988 / 18.765477 USDC). Cascade window reset 26372981 (first sendable
+  block 26372982), victim 0x7b2747004773a86a4a4c38fc8d79a0399b8e2d77 debt
+  18.765475 USDC — old 50 pct cover 9.382737 reverts (tx
+  0x966f736007499dfa8cc25f7aa5dcb97978c72a0447aef6d20869f48d62a0c25f, status
+  0), full-repay cover 18.770166 succeeds (tx
+  0x72ae128543ac928ae3dd0d6ffbfe5fc89207dd16492048d4e93f150a8da2c9ef, status 1,
+  OWNER delta +0.72235, gasUsed 674839). Same-round REPLAY through the bot's
+  own scheduler + detector + executor sim (node bot.js --replay, rows
+  type=replay_scheduler in logs/bot.jsonl 22:44-22:46Z): executor_sim_ok_block
+  non-null in a PRE-capture block for every counted window — 26372982 for
+  victim 0x7b2747 (capture 26372987, cover 18.77 full-repay), 26384826 for
+  0x52de03 (capture 26384827, cover 44.43), 26399072/26399073 for 0xe30d45
+  (capture 26399074, cover 50.38 = 1.000250 pct of its 5037.14 USD debt) —
+  executor sim_ok true at those blocks; the two cascade row victims
+  0x3c0b05027ddeb16cfa158f3f29802e31df14fffd / 0x31e4750e811edf0d9ed3be6a4569834d37aac1aa
+  read HF 1.0158 / 1.0070 at every pre-capture block and never crossed: their
+  sim_ok stays null — liquidatable only IN the capture block (same-block rows,
+  README EV reclassification). RERUN 2026-11-13 fix round 6 (run 4a21719d,
+  header-comment-only source reconciliation: the deployed call path is
+  receiveAToken=FALSE, proven at every counted decision block; the compiled
+  artifact is unchanged except the sourceHash fingerprint tail of
+  deployedBytecode): proof_v2.py at the counted window under a fork lease —
+  reset 26399071 -> deploy 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352 (fork
+  default deployer) -> liquidate(0xe30d45..., WETH, USDC, cover 50.383835,
+  minProfit 500123, fee 100): SUCCESS tx
+  0x0cf2641aed4d2c1710c3039073aa3b506226070ba884bf8c11b3e31d380a4415 (status 1
+  mined 26399073, gasUsed 565699 — the same block and gas review 050bb1c7
+  reproduced — OWNER USDC delta +2.115149 in the same tx, executor WETH/USDC
+  inventories back to 0); NO_PROFIT rollback tx
+  0x1fcb50cabf5c3ad6442f02f917d761bdef6569e83cb8105137ea6a0715220814 (status 0,
+  OWNER balance preserved); healthy tx 0x0ac54e628847f3ef93869c1eeeb617d98f93791be03d2c3f7aeba9b26ad87cc6
+  (status 0). NOTE: the review 050bb1c7 figure "+21.15149 USDC payout" is a
+  decimal-shifted +2.115149 (measured balanceOf deltas on this fork; 5 pct of
+  the 50.38 cover = 2.52 gross before gas). executor-runtime.hex re-taken the
+  same run from a fork instance deployed AS the bot FORK_OWNER 0xc0ffee...01 ->
+  0x14115b5fdab3afcd72cf03785041c720100edb0e (runtime 10247 bytes, OWNER
+  immutables set, POOL/ROUTER/FORK_OWNER all present).
+awaited_events: >
+  Pool LiquidationCall (topic0 0xe413a321... measured) on 0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2
+  plus Borrow/Repay/Supply/Withdraw for candidate discovery. FEED TRIGGER (what
+  this bot waits on): AnswerUpdated on aggregator implementation
+  0x7c7fdfca295a787ded12bb5c1a49a8d2cc20e3f8, topic0
+  0x0559884fd3a460db3073b7fc896cc77986f16e378210ded43186175bf646fc5f, ~208
+  logs/day, last observed in eligibility block 26399071 (attempts:1116). Last supported
+  captures: tx 0x53c1f98c00cab2a976e1925136885e49368e802f5685a9add869ebe5cc8ae99f
+  block 26399074 (repaid 50.38 USDC) and 0x296d8c6a4a2f97f16ca171a45cd5d26e20d262d2826dfe56ab0174b2ed738a10
+  block 26385472 (repaid 1018.73 + 298.44 USDC in one cascade tx). The class runs
+  ~18 liquidations/day on this pool (ledger aave_v3.liquidation: 297 events over
+  blocks 26284068-26402919); the supported WETH/USDC pair class is 57 events,
+  14 in the farm band (10-1200 USD cover).
+good_signs: >
+  logs/candidates.jsonl fills with HF<1 detections and simulate records showing
+  positive profit_usd_after_fees at farm-band covers (10-1200 USD); universe
+  heartbeats advance; no repeated relay error lines (the 11-13 "eth_call incident"
+  was our own unpadded probe address — fixed in recount2; the relay was fine).
+bad_signs: >
+  candidates stuck at 0 after a day of mainnet liquidations; sim sends with
+  negative profit kept alive; HF sentinel 2^192 mishandled; sends attempted
+  when expected gross <= the gas bound (must skip, not revert-loop).
+rpc_reads_per_min: 31   # measured steady paper (fix round 7, run d16e8056, process rpc_reqs counter): 31 requests/min at 7.6 sequential 8 s cycles after the follow-up queue aged out (was ~157/min with overlapping cycles and per-block dust re-sims)
+alchemy_cu_per_day: 360000   # measured steady 44,640 req/day x 8-15 CU (one 200-candidate Multicall3 aggregate per cycle ~15 CU, single oracle/fee/head reads ~10 CU, refresh getLogs 1/5 min) ~= 0.28-0.45M CU/day ~= 0.15-0.24 USD/day at 0.53 USD/1M CU; feed adds ~208 pinned AnswerUpdated events/day x ~200 B x 0.04 ~= 2k CU/day — now at/below the 0.25 USD/day countable EV
+legal_note: >
+  Aave v3 liquidation bonus (public payout under S): the protocol-intended
+  liquidation penalty; no sandwiches, no bloat, flash premium 0.05 pct paid.
+expedite: false

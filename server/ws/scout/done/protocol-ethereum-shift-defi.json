@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-shift-defi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 48,
+ "chain": "ethereum",
+ "slug": "shift-defi",
+ "name": "Shift DeFi",
+ "category": "Yield",
+ "tvl_usd": 47606247,
+ "url": "https://shiftdefi.com/",
+ "github": null,
+ "listed_days_ago": 48,
+ "run_id": "e791a496313d4884a6e553ac31803468",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: the whole batch keeper flow (start/skip/resolve deposit+withdraw, 0xf6efcaa6..0x56a3ede3) is OPERATOR_ROLE, run by a single EOA 0xbcd63668...31e7d (3 dep + 5 wd batches finished in 7d); the only callable claims (claimDeposit/claimWithdraw, fresh-address eth_call ok) paid the caller 0 in 8/8 calls/7d - relay 0xbbd5c2f5...4fa2 moved 5,546 USDC of user principal to 5 users, gas 37.6k = bash.010/call (ETH $1760).",
+  "kb": [
+   "attempts:2874",
+   "protocols:1294"
+  ],
+  "run_id": "e791a496313d4884a6e553ac31803468",
+  "at": 1795171929
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-superform",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 954,
+ "chain": "arbitrum",
+ "slug": "superform",
+ "name": "Superform",
+ "category": "Yield Aggregator",
+ "tvl_usd": 150055,
+ "url": "https://app.superform.xyz",
+ "github": [
+  "superform-xyz"
+ ],
+ "listed_days_ago": 954,
+ "run_id": "65f9647b93a7482290c23e3776b8f10c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only keeper fn CoreStateRegistry.processPayload (0x3721b0e1) pays nothing and is RBAC-gated (fresh-addr eth_call reverts NOT_PRIVILEGED_CALLER; processor EOA 0x23c658fe); 7d: 0 CSR payload events (last 2026-11-08), 7 router user-ops (users pay, gross to caller $0), gas/call ~$0.01-0.05 (0.02 gwei, ETH $1761 coins.llama.fi); open fns finalizeRescueFailedDeposits/forwardDustToPaymaster pay depositors/paymaster, not caller; sample of 7 router logs over 522.9M-525.4M with positive same-shape control",
+  "kb": [
+   "attempts:2181",
+   "protocols:750"
+  ],
+  "run_id": "65f9647b93a7482290c23e3776b8f10c",
+  "at": 1795017236
+ }
+}

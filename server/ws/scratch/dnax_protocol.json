@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "dnax",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/dnax/index.js lists one contract: proxy vault 0xafc43faE32302D725fC4d448525c44c522a9a1B9 (eth_getCode non-empty; ERC1967 implementation 0x62b2b60e2112011e5f5c34e3865d83a93c3c7e2f, Sourcify v2 full match id 30855434, source = Bancor Carbon v1 fork 'CarbonController' with Pairs.sol/Strategies.sol). Getters answer: pairs() = 59 pairs, accumulatedFees(USDC 0x8AC7...580d, 18 dec) = 0.7046, accumulatedFees(0xeee..e) = 0.66639 BNB. ABI (Sourcify fields=abi): only pay-out function is withdrawFees(address,uint256,address) gated onlyRoleMember(ROLE_FEES_MANAGER=keccak256('ROLE_FEES_MANAGER') 0x24a843ca...); eth_call from fresh 0x..dEaD reverts 0x4ca88867 (AccountUnauthorized); role has 2 members 0x61e7093f12329484d235f91731add3af471e1b67 and 0x28ee97cc245ef53c071f509d52111bc5e9bd17ef. Trades (tradeBySourceAmount/TargetAmount) are open to anyone but are swaps: caller pays, no keeper reward. No liquidation/harvest/claim functions in the ABI. dnax.us now serves an unrelated GPU-cloud page."
+}

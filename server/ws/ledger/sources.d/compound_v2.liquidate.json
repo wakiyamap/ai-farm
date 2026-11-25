@@ -1,0 +1,28 @@
+{
+  "id": "compound_v2.liquidate",
+  "protocol": "compound_v2",
+  "kind": "liquidation",
+  "chains": {
+    "ethereum": [
+      "0x5d3a536e4d6dbd6114cc1ead35777bab948e3643",
+      "0x40340fdce2310fdea42589c4a9fe029f1ed80730",
+      "0x39aa39c021dfbae8fac545936693ac917d5e7563",
+      "0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5",
+      "0xf650c3d88d12db855b8bf7d11be6c55a4e07dcc9",
+      "0x8e4e0257a4759559b4b1ac087fe8d80c63f20d19",
+      "0x47dac542c5b9377e3a5d30992a6c32a3ad7f33db",
+      "0x63a4720dc41777adc4e2eb7afcdaae0a81151ad5",
+      "0xb9351dcd5347a67a1a2e0e72c1d069fb1f2e1d65",
+      "0x11581582aa816c8293e67c726af49fc2c8b98c6e",
+      "0xec0d3f28d37a3393cf09ee3ad446c485b6afdaa3",
+      "0x6c8c6b02e7b2be14d4fa6022dfd6d75921d90e4e",
+      "0xc11b1268c1a384e55c48c2391d8d480264a3a7f4",
+      "0xe65cdb6479bac1e22340e4e755fae7e509ecd06c"
+    ]
+  },
+  "event": "LiquidateBorrow(address,address,uint256,address,uint256)",
+  "topic0": "0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52",
+  "indexed": [],
+  "data": ["liquidator", "borrower", "repayAmount", "mTokenCollateral", "seizeTokens"],
+  "actor_field": "tx_from"
+}

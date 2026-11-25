@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "protocol": "blur_lending",
+ "status": "measured",
+ "checked": "2026-11-21 scout run 6eb6d56b: DefiLlama slug blur-lending (listed 2023-05-02, description 'Blur Lending(aka Blend)', TVL 224,900 USD counting NFT collateral; the listed address 0x5283d291dbcf85356a21ba090e6db59121208b44 is just the BLUR token marker - symbol()='BLUR' via eth_call; no adapter in DefiLlama-Adapters main tree, tvlCodePath registries/sumTokens.js). Live system = Blur Blend: proxy 0x29469395eAf6f95920E59F858042f0e28D98a20B, ERC1967 impl 0xb258ca5559b11cd702f363796522b04d7722ea56 (explorer ABI: borrow/refinance/refinanceAuction/startAuction/seize/takeBid; information() answers). SAME system as KB protocols row blur_blend (id 221) and lead 148: refinanceAuction take is the only anyone-callable reward leg (startAuction/refinanceAuction/seize all called by stranger EOAs, no role gate). 7d eth_getLogs (topic0 from receipts of txs 0x5b6a856a... and 0x2733b075...), blocks 26413808 (2026-11-14 14:25 UTC) to 26464061 (2026-11-21 14:25 UTC): 30 StartAuction, 16 Refinance fills by 8 distinct stranger takers incl 0x77cb64ffcbebd51c330ff9dc6a5b24dfbd0de58e, 0x9f6129aa54d6b48e3b2e597f7a02d84c3afb4910, 0x7ca9a46013fa4d068daa46c4f3e308965b71d57f, 0x3eff198582d645a947b4cb934c1822086988aeb7. Farm route already closed at farm capital (lead 148: 30d census 221 starts/220 fills, whale-scale 18.4 USD/day across 37 incumbents, median lien 0.79 ETH; attempt 968: no same-tx payout; attempt 969/1020: closed-class, archived).",
+ "wiki_page": null
+}

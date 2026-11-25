@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "alita_finance",
+ "status": "dead_end",
+ "checked": "Contracts from DefiLlama fork adapter (raw.githubusercontent.com/alita-finance/DefiLlama-Adapters/main/projects/alita-finance/index.js; upstream main projects/alita-finance is 404). ALI token 0x557233E794d1a5FbCc6D26dca49147379ea5073c (code ok; getKeepPercent 0x880afb66, getInitialRewardPerBlock 0xeb6314d6, mint 0x40c10f19 in dispatch). MasterChef 0x4f7b2Be2bc3C61009e9aE520CCfc830612A10694 (code ok 18396B; poolLength=18, ali()=0x5572.., staking()=0xe0d3c699e8d5a32e9e360caea4a222698d708e70, totalAllocPoint 10,000,111,085, aliPoolPercent=1). Factory (Uniswap-fork DEX, main TVL ~131k of 161k) 0xC7a506ab3ac668EAb6bF9eCf971433D6CFeF05D9 code ok. Source: github.com/alita-finance/{alita-farm,alita-incentive} MasterChef.sol/Incentive.sol match on-chain selectors. updatePool mints rewards to Staking contract (not msg.sender); Staking.safeTransfer is onlyOwner; Incentive.claim() gated by claimableAdress. deposit/withdraw(pid>0) pay caller pending ALI (self-harvest, needs position). Pools 1-16 allocPoint 0; pool 17 alloc 10e9 lastRewardBlock 62,520,653; pool 0 lastRewardBlock 65,802,579. No stranger-pay function."
+}

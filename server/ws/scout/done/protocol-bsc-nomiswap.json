@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-nomiswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1616,
+ "chain": "bsc",
+ "slug": "nomiswap",
+ "name": "Nomiswap",
+ "category": "Dexs",
+ "tvl_usd": 1362019,
+ "url": "https://nomiswap.io",
+ "github": null,
+ "listed_days_ago": 1616,
+ "run_id": "27a61831465f48bd8880447d520b0801",
+ "result": {
+  "verdict": "unpaid",
+  "line": "NMX staking 0xdbf1...c3b3 claimReward()/getReward() callable by anyone (eth_call from fresh addr returns 0, no role revert) but 0 events in 9x5000-block windows over 7d (control USDT 3847 logs/50 blocks); totalStaked 8.55M NMX = 19.7k USD at 0.002305 (coins.llama.fi ts 1795075679); zombie DEX: flat 1.36M USD TVL, factories 0xd6715A8b... (266 pairs) + 0xC6B7ee49... (3 pairs), flagship NMX/WBNB pair 2 logs in ~15k sampled blocks; nobody paid in 7d.",
+  "kb": [
+   "attempts:2473"
+  ],
+  "run_id": "27a61831465f48bd8880447d520b0801",
+  "at": 1795082038
+ }
+}

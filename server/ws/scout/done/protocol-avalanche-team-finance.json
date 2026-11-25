@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-team-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1601,
+ "chain": "avalanche",
+ "slug": "team-finance",
+ "name": "Team Finance",
+ "category": "Token Locker",
+ "tvl_usd": 252745,
+ "url": "https://www.team.finance",
+ "github": [
+  "team-finance"
+ ],
+ "listed_days_ago": 1601,
+ "run_id": "298eba1bea784e39bf5fd3d9b85a6560",
+ "result": {
+  "verdict": "role_gated",
+  "line": "withdrawTokens on v2 0x88ad...0367 and v3 proxy 0xe2fe...35fb (impl LockToken 0x6Dd2...59f1) requires msg.sender == withdrawalAddress (fresh-address eth_call reverts 'Unauthorised to unlock', owner passes the role check); no caller-paid reward fn exists (locking pays the company wallet); 0 withdrawals in last 7 days (getLogs control returns 1 log at block 96,318,496; last tx 2026-10-02 v3 / 2025-07-22 v2 via Routescan txlist); sample of 5 real withdraws: 122k-365k gas, 0.0002-0.0027 AVAX (~bash.001-0.019), at today's 7.5 gwei ~bash.007 (AVAX 7.073 USD, coins.llama.fi).",
+  "kb": [
+   "attempts:2462",
+   "protocols:979"
+  ],
+  "run_id": "298eba1bea784e39bf5fd3d9b85a6560",
+  "at": 1795080111
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-native-credit-pool",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The whole CreditVault interface on bsc is a closed market-maker system: every function that pays out reverts from a fresh address with a role custom error (verified on-chain 2026-11-18), and there is no permissionless reward/bounty/keeper function at all — funding fees flow to LP holders inside epochUpdate, which only the epochUpdater can call. Same conclusion as the arbitrum deployment (KB protocols:727).",
+ "numbers": "Vault 0xBA8dB0CAf781cAc69b6acf6C848aC148264Cc05d (DefiLlama adapter projects/native-lend/index.js bsc config; eth_getCode non-empty, owner()/allLPTokens(0)/epochUpdater() answer). eth_call from fresh 0x1111..1111: epochUpdate revert OnlyEpochUpdater 0x16ced9a8; settle/removeCollateral/repay/addCollateral revert OnlyTrader 0x897e65bd; liquidate revert OnlyLiquidator 0x99b01c47; pay revert OnlyLpToken 0x918aa47f; withdrawReserve revert OnlyFeeWithdrawer 0xdcdd32f1; swapCallback revert OnlyCreditPool 0xd687c5f2. LP token 0xea91132e79559be0fcd6b1237ded28a31a226644 exchangeRate()=1.0135. Source of the identical contract from arbitrum explorer (bsc explorer not_on_plan). BSC TVL $343,856 (api.llama.fi Binance slice 2026-11-18); protocol TVL 1.42M (candidate). Gas 0.05 gwei x BNB $588.57 = $0.006/200k gas (eth_gasPrice, coins.llama.fi). 7d event counts missing: scout lane spent (302,954/300,000 CU) + bsc public nodes 'limit exceeded' on eth_getLogs — verdict rests on explicit role reverts, not on a zero."
+}

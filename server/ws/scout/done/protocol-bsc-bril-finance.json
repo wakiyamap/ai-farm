@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-bril-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1098,
+ "chain": "bsc",
+ "slug": "bril-finance",
+ "name": "Bril Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 72138,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1098,
+ "run_id": "1fb9541c75964ae092112e73dc38f25e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "bril_finance bsc ALM (factory 0xfaa2e7c6...07F30, 77 instances/69 enabled): strategy performUpkeep(bytes)/rebalance() permissionless (fresh addr reverts only 'no need', no role) but pay 0 - 339 upkeep txs in 7 d (blocks 13,383,697 11-16 -> 135,180,236 11-23, 11 active instances, getLogs control 350 vs 0), all by one EOA 0x8bc0aee1 via UniswapInterfaceMulticall 0x74d8b640; 10/339 traces show 0 value transfers and instances hold 0 BNB; gross 0.00 USD vs gas 322k x 0.05 gwei = 0.0000161 BNB = 0.009 USD (BNB 557.97, coins.llama.fi 11-23T01:13Z).",
+  "kb": [
+   "attempts:3924"
+  ],
+  "run_id": "1fb9541c75964ae092112e73dc38f25e",
+  "at": 1795396767
+ }
+}

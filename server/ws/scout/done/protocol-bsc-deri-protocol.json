@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-deri-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "deri-protocol",
+ "name": "Deri Protocol",
+ "category": "Options",
+ "tvl_usd": 257867,
+ "url": "https://deri.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e1de2403c8df4c3eadf3ad1af2182e84",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Deri v3 BSC is sunset: futureMain 0x4ad5aB04 (233,632 BUSD of the 257.9k TVL) impl 0x198d0f9d exposes 15 selectors, all views/admin (nameId=PoolImplementation), no liquidate/trade/claim; eth_call liquidate/trade revert empty. 7-day eth_getLogs over all 7 pools (162x5000 blocks, 133814118..134620518) = 1 log total (control: BUSD 8,788 logs in 30k blocks); no stranger paid; gas 0.05 gwei x 300k = 0.009 USD.",
+  "kb": [
+   "attempts:2745",
+   "protocols:1186"
+  ],
+  "run_id": "e1de2403c8df4c3eadf3ad1af2182e84",
+  "at": 1795144649
+ }
+}

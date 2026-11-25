@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "ring_few",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/ring-few/index.js gives the only Hyperliquid contract: FewFactory 0x6B65ed7315274eB9EF06A48132EB04D808700b86 (eth_getCode non-empty; allWrappedTokensLength()=5; parameter() reverts, not implemented). 5 few tokens via allWrappedTokens(i): 0x9e1148bc3665a9f7c35f313d89c0432c34928aef (wraps 0x5555...5555 USDT0), 0x7576dd9a2775bfd789616d9ea7a2af21d06782d0 fwUSDt0, 0x0c47cbbede5d8c6f9614cf770c26c3315205c397 fwUETH, 0xd2646b9b02859416d8cbc759f85f0676f6e19974 fwUSDC, 0x09d21e89ef332347eb3e1e496f1265a600e364c1 fwUSDH. Verified source (Etherscan, FewWrappedToken.sol / FewFactory.sol / Core.sol): pure ERC20 wrapper + wrap/unwrap 1:1; mint/burn gated by Core 0x1cda28ad2915356eb618518b1bdd3f462aef3803 permissions (eth_call mint from fresh addr reverts 'CoreRef: Caller is not a minter'). No reward/distribute/poke/harvest function anywhere. Explorer txs per contract: last external call 1794183354 (fwUSDC transfer, block 50758621) = 9.7 days before scan (latest block ts 1795021576, 51742749); factory last createToken ts 1758784032 (42 d). Ring RING-staking Earn is not in this adapter (no hyperevm contract for it)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-charm-finance-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "charm-finance-v1",
+ "name": "Charm Finance V1",
+ "category": "Liquidity Manager",
+ "tvl_usd": 240984,
+ "url": "https://charm.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "dff5121345cf4bc489156681967c7eb0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only anyone-callable keeper fns are CubePool.updateAll (eth_call OK from fresh address, 0 transfers to msg.sender in source, pays 0) and OptionMarket.settle (all 10 2021 markets isSettled=1, pays 0); rebalance role-gated (vault reverts 'strategy', PassiveStrategy reverts 'cannot rebalance', AlphaStrategy keeper-only) and pays nothing; 7 d window blocks 26416345-26466601 (2026-11-14/21): 0 updateAll, 5 user withdraw txs on CubePool (11.48 ETH left), 0 txs on the 4 AlphaVaults, TVL 235,331 USD, updateAll gas 111,538 = 0.019 USD",
+  "kb": [
+   "attempts:3507",
+   "protocols:1775"
+  ],
+  "run_id": "dff5121345cf4bc489156681967c7eb0",
+  "at": 1795302026
+ }
+}

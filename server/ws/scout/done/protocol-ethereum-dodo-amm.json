@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-dodo-amm",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "dodo-amm",
+ "name": "DODO AMM",
+ "category": "Dexs",
+ "tvl_usd": 3408531,
+ "url": "https://dodoex.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "c910c4cf2aaa458f9d07abab3f6b2aa6",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no caller-pay function on ethereum dodo-amm pools: deployed ABIs of the busiest pools (GSP 1.0.1 0x04571c32, DPP Advanced 1.0.0 0xf3469ffa) are swaps/flashLoan/LP/ERC20 + free sync()/correctRState() paying 0; withdrawMtFeeTotal reverts ACCESS_DENIED, ratioSync NOT_OWNER from a fresh address; protocol active (15,357 DODOSwaps/7d, blocks 26,416,721-26,466,976 = 2026-11-15..11-22, 627 pools, top 6,977 USDT/USDC GSP) but fees accrue to LP reserves and a fixed maintainer (pot 0/0 at check); same as dodo_amm on arbitrum/avalanche/base/bsc/polygon",
+  "kb": [
+   "attempts:3529",
+   "protocols:1788"
+  ],
+  "run_id": "c910c4cf2aaa458f9d07abab3f6b2aa6",
+  "at": 1795307104
+ }
+}

@@ -1,0 +1,33 @@
+OWNER 0x000000000000000000000000000000000000f007 42
+arbitrum	fork 522766864	mainnet 522843201	gen 5	free	http://127.0.0.1:9002
+base	fork 53265096	mainnet 55421093	gen 391	free	http://127.0.0.1:9001
+ethereum	fork 26306792	mainnet 26381261	gen 373	free	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+ok leased ethereum for 15 min (run db7fa25f104e47b399dec9edbe366c31); generation 373
+ok reset ethereum at block 26306742 generation 374
+interval0: None
+arbitrum	fork 522766864	mainnet 522843201	gen 5	free	http://127.0.0.1:9002
+base	fork 53265096	mainnet 55421093	gen 391	free	http://127.0.0.1:9001
+ethereum	fork 26306742	mainnet 26381261	gen 374	leased by db7fa25f104e47b399dec9edbe366c31 899s	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+PAYFULL 9398683583154130380
+grant 0x06050552 0x1
+grant 0x06050552 0x1
+grant 0xf404e5f8 0x1
+grant 0xf404e5f8 0x1
+grant 0xA043FDc5 0x1
+grant 0xA043FDc5 0x1
+grant 0x2b772707 0x1
+grant 0x2b772707 0x1
+grant 0xebbcb2ce 0x0
+grant 0xebbcb2ce 0x0
+MOD USDC now 20000000000
+vault-approve-swapper 0x1
+probeA: {"code": "3", "message": "execution reverted: funding under-delivered", "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000"}
+TRACE errors:
+   {'from': '0x000000000000000000000000000000000000f007', 'to': '0xd98d34008d1bbb29013592c637f8e9fca4179fa0', 'fn': '0x7cda801a', 'err': 'execution reverted', 'type': 'CALL'}
+prelude done u0 b0 s0 o0: 40000000000 3000000000000000000 57582275034043643305 50000000000
+venue29 probe: {"code": 3, "message": "execution reverted: funding swap failed", "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001366756e6
+trace errors: [{"from": "0x000000000000000000000000000000000000f007", "to": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0", "fn": "0x7cda801a", "err": "execution reverted", "type": "CALL"}, {"from": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0", "to": "0x6131b5fae19ea4f9d964eac0408e4408b66337b5", "fn": "0xe21fd0e9", "err": "execution reverted", "type": "CALL"}, {"from": "0x6131b5fae19ea4f9d964eac0408e4408b66337b5", "to": "0x8f10b468b06c6fd214b65f87778827f7d113f996", "fn": "0xd9c45357", "err": "execution reverted", "type": "CALL"}, {"from": "0x8f10b468b06c6fd214b65f87778827f7d113f996", "to": "0xd7a5c6b52756e795f680b0f7e0c2f21281dde6ef", "fn": "0xd9c45357", "err": "execution reverted", "type": "DELEGATECALL"}]
+pre-send balances WINNER(u,b,s): 40000000000 3000000000000000000 57582275034043643305 OWNER usdc 50000000000
+venue29 done settled= None guard= None

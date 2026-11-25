@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-lpeth",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - redeemUnlock()/batchRedeemUnlocks(n) on the lpETH (Tenderize) pool are permissionless and credit the caller 2.5% of the unlock fee (claimable via claimRelayerRewards()), but the protocol is dormant: zero proxy events in the last 7 d, redeemUnlock now reverts ErrorNotFinalized (queue head not finalized), batchRedeemUnlocks(10) succeeds and pays 0, and even historical redeems paid less than gas.",
+  "numbers": "7 d window blocks 26410425 (2026-11-14 03:06Z) - 26460662 (2026-11-21 03:03Z): 0 logs, no-topic eth_getLogs on proxy 0xF3a75E...6252 (control: same shape 24922024-26079349 returns 201 logs; observed topic0s match keccak of Tenderize/lpeth event signatures; last event block 25815420 = 2026-08-23). History same range: 100 UnlockRedeemed+BatchUnlockRedeemed, only 2 relayers (0x0d509d8b46b072f8fc330942b2e3cc0ac34d6d8d, 0x6d978b91844854db1eaae3bb51891b2f8908e320), total 0.0039 ETH ~6.3 USD over ~160 d, median 1.7e-5 ETH ~0.027 USD; sample of 5 of 99: 4.3e-6 - 3.3e-5 ETH (0.007-0.054 USD). Gas single redeem 222,690 gas @0.268 gwei = 5.96e-5 ETH ~0.096 USD (receipt 0xc85532b9...) - gas > gross. pendingRelayerRewards(0x0d509d...) = 4.31e-6 ETH ~0.007 USD. liabilities 256.62 ETH; ETH 1606.32 USD coins.llama.fi @1795230353."
+}

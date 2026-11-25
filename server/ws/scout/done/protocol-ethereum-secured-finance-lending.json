@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-secured-finance-lending",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 993,
+ "chain": "ethereum",
+ "slug": "secured-finance-lending",
+ "name": "Secured Finance Lending",
+ "category": "Lending",
+ "tvl_usd": 104208,
+ "url": "https://secured.finance",
+ "github": null,
+ "listed_days_ago": 993,
+ "run_id": "fe1864b0c66949da961d932d4e501571",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Anyone-callable executeLiquidationCall/executeForcedRepayment on LendingMarketController 0x35e9D8e0223A75E51a67aa731127C91Ea0779Fe2 (fee to msg.sender, no role) revert InvalidMaturity 0xc7a682c8: getOrderBookIds=[] for all 5 currencies; 0 LMC txs/logs in 7d (blocks 26412576-26462833, 2026-11-14\u219211-21, no-topic scan; control 13 logs on 11-11 range), gross 0 USD/call vs gas N/A; TVL 98.5k USD idle in TokenVault 0xB74749b2213916b1dA3b869E41c7c57f1db69393.",
+  "kb": [
+   "attempts:3277",
+   "protocols:1602"
+  ],
+  "run_id": "fe1864b0c66949da961d932d4e501571",
+  "at": 1795256938
+ }
+}

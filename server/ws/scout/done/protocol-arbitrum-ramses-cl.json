@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-ramses-cl",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1256,
+ "chain": "arbitrum",
+ "slug": "ramses-cl",
+ "name": "Ramses CL",
+ "category": "Dexs",
+ "tvl_usd": 100013,
+ "url": "https://www.ramses.xyz/",
+ "github": null,
+ "listed_days_ago": 1256,
+ "run_id": "b4535c67e098464ab7b0d7ae6cfee2a3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Minter.update_period + Voter.distribute* role-free (fresh-address eth_call ok) but source (Minter impl 0xf29f1c04) pays caller 0: weekly 261,286 RAM ($43.6/wk all gauges, RAM $0.000167 llama.fi) -> gauges, growth -> RewardsDistributor, 2M RAM -> CommandCenter; 1 Mint event last 7d (tx 0x2d08f115...) piggybacked on user voter.reset by EOA 0x1a69e4b9, gas $0.83 full tx / $0.001 no-op at 0.02 gwei",
+  "kb": [
+   "protocols:837",
+   "attempts:2289"
+  ],
+  "run_id": "b4535c67e098464ab7b0d7ae6cfee2a3",
+  "at": 1795044474
+ }
+}

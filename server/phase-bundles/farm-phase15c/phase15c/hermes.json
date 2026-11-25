@@ -1,0 +1,12 @@
+{
+  "listen": ["127.0.0.1", 29486],
+  "upstream": "https://pyth.dourolabs.app/hermes",
+  "allow": {
+    "GET": ["/v2/updates/price", "/v2/price_feeds", "/v2/updates/twap",
+            "/api/latest_price_feeds", "/api/latest_vaas", "/api/get_price_feed", "/api/get_vaa"]
+  },
+  "deny": ["/v2/updates/price/stream"],
+  "min_interval_s": 0.05,
+  "daily_limit": 30000,
+  "timeout_s": 10
+}

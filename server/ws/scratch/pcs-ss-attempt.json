@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-pancakeswap-stableswap",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. PancakeSwap StableSwap on arbitrum is 5 Curve-fork 2-coin pools behind factory 0x5D5fBB19572c4A89846198c3DBEdB2B6eF58a77a (DefiLlama adapter projects/pancake-swap-stableswap). The only reward-shaped entry points (withdraw_admin_fees, donate_admin_fees) are onlyOwner and revert from a fresh address; even if callable, withdraw pays the pool owner, not the caller. LP token is a plain ERC20 (no claim). No stranger-paid keeper flow exists.",
+ "numbers": "TVL 328,883 USD (DefiLlama candidate row). 5 pools, all N_COINS=2; withdraw_admin_fees + donate_admin_fees eth_call from 0x...1234 revert (onlyOwner, source lines 739/753). 7d eth_getLogs (blocks 525251886->525493886) all 5 pools + factory: 2 events, both TokenExchange (blocks 525421765, 525494027, PENDLE/mPendle pool 0x73ed25e0...); control same shape: 87 PENDLE Transfers in last 5000 blocks. Gross to a stranger caller 0 USD; no tx needed."
+}

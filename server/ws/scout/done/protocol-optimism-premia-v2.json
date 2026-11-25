@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-premia-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "premia-v2",
+ "name": "Premia V2",
+ "category": "Options",
+ "tvl_usd": 58941,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "5dbdc9f0335940d3a3caf41d51884f79",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only permissionless caller-reward fn is PoolIO.claimRewards(bool) on the 3 pools (factory 0x48D49466..., diamond 0x089e3422..., pays PREMIA via PremiaMining 0xbfdc3749...); not role-gated (eth_call from fresh address ok) but 0 logs on all 3 pools + mining in 7 d (blocks 159625387-159927787, 2026-11-16 to 11-23; WETH control 7,626 logs) and the last claim ever was 2026-10-29: 1.35 PREM = $0.0039 gross vs $0.00024 gas; pot 123,337 PREM = $357, TVL $58.9k.",
+  "kb": [
+   "attempts:4172",
+   "protocols:2290"
+  ],
+  "run_id": "5dbdc9f0335940d3a3caf41d51884f79",
+  "at": 1795455257
+ }
+}

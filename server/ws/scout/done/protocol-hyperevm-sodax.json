@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-sodax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 102,
+ "chain": "hyperevm",
+ "slug": "sodax",
+ "name": "SODAX",
+ "category": "Bridge",
+ "tvl_usd": 44540,
+ "url": "https://www.sodax.com/",
+ "github": null,
+ "listed_days_ago": 102,
+ "run_id": "6974baeb0958478cae7431e8d84f96d9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: recvMessage is the only public entry point, gated by require(executors[tx.origin]) - 24/24 deliveries in 7d (blocks 51320893-51935713, 2026-11-15..22) from one registered executor 0xa4026a97...ddb83; fresh addr eth_call reverts 'unauthorized executor'; caller paid $0 (payments go to the user recipient; 5 sampled receipts), gas 179-213k = $0.001-0.018 at HYPE $61.93; Intent Filler dormant (0 txs 7d).",
+  "kb": [
+   "attempts:3676",
+   "protocols:1899"
+  ],
+  "run_id": "6974baeb0958478cae7431e8d84f96d9",
+  "at": 1795341675
+ }
+}

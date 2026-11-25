@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-maverick-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Maverick V2 on arbitrum is a concentrated-liquidity DEX (76 pools, TVL $132.6k); no public callable function pays the caller: swap is an arbitrage race, flashLoan makes the caller pay, protocol fees go to the factory owner (0xa634f68e...), and reward claims (MaverickV2Reward.getReward) pay only the position-NFT owner (an LP), not a stranger. Activity is near-dead anyway: router last tx 2026-10-21 (28d ago), Position NFT last tx ~50d ago.",
+ "numbers": "poolCount()=76 (eth_call factory 0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e); protocolFeeReceiver()=0xa634f68e7cc434bc14e9870988ece8d903a504e7; router 0x5c3b380e... last tx ts 1792589049 vs now 1795009051 (28d); Position 0x116193c5... last tx ts 1790687086 (50d); TVL $132,641 (DefiLlama candidate); gas 0.02 gwei -> ~$0.004/100k-gas call, ETH $1794.99 (coins.llama.fi 2026-11-18); scout relay lane spent (302854/300000 CU) so no 7d log counts, etherscan tx lists used instead"
+}

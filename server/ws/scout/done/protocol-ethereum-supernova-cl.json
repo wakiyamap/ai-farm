@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-supernova-cl",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 280,
+ "chain": "ethereum",
+ "slug": "supernova-cl",
+ "name": "Supernova CL",
+ "category": "Dexs",
+ "tvl_usd": 596862,
+ "url": "https://supernova.xyz/",
+ "github": null,
+ "listed_days_ago": 280,
+ "run_id": "607ce7d3237b4b7e935199ddf368771b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Algebra CLMM, factory 0x44b7fbd4d87149efa5347c451e74b9fd18e89c55, 52 pools: collect() callable by anyone but pays a positionless caller 0 (fresh eth_call -> (0,0)); 7d (blk 26409667-26460067): 159 Collect / 21 pools / 36 LP EOAs claiming own fees+principal (sample of 5 largest: .6-11,102 gross/call, coins.llama.fi 16:42 UTC), 0 Skim events; gas 270,430 x 0.1715 gwei = bash.076/collect - no bounty for a capital-free caller.",
+  "kb": [
+   "attempts:2980"
+  ],
+  "run_id": "607ce7d3237b4b7e935199ddf368771b",
+  "at": 1795193182
+ }
+}

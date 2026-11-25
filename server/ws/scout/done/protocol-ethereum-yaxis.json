@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-yaxis",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "yaxis",
+ "name": "yAxis",
+ "category": "Yield Aggregator",
+ "tvl_usd": 488618,
+ "url": "",
+ "github": [
+  "yaxis-project"
+ ],
+ "listed_days_ago": null,
+ "run_id": "9a7fd87556414e33bdbe0d90db5b7bc2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "vault.earn(address) (harvest) is onlyHarvester: stranger eth_call reverts '!harvester' (role 0x18dbefac...); source pays caller 0 anyway (sweeps 3CRV to controller); 0 logs across all 10 contracts in 7d (blocks 26418846 2026-11-15 -> 26469100 2026-11-22, control: 2 logs on MetaVault July range); TVL 488,618 USD",
+  "kb": [
+   "attempts:3636",
+   "protocols:1871"
+  ],
+  "run_id": "9a7fd87556414e33bdbe0d90db5b7bc2",
+  "at": 1795332014
+ }
+}

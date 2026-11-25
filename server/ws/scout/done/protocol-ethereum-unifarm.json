@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-unifarm",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1859,
+ "chain": "ethereum",
+ "slug": "unifarm",
+ "name": "UniFarm",
+ "category": "Yield",
+ "tvl_usd": 179061,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1859,
+ "run_id": "79acb776ade64861b5b020084d55356b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no caller-paid fn on any of 37 ethereum contracts (cohorts UnifarmV22.sol/Cohort.sol: only user stake/unStake + views, rest onlyOwner; stranger unStake eth_call reverts 'Invalid User Entry'); 7d (blocks 26415929-26466185) and 90d: 0 logs, control 673 logs/8 blocks; last cohort tx 2022-09-28; TVL 179k USD",
+  "kb": [
+   "attempts:3483",
+   "protocols:1758"
+  ],
+  "run_id": "79acb776ade64861b5b020084d55356b",
+  "at": 1795297029
+ }
+}

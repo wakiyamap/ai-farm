@@ -1,0 +1,13 @@
+{
+  "id": "inverse_finance_firm.force_replenish",
+  "protocol": "inverse_finance_firm",
+  "kind": "keeper_replenish",
+  "chains": {
+    "ethereum": ["0xAD038Eb671c44b853887A7E32528FaB35dC5D710"]
+  },
+  "event": "ForceReplenish(address,address,address,uint256,uint256,uint256)",
+  "topic0": "0x6a03700072ec60131e7e4ff249dad34d458e1e5785dbfa8146b2265997fbf686",
+  "indexed": ["account", "replenisher", "market"],
+  "data": ["deficit", "replenishmentCost", "replenisherReward"],
+  "actor_field": "replenisher"
+}

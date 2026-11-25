@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "address": "0x609c873861fe5db54ec982d476d6535c1561f94c",
+  "strategy": "Claim-farmer on the 0xdb5637 epoch-bounty contract (unverified, called prize game in attempt:2330): per tx it CREATEs a throwaway contract that calls claim(uint256 epoch) 0x576913e8 (guarded by scheduledAt(epoch) 0x51673603, chainid 8453, tx.origin==owner, deadline, and L1-fee/execution-fee < payout checks via GasPriceOracle 0x4200..0f); contract receives fixed 0.00002 ETH from 0xdb5637 in the same tx and forwards it to the EOA. One claim per epoch index; ~3-4 epochs due/day.",
+  "evidence": "Traced claims: 0x31742fe43d54f6ee6f7ba9cfa3548fe541c7744bddbcf761c863117cdeebff1b (2026-11-16, epoch 231: CREATE -> 0xdb5637 CALL 0x576913e8(231) -> 0.00002 ETH back to fresh contract -> forwarded to EOA; receipt gasUsed 0x467cf, effectiveGasPrice 0x004c4b40, l1Fee 0x3da2bfa87), 0x8eda5a86c60b0b155d53e653235cfe1e5882f21858bb6b366318574cd45534a7 (2026-11-20 12:04 UTC, epoch 256). Other claim txs by this EOA: 0xe3f7abacd30cd43d34b9144374cc635ee2cdf84abff3b99e8e99ba41fada0128 (epoch 25), 0x168b8ecb680254ab9824554d2dfd71e40716c1fe90c5e66cfc8da90aaf086759 (epoch 175). 7d payment events (topic0 0x4cc4e2a1.. from 0xdb5637, eth_getLogs blocks 57033542-latest): 232 claims, indices 25-256, all payouts exactly 0x12309ce54000 wei; 4/4 sampled submitters = this EOA; per day 11-16:217 (backlog catch-up), 11-17..20: 4,4,4,3.",
+  "est_profit_usd_day": 0.1
+}

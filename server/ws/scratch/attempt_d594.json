@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0xd594df22325a6d84b75aaea719c4c8590b8cdf39",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Morpho Blue direct-route liquidator on HyperEVM: the EOA calls fn 0x3cef1352 on its own unverified shared router 0xc3a049a10c537ad2d67369076d61be692f6b2738, which liquidates on Morpho 0x68e37de8d93d3496ae143f2e900490f6280c57cd, swaps seized collateral to USDC in the same tx and sweeps the penalty margin (+7.3-7.5% of repaid debt) to its treasury 0xd7748353bab3bb565e1abee79425552d74c6411b - a fresh address with a callback-capable contract would be paid the same (19 distinct senders took the 78 Liquidate events of the 7d window; same class as lead 228). Activity is crash-burst driven (all 7 calls of the week are Nov 15, after the Nov 14 cascade) and 61 of the 100 newest listed txs are FAILED gas-only bids.",
+  "numbers": "7d (Nov 10-17): 7 calls, 3 wins; gross 2,441.97 USDC (148.00 / 218.73 / 2,075.24, receipts 0x4da0c91c, 0xf687a633, 0x801b2a8a); gas 17.16 HYPE = $1,191 (effective 1,655-36,518 gwei, Nov 15 spike; $33-852 per win, $4-104 per failed bid); net +$1,251/7d = $179/day, crash-week dependent (median gross 219 USDC). HYPE $69.39 coins.llama.fi 2026-11-17 03:31Z; USDC = $1. EOA balance 482.7 HYPE. Ledger morpho_blue.liquidate_hyperevm: 78 events / 19 senders in 7d, 60 of them on Nov 14."
+}

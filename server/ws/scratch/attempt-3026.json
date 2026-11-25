@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "actor-arbitrum-0x302649ccdfc232ee49a28755c8a6c06e707b7d15",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the candidate is a contract (EIP-1967 beacon proxy, implementation unverified), not an independent earner. One EOA (0x1f56125481fcfa679d10d3ff22251212e3c1ae71, its creator) calls its 0x05afc977 ~30x/day to convert USDT held by EOA 0x824c7d5eacfbefaa872082ec013179d1e01fc99e into USDC via Aave V3 aTokens through an unverified router 0xe5ec006540be4f7cbb2cbc7be79708a6d96f90dc, orchestrated by a Gelato Relay executor call (executeWithCallback). Token flow is pass-through back to 0x824c; nothing pays the caller in-tx - the EOA pays gas (~$0.026/call). Own funds moving, not a public job.",
+  "numbers": "214 calls / 7 days = ~31/day (eth_getLogs USDT Transfer to candidate, blocks hex 0x1f4445e7..0x1f48e327 for 1d, 7d range latest-2117000); last 1d gross 81,511 USDT in -> 79,923 USDC out (33 paired txs, ratio ~0.9992, i.e. ~8bps Aave aToken-rate drift; USDT spot 0.9992 per DefiLlama coins.llama.fi); per-call size 10 to 10,000 USDT (mean ~$2.3k); gas 688k-750k gas @ ~0.0203 gwei effectiveGasPrice = ~$0.026/call @ ETH $1831.5 (DefiLlama), ~$0.9/day gas; candidate holds 0 native and 0 USDT/USDC (eth_getBalance, alchemy_getTokenBalances)"
+}

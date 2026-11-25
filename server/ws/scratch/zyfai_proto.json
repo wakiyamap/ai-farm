@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "zyfai",
+  "status": "dead_end",
+  "checked": "ZyFAI Base = self-custodial smart-wallet yield agents (Gnosis Safe + ERC-4337/7579 modules), NOT a keeper-reward protocol. Contracts confirmed on-chain (eth_getCode != 0x, getters answer): TargetRegistry 0xd5C2dFD6d34c2bEA1dbec14DE4780d4A9D45ea17 (14.9KB; mutating fns addToWhitelist/removeFromWhitelist/addAllowedERC20TokenRecipient/pause all onlyOwner); GuardedExecModule 0xF659d30D4EB88B06A909F20839D8959Bd77d8790 (ERC1967 proxy; registry()=0xd5c2..ea17, ADAPTER()=0xaffd..2C31 both answer); Zyfai Adapter 0xaffD3c3cD06cf499deddf78b26868018A93f2C31 (proxy). The 'active-wallets' are Safes (impl 0x41675c099f32341bf84bfc5382af534df5c7461a = Gnosis Safe, compiled 0.7.6) whose execTransaction is signature-gated. Only permissionless state-changing entrypoint = executeGuardedBatch (0x55418183), `external whenNotPaused` (no role modifier), but it executes the smart account's OWN whitelisted DeFi calls (supply/borrow/repay/withdraw) and transfers nothing to whoever calls it. Sources: DefiLlama adapter projects/zyfai (ownerTokens = third-party yield pools; owners from api.zyf.ai active-wallets?chainId=8453), github ondefy/zyfai-executor-module (src/registry/TargetRegistry.sol, src/module/GuardedExecModuleUpgradeable.sol), ondefy/zyfai-sdk."
+}

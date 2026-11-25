@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-balancer-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "balancer-v2",
+ "name": "Balancer V2",
+ "category": "Dexs",
+ "tvl_usd": 2095230,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "1475ee962cab4ba892554175168976c0",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No caller-reward fn: withdrawCollectedFees authorizer-gated (fresh-addr eth_call reverts) and dormant since 2022-05-18; Claimed 7d = 0 on both MerkleOrchards (0xc3ccacE8.., 0x0F3e0c42.., 35d = 0, control OK, v2 last tx 2024-12-03); Vault 7d = 25,301 swaps / 197 pools (blocks 97286360-97639288) all user-driven; 14/14 top pools revert getBuffer() = no linear-pool manageFreeUnderlying in the active set; TVL $2.095M.",
+  "kb": [
+   "attempts:2823",
+   "protocols:1247"
+  ],
+  "run_id": "1475ee962cab4ba892554175168976c0",
+  "at": 1795162321
+ }
+}

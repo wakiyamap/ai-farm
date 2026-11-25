@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "address": "0x6c3d445b40a01ce4af942bd0a0a05ca33ee7e7b2",
+  "strategy": "Claim agent + deposit batcher on the Arbitrum batch-claim hub 0x84be56470d45b7f6629a66a219a38681f6ba6172 (protocol identity unknown, leads 142/protocols 218): calls claim batch selector 0xf28a9fc9 ((address,uint256)[]; hub pulls ~46 users' accrued USDC fees to msg.sender per tx) and deposit batch selector 0xd31cba4a (measured as caller of deposit batch tx 0x808295f1b2271dd96168076cd9276ed9182b6a7ae654b3ed70787213372660a4, gasUsed 2,576,394 ~0.11 USD)",
+  "est_profit_usd_day": 10400,
+  "evidence": "USDC income measured 2026-11-11 run 77bb84e0 (attempt 904): Transfer topic2=0x6c3d445b... over head 1000 blocks 523267499-523268498: 512 transfers from 351 unique users = 36.09 USDC (mean 0.07; scratch/arb-hub/in_6c3d445b.json) = x289/day at 0.299 s/block gross income; eth_getCode 0 (EOA). Claim tx example 0xa004600c33f80036b6915fd254b892909f97484667888fd3bfb26c7cde3a6b5b (its txs carry both deposit-side and fee-side transfers depending on selector)"
+}

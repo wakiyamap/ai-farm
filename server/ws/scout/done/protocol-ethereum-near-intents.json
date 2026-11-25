@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-near-intents",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 397,
+ "chain": "ethereum",
+ "slug": "near-intents",
+ "name": "NEAR Intents",
+ "category": "Bridge",
+ "tvl_usd": 54311527,
+ "url": "https://near.com/",
+ "github": null,
+ "listed_days_ago": 397,
+ "run_id": "2a4a222f38444e4588260e6c51a31896",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only code-bearing NEAR Intents contract on ethereum is HOT-bridge MetaWallet 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd (other 2 owners EOAs); one stranger-callable withdraw(uint128,address,address,uint128,bytes) pays receiver_id arg, bash to caller (msg.value->owner fees); 0 calls in last 7d (last block 26314117, 2026-10-31; 31d control returned 2 NewTransfer logs); last withdraw paid 0.50 USDC to another address, caller paid 133,999 gas ~bash.029 (ETH 622.71 coins.llama.fi); wallet holds 27 USDC + 0.052 ETH.",
+  "kb": [
+   "attempts:3019",
+   "protocols:1412"
+  ],
+  "run_id": "2a4a222f38444e4588260e6c51a31896",
+  "at": 1795201262
+ }
+}

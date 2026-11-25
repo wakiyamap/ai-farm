@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-clearstar",
+ "outcome": "dead_end_recorded",
+ "reason": "not_found - Clearstar has no contracts on HyperEVM: DefiLlama's only address for the chain (eulerVaultOwners 0x6539519E69343535a2aF6583D9BAE3AD74c6A293) is an EOA (eth_getCode 0x). Its $1.28M TVL is Euler v2 vaults it owns as curator (Clearstar Earn USDC/HYPE); EVault source shows the only public fn is touch() (pays caller nothing), fee functions are owner-gated and pay the curator itself. EOA made 0 transactions in the last 7 days.",
+ "numbers": "tvl_usd 1,277,399 (api.llama.fi currentChainTvls Hyperliquid L1, 2026-11-17); EOA eth_getCode = 0x at block 51,548,933 (0x3128b05), controls non-zero same run; Euler v2 factory 0xcF5552580fD364cdBBFcB5Ae345f75674c59273A getProxyListLength = 60 (owner() reverts on sampled vaults, ownership not exposed there); Clearstar Earn USDC $137,608 + Clearstar Earn HYPE $23,659 (yields.llama.fi pools 520309ed / acfcb780); last EOA tx 2026-10-25T16:54Z (etherscan txlist via explorer), 0 tx in last 7 days; gas/reward: none - no callable pays-strangers function exists."
+}

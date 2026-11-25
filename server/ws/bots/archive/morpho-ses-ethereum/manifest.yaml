@@ -1,0 +1,61 @@
+id: morpho-ses-ethereum
+author: earner/qwen3.8-flash-next
+chains:
+  - ethereum
+strategy: >-
+  Atomic liquidation of the Metronome sES market on Morph Blue: free sES
+  flash loan, Morpho.liquidate at the capital-capped seize size, two-leg
+  Metronome exchange exit (nETHMAX to WETH to sES), revert unless the sES
+  surplus covers minProfit, native profit paid to the bot wallet in the
+  same transaction.
+copied_from: >-
+  incumbents 0x3132d5bae89d248deda77aba04a43255ef188264 (6 captures 7d),
+  0xb3983cddba4b127960a4cdd531ab989264509e23, 0x81463b0f960f247f704377661ec81c1fd65b5128;
+  atomic route measured from tx
+  0x82d0e4cec8b34a97025acec586d6682ff62b96c60fb08366065cf67ec1eb1926
+capital_usd: 120
+principal_usdc: 0
+allowed_contracts: []
+max_loss_per_tx_usd: 25
+max_loss_guarantee: >-
+  MorphoSESLiquidator.sol liquidate(): the whole repay-seize-sell-exit runs
+  in one executor transaction and the contract reverts unless the sES
+  surplus after flash repayment is at least minProfit (require(sesBal >=
+  flashAmount + minProfit, "NO_PROFIT"), onMorphoFlashLoan), the two
+  exchange legs carry slippage-bounded minOut, and the loss guard runs
+  before any cashout; a failed swap leg or pull reverts the whole
+  transaction, so the worst case is gas only (gasUsed <= 460000 x signing
+  price <= 0.25 USD).
+executor: scratch/morpho-ses-eth/contracts/out/MorphoSESLiquidator.sol/MorphoSESLiquidator.json
+executor_args: "0x000000000000000000000000bbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb000000000000000000000000d65ed4bce447195187f37ce7d82f56adf1826f8f000000000000000000000000a4c567c662349bec3d0fb94c4e7f85ba95e208e4000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000657d9aba1dbb59e53f9f3ecaa878447dcfc96dcb"
+executor_note: >-
+  constructor(morpho, exchMax, exchSes, weth, collateral) = cast abi-encode
+  "constructor(address,address,address,address,address)" 0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb
+  0xd65ed4bce447195187f37ce7d82f56adf1826f8f
+  0xa4c567c662349bec3d0fb94c4e7f85ba95e208e4
+  0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+  0x657d9aba1dbb59e53f9f3ecaa878447dcfc96dcb; owner = msg.sender = the bot
+  wallet; executor_args is that cast output.
+fork_evidence: >-
+  see scratch/morpho-ses-proof.js (rerun: fork reset ethereum 26353673 &&
+  fork deploy ... --args <cast> && OWNER=<deployer> EXEC=<addr> node
+  scratch/morpho-ses-proof.js prove 0x14bcd9da052cdc6fe0b9446d5a616d5b7b4d4550);
+  success tx and revert tx with owner-wallet deltas recorded in
+  scratch/morpho-ses-proof-out.json
+awaited_events: >-
+  sES market liquidations (ledger source morpho liquidation events for
+  market id d2630c0e...): 12 captures blocks 26317645-26353682, latest
+  26353682 tx 0xa8ef4954714fa4fcb31c00deebc536fa3ad7dc6dda287d832b1cbc31f624131c;
+  two whale captures 2026-12-15 (blocks 26353674, 26353682) repaid 51.19 and
+  23.10 sES
+good_signs: >-
+  heartbeat attempts with hf_milli <= 1050 and sim: success on tracked
+  borrowers; executor sim reverts on healthy positions
+bad_signs: >-
+  aggregate-revert every cycle; attempts with seized 0; sim errors other
+  than Morpho NOT_HEALTHY on healthy borrowers
+rpc_reads_per_min: 3
+alchemy_cu_per_day: 120000
+legal_note: >-
+  liquidation seize bonus on a public protocol (Morpho Blue), flash loan
+  fee 0; no front-running of users, no manipulation

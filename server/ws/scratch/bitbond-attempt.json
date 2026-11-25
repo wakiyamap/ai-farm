@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-bitbond-sales",
+  "outcome": "lead_recorded",
+  "reason": "unclear: Sampled V1/V2 Bitbond sale proxies show owner-gated proceeds withdrawals and contributor-only claims, but five V2 diamond facet selectors remain unidentified because facet source/ABI is unverified. Cannot prove absence of a public caller payment without resolving those selectors; 7-day payout measurement was not possible.",
+  "numbers": "2026-11-23 DefiLlama BitbondSales adapter + Metis API: 183 Ethereum sale addresses (2 of 183 sampled). eth_getCode nonempty and diamondAddress() answered for 0x0badbb95138b3c9924783113de3e086c303c215a (V2) and 0xfcb900eefbe0956f94dbfb3e544d4094db2a1b58 (V1). On-chain facetsForVersion: V2 19 selectors, V1 17 selectors. Fresh-address eth_call: 3 V2 withdrawals and 1 V1 withdrawal reverted owner check 0x1e4fbdf7; V1/V2 claimRefund reverted 'No contribution to claim'; V2 claim(0) reverted 'No tokens to claim'; V2 claimableTokens(fresh)=0. Explorer txs for V2 sample last shown call 0x50ee97dc00b174369801d3d9cc02ca1d274701179ab37aaabc4ffee3f24e426e (2026-07-19), so this sample is not active in the current week. Five V2 selectors unidentified; 7-day count, gross USD, gas USD: unmeasured, not zero."
+}

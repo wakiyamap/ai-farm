@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-apex-omni",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 872,
+ "chain": "base",
+ "slug": "apex-omni",
+ "name": "Apex Omni",
+ "category": "Derivatives",
+ "tvl_usd": 3066549,
+ "url": "https://omni.apex.exchange",
+ "github": null,
+ "listed_days_ago": 872,
+ "run_id": "fe3da02dac874fc3b4b8baa313ebb4ba",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Base gateway 0xee7981c4...59d7 (zkLink custodial proxy, impl 0xd923b647... verified): no function pays a caller - commit/execute are onlyValidator (38+38 calls by 0x48184910da67 in 7d), fast-withdraw acceptETH/acceptERC20 emitted 0 Accept events in 7d (control: 24 Withdrawal claims in same 302-log scan, all 24 from one address 0x4e063548a131, e.g. 0.002 ETH self-redemptions), gas <$0.01/call at 0.005-0.009 gwei - custodial zk rollup, liquidations internal, matches arbitrum dead_end (attempts:438)",
+  "kb": [
+   "attempts:2143"
+  ],
+  "run_id": "fe3da02dac874fc3b4b8baa313ebb4ba",
+  "at": 1795008250
+ }
+}

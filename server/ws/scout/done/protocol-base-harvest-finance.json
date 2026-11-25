@@ -1,0 +1,28 @@
+{
+ "id": "protocol-base-harvest-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "harvest-finance",
+ "name": "Harvest Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 9677290,
+ "url": "https://harvest.finance/",
+ "github": [
+  "harvest-finance",
+  "harvestfi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "d25638fe772441d2bafe11525ef638f1",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Base Controller 0xf90ff0f7efa745 doHardWork behind hardWorkers whitelist (stranger eth_call reverts 'only hard worker can call this'); 630 doHardWork events in 7d (blocks 56656294-59680390, eth_getLogs), 15/15 sample callers = keeper EOA 0xfeed4c53d827aebebed6066788065ea1027c7e70, 0 of 3 ERC20 transfers per sampled tx to caller, gas 403-412k @0.01 gwei = $0.007 (WETH $1755.41 coins.llama.fi ts 1795132798); same as arbitrum protocols:1092",
+  "kb": [
+   "attempts:2689",
+   "protocols:1144"
+  ],
+  "run_id": "d25638fe772441d2bafe11525ef638f1",
+  "at": 1795133118
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-pendle-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Pendle V2 on arbitrum has no anyone-callable function that pays its caller: the only public reward entrypoint is GaugeController.redeemMarketReward(), which credits the calling MARKET (safeTransfer(market, accumulatedPendle)) so a stranger keeps 0, and every other external function (router swaps, market redeem, ExpiredLpPtRedeemer.exitPostExpToToken, PendleMerkleDistributor.claim) pays a user-supplied receiver, not the keeper. The gauge path is also dormant: the gaugeController proxy has taken no transaction since block 65014349 (ts 1677484931, Feb 2023), and the Arbitrum Equilibria PendleBooster earmark (the only caller-fee mechanism in this ecosystem) was closed unpaid 2026-11-19 (attempts:2323).",
+ "numbers": "TVL 37.27M USD (api.llama.fi/protocol/pendle-v2, 2026-11-19); gaugeController 0x1e56299ebc8a1010cec26005d12e3e5c5cc2db00 last inbound tx block 65014349 ts 1677484931 (explorer txs, 3 txs ever); redeemMarketReward() selector 0x58f3d163 (cast sig) eth_call from fresh address 0xa11ce01 returns 0x (success, no role revert, no transfer); router 0x888888888889758F76e7103c6CbF23ABbF58F946 active through ts 1795120011 with 6/8 recent txs = exitPostExpToToken/swap* user calls; sources DefiLlama projects/pendle/v2.js arbitrum factories + pendle-core-v2-public deployments/42161-core.json"
+}

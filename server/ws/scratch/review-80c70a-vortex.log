@@ -1,0 +1,82 @@
+reset 135043221 1795334349 lot 0.9518857547351837 BNB; ask 398883.37174803315 ETH; market 0.3088211285483715 ETH
+guards 0x0 0x0 0x0
+warp 878892 s = 10.172 d; ask 0.299442899444342 ETH = 0.9696321649101137 of market
+success 0x1 owner delta 0.028439859095758652 BNB, gas 277552
+{
+ "reset_block": 135043221,
+ "reset_ts": 1795334349,
+ "deployed": "0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352",
+ "deploy_output": "0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352",
+ "lot_native_wei": 951885754735183613,
+ "ask_final_wei_at_reset": 398883371748033151751892,
+ "pool_wbnb_per_eth": 3.08232069227118,
+ "market_final_wei": 3.088211285483715e+17,
+ "ask_over_market_at_reset": 1291632.3880526035,
+ "guard_real_clock": {
+  "hash": "0xf815e71bea53ca5c4cd95491301b31747d37db4a4d538f40a6a363eaa184016b",
+  "block": 135043223,
+  "gas_used": 1477784,
+  "status": "0x0",
+  "revert_output": null
+ },
+ "guard_real_clock_capped": {
+  "hash": "0x7b1d11b59c2645ca4d11ce33db52cbddd4a2edb9c8bdb0330b6c82842f3c096f",
+  "block": 135043224,
+  "gas_used": 48083,
+  "status": "0x0",
+  "revert_output": "0x0ee8070e00000000000000000000000000000000000000000000546fe11c690a1479a3e50000000000000000000000000000000000000000000000000449272e2242cc40"
+ },
+ "guard_non_owner": {
+  "hash": "0xccec75515dedcb9c90eb08e10ef262d3ef2faf148db3bfe999ebd728bda1dc48",
+  "block": 135043225,
+  "gas_used": 26550,
+  "status": "0x0",
+  "revert_output": "0x30cd7471"
+ },
+ "warp": {
+  "seconds": 878892,
+  "days": 10.172361111111112,
+  "block": 135043226,
+  "ts": 1796213265,
+  "ask_final_wei": 299442899444342029,
+  "ask_over_market": 0.9696321649101137
+ },
+ "sim_after_warp": {
+  "gain_wei": 28437980971323111,
+  "err": null
+ },
+ "guard_min_profit": {
+  "hash": "0xc12c38a726103c5485645381bf646908f66c03bc76c6e75fb8ccfbb294c05036",
+  "block": 135043227,
+  "gas_used": 340011,
+  "status": "0x0",
+  "revert_output": "0x31708d59000000000000000000000000000000000000000000000000006515ab36cfee9800000000000000000000000000000000000000000000000000ca1062d3d99dce"
+ },
+ "success": {
+  "hash": "0x31dd4f10e503e5f5bb7a5ae87b18eed3bb64b86c51525b6ab2fb00617038ee16",
+  "block": 135043228,
+  "gas_used": 277552,
+  "status": "0x1",
+  "sim_gain_wei": 28437980971323111,
+  "owner_before": 999813412200000000,
+  "owner_after": 1028253271295758652,
+  "owner_delta_wei": 28439859095758652,
+  "gas_cost_wei": 27755200000000,
+  "vortex_native_delta": -951885754735183613,
+  "logs": 11
+ },
+ "executor_leftovers": {
+  "native": 0,
+  "eth": 0,
+  "wbnb": 0,
+  "eth_allowance_to_vortex": 0
+ },
+ "repeat_after_take": {
+  "hash": "0x20eca948116791919b451bf40f046a90295662ad6d59c37ac69ac69626bc6240",
+  "block": 135043229,
+  "gas_used": 39179,
+  "status": "0x0",
+  "revert_output": "0x8e26ecdf"
+ },
+ "runtime_code_len": 3750
+}

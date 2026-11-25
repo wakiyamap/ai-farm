@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-dexalot-portfolio",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 822,
+ "chain": "base",
+ "slug": "dexalot-portfolio",
+ "name": "Dexalot Portfolio",
+ "category": "Bridge",
+ "tvl_usd": 488392,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 822,
+ "run_id": "99606a8920264d48977ae9a0b76d7dea",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bridge lock contracts PortfolioMain 0x50901EeE...6627 / PortfolioBridgeMain 0x246c8736...9634 (Dexalot privapi/trading/deployment API): no public reward fn (processXFerPayload bridge-only, collectBridgeFees owner-only); the only keeper action is LZ Executor302.execute302 (0x2cca08ae...ae4) - onlyRole(ADMIN_ROLE) (fresh-address eth_call reverts 'AccessControl: account missing role'), 7 L1->Base deliveries in 7 days by 5 relayer EOAs, gross $0.00 to caller on-chain (callTracer 7/7, off-chain reimbursement), gas 161.7k @ 0.009-0.016 gwei = $0.003-0.005/call at ETH $1798 (coins.llama.fi)",
+  "kb": [
+   "attempts:2111",
+   "protocols:689"
+  ],
+  "run_id": "99606a8920264d48977ae9a0b76d7dea",
+  "at": 1795001483
+ }
+}

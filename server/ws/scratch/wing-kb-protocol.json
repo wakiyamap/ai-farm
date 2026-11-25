@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "protocol": "wing_finance",
+ "status": "dead_end",
+ "checked": "Wing Finance BSC flash pool = Compound-v2 fork. DefiLlama adapter projects/wing.js pins comptroller proxy 0x49620e9bfD117C7b05B4732980b05b7aFEE60a69 (eth_getCode has code; getAllMarkets() answers: 19 markets). Comptroller impl 0x17aFa1eB1fEEDe3Ed791E1b5C4B32B544e6CbC0B: full 83-selector census (bytecode + 4byte) has NO claim*/distribute*/rewardToken/updateIndex functions - only admin/guardian hooks. oToken impl (e.g. fADA 0xab96cb23...): 54 selectors, no claim/reward either; only accrueInterest() (0xa6afed95, returns NoError from fresh address) as permissionless keeper fn. 7-day log scan (blocks 133,435,351-134,644,950, 242x5000-block ranges, 0 errors): 177 logs, 172 = oToken accrueInterest events emitted ~17 markets x ~10 rounds, all by keeper EOA 0xf96f5b150f94a32e1fe4b6ab105d205fb95f35f0 via multicall proxy 0xe2a2d2a6169a449047779d5fe756680e7a75dc4a; comptroller itself emitted 0. accrueInterest pays caller 0 (no transfers in trace of tx 0xe9e73898e678af534accbeb1a4285bedad2cda1d45ad114dcfc25284952f110b, gasUsed 961,463 for 16 accruals at 0.05 gwei). Only other mechanism: 1 LiquidateBorrow in 7d (tx 0x428822225af9f6d116a284f353ac5919f5d4250d11c7a7887aebd33d5e3deb79, EOA 0x36b9b80a via aggregator 0x7aee5b81, repay 620.53 USDC 18dp, seize 218 fADA shares). Book is dust: DefiLlama currentChainTvls Binance 105,916 supplied / 903 borrowed (2026-11-20). BNB $569.28 coins.llama.fi 2026-11-20 06:30Z.",
+ "source": "scout run a4ec046a1a7246959712cb136263f30a 2026-11-20"
+}

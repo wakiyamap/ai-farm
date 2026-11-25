@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-solv-strategies",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 559,
+ "chain": "avalanche",
+ "slug": "solv-strategies",
+ "name": "Solv Strategies",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 13090351,
+ "url": "https://solv.finance",
+ "github": null,
+ "listed_days_ago": 559,
+ "run_id": "2940b58f9aaa43e095b29e7364dba94b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "OpenFundMarket 0x59cf3db9 (SolvBTC.AVAX 0x6C7d727a, router 0x30a61591): all settlement role/whitelist-gated \u2014 fresh-address eth_call: 'OFM: only pool manager'/'only subscribe nav manager'/'caller not allowed'; claimTo pays holder not caller; 0 market/router/token calls in last 7d (last market tx 2026-09-28; control SolvBTC underlying 5 txs same window); gross to stranger 0, gas <$0.05 at AVAX $7.23 (coins.llama.fi); same as bsc solv_protocol dead_end (attempts:1411).",
+  "kb": [
+   "attempts:1937",
+   "protocols:551"
+  ],
+  "run_id": "2940b58f9aaa43e095b29e7364dba94b",
+  "at": 1794964130
+ }
+}

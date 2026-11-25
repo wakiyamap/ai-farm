@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-bitway-earn",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The two vaults pay out only to the claim-item owner (require claimItem.user == msg.sender); no keeper/bounty function pays a caller. All public payout calls (claim, cancelClaim, flashWithdrawWithPenalty) move the depositor's own principal + accrued yield to themselves; everything else is onlyRole admin. Yield comes from off-chain basis trading credited via admin setRewardRate, so a stranger with no deposit earns nothing.",
+ "numbers": "Vaults 0x5C4a6903732532eeB3AE0803e062d8AE25d52BD1 (ABS, lastClaimQueueID 108794) / 0xb82E32062C773c7748776C06FdB11B92EDAE3B63 (CORE, 10514). 7-day requestClaims = 92 (85 + 7) from lastClaimQueueID diff over blocks 132776025->134119187. Sample of 4 of 4 events in 134100000-134119200 (~2.1h): ClaimAssets 20.89, 20.88, 5.86 USDT-18dp, RequestClaim 10.27 (9.99 principal + 0.277 reward) of 0xce24439f...6666; caller == depositor (tx 0x00e3b11326bab11afcc60894ffd5349d66f7e9e7da4dc211b87a4a24624573ae). Claim gas 279052 @ 0.052 gwei = $0.009 at BNB $593.62 (coins.llama.fi). TVL $32.3M (api.llama.fi) reconciled via getTVL."
+}

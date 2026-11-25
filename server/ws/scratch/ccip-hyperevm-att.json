@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-ccip",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated verdict. Chainlink CCIP on hyperevm (Router 1.2.0 0x13b3332b66389b1467ca6ebd6fa79775ccef65ec, OffRamp 1.6.0 0x70003d849a20e33997fea69bbc8a366d6ab0e131 + 4 others, TokenAdminRegistry 0xcE44363496ABc3a9e53B3F404a740F992D977bDF): the only public writes are commit/execute and a fresh-address eth_call of execute reverts UnauthorizedTransmitter (MultiOCR3Base Role.Transmitter gate), so strangers cannot take them. Even transmitters are paid nothing on-chain: no value transfer exists in OffRamp.sol or Router.sol; the DON is paid off-chain in LINK. Consistent with avalanche ccip dead_end (protocols:351).",
+  "numbers": "6.7d window blocks 50,909,391-51,494,990 (eth_getLogs): 45 ExecutionStateChanged in 45 txs, callers 0x4a931cea (15) / 0xc3f18544 (13) / 0x61ab4690 (9) / 0xa4369f00 (8), all also commit transmitters; 2,940 Transmitted commit events (main offramp); gross to caller $0 (no value transfers in verified source); gas per execute 174k-206k gas x 0.24-1.96 gwei = $0.003-0.028 at HYPE $68.66 (coins.llama.fi coingecko:hyperliquid 2026-11-17); Router ABI 18 functions, 0 reward/claim (sample of all; explorer abi). Fresh-address execute eth_call revert 0xda0f08e8 UnauthorizedTransmitter. ExecutionSuccess topic returns 0 over 30d with control: same-shape address-only query returned 732 logs in 200k blocks."
+}

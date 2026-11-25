@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-camelot-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 13,
+ "chain": "arbitrum",
+ "slug": "camelot-v4",
+ "name": "Camelot V4",
+ "category": "Dexs",
+ "tvl_usd": 150192,
+ "url": "https://camelot.exchange/",
+ "github": null,
+ "listed_days_ago": 13,
+ "run_id": "768172f7ab78461989551c20232db1a2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Camelot V4 = Algebra Integral 1.2 (factory 0xBefC...2f37, PluginFactory 0x222F...7a71, docs.camelot.exchange/contracts/arbitrum): 80 pools since launch, >=2830 swaps in last 7d (80 pools scanned, top sender 0xe200007f...edd2 998 swaps) but no callable function pays a stranger - mint/swap/collect are user actions paying the LP, skim() reverts role-gated (0x932984d2), plugin hooks onlyPool, collectPluginFee role-gated, factory setters onlyOwner; TVL 150192 USD (llama 2026-11-17)",
+  "kb": [
+   "attempts:1578"
+  ],
+  "run_id": "768172f7ab78461989551c20232db1a2",
+  "at": 1794889892
+ }
+}

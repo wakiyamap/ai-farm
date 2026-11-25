@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "citrea_bridge",
+  "status": "dead_end",
+  "checked": "Citrea Bridge on Ethereum = 3 LayerZero OFT adapters (DefiLlama registry registries/sumTokens/data1.js key \"citrea\"): USDC escrow TransparentUpgradeableProxy 0xdaa289CC487Cf95Ba99Db62f791c7E2d2a4b868E (impl 0xbc9bdd439a71418c6a5d4f6c37bae75c8215ec03, plain OFTAdapter, 71,182.67 USDC), USDT escrow TransparentUpgradeableProxy 0x6925ccD29e3993c82a574CED4372d8737C6dbba6 (impl 0x9f3096bac87e7f03dc09b0b416eb0df837304dc4, 3,339.51 USDT), WBTC escrow OFTFeeAdapter 0x2c01390E10e44C968B73A7BcFF7E4b4F50ba76Ed (WBTCOFTAdapter, owner 0xbddf138854333cbae98987fb787c1ca18c6a435b, 0.67254 WBTC). eth_getCode non-empty on all three (first 0x reading was a parse bug - they are contracts, not EOAs). ABI (etherscan): only user-initiated send() (payable, caller pays), endpoint-gated lzReceive (reverts from fresh address; LayerZero endpoint 0x1a44076050125825900e736c501f859c50fe728c), owner-gated setters, and on the WBTC adapter withdrawFees(address) onlyOwner (reverts from fresh address; bridge fee bps accumulate in feeBalance and go to owner). No function pays a caller for acting (send pays nothing, withdrawFees pays the owner): only payout-style function is role-gated: verdict role_gated."
+}

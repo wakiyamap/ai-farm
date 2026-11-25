@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-stratex",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. StratEx's 3 Base ERC4626 beacon-proxy vaults expose only user-facing functions (deposit/transfer/approve in the tx sample); keeper-style probes (harvest/poke/refresh/claim/settle/checkpoint/distribute/sync) all revert from a fresh address, and all three vaults had zero transactions in the last 7 days (latest 2026-11-07/2026-10-30/2026-10-26). Implementation 0x146fa2e8e3db244cb083a71eebdc5660d54b1c4a is unverified everywhere (Blockscout, Sourcify); website is paused, no GitHub repo, so the ABI could only be probed, not enumerated.",
+ "numbers": "TVL 162k USD (DefiLlama); totalAssets: stratUSD 31.3k, stratETH 2.69 ETH, stratBTC 0.83 BTC (eth_call 2026-11-17); 100-tx sample to stratUSD back to 2026-08-04: 38 approve, 36 safeTransferFrom, 24 transfer, 2 deposit(uint256,address), 0 keeper calls; 8 keeper-selector probes reverted, control totalAssets() 0x01e1d114 OK; vaults last tx 10-26/10-30/11-07 = 0 in 7d (base.blockscout.com api/v2 transactions)"
+}

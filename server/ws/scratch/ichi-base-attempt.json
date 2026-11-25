@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-ichi",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: ICHIVault collectFees() is the only stranger-callable money fn (fresh-addr eth_call succeeds) but pays the caller 0 - _distributeFees sends fees only to fixed ammFeeRecipient/factory feeRecipient/affiliate, never msg.sender (verified source). The keeper job rebalance(...) is onlyOwner behind one shared module 0x7d11de61c219b70428bb3199f0dd88ba9e76bfee, driven solely by ICHI's own keeper EOA 0x8bc0aee1276dd867a92fad7affa7af252569ecae via 0x091e99cb1c49331a94dd62755d168e941abd0693. No farvest/claim/reward function exists on any of the 6 base vault factories or their vaults.",
+ "numbers": "6 factories, 240+ vaults enumerated via allVaults(i) (Hydrex >=200, cap; 89 scanned) - blocks 56,633,013-59,575,013. 7d sampled scan 7x50k-block windows (one per day, 350k/3,023,867 blocks = 11.6% coverage, 0.2s/block, base): 87 events = 26 CollectFees + 61 Rebalance; latest 50k window: 9 CollectFees from 9 distinct sender contracts + 7 Rebalance (all 3 sampled rebalance receipts from EOA 0x8bc0aee1...). Control: USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 Transfer same-shape query >20000 logs (lane alive). Gross to collectFees caller = 0 USD by source (no transfer to msg.sender); sampled CF tx 0xc2dfc1e4a02e1f181c4d used 3.53M gas total (nested in a multi-call bot tx) - a standalone caller pays gas for zero return. TVL 1,280,739 USD (session candidate, api.llama.fi)."
+}

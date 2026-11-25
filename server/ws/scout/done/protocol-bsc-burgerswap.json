@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-burgerswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1761,
+ "chain": "bsc",
+ "slug": "burgerswap",
+ "name": "BurgerSwap",
+ "category": "Dexs",
+ "tvl_usd": 148983,
+ "url": "",
+ "github": [
+  "burgerswap-org"
+ ],
+ "listed_days_ago": 1761,
+ "run_id": "093625b9919e44948405e5cd00d1654f",
+ "result": {
+  "verdict": "unclear",
+  "line": "Demax (rebranded BurgerSwap): pair.mintReward()/pool.claimReward() anyone-callable, pay msg.sender; fresh-addr mintReward eth_call reverts 'NOTHING TO MINT' (0 to non-LP, not role-gated); pool 0x86A327715d707BCa24983b1145D1F6c40C5d4A74 totalReward 4.43M DGAS @ $0.000494 = $2.2k pot; gas ~$0.005/150k (0.05 gwei, BNB $592.33); factory 928 pairs, TVL $148k; 7-day MintDGAS/ClaimReward counts unmeasured: relay bsc getLogs 'public: limit exceeded' (scout lane spent), control fails same shape",
+  "kb": [
+   "attempts:2544"
+  ],
+  "run_id": "093625b9919e44948405e5cd00d1654f",
+  "at": 1795100160
+ }
+}

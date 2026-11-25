@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-bakerfi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 998,
+ "chain": "base",
+ "slug": "bakerfi",
+ "name": "BakerFi",
+ "category": "Liquid Staking",
+ "tvl_usd": 47881,
+ "url": "",
+ "github": [
+  "baker-fi"
+ ],
+ "listed_days_ago": 998,
+ "run_id": "f2386f90c9db4d28bfe040acb326612c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "rebalance((uint256,bytes)[]) 0xe9a54a5a on all 3 base vaults (0x37327c99 base-mfbrETH 28.75 WETH via asset()=0x4200..06, 0x892022FE base-stbrETH 0.11, 0x4BA3f77a seUSD ~0) is VAULT_MANAGER_ROLE-gated (eth_call from 0x1111.. reverts 'missing role 0xd1473398'), pays msg.sender nothing (fee -> feeReceiver 0x5b9d9e25); dormant: 0 logs in 7 d (blocks 57982072 2026-11-15 to 61006073 2026-11-22, no-topic scan; control same shape = 24 logs since 2026-06-06, last event 2026-11-01); impls Sourcify exact = baker-fi/bakerfi-contracts Vault.sol/MultiStrategyVault.sol",
+  "kb": [
+   "attempts:3907",
+   "protocols:2067"
+  ],
+  "run_id": "f2386f90c9db4d28bfe040acb326612c",
+  "at": 1795391857
+ }
+}

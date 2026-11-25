@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-spectra-metavaults-outside-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only function anyone can call is MetaVaultWrapper.updateEpochID() (0xb634ea0a): callable by a stranger (eth_call from 0x1111..1111 succeeds) but pays 0 - it only syncs the cached epoch id, no transfers, no reward pot in either wrapper impl source. The epoch advance functions on the AsyncVault infra vaults (open/settle/close) are onlyOwner (Solady OwnableUnauthorizedAccount 0x118cdaa7 revert from a stranger); the owner is the metavault's own user address. Whole protocol is 3 metavaults with 1 transaction in 7 days.",
+  "numbers": "3 metavaults on base, TVL 3,042,279 USD (DefiLlama candidate row, 2026-11-17); updateEpochID gross = 0 (source has no transfer/reward lines); 7-day txs across all 6 wrapper+infra contracts = 1 (Blockscout tx pages, 2026-11-10..17; mv2 redeem by user 0xC36171cB5c); gas irrelevant at gross 0."
+}

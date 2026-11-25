@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-openleverage",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1780,
+ "chain": "bsc",
+ "slug": "openleverage",
+ "name": "OpenLeverage",
+ "category": "Dexs",
+ "tvl_usd": 71922,
+ "url": "https://openleverage.finance",
+ "github": [
+  "OpenLeverageDev"
+ ],
+ "listed_days_ago": 1780,
+ "run_id": "001a27979a714a8ea98b1937436d5147",
+ "result": {
+  "verdict": "unpaid",
+  "line": "OpenLeverage BSC (LeverJ fork): only stranger-callable payer is OpenLevV1.liquidate() (0x6A75aC4b...33B4, pays msg.sender 1% penalty, calculateConfig.penaltyRatio=100/10000) + OPBorrowing.liquidate() (0xf436f8fe...5e47, xOLE gate=1 wei); 7d window blocks 133,916,179-135,259,571 (11-16 to 11-23): 0 events of ANY kind on both contracts (USDT control 23,727 logs), last Liquidation 2026-09-19 block 122,835,544 paid 0.1219 BUSD = 0.12 USD gross vs 0.23 USD gas (418,108 gas @ 1 gwei, BNB 555.87 USD); payoffTrade hard-Paused, closeTradeFor gated to opLimitOrder",
+  "kb": [
+   "attempts:4080",
+   "protocols:2204"
+  ],
+  "run_id": "001a27979a714a8ea98b1937436d5147",
+  "at": 1795432440
+ }
+}

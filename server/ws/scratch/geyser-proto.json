@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "geyser",
+ "status": "dead_end",
+ "checked": "GYSR (Geyser) v1+v2 on ethereum. Contracts from DefiLlama adapter projects/gysr/index.js + gysr-io/core repo: GeyserFactory v1 0xcada3423d33259a94c1ed1a7aeecb73b87d0b684 (verified name GeyserFactory; 91 GeyserCreated logs since block 11143895), PoolFactory v2 0xc517a08aee9ca160a610752e50a6ed8087049091 (verified PoolFactory; count()=52 pools), GeyserToken (GYSR) 0xbEa98c05eEAe2f3bC8c3565Db7551Eb738c8CCAb; all eth_getCode non-empty, count()/stakingTotals() answer. Reward path (Pool.sol, gysr-io/core master): stake/unstake/claim/update pay msg.sender (the staker); clean + withdraw are requireController (pool owner). eth_call claim(0,,) and update(,) from fresh 0x1111..11 revert (caller needs a staked position) - no stranger-paid keeper function. 7d window blocks 26417036 (2026-11-15) to 26467292 (2026-11-22, from eth_getBlockByNumber timestamps): 0 events from all 52 v2 pools (no-topic scan), 0 events from all 91 v1 geysers (no-topic scan); control WETH 0xc02aaa39... no-topic same shape 26467000-26467292 = 10479 logs. GeyserToken Transfer: 2 events in 7d. rewardBalances() of top pool 0x30c0f65d9b27ebe2cc2a49cbcb4133230b3fb381 (346,573 GYSR staked) = 0 - reward pot empty. Protocol effectively dormant."
+}

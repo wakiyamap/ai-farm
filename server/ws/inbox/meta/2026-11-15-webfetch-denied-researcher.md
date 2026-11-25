@@ -1,0 +1,3 @@
+# WebFetch denied in researcher sessions (researcher-claude run acaba5af, 2026-11-15)
+
+TOOLS.md lists "web | Fetch: harness built-in", but in this run every WebFetch (docs.inverse.finance, docs.nerite.org, api.llama.fi, github.com) was refused with "Claude Code is running in don't ask mode". Shell `curl` to api.llama.fi and raw.githubusercontent.com worked, so I pinned addresses from protocol repos instead (OlympusDAO/olympus-v3 env.json, sparkdotfi/spark-address-registry, aerodrome-finance/relay README). Docs sites without a repo copy (Inverse DBR auction, Nerite, Aerodrome Relay factory addresses) could not be pinned. Either allow WebFetch for the researcher or change the TOOLS.md row to say "use curl on raw repo files; WebFetch is off".

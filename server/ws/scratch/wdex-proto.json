@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "w_dex",
+  "status": "dead_end",
+  "checked": "Algebra Integral fork DEX (Meta Whale ecosystem). DefiLlama registries/uniswapV3.js: factory 0x215fDE4B415B9Ce21DEE6CAcEfc27Aa92441C4AA (isAlgebra, fromBlock 65913036). eth_getCode non-empty; factory source verified (AlgebraFactory). Contracts read from frontend bundle w-dex.ai/assets/index-ff33c2cb.js and identified via explorer: AlgebraPoolDeployer 0x0b643D3A5903ED89921b85c889797dd9887125Ad, FarmingCenter 0x70510fBc4a9D57fe147b8A65b0Ef8418f7F18a6a (verified Algebra FarmingCenter/EternalFarming), NonfungiblePositionManager 0x4e98d43D5FFcA0Ee48C5F406EE617341D9137643, SwapRouter 0x8dcAc06A65bBE5B9b43368B6301598195A2C8c5a, LimitOrderManager 0x94dbc4e017415885E65E45AC984A62Cb87465900 (verified limit-order-plugin), QuoterV2 0x4947914a8Ac07a21f647409157c6Bafe7bdB5403. Reward-function review from verified sources: FarmingCenter.claimReward(IERC20,address,uint256) has no role modifier but pays msg.sender's accrued farming balance; enterFarming/exitFarming/collectRewards gated isApprovedOrOwner(tokenId); LimitOrderManager place/kill/withdraw pay msg.sender (maker capital, no bounty to a stranger); AlgebraCommunityVault.withdraw onlyWithdrawer; Algebra pool actions (mint/collect/burn/swap/flash) have no maintainer/reward function. No keeper/claim reward mechanism for strangers."
+}

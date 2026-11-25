@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-woofi-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1462,
+ "chain": "avalanche",
+ "slug": "woofi-earn",
+ "name": "WOOFi Earn",
+ "category": "Yield",
+ "tvl_usd": 415841,
+ "url": "https://woofi.com/en/trade/",
+ "github": null,
+ "listed_days_ago": 1462,
+ "run_id": "96e36d3d7da0408fbec88fd6f712bf6f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: no fn pays the caller - earn()/accureInterest() stranger-callable but pay $0 (no transfer to msg.sender, github.com/woonetwork/WooPoolV2), harvest pays own pending at xWooPerBlock=3 wei (~$0, 0 MasterChef events in 7d, sample 8x10k of ~652k blocks; control USDC 226 logs/257 blocks), start/endWeeklySettle revert !ADMIN; TVL $416k, gas $0.001-0.002/call (7.5 gwei x AVAX $7.002, fi-api)",
+  "kb": [
+   "attempts:2373",
+   "protocols:906"
+  ],
+  "run_id": "96e36d3d7da0408fbec88fd6f712bf6f",
+  "at": 1795061880
+ }
+}

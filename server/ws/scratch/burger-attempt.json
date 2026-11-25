@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-burgerswap",
+ "outcome": "lead_recorded",
+ "reason": "unclear: the protocol (Demax, rebranded BurgerSwap) has anyone-callable reward functions pair.mintReward() and pool.claimReward() that pay msg.sender, and a fresh-address mintReward() reverts 'NOTHING TO MINT' (pays 0 to non-LP holders), but the 7-day call/payment count could not be measured: relay bsc eth_getLogs returned 'all providers failed: public: limit exceeded' (scout lane spent) on the target and on the control. Total DGAS pot in the pool is ~$2.2k, so per-call gross is very likely under $1; gas per 150k-gas call ~ $0.005.",
+ "numbers": "TVL Binance $148,473 (DefiLlama 2026-11-19); factory allPairsLength=928 (block 134,521,897); pool 0x86A327715d707BCa24983b1145D1F6c40C5d4A74 totalReward()=4.43e24 wei = 4.43M DGAS ~= $2,190 @ $0.000494206 DGAS (coins.llama.fi ts 1795090081); bsc eth_gasPrice 0.05 gwei, BNB $592.33 (coins.llama.fi 2026-11-19) -> ~$0.005 per 150k-gas call; mintReward eth_call from fresh 0x..99 on pair 0xa5e6519e1623547b7c6b1ec8f0f4f918bbace5dd reverts 'NOTHING TO MINT'"
+}

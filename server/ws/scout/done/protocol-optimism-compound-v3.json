@@ -1,0 +1,26 @@
+{
+ "id": "protocol-optimism-compound-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1524,
+ "chain": "optimism",
+ "slug": "compound-v3",
+ "name": "Compound V3",
+ "category": "Lending",
+ "tvl_usd": 6411082,
+ "url": "https://www.compound.xyz/",
+ "github": null,
+ "listed_days_ago": 1524,
+ "run_id": "758c81af17b04d6e94f6de1e9ccab615",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "buyCollateral is fully public (no owner/role/whitelist, impl 0x4917850edb...); fresh 7d (blocks 159,434,964-159,737,364) = 19 BuyCollateral / 9 distinct public buyers on cUSDCv3+cUSDTv3 (cWETHv3 0); non-dust storefront discount ~$24-45/buy (0x8250010024 OP base $2386, 0x2b02d295 WETH base $882) vs bare-buy gas $0.001-0.10 (only a bundled absorb+swap hit $46 @33 gwei); ETH $1801/OP $0.0766; confirms lead 235 / trial-cv3-buy-optimism. Sample of all 19 events.",
+  "kb": [
+   "attempts:2435",
+   "protocols:331",
+   "leads:235"
+  ],
+  "run_id": "758c81af17b04d6e94f6de1e9ccab615",
+  "at": 1795074317
+ }
+}

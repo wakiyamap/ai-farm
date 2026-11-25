@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-reservoir-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 737,
+ "chain": "ethereum",
+ "slug": "reservoir-protocol",
+ "name": "Reservoir Protocol",
+ "category": "CDP",
+ "tvl_usd": 430254,
+ "url": "https://app.reservoir.xyz",
+ "github": null,
+ "listed_days_ago": 737,
+ "run_id": "a8159e8457474357be127451b464fb15",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: ethereum CDP core (CreditEnforcer 0x04716DB6.., PSM 0x48090109.., SavingModule 0x5475.., RusdMintBridge; verified source) exposes only 1:1 user swaps (mintStablecoin/redeem) and role-gated fns (CONTROLLER/MANAGER/GOVERNOR); no liquidate/auction/reward/claim fn anywhere, gross 0 per call; last CreditEnforcer tx 2026-11-14 (0 calls in 7d window ts>=1794627268); rUSD supply ethereum 225,136 (eth_call)",
+  "kb": [
+   "attempts:3168"
+  ],
+  "run_id": "a8159e8457474357be127451b464fb15",
+  "at": 1795232172
+ }
+}

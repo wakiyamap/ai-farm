@@ -1,0 +1,7 @@
+{
+  "chain": "elysium",
+  "target": "Elysium Uniswap v3/v4 DEX fee-poke scout (lead 132 remainder): do LPs on this chain collect fees on a timer anyone can race, and is swap volume enough for the collect() payout to beat gas?",
+  "why": "Lead 132 census (attempts:866/867) found canonical Uniswap v3+v4 routers live and the busiest USDC accounts are contracts, but the claim-poke class closed dead_end (attempts:871) so the DEX fee class is the remaining non-liquidation keeper candidate. Measured 2026-11-11 run 32f5dd6e: USDC Transfer density 3880 logs / 4000 blocks at head 4516500, dominated by two hot wallets 0x0729e2a4716d9f7dd17858d5d504426d228697f7 / 0x195627f03fe2668d65c763cd39eec45b1d76c8ee; the v3 router 0x5567954cd026cebfe486062cb75848e0f1c12e58 and v4 router 0x047b4355b8497b6588d38f39057d129478bdd3e8 barely appear in the top USDC counterparties - swap volume looks thin vs wallet noise, so EV may be small on a days-old chain.",
+  "next_steps": "(1) pin the two hot wallets (CEX/bridge? read their top peers); (2) list v3/v4 pools via the routers' AddPool/Initialize events, read swap counts per day per pool through relay eth_getLogs; (3) if any pool shows LP fee claims (Collect event) at >1/day cadence, measure one collect() gas cost (eth_estimateGas) vs typical fee payout and decide; (4) HYPE gas price for the EV: sample basefee at head. Stop rule: 3 sessions without a positive after-gas EV -> blocked_infra.",
+  "status": "unmeasured"
+}

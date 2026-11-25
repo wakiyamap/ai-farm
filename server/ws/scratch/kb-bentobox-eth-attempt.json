@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-sushi-bentobox",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. BentoBox 0xf5bce5077908a1b7370b9ae04adc565ebd643966 has one anyone-can-call reward-shaped function, harvest(token,balance,maxChangeAmount) (no modifier, eth_call from fresh addr succeeds on WETH/DAI; reverts only on tokens with strategy=0x0), but it pays the caller nothing: balanceChange is credited to totals[token].elastic (depositor shares), never transferred to msg.sender, and both set strategies (BaseStrategy WETH 0xba45964c..., DAI 0x68eea36b...) currently return 0 with targetPercentage=0. Zero harvest-related events in 7 days. Same mechanism scored unpaid on polygon (2416) and no_reward on arbitrum (2415).",
+ "numbers": "7d window blocks 26414579 (2026-11-14 17:00Z) - 26464828 (2026-11-21 17:00Z, found by timestamp): no-topic eth_getLogs on box = 24 logs total (control, non-empty), all named by cast keccak: LogTransfer 10, LogWithdraw 7, LogDeposit 5, LogSetMasterContractApproval 2; LogStrategyProfit/Invest/Divest/Loss 0, no unknown topic0. eth_call harvest(WETH/DAI,true,type(uint256).max) from fresh 0x...0f15 succeeds (0x); MIM reverts (strategy=0). strategy.harvest(0,fresh) from box returns 0 for WETH and DAI (pot empty). Gross/caller $0; gas eth_estimateGas 38,391 (0x95f7) x 0.1533 gwei (eth_gasPrice 2026-11-21) = 5.9e-6 ETH = $0.0099 at ETH $1680.90 (coins.llama.fi coingecko:ethereum ts 1795280413). TVL ethereum $333,478 (api.llama.fi/protocol/sushi-bentobox 2026-11-21)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-savvy",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. All reward-bearing functions on Savvy's contracts (harvest on SavvyPositionManager; swap/flushToAmo/withdrawFromSavvy/burnCredit on SavvySage) are _onlyKeeper, and repayWithCollateral is allowlist-gated; user actions pay nothing. eth_call of harvest(address,uint256) from a fresh address reverts SVY214 (SPM_UNAUTHORIZED_KEEPER). Even when run, harvest pays protocolFeeReceiver + savvySage, not msg.sender. The protocol is dormant: 0 txs in the last 7 days across all 3 SavvyPositionManagers and SavvySage (last activity 2026-11-07, explorer txs listings), TVL 129k USD.",
+  "numbers": "TVL 129098 USD (session candidate, DefiLlama); 3 PMs from getSavvyPositionManagers (eth_call 0x2365e74b on 0x68D54ff41BA47355b95Bd477Bcf4d5ff4b2c2A59); last tx PM1 2026-11-07 0x438f35dd..., PM2 2026-11-07 0x5d1ae8bc..., PM3 2026-01-03, sage 2026-10-04 FAILED (explorer txs); harvest revert data 0x08c379a0...'SVY214' from eth_call 2026-11-18"
+}

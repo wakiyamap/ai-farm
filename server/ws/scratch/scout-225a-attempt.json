@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "actor-arbitrum-0x225a38bc71102999dd13478bfabd7c4d53f2dc17",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated - the address is a UniswapX V3-Dutch exclusive RFQ filler contract (not an EOA): its 6 operator EOAs drive it to fill cosigned orders whose exclusiveFiller field is itself (verified in fill calldata), so no fresh address could take these fills; the reactor pays nothing in-tx (token in == out exactly in 12/12 sampled fills, the desk books the RFQ spread off-chain). Matches and confirms closed lead 166 / protocol row 239 (2026-11-13).",
+  "numbers": "fills: 750 over 2026-11-09..15 (ledger events source uniswapx.fill), 32-180/day, avg 107/day; avg fill size ~$12.7k (sample of 12 of 750, range $2.0k-$55.0k stable-side input); in-tx residual to filler $0.00 in 12/12 (pass-through; output bought at oracle-rounded prices, e.g. exactly 1830.0 USDC/ETH); gas ~230k gas @ 0.0228 gwei effective = ~$0.010/fill at ETH $1823.10 (DefiLlama coins.llama.fi 2026-11-16) -> ~$1/day total gas across 6 keys; reactor 0xb274d5f4b833b61b340b654d600a864fb604a87c (V3DutchOrderReactor, explorer-verified)"
+}

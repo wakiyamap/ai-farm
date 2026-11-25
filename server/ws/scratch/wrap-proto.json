@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "wrap_protocol",
+  "status": "dead_end",
+  "checked": "Wrap Protocol = Tezos wTokens bridge; ethereum side is one custodial vault WrapMultisig 0x5Dc76fD132354be5567ad617fD1fE8fB79421D82 (verified source via explorer, Solidity 0.7.6; admin 0x5b64d8b8459b37e3d1e8ae59d4a6d4fd6d207698 from constructor args). eth_getCode non-zero; getThreshold()=3 answers. Full public surface: wrapERC20/wrapERC721 (deposit: caller's tokens pulled, nothing paid back - eth_call wrapERC20 10k USDC from fresh addr reverts WRAP: ERC20_TRANSFER_FAILED w/o approval), execTransaction(address,uint256,bytes,string,bytes) (unwrap, open to anyone but needs 3-of-N Wrap-owner ECDSA sigs on the exact payload; pays `to` = unwrap recipient, ZERO to the caller, no gas refund - unlike Gnosis Safe), plus authorized owner admin fns. No reward/bounty/keeper-fee/harvest/checkpoint function exists. Vault has 0 txs in last 7 d (see attempts 2026-11-22). DefiLlama slug wrap-protocol (Tezos chain, module tzwrap/index.js deleted from adapters main; TVL now via registries/sumTokens.js) - escrow balances static for 20+ days."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-usdt0",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: USDT0 on Ethereum is the LayerZero OFT escrow (OFT Adapter 0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee holding 3.70B USDT). No function anyone can call pays the caller: `send` is user-initiated and the caller PAYS the LayerZero fee; `lzReceive` is OnlyEndpoint (verified: eth_call from fresh address reverts OnlyEndpoint) and its caller (LayerZero executor EOA) is paid nothing by USDT0; everything else is owner/admin. Bridging users are the payees of their own transfers, not keeper rewards.",
+  "numbers": "7d window blocks 26409643 (2026-11-14T00:30Z) to 26459899 (2026-11-21T00:30Z) from eth_getBlockByNumber timestamps: OFTSent 1,092 events = 660.4M USDT out (median 16,000), OFTReceived 2,130 events = 591.2M USDT in (median 1,064.16 USDT); topic0s from a no-topic scan of the adapter itself (control: 232 logs in 1,696 recent blocks, same query shape). Sample OFTReceived tx 0xca09eee1e307552326160dcf2e54c9752cfba7ec064f76b6cb9c2d6fd5546dd1: caller/executor EOA 0xe93685f3bba03016f02bd1828badd6195988d950 pays 113,500 gas @ 0.1829 gwei = 0.034 USD (ETH 1624.18 USD, coins.llama.fi 2026-11-21T00:38Z), receives 0 from protocol. Adapter escrow USDT.balanceOf = 3,699,457,342 (6 decimals read on chain). Getters: token()=0xdac17f958d2ee523a2206206994597c13d831ec7, endpoint()=0x1a44076050125825900e736c501f859c50fe728c."
+}

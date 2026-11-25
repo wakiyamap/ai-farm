@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "actor-base-0x5451c4b4ea335bfb71f75316594bb68d26d30917",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. The address is a pass-through Morpho Blue flash-loan liquidation executor driven by EOA 0x87cb19121d625988defd645ba15279c1d3c73d20: it flash-loans USDC, batch-liquidates Morpho positions (428 of 488 in the cbBTC/USDC market 0x9103c3b4...), swaps the collateral and pays itself the liquidation bonus in USDC to owner 0xbe32f44a932e750e1405a1cf258111337c310769 inside the same transaction; it holds no balance and receives no protocol fee, so a fresh address making the same call keeps the same bonus (not role-gated, not own funds). Batching 11 liquidations per tx (up to 42) is what covers the $10-40 tx gas.",
+  "numbers": "ledger morpho_blue.liquidate caller filter, 2026-11-05..11-15: 488 liquidations / 44 txs / 38,436 USDC repaid; gross to owner 2,146.79 USDC (46 USDC Transfer logs to 0xbe32f44a..., 44 of them inside the liquidation txs, eth_getLogs from block 0x32b0000); gas 455.39 USD over all 44 receipts (ETH 1,815 USD, coins.llama.fi coingecko:ethereum 2026-11-16); net 1,691.40 USD = 154/day over 11 active-window days, 1,352.79 = 193/day over the last 7 (407 liq, 38 txs); per-tx gross median 20.25, max 304.56, min 0.00; gas 1.24 USD for a 1-liq 485,884-gas tx vs 18-41 USD for a 2.0M-gas 40-liq batch (tips 5-11 gwei); gas per liquidation 0.93 USD; flows: USDC + cbBTC/WETH/uSDC pass through with net exactly 0 in the executor (sample of 8 txs of 44 for token flows, all 44 for gas/profit sums)."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-avalon-superearn",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the Superearn vault has no public function that pays the caller - its dispatch is role-gated admin (setPrice/setFee/setTreasury/setWhitelist/pause, AccessControl), views, and a user deposit/withdraw entry (0x971a6bc2(uint256)) where the caller pays in USDC; yield accrues to holders via share accounting, so there is nothing for a keeper/stranger to claim. The contract is also dormant: zero external calls, zero logs and zero USDC inflows in the last 7 days (last call 2026-09-29), TVL flat 111.5M USDC since 2026-09-30.",
+ "numbers": "impl 0xf613a55fa915eafaeb124897c1142c44232b5a3c unverified (Etherscan/Blockscout/Sourcify), 72 selectors decoded via 4byte+cast sig; mintedAvalonVault()=1.784e27, convertToStable=111,516,493 USDC (STABLE()=0xA0b86991...6eB48, 6dec), price()=1e18, USDC balanceOf(vault)=0; 7d activity: 0 txs to 0xf297230fA5614545B427616148a74C888620d659 (explorer txs desc, newest 26081278 ts 1790662679=2026-09-29), 0 logs no-topic scan 26409000..26459487(head) (vault emits no events even in its own tx blocks - control range 26081168..26081285 also 0), 0 USDC->proxy Transfers 7d (control: 36,590 USDC Transfers in 300 blocks, same shape); gas 9.0 gwei, 21k-gas call ~0.31 USD at WETH 1650.76 USD (coins.llama.fi 2026-11-20 16:19 UTC). Caveat: 26 of 72 selectors unresolved (unverified impl) - none match any reward-named signature tried."
+}

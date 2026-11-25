@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "actor-ethereum-0x8b5606469e21c75edd7c74d1c7a65824675d9aff",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The address is the builder/operator EOA of an Across fast-fill system: 100% of its recent txs call its own ProposerMulticall proxy 0x9ccc2f3ecde026230e11a5c8799ac7524f2bb294 (selector 0x1bc74526, msg.sender must equal the BUILDER immutable), which drives proposer 0x394311a6aaa0d8e3411d8b62de4578d41322d1bd -> Across SpokePool.fillRelay. A fresh address making the same call reverts Unauthorized, and the caller receives nothing in-transaction (value 0, no token transfer); it only pays gas. The underlying Across fill job is open (12+ distinct fillers in the ledger window) but pays out-of-transaction via later HubPool/SpokePool repayment to the inventory holder, so there is no in-transaction reward for a farm bot here (matches protocols row 285 dead_end).",
+  "numbers": "12488 txs / 7 days (nonce delta blocks 26381251->26431651) = ~1784 tx/day, ~1 tx per 1-3 blocks; ledger across.filled_relay slice ts 1794012443-1794204059: 8103 fills by this tx_from (~3650/day, ~2 fills/tx) out of 17795 all-filler events in that slice; sample fill 0.374366 WETH = $680 output (spread over inputAmount 0.000213 WETH = $0.39); gas/call 158727 gas @ 0.15871 gwei = 2.52e-5 ETH = $0.046, ~$82/day gas (ETH $1817.75, coins.llama.fi ts 1794880801); gross to the EOA in-transaction: $0; actor balance 0.59 ETH"
+}

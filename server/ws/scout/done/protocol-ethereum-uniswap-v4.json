@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-uniswap-v4",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 658,
+ "chain": "ethereum",
+ "slug": "uniswap-v4",
+ "name": "Uniswap V4",
+ "category": "Dexs",
+ "tvl_usd": 631610486,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 658,
+ "run_id": "a5677a74c5484aa997b9613a650ba5ea",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: no V4 fn pays a stranger on ethereum; only permissionless claim is V4FeeAdapter.collect 0x89a5d5bf (466 FeesCollected in 32 txs over 7d, blocks 26409961-26460212) - all ~90.6k USD (5-sample batches 2.0-6.0k USD, prices coins.llama.fi 2026-11-21) goes to immutable TOKEN_JAR 0xf38521f1, caller paid 0; collectProtocolFees role-gated (stranger reverts 0x48f5c3ed); keeper batch gas 4.1-10.9M @0.16-2.3 gwei = 2.75-40.5 USD/tx",
+  "kb": [
+   "attempts:3132",
+   "protocols:1502"
+  ],
+  "run_id": "a5677a74c5484aa997b9613a650ba5ea",
+  "at": 1795225390
+ }
+}

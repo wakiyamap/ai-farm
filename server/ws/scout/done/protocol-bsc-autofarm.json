@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-autofarm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "autofarm",
+ "name": "Autofarm",
+ "category": "Yield Aggregator",
+ "tvl_usd": 4123666,
+ "url": "",
+ "github": [
+  "autofarmnetwork"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b74aac4ec13340b89703d0a23dd71908",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Masterchef 0x0895...0452: updatePool/massUpdatePools + strat earn()/farm() are anyone-callable but pay msg.sender 0 (AUTO mints go to owner+vault, strat fees to rewardsAddress); all real pools allocPoint=0 (1e6 sits in dummy pool 0xdead, emissions ended 2021); earn() reverts from a stranger on 11/11 sampled strats, lastEarn blocks 6.8M-41.7M vs head 134.6M (years); 0 Deposit+Withdraw events in 7d (269x5000-blk getLogs chunks, 0 errors, same-run same-shape control = 6117 logs). Gross per call 0 USD, gas <0.01 USD.",
+  "kb": [
+   "attempts:2721"
+  ],
+  "run_id": "b74aac4ec13340b89703d0a23dd71908",
+  "at": 1795139655
+ }
+}

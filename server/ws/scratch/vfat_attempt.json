@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-vfat-io",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. vfat.io on Base is a vfat.tools Sickle fork; the only wallet write (multicall) reverts for strangers (registry.isWhitelistedCaller whitelist), registry writes are onlyAdmin except free setReferralCode, and factory deploy() is self-service wallet creation that pays the caller $0. No task/keeper reward module in the verified source, so no function anyone can call for a reward; harvesting bots are the protocol's own whitelisted callers.",
+  "numbers": "TVL Base $15.13M (api.vfat.io/v4/sickle-stats 2026-11-18). Factory deploy() (0x32c02a14): 25 txs on explorer page 1 spanning 2026-11-01..11-17 (~1.5/day), all distinct EOAs, value 0, estimateGas 142,879 (~$0.013 at 0.05 gwei, ETH $1782.20 coins.llama.fi) - gross $0 to caller. Registry setReferralCode(bytes32) (0x2d5aa3ad): 0 calls in last 7 days (latest seen 2026-11-06 per Blockscout txs), pays $0. Wallet multicall([],[]) from fresh addr 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 reverted (CallerNotWhitelisted). Getters: wallet.registry()=0x2ef5eafa8711e2441bd519eed5d09f8dfef2ecf3 ok. Addresses from api.vfat.io/v4/sickles + DefiLlama adapter projects/vfat/index.js."
+}

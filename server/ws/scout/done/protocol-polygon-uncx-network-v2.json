@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-uncx-network-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1645,
+ "chain": "polygon",
+ "slug": "uncx-network-v2",
+ "name": "UNCX Network V2",
+ "category": "Token Locker",
+ "tvl_usd": 858295,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 1645,
+ "run_id": "7ba90736fc9643268913921328c48dcf",
+ "result": {
+  "verdict": "role_gated",
+  "line": "3 UniswapV2Locker lockers (Quickswap 0xadb2437e... + 0x1f241ef7 + 0x939d71ad); every state function reverts LOCK MISMATCH unless msg.sender is the lock owner (stranger withdraw reverts, owner returns OK), lockLPToken charges the caller not pays; 7d: 2 onWithdraw + 0 onDeposit (30d control: 8 logs), both callers were lock owners taking their own LP (gross to stranger 0 USD, gas 108k = 0.003 USD, POL 0.0819 coins.llama.fi 2026-11-19)",
+  "kb": [
+   "protocols:990",
+   "attempts:2480"
+  ],
+  "run_id": "7ba90736fc9643268913921328c48dcf",
+  "at": 1795084044
+ }
+}

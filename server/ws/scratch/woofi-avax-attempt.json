@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-woofi-earn",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. WOOFi Earn on avalanche is the WooSuperChargerVaultV2 stack (TVL $415.8k candidate; AVAX vault 37,341 AVAX ~$261k + USDC vault 278,004 USDC, fi-api.woo.org/yield?network=avax). Stranger-callable fns earn() and accureInterest() succeed from a fresh address (eth_call returns 0x, no revert) but contain no transfer to msg.sender, so they pay $0; harvest(pid) pays only the caller's own pending xWOO and MasterChefWoo xWooPerBlock = 3 wei/block (~$0 emissions, fi-api x_woo_rewards_apr ~1e-11%), with 0 MasterChef events in the sampled week; start/endWeeklySettle revert 'WooSuperChargerVault: !ADMIN'. Nothing pays a stranger.",
+  "numbers": "TVL $415,841 (candidate) / AVAX vault 37,341 AVAX x $7.00 = $261k, USDC vault $278k (fi-api.woo.org/yield?network=avax). 7d events (sample of 8x10k blocks of ~652k, blocks 0x5f71817..0x6010bd9 @0.93 s/block, rpc.py eth_getLogs): masterChef 0xc0f8c29e.. 0 logs; supercharger_v2 0x866810.. 2 logs (1 Transfer, 1 Deposit 0xdcbc1c05). Control: USDC 0xB97EF9..48a6E addr-filter = 226 logs / 257 blocks. Gross per callable call: $0 (no caller transfer in source github.com/woonetwork/WooPoolV2 contracts/earn). Gas: eth_gasPrice 7.5 gwei x AVAX $7.002 (fi-api price field) -> 21k gas = $0.0011, accureInterest ~37k gas ~ $0.002. startWeeklySettle from fresh addr reverts !ADMIN (eth_call). xWooPerBlock() = 3 (eth_call)."
+}

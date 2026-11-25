@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-layerzero-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "layerzero-v2",
+ "name": "LayerZero V2",
+ "category": "Bridge",
+ "tvl_usd": 894337,
+ "url": "https://layerzero.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "ca077976084b4e809d1019d8ec65b82e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bridge infra: endpointV2 0x1a44076050125825900e736c501f859c50fe728c (eid()=30111) pays msg.sender nothing; only payout is sendUln302.withdrawFee paying fees[msg.sender] - stranger eth_call reverts LZ_MessageLib_InvalidAmount(1,0); 7d: 26 NativeFeeWithdrawn = 3.8779 ETH (6778 USD @ 1747.94) all taken by 3 LZ-own worker contracts (0x2d2ea069.. 13x 2.0063, 0x5b6735c6.. 12x 1.7887, 0x6a02d83e.. 1x 0.083), avg gross 0.149 ETH=261 USD vs gas 0.0001 USD; no stranger paid.",
+  "kb": [
+   "attempts:2802"
+  ],
+  "run_id": "ca077976084b4e809d1019d8ec65b82e",
+  "at": 1795158383
+ }
+}

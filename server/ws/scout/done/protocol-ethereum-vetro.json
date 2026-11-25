@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-vetro",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 82,
+ "chain": "ethereum",
+ "slug": "vetro",
+ "name": "VETRO",
+ "category": "CDP",
+ "tvl_usd": 824258,
+ "url": "https://vetro.org",
+ "github": [
+  "vetro-protocol"
+ ],
+ "listed_days_ago": 82,
+ "run_id": "556f03f234ac41fead875f66cb281735",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no keeper function pays the caller: distribute() is DISTRIBUTOR_ROLE (and the caller pays yield in), Treasury harvest UMM/swap KEEPER role-gated; only open fn is Gateway mint/redeem at NAV (0/7 bps fees), VUSD $0.99903 = 9.7 bps discount = 2.7 bps net redeem, ~$0.17 gas (198k gas @0.495 gwei, ETH $1731.60); sample of 25 gateway txs / 8.2 d: deposit/redeem only, 0 mint, vetBTC gateway idle 43 d \u2014 protocol's own vusd-arbitrage-bot takes the spread",
+  "kb": [
+   "attempts:2898",
+   "protocols:1317"
+  ],
+  "run_id": "556f03f234ac41fead875f66cb281735",
+  "at": 1795176948
+ }
+}

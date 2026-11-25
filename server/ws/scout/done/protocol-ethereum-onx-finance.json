@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-onx-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "onx-finance",
+ "name": "OnX Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 187438,
+ "url": "",
+ "github": [
+  "onx-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "44459f6f40c440afbe709f81b3318df5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: doHardWork/updatePool/mint callable by anyone but pay caller 0 (mint pays only caller's own position reward; source OnxAlphaVault/ONXFarm/BaseMintField); doHardWork reverts 'SafeERC20 low-level call failed' from fresh addr on funded vaults; 0 logs/0 calls in 7d on 14 vaults + farm + OnE pool + oneVault (blocks 26417741-26468055, controls passed: WETH 47 logs/90d OnX 6 logs; last activity 2026-11-07 block 26362011); gross 0 USD/call, TVL 181,968 USD (llama 1795301903)",
+  "kb": [
+   "attempts:3581",
+   "protocols:1826"
+  ],
+  "run_id": "44459f6f40c440afbe709f81b3318df5",
+  "at": 1795319951
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-gamma",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "gamma",
+ "name": "Gamma",
+ "category": "Liquidity Manager",
+ "tvl_usd": 308632,
+ "url": "https://www.gamma.xyz",
+ "github": [
+  "GammaStrategies"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b4557c08fe4a418f9be3c3028a656d98",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: vault rebalance/compound onlyOwner, proxy.rebalance reverts 'only rebalancer' (Gamma keeper EOAs 0x9625e4bb/0x661d1534); 7d: 580 Rebalance / 364 txs / 24 of 286 live vaults (5 registries, 303 vaults), fee pool 12.26 USD total = 0.034 USD/call (31 nonzero events, one USDC/WETH vault) vs gas 0.019-0.033 USD/call; same verdict as arbitrum/base/bsc",
+  "kb": [
+   "attempts:2832",
+   "protocols:1255"
+  ],
+  "run_id": "b4557c08fe4a418f9be3c3028a656d98",
+  "at": 1795164424
+ }
+}

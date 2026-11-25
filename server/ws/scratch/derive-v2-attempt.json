@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-derive-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Derive V2's Optimism footprint (DefiLlama derive-v2, adapter lyra-v2) is 15 Socket superbridge escrow vaults with no keeper/reward function: the verified Vault.sol pays no caller (depositToAppChain = user escrow deposit; unlockPendingFor pays the withdrawing user, no bounty; receiveInbound connector-gated; updateLimitParams/rescueFunds onlyOwner; grep reward/bounty/incentive/keeper 0 hits). The whole 295,117 USD TVL is 295,238.5 USDC in vault 0xbb9cf28bc1b41c5c7c76ee1b2722c33ebb8fbd8c, dormant since 2024-03; nothing callable pays a stranger.",
+  "numbers": "TVL 295,117 USD (api.llama.fi/protocol/derive-v2, 2026-11-18) = balanceOf 295,238.505516 USDC 0x7F5c764cBc14f9669B88837ca1490cCa17c31607 at vault 0xbb9cf28bc1b41c5c7c76ee1b2722c33ebb8fbd8c; dust 108.95 OLAS + 2.93 sUSDe; 12 of 15 vaults hold 0. 7d events on all 15 vaults = 0 (eth_getLogs 31 chunks x 9,999 blocks of 302,400 = head 159714284 minus 7d, 0 errors; controls: 12 logs in 2024-03 window 117027000-117037000, 2,972 USDC logs/2000 blocks). Last tx to vault 2024-03-05 block 117036850 (0x33b07937e68f53b4b7fed2f01580fbdb6126e2ab10943b0dc5acfecb4259e6bf, via explorer txs). eth_call unlockPendingFor(fresh,0xc0acbb471465fcf848746d1837d8358ab891546c) reverts 0xb1efb84a ConnectorUnavailable. Gas on OP: eth_gasPrice 0xf686b = 0.001 gwei x 100k gas x ETH 1771.46 USD (coins.llama.fi) = 0.00018 USD + tiny L1 fee. Gross/call 7d: 0 USD, 0 calls, no callers."
+}

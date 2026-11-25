@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-powh3d",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "powh3d",
+ "name": "PoWH3D",
+ "category": "Farm",
+ "tvl_usd": 3499729,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "57101183ee244d418c9a548732562471",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Hourglass 0xB3775fB83F7D12A36E0475aBdD1FCA35c091efBe (verified source, 26 fns, no hidden): withdraw()/reinvest()/exit() callable by anyone but pay only msg.sender's own dividends (fresh address reverts, myDividends=0); 7d (blocks 26418059-26468333, no-topic scan, 22 of 22 logs): 8 onWithdraw total 0.886 ETH = 1471 USD gross, largest 0.8705 ETH = 1445 USD was a holder self-claim, 4 dust claims 0.03-0.14 USD harvested by EOA 0xfd1cd0... via a third-party vault contract at 0.04-0.07 USD gas each; contract holds 1989.4 ETH = 3.30M USD, no keeper/bounty function",
+  "kb": [
+   "attempts:3590"
+  ],
+  "run_id": "57101183ee244d418c9a548732562471",
+  "at": 1795323030
+ }
+}

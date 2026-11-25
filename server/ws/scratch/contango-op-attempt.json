@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-contango-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Post-sunset lean build: core has no keeper function; claimRewards reverts Unauthorised (0xae10e1de) from a fresh address (position-owner only) and OrderManager execute (the only msg.sender keeperReward path) reverts AccessControl missing role 0x902cbe3a02736af9. 7d activity is trivial and self-paid; nothing a stranger could call earned anything.",
+ "numbers": "7d core logs 31 (21 PositionUpserted, 9 PositionDonated, 1 RewardsClaimed) over 31x9.5k-block chunks to block 159716486; lone claim tx 0x91e61c9e caller==recipient 0xc40bb034.., gasUsed 391943 @ 1531 wei effGasPrice ~ $1.05 (ETH $1754 coins.llama.fi); OrderManagerProxy 0 events in 7d, execute stranger revert AccessControl; claimRewards stranger revert 0xae10e1de; TVL $307k (session context)"
+}

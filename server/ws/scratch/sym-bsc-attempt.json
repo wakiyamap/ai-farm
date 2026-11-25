@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-symbiosis",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only Symbiosis contract the TVL adapter tracks on BSC is the portal 0x5Aa5f7f84eD0E5db0a4a85C3947eA16B53352FD4 (impl 0x422a0a054eb5a7424d9e3042862546a3f04e3596, versionRecipient()='2.0.1', bridge()=0xb8f275fBf7A959F4BCE59999A2EF122A099e81A8). Every function that pays tokens out (unsynthesize, metaUnsynthesize, revertSynthesize) is guarded by require(bridge == msg.sender) - a single protocol relayer - so no stranger can earn on it. Open entry points (synthesize, metaSynthesize, revertBurnRequest, metaRevertRequest) take user tokens in or fire cross-chain refund requests and pay the caller nothing on BSC. 7-day event counts not measured: scout lane CU spent (300,120/300,000) and bsc public nodes refuse eth_getLogs, but role gating is a code property (Portal.sol:115), independent of counts.",
+  "numbers": "tvl_usd=631,489 (DefiLlama candidate 2026-11-19); BSC head 134,499,138 @ ts 1,795,089,425, 7d span 1,343,159 blocks (~0.45 s); deployed dispatch 34 selectors, 13 matched to core-contracts synth-core Portal.sol; claim(bytes) 0xc63ff8dd / claimV2 0x149d9569 absent (old metaBridge portal not in use here); eth_getLogs probes all failed 'all providers failed: public: limit exceeded'/'no provider available' (relay /health scout 300,120/300,000 at 12:00Z)"
+}

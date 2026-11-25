@@ -1,0 +1,28 @@
+{
+ "id": "protocol-ethereum-harvest-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "harvest-finance",
+ "name": "Harvest Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 3661674,
+ "url": "https://harvest.finance/",
+ "github": [
+  "harvest-finance",
+  "harvestfi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "e5cf329d32f24b37a91e0d37757e9fd5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: vault doHardWork/rebalance, Controller 0x7583d7f3...doHardWork(address) (hardWorkers whitelist) and strategy doHardWork all revert stranger eth_calls; 7d (blocks 26417107..26467363, 2026-11-15..22): 181 doHardWork runs (Controller SharePriceChangeLog, topic0 from verified ABI), 177 txs over 40 vaults, 7/8 sampled txs from whitelisted keeper EOA 0xfeed4c53...7e70 (same keeper as arbitrum/base dead ends); caller paid 0 of 18-44 ERC20 transfers per tx, gas 0.47-3.0M = $0.95-6.02/call (0.119 gwei, ETH $1681.52 coins.llama.fi).",
+  "kb": [
+   "attempts:3545",
+   "protocols:1800"
+  ],
+  "run_id": "e5cf329d32f24b37a91e0d37757e9fd5",
+  "at": 1795311283
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-yld",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 249,
+ "chain": "ethereum",
+ "slug": "yld",
+ "name": "YLD",
+ "category": "Derivatives",
+ "tvl_usd": 39325,
+ "url": "https://yldfi.co/",
+ "github": [
+  "yldfi"
+ ],
+ "listed_days_ago": 249,
+ "run_id": "23dd29e7863c4e548a93d84dc55eb7e0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "YLD = 3 live Yearn V3 Compounder strategies (ysCVX 0x1Fd0A850..., yscvxCRV 0xCa960E6D..., yspxCVX 0xB246DB2A...); report/tend revert '!keeper' from a fresh address, the permissionless kickAuction/take/settle pay the caller 0; 7d (blocks 26429810-26480053, 11-16 to 11-23): 3 kicks, 2 Dutch-auction takes, all by one operator EOA 0xa88e98bb; take gross bash.33 and bash.43 (4.17/5.38 cvxCRV @ bash.0798) vs gas bash.19/bash.26, ysCVX auction sat unsold 4 days - no stranger paid more than gas.",
+  "kb": [
+   "attempts:4206"
+  ],
+  "run_id": "23dd29e7863c4e548a93d84dc55eb7e0",
+  "at": 1795464461
+ }
+}

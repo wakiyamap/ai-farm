@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-sushiswap-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The protocol is a plain Uniswap V3 core fork (factory 0xbACEB8eC6b9355Dfc0269C18bac9d6E2Bdc29C4F, verified source UniswapV3Factory/UniswapV3Pool solc 0.7.6). No public function pays the caller: collect pays only the position owner's tokensOwed (stranger eth_call returns (0,0)), swap/flash charge the caller, collectProtocol/setFeeProtocol are onlyFactoryOwner (revert from fresh address), and there is no skim/claim/keeper function (skim selector absent from deployed pool bytecode). Fees accrue to LPs who call collect themselves; nothing for a stranger to take.",
+ "numbers": "Factory 0xbACEB8eC6b9355Dfc0269C18bac9d6E2Bdc29C4F: owner()=0xcd03e2e276f6eedd424d41314437531f665187b9, feeAmountTickSpacing(3000)=60 (eth_call). Sample pool (largest, from yields.llama.fi 2026-11-21 ~15:15 UTC) DAI/WETH 0.3% 0x769db46f39c42ee7ad5f71f4167c47edd281e767: tvlUsd 7,475,051, volumeUsd7d 22,691,280 - pool is live, so the zero is the mechanism (no caller-paid reward), not inactivity. eth_call from 0xdead: collect(address,int24,int24,uint128,uint128) returns (0,0); collectProtocol reverts; skim selector 0xbc25cf77 not in pool bytecode (checked 44KB code). Protocol TVL $20,597,608 (candidate row). Sources: DefiLlama adapter raw GitHub, explorer source (etherscan verified), rpc.py eth_call/eth_getCode."
+}

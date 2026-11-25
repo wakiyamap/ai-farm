@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-multichain",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "multichain",
+ "name": "Multichain",
+ "category": "Bridge",
+ "tvl_usd": 955078,
+ "url": "",
+ "github": [
+  "anyswap"
+ ],
+ "listed_days_ago": null,
+ "run_id": "34d3e4732a9d4f7985a4cc2a505aef57",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Dead MPC bridge: 67 router anyToken vaults (AnyswapV6ERC20, verified source) expose only ERC20+deposit/withdraw(own funds)+Swapin/Swapout+roles, 0 reward fns; top holder anyUSDC 0xf390830d holds 669,658 USDC of 950,212 USD TVL but 0 events in 7d (controls: 1 log at last-activity block, 984/1000 on USDC), last tx = user withdraw 2026-09-11; gas 0.001 gwei ~0.0003 USD/call, gross 0",
+  "kb": [
+   "attempts:2804",
+   "protocols:1232"
+  ],
+  "run_id": "34d3e4732a9d4f7985a4cc2a505aef57",
+  "at": 1795158514
+ }
+}

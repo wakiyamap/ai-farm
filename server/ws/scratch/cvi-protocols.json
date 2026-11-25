@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "cvi_finance",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/cvi/index.js (404 on cvi-finance) gives 5 polygon addresses, all eth_getCode non-empty. Platform 0x88D01eF3a4D586D5e4ce30357ec57B073D45ff9d verified source = PlatformV3.sol (govi-dao/cvi-contracts). Only unguarded reward fn: liquidatePositions(address[]) pays finderFee to msg.sender (transferFunds -> token.safeTransfer(msg.sender)); everything else external is onlyOwner or a user action (deposit/withdraw/open/close). token() read on chain: 0xc2132D05D31c914a87C6611c10748aEb04b58E8F (native USDC) on 0x88D0, 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174 (USDC.e) on 0x3863D0C9b7552cD0d0dE99fe9f08a32fED6ab72f. Staking/pool2 contracts (GOVI staking 0x399b..., 0xD013..., 0x27792c...) pay stakers, no caller reward."
+}

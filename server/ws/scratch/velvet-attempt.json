@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-velvet-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated and dormant. Velvet V3 (PortfolioFactory 0xf93659fb357899e092813bc3a2959ceDb3282a7f, 2415 portfolios on Base) has no function that pays an external caller: rebalance/claim functions (updateWeights, updateTokens, claimRewardTokens) are onlyAssetManager and updateTokenList/pullFromVault onlyRebalancerContract (fresh-address eth_call reverts with role error 0x7f3d); the one anyone can call, FeeModule.chargeProtocolAndManagementFees, succeeds but pays the caller 0 (fees go to treasuries). Protocol activity is near zero: factory has 0 txs in 7 days (last 2026-10-11) and 0 Deposited/Withdrawn/Transfer events across 96 sampled portfolios over 7d, with a same-run USDC control.",
+  "numbers": "7d factory txs 0 (Blockscout txs, last tx block 52451286 = 2026-10-11); 96 portfolios sampled (ids 200-231,1000-1031,2383-2414), 7d eth_getLogs blocks 56,026,679-59,050,679 topics [Deposited,Withdrawn] = 0 logs, [Transfer] = 0; 38d same = 0; control USDC Transfer 5k blocks = 36,903 logs; gross to a stranger per call $0; gas ~0.006 gwei -> ~$0.001 per 100k-gas call at ETH $1796.64 (coins.llama.fi); TVL $125,586 (candidate data)"
+}

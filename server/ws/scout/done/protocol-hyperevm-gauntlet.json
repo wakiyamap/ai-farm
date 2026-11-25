@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-gauntlet",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "hyperevm",
+ "slug": "gauntlet",
+ "name": "Gauntlet",
+ "category": "Risk Curators",
+ "tvl_usd": 1633197,
+ "url": "https://www.gauntlet.xyz",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "45bf83da24814884b7a41add82629eee",
+ "result": {
+  "verdict": "role_gated",
+  "line": "6 Morpho MetaMorphoV1_1 curator vaults on HyperEVM ($1.62M; Gauntlet USDC 0x08C00F82 1,358,908 USDC); the only keeper fn reallocate() is onlyAllocatorRole (stranger eth_call reverts 0xf7137c0f, allocator 0xff097836 succeeds): 187 ReallocateSupply/Withdraw logs in 55 txs over 7d from 2 Gauntlet allocator EOAs (0xff097836 113, 0x4b1ceeed 74), 0 of 5 sample txs paid the caller (gross $0) at gas $0.0015-0.0084/call (0.1-0.5 gwei x HYPE $69.85 coingecko); permissionless skim() pays skimRecipient 0xa2824d0f not the caller (0 events/7d, control 187).",
+  "kb": [
+   "attempts:1921",
+   "protocols:539"
+  ],
+  "run_id": "45bf83da24814884b7a41add82629eee",
+  "at": 1794960652
+ }
+}

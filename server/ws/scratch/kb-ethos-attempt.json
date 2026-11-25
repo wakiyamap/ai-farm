@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-ethos-markets",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. EthosRewards claim() (0xc7994a22318eceb08767fd21cd8f4d4e8803548a) is role-free and paid 57 distinct stranger EOAs ~$2,372 of WHUF in 75 claims over the last 7 days; gross far exceeds gas. Catch: accrual only flows to addresses with a committed stake in EthosVouchV2, so a fresh stranger calling claim() reverts NoRewardsToClaim - earning requires staking WHUF first (WHUF price risk). The prediction-market contract itself (ETHOS_MARKET 0x27f49210...) has no keeper-bounty function (openPosition/closePosition are user trades, gated by interaction control/signatures).",
+  "numbers": "7d base eth_getLogs blocks 55,922,486-58,946,486 (7-day window, 0.2s blocks): 75 RewardClaimed, 57 unique claimers, 1,349.9 WHUF total = $2,372 at WHUF $1.757 (coins.llama.fi 2026-11-18, conf 0.99); median claim 2.139 WHUF = $3.76, mean $31.62, max 548.5 WHUF = $964 (tx 0x31e2b1e58d). Gas per claim 110,427 gas x 0.008 gwei = $0.0016 (receipt 0xaf52ca00..., ETH $1,812 coins.llama.fi). Pool: accountedRewardBalance 1,790,246 WHUF, totalAccruedNotPaid 13,676 WHUF, totalCommitted 656,928 WHUF, emissionRateBps 690, currentRewardRateBps 1865."
+}

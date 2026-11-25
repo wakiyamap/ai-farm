@@ -1,0 +1,20 @@
+{
+ "id": "trial-bsc-lead307",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "bsc",
+ "lead_id": 307,
+ "target": "Lim token arbitrage: DODO private pools versus PancakeSwap Infinity CL pool (flash Lim from the DODO pool, sell in the Infinity pool, repay USDT)",
+ "run_id": "fc6012772ca946a89404a32292460bbc",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d bsc Lim arb: 519 take txs / 6 distinct flash borrowers from the two DODO Lim/USDT pools into the PancakeSwap Infinity CL pool; sample of 20 (5 largest by gross + 15 spread): median gross 0.041 USD, max 28.37 USD (0xd1cfd4fe); gas of one attempt 0.0089 USD (median 307,833 gas @ 0.05 gwei, BNB 575.87); replays 21 txs: 17/21 takeable only at the parent block, 4/21 at 2 blocks, 0/21 >= 4 blocks, control -20000 reverts - a 3 s reactor probably misses the next-block take but a trial attempt costs ~0.01 USD",
+  "kb": [
+   "attempts:2660",
+   "leads:307"
+  ],
+  "run_id": "fc6012772ca946a89404a32292460bbc",
+  "at": 1795126322
+ }
+}

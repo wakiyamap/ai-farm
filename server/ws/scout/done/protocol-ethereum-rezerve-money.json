@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-rezerve-money",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 523,
+ "chain": "ethereum",
+ "slug": "rezerve-money",
+ "name": "Rezerve Money",
+ "category": "Reserve Currency",
+ "tvl_usd": 426003,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 523,
+ "run_id": "9a4eb83e119b4426ba3e02c094bebcda",
+ "result": {
+  "verdict": "unpaid",
+  "line": "AppStaking 0xcD43c9c6ECCA33a0C3EF6E509f7559c5C5e46399 claimRewards is open-callable (eth_call from fresh addr returns 0, no role revert) but pays 0: reward stream ended periodFinish 1761953411 (2025-10-31), earned(425)=0, 0 RewardsClaimed in 7d and 90d (90d no-topic control: 40 logs, 5/6 topic0 identified); staking pot surplus 2,278 RZR ~,020 (RZR bash.4476 llama 1795205285) unaccruing; collectStreamingTax pays burner not caller; treasury deposit/manage role-gated",
+  "kb": [
+   "attempts:3066"
+  ],
+  "run_id": "9a4eb83e119b4426ba3e02c094bebcda",
+  "at": 1795211034
+ }
+}

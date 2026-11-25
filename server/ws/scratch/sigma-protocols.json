@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "sigma_money",
+  "status": "dead_end",
+  "checked": "DefiLlama slug sigma-money, adapter projects/sigma-protocol/index.js (BNBUSDBasePool 0x2b9C1F069Ddcd873275B3363986081bDA94A3aA3, PegKeeper, PoolManager, SigmaController, stability pools). Docs docs.sigma.money smart-contracts page + earn-from-rebalancing-and-liquidation page: permissionless keeper functions rebalance(pool,tokenIn,maxAmount,minCollOut) and liquidate(...) with bounty = rawDebts*bonusRatio*(1-liquidationExpenseRatio). All doc addresses eth_getCode non-empty (proxies, code_len ~4231). Getter totalStableToken() 0x9ff39038 answers on BasePool. No explorer key route on bsc (etherscan not_on_plan, blockscout 404); ABI from sigma.money app bundle. getLogs (paper lane, Alchemy; research lane CU budget exhausted 2026-11-17) for topic0 Rebalance(address,address,uint256,uint256,uint256,uint256)=0xb8c3fd52... and Liquidate(address,uint256,uint256,uint256)=0x158ba9ab... on BasePool over last 7 days (1.509M blocks, 0.4s blocks, 31x50k chunks): 0 events. Last 50k blocks: 0 events of ANY topic on BasePool and 0 on BNBUSD token (0x5519a479...) - protocol idle. Control: USDT Transfer 43813 logs in 100 blocks, same query shape works. Liquidation additionally has permissionedLiquidationThreshold + addLiquidationWhitelist functions (whitelist may gate liquidators)."
+}

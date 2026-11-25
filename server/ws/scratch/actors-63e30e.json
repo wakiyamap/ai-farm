@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "address": "0x63e30e9145a344fe4386cef0fe165099ef6dee58",
+  "strategy": "HAI OracleJob keeper executor / reward wallet of operator EOA 0xd4a2f192 (deployed 2026-10-23 by 0xd4a2, unverified smart account). Batches calls to HAI OracleJob 0xF4F18205D8D46638489865e42c0a71a3d4F9FC22 workUpdateCollateralPrice(bytes32) [0x4e6669ed] + workUpdateRate() [0xdbbb74d5], which pays 0.05 HAI per update to ANY caller (credited to its SFT internal-coin account 0x9ff826860689483181c5fac9628fd2f70275a700). cashout(uint256) [0xa9e732bb] realizes accrued internal HAI -> CoinJoin 0x30Ce7223 -> HAI 0x10398abc -> UniV3 pool 0x146b0203 -> WETH. Never sends its own tx (nonce 1); driven only by 0xd4a2f192. Confirms incumbent for leads 211/212.",
+  "evidence": "batch-work 0x09cd29b3 ok 0x07d57a079d074dc8c35435deb8288a20b2bc7231990b28eda22f26a5122f11b3 (665804 gas; calls OracleJob workUpdateCollateralPrice 0x4e6669ed, SFT 0x9ff82686 pullFunds 0xefabcadc). cashout 0xa9e732bb 0x3bf9d300b564757289625504056b277909e92896adeb84a477bc35d7bed528c3 (CoinJoin 0x30ce7223 -> HAI -> UniV3 0x146b0203 -> WETH 0x4200..0006). collateral probe 0xcccba5fb 0xc041abb7123bbf0043af43e535f52942f0af16264bacc56c5e71f5c1708aa22f (bytes32 collateral name 'HAIVELOV2', reverts when not due). Blockscout window 2026-11-07..13 (sample ~200 tx / ~6.1 d).",
+  "est_profit_usd_day": 1.0
+}

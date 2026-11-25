@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-clipper",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "clipper",
+ "name": "Clipper",
+ "category": "Dexs",
+ "tvl_usd": 85570,
+ "url": "",
+ "github": [
+  "shipyard-software"
+ ],
+ "listed_days_ago": null,
+ "run_id": "ccb4f8d9c574419dbae728dd2ff5dac4",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: no anyone-callable function that pays the caller on any of the 7 optimism Clipper contracts (verified ABIs: swap family pays the trader and needs designated signer 0x08938a61's RFQ quote; LP/Cove fns move own money; takeFees/changeFees/redeem onlyOwner per eth_call + ClipperCove.sol:64,69). 7d blocks 159625000-159927383 (2026-11-16..23): 119 logs, all on pool 0x5130f6cE (115 LP-share Transfers + 4 own-funds Withdrawn, 0 Swapped), 0 on the other 6 (same-call control 119); TVL 85,570 USD is MM inventory.",
+  "kb": [
+   "attempts:4167",
+   "protocols:2285"
+  ],
+  "run_id": "ccb4f8d9c574419dbae728dd2ff5dac4",
+  "at": 1795454016
+ }
+}

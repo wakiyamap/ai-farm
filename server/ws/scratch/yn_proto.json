@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "protocol": "yieldnest",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/yieldnest/index.js gives 4 ethereum vault proxies + LSD registry, all confirmed with eth_getCode and name() getter: ynETH 0x09db87a538bd693e9d08544577d5ccfaa6373a48 (name()='ynETH'), ynETHx 0x657d9ABA1DBb59e53f9F3eCAA878447dCfC96dCb, ynUSDx 0x3DB228FE836D99Ccb25Ec4dfdC80ED6d2CDdCB4b, ynRWAx 0x01Ba69727E2860b37bc1a2bd56999c1aFb4C15D8, LSD registry 0x323C933df2523D5b0C756210446eeE0fB84270fd (name() reverts, getAssets works per adapter). Proxies are ERC1967; impls read from slot 0x360894a13ba1a32...: MaxVault impl 0x9c1713bc42dcf621038f4016664ffab096a05410 (ynETHx+ynUSDx), 0xb46d7014c1a29b6a82d8ecde5ad29d5b09ac7a1b (ynRWAx), ynETH impl 0xa821b5ba34248a95ba57b2bd26aa46fdd2296a31, registry impl 0x031ae4a8a09b1779dbf69828356945fdf59d6879 (verified ABI via explorer: only addAsset/deleteAsset/pause roles). Repos yieldnest/yieldnest-vault (branch eth-max-vault): BaseVault.sol, Vault.sol, VaultLib.sol, FeeHooks.sol grepped for reward|bounty|incentive|keeper - none; no transfer to msg.sender anywhere in the keeper path. Only keeper-shaped public fn is processAccounting() (no role modifier, nonReentrant only).",
+  "wiki_page": null
+}

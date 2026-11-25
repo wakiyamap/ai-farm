@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "address": "0x388dac977f94bceda8276ea209da040ac52af900",
+  "strategy": "Ensemble BEAR vault NAV arb: EOA calls its own executor 0x0418f78085f1f2949657e3441c05f34d42d403e1 (fallback selector 0xcadeb28d, deployed 51734929 by ops wallet 0x43637877fb1d10d9a751817f5cde1406ef69af21 which also tops up its gas); executor pulls USDC (0xb88339cb7199b77e23db6e890353e22632ba630f) from the BEAR/USDC pool 0xfa740246c45f29df3bcda35e3941c225f4b77910, deposits into the ERC4626 Ensemble BEAR vault 0xe12f47589a272665203ce727854cf3fef8a8ed94 crediting shares to the pool, skims the spread to 0x43637877, ends flat (~$0.01-0.5 spread/call, 25-35% attempts revert, ~250 tx/day on recent days). Same opportunity as leads:326 (trial-ensemble2-arb-hyperevm).",
+  "evidence": "0xe895dc1e9f8a0f3b32ed2ef295659483daf1496e67edf935c96de13f73d606e9 (cadeb28d: 86.38 USDC in, deposit 86.33, skim 0.0474 USDC to 0x4363, 354k gas); 0xa10483e8c16fdcbbd1d8ed7d41a411d70787efa22fff35e003d6cfcacc329635 (1275 USDC in, skim 0.537); 0xf71175b719e2fb35c47c6619258ed81ad4ec2007a573fa6049d0dbd8e6d5c9f8 (skim 0.347); 0x62082d8add39ef9977a85476b0f4f8476bb94705e48babed0ec963fe774d4b93 (0xe8d314f2 multi-token path feUSD/kHYPE, 1.41M gas, no skim); vault Deposit/Deposited events topic0 dcbc1c05/8bab6aed from receipts",
+  "est_profit_usd_day": 5
+}

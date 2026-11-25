@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-defi-saver-asset-management",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "defi-saver-asset-management",
+ "name": "Defi Saver Asset Management",
+ "category": "CDP Manager",
+ "tvl_usd": 10482002,
+ "url": "https://defisaver.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "2a032a0538e64a838d16472585128e12",
+ "result": {
+  "verdict": "role_gated",
+  "line": "StrategyExecutorL2 0xe4719f2d executeStrategy needs BotAuth.approvedCallers whitelist (onlyOwner addCaller): sample of 25 calls over 32.3h (~130/wk) by 2 DeFi Saver keeper EOAs only, stranger eth_call reverts BotNotApproved; keeper paid 0 USD on-chain (4 receipts, no transfer to keeper), gas 0.07-0.14 USD/call (2.0-3.9M gas @0.02 gwei, ETH 1775.31 llama ts 1795115704); 7182 subs on Arbitrum.",
+  "kb": [
+   "attempts:2614",
+   "protocols:1090"
+  ],
+  "run_id": "2a032a0538e64a838d16472585128e12",
+  "at": 1795116105
+ }
+}

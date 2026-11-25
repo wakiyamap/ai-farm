@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-euler-v2",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. Euler EVK on BSC: eToken liquidate() is open to anyone and strangers took it in the last 7 d (EOA + two bot contracts), gross $13-762/call vs $0.46-0.55 gas. Cadence is bursty (9/10 events from a single violator unwind in ~1 h on 2026-11-16) and the liquidation class is closed for new scouting per decision 2026-11-15-widen-beyond-liquidations.",
+ "numbers": "factory 0x7F53E2755eB3c43824E162F7F6F087832B9C9Df6 getProxyListLength 191, 32 vaults with borrows (totalBorrows 0x47bd3718, 2026-11-18); 7d scan blocks 132,956,324-134,298,122 topic0 0x8246cc71... (Liquidate(address,address,address,uint256,uint256)): 10 events, control Borrow topic 39 logs, 0 range failures; per-event gross (5 samples, current prices): $13.03, $127.74, $256.70, $588.39, $762.52; gas 770k-905k gas @ effectiveGasPrice 1 gwei (receipt) x BNB $589.63 (coins.llama.fi) = $0.46-0.55; top taker 0xf000042d2b48921c234f15d167e7874f594f303e 9/10."
+}

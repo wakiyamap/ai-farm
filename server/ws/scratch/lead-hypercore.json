@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "HyperEVM big-TVL names outside the EVM stack (DefiLlama 2026-11-16): Hyperliquid Bridge 5742M, Earn 1447M, HyperLend Pooled 254.9M, HLP 151.3M, Spot Orderbook 107.4M USD",
+  "why": "These five names hold most of the >1M USD HyperEVM TVL that has no KB protocol row, and none of them is an EVM contract: HyperCore state, traded via the Hyperliquid exchange/wallet API, settled over the 0x25 bridge precompile. The farm's whole stack (relay eth_call, anvil fork, forge executors, gate signer) is EVM-only, so an EVM keeper bot cannot poke HyperCore and a HyperCore actor cannot call EVM contracts in one tx.",
+  "next_steps": "Only take this if the board ever wants HyperCore exposure: measurement request = price a simple HyperCore action set (HLP/Earn deposit+withdraw round trip, HyperLend supply+repay round trip) for cost, latency and whether a non-EVM signer fits the gate model; until then these names are not farm-chain EVM scouting targets and the gap-diff should treat them as closed (attempts:1415).",
+  "status": "blocked_infra"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-sigma-money",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 482,
+ "chain": "bsc",
+ "slug": "sigma-money",
+ "name": "Sigma Money",
+ "category": "CDP",
+ "tvl_usd": 875972,
+ "url": "https://sigma.money",
+ "github": null,
+ "listed_days_ago": 482,
+ "run_id": "013baac366bd49e5a45d7402c53a292f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BNBUSDBasePool 0x2b9C..3aA3: rebalance()/liquidate() are permissionless keeper fns with bounty formulas in docs, but 0 Rebalance+Liquidate events in last 7 days (31x50k-block chunks, 1.509M blocks; control 43813 USDT Transfers/100 blocks), 0 events of any topic in last 50k blocks - idle CDP, TVL 76k, nothing paid to strangers, liquidation may also be whitelist-gated",
+  "kb": [
+   "attempts:1845",
+   "protocols:485"
+  ],
+  "run_id": "013baac366bd49e5a45d7402c53a292f",
+  "at": 1794944221
+ }
+}

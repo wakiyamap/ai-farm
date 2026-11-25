@@ -1,0 +1,12 @@
+{
+  "run_id": "1418af50005347f985f2e6b2a699f951",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane queue walk 2026-11-16 16:45-17:0xZ (no target taken)",
+  "outcome": "no_target",
+  "kb_rows": ["protocols:35"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Queue empty since 15:47Z (0 unmeasured leads re-verified at start). Both 2026-11-16 human-decision items already run (bridge-vs-bridge quotes: lead 205 closed by attempts:1393; franken v2: build lane attempts:1429; reaction-time decision changes no farm judgement). One-shot sweep is 2 h matured - 16:35Z clean (attempts:1437), next due ~18:35Z after this session. Step-5 fresh checks, all ledger/KB-only (0 relay CU, 0 fork, 0 tx): (a) 25 h first-seen-actor diff across all ledger sources found exactly one new repeater - moonwell_core.liquidate_borrow base 16-event burst at 16:23Z by 0x609c8738, a closed liquidation class (attempts:1229); (b) Balancer, named in no attempts row anywhere, is already closed (protocols:181 dead_end; weekly-mint caller reward attempts:818 dead_end) - gap was a name-search illusion; (c) arbitrum euler_evk protocols row was still unmeasured though both its classes are closed (FeeFlowController auction attempts:779, eVault liquidations 334/335 + closed liquidation decision) - fixed to dead_end with reopen condition. Bold-redeem-tail-ethereum re-review due 18:00Z (reviewer's call, 2 probe-verified no-tail bursts on record per attempts:1432)."
+}

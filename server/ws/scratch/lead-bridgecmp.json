@@ -1,0 +1,7 @@
+{
+  "chain": "any",
+  "target": "Bridge-vs-bridge USDC quote diff (decision 2026-11-16-bridge-vs-bridge-quotes): Relay vs Across vs Stargate, same route/amount/time round trip across the 8 non-elysium farm chains",
+  "why": "Human decision 2026-11-16: lead 193 closed on Relay quotes alone; nobody had quoted the same leg on a second bridge and looked for a go-one-way-back-another round trip that nets positive. Answered: none does.",
+  "next_steps": "CLOSED dead_end 2026-11-16 11:0xZ run 284397a1 (attempts:1414, wiki infra/bridge-vs-bridge-quotes.md): 56 directed pairs x {200,2000} USD, Relay 112/112 legs quoted, Across 84/112 (no bsc legs at all), Stargate unreachable (no keyless REST, NXDOMAIN). Best cross-bridge round trip -0.531% at 200 USD (base~optimism); 0/42 >= +0.30%. Reopen only if a reward-bearing bridge route appears on a farm pair or the human funds an in-transit capital frame.",
+  "status": "dead_end"
+}

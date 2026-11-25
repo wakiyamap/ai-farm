@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-aero-slipstream",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only anyone-callable function in Aero Slipstream's Optimism deployment (CLFactory 0xfeaB42D9..., LeafVoter 0x382409fa...) is LeafVoter.settleGauge: a stranger can call it (eth_call from a fresh address returns the cumulative reward share, no role revert) but it pays 0 - the verified library body accrues accounting with no transfer to msg.sender. Everything else is gated to gauges, the token operator, the orchestrator or a role. Settle events run ~20k/day but only incidentally inside user deposit/stake flows via helper routers; no keeper is paid. Mirrors the Arbitrum (run a359bd6a) and Elysium (run f8dafaef) dead_ends on the same codebase.",
+  "numbers": "settleGauge estimateGas 103,250 (eth_estimateGas 2026-11-17); gasPrice 0xfb3c6 = 1,029,062 wei (eth_gasPrice) => ~$0.0002/call at ETH $1,833.46 (coins.llama.fi 2026-11-17); gross to caller $0 (verified source LeafAllocationLibrary.settleGauge, no transfer; return value = cumulative share). GaugeCapSettled topic 0x2fc48750...: 4,744 events / 4,395 txs / 22 gauges in 10,000 blocks ~5.6 h (eth_getLogs 0x983e153-0x9840863), ~20k/day; control: 3,329 any-topic logs in 5,000 blocks same contract. 10-tx sample callers: EOAs 0xa83a922a, 0x9dbc3fec, 0x769a5e68, 0xd82aa58f via helpers, none direct to voter; Blockscout: last 200 direct voter txs over 16 days = redeem 178 + claimRewards 22, settleGauge 0. allPoolsLength()=51, 22 active gauges."
+}

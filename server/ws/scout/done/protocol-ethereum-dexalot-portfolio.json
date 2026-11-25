@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-dexalot-portfolio",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 824,
+ "chain": "ethereum",
+ "slug": "dexalot-portfolio",
+ "name": "Dexalot Portfolio",
+ "category": "Bridge",
+ "tvl_usd": 189771,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 824,
+ "run_id": "6e760850b82a4f63a2500f1a32543843",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PortfolioMain 0x010224..0368 v2.6.2 + PortfolioBridgeMain 0x246c..9634 v4.1.7: all payout callables revert AccessControl from a fresh address (processXFerPayload=PORTFOLIO_BRIDGE_ROLE, processPayload=BRIDGE_PROVIDER_ROLE, collectBridgeFees/collectNativeBridgeFees/refundNative=DEFAULT_ADMIN); permissionless writes are user deposits only (0 paid to caller); 0 events on both contracts in 7d (blocks 26,411,000 11-14 to 26,463,851 11-21; USDC control 22,449 logs); dormant since 2026-11-04 (last tx 0x770a9f8d, 134 txs since deploy 2025-09-30); TVL 184,073 USD.",
+  "kb": [
+   "attempts:3199",
+   "protocols:1546"
+  ],
+  "run_id": "6e760850b82a4f63a2500f1a32543843",
+  "at": 1795238347
+ }
+}

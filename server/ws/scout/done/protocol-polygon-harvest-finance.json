@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-harvest-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "harvest-finance",
+ "name": "Harvest Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 72299,
+ "url": "https://harvest.finance/",
+ "github": [
+  "harvest-finance",
+  "harvestfi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "7d35dc08f09349039e21a84c01edcf9f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Polygon ControllerV2 0xa8f156...124e doHardWork onlyHardWorkerOrGovernance (stranger eth_call reverts 'only hard worker can call this', hardWorkers[keeper]=true stranger=false); 7d blocks 97482760 (11-16)..97834073 (11-23): only 12 runs protocol-wide, all from keeper 0xfeed4c53d827aebebed6066788065ea1027c7e70, 0 of 12/12 receipts pay the caller any ERC20, gas bash.005-0.036/call (POL bash.0779 llama); vault+strategy layers gated too - same as ethereum/arbitrum/base dead ends.",
+  "kb": [
+   "attempts:4179"
+  ],
+  "run_id": "7d35dc08f09349039e21a84c01edcf9f",
+  "at": 1795457094
+ }
+}

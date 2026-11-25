@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "stratex",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/stratex/index.js gives 3 Base ERC4626 beacon-proxy vaults: stratUSD 0xe5f2fe713CDB192C85e67A912Ff8891b4E636614 (code 415B, totalAssets()=0xbab5761e0 ~31.3k USDC 6dp), stratETH 0xaE35FF1BC4fBb45AAEef9768A3d9610786cAc98b (574B, totalAssets ~2.69 ETH), stratBTC 0x9213d24f617dE982dB528c95A701eD1b2AF29cB2 (574B, ~0.83 BTC). All three share EIP1967 beacon 0xd93eb130015711dd6ec22ac3f65fd98453c99598 (verified UpgradeableBeacon) -> implementation 0x146fa2e8e3db244cb083a71eebdc5660d54b1c4a (14.7KB code, NOT verified on Blockscout, no Sourcify match, no GitHub repo found, website www.stratex.finance shows DEPLOYMENT_PAUSED). Blockscout txs: latest vault txs 2026-11-07 (BTC), 2026-10-30 (USD), 2026-10-26 (ETH) = zero txs in last 7 days on all three. Sample of 100 of the USD vault txs back to 2026-08-04: only approve (38), safeTransferFrom (36), transfer (24), deposit(uint256,address) (2) - user-facing ERC4626 ops only. Selector probes via eth_call from fresh address on proxy: harvest(), poke(), refresh(), claim(), settle(), checkpoint(), distribute(), sync() all revert (control: totalAssets() 0x01e1d114 returns). No callable function that pays the caller; yield accrues in share price."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-sodax",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only public delivery entry point (SpokeAssetManager.recvMessage -> ConnectionV3.verifyMessage) reverts 'unauthorized executor' for a fresh address: require(executors[tx.origin]) allowlist, setExecutor onlyOwner. 24/24 deliveries in 7 d came from the single registered executor 0xa4026a97d3bf3caed9489cfac61ac8863d2ddb83, and even through the gate the caller is paid $0 (tokens/native go to the user recipient, protocol fees leave via withdrawFee onlyOwner). Intent Filler on hyperevm is dormant (0 txs in 7 d).",
+  "numbers": "7d window blocks 51320893-51935713 (2026-11-15T09:55Z..2026-11-22T09:55Z, ts 1794736523/1795341323, eth_getBlockByNumber binary search). 40 txs to AssetManager 0xAfd6A6e4287A511D3BAAd013093815268846FBb7 = 24 recvMessage (0x4b2b20e7, all from executor 0xa4026a97...ddb83, isExecutor()=true) + 16 user transfer (10 EOAs); source explorer txs -n 200 via etherscan, list ends ~21 h before head 51935713. eth_call real calldata from 0x000...f1 reverts 'unauthorized executor'; from executor reverts 'Message already processed'. Paid to caller: 0 in 5 sampled receipts (no transfer to tx.from; same receipts show recipient Transfer as control). Gas 179,070-213,406 gasUsed at 0.1-1.398 gwei eff gas price = 0.000018-0.00029 HYPE/call = $0.001-0.018 at HYPE $61.93 (coins.llama.fi coingecko:hyperliquid ts 1795341306, 2026-11-22 09:55 UTC). Getters: hubChainId()=146, connSn()=2677."
+}

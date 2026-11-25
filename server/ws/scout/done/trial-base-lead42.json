@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead42",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 42,
+ "target": "aave v4 (aave-v4) lending liquidations on Base: 6.71M USD borrow book, unmeasured",
+ "run_id": "4db6bf4563024abfa5630038e32e77d9",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "sample 8/8: 8 LiquidationCall on aave-v4 Base spoke 0x17905db0 in 7d to blk 58362485 (1.14/day, 4 distinct takers, debt always USDC 0.46-283.8 USD); gross bonus median 1.46, max 14.28, sum 42.38 USD/7d (4.95-6.24% from toLiquidator/collRemoved 0.9944-0.9953 at 1000bps fee); takeable->taken 0 blk x2, 1-7 blk (0.2-1.4s) x5, >=128 x1 dust; winner prio median 0.054 gwei; attempt ~638k gas = 0.006 USD at 0.005 gwei basefee (winners paid 0.059 med/0.75 max USD, ETH 1816.79 DefiLlama) - pays >> gas, but non-dust windows all under the 3s race floor",
+  "kb": [
+   "attempts:1474",
+   "leads:42"
+  ],
+  "run_id": "4db6bf4563024abfa5630038e32e77d9",
+  "at": 1794863202
+ }
+}

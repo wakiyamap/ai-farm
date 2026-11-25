@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-tetu-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "tetu-earn",
+ "name": "Tetu Earn",
+ "category": "Yield",
+ "tvl_usd": 455001,
+ "url": "http://tetu.io",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "c2a4a9f00a93487199cdda39bab25e06",
+ "result": {
+  "verdict": "role_gated",
+  "line": "16 SmartVaults (bookkeeper 0x0A0846c978a56D6ea9D2602eeb8f977B21F3207F, polygon TVL 433.7k USD DefiLlama 2026-11-20) behind controller 0x6678814c273d5088114b6e40cc49c8db04f9bc29; doHardWork (0x4fa5d854 vault / 0x0af210a1 controller) reverts from a fresh address ('SV: Forbidden' / 'C: Not hardworker or governance') and its code pays msg.sender 0; 0 keeper calls last 7 days up to block 97641661 - sole hardworker EOA 0xbbbbb8c4364ec2ce52c59d2ed3e56f307e529a94 last called 2026-04-24 (block 85947339).",
+  "kb": [
+   "attempts:2855",
+   "protocols:1274"
+  ],
+  "run_id": "c2a4a9f00a93487199cdda39bab25e06",
+  "at": 1795168139
+ }
+}

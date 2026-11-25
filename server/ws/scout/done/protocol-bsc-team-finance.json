@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-team-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1601,
+ "chain": "bsc",
+ "slug": "team-finance",
+ "name": "Team Finance",
+ "category": "Token Locker",
+ "tvl_usd": 17430254,
+ "url": "https://www.team.finance",
+ "github": [
+  "team-finance"
+ ],
+ "listed_days_ago": 1601,
+ "run_id": "ca123d0d463347f99b97da1f1e2a1aef",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: v3 lock proxy 0x0c89c0407775dd89b12918b9c0aa42bf96518820 (depositId 14918) + v2 0x7536592bb74b5d62eb82e8b93b17eed4eed9a85c (9597) on bsc; withdrawTokens/mintNFTforLock/collectUniswapV3LPFees revert 'Unauthorised' from a fresh address (eth_call) and pay only the withdrawal address; 0 withdrawal logs in 40 consecutive 5000-block windows (~25 h, blocks 134277097-134482096, eth_getLogs) and 0 in 7 daily windows; fees flow user->companyWallet; same codebase dead-ended on base/avalanche/polygon; TVL 17.43M USD.",
+  "kb": [
+   "attempts:2466",
+   "protocols:982"
+  ],
+  "run_id": "ca123d0d463347f99b97da1f1e2a1aef",
+  "at": 1795081102
+ }
+}

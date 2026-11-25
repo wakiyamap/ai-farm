@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-thorchain-dex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The live BSC THORChain contract is the legacy router 0xb30ec53f98ff5947ede720d32ac2da7e52a5f56b (dormant RouterV6 0x00dc..f1d4 next door: 0 events in 1y). Its 6 external functions are deposits (caller pays) and signer-driven transferOut/transferOutAndCall/transferAllowance where THORNode signers front the user payout and pay the gas themselves; no reward/claim/harvest function and no reward pot exists. Same mechanism as base/avalanche (protocols:1159/1132) - rewards accrue in RUNE on L1. A stranger calling transferOut just reverts (economic revert, value 0).",
+  "numbers": "7d on live router (blocks 133,294,639-134,638,639, 0.45 s/bl measured): 7,838 logs = TransferOut 3,965 + Deposit 3,803 + unknown evt 0x05b90458 70; control base router same shape 44 evt/24h. 5 sample transferOut: callers 0x46f3fb8c14006268d153b18000495c8ee858e94b, 0x51649cf810ea9f1f61165044b7149070c67f79c8, 0x7d715394d03c70675bc9309ca2d877479e6ae156, 0xe1bc36b88b523684ce49f6ca83e90aab5c39e814; gross to caller 0 BNB; gas 39,928-59,662 @ 1.0 gwei eff (receipts) = ~$0.03 at BNB $567.42 (coins.llama.fi ts 1795152625). bsc TVL $1,500,800 (api.llama.fi 2026-11-20)."
+}

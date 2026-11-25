@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-toros",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1595,
+ "chain": "optimism",
+ "slug": "toros",
+ "name": "Toros",
+ "category": "Yield",
+ "tvl_usd": 543426,
+ "url": "https://toros.finance",
+ "github": null,
+ "listed_days_ago": 1595,
+ "run_id": "ace3eba1fd7f4a8fb255ee1a75733abd",
+ "result": {
+  "verdict": "no_reward",
+  "line": "20 DHEDGE v1 vaults, 20 pools sum totalFundValue $540,269 (factory 0x5e61a079A178f0E5784107a4963baAe0c5a680c6, logic 0x692e5fb516d24724884ca1719bcc379bb5c51b66): no ABI function pays the caller; mintManagerFee() stranger-callable (eth_call ok) but all 44 fee mints of 7 days (blocks 159.43M-159.74M) go to manager/DAO (e.g. 1,316 shares ~$17 to manager, caller 0); execTransaction manager/trader-gated; gas <$0.01/call (0.001 gwei, ETH $1,806.83 coins.llama.fi)",
+  "kb": [
+   "protocols:978",
+   "attempts:2461"
+  ],
+  "run_id": "ace3eba1fd7f4a8fb255ee1a75733abd",
+  "at": 1795079905
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-acryptos",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. harvest() (0x4641257d) and performUpkeep(bytes) are callable by anyone (eth_call from fresh address succeeds, no role revert) and the docs promise a 0.3% harvester fee in vault shares, but no stranger took it in the last 7 days: explorer txs on 2 sampled vaults (0x16C4BA98623a1B05d35b9923fB00E9fE02D0B47f acsSLIZ, 0x9e3fffae113633128f055432c7c8e1074377b72f UniV3) show latest transactions 2026-11-08, the wrapper vault's last harvest() was 2025-01-06. Protocol is being deprecated after the 2026-11-08 depositMulti exploit: deposits disabled protocol-wide, dev paused vaults, keeper (0x8888888888c8b492...) stopped harvesting.",
+ "numbers": "TVL arbitrum $873,214 (candidate; matches api.unrekt.net acryptos-asset 2026-11-19). Sampled 2 of ~40 vaults, 0 calls in 7 days (explorer txs; control: same query returns 2026-11-08 rows; head block 525,573,364). harvest() eth_call fresh-addr return 0x0a7c2522e0170d8ef0 = 194.32 acsSLIZ (18 decimals, vault token paid by 0x16C4BA98623a1B05d35b9923fB00E9fE02D0B47f); SLIZ $0.0000053 (coins.llama.fi coingecko:solidlizard, ts 1795104476) => gross ~$0.001, usd unpriced for the vault share itself (wrapper holds veSLIZ). Gas not relevant at gross ~0."
+}

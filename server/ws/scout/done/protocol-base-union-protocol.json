@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-union-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1613,
+ "chain": "base",
+ "slug": "union-protocol",
+ "name": "Union Protocol",
+ "category": "Uncollateralized Lending",
+ "tvl_usd": 38964,
+ "url": "https://union.finance",
+ "github": [
+  "unioncredit"
+ ],
+ "listed_days_ago": 1613,
+ "run_id": "c63aed83d76349ab82d4d232127be935",
+ "result": {
+  "verdict": "unpaid",
+  "line": "userManager.withdrawRewards() is role-free (fresh-address eth_call ok) and the comptroller pot holds 5,386.87 UNION, but the only claim in 7 d (blocks 58,140,382 2026-11-16 -> 61,164,382 2026-11-23, tx 0x25aa5403) paid 0.0 UNION; uToken had 0 txs and UNION 0 transfers in 7 d, UNION unpriced (no llama price), gas 151,794 @0.006 gwei = 0.0016 USD (ETH 1721.21, llama 08:44 UTC)",
+  "kb": [
+   "attempts:4051"
+  ],
+  "run_id": "c63aed83d76349ab82d4d232127be935",
+  "at": 1795424138
+ }
+}

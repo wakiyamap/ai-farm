@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-team-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1604,
+ "chain": "ethereum",
+ "slug": "team-finance",
+ "name": "Team Finance",
+ "category": "Token Locker",
+ "tvl_usd": 22265466,
+ "url": "https://www.team.finance",
+ "github": [
+  "team-finance"
+ ],
+ "listed_days_ago": 1604,
+ "run_id": "51d55aad5fd244d4a917e4d2a52cbbee",
+ "result": {
+  "verdict": "role_gated",
+  "line": "v3 proxy 0xe2fe530c...35fb (impl LockToken 0x6dd27f2b) + v2 0xdbf72370/0xc77aab3c: withdrawTokens pays withdrawalAddress which must be msg.sender (stranger eth_call reverts 'Unauthorised to unlock'); 7d (blocks 26415029..26465283, no-topic getLogs, topic0s from verified ABI): 14 logs, all v3 (7 LogTokenWithdrawal, 3 NFT, 2 Deposit, 2 extend), v2=0; 3/3 withdrawals self-called by beneficiary; stranger gross 0, gas/withdrawal 113,111 = 0.40 USD (ETH 1681.84 coins.llama.fi 2026-11-21). Same as 4 other chains.",
+  "kb": [
+   "attempts:3426",
+   "protocols:1721"
+  ],
+  "run_id": "51d55aad5fd244d4a917e4d2a52cbbee",
+  "at": 1795286213
+ }
+}

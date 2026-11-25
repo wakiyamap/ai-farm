@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-strato-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 67,
+ "chain": "ethereum",
+ "slug": "strato-bridge",
+ "name": "STRATO Bridge",
+ "category": "Bridge",
+ "tvl_usd": 1055355,
+ "url": "https://strato.nexus/",
+ "github": null,
+ "listed_days_ago": 67,
+ "run_id": "3444cb4bf858412db37c79e5f0125d96",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: ethereum side is only DepositRouter 0xc3be40e5..7e1b (impl 0x3e487139) + Safe custody 0x8c45..f5d5 (v1.4.1, 2-of-3, no modules) - every callable function is a user flow paying its own gas (0 paid to caller; outbound = owner execTransaction); 7d (blocks 26405545..26455945) 20 DepositRouted from 13 EOAs (0.9723 ETH ~$1701 + 2011 USDC + 2 WBTC raw 62800 + 2 unpriced), 0 DepositRoutedWithAction (control 20), gas 60122 gas = $0.012; same architecture as hyperevm attempts:1607.",
+  "kb": [
+   "attempts:2885",
+   "protocols:1303"
+  ],
+  "run_id": "3444cb4bf858412db37c79e5f0125d96",
+  "at": 1795173770
+ }
+}

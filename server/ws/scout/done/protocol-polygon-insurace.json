@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-insurace",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "insurace",
+ "name": "InsurAce",
+ "category": "Insurance",
+ "tvl_usd": 25408,
+ "url": "",
+ "github": [
+  "InsurAce-Protocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "d04a5eedf6fb4b0594d1478b140b2d89",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Polygon StakersPoolV2 0xD2171aBb..596F + ve-INSUR 0xE8DBB5F6..C27D: harvestRewards(address,address,address) from fresh EOA reverts 'allowedCaller' (SecurityMatrix 0x544c..7429 whitelist = 2 project contracts: BSC pool A + BSC matrix); whitelisted call returns 0 (epoch ended block 73.46M vs head 97.83M, rewardPerBlock 0.034 INSUR); 7d (97,430,472 2026-11-16 -> 97,834,460 2026-11-23) 0 events on both, 0 txs (last 2026-06-02); TVL 25,408 USD.",
+  "kb": [
+   "attempts:4181",
+   "protocols:2299"
+  ],
+  "run_id": "d04a5eedf6fb4b0594d1478b140b2d89",
+  "at": 1795457638
+ }
+}

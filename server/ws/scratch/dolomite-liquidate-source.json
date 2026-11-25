@@ -1,0 +1,14 @@
+{
+  "id": "dolomite.liquidate",
+  "protocol": "dolomite",
+  "kind": "liquidation",
+  "chains": {
+    "ethereum": ["0x003ca23fd5f0ca87d01f6ec6cd14a8ae60c2b97d"]
+  },
+  "event": "LogLiquidate(address,address,address,uint256,uint256,uint256,uint256,tuple,tuple,tuple,tuple)",
+  "topic0": "0x1b9e65b359b871d74b1af1fc8b13b11635bfb097c4631b091eb762fda7e67dc7",
+  "indexed": [],
+  "indexed": [],
+  "data": ["solidAccountOwner", "solidAccountNumber", "liquidAccountOwner", "liquidAccountNumber", "heldMarket", "owedMarket", "solidHeldUpdate", "solidOwedUpdate", "liquidHeldUpdate", "liquidOwedUpdate"],
+  "actor_field": "tx_from"
+}

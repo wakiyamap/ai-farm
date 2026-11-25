@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-idex-classic",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "idex-classic",
+ "name": "IDEX Classic",
+ "category": "Dexs",
+ "tvl_usd": 91271,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "98178d4ea751494287ff6b0b5c38dd63",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: IDEX v2 dispatcher exchange (same Exchange.sol as ethereum/polygon dead ends): onlyDispatcher withdraw/executeTrade credit gasFee to _feeWallet not caller, anyone-callable fns move only own funds; 0 exchange logs in 7d (133952040 2026-11-16 to 135295432 2026-11-23) and 60d (from 123780652, 2026-09-24) with same-shape control 22,555 USDT logs/200 blocks; TVL 96,519 USD dormant.",
+  "kb": [
+   "attempts:4144"
+  ],
+  "run_id": "98178d4ea751494287ff6b0b5c38dd63",
+  "at": 1795448245
+ }
+}

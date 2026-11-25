@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-hinkal",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only caller-paid function is transact() (USDC relay fee to the whitelisted relay EOA that submits a user's ZK op); helper enforces tx.origin == relay and isRelayInList, and RelayStore.addRelay is onlyOwner, so a stranger cannot submit or get paid. eth_call transact from a fresh address reverts 'Unauthorized relay'. Fees are marginal anyway (one paid sample ~= gas, 2 of 3 sampled calls paid the caller 0).",
+  "numbers": "Active pool 0x7cb60446d7635C68EDf1c568cac74A1f98c1Cfa4: explorer txs listing = 25 txs, all within last 7d (page cap, covering 5.3 days, ~4.7/day); callers 0xb8d5e90d8baf0650e5b9d6bb988c6dd206f4baad (13) and 0xe6bdf21ecd55358af595d3f5eea912a8e82eca5e (11) - both EOAs doing only Hinkal transacts - plus 1 user prooflessDeposit. Fee sample of 3 transact traces: 0x0ba03128... pays relay 31121 raw USDC = $0.031 (tx.origin); 0x1d653f09... and 0xc6e93e7d... pay the caller 0. Gas used 446,676-932,111 at 0.020-0.026 gwei = $0.016-$0.043 at ETH $1766.73 (coins.llama.fi 2026-11-18). Second pool 0x25e5e82f...: 0 calls in 7d (last transact 2026-09-21)."
+}

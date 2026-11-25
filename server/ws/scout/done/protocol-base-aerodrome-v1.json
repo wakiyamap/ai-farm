@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-aerodrome-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1175,
+ "chain": "base",
+ "slug": "aerodrome-v1",
+ "name": "Aerodrome V1",
+ "category": "Dexs",
+ "tvl_usd": 42276935,
+ "url": "https://aerodrome.finance/",
+ "github": null,
+ "listed_days_ago": 1175,
+ "run_id": "07b1f682c52f4189ab9efd923a1528df",
+ "result": {
+  "verdict": "unpaid",
+  "line": "No caller-paid function: Minter.updatePeriod (0xeB018363..FE5) anyone-callable but pays caller 0 (Minter.sol L166-210), claims are self-service (voter.claimable(fresh)=0); 0 epoch-advance (Mint) events in last 7 days vs 26 historical (last block 53,221,448 = 2026-10-29T03:21Z) - weekly keeper call itself dead; gas ~0.002 USD/call at 0.006 gwei (Blockscout ETH 1,747.73 USD).",
+  "kb": [
+   "attempts:2259"
+  ],
+  "run_id": "07b1f682c52f4189ab9efd923a1528df",
+  "at": 1795036328
+ }
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "deri_protocol",
+ "status": "dead_end",
+ "checked": "2026-11-23 scout run 2352ba17. DefiLlama adapter projects/deri/index.js lists ONE arbitrum contract: futureMain v3 pool 0xDE3447Eb47EcDf9B5F90E7A6960a14663916CeE8 (USDC bToken, tvl getter liquidity() = 44,277.64 USDC, matches candidate tvl_usd 44,248). Proxy (Pool.sol, verified on explorer) -> implementation 0x1629d77f674d18abcd331581be583abad9283f24 (47KB code, nameId()=keccak('PoolImplementation'), unverified on explorer; source = deri-protocol/deriprotocol-v3 branch main-venus contracts/pool/PoolImplementation.sol v3.0.2, selectors match). tokenB0 = USDC 0xff970a61a04b1ca14834a43f5de4533ebddb5cc8 (read on chain; 6 decimals). privileger = 0x0 so liquidate is open to anyone (not keeper-gated). liquidationReward params: min 0, max 500, cut ratio 0.5 of leftover margin, paid to msg.sender in USDC. pToken = 0x548758470914544bb289801153157517a6ca2a82 (ERC721 DToken, totalMinted 4,559 cumulative). Only caller-paid function: liquidate(uint256,(bytes32,uint256,uint256,uint8,bytes32,bytes32)[]) 0x052733d6 (needs a Deri off-chain oracle signature in calldata). claimVenusLp/claimVenusTrader revert on arbitrum (BSC LiqClaim only). addLiquidity/removeLiquidity/trade are user ops, collectProtocolFee onlyAdmin."
+}

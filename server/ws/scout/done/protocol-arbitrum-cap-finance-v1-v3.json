@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-cap-finance-v1-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "cap-finance-v1-v3",
+ "name": "Cap Finance v1-v3",
+ "category": "Derivatives",
+ "tvl_usd": 154856,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "aad9cc72b8a74c978170a4b69a0fec7f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Trading 0x9BC357.. liquidatePositions/settlePositions are permissionless (eth_call from stranger OK) but liquidationBounty=0 bps on all 3 products: 7d = 14 liquidations in 1 tx (0xbc98b948, caller 0x3cd30a0a, not owner) paying 0.000000 ETH gross vs 0.0000068 ETH gas (~0.012 USD @ ETH 1778); 0 NewPosition/Settled in 7d; C/D distributeFees pays treasury not caller, their liquidatePosition onlyOracle; Store (v3) all onlyGov/onlyContract",
+  "kb": [
+   "attempts:2610",
+   "protocols:1086"
+  ],
+  "run_id": "aad9cc72b8a74c978170a4b69a0fec7f",
+  "at": 1795114933
+ }
+}

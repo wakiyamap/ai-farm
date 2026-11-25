@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "rise_bridge",
+  "status": "unmeasured",
+  "checked": "RISE Bridge (risechain.com), Ethereum L2, chainId 4153 (ethereum-lists/chains eip155-4153.json; portal bundle defineChain id 4153; rpc.risechain.com, Blockscout explorer.risechain.com). No public DefiLlama adapter: github tree of DefiLlama-Adapters main has no projects/rise-bridge or projects/rise (only everrise, rise-protocol=Solana, risex); API protocol/rise-bridge says module rise/index.js + tvlCodePath registries/sumTokens.js but sumTokens.js has no rise-bridge entry (grep). TVL 120k-135k USD, tokens list {WETH ~46-61, HEX 1} (api.llama.fi/protocol/rise-bridge, .tokens/.currentChainTvls). Portal portal.risechain.com bundles: bridging via LayerZero V2 (lzEid 30101 Ethereum, 30184 Base, 30110 Arbitrum) and canonical bridge contracts on RISE named Bridgeable/BridgeableReceiptToken (Blockscout search); BridgeableERC20 0x5Dd5245b8D00341Bb6aaA222107999d788faaF61 on Ethereum is a synthetic token (source: synthetic/BridgeableERC20.sol). No Ethereum escrow address published in docs.risechain.com (no contracts page) and no address found on Ethereum Blockscout for RISE-chain bridge. Ethereum contract addresses therefore unconfirmed; reward functions not checked."
+}

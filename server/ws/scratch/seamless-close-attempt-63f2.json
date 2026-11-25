@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "seamless_v2 DutchAuctionRebalanceAdapter take",
+  "outcome": "dead_end_recorded",
+  "reason": "Third session on this route (prior attempts:1395 and 3068). No fork-proven positive balance delta and no new positive scale number. At head 26459505 on 2026-11-20 23:10 UTC, both verified adapter isAuctionValid() calls return false; LeverageManager.getLeverageTokenState shows the main LT 0x98c4e43e equity 108.200706 WETH-equivalent, below the prior 1000 ETH reopen trigger, and the 10 pct discount LT 0xce937010 equity 0.111972 WETH-equivalent, below the 5 ETH trigger. Prior 7-day census gave only 15.93 USD net across every taker (2.28 USD/day), and the 90-day class was 1.44 USD/day before hedging; competing for a fraction is below the 1 USD/day bot floor. Stop rule closes the lead until its explicit scale trigger changes.",
+  "numbers": "head block 26459505; eth_call getLeverageTokenState(address) at LM 0x5C37EB148D4a261ACD101e2B997A0F163Fb3E351, calldata from cast: main equity word3=108.2007064655514e18, discount LT equity word3=0.11197154627883824e18; isAuctionValid()=0 on adapters 0x42fc033435f4640affed1d5cf6f3bbe240d081af and 0x5e4837e4672e8f84b53cf884aadea0e858b40d36. Historical EV sources attempts:3068 and 1395."
+}

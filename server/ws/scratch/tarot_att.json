@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-tarot",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers: reinvest() on Tarot OP vault tokens pays any EOA caller 10% of harvested VELO; 6 calls in 7d by two third-party EOAs (0xf62b10..a156 x5, 0x3d6991..6856 x1), gross 0.0010-0.0152 USD per call vs gas 0.0001-0.0012 USD. But the whole protocol pays only 1.44 VELO = 0.028 USD per week across 71 pools (dust, TVL 69k USD) - see leads:437; liquidationCall on borrowables not measured.",
+ "numbers": "71 pools from 4 factories (allLendingPoolsLength 7+39+6+19), all eth_getCode non-0x; 7d window blocks 159625646 (2026-11-16 17:27 UTC) to 159928046 (2026-11-23 17:27 UTC), timestamps from eth_getBlockByNumber. 6 Reinvest(address,uint256,uint256) events, topic0 from ZipVaultToken.sol verified source (blockscout); control no-topic scan of all 71 pools same window: 42 logs total, no unknown reinvest-like topic0. Bounties (sample of all 6): 0.7931, 0.1791, 0.1426, 0.1391, 0.1352, 0.0516 VELO (txs 0xd6686c2c.., 0xa69dad2d.., 0x3f5065b1.., 0x630e806b.., 0x0f882145.., 0x162396d1..); rewardsToken() = VELO 0x3c8b650257cfb5f272f799f5e2b4e65093a11a05, 18 decimals read on chain; VELO 0.019196 USD, coins.llama.fi 2026-11-23 17:22 UTC. Gas per call 690k-1.31M gasUsed at effectiveGasPrice 0.0001-0.001 gwei = 7e-8 - 7e-7 ETH = 0.0001-0.0012 USD (ETH 1754.84 USD, coins.llama.fi 2026-11-23 17:30 UTC). Weekly total 1.4407 VELO = 0.0277 USD = ~0.004 USD/day protocol-wide. VELO balances held by the 71 pools now: 3.3e-6 VELO (pot empty)."
+}

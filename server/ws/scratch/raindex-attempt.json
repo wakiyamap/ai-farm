@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-raindex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Raindex orderbooks (Rain/rainlanguage) have no function anyone can call that pays a reward - no bounty, keeper fee, gas compensation or orderExpired/fortune in any of the 3 contract generations; takeOrders4 is a caller-funded spread swap and removeOrder is order-owner-gated. 7d activity exists but is a one-maker, two-bot game: 2363 TakeOrderV3 on the single active v6 book, 98% of taken orders owned by 0x10e4db39, taken almost entirely by 2 bot contracts (0x55f3412d, router 0xd5f2efec). Per-call gross spread USD not measured (Float decode unfinished) - but there is no protocol payment to attribute.",
+  "numbers": "eth_getLogs 55995978-59019978 (7d, 11 adapter addrs, blocks via eth_blockNumber 0x38492ca): 5229 logs all on v6 book 0xe522cB4a5fCb2eb31a52Ff41a4653d85A4fd7C9D; TakeOrderV3 2363, DepositV2 224, WithdrawV2 223; takers 0x55f3412d 1396 / 0xd5f2efec 893 / 0xde71f8d6 60 / 0xfa445c25 11 / 2 other <=2; order owner 0x10e4db39 = 2320/2363 (98%). Gas: eth_gasPrice 0x5b8d80 = 0.006 gwei; sample taker tx 0xca9c50a4ee3a8bb104bb4522dc1c5417b799ba348e12988288137cc656034f7b gasUsed 601795 (~0.0000036 ETH, <$0.05 on base). TVL 119305 USD (DefiLlama candidate row)."
+}

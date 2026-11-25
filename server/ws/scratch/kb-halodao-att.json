@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-halodao",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. HaloDAO on polygon is just 4 dormant settlement vaults (HLP LP contracts, DefiLlama adapter polyPools) holding ~$61.4k of stables (mostly 43.4k USDC in the xSGD:USDC vault). No claim/distribute/harvest/poke/skim/settle-type selector exists in the bytecode, and there was zero activity in 7 days (0 logs, last tx 51 days ago). Protocol flagged dead on DefiLlama (deadUrl=true).",
+ "numbers": "TVL polygon 61,427 USD (DefiLlama api.llama.fi, 2026-11-23). 4 contracts eth_getCode!=0x; getters name/symbol/totalSupply answer (eth_call). 7d eth_getLogs topicless [97418000 ts 1794832469 2026-11-16 .. 97821300 ts 1795432555 2026-11-23] = 0 logs; control USDC 0x2791...84174 Transfer same shape = 37 logs. Blockscout txlist full history: 4,1,1,1 txs (mostly approve 0x095ea7b3); newest ts 1790991009 = 2026-10-03. Balancer V1 + Uni V2 getters revert; source unverified (etherscan/blockscout)."
+}

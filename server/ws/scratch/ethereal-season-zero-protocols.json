@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "ethereal_season_zero",
+ "status": "dead_end",
+ "checked": "Season Zero = one verified ERC4626 vault on ethereum: EtherealPreDepositVault (eUSDe) 0x90D2af7d622ca3141efA4d8f1F24d86E5974Cc8F (explorer source, src/EtherealPreDepositVault.sol: ERC4626 + Ownable). asset() = USDe 0x4c9edd5852cd905f086c759e8383e09bff1e68b3 (decimals() 18 read on chain); USDe.balanceOf(vault) = 1,166,980 USDe = 1.17M USD (price 0.9993, coins.llama.fi 2026-11-21 00:45 UTC), matching DefiLlama tvl_usd 1,167,971, so this is the whole protocol. Full verified function list: allowance/approve/balanceOf/convertTo*/deposit/mint/withdraw/redeem/preview*/max*/name/symbol/decimals/totalSupply/totalAssets/owner/transfer*/renounceOwnership/setDepositsEnabled/setWithdrawalsEnabled. No reward/claim/distribute/harvest/keeper function exists; depositsEnabled/withdrawalsEnabled are owner-only flags. Rewards are off-chain per docs (points; USDe balance rewards distributed via Merkl, docs.ethereal.trade/trading/usde-balance-rewards.md). Oddity: totalAssets() reverts on eth_call (data 0x) while asset(), name(), symbol(), totalSupply(), balanceOf all answer."
+}

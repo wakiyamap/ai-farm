@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-orderly-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The Orderly Bridge vault on bsc pays no caller: the money-out functions (withdraw, withdraw2Contract, rebalanceMint/Burn) are onlyCrossChainManager (0xa02e7da50c7df5fd22927b24fa63b59ec8b22062) and delegateSwap is onlySwapOperator; the any-call functions (deposit, depositTo, delegateSigner) are user actions that cost the caller instead of paying it. Users self-execute withdraws through router 0x3ebd570ed38b1b3b4bc886999fcf507e9d584859 and pay a 1-token fee the vault keeps. Same vault code as the arbitrum study (attempts:2378, dead_end).",
+  "numbers": "TVL $1,343,395 (candidate). Vault 0x816f722424b49cf1275cc86da9840fbd5a6167e9 (DefiLlama adapter OWNER_MAP.bsc); depositId()=145,924; getAllAllowedToken()=5. 7d activity (eth_getLogs, blocks 133,098,122-134,441,227, 269 windows of 5000): 220 AccountWithdraw + 400 AccountDepositTo; 200/220 withdraws sender==receiver; sample of 5 txs: EOA -> router 0x3ebd570ed38b1b3b4bc886999fcf507e9d584859 (0xcfc32570), largest withdraw 327,000 USDT (tokenHash d6aca1be..), fee 1.0 token (USDT 18-dec or BNB 8b1a1d9c..) kept by vault, gross $1-327k per withdraw is the user's own funds. Gas: eth_gasPrice 0.05 gwei (0x2faf080), sample withdraw receipt gasUsed 511,427 = 0.0000256 BNB = $0.015 at BNB $586.16 (coins.llama.fi 2026-11-19). eth_call withdraw from fresh address reverts 0x833d33e7."
+}

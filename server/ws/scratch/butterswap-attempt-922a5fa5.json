@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "butterswap MasterChef withdraw-claim",
+  "outcome": "dead_end_recorded",
+  "reason": "The observed withdraw(2,0) is a claim of the caller's own accrued LP rewards, not a public bounty. A fresh caller can invoke it but gets zero without staking. At the holding frame's $100 maximum, pool 2's current emissions imply only about $0.22/day before entry/exit trading, fees and price risk. There is no observed realized net-profitable actor at our size; the one observed $66 claim came from a large existing LP holder. Do not build a claim bot from that gross figure.",
+  "numbers": "2026-11-23 relay eth_call: MasterChef 0xa49f4CF57eaFE0098D398DF3eD3A7dF10EAaBfAB poolInfo(2) returned LP 0x73579bcffbe784b19f8f4b93cd7c244a52c4cebb and allocPoint 400; totalAllocPoint()=1604; butterPerBlock()=1e18. LP balanceOf(MasterChef)=0x1260a3bdb244ed54d221, totalSupply=0x13d5c5a9b7f6371f9ea0 (92.65% staked). getReserves() returned 1040.733899781 USDT and 11955108.5596 BUTTER; stake value ~= $1928.51 at pool midprice. Scout attempt 4089 measured 1,343,390 BSC blocks/7d and one claim tx 0xbfa2d33c565b41062cf4a4c088973dffefcd4bc26740db21dbaf56354219f3d2. Therefore 191,913 blocks/day * (400/1604) BUTTER/block * (1040.7339/11955108.56) USD/BUTTER * (100/1928.51) = $0.218/day maximum at fixed reserves, before costs and market risk. The observed claimant held 7525.56 LP and claimed its own accrual."
+}

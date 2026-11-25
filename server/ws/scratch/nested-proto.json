@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "nested",
+  "status": "dead_end",
+  "checked": "Nested (nested.fi, NFT strategy indexes). Contracts from DefiLlama adapter projects/nested/index.js (NestReserve 0x150fb0Cfa5bF3D4023bA198C725b6DCBc1577f21, code confirmed) + GitHub MassDotMoney/nested-core-lego addresses.json 'bsc' section: NestedFactoryProxy 0x9A065e500CDCd01c0a506B0EB1A8B060B0cE1379 (EIP1967 impl 0xbde3b03d77f2fbb1e2f1c6e511e4f2370b1896ef, Sourcify exact_match; ABI matches repo HEAD), FeeSplitter 0x449D088C9f184AF598fe72d26742A58A11c5200f (Sourcify exact_match), NestedAsset NFT 0x0fff7f99D2B32849848E31CB48090C5268E06f65, NestedRecords 0x3Ee96E771D5E56b34245b023E8B31ffDf36dFafd. Architecture: strategies are NFT portfolios; all factory ops (create, processInputOrders, processOutputOrders, processInputAndOutputOrders, destroy, withdraw, updateLockTimestamp) are onlyTokenOwner user ops that PAY fees (entry/exit + royalties), not keeper rewards. Only permissionless pay-the-caller fn: FeeSplitter releaseTokens/releaseTokensNoETH (self-service claim of msg.sender's accrued shares; eth_call from fresh 0x1111 addr succeeds, no role revert)."
+}

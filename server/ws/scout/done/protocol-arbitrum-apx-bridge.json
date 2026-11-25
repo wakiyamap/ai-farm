@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-apx-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1642,
+ "chain": "arbitrum",
+ "slug": "apx-bridge",
+ "name": "APX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 155869,
+ "url": "https://www.asterdex.com/en/referral/c6eF10",
+ "github": null,
+ "listed_days_ago": 1642,
+ "run_id": "1dd0c38ff7724b679968513fd6ff908a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ApolloxExchangeTreasury 0xbad4ccc91ef0dfffbcab1402c519601fbaf244ef + ApolloX diamond 0xb3879e95a4b8e3ee570c232b19d520821f540e48 (DefiLlama module apollox/index.js, Arbitrum TVL 165,326 USD): claim(bytes,bytes)/withdraw are open to any caller but pay the whole withdrawal to the recipient in the truthHolder-signed message - caller earns 0; 0 Claim/Withdraw in 7 d (control: 1 Deposit log, same query shape/address/range), 61 in 60 d all sent by one EOA 0x6348bb01ded24567c50fbb91e2af61b228af8a93, sample of 5 pays recipients 10-787 USDT, 162k-198k gas = ~0.006 USD/call (0.02 gwei, ETH 1,806.87).",
+  "kb": [
+   "attempts:2477",
+   "protocols:987"
+  ],
+  "run_id": "1dd0c38ff7724b679968513fd6ff908a",
+  "at": 1795083139
+ }
+}

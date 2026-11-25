@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-pods-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1862,
+ "chain": "polygon",
+ "slug": "pods-finance",
+ "name": "Pods Finance",
+ "category": "Options",
+ "tvl_usd": 260886,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1862,
+ "run_id": "1c834cdec9d24d85ae58b5597d1bf764",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: no stranger-payable fn on Pods Finance Polygon (Options, TVL 260.8k llama): all value moves go to msg.sender's own position (withdraw() from fresh addr reverts 'you do not have balance to withdraw'; FeePool mint/withdraw onlyOwner; IVGuesser.updateAcceptableRange public pays 0); 0 logs in last 7d (blocks 97,299,986-97,603,330) on 3 pools + OptionFactory 0xf0cdada8..97e8 + AMMFactory 0x83d63a8c..5b48 (control 36,616 USDC.e Transfers/500 blk same run); last OptionFactory tx 2023-10-10 block 48553155.",
+  "kb": [
+   "attempts:2603"
+  ],
+  "run_id": "1c834cdec9d24d85ae58b5597d1bf764",
+  "at": 1795113244
+ }
+}

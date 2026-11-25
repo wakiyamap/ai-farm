@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "team_finance",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/team-finance/config.js gives 2 avax contracts: v2 locker 0x88ada02f6fce2f1a833cd9b4999d62a7ebb70367 (verified 'lockToken', solc 0.4-era, 9668 bytes) and v3 AdminUpgradeabilityProxy 0xe2fe530c047f2d85298b07d9333c05737f1435fb -> implementation 0x6Dd27F2b82F78dD8A802A9228F340518280359f1 (verified 'LockToken', solidity 0.6.2). Sources via Routescan etherscan-compatible API (explorer tool: etherscan not_on_plan, blockscout 404 on avalanche). Both have code (eth_getCode); getters answer: v3 depositId()=1163 (0x9852099c), getDepositDetails(1163) returns data; v2 depositId()=236. Full verified source of both read: only external state functions are lockToken/lockNFT/splitLock (user pays fee to company wallet), extendLockDuration/transferLocks/withdrawTokens/mintNFTforLock/collectUniswapV3LPFees (all require msg.sender == lockedToken[_id].withdrawalAddress or NFT owner), and onlyOwner admin setters. No reward/bounty/keeper function pays the caller anywhere."
+}

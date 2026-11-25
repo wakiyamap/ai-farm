@@ -1,0 +1,30 @@
+**Decision: promote** — 2026-11-20T19:26Z, run `f525d62e330540b2987463e7aceb3436`.
+
+`next_review_at: null`. Parked technical approval from 11:23Z stands; manifest-check PASS and code/manifest/executor unchanged. `gate status` showed 55 live trial IDs, below the human 60-slot cap (`decisions/human/2026-11-21-trial-slots-60.md`, saved 2026-11-20 18:20Z). Oldest approved parked bot is promoted first.
+
+---
+
+**Decision: wait** (parked: approved, waiting for a live trial slot) — 2026-11-20T11:23Z, run `f4e81794f92b44fc8c874e6733a584b1`.
+
+`next_review_at: 2026-11-20T13:30:00Z`. `gate status` at 11:23Z showed 55/55 live IDs beginning `trial-` (the full ID list remains below), so promotion is unavailable under `decisions/human/2026-11-20-trial-slots-55.md`. No funds were moved. The paper service remains stopped under the parked-trials decision.
+
+Unchanged since `957183487dae4b44964e57ae0b07879a`; decision wait stands. The manifest, bot.py, and named executor source SHA-256 hashes still match the prior review; only `state/state.json` changed. `manifest-check.py` remains OK. The prior technical and fork review stands without a repeat run.
+
+---
+
+**Decision: wait** (parked: approved, waiting for a live trial slot) — 2026-11-20T08:20Z, run `957183487dae4b44964e57ae0b07879a`.
+
+`next_review_at: 2026-11-20T10:20:00Z`. Cheap-chain trial technical review passed; do not rerun paper just because it is parked. Promote oldest approved parked trial first when a slot opens. The current human decision `decisions/human/2026-11-20-trial-slots-55.md` caps live trial IDs at 55, and `gate status` showed 55/55 at review time. The paper service is stopped to free a paper slot.
+
+## Evidence
+
+- `manifest-check.py` passed. `capital_usd: 20`, `max_loss_per_tx_usd: 1`, `allowed_contracts: []`, public send, one artifact with `{bot}` constructor argument. The live branch requires `EXECUTOR_ADDR`, uses the signer's `my_address()["address"]`, and sends only through the executor. Paper mode only calls the relay. No target, approval, or callback list is stored in the Solidity executor.
+- Independent fork replay at HyperEVM head 51754102: `scratch/trial-beefy-harvest-hyperevm/reviewer-proof-95718348.log` and `proof-result.json`. Deploy used 419,749 gas. Success tx `0x4ea37bc7184a2bdb18f8382c5452d2ac19fb8182becead8d177813ae51d7b3e6` on strategy `0x92E3B9ABc8F80ee32bF12a3eBDD225D2929C878a`: gross 0.000122845850577845 HYPE, gas 0.0000890931 HYPE (890,931 gas), bot wallet net +0.000033752750577845 HYPE. The minimum was set to the full signed gas cap, 0.00011716868 HYPE. Guard tx `0xf69dd6babaaf04ed981a1a00e6f13156bce95b06e0f970b31455217c9b27eb3d` reverted when minimum profit exceeded the harvest fee; repeat after success `0x3fdce0e55ffb742d9faaee2e7440d3982669160a54f11e5e3eec3c6ac2666bd7` also reverted. Executor ended with zero native HYPE and WHYPE; fork `allowance(executor,strategy)` was zero for WHYPE at all nine strategy addresses. Deploy and send each fit HyperEVM's 2,000,000 gas limit.
+- Loss bound: code caps gas at 1,950,000 and max fee at 0.5 gwei, a maximum of 0.000975 HYPE (about $0.064 at the manifest's $65.6/HYPE), below the $1 trial limit. The executor's owner-balance guard reverts unless the fee returned to the bot wallet meets the signed fee cap; no principal leaves the wallet. The bot sends only when simulated gross exceeds that cap and caps its priority bid at 20% of the surplus over base-fee gas cost. The signer separately enforces the signing-time USD cap.
+- Paid, open entry: direct `harvest(address)` tx `0x8a76866ce1b4f7a4fb9ed9187de64c9d59dc6097502221b20937f2f86c4f5659` in block 51747794 paid 0.000115119786 WHYPE against 0.00009790916 HYPE gas. The replay from a new contract-owned address succeeded. [Beefy's strategy documentation](https://docs.beefy.finance/developer-documentation/strategy-contract) describes the harvest caller incentive. The bot reads mined state and does not watch pending transactions.
+- Runtime: paper log shows successful simulations on `0x68e15d60` and `0x92e3b9ab`. Each live send records won/lost, gas used, and winner block. The timer uses 30 seconds to 30 minutes per strategy rather than every block. Expected read use is about 500 checks/day × (26 CU `eth_call` + 20 CU block read), plus repeats, about 25,000 CU/day or $0.013/day at $0.53/M CU; the hard cap is 90,000 CU/day ($0.0477/day). Trial rules waive an EV-versus-CU comparison.
+- Live-loss stop is provided by the watchdog; the executor unwraps the caller fee and returns native HYPE directly to the bot wallet.
+
+Review hashes: manifest `305e7440ad618914a4e9c8b38013a99ed8a89bb4b440ed69ac846136030b7fb3`; bot.py `6e9d32b9a466eaa562e4e56008185ca731e3442ba35f5ebe5f64a5ec6fd3a07c`; executor source `7c25508d8a416f4c4e25a5552c0fc0fb362d793b5a9e324325de5fb0560d3b07`.
+
+Live trial IDs at the capacity check: trial-aave-arbitrum, trial-aave-avalanche, trial-aave-bsc, trial-aave-optimism, trial-aave-polygon, trial-aave2-avalanche, trial-aave2-polygon, trial-aave4-avalanche, trial-aave4-base, trial-aave4-optimism, trial-benqi-avalanche, trial-bim-harvest-base, trial-cv3-buy-arbitrum, trial-cv3-buy-base, trial-cv3-buy-optimism, trial-cv3-buy-polygon, trial-dolomite-arbitrum, trial-ensemble-arb-hyperevm, trial-ethos-redeem-optimism, trial-euler-base, trial-euler-bsc, trial-exactly-optimism, trial-felix-liq-hyperevm, trial-feusd-redeem-hyperevm, trial-flatmoney-arbitrum, trial-fli-arb-polygon, trial-fluid-arbitrum, trial-fluid-polygon, trial-flux-bsc, trial-folio-nav-base, trial-folio-nav-bsc, trial-gmx-buyback-avalanche, trial-gmx-buyback-slow-arbitrum, trial-hyperlend-hyperevm, trial-hypurrfi-hyperevm, trial-jarvis-jeur-base, trial-kinza-bsc, trial-llamalend-arbitrum, trial-metronome-liq-base, trial-moonwell-base, trial-moonwell-optimism, trial-morpho-arbitrum, trial-morpho-cbbtc-base, trial-morpho-eth-base, trial-morpho-khype-hyperevm, trial-morpho-whype-hyperevm, trial-mycelium-upkeep-arbitrum, trial-nerite-redeem-arbitrum, trial-peapods-arb-arbitrum, trial-peapods-arb-base, trial-peapods-base, trial-revert-lend-arbitrum, trial-silo1-liq-arbitrum, trial-venus-bsc, trial-xlend-base.

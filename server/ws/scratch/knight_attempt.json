@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-knightswap-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: KnightSwap Finance is a Uniswap V2 fork whose only reward flow is a PancakeSwap-V1-style MasterChef (0xE50cb76A71b0c52Ab091860cD61b9BA2FA407414): 11108-byte bytecode fully dispatcher-decoded shows 25 external functions (deposit(uint256,uint256), withdraw, emergencyWithdraw, updatePool, massUpdatePools, pendingKnight, add, set, ...) and NO harvest()/harvestAll()/claim selector - only deposit() pays msg.sender and only its own accrued LP rewards, so a stranger calling anything earns 0. Emissions still live (KnightPerBlock 5 KNIGHT, 44 pools) but they pay LP stakers, not callers; no keeper incentive exists.",
+ "numbers": "factory 0xf0bc2E21a76513aa7CC2730C7A1D6deE0790751f, chef 0xE50cb76A71b0c52Ab091860cD61b9BA2FA407414, KNIGHT 0xd23811058eb6e7967d9a00dc3886e75610c4abba (all eth_getCode != 0x, rpc.py bsc 2026-11-19); poolLength()=44, totalAllocPoint()=14622, KnightPerBlock()=5e18 (eth_call latest); KNIGHT $0.00015764 (coins.llama.fi ts1795090081, 18 dec) -> ~576k KNIGHT/day ~= $91/day emissions; TVL $492,903 (session context / llama). 7-day Deposit/Withdraw getLogs unmeasured: 'all providers failed: public: limit exceeded' -> 'no provider available' on all 175 chunk calls incl control (latest block 0x804c634=134530612)."
+}

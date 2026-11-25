@@ -1,0 +1,22 @@
+{
+ "id": "protocol-ethereum-sentora-curator",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 411,
+ "chain": "ethereum",
+ "slug": "sentora-curator",
+ "name": "Sentora Curator",
+ "category": "Risk Curators",
+ "tvl_usd": 1542801168,
+ "url": "https://sentora.com/",
+ "github": null,
+ "listed_days_ago": 411,
+ "run_id": "6135e9b84dff471885dbd98ba7bc4c43",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Ethereum Sentora = curated vaults only (7 BoringVaults, Morpho VaultV2 0xFC8C62..., Aave V4 hub 0xD138Fc..., 5 Upshift, EtherFi position 0x778aC5..., ITB LoanManager 0xc936e8...): fresh-address manage() reverts UNAUTHORIZED, repayAll() reverts 'caller is not the executor'; only permissionless state-updater VaultV2.accrueInterest() pays fee recipients, 0 USD to caller (10 events in 7 d, blocks 26397915-26458395, all 5 sampled from keeper EOA 0x062ce42cae04c51d04e77e3d64cc8953a2296ffe) vs gas 0.45-0.75 USD (4.73 gwei, ETH 1592).",
+  "kb": [],
+  "run_id": "6135e9b84dff471885dbd98ba7bc4c43",
+  "at": 1795203256
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-orderly-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1467,
+ "chain": "optimism",
+ "slug": "orderly-bridge",
+ "name": "Orderly Bridge",
+ "category": "Bridge",
+ "tvl_usd": 238939,
+ "url": "https://orderly.network",
+ "github": null,
+ "listed_days_ago": 1467,
+ "run_id": "49c109666dc748f99846f1a8a6384f34",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: vault 0x816f722424b49cf1275cc86da9840fbd5a6167e9 (impl Vault 0x4f8c0f4f794dc5b6d4f1c0883e3fab402867f083) money-out fns onlyCrossChainManager/onlySwapOperator, withdraw from fresh addr reverts; 7d blocks 159429777-159732177: 4 AccountWithdraw (users self-via-router, fee 1.00 USDC each to vault, gross 44.6-16,667.8 USDC) + 10 AccountDepositTo; gas ~bash.001/call (535k gas @ 0.0012 gwei, ETH 798); no fn pays a stranger",
+  "kb": [
+   "attempts:2381"
+  ],
+  "run_id": "49c109666dc748f99846f1a8a6384f34",
+  "at": 1795063517
+ }
+}

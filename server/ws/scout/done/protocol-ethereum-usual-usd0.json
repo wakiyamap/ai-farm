@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-usual-usd0",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 856,
+ "chain": "ethereum",
+ "slug": "usual-usd0",
+ "name": "Usual USD0",
+ "category": "RWA",
+ "tvl_usd": 44618097,
+ "url": "https://usual.money",
+ "github": null,
+ "listed_days_ago": 856,
+ "run_id": "573eba6c7c164e7f8ccab9b601031945",
+ "result": {
+  "verdict": "role_gated",
+  "line": "USD0 book (USD0 0x73A1..., DaoCollateral 0xde6e1F..., SwapperEngine 0xB969B0..., bUSD0 0x35D8..., USD0a 0x2e7f...): every open fn moves caller's own funds (redeemFee 5 bps paid BY redeemer to treasury; 48 Redeem + 25 Swap in 8.4d blocks 26401299-26461459); the only keeper-class calls bUSD0 sweepFees() and USD0a harvest() revert 0xea8e4eb5 NotAuthorized from a fresh address, and Harvest events on USD0a since creation (block 23839971) = 0 (dormant: 0 logs/8.4d; controls USD0 1576, DaoCollateral 73); gross to caller 0, gas not quoted (nothing pays).",
+  "kb": [
+   "attempts:3208",
+   "protocols:1553"
+  ],
+  "run_id": "573eba6c7c164e7f8ccab9b601031945",
+  "at": 1795240263
+ }
+}

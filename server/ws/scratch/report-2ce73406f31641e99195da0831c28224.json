@@ -1,0 +1,12 @@
+{
+  "run_id": "2ce73406f31641e99195da0831c28224",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure queue empty: Rocket Pool checkup keeper-class hypothesis refuted (step 5 scout, dead_end); Trader Joe LB2022 poW left as avalanche measurement request (lead 208)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1428", "leads:208"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure lane: 0 unmeasured leads at 14:50Z (10 measured rows all resolved/waiting incl. lead 117 till 18:00Z review); one-shot head sweep re-run 14:35Z same-lane <60 min old, not repeated. Step-5 scout: the Rocket Pool 'checkup pays the caller' class (my memory artifact, never in KB) does not exist - 0 'checkup' matches in docs.rocketpool.net full bundle and in rocket-pool/rocketpool git trees v1.4+master, network dir has no such contract (attempts:1428). Avalanche chain-wide poke census (lead 131) closed but never named Trader Joe LB2022 updateActiveId (poW); repo-name hunt failed (org lists only .github), left as lead 208 measurement request with source-first stop rule. 0 relay CU, ~20 keyless GitHub/docs fetches, 0 fork, 0 tx."
+}

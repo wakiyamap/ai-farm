@@ -1,0 +1,134 @@
+#!/usr/bin/env python3
+"""Validated writer for the wiki. Runs as farmdata via sudo.
+
+  wiki-write --role R --model M --run-id ID <path> <message>   (page on stdin)
+
+Checks the path and frontmatter, sets 'author' and 'updated' itself, writes the
+page atomically and commits it. Pages are never deleted; a merged page becomes
+a redirect ('type: redirect' with 'to: <path>').
+"""
+import argparse
+import datetime as dt
+import fcntl
+import getpass
+import os
+import re
+import subprocess
+import sys
+import tempfile
+
+WIKI_DIR = "/srv/farm/ws/wiki"
+GIT_HOME = "/var/lib/farmdata"
+MAX_BYTES = 32 * 1024
+
+PATH_RE = re.compile(r"^(?:[a-z0-9][a-z0-9_-]*/){0,3}[a-z0-9][a-z0-9_-]*\.md$")
+WHO_RE = re.compile(r"^[A-Za-z0-9._/-]{1,64}$")
+TYPES = ("mechanism", "method", "pitfall", "infra", "redirect")
+REQUIRED = ("type", "chains", "protocols")
+
+
+class Invalid(Exception):
+    pass
+
+
+def split_frontmatter(text):
+    if not text.startswith("---\n"):
+        raise Invalid("page must start with a '---' frontmatter block")
+    end = text.find("\n---\n", 4)
+    if end < 0:
+        raise Invalid("frontmatter is not closed with '---'")
+    meta = {}
+    for line in text[4:end].splitlines():
+        if not line.strip():
+            continue
+        key, sep, value = line.partition(":")
+        if not sep or not re.match(r"^[a-z_]+$", key.strip()):
+            raise Invalid(f"bad frontmatter line: {line!r}")
+        meta[key.strip()] = value.strip()
+    return meta, text[end + 5:]
+
+
+def build_page(text, who):
+    meta, body = split_frontmatter(text)
+    missing = [k for k in REQUIRED if not meta.get(k)]
+    if meta.get("type") == "redirect":
+        missing = [] if meta.get("to") else ["to"]
+        if meta.get("to") and not PATH_RE.match(meta["to"]):
+            raise Invalid("to: must be a wiki path")
+    if missing:
+        raise Invalid(f"frontmatter is missing {missing}")
+    if meta["type"] not in TYPES:
+        raise Invalid(f"type must be one of {list(TYPES)}")
+    meta["author"] = who["author"]
+    meta["updated"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+    head = "\n".join(f"{k}: {v}" for k, v in meta.items())
+    return f"---\n{head}\n---\n{body.lstrip(chr(10))}"
+
+
+def git(*args):
+    env = {"PATH": "/usr/bin:/bin", "HOME": GIT_HOME, "GIT_CONFIG_NOSYSTEM": "1"}
+    return subprocess.run(["git", "-C", WIKI_DIR, *args], env=env,
+                          capture_output=True, text=True, check=False)
+
+
+def write(path, message, text, who):
+    if not PATH_RE.match(path):
+        raise Invalid("path must look like 'mechanism/aave-liquidation.md' "
+                      "(lowercase, digits, '-', '_'; at most 3 folders)")
+    if not message.strip() or "\n" in message or len(message) > 200:
+        raise Invalid("message must be one line, at most 200 characters")
+    page = build_page(text, who)
+
+    lock = open(os.path.join(WIKI_DIR, ".git", "farm.lock"), "w", encoding="utf-8")
+    fcntl.flock(lock, fcntl.LOCK_EX)
+    try:
+        target = os.path.join(WIKI_DIR, path)
+        os.makedirs(os.path.dirname(target), exist_ok=True)
+        fd, tmp = tempfile.mkstemp(dir=os.path.dirname(target), prefix=".tmp-")
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(page)
+        os.chmod(tmp, 0o644)
+        os.replace(tmp, target)
+
+        git("add", "--", path)
+        if git("diff", "--cached", "--quiet", "--", path).returncode == 0:
+            return "unchanged"
+        ident = f"{who['author']} <{who['run_id']}@farm>"
+        msg = f"{message}\n\nRun-Id: {who['run_id']}\nOS-User: {who['os_user']}"
+        res = git("-c", f"user.name={who['author']}", "-c", f"user.email={who['run_id']}@farm",
+                  "commit", "--quiet", f"--author={ident}", "-m", msg, "--", path)
+        if res.returncode != 0:
+            raise Invalid(f"commit failed: {res.stderr.strip()}")
+        return git("rev-parse", "--short", "HEAD").stdout.strip()
+    finally:
+        fcntl.flock(lock, fcntl.LOCK_UN)
+        lock.close()
+
+
+def main(argv=None, stdin=None):
+    p = argparse.ArgumentParser(prog="wiki-write")
+    p.add_argument("--role", default="unknown")
+    p.add_argument("--model", default="unknown")
+    p.add_argument("--run-id", default="manual")
+    p.add_argument("path")
+    p.add_argument("message")
+    args = p.parse_args(argv)
+    try:
+        for label, value in (("role", args.role), ("model", args.model), ("run-id", args.run_id)):
+            if not WHO_RE.match(value):
+                raise Invalid(f"--{label}: invalid value")
+        raw = (stdin or sys.stdin).read(MAX_BYTES + 1)
+        if len(raw.encode("utf-8")) > MAX_BYTES:
+            raise Invalid(f"page is larger than {MAX_BYTES // 1024} KiB; keep pages short")
+        who = {"author": f"{args.role}/{args.model}", "run_id": args.run_id,
+               "os_user": os.environ.get("SUDO_USER") or getpass.getuser()}
+        result = write(args.path, args.message, raw, who)
+        print(f"ok {args.path} {result}")
+    except Invalid as exc:
+        print(f"wiki: {exc}", file=sys.stderr)
+        return 2
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

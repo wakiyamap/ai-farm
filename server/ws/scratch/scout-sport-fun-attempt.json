@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-sport-fun",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Contracts confirmed on base (two FDFPairV4 UUPS proxies holding all $1.8M TVL in USDC, plus PlayerV3, PlayerPackV3, FeeManagerV3, FUN ERC20; verified source via blockscout). No publicly callable function pays the caller: every state-changing fn is onlyRole(GOVERNOR/ADMIN/FEE_MANAGER/PACK_ISSUER/SUPPLY_MANAGER) or an EIP-712-signed user op (buyTokens 0xc228cb35, sellTokens, swapTokens) where the caller PAYS USDC + gas; fees go to a protocol treasury. Users are ERC-4337 AA wallets behind protocol bundler EOAs - custodial backend game, nothing a stranger can call for reward.",
+  "numbers": "TVL 1,804,848 USD (candidate/DefiLlama sumTokens on 0x9da1bB4e...6617 + 0x4Fdce033...585e). Control for liveness: 147 PlayerTokensPurchase logs, block 58,711,854-58,751,854 (~2.2 h) on the two proxies -> ~11k buys/7d rate. Sample of 10 receipts: 4 submitter EOAs, incl. via EntryPoint 0x5ff137d4b0fdcd49dca30c7cf57e578a026d2789. Gas sample 354,174 gas @ 0.006 gwei = $0.0038 (ETH $1789.62, coins.llama.fi 2026-11-17)."
+}

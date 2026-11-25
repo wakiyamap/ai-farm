@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-opyn-convexity",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: all 157 Opyn Convexity option contracts on ethereum expired (newest expiry 2021-10-15), so the only stranger-payable reward function, liquidate (+1% incentive), reverts 'Options contract expired' and redeemVaultBalance pays only the caller's own vault. Zero reward events on any option contract in the last 7 days; the $424k DefiLlama TVL is collateral sitting in expired vaults waiting for owners, not for strangers.",
+ "numbers": "Factories 0xb529964F86fbf99a6aA67f72a27e59fA3fa4FEaC (9 contracts) + 0xcC5d905b9c2c8C9329Eb4e25dc086369D6C7777C (148) via getNumberOfOptionsContracts + OptionsContractCreated topic0 0x4fa983... from receipt of factory logs. 7d window blocks 26414359 (2026-11-14) -> 26464612 (2026-11-21), 50253 blocks: no-topic eth_getLogs over all 157 contracts in 5 chunks of <=32 addrs = 6 logs total, all Transfer/Approval on one dust oToken 0x4ba8c6ce0e855c051e65dfc37883360efaf7c82b (expired 2020-03-29); 0 Liquidate/Exercise/RedeemVaultBalance (no-topic scan, chunk with 6 logs is the shape control). liquidate eth_call from 0x...dEaD on 0x40a7fd74: revert 'Options contract expired'; liquidationIncentive = Number(10,-3) = 1%. Gross 0 USD, gas ~ n/a (nothing to pay). TVL 423931 USD per DefiLlama api.llama.fi 2026-11-21."
+}

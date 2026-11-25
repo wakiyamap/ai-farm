@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-preon-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward - Preon is a Liquity V1 fork (STAR debt token): no permissionless function pays the caller. VMO.liquidateVessels is anyone-callable but pays 0 by design (redistribution to Stability Pool) and reverts VesselManagerOperations__NothingToLiquidate from a fresh address (none pending); borrower ops pay msg.sender themselves; FeeCollector.collectFees is permissionless but routes fees to treasury/feeDistributor, not the caller. The protocol is also fully dormant: zero vessel and STAR events in the last 7 days.",
+  "numbers": "7d window blocks 523,014,256->525,433,456 (eth_getLogs, relay scout lane): BorrowerOps(0xbffC680a..4B2D) VesselUpdated 0; StabilityPool(0x6afA834B..Fb52) UserDepositChanged 0; STAR Transfer 0 over 12 chunks x 200k blocks; control WETH Transfer 3,773 logs in last 5k blocks (same query shape, proves lane works). Last BorrowerOps tx 0x572dfdff646944ba56d76e0231351ad1ce83d0da2aa02957f1b5716435b03807 block 516,423,179 ts 1,792,450,897 (~Oct 19 2026, explorer txs) - adjustVessel by borrower 0xc1b5a71deb40b67e94d9fa309699a013f672f64c; sample of last 25 txs all adjustVessel/closeVessel by ~7 borrower EOAs. Gas: eth_gasPrice 0.02 gwei, ~400k gas for a liquidateVessels batch ~ 8e-6 ETH ~ $0.014 (ETH $1,759.50, coins.llama.fi ts 1795037409). TVL $157,982 (DefiLlama protocol/preon-finance, parent#sphere)."
+}

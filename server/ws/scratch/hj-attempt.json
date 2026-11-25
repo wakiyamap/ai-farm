@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-hyperjump",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Callable reward functions exist (farm deposit/withdraw claims on 0x4F1818Ff649498a2441aE1AD29ccF55a8E1C6250, one-time snapshot claim() on 0xF153911d912de1f4FE576FbE4Ab29C075d656B58) but paid nobody in 7 days: 0 events on both contracts and the JUMP reward pot is 0.0 at both; V2 emissions ended 2023-10-31 per repo deployFarm.js (endTime). V2 claim() reverts 'not claimable' from a stranger (hardcoded whitelist). The DEX itself is a V2 fork (factory 0xac653ce27e04c6ac565fd87f18128ad33ca03ba2, 460 pairs): swap callers earn nothing, volume is dust (~$69 total 7d flow on the top pair, 8 swappers).",
+  "numbers": "7d events (rpc.py bsc getLogs, blocks 133282370-134625772 = 7d at 0.45 s/block, 4900-block chunks, 0 chunk errors): farm 0, claim 0, factory PairCreated 0; control Swap on WBNB/USDT pair 375 (29.6 USDT in + 39.0 USDT out + 0.0655/0.0495 WBNB at 18 dec read on-chain, ~$69 total flow, 8 unique swappers). JUMP (0x130025eE738A66E691E6A7a62381CB33c6d9Ae83, 18 dec) balance: farm 0.0, claim 0.0. Gas: eth_gasPrice 0.05 gwei, 200k gas = 1e-5 BNB = $0.006 at BNB $574.84 (coins.llama.fi, 2026-11-20T03:50Z). DefiLlama BSC TVL $162,908 (api.llama.fi/protocol/hyperjump, 2026-11-20)."
+}

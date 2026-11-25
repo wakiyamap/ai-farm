@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-fomo3d",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Fomo3D on ethereum = two original-2018 pot games, FoMo3Dlong 0xA62142888ABa8370742bE823c1782D17A0389Da1 (created block 5915466, rID 170, 1092.30 ETH) and FoMo3DSoon 0x4e8ecF79AdE5e2C49B9e30D795517A81e0Bf00B8 (rID 2288, 83.68 ETH). No function anyone can call to be paid: no collect/claim/keeper/bounty exists in the verified source; endRound credits the winner into its internal vault and only buyX*/reLoad*/withdraw move ETH, and withdraw pays the CALLER's own past earnings (eth_call withdraw() from a fresh EOA succeeds and pays 0, no role revert). The 2.04M USD TVL is 8 years of un-withdrawn player vaults, not a claimable pot for a stranger; a stranger taking a round must BUY keys (game principal, an illiquid key token). 7 d sample (3 of 3 txs, not a sample of many): Long saw 3 txs, Soon 0.",
+ "numbers": "7d window blocks 26417298 (2026-11-15T02:06Z) -> 26467530 (2026-11-22T02:01Z), 50,232 blocks; Long 3 txs / Soon 0 logs (address-only getLogs, control = the 3 Long logs, same shape); txs: buyXid 0.000075 ETH in 0x9b4b8178... (501,486 gas @0.158 gwei), withdraw 0x671efb0c... paid caller 0.00015839 ETH = 0.27 USD (250,134 gas @0.177 gwei = 0.07 USD), withdraw 0xa5653099... paid caller 0.00172788 ETH = 2.91 USD (70,735 gas @0.73 gwei = 0.09 USD); ETH 1683.41 USD coins.llama.fi WETH 2026-11-22T02:13Z; llama TVL 2,042,462 USD"
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "privacy_pools_v1 Entrypoint relay",
+ "status": "measured",
+ "why": "Entrypoint.relay() pays the user-chosen feeRecipient a relay fee (1-11+ bps of the withdrawal) from the pool inside the same tx; caller advances only gas. EOA 0xec15c20015e72748f03065ed80c41cb882e3fb66 sets itself feeRecipient and earned ~$123 gross in 48 relay calls in 7d (window blocks 26409420..26459820; tx e.g. 0x25ebfb4b1959b62d343a835d784f994867b7152593201b39903c61f3b677d296, fee 0.0092 ETH on 9.2 ETH). Two other EOAs (0x6c5816afbe2c0cda91742651e3bb63f80d25a59c, 0x78a57679a434a2caa3046335195130af6c5a5179) relay for one fee wallet contract 0x145444c66a32a0464059d400dc488ccf4704f9b5 ($47.8 + $30.4 in 7d).",
+ "next_steps": "Contract Entrypoint 0x6818809eefce719e480a7526d76bd3e561526b46, fn relay((address processooor,bytes data),WithdrawProof,uint256 scope); RelayData = (recipient, feeRecipient, relayFeeBPS). 7d: 86 relay calls, $201 gross fees total split across 3 paying callers; avg $2.3 gross/call vs gas ~520k-625k gas/call ($0.16-$4.79 at 0.1-4.8 gwei, ETH $1618). Caveats for builders: (1) the work is assigned OFF-chain - the user hands the signed withdrawal to their chosen relayer and feeRecipient is fixed in the signed data, so a stranger who front-runs pays gas and earns nothing; there is no on-chain queue to poll; (2) 3-4 relayer EOAs share ~$29/day protocol-wide; (3) farm rule S says 'no mixers or privacy pools' - check whether being the relay keeper (not the pool user) is allowed before building."
+}

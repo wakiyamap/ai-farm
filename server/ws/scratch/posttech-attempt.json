@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-posttechsofi",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. PostTechProfile (0x87da6930626fe0c7db8bc15587ec0e410937e5dc, arbitrum) is a friend.tech bonding-curve clone: the only public state-changing functions are buyShares/sellShares, which charge the caller 15% (buy) / 10% (sell) fees paid instantly via .call to owner-set destinations; no claim/harvest/reward/distribute function exists, so nothing pays a stranger for calling. Activity is negligible and 7d activity is zero.",
+  "numbers": "7d window blocks 524614806 (2026-11-16 01:31:33) to 526668508 (2026-11-23 01:31:33) from eth_getBlockByNumber timestamps: 0 Trade events (topic0 0xd5bfddbe... from the contract's own receipts; no-topic scan of same range also 0 = no hidden topic0; same-shape topic0 query on an active range returns events). 1y scan (blocks 0x1a0e6a00-latest, single-address no-topic eth_getLogs): 39 events, 9 unique traders, all recent = 1-share sells @ 6.3e-5 ETH (~0.11 USD); max ethAmount/tx in 1y 0.001875 ETH = 3.23 USD; last Trade block 0x1f224d1b ts 2026-11-08 (14.6 d ago). Gas of last sellShares tx 0x68d0663d...: gasUsed 123,885 x 0.02 gwei = 2.48e-6 ETH ~ 0.0043 USD. Balance 24.9006 ETH = DefiLlama TVL 42,848 USD -> ETH @ 1720.7 USD (llama ts 1795389947, 2026-11-23)."
+}

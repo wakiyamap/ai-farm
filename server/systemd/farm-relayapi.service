@@ -1,0 +1,33 @@
+# Local door to the Relay (relay.link) API for agents (phase 12f). It holds the API key
+# (systemd credential from /etc/farm/relayapi.key, root 0600); agents call it through
+# http://127.0.0.1:29485 and never see the key. Listens on loopback. No state on disk.
+[Unit]
+Description=Farm relayapi (Relay API, key kept here)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+DynamicUser=yes
+LoadCredential=key:/etc/farm/relayapi.key
+LoadCredential=conf:/etc/farm/relayapi.json
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 -I -B /opt/farm/bin/farm-relayapi
+Restart=always
+RestartSec=10
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryMax=256M
+SyslogIdentifier=farm-relayapi
+
+[Install]
+WantedBy=multi-user.target

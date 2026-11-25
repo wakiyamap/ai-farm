@@ -1,0 +1,20 @@
+{
+ "id": "trial-hyperevm-lead206",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "hyperevm",
+ "lead_id": 206,
+ "target": "HyperEVM big-TVL names outside the EVM stack (DefiLlama 2026-11-16): Hyperliquid Bridge 5742M, Earn 1447M, HyperLend Pooled 254.9M, HLP 151.3M, Spot Orderbook 107.4M USD",
+ "run_id": "893b2167f1d544d4b87818e2296a2eb5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "HLP vault deposit/withdraw (0xdfc24b07..., the only actor-shaped flow of the five; HyperCore, not EVM): 1,466 events in 7d = 753 deposits $6.68M + 713 withdrawals $6.77M (711 external, 562 distinct takers, median $621); the actor was paid 0.00 USD on all 713 (commission set {0.0}); blocks/priority fee N/A on Core; one hyperevm attempt $0.0012 (0.1 gwei floor, block 51,450,944 baseFee 0.127 gwei, median maxPriorityFee 5 wei, 0.98 s blocks, HYPE $68.82) so gross 0 < gas; eth_getCode at vault = 0x (control Morpho 15,582 B) - lead 206 stays blocked_infra.",
+  "kb": [
+   "attempts:1479",
+   "leads:206"
+  ],
+  "run_id": "893b2167f1d544d4b87818e2296a2eb5",
+  "at": 1794864942
+ }
+}

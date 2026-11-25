@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-tranche-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Tranche Finance's public reward claim sends earned SLICE to the specified staker; fresh stranger call yields no payout, while Aave reward harvest sends to the fee collector and Compound harvest is admin-gated. The inspected incentives controller emitted no logs in the last seven days.",
+  "numbers": "Ethereum mainnet blocks 26430854 (2026-11-16 23:22:59 UTC) to 26481095 (2026-11-23 23:22:47 UTC), found by timestamp binary search using rpc.py eth_getBlockByNumber. Incentives proxy 0x8C082809DEF6a3c1742D84553B9C6FF1DBC161C8: no-topic eth_getLogs 0 in that range, so no unknown event topic0; same-shape USDC 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 control at block 26481091 = 69 logs. claimRewardsAllMarkets(0x000000000000000000000000000000000000dEaD) eth_call from same fresh address returned true, gross to caller 0 SLICE; gas USD not applicable because no caller payout. rewardsTokenAddress() = SLICE 0x0aee8703d34dd9ae107386d3eff22ae75dd616d1; decimals()=18; token balanceOf(controller)=306.351526094618 SLICE, reserved for earned rewards. marketsCounter()=4. Source: tranche-jibrel/tranche-rewards/contracts/IncentivesController.sol lines 922-1008; tranche-jibrel/tranche-aave-protocol/contracts/JAave.sol lines 748-768; tranche-jibrel/tranche-compound-protocol/contracts/JCompound.sol lines 806-814."
+}

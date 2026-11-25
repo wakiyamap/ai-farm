@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-synapse-cross-chain-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "synapse-cross-chain-bridge",
+ "name": "Synapse Cross Chain Bridge",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 54078,
+ "url": "https://synapseprotocol.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "fdef4132fa3846df8feaeac1ea4a8767",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bridge 0x8f5bbb2b...c1280 (impl SynapseBridge 0x5b00...005b, NODEGROUP_ROLE sole member 0x5ba0...05ba): mint/withdraw from fresh addr revert 'Caller is not a node group'; 7d blocks 97432530(11-16)..97835730(11-23) no-topic scan: 14 TokenMint only, all from Synapse node EOAs (12x 0xe93685f3..., 2x 0xbe9306dd...), 0 TokenDeposit/Redeem/Withdraw, stranger reward 0; pool SwapFlashLoan = user ops + onlyOwner; same dead_end as the 5 sibling chains.",
+  "kb": [
+   "attempts:4188"
+  ],
+  "run_id": "fdef4132fa3846df8feaeac1ea4a8767",
+  "at": 1795459412
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-depth",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "depth",
+ "name": "Depth",
+ "category": "Dexs",
+ "tvl_usd": 1157138,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "a08583c7a18b44e2a296dc66c5ae9aab",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Depth bsc (Curve-like pool 0xc57220 + 8 Alpaca-fork vaults + ALPACA farm 0xa625ab): claimAlpaca() open to anyone but pays the vault, pending ALPACA ~64.7 = 0.031 USD (alpacaPerBlock=0, bonusEndBlock 5,661,200/2021), farm residue 404,685 ALPACA = 192 USD at zero emission; 7d getLogs 133,275,690-134,619,690 (same-run control returned logs): 4,216 logs all on the farm (4,005 Withdraw + 210 Deposit + 1 EmergencyWithdraw by EOAs), 0 on vaults/pool; gas 100k @0.05 gwei = 0.0029 USD (BNB 571.69, coins.llama.fi 2026-11-20)",
+  "kb": [
+   "attempts:2743",
+   "protocols:1184"
+  ],
+  "run_id": "a08583c7a18b44e2a296dc66c5ae9aab",
+  "at": 1795144497
+ }
+}

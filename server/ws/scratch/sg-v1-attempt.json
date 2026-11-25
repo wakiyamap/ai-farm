@@ -1,0 +1,8 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-stargate-v1",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: the Stargate V1 Router 0x53Bf833A5d6c4ddA888F69c22C88C9f356a41614 on Arbitrum has no caller-reward function. The only anyone-can-call entry points (instantRedeemLocal, retryRevert, clearCachedSwap, callDelta, swap/redeemRemote/redeemLocal) pay the user's own funds or a _to recipient argument and $0 to the caller (verified from the verified source; role gates onlyBridge/onlyRouter/onlyOwner elsewhere). In the last 7 days no stranger was paid: retryRevert, clearCachedSwap and callDelta were each called 0 times; all 133 Router txs were users redeeming their own LP or swapping. Same pattern the V2 scout found for retryReceiveToken on the four other chains.",
+ "numbers": "7d Router txs (Blockscout api/v2 address pages, 2026-11-12T11:56 -> 2026-11-19): instantRedeemLocal 129 (119 distinct callers), swap 4 (2 callers), retryRevert 0, clearCachedSwap 0, callDelta 0; same query shape returned 133 rows (control ok). Factory allPoolsLength()=7 (eth_call). Gas: eth_gasPrice 20000368 wei (~0.02 gwei) => ~150k-gas call ~= $0.005 at ETH $1802.40 (coins.llama.fi coingecko:ethereum ts 1795090214). Scout Alchemy lane spent (300120/300000 CU) so historical eth_getLogs fell to a public node rejecting past ranges ('Archive requests require a personal token') - caller data taken from Blockscout tx pages instead.",
+ "bot_id": null
+}

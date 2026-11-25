@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-balancer-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 710,
+ "chain": "avalanche",
+ "slug": "balancer-v3",
+ "name": "Balancer V3",
+ "category": "Dexs",
+ "tvl_usd": 43715,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": 710,
+ "run_id": "a0915584f8b84679ab06aff8fc5935a3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: collectAggregateFees is the only permissionless fn (eth_call from fresh addr OK), pays caller 0, fee pots [0,0], 0 PFC logs and 0 Vault logs in 7d (blocks 100416293-101097433 = ts 1794771395-1795376195; WAVAX control 2018 logs/2k), last PFC tx 2025-04-09, last Vault tx 2026-10-31; gas 77,081 ~0.002 USD, gross 0; TVL 43,715 USD",
+  "kb": [
+   "attempts:3831",
+   "protocols:2012"
+  ],
+  "run_id": "a0915584f8b84679ab06aff8fc5935a3",
+  "at": 1795377047
+ }
+}

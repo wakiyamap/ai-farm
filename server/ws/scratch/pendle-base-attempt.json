@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-pendle-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: no function in the Base pendle-core-v2 deployment pays a stranger caller. gaugeController.redeemMarketReward() (0x58f3d163, impl 0xef5579f4, same Upg as arbitrum) is callable by anyone (eth_call from fresh address returns 0x, no role revert) but pays the caller's own accumulated reward = 0 for a stranger; the controller has taken no non-admin tx since 2024-11-21 while holding 272,987 PENDLE for market/gauge stakers. Everything else pays own-account (merkle claim, PT redemption carry closed on ethereum) or is role-gated (PTLooper onlyExecutor single EOA 0x9cf2b94c, tokenPriceRegistry admin, limitRouter fills are taker trades needing capital).",
+  "numbers": "TVL 2.14M USD (api.llama.fi 2026-11-20); CreateNewMarket 4 events / 7 d on factories 0x59968008+0x81E80A50 (topic0 0xae811fae, blocks 56.70M-59.72M), all by listing bot 0xc78bc588 (0 transfers on ethereum, protocols:118); gaugeController last non-admin tx ts 1732246335 = 2024-11-21 (explorer txs), PENDLE balance 272,987 (usd unpriced); merkle-distributor claim 0xa0165082 5 distinct self-claiming EOAs / ~7 d; limitRouter 7 d: 2 EOAs, cancelSingle 0x5413fba7 dominant; Base gas 0.006 gwei (eth_gasPrice), redeemMarketReward < 0.01 USD/call at 60k gas; gross to a stranger per call 0 USD."
+}

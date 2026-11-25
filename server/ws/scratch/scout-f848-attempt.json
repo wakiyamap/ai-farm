@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0xf848670508a8f83767b0a1bf53a5fac737d30e31",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. The actor runs a permissionless Felix feUSD redemption arbitrage through its own executor, then receives USDT0 spread in the same transaction. The route is already known under lead 149 and a trial bot; this sample does not justify reopening that dead-end class.",
+  "numbers": "7 d timestamp window block 51460960=2026-11-17 00:11:34 UTC to 52075780=2026-11-24 00:11:34 UTC (eth_getBlockByNumber). Ledger felix_cdp.redemption: 7 tx, 14 events, 1420 feUSD principal, on 2026-11-23/24; eighth success 0x015d2039... after ledger cursor. Sample of 15 recent executor tx of 25 shown by explorer: 8 success, 7 revert. Receipts: 8 success sent 0.417074 USDT0 to actor; gross $0.41657 ($0.0521/call); success gas $0.1357 ($0.0170/call); failed gas $0.1278 ($0.0183/call); sample net $0.1531, excluding deployment. USDT0 token 0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb symbol/decimals eth_call=USDT0/6, coins.llama.fi price $0.9987818067 at ts 1795478700; HYPE $63.3897541 at ts 1795479107. Sample receipts include 0xcf2b1528..., 0xbe9ed0dc..., 0x3431759a..., 0x015d2039.... No trace_* on hyperevm, so native internal transfers cannot be independently priced; USDT0 is confirmed wallet receipt. Protocol gross fee/bounty=$0; profit is DEX spread from public redemption. Estimated observed 2026-11-23 net ~$0.12/day after gas, deployment excluded."
+}

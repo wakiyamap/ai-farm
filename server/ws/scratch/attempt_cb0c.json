@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "actor-base-0xcb0c3e880194008e5641c48a6b54ccf67a9bf2a9",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. UniswapX V3 Dutch-order RFQ filler desk on Base (runner-up in leads 219): cosigned orders embed exclusiveFiller == this executor, so a fresh address calling the same fill would not be paid during the exclusivity window; agrees with protocols 284 (same reactor, 39/46 decodes exclusive, uniform 25 bps override) and lead 166 (bsc/arbitrum). Real in-tx spread revenue, not own-funds movement, but the job is RFQ-desk flow, not an open keeper pool.",
+ "numbers": "ledger actor_daily 2026-11-12..15: 40/139/81/45 fills (305, ~76/day); eth_getLogs Fill(topic0 0x78ad7ec0.., topic2=filler) blocks 57769609-58415911 (2026-11-15 04:04 -> 11-16 23:54Z, 43.8 h): 111 fills, last 58415911 = active now, ~61/day. 9-fill receipt sample: sweep to treasury $0.036-0.63, mean $0.241 gross/fill (token-price estimated from the fill's own USDC/token flows); gas 313k-1298k gas @ 0.005-0.012 gwei = $0.003-0.012/fill, mean $0.0067 (ETH $1818.37 coins.llama.fi 2026-11-17 00:10Z). Net est ~61 x ($0.24-$0.007) ~ $14/day. Sample of 9 txs of ~416."
+}

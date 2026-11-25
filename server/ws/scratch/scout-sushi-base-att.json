@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-sushiswap",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: SushiSwap V2 on base (DefiLlama sushiswap slug) is a plain UniswapV2 fork (factory 0x71524B4f93c58fcbF659783284E38825f0622859 + SushiSwapV2Pair). No public function pays the caller: mint/burn need an LP position, swap is a price race, skim(to) only forwards existing surplus (eth_call from a stranger succeeds, pays 0), setFeeTo*/setMigrator are feeToSetter-gated. Same verdict as arbitrum sushiswap (attempts:2638).",
+ "numbers": "factory allPairsLength()=6152, feeTo()=0x1d2af2b99e253b68d72c76484dd88ffb0ace158c (eth_call block 0x38f5398, 2026-11-20); base TVL $1.07M (api.llama.fi/protocol/sushiswap chainTvls.Base 2026-11-20); volume $423k/24h, $3.48M/7d (api.llama.fi/summary/dexs/sushiswap?chain=Base); PairCreated in last 7d (from block 0x3612f18, 3.024M blocks): 1 (block 57773242); skim eth_call from 0x...dEaD on 0x5598bb9a2826ef523a6cd57048d3760ce5351cb7: success, void; reward gross per call: 0 USD; base gasPrice 0.006 gwei (eth_gasPrice) x ETH $1753.45 (coins.llama.fi coingecko:ethereum ts 1795135495) -> skim ~50k gas = $0.0005 (protocols:1153)"
+}

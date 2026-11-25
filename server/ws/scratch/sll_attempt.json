@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-spark-liquidity-layer",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The Spark Liquidity Layer's Base contracts are executor vaults: ALMProxy doCall* require CONTROLLER and ALMProxyFreezable doCall* require ALLOCATOR_ROLE (both confirmed by MissingRole reverts of eth_call from a fresh address plus verified source on Blockscout). The only permissionless surface is PSM3 swaps, which pay the caller no protocol reward (the caller receives only the swapped output); 6,285 Swap events from 67 distinct senders in 7d show it is busy being arbitraged, not paying keepers. Nothing to harvest on base without a role grant.",
+ "numbers": "Base TVL 468.5M USD (api.llama.fi currentChainTvls 2026-11-18); PSM3 idle USDC 999,508 (USDC 0x833589fc balanceOf); PSM3 Swap events last 7d = 6,285 from 67 distinct senders, median swap ~20k USD (eth_getLogs blocks 55,671,040-58,892,787, control: same query shape returned logs); ALMProxy last inbound tx 2026-03-11 block 43217026 (1-wei dust), ALMProxyFreezable inbound only creation + role grants (2026-05-13.., blockscout txs); doCall from fresh address reverts MissingRole 0xe2517d3f on both proxies (eth_call latest, roles 0x70546d1c CONTROLLER / 0x68bf109b ALLOCATOR_ROLE)"
+}

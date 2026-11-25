@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-wan-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1526,
+ "chain": "base",
+ "slug": "wan-bridge",
+ "name": "Wan Bridge",
+ "category": "Bridge",
+ "tvl_usd": 102883,
+ "url": "https://bridge.wanchain.org",
+ "github": null,
+ "listed_days_ago": 1526,
+ "run_id": "39aa018b75a941c5ac69b623c85bd003",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Base lock 0x2715aa7156634256ae75240c2c5543814660cd04 (CrossDelegateV7 impl 0x14ca89ac...6a1d, currentChainID=0x40000011): 7d getLogs = 8 smgRelease + 22 userLock (control non-empty); 8/8 releases from storeman relayer 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7, stranger eth_call smgRelease reverts 'caller is not authorized'; smgWithdrawHistoryFee stranger-callable but pot getStoremanFee(Aries_072)=0 and pays the fee receiver; group fee ~5.7 USD over 8 releases, gas ~0.002 USD/call (180k-218k gas @ 0.006-0.0085 gwei, ETH 1801.93 coins.llama.fi). Same as Arbitrum attempts:2439.",
+  "kb": [
+   "attempts:2442",
+   "protocols:964"
+  ],
+  "run_id": "39aa018b75a941c5ac69b623c85bd003",
+  "at": 1795075686
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-alpaca-finance-2-0",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The one open-to-anyone paying function on the Alpaca Finance 2.0 money market (MoneyMarket diamond 0x7389aaf2e32872cABD766D0CEB384220e8F2A590) is repurchase (0x3169004f): caller repays an unhealthy debt and takes collateral at a fee+premium paid to the caller. It paid 0 times in the last 7 days and 0 times in the last ~30 days; the market has only withdrawals. liquidationCall is whitelist-gated (liquidatorsOk) and not even registered on the deployed diamond. Protocol is winding down (DefiLlama deadUrl=true, repo last pushed 2024-07).",
+ "numbers": "7d (blocks 133,059,626-134,404,138): 0 LogRepurchase, 0 LogLiquidate; 30d back to block 128,679,680: 0. 7d diamond events total 29 (17 LogWithdraw 0x65a06929..., 11 LogAccrueInterest 0x9ed1f5c1..., 1 LogRemoveCollateral 0x5d54c0ca...) - eth_getLogs via relay, controls positive (same address unfiltered returns 29; WBNB Transfer returns logs). Gross/call when triggered = repurchaseFeeBps + repurchaseRewardBps on repaid debt (collateral premium), never realized in period; gas N/A (no calls). TVL 11,008,311 USD (session context / DefiLlama 2026-11-18)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "Moonwell ethereum mainnet legacy cToken liquidation pond (6 mToken markets, 1.38M USD borrow book)",
+  "status": "measured",
+  "why": "Reopened 2026-11-21 scout run 48442496 (protocol-ethereum-moonwell-lending): in the fresh 7 d window blocks 26415050-26465316 (2026-11-14 -> 11-21) a stranger was paid with gross > gas: tx 0x282babb971db901610b74014be038cdf2b40863eda0405ea09942ce60cf098a3 repay 0.00010405 cbBTC ($6.24), seize 1.100x = $6.86, gross $0.62 vs as-executed gas $0.42 (ETH $1681). Second capture tx 0xe865c33f gross $0.21 < gas $0.25. Cadence 2/7 d - up ~5x from the 5/90 d that closed this lead on 2026-11-07, but the pond is unwinding in dust (whole-window gross $0.84).",
+  "next_steps": "Callable: liquidateBorrow(address,uint256,address) on the 6 mToken markets - mcbBTC 0x636080eb65F1b665b646f47D31f21901cDAaeE9F, mUSDC 0xE655790552C68F2871Eb44B2cFe3dcFE6A63e62E, mWETH 0xb85Ca1decc4971F8094DA7676F8b71002a9590C4, mUSDT 0xeddC25B67D474EEEcFA4F69227b81D870C467011, mETH.wh 0x89FE7F84264013Adbd20e31aa3D0B2Cb7c938E33, mWBTC.wh 0x73269F35fbA4BECbeD896Cc0e010aD8417e9AEd4 (Comptroller 0xdec80bb934397575594e91970b37baf65f5b21be); no role gate. 7 d count 2; gross/call $0.21-0.62; gas $0.25-0.42 as-executed (~1M-gas wrapper, lean bot ~0.05-0.1); incumbent 0x00cf7439ff00f30000540000ac00a4055000c5ab took both. Occasional bigger events (59 USD gross on 11-10, attempts:1209) - cadence is bursty; a cheap poll-on-new-borrower-swap design beats a standing keeper."
+}

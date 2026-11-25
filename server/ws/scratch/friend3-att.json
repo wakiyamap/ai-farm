@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-friend3",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Friend3 on bsc is one verified Friend3V1 bonding-curve contract (friend.tech clone: buyTickets/sellTickets, caller pays, subject auto-receives 5% fee share); the full Sourcify ABI (18 functions) has no claim/distribute/keeper function anyone can call to get paid. Activity is near-zero anyway: 26 Trade events in 7 days, all ~0.0006-0.002 BNB dust.",
+  "numbers": "7d window blocks 133839581 (2026-11-16 01:28 UTC) to 135183038 (2026-11-23 01:28 UTC) from eth_getBlockByNumber timestamps. eth_getLogs no-topic scan of 0x1e70972EC6c8a3FAe3aC34C9F3818eC46Eb3BD5D over that range: 26 logs, one topic0 0x2c76e7a4... = keccak Trade(address,address,bool,uint256,uint256,uint256,uint256,uint256) from the verified source (topic0 cross-checked with cast keccak). 24 unique traders, total traded 0.021875 BNB ~= 12.2 USD at BNB 557.56 USD (coins.llama.fi coingecko:binancecoin ts 1795397414); protocol fee 0.00003 BNB ~= 0.017 USD per trade (~0.44 USD/7d). Contract BNB balance 91.2 BNB ~= 50.9k USD. Sample tx: 0x86a0f81509187e9810c0905906fcdc8ca4dc78a16a6fa5a8e926d881093d79cc (block 133866623, sell 1 ticket, 0.00063 BNB)."
+}

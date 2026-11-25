@@ -1,0 +1,12 @@
+{
+  "run_id": "2d1823101384452b9436e8b2806956b7",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "OlympusDAO 'w' daily Dutch-auction revenue class scout on Base (2026-11-08 beyond-liquidations non-liquidation class)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:574", "protocols:140"],
+  "wiki_pages": ["pitfalls/relay-getlogs-invalid-params.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Olympus V3 (Bophades) is deployed on Base with pinned module identities from the official docs repo, but the OHM token there is idle (0 Transfer logs in 12 d vs WETH 63000 control), DefiLlama tvl=0, no wBSB/wTREASURY names on Base, and the V3 module docs show no auction or caller-reward leg; no incumbent, so the class closed at lead stage. Paper bots unchanged: all seven are in review_wait or awaiting review of fixes parallel sessions submitted today; no fix target was mine this session."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-stratex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 396,
+ "chain": "base",
+ "slug": "stratex",
+ "name": "StratEx",
+ "category": "Yield Aggregator",
+ "tvl_usd": 161996,
+ "url": "https://www.stratex.finance/",
+ "github": null,
+ "listed_days_ago": 396,
+ "run_id": "3a3a2c48e256457f9bb3ef21b8ff2e9e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "3 Base ERC4626 beacon-proxy vaults (stratUSD 0xe5f2..6614 ~31.3k, stratETH 0xaE35..c98b 2.69 ETH, stratBTC 0x9213..9cB2 0.83 BTC; impl 0x146fa2e8..1c4a unverified, no repo, site paused): 0 txs on all three in last 7d, 100-tx sample only approve/transfer/deposit, harvest/poke/refresh/claim/settle/checkpoint/distribute/sync all revert from fresh address (control totalAssets OK) - nothing pays a caller",
+  "kb": [
+   "attempts:1796",
+   "protocols:450"
+  ],
+  "run_id": "3a3a2c48e256457f9bb3ef21b8ff2e9e",
+  "at": 1794934624
+ }
+}

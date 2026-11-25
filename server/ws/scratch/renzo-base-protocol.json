@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "renzo",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/renzo/index.js tracks base TVL solely as ezETH XERC20 at 0x2416092f143378750bb29b79eD961ab195CcEea5 (TransparentUpgradeableProxy, impl XERC20 0xb370a0bd64daf1c6b04eaf01c1dedf7c6bce30f7, verified source via explorer). eth_getCode non-empty; getters answer: symbol()='ezETH', name()='Renzo Restaked ETH', totalSupply()=259.33 ezETH, FACTORY()=0x9bce21489a7a85ed475c9e9d0dc94b4e6a1aebf3. Full ABI = ERC20+Permit + mint(address,uint256)/burn(address,uint256)/setLockbox/setLimits/ownership. eth_call from fresh address 0x1111...1111: mint reverts (custom error 0x0b6842aa, bridge-limit/NotFactory path), setLockbox reverts 0x2029e525 = IXERC20_NotFactory (msg.sender != FACTORY in source). No reward/bounty/keeper/poke/claim function exists; nothing pays a caller. explorer txs last ~12 days: ~25 txs, all user approve() calls. Rewards (LXP, Eigen) accrue/claim on Ethereum, not base."
+}

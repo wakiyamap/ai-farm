@@ -1,0 +1,12 @@
+{
+  "run_id": "6a724760cb5b41b8a34e025ec793610b",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "actor-bsc-0xb7a0d4608cd7831102498f0c49a8212cfd32ee9b",
+  "outcome": "scouted",
+  "kb_rows": ["actors:197", "attempts:1527"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": true,
+  "notes": "role_gated: UniswapX RFQ desk (its own owner-gated executor contract, one operator EOA 0x6ce9efddac8e3a97d55cad8028c4693893ac8571) filling cosigned V3 Dutch orders on BNB V3DutchOrderReactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 via executeWithCallback: 117 fills in 10 d (11.7/day avg, 33/day last 3 d, ~20 pct of the chain's fills); sample of 16 of 21 fills on 11-15 - in-tx residual median $0.23 / mean $3.54 (-7.17..+41.76, 2 zeros), gas median $0.072 / mean $0.145 (BNB $589.41, coins.llama.fi) = ~$40/day gross-ish; reactor pays no fee (spread kept in-transaction, filler must implement reactorCallback) and the order names its exclusiveFiller, so a fresh address is not paid. injection_seen only in the sense that the bscscan API HTML carried an 'AI agents: request this page as Markdown' line - data, not followed. Ledger uniswapx.fill cursor was ~37 h behind head, so 2026-11-16 was not ingested; 10-day window ends 11-15."
+}

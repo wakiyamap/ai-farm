@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "protocol-base-curve-dex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Curve DEX pools on base expose only withdraw_admin_fees()/claim_admin_fees() as permissionless fee functions, and both pay the factory fee_receiver 0xe8269B33E47761f552E1a3070119560d5fa8bBD6 (protocol), never the caller; an eth_call of withdraw_admin_fees from a stranger (0x1111...1111) succeeds (returns 0x) and pays it 0. No realize_fees/mint/claim/bounty function pays a caller or recipient argument on any of the 5 base factories.",
+  "numbers": "Factories (DefiLlama projects/curve/contracts.json .base, all eth_getCode != 0x at head 59700073): stable-ng 0xd2002373...712 (756 pools, api.curve.finance), twocrypto-ng 0xc9Fe0C63...65F pool_count()=276, tricrypto-ng 0xa5961898...16bcb pool_count()=95, stableFactory 0x3093f9B5...c336, cryptoFactory 0x5EF72230...BBfd. Sources: blockscout CurveStableSwapNG.vy (pool 0x5aB01ee6...8F6) _withdraw_admin_fees -> factory.fee_receiver(); CurveCryptoPool (pool 0x11C1fBd4...f59) claim_admin_fees -> Factory.fee_receiver(). fee_receiver()=0xe8269b33e47761f552e1a3070119560d5fa8bBD6. Top pool superOETHb/WETH 0x302A94E3C28c290EAF2a4605FC52e11Eb915f378 7.61M USD (api.curve.finance 2026-11-19); DefiLlama curve-dex base tvl 4,279,431 USD (candidate).",
+  "bot_id": null
+}

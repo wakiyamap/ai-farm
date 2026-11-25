@@ -1,0 +1,6 @@
+{
+ "chain": "optimism",
+ "protocol": "hai",
+ "status": "measured",
+ "checked": "2026-11-16 run 3fa7205c (attempts:1439): hai-on-op/core rewarded keeper jobs. OracleJob 0xF4F18205D8D46638489865e42c0a71a3d4F9FC22 pays 0.05 HAI per hourly oracle/rate update to any caller: 2520 rewards/7 d = 22.2 USD/day gross class total, 7 keepers; all 705 rewards of a 2 d window taken in the first eligible block (gap exactly 3600 s), priority fees 15-65 pct of the 0.0617 USD reward. UPDATE run 4591e288 (attempts:1448, decision 2026-11-17-cheap-chain-trials section 4 waives the race rule for trials): first cheap-chain trial bot trial-oraclejob-hai-optimism placed. Executor credits the CALLER's SAFEEngine internal-coin account (SFT.pullFunds), exits via CoinJoin 0x30Ce72230A47A0967B7e52A1bAE0178DbD7c6eA3 (needs SAFEEngine.approveSAFEModification first) then direct UniV3 sell HAI->WETH; fork profit 33741211169416 wei = 0.0616 USD gas 368872. Win rate measured live (60 s poll may lose to incumbent first-block pokes). AccountingJob 0xc256C3aa... (1 HAI) 0/7 d; LiquidationJob 0x5EF15750... (1 HAI) 1/7 d (liquidation class closed)."
+}

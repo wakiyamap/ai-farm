@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "biswap_v2",
+  "status": "dead_end",
+  "checked": "DefiLlama API /protocol/biswap-v2 address (bsc:0x965f527d9159dce6288a2219db51fc6eef120dd1 = BSW token, name 'Biswap', owner = timelock 0xf5d6fed0f4735ff2036ce4be535bd32e77dae9fe; the adapter projects/biswap-v2/index.js is 404, it is a live-listing protocol). Docs: docs.biswap.org/biswap/general-information/biswap-smart-contracts.md (Smart Router 0x0eB6949e725A295Ecb3BEacFc3766610BC970BEF, MasterChef 0xDbc1A13490deeF9c3C12b44FE77b503c1B061739, says emissions/farming discontinued). GitHub org biswap-org (core/periphery/staking repos, V1-era Pancake-fork sources). V2 AMM verified on chain: factory 0x858e3312ed3a876947ea49d572a7c42de08af7ee (eth_getCode non-empty; allPairsLength()=3503; feeToSetter()=0x3401b2a64bcb5e4b71a786097a94f8f8fee82c2a; confirmed via pid1 LP 0xda8ceb724a06819c0a5cdb4304ea0cb27f8304cf factory() getter), bytecode dispatch = standard UniswapV2-fork set (createPair/getPair/allPairs/allPairsLength/feeTo/feeToSetter/setFeeTo/setFeeToSetter), no caller-paying function. MasterChef 0xDbc1...: BSW()=BSW token, poolLength()=139, totalAllocPoint()=1 (only pid 0, BSW single-stake), BSWPerBlock()=1e18, stakingPercent()=861096/percentDec 1e6 -> 0.861 BSW/block."
+}

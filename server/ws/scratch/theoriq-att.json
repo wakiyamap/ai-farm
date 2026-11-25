@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-theoriq-gold-vault",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid - the vault is callable but no function pays the caller. collectFees/chargeManagementFee/chargePerformanceFees are open to anyone (no role, no whitelist) yet pay 100% of fees to fixed protocol collector wallets; claim/processAllClaimsByDate pay redeemers their own redemption. A single keeper EOA 0xe0b7deab801d864650dec58cbd1b3c441d058c79 runs chargeManagementFee+collectFees daily paying its own gas for nothing. Nothing to capture without becoming a fee collector (owner-only).",
+ "numbers": "TVL: getTotalAssets()=29.164842 XAUt (6 dec, on chain) x $3,531.02 (coins.llama.fi ts 1795188706) = $103.0k, matches DefiLlama $103,915. 7d callers (explorer txs, vault 0x0F54...1C8F): collectFees x8 + chargeManagementFee x9 (all keeper EOA 0xe0b7deab...), chargePerformanceFees x1, requestRedeem x2, updateTotalAssets x1 (operator 0xcbf2...). eth_call from fresh 0x1111...: collectFees+chargeManagementFee succeed (return 0x); chargePerformanceFees reverts HighWatermarkViolation 0x6618f002 (state, not role); processAllClaimsByDate(2026,11,19,50) reverts NothingToProcess 0x683f18b0 (state). Sample collectFees tx 0x5c16aa2582ab8745eef125f1abaa14b299a8c309e0f14e4b12e3708764f0b3df: XAUt Transfer data 0x18d=397 units=0.000397 XAUt=$1.40 to collector 0xc547..., gasUsed 70034 @ 0.6468 gwei = 0.0000453 ETH = $0.076 (ETH $1,678.87 coins.llama.fi 2026-11-20). Caller paid $0.00 gross."
+}

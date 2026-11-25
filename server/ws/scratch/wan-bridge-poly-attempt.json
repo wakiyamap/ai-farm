@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-wan-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The only permissionless function that could pay on this CrossDelegateV7 lock (0x2216072a...01ab, impl 0x1faa6f2b...7655) is smgWithdrawHistoryFee(bytes32[]) - it succeeds from a fresh address but is void, pays the recorded feeReceiver not the caller, and the fee pot is empty (getStoremanFee(Aries_072)=0). The reward-bearing smgRelease/smgMint are role-gated: fresh-address eth_call reverts 'CrossDelegateV7: caller is not authorized' while the storeman EOA succeeds.",
+ "numbers": "7d (blocks 97,174,000-97,577,220): 10 SmgRelease + 6 UserLock events (eth_getLogs 9x45k chunks, topics 0x74a78f7a../0x43eb196c..); 5/5 sampled releases from single storeman 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7, 0/5 with any transfer to the relayer (fee 0.2% goes to fixed partner 0x34d7ece3.., tx 0x8b3ad37..); gas/call 359k @ 242.7 gwei = 0.087 POL = $0.0072 (POL $0.08215, coins.llama.fi 2026-11-19); TVL polygon $119k."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-jasper-vault",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Legacy Arbitrum deployment of Jasper Vault: contracts exist and are verified but the entry points (Diamond 0x5FfDD96bD604f915520d66C9edDd46dFc1434d71, Manager 0xacEB04e585842F79a596D9866F9F27378fb73b98) have had no transactions since 2025-05-29 and the sample writer vault none since 2025-07-04 - nothing called in the last 7 days. No publicly callable function paying the caller found (no keeper/bounty/liquidator path in OptionModuleV4 source; SDK liquidateOrder is signed by the position owner). The product now runs on Jasper's own L2 (55531) + Base + BSC; the app does not use Arbitrum.",
+ "numbers": "TVL 34,641 USD on arbitrum (api.llama.fi/protocol/jasper-vault, 2026-11-22): 16,854.16 USDT (0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9, 6 decimals) + 0.29169 WBTC (0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f), flat since block window 2026-06-28 (daily point 1780012800). Last tx timestamps: Diamond/Manager 1748519617 (2025-05-29), vault 0x8126eC6d...7902 1751601088 (2025-07-04) via explorer txs (etherscan) - 0 txs in 7d; control: same query shape returned rows with dates. USDT balanceOf = 0 for all 6 module addresses (eth_call 0x70a08231, latest). Gross/reward per call: none found; gas not applicable. Addresses from github.com/jaspervault/jaspervault-sdk src/api/config/arbitrum.json."
+}

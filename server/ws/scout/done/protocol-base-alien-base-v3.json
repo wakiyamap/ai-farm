@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-alien-base-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1076,
+ "chain": "base",
+ "slug": "alien-base-v3",
+ "name": "Alien Base V3",
+ "category": "Dexs",
+ "tvl_usd": 547419,
+ "url": "https://alienbase.xyz",
+ "github": null,
+ "listed_days_ago": 1076,
+ "run_id": "7d18261ca195477b9e851ad481040eb2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "UniV3-fork DEX + ALB MasterChef farm (Distributor 0xe98af15f) + Bunni auto-compound on Base; TVL ~534k (llama.fi 2026-11-18). Permissionless reward/keeper fns (Distributor.updatePool/massUpdatePools, BunniHub.compound) pay caller 0 - ALB emissions mint only to team/treasury/investor/this (BasedDistributorV2.sol:545-548); fees+ALB accrue to staked LPs via self-claim harvest (needs capital); admin fns onlyOwner. ALB minting live: 4 mints/50k blocks, control 60 transfers (lane ok). No function pays an unrelated caller.",
+  "kb": [
+   "attempts:2228",
+   "protocols:790"
+  ],
+  "run_id": "7d18261ca195477b9e851ad481040eb2",
+  "at": 1795028194
+ }
+}

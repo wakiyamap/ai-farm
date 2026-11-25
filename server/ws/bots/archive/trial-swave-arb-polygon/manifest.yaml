@@ -1,0 +1,22 @@
+id: trial-swave-arb-polygon
+author: builder/gpt-6-sol
+chains: [polygon]
+strategy: "trial: flash-funded SWAVE SetToken NAV redemption versus Polygon V3 pools, profit paid in native USDC"
+copied_from: "0xde0a99fb39e78efd3529e31d78434f7645601163 via 0x3cb2452c615007b9ef94d5814765eb48b71ae520, tx 0xddbc69d32ebc34aab50c6d1d95d1bc397f87acd61e8535655ecf743701835caf"
+capital_usd: 10
+allowed_contracts: []
+send_route: public
+max_loss_per_tx_usd: 0.95
+max_loss_guarantee: "SetRedeemArb.sol take() (lines 60-69) measures the owner's native USDC (0x3c499c54...3359, the farm's Polygon USDC) balance before and after and reverts with NoProfit below minProfit; bot.py check() bounds gasLimit x maxFee using 0.20 USD/POL at under $0.95 and at most 50% of gross, and passes that bound as minProfit. Signer checks its own native price at signing."
+expected_value: "Trial: 8 atomic SWAVE takes in the 7 days ending 2026-11-21 05:16Z, observed 0.129-0.301 USDC.e gross each on the incumbents' route; minority win share sought. The farm's route at the parent of 0xddbc69d3 pays 0.209510 native USDC for 410975 gas (incumbent-shaped route before the fix: 0.204496 USDC.e for 583612 gas). See README and scratch/trial-set-arb-polygon/swave-7d-logs.json."
+executor: scratch/trial-set-arb-polygon/contracts/out/SetRedeemArb.sol/SetRedeemArb.json
+executor_args: "{bot}"
+executor_note: "Owner-only atomic Morpho flash route in native USDC; lender, USDC, SetToken, module, router and V3 path are call arguments; constructor takes the owner only. Fix run 54a3d48c (2026-11-21): the loan, the guard and the payout moved from USDC.e to native USDC, and the two USDC.e legs were removed. The gate deploys this artifact."
+fork_evidence: "scratch/trial-set-arb-polygon/proof-usdc.py (result proof-usdc-result.json); reset polygon 97684357 (generation 43); deployed 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352; success 0xe0be2fc279587c588d82efae3b5b82b26f57f614aa54cfbaef7d407afc37c5cb (block 97684361): owner +0.209510 native USDC, owner USDC.e unchanged, gasUsed 410975, executor left with 0 USDC / USDC.e / SWAVE / WPOL and 0 allowances; guard (minProfit 1e9) 0x85dafb5348c3d86b4aed7bb0a6d9101494c502e663cbfbea99351d43b7e81be2: status 0, owner delta 0; non-owner 0x1bbccb21639bdf6876e01257a61900d6a6ee45ba48e5b880e42dd74cb8be7912: status 0. The bot's own calldata(1) with the refreshed runtime override in an archive relay eth_call at 97684357 returned 209510, and with minProfit 1e9 reverted NoProfit(209510, 1e9) (scratch/trial-set-arb-polygon/selftest-usdc.py, selftest-usdc-result.json)."
+awaited_events: "Timer checks the V3 price gap every 30 s; latest observed SWAVE atomic redeem at block 97684358, 2026-11-21 03:33Z; next gap timing unknown."
+good_signs: "Repeated paper_sim success at gross above twice the signed gas cap; live sends win before competitors; won sends raise the bot wallet's native USDC."
+bad_signs: "Signer rejects the gas cap, Morpho native USDC liquidity on Polygon drops below 25 USDC, or gaps always below the gas bound."
+rpc_reads_per_min: 2
+alchemy_cu_per_day: 76000
+legal_note: "Public SetToken redemption at NAV versus public pool prices is ordinary arbitrage; no fee bypass, pending transaction reaction, or protocol bug."
+expedite: false

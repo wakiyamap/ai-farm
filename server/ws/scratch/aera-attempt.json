@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-aera-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Aera V3 on arbitrum has no keeper/reward function in its core (github aera-finance/aera-contracts-public v3/src, no reward/bounty/keeper strings); vault submit(bytes) is guardian-gated (eth_call from fresh addr reverts 0xc6248746). The only stranger-callable reward path is ProvisionerV2.solveRequestsDirect where a solver pockets RequestV2.solverTip, but in the last 7 days there were 0 deposit/redeem requests and 0 solves on the only active provisioner (gtFHE vault created 2026-11-12); all activity was vault/provisioner setup by manager EOAs. Gross paid to anyone in 7d: 0 USD.",
+ "numbers": "7d window blocks 522334482..525134482 (eth_getLogs, research lane). Factory 0xd1883062629157Ff6Eae51ca355aCA4f52d2BD4E: 1 VaultCreated in 64d at 523710114 -> vault 0xca91dd047be41635251724cc9adc0036db99f279 (gtFHE), provisioner 0x8d73ffcf5870dd1947d3f1b8ae737cdab2a59987. Provisioner 7d logs: 4 (all creation tx 0x08db1b1e..., from 0xf9af9bf867df5f990c617e634b24699a24a4e29e); vault 7d logs: 11 (creation + role event tx 0xcca022ac..., from 0x78a44cdd1bd74161528dc42d5370a7e00e607e0c). Requests solved 7d: 0; tips paid: 0; gross 0 USD vs gas ~<0.01 USD (arbitrum). TVL 125572 USD (DefiLlama)."
+}

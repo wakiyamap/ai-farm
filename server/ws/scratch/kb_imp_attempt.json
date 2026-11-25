@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-impossible",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the only open function on the protocol's BSC contracts is IFAllocationMaster.activeRollOver (checkpoint rollover): callable by anyone (eth_call from a fresh address returns 0x, no role revert) but pays 0 (pure bookkeeping in source, no token or ETH transfer). stake/unstake move the caller's own IDIA; AMM factories have no caller reward; launchpad sales are pay-to-purchase, giveaway claims go to purchasers. All 3 staking contracts had 0 events in 7 days.",
+  "numbers": "7d window blocks 133,923,927 (2026-11-16 12:00:49 UTC) -> 135,267,322+ (2026-11-23 ~11:54 UTC, head 0.75 s blocks): 0 events on 0x1d37f1e6...b91b / 0x1aBd0067...022C / 0xfc652ea2...99ecb by no-topic eth_getLogs; control same shape+window = 212 IDIA (0x0b15ddf1...cb89) Transfer logs. eth_call activeRollOver(0) from 0x...dEaD: success, 0x return, no transfer. trackCount()=17 (getter OK). TVL Binance $80,100 (adapter AMM pools) + staking $4,457 (api.llama.fi/protocol/impossible, 2026-11-23). Gas irrelevant: payout 0. Sources: adapter projects/impossiblefi/index.js, Sourcify v2 IFAllocationMaster.sol (verified 2026-06-03), GitHub ImpossibleFinance/launchpad-contracts."
+}

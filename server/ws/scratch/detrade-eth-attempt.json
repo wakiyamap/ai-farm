@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-detrade",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. DeTrade's only ethereum contract is the Murmurr Lagoon v0.6.0 ERC-7540 vault; every maintenance function (settleDeposit/settleRedeem onlySafe, updateNewTotalAssets onlyValuationManager, expireTotalAssets + claim*OnBehalf onlySafe) reverts for a stranger (eth_call from fresh 0x4444..4444) and none pays a caller. The curator EOA 0xca3770acc9ec4b6d9e30973ccd23619de5caeddc settles its own Safe 0x0982a3867432df8e31b2fe4e0c00ba94325a8ecd through Zodiac module 0x8d4e55f211d44e9e804600d0fa2778bf94ceb92d and pays its own gas - same dead end as base row 306 / attempt 1600.",
+  "numbers": "7d window blocks 26429659 (2026-11-16 19:23 UTC) - 26479903 (2026-11-23 19:23 UTC), no-topic eth_getLogs on vault 0x7d2c2f54792ad72cb834d298f542145b06b703cb, topic0s mapped from verified Events.sol via cast keccak (non-zero scan = its own control): 41 logs / 23 txs = 7 settlement cycles + 2 user syncDeposit txs ($23.04 USDC). Gross to caller $0/call (4 of 7 settle receipts sampled: 0 token transfers, tx value 0). Gas per settle 137,161 gas x 0.106-1.307 gwei (receipt effectiveGasPrice) = $0.02-0.31 at ETH $1735.37 (coins.llama.fi 2026-11-23T19:34:41Z). Vault totalAssets()=280,030.07 USDC (asset()=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, 6 dec read on chain). Implementation 0x6c77c47fb8168e22976c3b0338cb1769c952249f, version()=v0.6.0."
+}

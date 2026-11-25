@@ -1,0 +1,4 @@
+{
+  "status": "dead_end",
+  "next_steps": "CLOSED 2026-11-08 run 468402f2 (attempt 520): payment leg absent at the ABI leg - current dolomite deployment per chain is DolomiteMargin adapter (ethereum 0x003Ca23...b97D, arbitrum 0x6Bd780...072) plus five per-model InterestSetters, all fully verified on blockscout: function names are only view getters (getInterestRate/getCoefficients/getMaxAPR) plus modular ownerSetSettingsByToken; NO rebalance(), NO payable, NO caller payment. Setters are stateless getters (rate computed from current utilization per margin call), no keeper needed; docs sitemap lists no rebalancer role (only governance 'rebalance'). Positive control: getCoefficients() selector 0xafd4c8d6 returned 8 live coefficients from 0x23543d84cD9886aBe74671351e6712625cB29E4b at latest. If a future dolomite docs change reintroduces a paid interest-setter role, reopen from the docs sitemap, not from this row."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-lodestar-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1212,
+ "chain": "arbitrum",
+ "slug": "lodestar-v1",
+ "name": "Lodestar V1",
+ "category": "Lending",
+ "tvl_usd": 36959,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1212,
+ "run_id": "91cd5951acdf4bfc96df3ff96e752410",
+ "result": {
+  "verdict": "unpaid",
+  "line": "claimComp(address) public (eth_call from fresh addr succeeds, no role gate) but 0 claims in 7d blocks 524623001-526677097 (0 in 95d; same-shape control returns 6); whole reward pot = 1.128 LODE, LODE unpriced (last known $0.0816 2024-06) so claim pays ~0 vs gas 1.62M*0.02gwei = ~$0.06; LiquidateBorrow 0 in 7d on all 15 markets; TVL $36,959",
+  "kb": [
+   "attempts:3943"
+  ],
+  "run_id": "91cd5951acdf4bfc96df3ff96e752410",
+  "at": 1795400707
+ }
+}

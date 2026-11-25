@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-ryze-protocol",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Only on-chain-used factory function 0xa47bd76d (execute-style, pre-encoded pool-op calldata) reverts for a stranger even with the keeper's exact calldata, and pays 0 on-chain to the caller (no token transfers, ETH diff = gas exactly). All 450 calls over the last 7 days came from one protocol EOA; the two pools had no transactions at all in the window. No claim/harvest/reward-style function found (no verified source; 4byte over extracted selectors).",
+ "numbers": "factory 0xdf97B25A935EB72378e0C2D4DC15955ecE612b49; 450 txs to factory 2026-11-09..11-17, 100% from 0x3565794EA9871F0A69F54eCc305F7478F39545fF (blockscout 9 pages); keeper call gas 569,109 x ~0.006 gwei = 3.42e-6 ETH = $0.0062 at ETH $1805.96 (coins.llama.fi 2026-11-17); payment to caller 0 ETH / 0 ERC20 (receipt + before/after balances tx 0xdee496f5...); pools 0x22f902... and 0x40f3da...: 0 txs last 7d (last 2026-10-07 and 2026-11-09); TVL $444,733 (DefiLlama candidate row)."
+}

@@ -1,0 +1,16 @@
+{
+ "id": "uniswap_protocol_fees.released",
+ "protocol": "uniswap_protocol_fees",
+ "kind": "revenue_release",
+ "chains": {
+  "ethereum": ["0x0d5cd355e2abeb8fb1552f56c965b867346d6721"],
+  "base": ["0xff77c0ed0b6b13a20446969107e5867abc46f53a"],
+  "arbitrum": ["0xb8018422bce25d82e70cb98fda96a4f502d89427"]
+ },
+ "event": "Released(uint256,address,address[])",
+ "topic0": "0x0143172ff1dd87f3691e870b3fb5616db820278d26d2d16c3e03330a240a6c38",
+ "indexed": ["nonce", "recipient"],
+ "data": [],
+ "actor_field": "recipient",
+ "note": "Uniswap fee-switch TokenJar/Firepit release auction (lead 105, wiki infra/uniswap-fee-releaser.md): anyone pays the threshold (4000/2000/2000 UNI of the bridged RESOURCE) to the Releaser and receives the TokenJar balance of up to 20 assets. Event Released(nonce indexed, recipient indexed, assets dynamic[]) - assets omitted per decisions/human/2026-11-09-ledger-dynamic-events.md (pre-9d adds were rejected for the dynamic address[]). Cadence: eth 4.4/day, base 8/30d bursty, arb 1.18/day (measured 2026-11-09 runs 3f440536, ef71307d). TokenJar emits no events; value = same-tx transfers out of the jar."
+}

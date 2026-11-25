@@ -1,0 +1,4 @@
+{
+  "status": "dead_end",
+  "next_steps": "CLOSED for the farm 2026-11-12 run bc8f9221 (attempt 969): at the 50 USD/tx worst-case cap the takeable lien debt is <= 0.024 ETH and the 30d census carries 1 such fill/month with ~0 interest; even at the 0.13 ETH cap (268 USD principal per take, 5.4x over the L cap) re-estimated capped-fill interest is 0.39 USD/day, and the Pool-unit float needed to survive the 30 USD watchdog stop is <= 0.0146 ETH. The class pays at whale scale (median lien 0.79 ETH = 1630 USD, 18.4 USD/day across 37 incumbents), not at farm capital. The paper bot blur-refi-taker-ethereum has a full manifest + runnable bot + fork proof (attempt 966); the reviewer may now demote/archive it per the dead_end payout route. Do not add fix rounds on this route; a genuinely different Blur route (a one-transaction payout class on Blur rails, not lien-hold) is a new lead first."
+}

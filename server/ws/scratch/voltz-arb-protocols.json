@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "voltz",
+ "status": "dead_end",
+ "checked": "Voltz v3 IRS wind-down on arbitrum. Factory 0xda66a7584da7210fd26726EFb12585734F7688c1 (DefiLlama adapter projects/voltz/index.js, eth_getCode non-0x, getters answer). Full-range eth_getLogs on IrsInstance (topic0 0xe1348047..., from block 60246384) returns 13 instances / 13 margin engines, all with termEndTimestampWad <= 2023-08-31 (parsed from event data), tokens WETH 0x82af49447d8a07e3bd95bd0d56f35241523fbab1 and USDC.e 0xff970a61a04b1ca14834a43f5de4533ebddb5cc8. Only function paying msg.sender is MarginEngine.liquidatePosition; verified explorer source (MarginEngine.sol): stub body 'return 0' behind whenNotPaused + checkCurrentTimestampTermEndTimestampDelta modifiers. eth_call from fresh address on all 13 engines: 12 revert 0x53adea9c closeToOrBeyondMaturity, 1 (0x9b5b9d31) reverts Paused. Periphery 0x5971eedc4ae37c7fe86af716737e5c19efd07a80 (ERC1967 proxy, impl 0x9d76eb119f760cef1d19c73209df1d841586b4a9, verified source): user actions only (settlePositionAndWithdrawMargin, updatePositionMargin, mintOrBurn, swap) + vammOwnerOnly setters; nothing pays a stranger. Same outcome as ethereum protocols:1695 (dead_end)."
+}

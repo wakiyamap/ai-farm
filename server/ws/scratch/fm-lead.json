@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "flat_money_v2 OrderExecutionModule executeOrder",
+  "status": "measured",
+  "why": "A stranger EOA 0x45d83e658e2f70ba83e4e519f792f065c4a01d7d called executeOrder on 0x7e50ad6e467d9fafc3b4bfd003247ceaa2f17e5b 47 times in 7 days (e.g. tx 0xd5e1af2d9a6be6ff..., 0xff54623bb1afa2f3...) for other accounts' pending orders and was paid the WBTC keeperFee by the protocol in each tx (verified WBTC transfer to it in receipt of 0xd5e1af2d). Median fee 2.17e-6 WBTC ~= $0.14 (getKeeperFee() = 2.34e-6 WBTC, WBTC $63,740 from coins.llama.fi 2026-11-17).",
+  "next_steps": "Contract: OrderExecutionModule proxy 0x7e50ad6e467d9fafc3b4bfd003247ceaa2f17e5b (impl 0xc758c3d61f7fc183033a987f7f8e10b706f6a010), fn executeOrder(address account,bytes[] pythUpdate) external payable, no role gate; caller must supply a fresh Pyth price update (extra gas + needs Pyth API). 7d count: 47 executions (45 LeverageClose, 2 StableWithdraw) out of ~6.7/day protocol-wide. Gross/call: ~$0.14-0.15 WBTC. Gas/call: gasUsed 786,934 x 0.02 gwei = $0.028 L2 + Nitro L1 data fee (~$0.02-0.05) => net ~$0.05-0.10. One keeper EOA took all 47 in the first block (7/7 samples) => latency race for a new entrant, and total protocol keeper revenue is only ~$6.5/week. LiquidationModule 0x610409dacd944d72f094a4a4cb6da591351fe33d liquidate(uint256[]) is also open (fee to msg.sender) but 0 PositionLiquidated events in 14d. TVL only $805k."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-vovo-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1590,
+ "chain": "arbitrum",
+ "slug": "vovo-finance",
+ "name": "Vovo Finance",
+ "category": "Yield",
+ "tvl_usd": 42944,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1590,
+ "run_id": "c7098eb4ce254ee484fdae0aaa4eb9c5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "poke()/collectRewardByKeeper gated by keeper registry on all 8 vaults (isKeeperOnly=1, eth_call poke from fresh addr reverts '!keepers'/'!keeper'); caller is paid 0 by design (mgmt fee to rewards 0x9119...70b2, farm reward reinvested); 0 logs on the 8 vaults in 7d (blocks 524693128 2026-11-16 -> 526749696 2026-11-23, no-topic scan; control 10 USDC Transfers/256 blocks); last poke 2023-05-14, newest tx is a user withdraw 2026-10-22; TVL 42,944 USD, site dead.",
+  "kb": [
+   "attempts:4041"
+  ],
+  "run_id": "c7098eb4ce254ee484fdae0aaa4eb9c5",
+  "at": 1795421961
+ }
+}

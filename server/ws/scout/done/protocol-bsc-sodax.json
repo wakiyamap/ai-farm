@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-sodax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 96,
+ "chain": "bsc",
+ "slug": "sodax",
+ "name": "SODAX",
+ "category": "Bridge",
+ "tvl_usd": 407093,
+ "url": "https://www.sodax.com/",
+ "github": null,
+ "listed_days_ago": 96,
+ "run_id": "41c7aa10ca7f448198aa774c89233dd7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "SODAX BSC spoke (Connection 0xA143488c, AssetManager 0x348BE44F, both proxies w/ code): 7d eth_getLogs (41x5000 blocks) = 21 Connection events, all outbound user deposits (3 sendMessage 0x6ea9cec9, 7 via PancakeSwap router 0xe77e9642, 11 AM.transfer 0xc6b4180b; 8 caller EOAs), 0 inbound recvMessage deliveries, no token/BNB sent to tx.from (sample 5 of 21); gas 57k-411k/call at 0.05 gwei = bash.002-0.014 (BNB 92.81, coins.llama.fi); gross to caller bash, AM holds 303.7 BNB + 300k bnUSD + 9.6k USDC",
+  "kb": [
+   "attempts:1630",
+   "protocols:326"
+  ],
+  "run_id": "41c7aa10ca7f448198aa774c89233dd7",
+  "at": 1794900733
+ }
+}

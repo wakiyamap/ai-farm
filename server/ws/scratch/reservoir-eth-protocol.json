@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "reservoir_protocol",
+  "status": "dead_end",
+  "checked": "2026-11-21 run a8159e84: scout pass for keeper rewards on the CDP core on ethereum (docs https://docs.reservoir.xyz/security-and-compliance/smart-contract-addresses.md: core is on ethereum). Verified-source contracts (explorer): CreditEnforcer 0x04716DB62C085D9e08050fcF6F7D775A03d07720, PegStabilityModule(USDC) 0x4809010926aec940b550D34a46A52739f996D75D, SavingModule 0x5475611Dffb8ef4d697Ae39df9395513b6E947d7, DAM 0x0FedbA9178b70e8b54e2Af08eBffcf28A1e5A43B, rUSD 0x09D4214C03D01F49544C0448DBE3A27f768F2b34 (name()='Reservoir Stablecoin', totalSupply=225136e18 via eth_call), RusdMintBridge 0x6360f43803732Eaeb9F1967b9f74d117E03154b3. All external-callable fns are 1:1 user swaps where the caller pays: CE mintStablecoin/mintSavingcoin/mintTerm, PSM allocate/redeem (no fee code in source), SM mint/redeem, bridge mintRusd. No liquidate/auction/reward/claim/poke/checkpoint in any verified source (grep of explorer source trees). Role-gated: PSM.mint CONTROLLER; CE.allocate/withdraw/deposit/redeem + SM.update/setRedeemFee MANAGER; DAM.mint GOVERNOR. DefiLlama adapter (projects/reservoir-protocol) counts only reserve token balances of the protocol's own vaults. Sources in scratch/reservoir-{dam,ce,psm,sm,bridge}-* trees."
+}

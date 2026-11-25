@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "opyn_convexity",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/opyn-convexity/index.js gives 2 OptionsFactory addresses on ethereum: 0xb529964F86fbf99a6aA67f72a27e59fA3fa4FEaC and 0xcC5d905b9c2c8C9329Eb4e25dc086369D6C7777C (both eth_getCode non-empty; getNumberOfOptionsContracts() = 9 and 148). Factory source (Etherscan, OptionsFactory.sol, solc 0.5.10) holds the full OptionsContract/oToken ABI. Reward-shaped functions: liquidate(address,uint256) (anyone, +1% liquidationIncentive in collateral, notExpired modifier), exercise(uint256,address[]) (anyone but you pay strike, no reward), redeemVaultBalance() (pays msg.sender's own vault, not the caller). All 157 option contracts created by the two factories (OptionsContractCreated logs, block 0 to latest) expired: newest expiry() = 1634284800 = 2021-10-15 (checked on the 2 last-created: 0x40a7fd740213a4d2db52918e1e556efcaa737282, 0x093ea3f329a82bcb2986dfc42ac0e5399dd03676). liquidate from fresh address now reverts 'Options contract expired' (eth_call); redeemVaultBalance reverts 'Vault does not exist'. No keeper/claim/reward function on factory or oToken."
+}

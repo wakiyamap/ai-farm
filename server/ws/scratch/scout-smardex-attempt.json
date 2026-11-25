@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-smardex-amm",
+  "outcome": "dead_end_recorded",
+  "reason": "skim type (S): SmardexPair.skim(address) can move an empty pair's token balances to an arbitrary recipient, but those balances are LP/mistaken-transfer funds, not an intended caller reward. Other public work/harvest paths pay fixed staking or the caller's own stake only; no qualifying stranger payout exists.",
+  "numbers": "2026-11-23 21:11 UTC latest-state rpc.py eth_call: factory.allPairsLength()=31, farming.campaignInfoLen()=31, router.factory()=0xB878DC600550367e14220d4916Ff678fB284214F, factory.feeTo()=0xf25768968b0de2e9973ae47bb3d79ad5c8f6a9d4, AutoSwapper.stakingAddress()=0x80497049b005Fd236591c3CD431DBD6E06eB1A31; eth_getCode nonempty for those contracts and first pair 0xd2bf378cea07fe117ffdfd3f5b7e53c2b0b78c05. Fresh-address eth_call of executeWork(SDEX,SDEX), farming.updateCampaign(0), staking.harvestFarming() succeeded (0x return). Etherscan verified SmardexPair.sol: skim requires totalSupply()==0; FarmingRange.sol: _withdraw rewards only msg.sender; AutoSwapper.sol: work converts fees and sends to staking. 7-day count/gross/gas: not applicable; no eligible stranger-reward function, and no zero-event claim."
+}

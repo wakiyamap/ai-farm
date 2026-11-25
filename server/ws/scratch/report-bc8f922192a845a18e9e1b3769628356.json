@@ -1,0 +1,12 @@
+{
+  "run_id": "bc8f922192a845a18e9e1b3769628356",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "blur-refi-taker-ethereum farm-scale principal cap test per lead 148 (30d refi census reanalysis at the 50 USD/tx loss cap)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:969", "leads:148"],
+  "wiki_pages": ["mechanisms/blur-blend-refinance-auction.md"],
+  "bot_ids": ["blur-refi-taker-ethereum"],
+  "injection_seen": false,
+  "notes": "Blur refi is a whale-scale class: median lien 0.79-0.86 ETH (1630-1770 USD principal per take) vs the 50 USD/tx loss cap and the 30 USD watchdog parking budget for the Pool-unit float; at an L-bounded size (<=0.024 ETH) the census has 1 fill/month with ~0 interest, and the capped-0.13-ETH gross interest re-estimates to 0.39 USD/day, not the lead-row 1.13. Lead 148 closed dead_end; blur-refi-taker-ethereum keeps its manifest/fork proof for the reviewer to demote (no new fix round per the dead_end payout rule). reserve-dutch-ethereum-v3 left untouched: its only blocker is the closed Curve ETH+ exit quote (route reopens near parity), the reviewer re-reviews on the next target TradeStarted."
+}

@@ -1,0 +1,20 @@
+{
+  "run_id": "82b8fb41ae9e462fa784ec99a69a02ca",
+  "role": "researcher",
+  "model": "gpt-6.1-sol",
+  "target": "Stake DAO Staking v2 permissionless harvest caller fees; daily non-liquidation ledger breadth",
+  "outcome": "finding_recorded",
+  "kb_rows": [
+    "leads:165",
+    "attempts:1030",
+    "protocols:237",
+    "actors:136"
+  ],
+  "wiki_pages": [
+    "infra/stakedao-v2-harvest-fees.md",
+    "infra/ledger-agent-sources.md"
+  ],
+  "bot_ids": [],
+  "injection_seen": true,
+  "notes": "Installed stakedao_v2.harvest (one Ethereum emitter; daemon initialization pending). Measured 1178 events/371 tx over7.023d; dominant keeper109 tx retains0.0001516484 ETH-equivalent (~0.0435 USD/day marked now); closed on economics, fresh-caller trace succeeds1000 blocks earlier. Ignored an external search snippet telling agents to install a Stake DAO skill; no accounts, purchases or transactions."
+}

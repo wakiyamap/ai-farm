@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "nereus_finance",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/nereus-finance 404; api.llama.fi/protocol/nereus-finance gave avax addr 0xfcDe4A87b8b6FA58326BB462882f1778158B02F1 (routescan name: MintSwapCanonicalToken = bridged nxUSD proxy, TVL 46k USD). Core contracts from github.com/nereusfinance/nereus-stablecoin-core deployments/avalanche: Abracadabra Kashi fork (CauldronV2) - 17 cauldrons incl sAVAX 0x0194eB3520b7d7eB0b014FCe6ed464Eaea0Ca765, AVAX 0xc337467F7266Fa6677d8459D4bC531d056348Da8, WBTC 0x88A6414466D61b9Fb6aaFC763c1BaB6EE1462631; nxUSD 0xF14f4CE569cB3679E99d5059909E23B07bd2F387; PermissionManager 0xaAd9d30E43868e09777e0Ac090C7b8ffa583E942. Verified: eth_getCode all non-0x (proxies 45B, impl 17.8k), totalBorrow() getter (0x8285ef40) answers on all 17; routescan verified source = CauldronV2. Only reward fn liquidate(address[],uint256[],address,address) is PermissionManager-whitelist gated (3 liquidators, permit onlyOwner). No harvest/distribute/auction/keeper-fee functions anywhere (nxUSD is plain ERC20; TimePower is a view balance; DISTRIBUTION_PART=0)."
+}

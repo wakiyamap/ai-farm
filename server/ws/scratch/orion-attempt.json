@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-orion-money",
+  "outcome": "lead_recorded",
+  "reason": "unclear: Both Ethereum saver implementations are unverified, so the public function set cannot be audited fully. The known takeProfit path is owner-gated and the last seven days had no proxy events; no stranger reward was demonstrated.",
+  "numbers": "7-day window: Ethereum block 26430825 at 2026-11-16 23:17:11 UTC through block 26481067 at 2026-11-23 23:17:11 UTC (eth_getBlockByNumber). No-topic eth_getLogs on both proxy addresses: 0 events; same-range same-shape ORION token control: 54 events. Fresh-address eth_call takeProfit(0,0,0) reverts Ownable; claim(false) reverts FARM03; withdrawLocal(wUST,1) reverts SVR22. Gross/gas USD unmeasured because no qualifying call exists. Historical source: https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/49fecb3423ae96005bde7489a6ae1b0aa6cc2367/projects/orion-money/index.js"
+}

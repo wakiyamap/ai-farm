@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-asymmetry-usdaf",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 539,
+ "chain": "ethereum",
+ "slug": "asymmetry-usdaf",
+ "name": "Asymmetry USDaf",
+ "category": "CDP",
+ "tvl_usd": 305698,
+ "url": "https://usdaf.asymmetry.finance/",
+ "github": null,
+ "listed_days_ago": 539,
+ "run_id": "bc9504bd01d947a39d64586b4b4de5cb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: redeemCollateral (0xd99de73b) + batchLiquidateTroves (3 TMs, Liquity-V2-alpha fork) open to strangers (fresh-address eth_call, no role revert) but 7d eth_getLogs on 3 TMs+registry+3 SPs+governance = 0 events (controls: 562 for Liquity TM 0xb2b2abeb same call; 8183 for USDaf since 21.5M); last redemption 2026-09-20 tx 0x74fb50d1 (635,126 gas = 0.36 USD at 0.346 gwei, ETH 1616.01 llama 22:06Z), recent redemptions all by 0x39240625...; last liquidation 2025-11-04, 18 all-time (0.0375 ETH gas comp = 60.60 USD); branch debt 6.31/199,832/1,750 USDaf (0xb01dd87b, usd: unpriced), TVL 305,698",
+  "kb": [
+   "attempts:3076",
+   "protocols:1455"
+  ],
+  "run_id": "bc9504bd01d947a39d64586b4b4de5cb",
+  "at": 1795212845
+ }
+}

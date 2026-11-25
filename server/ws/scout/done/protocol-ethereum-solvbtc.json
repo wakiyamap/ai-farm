@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-solvbtc",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 916,
+ "chain": "ethereum",
+ "slug": "solvbtc",
+ "name": "SolvBTC",
+ "category": "Bridge",
+ "tvl_usd": 1736589,
+ "url": "https://app.solv.finance/solvbtc",
+ "github": null,
+ "listed_days_ago": 916,
+ "run_id": "f3328821e71c4e3ebcf0eb5de0d6d8ae",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Pure custody: 1 EOA + 3 Gnosis Safes (v1.3.0/v1.4.1, 3-of-5) hold 32.90 BTC of WBTC/LBTC/cbBTC (~.91M vs TVL .74M); no caller-paid function, execTransaction reverts GS020 from a fresh address and pays nothing (gasPrice=gasToken=refundReceiver=0); 7d (blocks 26411711-26462003): 1 execTransaction (0x0d63c905, non-owner submitter 0xe1bb4b59 ate bash.054 gas, bash refund) + 30 cbBTC deposits (6.82 cbBTC ~97k) all from one operator EOA; stranger paid: bash.",
+  "kb": [
+   "attempts:3233"
+  ],
+  "run_id": "f3328821e71c4e3ebcf0eb5de0d6d8ae",
+  "at": 1795247142
+ }
+}

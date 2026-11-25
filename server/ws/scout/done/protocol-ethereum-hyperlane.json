@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-hyperlane",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 264,
+ "chain": "ethereum",
+ "slug": "hyperlane",
+ "name": "Hyperlane",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 26663751,
+ "url": "https://www.hyperlane.xyz/",
+ "github": null,
+ "listed_days_ago": 264,
+ "run_id": "0d6f9e72591e4785928aa426678d8889",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Mailbox.process (core v3, VERSION()=3, proxy 0xc005dc82...D239) is open (fresh-address eth_call reverts 'already delivered', not role) but pays msg.sender 0: 4,541 Process events 7d (blocks 26410052-26460452, topic0 from receipt), sample of 21 txs all from 3 relayer EOAs with value 0; gas 162,008 x 21.23 gwei = .63 at ETH ,637 (llama 1795190707); IGPM claim() sweeps to fixed beneficiary 0xa7eccdb9..d9ba not caller; warp routers non-Fast (no fillFastTransfer) - same dead_end as arbitrum/bsc/optimism/base",
+  "kb": [
+   "attempts:2970",
+   "protocols:1374"
+  ],
+  "run_id": "0d6f9e72591e4785928aa426678d8889",
+  "at": 1795190889
+ }
+}

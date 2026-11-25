@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-bio-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Bio Protocol's base deployment (veBIO lock, per-agent StakedToken locks, TokenFactory) exposes no function anyone can call that pays the caller: verified ABIs show only user-driven stake/withdraw/extend/toggleAutoRenew on the escrows and FACTORY_ROLE/LAUNCH_ROLE/WITHDRAW_ROLE-gated factory functions. Protocol is live (50 recent txs on veBIO proxy, last stake 2026-11-16) but a stranger calling in pays gas for nothing; veBIO airdrop rewards are claimed by the stakers themselves.",
+  "numbers": "TVL base 966,721 USD (api.llama.fi/protocol/bio-protocol, 2026-11-17). veBIO proxy 0xE1B48C0279Cd95D984f1290293116c45D049A3bD: maxWeeks()=104 via eth_call; Blockscout tx list 50 items, latest stake 2026-11-16T10:38Z, withdraw 2026-11-16T10:37Z. StakedToken impl 0x9a2932b2a2F01c8bA7e274D4Bb56D5E32dd4a2d7 ABI: no reward/claim fn. TokenFactory impl 0x55d4df830738d9fc2e8ae1198963499450d7cc3f: LAUNCH_ROLE/FACTORY_ROLE/WITHDRAW_ROLE gated; proxy last self-activity 2025-08-15 (Blockscout). Sources: DefiLlama adapter projects/bio/index.js, docs.bio.xyz (append .md), base.blockscout.com/api/v2."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-angstrom",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The hook's only value-moving entry execute(bytes) requires _isNode[msg.sender] (fresh-address eth_call reverts NotNode 0x5cd26b68); the registry is owner-curated (ControllerV1.addNode _checkOwner) and holds exactly 3 nodes, all seen calling. No reward/bounty/claim function pays the caller: deposit/withdraw/invalidateNonce pay 0, all fee pulls are onlyController. Fees and auction surplus go to LP/controller (Sorella-run solver auctions), so nothing here pays a stranger for calling.",
+  "numbers": "hook 0x0000000aa232009084bd71a5797d089aa4edfad4; ControllerV1 0x1746484ea5e11c75e009252c102c8c33e0315fd4 totalNodes()=3 (eth_call 2026-11-20). Sample of 25 of 25 listed txs to hook (Blockscout, blocks 26458774-26458892, ts span 1416 s): 100% from 3 registered nodes 0x2252f216f4a494a87025123425181ca1bb754fb8 / 0x5875db54cd9ae2b2a875e09bb731772297ae9d92 / 0xc917c3fa468f2c4b9c84c72caa46420eb9825249, ~1 execute per 4.7 blocks, all selector 0x1828e0e7. _isNode (slot 1) = 1 for the 3 callers, 0 for 0xdead control (eth_getStorageAt). MAX_UNLOCK_FEE_E6 = 0.4e6 = 0.4% bundle fee cap (TopLevelAuth.sol); hook storage slot0 = controller addr, slot3 low 8 bytes = last block updated (= current head, one-call-per-block lock). Gross to caller = 0: fee pulls onlyController, no caller reward in source."
+}

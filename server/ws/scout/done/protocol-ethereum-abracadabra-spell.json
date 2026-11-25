@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-abracadabra-spell",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "abracadabra-spell",
+ "name": "Abracadabra Spell",
+ "category": "CDP",
+ "tvl_usd": 2009004,
+ "url": "https://abracadabra.money/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "0621d55638de43ec87a1aa064308add4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: 41 Cauldron market proxies (adapter projects/abracadabra/index.js, source CauldronV4.sol); only liquidate(...) 0xff6ff84b pays the caller (LIQUIDATION_MULTIPLIER 104000-107500 = 4-7.5% bonus to its to arg, public virtual, no role; eth_call from a fresh address reverts on state) - 0 LogLiquidation in the 7d window blocks 26415956..26466225 (2026-11-14..11-21), where all 41 emitted only 12 logs from 3 txs (no-topic scan); 4 liquidation txs in 84d, last 2026-10-29; pot 10,255,142 MIM = 239k USD (MIM bash.023321 llama ts 1795296176); gas 0.101 gwei = 0.07 USD/call",
+  "kb": [
+   "attempts:3487",
+   "protocols:1761"
+  ],
+  "run_id": "0621d55638de43ec87a1aa064308add4",
+  "at": 1795298052
+ }
+}

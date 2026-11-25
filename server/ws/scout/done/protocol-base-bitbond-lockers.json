@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-bitbond-lockers",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 618,
+ "chain": "base",
+ "slug": "bitbond-lockers",
+ "name": "Bitbond Lockers",
+ "category": "Token Locker",
+ "tvl_usd": 38142,
+ "url": "https://tokentool.bitbond.com/",
+ "github": null,
+ "listed_days_ago": 618,
+ "run_id": "4155058321a14cab8de786a19b887dd1",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 297 TokenLockerV3 lockers (TVL 38,142 USD, metis.bitbond.com API); all 5 value-moving fns (withdraw/lock/relock/withdrawExcessTokens/recoverUnsupportedTokens) revert 'Ownable: caller is not the owner' from a fresh address (10/10 eth_calls, both bytecode variants), neither ABI has a reward/claim fn; 0 logs and 0 token transfers out of all 297 lockers in 7 d (blocks 57,889,240 2026-11-15T18:43:43Z - 60,912,433 2026-11-22T18:41:02Z; controls 4 history logs same shape, 355 USDC logs/50 blk); gross 0 USD vs gas ~0.0006 USD.",
+  "kb": [
+   "attempts:3815"
+  ],
+  "run_id": "4155058321a14cab8de786a19b887dd1",
+  "at": 1795373711
+ }
+}

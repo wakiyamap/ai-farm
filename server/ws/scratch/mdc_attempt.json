@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-multichain",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Multichain/AnySwap bridge contracts are live on avalanche but no callable function pays the caller: the verified AnyswapV4ERC20 source (ANY token 0xb44a9b6905af7c801311e8f4e76932ee959c663c) exposes only ERC20/permit/deposit/withdraw/Swapin/Swapout plus owner-minter-vault role functions (0 matches for reward|claim|keeper|harvest|compound|settle|distribute|auction|redeem|liquidation in 51 functions). TVL is legacy locked bridge deposits (MPC team lost the keys); users redeem their own funds, no protocol reward.",
+  "numbers": "contracts: anyUSDt 0xeaf8190fd5042ec3144184241fd405bb1dec59e8 (code 15118 hex chars, underlying()=USDT.e 0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7), ANY 0xb44a9b6905af7c801311e8f4e76932ee959c663c (verified AnyswapV4ERC20), native-AVAX depositAddr 0x4E13c3c78094E60Cef02D87fD266CD7AeD415F17 = EOA (eth_getCode 0x) holding 1854.0 AVAX = 12847 USD (AVAX 6.9293 coins.llama.fi ts 1795126998). 7-day tx count on anyUSDt = 0 (snowtrace txlist; newest tx 48.6 days ago; same-query control WAVAX 0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7 active at current block). TVL 594745 USD (session) / 586416 (api.llama.fi currentChainTvls.Avalanche 2026-11-19): USDT.e 168.6k, USDC 164.7k, AAVE.e 67.5k. Gas 7.5 gwei -> 65k gas ~ 0.003 USD. Address source: archived official config netapi.anyswap.net/bridge/v2/info (web.archive 2023-03-22), 208 pairs srcChainId=43114 (4 bridge + 204 router). protocols row id 1126."
+}

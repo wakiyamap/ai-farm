@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-joe-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1424,
+ "chain": "arbitrum",
+ "slug": "joe-v2",
+ "name": "Joe V2",
+ "category": "Dexs",
+ "tvl_usd": 59087,
+ "url": "https://lfj.gg/avalanche/trade",
+ "github": null,
+ "listed_days_ago": 1424,
+ "run_id": "5b87cb73e7704f539b06ea123583d428",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Joe V2 (LB V2.0) live on arbitrum (factory 0x1886d09c...2982, 43 pairs, TVL 60k USD) but no open function pays the caller: collectFees pays its LP recipient (7d: 5 events, 5/5 sender==recipient, gross 0-26.64 USD/call vs gas 0.0013-0.0057 USD), collectProtocolFees is feeRecipient-only, flashLoan charges; 1,760 swaps/7d (blocks 524,662,357..526,719,094).",
+  "kb": [
+   "attempts:4001",
+   "protocols:2135"
+  ],
+  "run_id": "5b87cb73e7704f539b06ea123583d428",
+  "at": 1795412865
+ }
+}

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# farm-phase14a-reviewer-routing (marker: install.sh looks for this line)
+# Wraps the original review-queue generator (paper-reviewer.base) and routes each bot to one of
+# the two reviewer instances, so that no model reviews its own model's work:
+#   bots whose manifest author names gpt/codex -> paper-reviewer-claude
+#   all other bots (Claude, Qwen, unknown)    -> paper-reviewer (codex)
+set -uo pipefail
+inst="${1:-paper-reviewer}"
+WS="${FARM_CTX_WS:-/srv/farm/ws}"
+BASE="${FARM_CTX_BASE:-/opt/farm/context/paper-reviewer.base}"
+codex_built() { grep -m1 -E '^author:' "$WS/bots/paper/$1/manifest.yaml" 2>/dev/null | grep -qiE 'gpt|codex'; }
+mine() {
+  if [[ $inst == *-claude ]]; then codex_built "$1"; else ! codex_built "$1"; fi
+}
+"$BASE" "$inst" | while IFS= read -r line; do
+  if [[ $line =~ ^\|\ ([a-z0-9][a-z0-9-]+)\ \| ]] && [[ -d "$WS/bots/paper/${BASH_REMATCH[1]}" ]] && ! mine "${BASH_REMATCH[1]}"; then
+    x=${line% |}; x=${x% | *}
+    echo "$x | other-reviewer |"
+  else
+    echo "$line"
+  fi
+done
+echo
+if [[ $inst == *-claude ]]; then
+  echo "You are the Claude reviewer: you review only bots built by Codex (manifest author names gpt/codex)."
+else
+  echo "You are the Codex reviewer: you review every bot not built by Codex."
+fi
+echo "Rows whose due is 'other-reviewer' belong to the other reviewer instance: do not review, promote, fix or demote them."

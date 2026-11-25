@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-cap",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 461,
+ "chain": "ethereum",
+ "slug": "cap",
+ "name": "cap",
+ "category": "Lending",
+ "tvl_usd": 142568069,
+ "url": "https://cap.app/",
+ "github": [
+  "cap-labs-dev"
+ ],
+ "listed_days_ago": 461,
+ "run_id": "1df1fbcf4bbe4c28885560eec01446be",
+ "result": {
+  "verdict": "unpaid",
+  "line": "cap.app (=cap_money, Lender 0x15622c3dbbc5614E6DFa9446603c1779647f01FC, reserve USDC): realize/realizeRestaker/open+closeLiquidation callable by stranger (eth_call from 0x1111 ok, no role revert) but pay stored receivers, msg.sender 0 \u2014 7d scan 26408421-26458821 (no-topic, 46 logs control): 40 RealizeInterest = 88,313 USDC to interestReceiver 0xa1a2...d0 (26x) + Delegation (14x), 6 Repay, 0 Liquidate; liquidate (only caller-paid, <=10% bonus) 0 events 7d, ~24 USD/123d prior; realize gas 179,554 = ~0.30 USD @1.03 gwei, ETH 1598.75 (coins.llama.fi 2026-11-20 21:00Z)",
+  "kb": [
+   "attempts:3053",
+   "protocols:52"
+  ],
+  "run_id": "1df1fbcf4bbe4c28885560eec01446be",
+  "at": 1795208643
+ }
+}

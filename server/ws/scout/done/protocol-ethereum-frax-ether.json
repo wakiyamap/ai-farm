@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-frax-ether",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1486,
+ "chain": "ethereum",
+ "slug": "frax-ether",
+ "name": "Frax Ether",
+ "category": "Liquid Staking",
+ "tvl_usd": 87754481,
+ "url": "https://frax.com/",
+ "github": null,
+ "listed_days_ago": 1486,
+ "run_id": "33295e920e104f29a0ea4229ebdfaea9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Frax Ether ethereum: only stranger-callable state-changer is sfrxETH.syncRewards() (0xac3e0184.., 7d reward-cycle checkpoint): pays caller 0 (source: no transfer in body), 1 call/7d (NewRewardsCycle 1 log, tx 0xeedb0a25.., blocks 26414510-26464772 2026-11-14->11-21), fresh-address eth_call reverts SyncError (time-gated, not role); all else user-facing or timelock/operator-gated",
+  "kb": [
+   "attempts:3396"
+  ],
+  "run_id": "33295e920e104f29a0ea4229ebdfaea9",
+  "at": 1795279910
+ }
+}

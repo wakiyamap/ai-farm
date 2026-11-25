@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-hyperliquid-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The TVL contract Bridge2 (0x2Df1c51E09aECF9cacB7bc98cB1742757f163dF7) has no function that pays a caller: source read in full, the only USDC outflow is batchedFinalizeWithdrawals paying withdrawal.destination (the withdrawing user), and it is role-gated (reverts 'Sender is not a finalizer' from a fresh address; role granted by validator-signed modifyFinalizer). The open-callable functions (batchedRequestWithdrawals, batchedDepositWithPermit, updateValidatorSet, modifyLocker, change*, invalidateWithdrawals) transfer nothing to caller or recipient. The finalizers (0x58e1b0..., 0x263294..., 0xda6816..., 0xef2364...) pay gas out of pocket, no reimbursement. Legacy bridge 0xc67e9eFb8a66A4B91B1F3731c75f500130373a4 is dead: 0 calls in 7 days.",
+  "numbers": "7.13d window blocks 0x1f309000..0x1f505e89: FinalizedWithdrawal 12,510 events / 8,940 txs / $291.8M USDC gross to users (sum of log data usd); RequestedWithdrawal 12,511. Gas per finalize ~118k gas x 0.0225 gwei x $0.1275 = $0.0003 (5-receipt sample, eth_getTransactionReceipt; ARB price coins.llama.fi coingecko:arbitrum 2026-11-18). Bridge2 native USDC balance 79,932,626 (eth_call balanceOf 0xaf88d065e77c8cc2239327c5edb3a432268e5831); legacy 140,610 USDC.e.",
+  "bot_id": null
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-tokenlon-amm",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "tokenlon-amm",
+ "name": "Tokenlon AMM",
+ "category": "Dexs",
+ "tvl_usd": 161911,
+ "url": "https://tokenlon.im",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "55fec8c7ed5d41b689d6043a18ce603a",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no reward function: only role-free calls on AMMWrapperWithPath 0x4a143470..650d / PMM 0x8d90113a..13c6 are signed-order swap entry points trade()/fill() (admin fns onlyOperator, depositETH reverts 'not the operator' from a stranger); 7d (blocks 26418602 2026-11-15 to 26468839 2026-11-22, no-topic scans): 1065 wrapper logs + 645 PMM FillOrder, sample 9/9 callers are Tokenlon market-maker EOAs routed via aggregator proxy 0x03f34be1, 0 USD protocol reward per call, TVL 205k USD (api.llama.fi 2026-11-22)",
+  "kb": [
+   "attempts:3623",
+   "protocols:1859"
+  ],
+  "run_id": "55fec8c7ed5d41b689d6043a18ce603a",
+  "at": 1795329188
+ }
+}

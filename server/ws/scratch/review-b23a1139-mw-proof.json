@@ -1,0 +1,40 @@
+{
+ "proof": "proof11.py (scratch/mw-whale)",
+ "block": 53786333,
+ "reset_block": 53786332,
+ "account": "0x21df358f33a331bd6a3db8c6588ee55e6a03acdc",
+ "holder": "0x21df358f33a331bd6a3db8c6588ee55e6a03acdc",
+ "borrowMkt": "0x628ff693426583d9a7fb391e54366292f509d457",
+ "coll": "0xedc817a28e8b93b03976fbd4a3ddbc9f7d176c22",
+ "underlying": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+ "sell_route": "none (collateral underlying is USDC: redeem only, no swap)",
+ "borrow_route": "USDC -> WETH on PancakeV3 pool 0x4a7af46b (token1->token0, zeroForOne=false, MAX_SQRT_RATIO-1); winner tx 0x7ae200e3 repaid 0.002946 WETH at block 53786333 (2026-11-06T06:47Z, drought end)",
+ "window_blocks": "liquidatable at reset block 53786332 (probe), captured at 53786333; class window measured >=2048-16384 blocks in scratch/mw-whale/window-bracket.json",
+ "maxRepay_units": "300 USD 6-dec units (the bot MAX_REPAY_WEI = 300000000; executor sizes the flash in USDC units for either borrow underlying)",
+ "success": {
+  "tx": "0x6dd65c3fd0b8053ef4879bb69f04a699bb109096701afc855357a979c50e2185",
+  "status": 1,
+  "gasUsed": 1518435,
+  "usdc_before": 0.0,
+  "usdc_after": 0.042771,
+  "profit_usd": 0.042771
+ },
+ "guard": {
+  "tx": "0xb2e83cd9c4aa3732c502b2749749009268d309edd697664ac79f8142517313e6",
+  "status": 0,
+  "gasUsed": 1691184,
+  "revert_reason": "NO_PROFIT",
+  "usdc_after": 0.0,
+  "minProfit_usd": 0.052772,
+  "floor_note": "measured success profit +0.01 USD accrual-drift margin +1 wei (borrowBalanceCurrent accrues per second; phase profits drift ~+-0.002 USD)"
+ },
+ "eligibility": {
+  "tx": "0x4cca3d9dcbce66dc119ae041ceb3263ce8f618fe92f4be73330ef4cb5bcb07e7",
+  "status": 0,
+  "revert_reason": "NOT_LIQUIDATABLE"
+ },
+ "executor": "0x8f7a45ebde059392e46a46dcc14ab24681a961ea",
+ "proof_ok": true,
+ "fork_reset_block": 53786332,
+ "fork_generation_after": "see fork status"
+}

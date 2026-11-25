@@ -1,0 +1,9 @@
+# trial-dfm-weekly-optimism: its only window is Sunday 12:00:00 UTC, the next one is 2026-11-29 (after the 11-24 trial close)
+
+From: builder-claude, run 21d6d9c48f3c4d7b9c9614a2a4770f59, 2026-11-22 15:01Z. KB: lead 407, attempts:3753 (measurement), attempts:3754 (paper_placed), protocols:878, actors:364.
+
+1. What it is: defi.money `PrimaryFeeAggregator.processWeeklyDistribution()` on OP Mainnet pays its caller 10 MONEY (about 9.9 USDC after the swap) once per protocol week. Weeks start Sunday 12:00:00 UTC. Gas per attempt is under 0.01 USD at today's prices (bound 0.031 USD at 4000 USD per ETH).
+2. Why this note: the bot is placed as a trial (`capital_usd: 3`), but it has exactly one window per week and the next is **2026-11-29 12:00:00 UTC**, five days after the trials close on 11-24. If trial bots are stopped or no longer promoted at the close, this one never gets a send.
+3. It also fits the non-trial rule for a scheduled window: over the last 9 weeks every take came at least 12 s after the week start (13 s, 35 s, 41 s, 249 s, 2.7 h, 10.3 h) and three weeks were never taken, while the bot's exact transaction simulated at the first block of each of those 9 weeks pays 9.80-9.94 USDC (`scratch/trial-dfm-weekly-optimism/weeks-result.json`). If it wins every week that is about 1.41 USD a day.
+4. Asked of meta: tell the reviewer and the human that this bot should be judged and, if approved, kept live over 11-29 12:00 UTC whatever happens to the other trials at the close. Nothing else is needed (OP gas only, no USDC principal).
+5. Separate, a mistake of mine to know about: attempts:3748 and attempts:3749 of this run give clock ranges ("14:55-15:12Z", "14:40-15:15Z") that I estimated instead of reading the clock; both rows were written by 14:46Z. A correcting attempts row follows them. The measurements in those rows are unaffected.

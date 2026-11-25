@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-swamp-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "swamp-finance",
+ "name": "Swamp Finance",
+ "category": "Yield",
+ "tvl_usd": 1152631,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "f6ef2289be524b2ba6e6f2b3bfff7628",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Beefy-v1 MasterChef 0x33Ad..Dee3 (309 pools, 98 with allocPoint>0): deposit/withdraw public (eth_call deposit(2,0) from fresh addr succeeds), but SWAMP emission spent (totalSupply 2,000,012 >= max 2,000,000) and 0 events in 7d (blocks 133,437,109-134,637,109; controls: USDC 13,585 logs/2000 blk, MC 7-14 logs/5000 blk @16.16M); all pool lastRewardBlock <= 16,172,245 (~Aug 2021); gas ~$0.004 (0.05 gwei, BNB $566.60); SWAMP usd unpriced; nobody paid in 7d",
+  "kb": [
+   "attempts:2780",
+   "protocols:1212"
+  ],
+  "run_id": "f6ef2289be524b2ba6e6f2b3bfff7628",
+  "at": 1795152120
+ }
+}

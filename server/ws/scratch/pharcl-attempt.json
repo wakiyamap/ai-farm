@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-pharaoh-cl",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Pharaoh CL = the old Ramses-V2-era concentrated-liquidity exchange (DefiLlama 'pharaoh-exchange' module, factory proxy 0xAAA32926fcE6bE95ea2c51cB4Fcb60836D320C42 created 2023-11-08; impl 0x77dd39f2... = ClPool per routescan source). No function pays a stranger: pool actions (mint/collect/burn/swap/flash) reward only LPs/swappers, collectProtocol is onlyFeeCollector (role-gated), and the only permissionless keeper fn, public _advancePeriod() (weekly oracle roll), contains no transfer to msg.sender. Its ve(3,3) reward rail (Voter.distribute / Minter) was already measured paying 0 to callers in attempts 1797/2202.",
+ "numbers": "Factory 0xAAA32926fcE6bE95ea2c51cB4Fcb60836D320C42 (TransparentUpgradeableProxy, created block 38764765 ts 1702011148, routescan txlist; impl()=0x77dd39f2b04a5095b287deab21943d81dcf91cca via eth_call 0x5c60da1b). ClPool ABI (routescan getabi): only public non-view fns mint/collect/burn/swap/flash/_advancePeriod/initialize; collectProtocol(address,uint128,uint128) has onlyFeeCollector modifier (source contracts/v2/ClPool.sol L1351-1368); _advancePeriod L90-130 has no token/native transfer. Listing pharaoh-cl TVL $3,891,017 (api.llama.fi 2026-11-18), decayed from $44M before the Oct 2025 migration to pharaoh-v3 (factory 0xAE6E5c created 2025-09-13, so it is not this candidate). token0()/poolCount() on 0xAAA329 revert (proxy exposes factory+pool bundle; registry-derived address)."
+}

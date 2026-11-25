@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-nami",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 28,
+ "chain": "base",
+ "slug": "nami",
+ "name": "Nami",
+ "category": "Dexs",
+ "tvl_usd": 313948,
+ "url": "https://nami.fi/",
+ "github": [
+  "namifi"
+ ],
+ "listed_days_ago": 28,
+ "run_id": "fd3e7694e0464a3fb1066a3a3e31a017",
+ "result": {
+  "verdict": "role_gated",
+  "line": "DistributeFeesNami execute/executeForGauges onlyRole(KEEPER_ROLE) (1 member, EOA 0xcd05..F72a; fresh-addr eth_call reverts AccessControlUnauthorizedAccount); FeeConverters all onlyKeeper; FarmingCenter collectRewards isApprovedOrOwner; 0 DistributionExecuted/StandardPoolClaimed logs in 7d and none since deploy (19 admin logs only; control 1841 WETH Transfer logs/100 blocks); claimsEnabled=false until 2026-11-25; gas ~bash.005/call at 0.006 gwei, ETH 829 (coins.llama.fi); caller pays, no stranger bounty.",
+  "kb": [
+   "attempts:1592",
+   "protocols:299"
+  ],
+  "run_id": "fd3e7694e0464a3fb1066a3a3e31a017",
+  "at": 1794892588
+ }
+}

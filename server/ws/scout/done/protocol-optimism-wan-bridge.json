@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-wan-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1526,
+ "chain": "optimism",
+ "slug": "wan-bridge",
+ "name": "Wan Bridge",
+ "category": "Bridge",
+ "tvl_usd": 252494,
+ "url": "https://bridge.wanchain.org",
+ "github": null,
+ "listed_days_ago": 1526,
+ "run_id": "c620499b758f4f89ab460767136e7a33",
+ "result": {
+  "verdict": "role_gated",
+  "line": "smgRelease role-gated (stranger eth_call reverts 'CrossDelegateV7: caller is not authorized'; operator 0xd1eb8e69 passes role check): 12 releases in 7d (blocks 159418248-159720648), all by that one EOA, protocol fee bash.20-4.42/release to storeman group, gas bash.0004/call (236k gas, ETH $1801.6 llama); smgWithdrawHistoryFee anyone-callable but pays the SMG fee receiver, 0 calls 7d; userLock 4/7d.",
+  "kb": [
+   "attempts:2448",
+   "protocols:966"
+  ],
+  "run_id": "c620499b758f4f89ab460767136e7a33",
+  "at": 1795076162
+ }
+}

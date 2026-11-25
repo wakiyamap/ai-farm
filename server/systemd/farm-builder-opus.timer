@@ -1,0 +1,11 @@
+# Human, 2026-11-24: reduced operation. Builder on Claude Opus, twice a day (06:40 and 18:40 JST),
+# between the Mythos sessions of builder-claude.
+[Unit]
+Description=Farm builder on Claude Opus (builder-opus), every 12 hours
+
+[Timer]
+OnCalendar=*-*-* 06/12:40:00 Asia/Tokyo
+Unit=agent@builder-opus.service
+
+[Install]
+WantedBy=timers.target

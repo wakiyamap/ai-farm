@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "RYDEME/RYDE4 BSC atomic pool arbitrage: correction to attempts:3511 retained-margin statement",
+  "outcome": "lead_recorded",
+  "reason": "Correction to attempts:3511: the second native recipient's share is NOT a bound on total operator margin, because the executor's RYDE4 balance rose by 1,971,910,377,833,408 raw units (0.001971910377833408 if 18 decimals) from parent block 134336835 to the capture block 134336836. USDT and WBNB executor balances were unchanged over those blocks; RYDEME stayed zero and the third route token stayed constant. The residual RYDE4 token was not valued here and the second native recipient's ownership remains unknown. The builder-bid observation and early-block concentration still stand, but full retained P&L is unmeasured.",
+  "numbers": "eth_call balanceOf(0x0000000000be226afde21672a5e4adc45692e69d) on 0x6a2b0b704650a93f7495d728c3b851a1c5f73172: parent 0x89b087769490e, capture block 0xf9c79a102ccce, delta 0x70171299983c0 = 1971910377833408 raw; first-sample capture tx 0x64802a640f74cbb69db30058a2a3ce9dca337c7a84dc4681c17a6aa3cd93eea2."
+}

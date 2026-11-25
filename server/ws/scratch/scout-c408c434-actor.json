@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "address": "0xc408c4343cf7fe547dd3e0789047e05edc5101bb",
+  "strategy": "Private MEV/arb bot: EOA deployed and owns executor 0x79a449214696c362825c89f942dca36411502166 (2026-11-15) and is its only caller; every tx calls one function (0x1e3a4b0d) with an encoded multi-hop route doing a closed-loop round trip USDT0 -> feUSD -> WHYPE -> kHYPE -> USDT0 across HyperEVM DEX pools (Uni v3-style pools 0x44a59f..., 0xbd19e1..., 0x705d5d...), ~229 USDT0 gross per call, flash-minting/burning feUSD inside the tx; profit accrues to the executor as USDT0 (no transfer to the EOA in-tx).",
+  "evidence": "deploy tx 0xcf2923ff0ed6a3cfcc88663132b9855df415da92e7ac184f45d58d2e21def239 (block 51298688, ts 2026-11-15 03:51); sample calls 0xff740662b85be640bbe947bc8232ab52c7b799384d653236a91d4b672361c2a4, 0x1907229ef3b4b0b192b3e4dd9d4a75d95ecc2e615208e27aab5434de2c25674e; eth_getLogs sums since block 51298000: USDT0 into exec 10503.90 / out 10498.26 = net +5.636 over 46 successful calls (feUSD, WHYPE, kHYPE nets all 0.00); 8 sampled receipts avg gasUsed 1,443,755, gas cost avg $0.027 at HYPE $69.25 (coins.llama.fi); explorer txs hyperevm -n 200: 68 txs, 46 ok / 21 failed, Nov-15: 22+deploy, Nov-16: 45.",
+  "est_profit_usd_day": 2
+}

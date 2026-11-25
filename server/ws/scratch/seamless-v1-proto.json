@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "seamless_v1",
+  "status": "dead_end",
+  "checked": "2026-11-18 scout run d423f50d. Aave v3 fork on Base (DefiLlama registries/aave.js entry 'seamless'). Registry 0x90C5055530C0465AbB077FA016a3699A3F53Ef99 -> provider 0x0e02eb705be325407707662c6f6d3466e939f3a0 -> Pool proxy 0x8f44fd754285aa6a2b8b9b97739b79746e0475a7 (impl 0x16e48501634dfbb52f556430d788c110e5bda6cf, verified 'Pool' on Blockscout); all eth_getCode non-empty, getPool()/symbol() getters answer. DefiLlama-listed 0x1c7a460413dd4e964f96d8dfc56e7223ce88cd85 is just the SEAM ERC-20. Only anyone-callable pay path = Pool.liquidationCall (bonus to caller; mintToTreasury/rebalanceStableBorrowRate pay nothing). 7d (blocks 56,199,441-59,223,441, Blockscout API): 3 LiquidationCall events, gross per call $0.0007-0.0138 vs gas $0.020-0.024 -> gross < gas. RewardsController 0x8243de25c4b8a2ff57f38f89f7c989f7d0fc2850: zero logs at all in 7d (SEAM emissions idle). TVL 439k, borrowed 59k. Pitfall found: base public-node eth_getLogs silently returns [] for ranges > ~50k blocks (43.2k ok, 64.8k empty though logs exist) - at 0.2s blocks a 7d range is 3.0M blocks, use the Blockscout legacy logs API."
+}

@@ -1,0 +1,20 @@
+{
+ "id": "actor-optimism-0x34cf7de3dbd545bc5f089d4120289dc73312c7c2",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "optimism",
+ "address": "0x34cf7de3dbd545bc5f089d4120289dc73312c7c2",
+ "run_id": "c719b85d7da9446194daac062e2d2e54",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "EOA keeper: HAI OracleJob 0xf4f18205 workUpdateCollateralPrice(MOO-VELO-BOLD-LUSD) sel 0x4e6669ed every 3600 s - 166 calls/7 d, 1 paid 0.05 HAI = 0.0602 USD (HAI 1.2034 coins.llama.fi ts 1795305001), 165 reverted DelayedOracle_DelayHasNotElapsed 0x12f5ddd6 at 114,532 gas = 0.0021 USD each (mean of 15); gas 0.3995 USD/7 d vs 0.0602 gross = -0.049 USD/day; no role check (this stranger EOA was paid 0xe9be3201; class 2,533 rewards/7 d = 22.4 USD/day to msg.sender) - it rings a fixed wall-clock hour instead of waiting for the delayed-oracle eligibility.",
+  "kb": [
+   "attempts:3526",
+   "actors:339",
+   "leads:251"
+  ],
+  "run_id": "c719b85d7da9446194daac062e2d2e54",
+  "at": 1795305932
+ }
+}

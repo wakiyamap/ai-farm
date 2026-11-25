@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-dinero--pxeth",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1071,
+ "chain": "ethereum",
+ "slug": "dinero-(pxeth)",
+ "name": "Dinero (pxETH)",
+ "category": "Liquid Staking",
+ "tvl_usd": 3880924,
+ "url": "https://dinero.xyz",
+ "github": null,
+ "listed_days_ago": 1071,
+ "run_id": "5896763dd88e4134b662c639b3ca5dcf",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PirexEth vault 0xd664b742 (impl 0x9e0d7d79): all reward/keeper fns role-gated (depositPrivileged/topUpStake KEEPER_ROLE, harvest/slash/dissolve = single rewardRecipient 0xde4a1b2e; eth_call from fresh addr reverts), harvest pays the protocol's own rewardRecipient not the caller; 0 vault events in 7d (blocks 26412688 11-14 -> 26463088 11-21, control: 172 token Transfers same shape), last vault tx 2026-08-09; pxETH supply 2150, TVL 3.88M USD",
+  "kb": [
+   "attempts:3295",
+   "protocols:1615"
+  ],
+  "run_id": "5896763dd88e4134b662c639b3ca5dcf",
+  "at": 1795260094
+ }
+}

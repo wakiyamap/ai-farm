@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+"""Start a live bot with the address of its executor in the environment. Standard library only.
+
+  bot-run <bot directory>            (ExecStart of bot@.service, phase 11c)
+
+The gate writes the executor it deploys for a bot to <bot directory>/state/executor.json:
+  {"<chain>": {"address": "0x...", "txHash": "0x...", "nonce": N}, ...}
+Until 11c nothing put that address into the bot's environment, although the bots are told to read
+EXECUTOR_ADDR. A bot written as `process.env.EXECUTOR_ADDR || '<fork address>'` therefore ran
+live with the fork address and could never send (2026-11-14, morpho-nextblock-ethereum).
+
+Sets, then replaces itself with <bot directory>/run.sh:
+  EXECUTOR_ADDR_<CHAIN>   one per chain in the file (chain upper-cased, '-' becomes '_')
+  EXECUTOR_ADDR           when every chain in the file has the same address
+A value already in the environment is replaced: the file is what the signer allows.
+No file, an unreadable file or a bad address: nothing is set for it, one line goes to stderr
+(except when there is simply no file) and run.sh starts anyway.
+"""
+import json
+import os
+import re
+import sys
+
+ADDR = re.compile(r"0x[0-9a-fA-F]{40}")
+
+
+def executor_env(bot_dir):
+    path = os.path.join(bot_dir, "state", "executor.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            st = json.load(f)
+    except FileNotFoundError:
+        return {}
+    except (OSError, ValueError) as exc:
+        print(f"bot-run: cannot read {path}: {exc}; EXECUTOR_ADDR is not set", file=sys.stderr)
+        return {}
+    env = {}
+    if not isinstance(st, dict):
+        print(f"bot-run: {path} is not an object; EXECUTOR_ADDR is not set", file=sys.stderr)
+        return env
+    for chain, rec in st.items():
+        addr = rec.get("address") if isinstance(rec, dict) else None
+        if not isinstance(addr, str) or not ADDR.fullmatch(addr):
+            print(f"bot-run: {path}: no valid address for {chain!r}; skipped", file=sys.stderr)
+            continue
+        env["EXECUTOR_ADDR_" + re.sub(r"[^A-Za-z0-9]", "_", str(chain)).upper()] = addr
+    addrs = {a.lower() for a in env.values()}
+    if len(addrs) == 1:
+        env["EXECUTOR_ADDR"] = next(iter(env.values()))
+    elif len(addrs) > 1:
+        print("bot-run: the executor address differs between chains; only EXECUTOR_ADDR_<CHAIN> is set",
+              file=sys.stderr)
+    return env
+
+
+def main():
+    if len(sys.argv) != 2:
+        print("usage: bot-run <bot directory>", file=sys.stderr)
+        return 2
+    bot_dir = sys.argv[1]
+    for k in [k for k in os.environ if k == "EXECUTOR_ADDR" or k.startswith("EXECUTOR_ADDR_")]:
+        del os.environ[k]
+    os.environ.update(executor_env(bot_dir))
+    run = os.path.join(bot_dir, "run.sh")
+    sys.stderr.flush()
+    os.execv(run, [run])
+
+
+if __name__ == "__main__":
+    sys.exit(main())

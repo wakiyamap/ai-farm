@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-balancer-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward verdict. Balancer V2 arbitrum has no function that pays the caller: the only protocol-fee route (ProtocolFeesWithdrawer.withdrawCollectedFees -> ProtocolFeesCollector) is authorizer-gated (eth_call from fresh address reverts) and dormant since 2022-05-18; pools have no keeper fn (no manageFreeUnderlying in the verified ABI of deployed linear pools; V2 rebalances inside user ops); the 4 merkle distributors pay only their own claimers and had 0 claims in 7 days. Vault flow is user-driven: swappers pay LP swap fees, receive nothing from the protocol.",
+ "numbers": "7d Vault eth_getLogs blocks 523660180-525696540 (~7d, latest 525697033 ts 1795113726): 5,451 Swap + 67 PoolBalanceChanged, 5,253 txs, 138 distinct pools (top pool 0x64541216bafffeec8ea535bb71fbc927831d0595: 2,220 swaps; sample swap senders 0xd0d08887e8a5b16049534a7f3fc1de92848f5bea via CoW settlement 0x6A000F20005980200259B80c5102003040001068, 0xfc7b06668505396be6e629efebec0747694d6026); same-shape control non-zero. Claimed 7d across 0x9805dcfD..4102, 0x751A0bC0..87DE, 0x6bd0B177..D809, 0xC6bD2497..a2C1 = 0. withdrawCollectedFees eth_call reverts from fresh address (role); last withdrawer tx explorer ts 1652819797. eth_gasPrice 0x1320f90 = 0.02 gwei. TVL $920k (DefiLlama candidate row)."
+}

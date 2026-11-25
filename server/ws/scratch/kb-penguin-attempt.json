@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-penguin-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. IglooMaster (0x2560...68CB) harvest(pid,to) is EOA-callable (eth_call from fresh address returns, no role revert) but pays only accrued PEFI pro-rata to the caller's own staked shares: pendingPEFI(0,fresh)=0, so a stranger is paid 0. Protocol effectively idle: 0 Harvest/Deposit/Withdraw events in the true 7d window; last tx 2026-10-29 was a test-like deposit/withdraw loop by 2 addresses paying ~1e-10 USD gross vs ~$0.007 gas. No keeper-style function pays a caller.",
+  "numbers": "7d window blocks 100483704 (2026-11-16T14:24Z) -> 101172569 (2026-11-23T14:24Z), 69x10000-block getLogs chunks (alchemy 10k cap). Harvest topic0 0x4534f107.., Deposit 0x0de79493.., Withdraw 0x9dfef32f.. (cast keccak): 0+0+0; no-topic scan of masterChef same window: 0 logs (no renamed events). Control same shape: WAVAX 0xB31f..66c7 Transfer 2 chunks = 29354 logs. poolLength=39; pefiEmissionPerSecond=100e18 (emissions still mint to stakers). masterChef PEFI balance 16,618 (~25.2 USD). PEFI 0.0015153 USD (coins.llama.fi, decimals 18, 2026-11-23T14:21:53Z); AVAX 7.1378 USD (coins.llama.fi 2026-11-23T14:25Z). harvest gas est 230,721 (eth_estimateGas) x baseFee 11.68 gwei = ~0.0027 AVAX ~ 0.02 USD; last actual withdrawAndHarvest 0xb2f51a4f.. gas 412,608 @2.5 gwei ~ $0.007, paid iPEFI 4.77e10 + PEFI 6.49e10 wei ~ 1e-10 USD (receipt). TVL 68,388 USD (llama)."
+}

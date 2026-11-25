@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-stake-dao-yield",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "stake-dao-yield",
+ "name": "Stake DAO Yield",
+ "category": "Yield",
+ "tvl_usd": 110563885,
+ "url": "https://stakedao.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "5b68e1dbb4bf4b9a978aea605cb097bc",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Accountant 0x93b4B9bd... harvest(address[],bytes[],address) is open to anyone (no modifier, fresh-EOA eth_call ok, 0.025% CRV fee) but pays under gas: 7 d (blocks 26418426-26468695, 11-15 to 11-22) 481 Harvest events / 199 txs / 115.43 CRV = 20.43 USD gross (CRV 0.177, coins.llama.fi 11-22T05:59Z); incumbent 0xec58746c takes 76%; top-5 txs gross 0.50-0.72 USD vs gas 0.52-0.74 USD at 0.14-0.20 gwei (gross <= gas in all 5); median event fee 0.045 USD; same product as stakedao_v2 protocols:237 / leads:165 dead_end, activity down 1178 -> 481 events/7d since 11-12.",
+  "kb": [
+   "attempts:3617",
+   "protocols:1853"
+  ],
+  "run_id": "5b68e1dbb4bf4b9a978aea605cb097bc",
+  "at": 1795327661
+ }
+}

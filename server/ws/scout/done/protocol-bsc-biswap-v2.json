@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-biswap-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "biswap-v2",
+ "name": "Biswap V2",
+ "category": "Dexs",
+ "tvl_usd": 4546563,
+ "url": "https://biswap.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "fd4d5037e42b4772a9fa3d28a86f159b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid. MasterChef 0xDbc1A13490deeF9c3C12b44FE77b503c1B061739 open self-harvest calls (deposit/withdraw/enterStaking/leaveStaking, no ownerless harvest, fresh address paid 0) ran 13 txs / 91 events in 7 days and paid users 0-3.23 BSW per withdraw = max bash.001 (BSW bash.000297; emissions live but 0.861 BSW/block = bash.00026/block) vs gas bash.014-1.13; the V2 AMM itself (factory 0x858e3312ed3a876947ea49d572a7c42de08af7ee, 3503 pairs, .55M TVL) has no caller-paying function.",
+  "kb": [
+   "attempts:2733",
+   "protocols:1177"
+  ],
+  "run_id": "fd4d5037e42b4772a9fa3d28a86f159b",
+  "at": 1795142808
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-float-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: no public caller incentive is active. Auction start() reverts Twap/MissingPastObsr, and the staking/mint functions return only the caller's own accrued or committed assets.",
+  "numbers": "7 d from timestamp-checked block 26430734 (2026-11-16T22:58:59Z) through 26480976 (2026-11-23T22:58:59Z): no-topic eth_getLogs returned 0 events for AuctionHouse 0x8B114b8f5A7290e6E4f64024DE6714131B4D47CA, MintingCeremony 0x14b6Fb6b83c01a7Cde9AC2c13173695C8D14FcD2 and ETHPhase2Pool 0x5Cc2dB43F9c2E2029AEE159bE60A9ddA50b05D4A. Control: same-shape no-topic eth_getLogs on USDC 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 in blocks 26480975-26480976 returned 219 logs. Sample of 0 of 0 target events. Gross: 0 paid to unrelated callers observed; gas USD: n/a, no successful target call. AuctionHouse stage()=1, fresh address start() eth_call reverted Twap/MissingPastObsr; last explorer transaction was updateStage() at block 24544136 (2026-02-27). Sources: relay eth_getBlockByNumber/eth_getLogs/eth_call, Etherscan verified source, protocol GitHub mainnet deployment."
+}

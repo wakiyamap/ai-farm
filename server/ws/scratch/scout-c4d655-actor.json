@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "address": "0xc4d655cff6f6ec8e5c492f49fb921b7be7656e57",
+  "strategy": "Carbon Vortex (Bancor) fee-sweep keeper: EOA calls its own executor 0x5cd7cdf5a8dde895ca247373a35d7d32705c67a8 execute() ~3-4x/day; executor calls processNetworkFees() on 3 old Bancor V2 StandardPoolConverters (0x23d1b275, 0x79d89b87, 0xab7ae646), then permissionless CarbonVortex.execute(address[]) on proxy 0xd053dcd7 (impl 0xc56eb3d0) which sweeps accumulated fees from CarbonController + Bancor Vault 0x60917e54, burns BNT, and pays the caller rewardsPPM=5000 (0.5%, _allocateRewards(msg.sender)); executor swaps the reward dust to WETH via UniV3/V2 in the same tx. Not a protocol role - one of several collectors racing a small pot.",
+  "evidence": "0xa550535c2a2fa0c6ba80bd1bfd216778a50ed9563af70ea5b21f9214622bc224 (traced: swept 18.55 USDT+16.38 DAI+128.7 BNT, 0.0931/0.0819/0.6437 = exactly 0.5% paid to executor); gas samples 0xb4b06a7981aa676bbc91fc3a50b8b38ee3b6cde2f3e22f5169b23eb567ec9b1b (872735 gas), 0x8d9e76ef2309d91ce0629529ae036197e1b2cc47b04eb53cdee8922154723ca3 (680279 gas). Counts: ledger carbon_vortex.fee_collected, actor filter, last 7d: 20 sweep txs.",
+  "est_profit_usd_day": 0.4
+}

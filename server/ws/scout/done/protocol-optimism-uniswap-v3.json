@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-uniswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "optimism",
+ "slug": "uniswap-v3",
+ "name": "Uniswap V3",
+ "category": "Dexs",
+ "tvl_usd": 12707715,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "d6178a64528f4cdc9e2936a021e3708e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only reward fn in Uniswap V3 OP (factory 0x1F98...F984, NPM 0xC364..FE88, staker 0xe341..6fE65) is UniswapV3Staker.claimReward: no role (fresh-addr eth_call succeeds, pays 0), pays msg.sender only; RewardClaimed last 7d = 0 (same-range control NPM Transfer 7134 logs), last staker tx 2024-12-10 (block 129116317), pot 9.85 OP = bash.75 (OP bash.0764 llama), gas/call <bash.01 (gasPrice 0.001 gwei, ETH 801.75) -> nobody was paid in 7d.",
+  "kb": [
+   "attempts:2413",
+   "protocols:943"
+  ],
+  "run_id": "d6178a64528f4cdc9e2936a021e3708e",
+  "at": 1795070062
+ }
+}

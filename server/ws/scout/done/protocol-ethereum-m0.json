@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-m0",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 765,
+ "chain": "ethereum",
+ "slug": "m0",
+ "name": "M0",
+ "category": "Stablecoin Issuer",
+ "tvl_usd": 271934544,
+ "url": "https://www.m0.org/",
+ "github": null,
+ "listed_days_ago": 765,
+ "run_id": "f83a74b5e3db4996bce1e86324afb983",
+ "result": {
+  "verdict": "no_reward",
+  "line": "M0 MinterGateway 0xf7f9638cb444d65e5a40bf5ff98ebe4ff319f04e: 7d (blocks 26410783 2026-11-14 -> 26453138 2026-11-21) 306 txs / 562 logs all from 4-5 whitelisted minters + validators; every useful fn is onlyActiveMinter/onlyApprovedValidator (fresh-address eth_call reverts InactiveMinter 0x7bcd1d8a), anyone-callable burnM/updateIndex/activateMinter pay caller 0 (no reward event or transfer to msg.sender in verified source); gas ref 0.038 USD (117117 gas @ 0.208 gwei, ETH 1549.50 coins.llama.fi).",
+  "kb": [
+   "attempts:3186",
+   "protocols:1537"
+  ],
+  "run_id": "f83a74b5e3db4996bce1e86324afb983",
+  "at": 1795235716
+ }
+}

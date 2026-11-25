@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-stobix",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 522,
+ "chain": "base",
+ "slug": "stobix",
+ "name": "Stobix",
+ "category": "Derivatives",
+ "tvl_usd": 47951,
+ "url": "https://stobix.com",
+ "github": [
+  "stobix-com"
+ ],
+ "listed_days_ago": 522,
+ "run_id": "27516c056312474e8c0e49f7facdfb6f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Base footprint is one 2-of-3 validator multisig vault (Treasury 0x8283E74dA050F6eE93991Dfb0D823e35515Da8E8, = Treasury.sol by 19-selector match; blockscout 503 all session): 39,000 USDC + 5.39 ETH = 48,234 USD, 0 events in 7 d (blocks 57,865,362-60,889,362, controls 44 all-time same address / 3 USDC 20k), last event 2026-05-25 by validator 0xf108e3a7; only open call deposit() pays 0, withdraw/pause/unpause/whitelistToken need isValidator (stranger=false); gas 0.0005 USD",
+  "kb": [
+   "attempts:3795",
+   "protocols:1986"
+  ],
+  "run_id": "27516c056312474e8c0e49f7facdfb6f",
+  "at": 1795368739
+ }
+}

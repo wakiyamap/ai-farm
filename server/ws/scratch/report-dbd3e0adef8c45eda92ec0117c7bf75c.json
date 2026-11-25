@@ -1,0 +1,12 @@
+{
+  "run_id": "dbd3e0adef8c45eda92ec0117c7bf75c",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-avalanche-gami-labs",
+  "outcome": "scouted",
+  "kb_rows": ["protocols:357", "attempts:1673"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Gami Labs = Upshift/August Digital; Avalanche = 2 TokenizedVault proxies, main 0x6AaB14C53980B9aA1Ce632a7e46a6E5E62e60f55 (8.91M USDe). Nothing pays a caller: processAllClaimsByDate (permissionless) 8 calls/7d of 34 txs/7d, all from operator 0xe0b7deab801d864650dec58cbd1b3c441d058c79; it pays LPs 24k-378k USD per call, 0 to the caller (sample of 5 of 8). chargeManagementFee/collectFees pay 0 (fee rates 0, pot 0); chargePerformanceFees reverts FeeAmountTooLow; claim() reverts SenderNotWhitelisted. Gas 629k-1.09M at 8-9.8 gwei = 0.04-0.07 USD/call at AVAX 7.178 (coins.llama.fi). Verdict unpaid."
+}

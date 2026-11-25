@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-synapse-cross-chain-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "synapse-cross-chain-bridge",
+ "name": "Synapse Cross Chain Bridge",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 105678,
+ "url": "https://synapseprotocol.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "324ffffeb6b64cd8a2a338fb626bf2f5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No stranger-payable fn: bridge mint/withdraw need NODEGROUP_ROLE (1 member 0x5ba0...05ba, fresh-address eth_call reverts 'Caller is not a node group'); 12 TokenMint events in 7d (blocks 523531541..525722131) all by 5 Synapse node EOAs via MetaRouter 0x31cae3b7...0660d, gross to caller 0 (fees[] accrue to protocol, getFeeBalance=0 USDC); gas ~bash.005/call (0.02 gwei x 150k, ETH 760.57 coins.llama.fi ts1795120815).",
+  "kb": [
+   "attempts:2635",
+   "protocols:1108"
+  ],
+  "run_id": "324ffffeb6b64cd8a2a338fb626bf2f5",
+  "at": 1795121132
+ }
+}

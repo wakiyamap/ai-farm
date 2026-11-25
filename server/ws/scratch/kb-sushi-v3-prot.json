@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "sushiswap_v3",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter (DefiLlama-Adapters projects/sushiswap-v3/index.js) lists only the factory 0x917933899c6a5F8E37F31E19f92CdBFF7e8FF0e2 on polygon; eth_getCode non-empty, owner() returns 0xcd03e2e276f6eedd424d41314437531f665187b9. Verified source (explorer, sushiswap/v3-core = SwapType UniV3 fork): factory has createPool/setOwner(onlyOwner)/enableFeeAmount; pool has initialize/mint/collect/burn/swap/flash/skim/observe/increaseObservationCardinalityNext + setFeeProtocol/collectProtocol(onlyFactoryOwner). No reward/bounty/harvest/keeper function that pays a stranger caller: LP fees go to the position owner via collect; skim only pays pool-owned owed dust. Activity: 7 PoolCreated in last 7d on factory; top 2 pools by balance 0x1b0585fc8195fc04a46a365e670024dfb63a960c (USDC.e/WETH, 149.9k USDC.e + 102.2 WETH ~ $331k) and 0xf1a12338d39fc085d8631e1a745b5116bc9b2a32 (WPOL/WETH, 1.008M WPOL + 25.7 WETH ~ $128k) had 0 Swap/Collect/Transfer events in 7d (eth_getLogs blocks 97261675-97564075, same-run control: factory query returned 7 logs). DefiLlama yields tracks no Polygon sushi-v3 pools at all."
+}

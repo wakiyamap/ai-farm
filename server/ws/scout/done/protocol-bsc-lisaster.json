@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-lisaster",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 178,
+ "chain": "bsc",
+ "slug": "lisaster",
+ "name": "lisAster",
+ "category": "Yield Aggregator",
+ "tvl_usd": 2887732,
+ "url": "https://lista.org/lis-aster/",
+ "github": null,
+ "listed_days_ago": 178,
+ "run_id": "60d6b6a73d8c4d119180e0c723af7711",
+ "result": {
+  "verdict": "unpaid",
+  "line": "No permissionless caller reward on lisAster (BSC): Distributor.claim pays the merkle account not the caller - 7d: 37 claims, all self-claims (0 third-party), 78.1 ASTER = $46 gross to users, gas $0.002-0.003/call; reward dispatch (notifyRewards/distributeRewards/set+acceptMerkleRoot) all onlyRole(BOT), pendingAster()=0; vault deposit 43 calls 7d pays nothing.",
+  "kb": [
+   "attempts:1676",
+   "protocols:360"
+  ],
+  "run_id": "60d6b6a73d8c4d119180e0c723af7711",
+  "at": 1794910552
+ }
+}

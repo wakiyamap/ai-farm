@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-ramses-cl-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 208,
+ "chain": "hyperevm",
+ "slug": "ramses-cl-v2",
+ "name": "Ramses CL V2",
+ "category": "Dexs",
+ "tvl_usd": 3209884,
+ "url": "https://ramses.xyz",
+ "github": null,
+ "listed_days_ago": 208,
+ "run_id": "7c0c07467d5e46bea89df29a48b3e281",
+ "result": {
+  "verdict": "unpaid",
+  "line": "v3-style CL DEX: voter distribute/distributeAll/poke + FeeCollector.collectProtocolFees are anyone-callable (eth_call from fresh addr ok, source 'public nonReentrant') but pay the caller 0 - 22 DistributeReward in 7d (blocks 50,886,725-51,501,725), all by one keeper EOA 0x8068e05d..., 383k-436k gas/tx = ~bash.003 at 0.1155 gwei and HYPE 8.88; RAM emissions go to gauge stakers, no stranger got paid.",
+  "kb": [
+   "attempts:1695",
+   "protocols:373"
+  ],
+  "run_id": "7c0c07467d5e46bea89df29a48b3e281",
+  "at": 1794914713
+ }
+}

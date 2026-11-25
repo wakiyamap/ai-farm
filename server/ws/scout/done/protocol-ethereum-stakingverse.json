@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-stakingverse",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 574,
+ "chain": "ethereum",
+ "slug": "stakingverse",
+ "name": "Stakingverse",
+ "category": "Liquid Staking",
+ "tvl_usd": 2932283,
+ "url": "https://stakingverse.io",
+ "github": [
+  "Stakingverse"
+ ],
+ "listed_days_ago": 574,
+ "run_id": "4544f88fa49744c5a7ca60a9da18979f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ethereum's only Stakingverse contract is a plain StakeWise V3 vault 0x8A93...8f56 (impl EthVault, feePercent 5% to feeRecipient 0x9328...8819); updateState is role-free but pays the caller 0 (no transfer in source), claimExitedAssets pays users their own funds; 7d (blocks 26409336..26459636, 11-13..11-20): 1 tx, a ~1.0 ETH deposit multicall by the vault manager itself, gross to strangers 0 USD vs gas ~0.04 USD",
+  "kb": [
+   "attempts:3101"
+  ],
+  "run_id": "4544f88fa49744c5a7ca60a9da18979f",
+  "at": 1795218198
+ }
+}

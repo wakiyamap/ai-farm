@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-dxsale",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1586,
+ "chain": "arbitrum",
+ "slug": "dxsale",
+ "name": "DxSale",
+ "category": "Launchpad",
+ "tvl_usd": 132895,
+ "url": "https://dx.app",
+ "github": null,
+ "listed_days_ago": 1586,
+ "run_id": "c482bb939205440e8dee4f8745a6d82f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "DxSale Arbitrum is only self-service LP lockers (LockerV3 0x51f411d4 + 2 registries): unlockToken(uint256) pays the caller's OWN locked LP (fresh-addr eth_call reverts 'user doesnt have a locker'), platformRelease owner-gated, createLocker charges the user 0.1 ETH; 0 events in 7d and 0 in 365d on all 4 contracts (control: 3,001 USDC Transfers/1,000 blocks), last tx 2025-08-06, lockerNumberOpen=23 ever, TVL 132,895 USD sits in 2021 locks.",
+  "kb": [
+   "attempts:2455"
+  ],
+  "run_id": "c482bb939205440e8dee4f8745a6d82f",
+  "at": 1795078505
+ }
+}

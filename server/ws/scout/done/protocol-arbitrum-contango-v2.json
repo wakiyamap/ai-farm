@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-contango-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1137,
+ "chain": "arbitrum",
+ "slug": "contango-v2",
+ "name": "Contango V2",
+ "category": "Derivatives",
+ "tvl_usd": 504835,
+ "url": "https://contango.xyz",
+ "github": null,
+ "listed_days_ago": 1137,
+ "run_id": "f0d5d7022f9840d082e768a08032fca7",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Lean post-sunset build: core 0x6Cae28..C24E (impl 0x555d00bb..) has no keeper fn (claimRewards owner-gated, reverts Unauthorised from fresh addr); only keeper pay is OrderManager 0xa64f0dbb.. execute() -> keeperReward = gasCost x gasMultiplier to msg.sender but onlyRole(BOT_ROLE); 7d: 0 OrderExecuted, 0 OrderPlaced in ~20d, 6 core txs all user trades (20 logs vs 20-log control), 0 RewardsClaimed",
+  "kb": [
+   "attempts:2241"
+  ],
+  "run_id": "f0d5d7022f9840d082e768a08032fca7",
+  "at": 1795031439
+ }
+}

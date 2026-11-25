@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-hyperliquid-hlp",
+ "outcome": "dead_end_recorded",
+ "reason": "not_found: Hyperliquid HLP (TVL $151.8M per candidate) is a HyperCore-native vault on Hyperliquid's own L1, with no contract on HyperEVM. The DefiLlama adapter holds no EVM addresses (reads the stats-data.hyperliquid.xyz vaults API; vault 0xdfc24b077bc1425ad1dea75bcb6f8158e10df303 has eth_getCode 0x on hyperevm) and the docs list no EVM entry point: market making, liquidations, Earn supply and fee accrual all run on HyperCore driven by an off-chain manager. Nothing EVM-callable pays a stranger; do not build an EVM bot for this candidate.",
+ "numbers": "adapter TVL 151,789,093 USD (candidate api.llama.fi 2026-11-18); 0 EVM contract addresses in adapter (raw.githubusercontent DefiLlama-Adapters main/projects/hyperliquid-hlp/index.js); vault 0xdfc2...303 eth_getCode=0x, balance 2e15 wei = 0.002 HYPE dust (rpc.py hyperevm, 2026-11-18T08:0xZ); control CoreWriter 0x3333...3333 code non-0x; 0 functions to eth_call, so no gas/reward figures apply."
+}

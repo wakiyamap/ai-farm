@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-lombard-vaults",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Lombard Vaults (Bitcoin Earn) is a BoringVault managed fund on base. Its keeper functions (Accountant updateExchangeRate, Vault manage) are solmate requiresAuth behind an AccessManager and a fresh/stranger address reverts UNAUTHORIZED; updateExchangeRate pays the caller 0 (no reportReward in this AccountantWithRateProviders version) and is run ~5x/7d by one keeper EOA 0xfa8af0b4a6e4e7111440dc02c85a5a823ad73452. claimFees is vault-only. Public enter/exit/deposit make the caller deposit, not get paid. No function pays a stranger a reward.",
+  "numbers": "Vault 0x5401b8620E5FB570064CA9114fd1e135fd77D57c; Accountant 0x28634d0c5edc67cf2450e74dea49b90a4ff93dce; AccessManager 0xf3e03ef7df97511a52f31ea7a22329619db2bdf4. ExchangeRateUpdated events 2026-11-11..18 (blocks 56256733..58844349): 5 total, all from 0xfa8af0b4a6e4e7111440dc02c85a5a823ad73452. One update tx 0xd46da118... gasUsed 111900, effGasPrice 8616000 wei (0.0086 gwei) = 9.64e-7 ETH ~ $0.0017 (ETH $1809.63 coins.llama.fi). updateExchangeRate reward to caller = 0 (struct has no reportReward; verified source src/base/Roles/AccountantWithRateProviders.sol). Fresh-addr eth_call updateExchangeRate => revert 'UNAUTHORIZED'. Base TVL 3,560,931 USD (api.llama.fi)."
+}

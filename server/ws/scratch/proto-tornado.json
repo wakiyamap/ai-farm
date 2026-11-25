@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "tornado_cash",
+ "status": "dead_end",
+ "checked": "Contracts from tornadocash/docs (master, general/tornado-cash-smart-contracts.md): 4 ETH pools 0.1/1/10/100 ETH = 0x84443CFd09A48AF6eF360C6976C5392aC5023a1F, 0xd47438C816c9E7f2E2888E060936a499Af9582b3, 0x330bdFADE01eE9bF63C209Ee33102DD334618e0a, 0x1E34A77868E19A6647b1f2F47B51ed72dEDE95DD; all four eth_getCode non-0x, denomination() on 0x330b... returns 10e18 (10 ETH). explorer abi via etherscan (verified tornado-core source): public entry points are only deposit(bytes32) payable and withdraw(bytes,bytes32,bytes32,address,address,uint256,uint256) payable - no reward/claim/mint/keeper function; the withdraw fee is paid to the relayer argument the note owner supplies off-chain, not a protocol bounty to a caller. 7d eth_getLogs blocks 523670278-525723166 (2026-11-12..19): 11 Deposit + 11 Withdrawal events, only on the 0.1 and 1 ETH pools. Balances 27.5+150+60+0 = 237.5 ETH x 1761.94 USD (coins.llama.fi 2026-11-19T20:45Z) = ~418k USD, matches DefiLlama Arbitrum 418,230. Note: mixers/privacy pools are out of scope for the farm under constraint S anyway."
+}

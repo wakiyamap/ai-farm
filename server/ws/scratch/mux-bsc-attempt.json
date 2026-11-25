@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-mux-perps",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. MUX Perps BSC core (OrderBook 0xa67aa293642c4e02d1b9f360b007c0dbdc451a08, impl 0x914997af2d4062e8fc2877faf4f7c66b6101bddd) runs a broker model: every paying function (fillPositionOrder/fillLiquidityOrder2/fillWithdrawalOrder/fillRebalanceOrder/liquidate/claimBrokerGasRebate) is onlyBroker (brokers added by onlyMaintainer addBroker); eth_call from a stranger reverts BKR. The BSC instance is also idle: last funding update 2025-10-09, zero FillOrder logs in sampled windows over the last 7 days.",
+  "numbers": "reader 0x2981Bb8F9c7f7C5b9d8CA5e41C0D9cBbd89C7489 pool() 0x855e99f768fad76dd0d3eb7c446c0b759c96d520; lastFundingTime=1760018400=2025-10-09 (getChainStorage, head 134443371); sequence=126732 lifetime orders; FillOrder topic0 6204728db10730656ada9f8ce5b258b0d97dc6ac8e8a101ff4b905c3c9cc7dc5: 0 logs in 3x5000-block windows (head, mid, 7d-ago), 0 any-logs on OB in recent 5000 blocks; control 29715 USDT Transfers in 464 blocks; TVL 294201 USD (DefiLlama); BKR revert strings seen via eth_call",
+  "bot_id": null
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-yearn-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The 56 Yearn vaults on Arbitrum (174.5k USD) had 0 StrategyReported events in 7 days and 0 in 30 days across all of them, so no keeper or stranger earned anything; the vault contracts themselves expose no anyone-pays function (process_report is REPORTING_MANAGER role-gated, buy_debt makes the caller pay). Reward pot empty: only 2 vaults have any debt at all (22,777.6 USDC in the CompoundV3 Lender, 9.15 Tricrypto LP units); the largest vault (yPT-USDe, 64k USDe) runs an empty strategy queue. Matches ethereum yearn_v3 onlyKeepers (protocols:247) and the 0-kick Arbitrum auction window (leads:146).",
+  "numbers": "TVL 174,467 USD (DefiLlama candidate); 56 vaults from kong.yearn.fi list for chainId 42161; StrategyReported logs 7d: 0 (blocks 525,241,630-525,725,470, both event signatures, 2 batches of <=32 addresses); 30d: 0 (from block 523,133,470); control same-shape Transfer query returned 2 logs; gross/call USD 0 (no calls to sample); debt>0 only at 0xCACc53bAcCe744ac7b5C1eC7eb7e3Ab01330733b (22,777.6 USDC, 6-dec) and 0x239e14A19DFF93a17339DCC444f74406C17f8E67 (9.15e18 LP units, token 0x8e0b8c8bB9dB49a46697f3a5Bb8A308e744821D2)"
+}

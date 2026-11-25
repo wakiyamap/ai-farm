@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "actor-arbitrum-0xd767473b74397fa9c1e7a2bdb210020c648a6836",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The address is USD.ai's keeper-job contract (unverified): a fleet of ~10 rotating EOAs races fn 0x085c8c5e(address proxyWallet,bytes) on it and the job's reward (8.03 USDC) is paid to one fixed EOA 0xb666fd9b55572a3cf6d42b16fb550787670a000f, not to the caller - a fresh address making the same call is paid nothing in-transaction. Own keeper infra, not an open bounty.",
+ "numbers": "fills 2-12/day (ledger actor_daily uniswapx.fill, 2026-11-05..15, sample avg ~6.7/day); calls ~10x fills incl. ~90% failed racers (explorer txs sample 23 calls/6.5 h); reward to fixed wallet 8.026-8.027 USDC per job (2 traced successes); contract fee ~2x9.99 USDC per job in tx 0xb776c741...; gas/success 829,282 gas @ eff 0.02 gwei = 1.66e-5 ETH = $0.030 at ETH $1828.80 (coins.llama.fi 2026-11-16); est keeper profit ~55 USD/day gross"
+}

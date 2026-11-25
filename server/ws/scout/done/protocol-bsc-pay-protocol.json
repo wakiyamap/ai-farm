@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-pay-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 937,
+ "chain": "bsc",
+ "slug": "pay-protocol",
+ "name": "Pay Protocol",
+ "category": "Payments",
+ "tvl_usd": 847745,
+ "url": "https://payprotocol.network",
+ "github": null,
+ "listed_days_ago": 937,
+ "run_id": "4ceb45b2832b49979aaa510cd3f7cc29",
+ "result": {
+  "verdict": "unpaid",
+  "line": "26 EIP-1167 clones of impl 0x422ebefa (merchant USDT vaults, Binance TVL $778,595 DefiLlama 2026-11-18) + central 0x4971fd43: any-callable trns()/sendErc20s()/sendEth() eth_call OK from fresh address but pay msg.sender $0 (sendEth pays fixed coldPool 0xEB8C48D1, orderPayment* are payment-in, fund-movers onlyOwner/multisig 0x1f5cb06b); 7-day event count unmeasurable (scout Alchemy lane spent 305k/300k CU, bsc public getLogs refused) - verdict from code, no caller-pays path",
+  "kb": [
+   "attempts:2178",
+   "protocols:747"
+  ],
+  "run_id": "4ceb45b2832b49979aaa510cd3f7cc29",
+  "at": 1795016257
+ }
+}

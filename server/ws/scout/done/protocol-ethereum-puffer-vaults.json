@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-puffer-vaults",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 622,
+ "chain": "ethereum",
+ "slug": "puffer-vaults",
+ "name": "Puffer Vaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 411269,
+ "url": "https://app.puffer.fi/vaults",
+ "github": null,
+ "listed_days_ago": 622,
+ "run_id": "df379d63d95e483ea839f98a0e69a360",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: sole keeper job is AccountantWithRateProviders.updateExchangeRate(uint96) on 3 BoringVaults (uniETH/uniUSD/uniBTC, TVL ~372k USD = 226.4 WETH + 3,623 USDC + 0.0156 WBTC); fresh-address eth_call reverts UNAUTHORIZED on all 3 accountants; 19 ExchangeRateUpdated in 7 d (blocks 26409683 2026-11-14 00:38 -> 26459947 2026-11-21 00:39, topic0 from receipt), all by keeper 0x1755397b..4b56 (uniUSD/uniBTC 0, dormant); caller paid 0 (no transfer, managementFee 0 bps, feesOwed 0) vs 51,222 gas = 0.005-0.20 USD (WETH 1623.53, llama 00:39Z); claimFees is vault-only, pays payoutAddress.",
+  "kb": [
+   "attempts:3118",
+   "protocols:1490"
+  ],
+  "run_id": "df379d63d95e483ea839f98a0e69a360",
+  "at": 1795222057
+ }
+}

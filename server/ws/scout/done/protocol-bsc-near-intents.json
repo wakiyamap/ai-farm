@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-near-intents",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 395,
+ "chain": "bsc",
+ "slug": "near-intents",
+ "name": "NEAR Intents",
+ "category": "Bridge",
+ "tvl_usd": 3526575,
+ "url": "https://near.com/",
+ "github": null,
+ "listed_days_ago": 395,
+ "run_id": "7908fc61b99e4a4b85ce1222b7ec8696",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BSC = HOT-bridge MetaWallet treasury 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd (hot-dao/omni-sdk; verified source; chainId()=56). Only stranger-callable fn withdraw(uint128,address,address,uint128,bytes) is ECDSA-MPC-signature-gated (fresh-address call reverts 'ECDSA: invalid signature', not role): pays receiver_id, 0 to caller (fees pot 16384 wei); rest onlyOwner/view. 7d deposits 561 (nonceMax 1338231@133346126->1338792@134152526); NewTransfer 0 in 3x5000-blk windows vs ~30k USDC control; gas 0.05 gwei -> withdraw ~bash.002 (BNB 84.57 llama.fi). Gross to caller 0 USD.",
+  "kb": [
+   "attempts:1788"
+  ],
+  "run_id": "7908fc61b99e4a4b85ce1222b7ec8696",
+  "at": 1794933760
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-re7-labs",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "optimism",
+ "slug": "re7-labs",
+ "name": "Re7 Labs",
+ "category": "Risk Curators",
+ "tvl_usd": 1978388,
+ "url": "https://www.re7labs.xyz",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "e28d49cf048e4b98b8d4be7b587127c4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Optimism Re7 Labs = Morpho VaultV2 0x3d63934715b6D4c4DFbBC1a00Fe2A2145079DD76 (Re7 WETH, 1114 WETH = $2.03M, WETH $1820 coins.llama.fi); only stranger-callable fns accrueInterest()/forceDeallocate() pay the caller $0 (fees minted to Re7 recipient 0x93db2e90..., penalty back to vault); submit role-gated (reverted from stranger); 3 AccrueInterest in last 10k blocks all internal; gas $0.00017 (1.0076 gwei, 92441 estGas). Sample of vault txs + factory scans; no stranger paid in 7d.",
+  "kb": [
+   "attempts:1928"
+  ],
+  "run_id": "e28d49cf048e4b98b8d4be7b587127c4",
+  "at": 1794962577
+ }
+}

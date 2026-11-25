@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-velvet-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1118,
+ "chain": "bsc",
+ "slug": "velvet-v2",
+ "name": "Velvet V2",
+ "category": "Indexes",
+ "tvl_usd": 271821,
+ "url": "https://dapp.velvet.capital/Referred/6956901b440d4fc522b2eb7b",
+ "github": null,
+ "listed_days_ago": 1118,
+ "run_id": "47276580fd674d74b5e64b81252d6a7f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Velvet V2 BSC (IndexFactory 0xE61472Ce45e559830ECF12F6a215Cd732F4D798B, 1145 portfolios, source Velvet-Capital/protocol-v2-public): all work fns onlyAssetManager/onlyRebalancerContract/onlyMinter (stranger eth_call reverts 0x7f3d3344); only FeeModule.chargeFees() is open (returns 0x from stranger) but pays caller $0 (mints fee shares to treasuries); gas 0.05 gwei x BNB $579 = $0.003/100k-gas; 7d log counts unmeasured (scout CU 305,634/300,000 spent, public nodes refused getLogs); TVL $271,821.",
+  "kb": [
+   "protocols:799",
+   "attempts:2237"
+  ],
+  "run_id": "47276580fd674d74b5e64b81252d6a7f",
+  "at": 1795031026
+ }
+}

@@ -1,0 +1,4 @@
+{
+ "status": "dead_end",
+ "next_steps": "CLOSED 2026-11-15 measure run 9588d2c8 (attempts:1263 has full figures): 32 AVR pools enumerated, 7d LP fees 498 USD/day on 1.745M USD TVL = 10.4% fee APR; the single direct LP is Nest's own vault contract 0x1d1c51b9d07fd27d36412a2b66cc23d19eb3e518 (1,236 ModifyLiquidity 7d, driven by ~17 external EOA depositors); no caller-paid claim function. Holding-frame verdict: 100 USD LP earns ~0.03 USD/day (yield-only type, decision 2026-11-15-holding-frame pays cents on these) - out of the 20-100 USD frame; 1 USD/day needs ~500-2300 USD entry. If a future session wants the yield anyway (400 USD, ~0.11 USD/day): first solve the Elysium explorer (all API probes empty) to read the vault ABI (deposit/redeem, fees, instant vs queued), then fork-test 100 USD USDC -> vault shares -> USDC round-trip price impact; effective pool depth only 0.6-9k USD, the hook reprices pools to the Hyperliquid book."
+}

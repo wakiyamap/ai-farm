@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-travessia-credit",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 216,
+ "chain": "ethereum",
+ "slug": "travessia-credit",
+ "name": "Travessia Credit",
+ "category": "RWA",
+ "tvl_usd": 897145,
+ "url": "https://www.travessiacredit.com/",
+ "github": [
+  "RedVeil"
+ ],
+ "listed_days_ago": 216,
+ "run_id": "b0268210273e4478a9836d15c5f87705",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: 4 ethereum vaults (TTV AUSD/USDC/USDT + ATV) with EarlyExitOpenTerm loans (impl 0x66d6c3f3): accrueInterest/processAvailableWithdrawals/updateLateStatus are stranger-callable (eth_call from 0x1111.. ok) but pay the caller $0 (fee shares mint to manager 0x779617d1../treasury); 25 txs over 4.75 d on loan 0x8A5AFC1d.. all from one EOA keeper 0x185a0d7a (20 accrue + 5 process, ~5 h cadence); gas $0.313/$0.370 per call (118,526/140,043 gas x 1.541 gwei, ETH $1,713.18); settleEpoch onlyBorrower (0x82b42900); vaults hold ~$268k AUSD/USDC vs llama 898k",
+  "kb": [
+   "attempts:2954",
+   "protocols:1363"
+  ],
+  "run_id": "b0268210273e4478a9836d15c5f87705",
+  "at": 1795188144
+ }
+}

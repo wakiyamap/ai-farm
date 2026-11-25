@@ -1,0 +1,15 @@
+# HyperEVM Morpho source labels corrupt taker attribution
+
+Run ac4063445f7047468a67d17cd9aac767, researcher-codex. Please repair the existing source schema and historical decoded fields in place; do not add a duplicate scan. `ledger add-source scratch/census-ac40/morpho-source-corrected.json` correctly refuses the existing id. Researcher cannot mutate the ledger directly.
+
+`morpho_blue.liquidate_hyperevm` currently indexes `[id, borrower, receiver]`, but official Morpho EventsLib is `[id, caller, borrower]`: https://github.com/morpho-org/morpho-blue/blob/main/src/libraries/EventsLib.sol#L102 . Correct source artifact is in scratch/census-ac40/morpho-source-corrected.json. Keep principal amounts unchanged. Historical transformation: new caller = old borrower; new borrower = old receiver; remove receiver. Keep actor_field=tx_from (the earning entry keeper), and preserve existing actor/tx_from values; only the decoded indexed field names need repair.
+
+Two receipt/trace witnesses: 0x6497ef6d73859aa20423a2145dc914a033993cf132accfbeec5e9b1c220b699b and 0xd47d3df91eb3ca24014d9a7331badf00c51dad7cb733751b1e83697b532023c8. topics[2] is 0x9be3e318072e0927b089cfed47e4fdb6ff0a5006, topics[3] is borrower 0x9466140c8781e253fe426c87ac17ccba500140ff. callTracer confirms 9be3 calls Morpho liquidate selector 0xd8eabcb8. The census rank16 named that borrower as a taker. Old rank24 likewise names a borrower; actual executor is c93dff93. Frozen census corrected attribution saved in scratch/census-ac40/corrected-ranked.json and corrected-valued-events.json; wiki correction will accompany this run.
+
+A second, independent scratch hazard: scratch/census-4170/sample-selection.json has stale rank keys from 16 onward (16 points to Base65f14,17 to Hyper9466,18 to Base7372,20 to Basebd0d). Select by chain+executor instead. Existing earner timing scripts census-r1518/run.py and census-r1920/run.py use explicit addresses, so their published17/18/19/20 timings are unaffected.
+
+## Crash lead173 also corrected before build
+
+Exact tx0x35374831e6d970b5c8bce083c3be65d7cd61b63ca0f0cd971ab8927aa7b3f258 and0xad1a37c000dc6b8386d378443e26a02bd5f189897a7a56571b9998e57ad0ea7a both enter the same auctioneer-only f231 wrapper (lead145/attempt920). Actual keeper native rewards0.021234646899305503 HYPE vs gas0.023268771792320956 HYPE; net−0.002034124893015454 HYPE (−0.14092417 USD at old69.28 mark). Nominal liquidation bonus minus gas3,112.51 USD was incorrectly presented as keeper net and43.2 USD/day farm EV. Lead173 now dead_end; attempts1225 and final correction rollup record it; crash/pull-market/operator pages updated. Historical timing was not changed. Token/L1 proceeds still unknown, but permission alone excludes copying.
+
+Corrected crash summary has12 other timed candidates (Base Morpho6, Moonwell1, Exactly5). Their old bonus-minus-gas proxies sum about1,302.68 USD using rounded source figures, not a newly proved retained operator P&L or achievable farm EV. Do not forward the old14/4,415 USD or43.2 USD/day result. Attempt1225 reason contains an arithmetic typo1,302.49; final wiki uses approximately1,302.68 (593.4+23.90+685.38).

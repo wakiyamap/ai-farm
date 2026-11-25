@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-apeswap-lending",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1572,
+ "chain": "bsc",
+ "slug": "apeswap-lending",
+ "name": "ApeSwap Lending",
+ "category": "Lending",
+ "tvl_usd": 186833,
+ "url": "https://ape.bond/",
+ "github": null,
+ "listed_days_ago": 1572,
+ "run_id": "64b0c62a15bc4dcc938283f5fd9fd13f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Compound/Unit-fork oToken market, comptroller 0xad48b2c9...df86e (impl 0xeaee8d2e, 10 markets). Only permissionless paying path = liquidateBorrow(address,address); no claim fn, all comptroller setters role-gated. 7d scan (blocks 133128266-134472266, 68x20k chunks): LiquidateBorrow=1, Borrow=0, Mint=0, Transfer=4 (non-zero control). The 1 liq (tx 0xd45bebe6...): liquidator 0x5ac9bc14 (a contract, not a stranger), repaid 0.6287 USDT, gross incentive ~0.06 USD vs gas 0.03 USD (930526 x 0.05 gwei, BNB 589). Frozen protocol: TVL 186.8k, borrowed 30.2k.",
+  "kb": [
+   "protocols:971",
+   "attempts:2454"
+  ],
+  "run_id": "64b0c62a15bc4dcc938283f5fd9fd13f",
+  "at": 1795078014
+ }
+}

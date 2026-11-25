@@ -1,0 +1,8 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-ethereal-season-zero",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward — the whole protocol is one verified ERC4626 vault (EtherealPreDepositVault 0x90D2af7d622ca3141efA4d8f1F24d86E5974Cc8F, USDe in / eUSDe out) whose only functions are user deposit/mint/withdraw/redeem and owner toggles; nothing anyone can call pays a reward on chain. Season Zero rewards were off-chain points; current USDe balance rewards are distributed via Merkl per docs, not claimable from the Ethereum contract.",
+ "numbers": "Vault holds 1,166,980 USDe (USDe.balanceOf via rpc.py 2026-11-21, 18 decimals read on chain) = 1.17M USD at 0.999266655 (coins.llama.fi, ts 1795221929) = DefiLlama TVL 1,167,971. 7d window blocks 26409722 (2026-11-14) to 26459979 (2026-11-21), eth_getLogs no-topic scan on the vault (same-run result, 277 logs): 135 Transfer, 73 Deposit (41 unique depositors, sum 25,493 USD assets, largest depositor 14 deposits), 69 Approval, 0 Withdraw. Sample of all 277 (full scan, not sampled). No reward function to eth_call; gross per call to a stranger = 0. Source: explorer source ethereum 0x90D2af7d... (EtherealPreDepositVault.sol); DefiLlama api.llama.fi/protocol/ethereal-season-zero (adapter 404, sumTokens registry).",
+ "bot_id": null
+}

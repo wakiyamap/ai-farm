@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "hunnyswap",
+  "status": "dead_end",
+  "checked": "DefiLlama api.llama.fi/protocol/hunnyswap (token address avax:0xf9430aD8da4af7fb4091C57FE523af1236FF5b2C; no adapter folder in DefiLlama-Adapters main; github HunnyFinance/hunnyswap repo has MasterChef/LockingChef/TradingChef/UniswapV2Factory/UniswapV2Router/XoXoToken .sol). On-chain (routescan getsourcecode names + eth_getCode + getters): XOXO token 0xf9430aD8da4af7fb4091C57FE523af1236FF5b2C (name()='Hunny XoXo Token', 18 dec); MasterChef 0xdd18d18727bfe6b863387d48872eb4c1b682deca (owner()=0xfa1f780a446e9cdb4c51b031686bcf8b02f8ed7c, xoxoPerSecond()=1e18, poolLength()=9); UniswapV2Router 0x8685abd6959745e41d64194f42e21bbd25fd57b3 (factory()=0x0c6a0061f9d0afb30152b8761a273786e51bec6d, WETH()=WAVAX 0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7); XOXO/WAVAX pair 0x5c2fcd829f2f65b95147a2e65fb05c75dac95c0f. Callable-by-anyone functions = MasterChef deposit/withdraw/emergencyWithdraw/massUpdatePools/updatePool (eth_call massUpdatePools() from fresh addr 0x00..c0ffee ok, returns 0x, no role revert); they pay only the caller's own pending XOXO (self-staking harvest), no third-party keeper bounty. Verdict unpaid 2026-11-23."
+}

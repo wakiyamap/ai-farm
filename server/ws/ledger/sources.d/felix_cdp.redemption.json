@@ -1,0 +1,17 @@
+{
+ "id": "felix_cdp.redemption",
+ "protocol": "felix_cdp",
+ "kind": "redemption_arb",
+ "chains": {
+  "hyperevm": [
+   "0x3100f4e7bda2ed2452d9a57eb30260ab071bbe62",
+   "0xbbe5f227275f24b64bd290a91f55723a00214885",
+   "0x7c07bb77b1cf9a5b40d92f805c10d90c90957e4a"
+  ]
+ },
+ "event": "Redemption(uint256,uint256,uint256,uint256,uint256)",
+ "topic0": "0xc8f82a388a36012a2cfc586d40688baa3fe0112eff350cfd00b7e4dddaf6a5a4",
+ "indexed": [],
+ "data": ["attempted_feusd", "actual_feusd", "coll_sent", "coll_fee", "price"],
+ "actor_field": "tx_from"
+}

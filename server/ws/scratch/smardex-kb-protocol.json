@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "smardex_amm",
+ "status": "dead_end",
+ "checked": "SMARDEX AMM, UniV2-style DEX. Factory 0x41A00e3FbE7F479A99bA6822704d9c5dEB611F22 (DefiLlama adapter projects/SmarDex/index.js; eth_getCode non-empty; allPairsLength()=43 via eth_call; feeTo()=0x89c64b435947bfc0bf74b645f088d67206f0cc54). Pair ABI from etherscan (0xaccdd9ee1dcd393e346e5d6350230439b4da09ab, SDEX-LP, token0=0xabd587f2607542723b17f14d00d99b987c29b074 SDEX, token1=0xaf88d065e77c8cc2239327c5edb3a432268e5831 USDC): only mint/burn/swap pay out and all require capital (LP or swap); no claim/harvest/reward/keeper function on pair or factory. Verified source SmardexPair.sol: LP fees auto-accrue into (fictive) reserves, no per-LP claim; pool fees go to feeTo=AutoSwapperL2 0x89c6...cc54 whose executeWork(address,address) is external/anyone-callable but swaps accumulated fees to SDEX and burns to 0xdead (pays nothing to the caller); it is auto-called inside every user mint/burn. eth_call burn(address) from fresh 0x...0123 reverts 'SmarDex: INSUFFICIENT_LIQUIDITY_BURNED' (capital needed, not role-gated). GitHub org github.com/Smardex has 0 public repos. No SDEX staking on arbitrum in the adapter (staking arrays are ethereum-only)."
+}

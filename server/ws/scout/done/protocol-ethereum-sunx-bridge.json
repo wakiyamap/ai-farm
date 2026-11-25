@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-sunx-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 420,
+ "chain": "ethereum",
+ "slug": "sunx-bridge",
+ "name": "SunX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 3253417,
+ "url": "https://www.sunx.io/",
+ "github": null,
+ "listed_days_ago": 420,
+ "run_id": "7780013c1f6a41419f05403f927bfba0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: SunperpVault proxy 0x4d1Be6c39Fe3fB1362ff602a6c0CBB5B3BF64eC7 (verified impl 0x9ac0c8ba); only money-out withdraw/withdrawWhitelist are onlyRole(OPERATE_ROLE, 2 members) and pay action.receiver, never the caller; 7d no-topic scan (blocks 26411825-26462225): 1 Withdraw tx 0x132a0240 paid 132.39 USDT to user 0xee2e8ba6 by role member 0xca6b6b16 (caller gets 0), 3 Deposits control; gas 163k @0.204 gwei = 0.05 USD/call (ETH 1609 USD coins.llama.fi 11-20); fresh-addr eth_call reverts AccessControlUnauthorizedAccount; TVL 3.246M USDT = DefiLlama exact",
+  "kb": [
+   "attempts:3040",
+   "protocols:1427"
+  ],
+  "run_id": "7780013c1f6a41419f05403f927bfba0",
+  "at": 1795206493
+ }
+}

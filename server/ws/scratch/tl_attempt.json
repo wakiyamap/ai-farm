@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-turbo-loop",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: the only stranger-callable function is calculateDailyRewards(uint256) on TURBOLOOP.sol 0xc90E5785632dAaB9Cb61F5050dA393090541A76D (verified Sourcify exact_match; eth_call from stranger 0x1111..1111 succeeds, not role_gated) but the contract never transfers anything to msg.sender - daily ROI accrues to depositors and a 6% service fee at day completion goes to SERVICE_FEE_WALLET 0xc8d2701882a9a629e9a9332950fef78ee4ffd9a9. The active keeper pays ~$0.45 gas per call out of pocket; no stranger was paid in the last 7 days.",
+ "numbers": "TVL $3.36M USDT (api.llama.fi 2026-11-17); users 54,227 registered / 52,619 active (nextUserId/totalActiveUsers, latest block 134103079); day 250 processed, needsDailyRewardCalculation=false. 7d DailyRewardsBatchProcessed topic0 0x23f8a1a4...: sample of 8 windows x 5000 blocks (of ~1,343,615 blocks at 0.45 s/block): 1 window 133935128-133940127 = 629 events / 629 txs / 548 blocks, all from one EOA 0x23deb6deebf7382c0bc810592fa6d3e86d3bec63 (5/5 sampled); 7 windows = 0 (same-run, same-shape control). Keeper tx 0x593008fa...: gasUsed 13,848,809 @ 0.055 gwei = 0.00076 BNB = $0.45 at BNB $587.63 (coins.llama.fi). Gross to caller: $0. Other contracts: autoCompound 0xe92ebdFa76a5E7e394F93fAe256713C7f8f1C270 (code present, unverified, owner/operator + withdrawProfits(uint256))."
+}

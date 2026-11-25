@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-baseswap-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: BaseSwap V2 is a plain PancakeSwap-V2 fork (factory 0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB, PancakeFactory source verified). Open functions pay the caller nothing: createPair pays 0 (PairCreated 7d = 0), skim pays the excess balance (Skim 7d = 0 on top pair; balance-reserve excess = 0 on all 3 top pairs), mint/burn/swap are user-driven, setFeeTo/setFeeToSetter are role-gated, fees accrue to feeTo 0x463112327576814f80da8d3632f7bad23c853a29 with no claim function. Nothing for a stranger keeper to take.",
+  "numbers": "TVL $472k (DefiLlama, deadUrl=true). Factory allPairsLength=8306 (eth_call 0x574f2ba3, block 59.27M). Top pair WETH/USDC 0xab067c01c7f5734da168c699ae9d23a4512c9fdb: Swap 7d = 2662, Skim 7d = 0, PairCreated 7d on factory = 0 (eth_getLogs, 62 chunks x 49k blocks, 56251701-59275701 full coverage, same query shape returned 2662 so the zeros are controlled). Excess over reserves = 0 on 3 top pairs. Swap callers are aggregators (0x router 0x0000000071727de22e5e9d8baf0edac6f37da032, Permit2Proxy 0x8eed5e28216c0bc6f817df40ae6ca11c2294cc1c). Gas: 0.006 gwei x ~50k = ~0.0000003 ETH = $0.0005 (ETH $1776.70, coins.llama.fi 1795045798)."
+}

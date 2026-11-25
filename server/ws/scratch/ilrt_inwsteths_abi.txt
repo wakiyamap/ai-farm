@@ -1,0 +1,10 @@
+# via etherscan
+constructorNone(address,address,bytes) payable
+event AdminChanged(address,address)
+event Upgraded(address)
+error AddressEmptyCode(address)
+error ERC1967InvalidAdmin(address)
+error ERC1967InvalidImplementation(address)
+error ERC1967NonPayable()
+error FailedInnerCall()
+error ProxyDeniedAdminAccess()

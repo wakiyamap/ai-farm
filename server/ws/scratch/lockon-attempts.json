@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-lockon",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. LOCKON (arbitrum) is a Set Protocol v2 fork: the only keeper action is TradeModule.trade (rebalance) plus PositionUnitAdjusterModule.adjustDefaultPositionUnits, both onlyManagerOrOperator with exactly 1 whitelisted operator (0x38350b623713ae24884a7b2396c4d903fc9136ae, addOperator is onlyOwner), and even it is paid nothing - the 0.2% trade fee is taken from the set token to the protocol feeRecipient. The public functions (BasicIssuanceModule.issue/redeem) pay the caller nothing and had no calls in 7 days. Nothing here pays a stranger.",
+ "numbers": "7d window blocks 523,303,584 (2026-11-11T14:33Z) to 525,404,512: TradeModule 86 ComponentExchanged = 86 txs, all from operator 0x38350b62... (5 sampled receipts); 0 in the last ~24 h; IssuanceModule 0 SetTokenIssued/Redeemed (shape control returned 30/34/22 logs on the TradeModule in the same run). Gross to caller per call = 0 USD (0.2% fee, 2e15/1e18 from controller.fees(tradeModule,0), accrues to feeRecipient 0x19c689ecdbcd6d82cc5db15ab4a72f764eb66eec). Gas 388,634-900,153 (median ~650k) at 0.0202 gwei = 0.014-0.032 USD at ETH 1758.79 (coins.llama.fi). eth_call trade from 0x1111...1111 reverts OnlyManagerOrOperator. Arbitrum TVL 98,448 USD (api.llama.fi)."
+}

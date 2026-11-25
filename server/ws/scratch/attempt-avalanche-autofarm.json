@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-autofarm",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The avalanche deploy is AutoFarmV2_CrossChain (same stripped vault already scouted on polygon, attempts:2821): masterchef externals are only deposit/withdraw of the caller's own funds plus onlyOwner admin; no claim/harvest/emission function exists, so no function pays a stranger. Strategy earn() is role-gated ('!gov' revert from a fresh address, 3/3 sampled strats) and would pay nothing anyway. Protocol is dormant: 0 masterchef events in 7d, last masterchef tx 2025-02-18.",
+ "numbers": "masterchef 0x864A0B7F8466247A0e44558D29cDC37D4623F213 (DefiLlama adapter projects/autofarm.js avax entry; eth_getCode non-empty; poolLength()=0x59=89; poolInfo pid0-2 all allocPoint=0). Source AutoFarmV2_CrossChain from routescan getsourcecode. earn() selector 0xd389800f (cast sig), revert '!gov' from 0x..0099 on strats 0x0c98e59e8327f156ab12a042f5e1f0adb97c0931, 0x39ea1b5bd5ed7d2ee79a0e067e8a493f1464be60, 0xa881b995e279ffed740efe9800c7f0fcb2de3617. 7d masterchef events = 0 (no-topic eth_getLogs, blocks 100480575 ts 1794836316 = 2026-11-16 to 101169499 ts 1795441137 = 2026-11-23, 69 chunks of <=9900 blocks, 0 errors; control same shape WAVAX 0xb31f66aa.. Transfer 2002 logs). Last masterchef tx 1739849217 (2025-02-18, routescan txlist). eth_gasPrice 7.5 gwei, AVAX $6.723 (coins.llama.fi coingecko:avalanche-2 ts 1795441545) => 100k-gas call ~ $0.005. Gross to caller = 0 (no reward function). Candidate TVL 45,243 USD."
+}

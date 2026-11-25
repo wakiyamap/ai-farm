@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-pumpbtc",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 849,
+ "chain": "base",
+ "slug": "pumpbtc",
+ "name": "PumpBTC",
+ "category": "Bridge",
+ "tvl_usd": 43562,
+ "url": "https://pumpbtc.xyz/",
+ "github": [
+  "pumpbtc"
+ ],
+ "listed_days_ago": 849,
+ "run_id": "492cfed40c8649aa8c5f9bcda81837f2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "PumpStaking(cbBTC) proxy 0x1fCca...4e1e + pumpBTC OFT 0xF469...012e: anyone-callable stake/unstakeRequest/claimSlot/claimAll/unstakeInstant pay only the caller's own stake (stake = ERC20-allowance revert from fresh addr; claims revert 'only allow stake at first', onlyAllowStake=1); 0 events on proxy over 7d (blocks 57,923,622-60,947,623, 2026-11-15/22; cbBTC control same shape 9,777 logs), token 3 logs/2 txs bridge-only; TVL 0.737 cbBTC ~44.6k USD; collectedFee 0.033 cbBTC ~2,019 USD owner-only via collectFee; gas ~0.0006 USD/call (0.006 gwei x 100k, ETH 1,712.73).",
+  "kb": [
+   "attempts:3849"
+  ],
+  "run_id": "492cfed40c8649aa8c5f9bcda81837f2",
+  "at": 1795380219
+ }
+}

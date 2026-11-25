@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-elfi-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. ELFi perp diamond 0x957e0C...9d50 on base: the paying functions (executeOrder pays keeper usedGas*gasprice in WETH; liquidationPosition/Account/Liability) all require ROLE_KEEPER (eth_call from fresh address reverts with role error; hasRole(fresh,KEEPER)=false). Only open fn is callLiabilityClean (1:1 collateral-for-liability redemption, 12 cleans pending, no discount). Protocol is dormant on base: 0 txs and 0 events in the last 7 days on all 5 contracts, so nothing pays anyone.",
+  "numbers": "7d txs on diamond/vaults/elfUSD = 0 (Blockscout txs page, diamond last tx 2026-09-15); diamond eth_getLogs last 10000 blocks = 0 events vs same-shape USDC control 10404 (block 55933077-59033077); gasPrice 6000128 wei (~0.006 gwei) so 150k gas ~ 0.0000009 ETH; TVL 1.315M USD (DefiLlama 2026-11-16); getAllCleanInfos length 12"
+}

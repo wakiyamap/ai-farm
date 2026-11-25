@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-stockereum",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: the only public reward-path functions are escrow.claim(currency,to), which pays msg.sender its own accrued swap fees (fresh address reverts NothingToClaim 0x969bf728, not role-gated), and hook.sweep(address), callable by anyone but pays the caller 0 (all funds go to the escrow; all 18 sweeps in 7d ran inside Claimed txs, no standalone sweeper). The fee flow pays launch creators and the platform their own credits, so nothing on ethereum pays a stranger for calling.",
+ "numbers": "7d window blocks 26405312-26455579, no-topic eth_getLogs on 2 hooks + 2 escrows, 55,723 logs (topic0 from these contracts, full scan): 18,322 Trade (17,850 v3 + 472 v2); 21,575 Credited of which WETH 7.22 ETH gross fees ~12,609 USD (price 1746.44 coins.llama.fi WETH 2026-11-20 10:09 UTC, decimals 18 read on chain); 587 Claimed by 250 unique accounts: WETH 350 claims 6.589 ETH ~11,508 USD median 0.0026 ETH ~4.5 USD, USDC 5 claims 40.74 USD, rest tokenized-stock quotes (18 decimals); 18 FeesSwept. eth_call claim(WETH,to) from fresh address reverts NothingToClaim. Gas 0.168 gwei (eth_gasPrice 2026-11-20 10:09 UTC), claim ~150k gas ~0.04 USD. Top claimer 0xd4ca62a203d2b6e10608e6cac348a8a78324afa2 = platformRecipient, 209 claims in 7d."
+}

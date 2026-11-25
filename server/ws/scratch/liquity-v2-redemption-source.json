@@ -1,0 +1,20 @@
+{
+ "id": "liquity_v2.redemption",
+ "protocol": "liquity_v2",
+ "kind": "redemption_arb",
+ "chains": {
+  "ethereum": [
+   "0x81d78814df42da2cab0e8870c477bc3ed861de66",
+   "0xb47ef60132deabc89580fd40e49c062d93070046",
+   "0xde026433882a9dded65cac4fff8402fafff40fca",
+   "0x7bcb64b2c9206a5b699ed43363f6f98d4776cf5a",
+   "0xa2895d6a3bf110561dfe4b71ca539d84e1928b22",
+   "0xb2b2abeb5c357a234363ff5d180912d319e3e19e"
+  ]
+ },
+ "event": "Redemption(uint256,uint256,uint256,uint256,uint256,uint256)",
+ "topic0": "0x84ec8e1674d62e3a8ff294b1a7f53527d2d10291765fadf94e0ce431b2334334",
+ "indexed": [],
+ "data": ["attempted_bold", "actual_bold", "coll_sent", "coll_fee", "price", "redemption_price"],
+ "actor_field": "tx_from"
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-lockon",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. LOCKON on polygon is a Set Protocol v2 fork (controller 0x153e739B8823B277844Ad885A30AC5bD9DfB6E83, 3 index SetTokens). No function pays a caller: the only stranger-callable ones are BasicIssuanceModule issue/redeem on 0x6f0790c97379d30cd02e8b3688ca6655a14cb8ed, which return the caller's own components (protocol takes a fee to feeRecipient 0x017efe77240b268d1011405a777bfaa3f3af2b1e). Maintenance fns (TradeModule.trade, PositionUnitAdjusterModule.adjustDefaultPositionUnits) are onlyManagerOrOperator, held by operator 0x38350b623713ae24884a7b2396c4d903fc9136ae. No stranger was paid in the last 7 days.",
+  "numbers": "7d: 0 protocol-paid rewards to strangers; ~4 redeem calls on BIM 0x6f0790c9 by 3 distinct addresses (explorer txs 2026-11-15..17, e.g. 0xf7d0522af967de2c78846a68a5b400fb4850a5a247589d79f5d9a7d124653f86), gross to caller $0, gas 578,589 = ~0.162 POL at 280 gwei x $0.0810/POL = ~$0.013 (eth_getTransactionReceipt; POL price coins.llama.fi 2026-11-18). adjustDefaultPositionUnits called ~weekly by operator only (last 2026-11-16); manager Safe last active 2025-10-19. getLogs on polygon public node capped at 100-block ranges on free plan, so 7d counts come from explorer tx listings (cover the full window), not a null getLogs result."
+}

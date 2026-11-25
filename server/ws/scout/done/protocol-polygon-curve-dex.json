@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-curve-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "curve-dex",
+ "name": "Curve DEX",
+ "category": "Dexs",
+ "tvl_usd": 4598730,
+ "url": "https://curve.finance",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "bb69c2dac99649f9b1294580f20ebb40",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Polygon Curve: withdraw_admin_fees() permissionless (fresh-address eth_call on NG pool 0xd16baf22 returns 0x) but pays fixed fee receiver 0x774D1Dba98cfBD1F2Bc3A1F59c494125e07C48F9 (registry 505 pools + NG stable factory 434 pools both return it) so caller keeps 0; gauge claim_rewards pays the staker; registry is Curve-operated (burn_many from 0xa84ff98f 2026-11-17); candidate tvl 4,598,730 USD - same shape as optimism/base/avalanche/hyperevm curve_dex dead ends.",
+  "kb": [
+   "attempts:2826",
+   "protocols:1250"
+  ],
+  "run_id": "bb69c2dac99649f9b1294580f20ebb40",
+  "at": 1795162915
+ }
+}

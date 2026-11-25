@@ -1,0 +1,12 @@
+{
+  "run_id": "6e7ee99c68594da18b3c704acfe918e3",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane exhaustion check #20 (steps 1-4 empty; NEW 30-day per-source activity-trend pass + frankencoin challenge-11 on-chain resolution)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1386", "leads:74"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure lane, ~12 research-lane reads, 0 fork, 0 tx. Queue empty (0 unmeasured leads; bridge-vs-bridge and R=12s regrades already measured). New 30-day per-source trend pass (last7d vs prior23d): every surging ledger source classifies to a closed class. Frankencoin challenge 11 measured on-chain: taken at expiry+1.59h by a generalist opportunist (not a one-shot leftover); lead 74 next_steps updated with the competition observation for the builder. Tooling note: unixepoch() returns NULL in this sqlite build - ledger ts comparisons need strftime('%s','now')."
+}

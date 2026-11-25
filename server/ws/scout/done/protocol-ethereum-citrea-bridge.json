@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-citrea-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 288,
+ "chain": "ethereum",
+ "slug": "citrea-bridge",
+ "name": "Citrea Bridge",
+ "category": "Bridge",
+ "tvl_usd": 117695,
+ "url": "https://citrea.xyz/bridge",
+ "github": null,
+ "listed_days_ago": 288,
+ "run_id": "0841d9d8b7204486a90f5f70c92b9b71",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Citrea Bridge on ethereum = 3 LayerZero OFT adapters (71,183 USDC 0xdaa289cc, 3,340 USDT 0x6925ccD2, 0.67 WBTC 0x2c01390e; TVL 115.6k): 7d only Citrea operator EOAs (0x7ddb0773, 0x73a063c9) ran 3 USDC unlocks 4,945 USDC (~,944) + WBTC 0.0925 out, gas bash.03-1.63/unlock (92.8k-110k gas @ 0.16-9 gwei, ETH ,643); withdrawFees(address) onlyOwner, lzReceive endpoint-gated (fresh-address eth_call reverts), send() pays caller nothing -> nothing for strangers",
+  "kb": [
+   "attempts:2988",
+   "protocols:1389"
+  ],
+  "run_id": "0841d9d8b7204486a90f5f70c92b9b71",
+  "at": 1795194122
+ }
+}

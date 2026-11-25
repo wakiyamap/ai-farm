@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-pirex",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1526,
+ "chain": "ethereum",
+ "slug": "pirex",
+ "name": "Pirex",
+ "category": "Yield",
+ "tvl_usd": 2223000,
+ "url": "https://pirex.io/",
+ "github": null,
+ "listed_days_ago": 1526,
+ "run_id": "13155b93c4254e09a68f14a66f3c5bea",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PirexCvx 0x35A39842: claimMiscRewards/claimVotiumRewards/lock permissionless (fresh-EAO eth_call ok, no role gate) but pay msg.sender 0 (rewards -> vault + PirexFees treasury/contributors); 7d blocks 26414803-26465058: 0 keeper calls (1 user redeem tx; control 6884 logs on CVX), last claims by team EOA 0x0b987182: 589 CRV ~105 USD 2026-08-21 and 11.3 FXN ~144 USD 2026-11-10 (to vault, not caller); pot 152.66 CRV ~27 USD; gas ~0.07 USD/call.",
+  "kb": [
+   "attempts:3417",
+   "protocols:1713"
+  ],
+  "run_id": "13155b93c4254e09a68f14a66f3c5bea",
+  "at": 1795283880
+ }
+}

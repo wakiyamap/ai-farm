@@ -1,0 +1,6 @@
+{
+  "chain": "any",
+  "protocol": "bim",
+  "status": "dead_end",
+  "checked": "DefiLlama slug bim (parent#bim, exchange.bim.finance): currentChainTvls at 2026-11-22 is EVM-only (Base 224.6k, Polygon 15.6k, OP 1.4k, rest ~0; no Stellar key in chains or chainTvls). Adapter projects/bim/index.js chains map has no stellar (ethereum..avax, 12 EVM chains); staking-api.bim.finance/vaults returns 36 vaults on base/ethereum/gnosis/optimism/plasma/polygon only. Child bim-aggregator: Ethereum only. DefiLlama Stellar protocol list (api.llama.fi/protocols, chains==Stellar) has no BIM entry. exchange.bim.finance UI supports a Stellar wallet but routes Stellar swaps via third-party DEXes (Soroswap, Aquarius, Sushi Stellar); docs.bim.finance and developers-docs mention no Stellar/Soroban contracts; no Rust/Soroban repo found on GitHub; CoinGecko github links empty. Conclusion: BIM runs no vault/strategy contract on Stellar, so there is no harvest-like function to call there (Base-side harvest(address) caller fee is EVM-only, see base/bim_yield)."
+}

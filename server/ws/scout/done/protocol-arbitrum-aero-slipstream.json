@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-aero-slipstream",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 58,
+ "chain": "arbitrum",
+ "slug": "aero-slipstream",
+ "name": "Aero Slipstream",
+ "category": "Dexs",
+ "tvl_usd": 3974323,
+ "url": "https://aero.xyz/",
+ "github": null,
+ "listed_days_ago": 58,
+ "run_id": "a359bd6a576e496a81e65c193b4ebda8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LeafVoter 0x382409fa...4078 settleGauge is the only anyone-callable entry (fresh-address eth_call ok, 101,021 gas = 0.004 USD) and pays 0 (accrual-only, no transfer); sample 7,570 GaugeCapSettled / 10k blocks (~1 h) over 19 gauges, all inside user swap/deposit txs via helper 0x881ea748; rest role-gated (settleToBlock _onlyGauge, allocateGauges NotOperator, claimRewards orchestrator/operator); CLFactory 0x88a60ee7... 76 pools, TVL 4.50M USD; same as Elysium attempt 1337",
+  "kb": [
+   "attempts:1599",
+   "protocols:305"
+  ],
+  "run_id": "a359bd6a576e496a81e65c193b4ebda8",
+  "at": 1794894062
+ }
+}

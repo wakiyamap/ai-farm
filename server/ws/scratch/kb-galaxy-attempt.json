@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-galaxy-curation",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid — Galaxy Curation on Base is one Morpho V2 vault (0x1e9e47583f15D45a10Df48c0b1846E0492c795D7, 'Galaxy USDC Quality', $2.04M). Its only role-free state-changing functions are accrueInterest() (pays the caller $0) and forceDeallocate() (penalty goes to the vault, not the caller; 0 events in 7d). All other functions are owner/curator/allocator/sentinel gated. Nothing pays a stranger for calling.",
+  "numbers": "7d logs blocks 55,579,154-58,603,154 (eth_getLogs address-filter, 46 logs, control: same query returns them): Deposit x3 (0.0019/0.367/0.0018 USDC dust), Withdraw x4 (203.9/200.2/0.365/30.7 USDC), Allocate x3, Deallocate x4 (allocator role), AccrueInterest x10 (all inside user router txs, e.g. 0x4e9daabc...b8c8 from 0xcbce9f04666490a3098222539ff43e09ae8731de via router 0xfdcf2249cf315f096e260718e8e8b38bc1977ddc), ForceDeallocate x0, Transfer x19, Approval x2. accrueInterest() from stranger: ok, gas est 137,473 (eth_estimateGas); base gasPrice 0.006 gwei (eth_gasPrice 0x5b8d80) -> ~$0.0015 at ETH $1,791.75 (coins.llama.fi coingecko:ethereum 2026-11-17). Gross to caller: $0. TVL: Morpho API 2,037,180 USD; llama 2,036,954 USD."
+}

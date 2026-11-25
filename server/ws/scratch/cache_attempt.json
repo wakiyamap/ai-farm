@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-cache-gold",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. CACHE Gold (CGu) is a gold-backed ERC20 that charges holders a storage fee (fees flow holder -> feeAddress 0xb3ed2510e7a27fde1005a1b7309217a368249b63); no public function pays the caller anything. Only stranger-callable fn is payStorageFee() (caller pays its own fee); forcePayFees(address) is onlyEnforcer and pays feeAddress, not the caller; redemption is off-chain (redeemAddress is an EOA). Contract is nearly dormant.",
+  "numbers": "eth_getLogs no-topic scan on token 0xf5238462e7235c7b62811567e63dd17d12c2eaa0, 7 d window blocks 26,414,840 (2026-11-14T17:53Z) -> 26,465,136 (2026-11-21T18:01Z): 0 logs (control: relay-probe getlogs-range same start = 804 USDC logs); 86 d window from 25,843,440 (2026-08-27): 13 logs, all Transfer/Approval by EOAs; last token tx 26,398,488 (2026-11-13, approve). payStorageFee() eth_call from fresh address returns true, pays 0. totalSupply 100,771.01 g (8 dec, read on chain), TVL 472,683 USD (DefiLlama api.llama.fi/protocol/cache.gold, 2026-11-21). Source: explorer verified CacheGold.sol (Solidity 0.5.16)."
+}

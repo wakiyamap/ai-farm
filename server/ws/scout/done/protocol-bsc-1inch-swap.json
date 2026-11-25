@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-1inch-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "1inch-swap",
+ "name": "1inch Swap",
+ "category": "DEX Aggregator",
+ "tvl_usd": 210763,
+ "url": "https://1inch.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "1e1685ad2e0944d1a9f3959f5b26c30d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "bsc 1inch Swap = legacy Mooniswap v1: factory 0xd41b24bb...cd64 getAllPools()=1,409 pools, TVL $204,819 (api.llama.fi 11-20 01:05Z); pool bytecode (48 selectors) has no reward/claim/harvest fn (rewardsBalance/rewardsAmount revert 0x), feeVote callable from fresh addr but records only, pays 0; 32-pool sample x 4,320 blocks (~54 min): 0 logs vs USDC control 37,677; BNB $577.58 (coingecko ts 1795136724)",
+  "kb": [
+   "attempts:2711"
+  ],
+  "run_id": "1e1685ad2e0944d1a9f3959f5b26c30d",
+  "at": 1795137231
+ }
+}

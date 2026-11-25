@@ -1,0 +1,12 @@
+{
+  "run_id": "0202993a93324c218fdeca00da97d8f2",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane exhaustion check #17: 24 h first-seen-actor diff across all ledger sources + lead 165 stakedao reopen-gate recheck - no target taken",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1370"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure queue empty (0 unmeasured leads; both 2026-11-16 decisions verified processed; bold-redeem fix is build-lane). New angle: diffed all 197 (chain,actor) pairs active in the last 24 h against the actors table - the 39 non-trivial unlisted pairs all map to closed classes (UniswapX fill, liquidations, inverse replenish, felix-hyperevm rechecked 00:47Z, debridge, beefy, fee-release); zero first-seen actor or kind; lead 165 cadence/fee unchanged so its reopen bar is not met. 0 relay CU, 0 fork, 0 tx."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-fx-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1203,
+ "chain": "ethereum",
+ "slug": "fx-protocol",
+ "name": "fx Protocol",
+ "category": "Dual-Token Stablecoin",
+ "tvl_usd": 39080435,
+ "url": "https://fx.aladdin.club",
+ "github": null,
+ "listed_days_ago": 1203,
+ "run_id": "5a2be68a5ff34787bc5d99f52efccd75",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: no open callable caller-paying function on fx Protocol's 9 ethereum contracts \u2014 v1 books dead since 2025-11-29 (last tx harvest() 0x794786e5 blk 23904904; a single keeper 0x11e91bb6 called harvest() every ~300 s until then, pays caller 0 per TreasuryV2.sol:393; settle() = SETTLE_WHITELIST_ROLE), live fxUSD pool 0x65C9 open rebalance()/liquidate() are self-funded user ops with no bounty and arbitrage() is onlyPegKeeper (12 Arbitrage events in 7 d, blocks 26413196 2026-11-14 to 26463596 2026-11-21, 1136 logs total over the pool as control), gross to caller 0 vs nonzero gas",
+  "kb": [
+   "attempts:3323"
+  ],
+  "run_id": "5a2be68a5ff34787bc5d99f52efccd75",
+  "at": 1795265895
+ }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@farm/dsh-web-search-rustxng",
+  "version": "0.1.0",
+  "description": "Search provider for the dsh web seam (ctx.web) backed by the local RustXNG metasearch service",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": { ".": "./lib/index.js", "./package.json": "./package.json" }
+}

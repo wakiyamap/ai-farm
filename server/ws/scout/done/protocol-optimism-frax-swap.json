@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-frax-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1520,
+ "chain": "optimism",
+ "slug": "frax-swap",
+ "name": "Frax Swap",
+ "category": "Dexs",
+ "tvl_usd": 76017,
+ "url": "https://frax.com/swap",
+ "github": null,
+ "listed_days_ago": 1520,
+ "run_id": "5b4b48c1a1b54bbf9071f141eff64d28",
+ "result": {
+  "verdict": "unpaid",
+  "line": "executeVirtualOrders callable from a fresh address but pays 0 (no transfer to msg.sender) and the TWAMM pot is empty: open rates (0,0) on 7/7 pairs, 0 LongTermSwap/Withdraw/Cancel events in 7 d, 0 direct calls (of 1,949 VOE txs, 1,945 are swaps, 4 helper sync sweeps); skim dust 0 on 7/7 pairs (skim type), feeTo=0 both factories, docs list only Factory+Router; 2,784 swaps / 14.6k USD FRAX throughput in 7 d (blocks 159607228-159909628), gas ~0.0001 USD (58,741 x 1,043,546 wei, ETH 1722.86).",
+  "kb": [
+   "attempts:4028"
+  ],
+  "run_id": "5b4b48c1a1b54bbf9071f141eff64d28",
+  "at": 1795419248
+ }
+}

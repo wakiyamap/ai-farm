@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-hiyield",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. HiYield's two bond-pool proxies are the whole protocol on avalanche; callable claimWithdraw() and queueProcess() exist but pay 0 - queue and claim pots are empty and the $1.728M pool (TREASURY_BILLS) has been paused since 2026-04-17. Zero transactions and zero events on both pools in the last 7 days; when active, redemptions pay the caller's own claim, and queueProcess pays no keeper and was never called in recorded history.",
+  "numbers": "TVL $1.728M = TB poolInfo[0]=1728006.49 (api call, block 100680745); IGB poolInfo[0]=52368 (~$0.05). 7d txs: TB 0, IGB 0 (Routescan txlist; TB last tx 2026-04-17 pause 0xbc06545ec1cf3942659b4d2dc280d432d5da2636a1196d38217c432846be7484, IGB last tx 2024-11-18). queueProcess calls in last 200 TB txs (back to 2024-04-16): 0; in all 31 IGB txs: 0. eth_call from fresh 0xf0c1a5eD...: TB claimWithdraw reverts 'Pausable: paused', IGB claimWithdraw/queueProcess return empty (pay 0). Control: getLogs at block 79105314 window returns 1 pool log (ClaimWithdraw topic0 0xf6c1672d = keccak('ClaimWithdraw(address,uint256)')) + USDC(0xb97ef9ef...) Transfer in receipt. Contracts: TB 0x8475509d391e6ee5A8b7133221CE17019D307B3E, IGB 0xce6050625fe3F79bBfC4d236aBAaBE51AB59e660, factory 0x523688c194afa0d06e90b99cd0e548bf8989a171, impl 0xd75f7a123d556509258f594a2915ed8014763eaf. AVAX price source: not needed (0 payments)."
+}

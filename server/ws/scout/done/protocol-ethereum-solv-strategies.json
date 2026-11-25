@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-solv-strategies",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 561,
+ "chain": "ethereum",
+ "slug": "solv-strategies",
+ "name": "Solv Strategies",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 7202972,
+ "url": "https://solv.finance",
+ "github": null,
+ "listed_days_ago": 561,
+ "run_id": "384402073cb0405c995111d36f067928",
+ "result": {
+  "verdict": "role_gated",
+  "line": "OpenFundMarket 0x57bb6a85..c567 (impl 0x7ce0cfcd, verified): stranger eth_calls revert 'OFM: only pool manager' / 'caller not allowed', claimTo holder-only; 7 d (blocks 26409324-26459582) our 2 pools had 2 settlement txs by Solv's own EOAs (348,915 + 602,922 gas = 0.10 + 0.17 USD at 0.172 gwei, ETH 1616.49), gross to caller 0; 55 market events total, 0 paid a stranger",
+  "kb": [
+   "attempts:3099"
+  ],
+  "run_id": "384402073cb0405c995111d36f067928",
+  "at": 1795217706
+ }
+}

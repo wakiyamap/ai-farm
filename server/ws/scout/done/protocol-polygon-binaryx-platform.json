@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-binaryx-platform",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1019,
+ "chain": "polygon",
+ "slug": "binaryx-platform",
+ "name": "Binaryx Platform",
+ "category": "RWA",
+ "tvl_usd": 8996362,
+ "url": "https://www.binaryx.com",
+ "github": null,
+ "listed_days_ago": 1019,
+ "run_id": "59f45d1f6e1d45c2b1c21e417a5e4360",
+ "result": {
+  "verdict": "unpaid",
+  "line": "RewardsDistributor 0x326fdcca0f5b9f5905f6bfdb914b1f6eddc45061 claim(address,address[]) 0x8e2eba09 is public/no-role (fresh-address eth_call succeeds, for self and for another holder) but pays the holder arg in USDT, not the caller: 54 self-claims by 54 distinct EOAs in 7 d, sample of 5 gross 0.29-33.32 USDT vs gas 0.058-0.215 POL = $0.005-0.017 (POL $0.0809, coins.llama.fi); pot 57,061 USDT; a fresh stranger claims 0 because property tokens are KYC-gated (kycStore.isOperable) - rent yield on a position, no keeper bounty (ResellPool.claim pays the pool).",
+  "kb": [
+   "attempts:2213"
+  ],
+  "run_id": "59f45d1f6e1d45c2b1c21e417a5e4360",
+  "at": 1795024809
+ }
+}

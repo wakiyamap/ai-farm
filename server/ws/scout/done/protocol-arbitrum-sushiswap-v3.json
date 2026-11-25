@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-sushiswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1320,
+ "chain": "arbitrum",
+ "slug": "sushiswap-v3",
+ "name": "SushiSwap V3",
+ "category": "Dexs",
+ "tvl_usd": 786051,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": 1320,
+ "run_id": "b13f2606a2e14acba154ce288f903fd5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniV3 fork on arbitrum: factory 0x1af415a1 (feeAmountTickSpacing(3000)=60 OK, 1387 PoolCreated ever, 3/8M blocks) + pool ABI and NPM 0xF0cBce19 (factory() OK, 38 fns, 0 reward-like) have no public function paying the caller; fees accrue to LPs' own collect, collectProtocol owner-only; main pool 0xf3eb87c1: 2677 swaps/~200k blocks (sample), all callers takers (top 0x278d858f 1769x), gas ~$0.005/call (0.02002 gwei x ETH $1772, coins.llama.fi); TVL $786k",
+  "kb": [
+   "attempts:2322",
+   "protocols:863"
+  ],
+  "run_id": "b13f2606a2e14acba154ce288f903fd5",
+  "at": 1795052067
+ }
+}

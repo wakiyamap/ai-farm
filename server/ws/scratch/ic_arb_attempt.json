@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-index-coop",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Index Coop on Arbitrum = 10 SetV2 SetTokens (adapter projects/indexcoop/index.js) whose only keeper-class poke (AaveV3LeverageStrategyExtension.rebalance) is onlyEOA + callAllowList whitelist (anyoneCallable()=false on 3 of 3 sampled extensions) and pays msg.sender nothing; the genuinely anyone-callable functions (StreamingFeeModule.accrueFee - eth_call from fresh addr returns 0x, no role revert - and DebtIssuanceModuleV3 issue/redeem) pay the caller 0: fees mint to manager/protocol, issue/redeem is a NAV-arb venue (same class as polygon attempts:2557 ETH2x-FLI-P lead), not a paid poke. Matches ethereum attempt 1425.",
+  "numbers": "TVL 147k USD (llama currentChainTvls.Arbitrum, fetched 2026-11-19 20:0xZ); 11 addresses eth_getCode non-0x, name()+getModules() answered on all 10 sets; LeverageIncreased/Decreased 7d = 79 events (all 19 txs from keeper EOAs 0xfcb58fe..., 0x4f53e8d..., 0xbbbebfb...); FeeActualized 7d = 10 in 1 batch tx 0x6acb0e22414128373816198b42326f78b41256d92e214848a0b3f37e0bfc2c58 (caller 0x999d0e7e, earns 0, fee to manager 0x5afd5af137ce7afd81ffdd25b11fe94f4295945d); SetTokenIssued/Redeemed 7d = 17 (0x4fcf63f0, 0xec883750 via router 0xf5be3abf636c63a60111e23c96d8bf8e7f8a9d6e); getFee(eth2xArb)=0.25%/yr; gas: rebalance tx 775k-867k gas = $0.03, accrue batch 1.07M gas = $0.04 (0.02-0.021 gwei, ETH 1757.03 USD coins.llama.fi 2026-11-19 20:2xZ)"
+}

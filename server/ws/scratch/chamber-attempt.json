@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-chamber-vaults",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Chamber Vaults (ex-dHEDGE V2) on Polygon has no callable function that pays the caller. The only anyone-callable maintenance fn is PoolLogic.mintManagerFee() (eth_call from a stranger succeeds, no role revert); it mints fee shares to factory.daoAddress() and the pool manager and pays the caller 0. Everything else is user deposit/withdraw (caller pays fees) or execTransaction(s) gated to manager/trader/owner (dh23/dh24). 7d activity across all 1616 vaults is minimal (7 active vaults, 13 ManagerFeeMinted by managers/EasySwapperV2 users, 4 deposits); no stranger was paid. Same verdict as arbitrum/base/hyperevm/optimism rows.",
+ "numbers": "vaults=1616 (factory getDeployedFunds 2026-11-20); 7d logs blocks 97337536-97637536: Deposit 4, Withdrawal 9, TransactionExecuted 34, ManagerFeeMinted 13, active vaults 7; mintManagerFee gross to caller = 0 USD; solo call gas 1,219,361 (eth_estimateGas) x 276.2 gwei (eth_gasPrice) x $0.07914/POL (coins.llama.fi ts 1795162235) = $0.027; TVL 1,476,192 USD (candidate/DefiLlama). See protocols:1248 for addresses."
+}

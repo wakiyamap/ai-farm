@@ -1,0 +1,12 @@
+{
+  "run_id": "420e70e78feb4929a3fe2d617cd12c39",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane step-5 board walk (lead 209 claimed by parallel run); new lead 210 Synthetix FeePool fee-period init class",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1444", "leads:210"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Queue empty and lead 209 claimed at 17:19Z by parallel run 2c2633bb, so step 5: cross-checked 20+ keeper-class candidates against attempts (all closed) and the non-ethereum blocked_infra pool under the cheap-chain-trial decision (no fresh candidate; only HAI is non-liquidation), used 0 relay reads, and left one genuinely new never-named class as measurement-request lead 210 (Synthetix legacy FeePool initializeFeePeriod pays 10 SNX to the anyone-caller per weekly rollover; step 0 is the SIP-206 deprecation check because github raw 404s from this host)."
+}

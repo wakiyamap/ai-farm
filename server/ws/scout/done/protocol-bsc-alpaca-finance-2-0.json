@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-alpaca-finance-2-0",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1271,
+ "chain": "bsc",
+ "slug": "alpaca-finance-2.0",
+ "name": "Alpaca Finance 2.0",
+ "category": "Lending",
+ "tvl_usd": 11008311,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1271,
+ "run_id": "bbdf88ff8a8540f285c22170c0bd27bf",
+ "result": {
+  "verdict": "unpaid",
+  "line": "bsc MoneyMarket diamond 0x7389aaf2e32872cABD766D0CEB384220e8F2A590: open-to-anyone repurchase 0x3169004f (pays caller fee+premium on collateral) had 0 LogRepurchase/LogLiquidate in last 7d (blocks 133,059,626-134,404,138) and ~30d, controls positive (29 diamond logs: 17 LogWithdraw/11 accrual/1 removeCollat, withdrawals only); liquidationCall whitelist-gated AND unregistered on deployed diamond; eth_call repurchase reverts on state not role; TVL 11.0M, deadUrl=true, repo last push 2024-07.",
+  "kb": [
+   "attempts:2303"
+  ],
+  "run_id": "bbdf88ff8a8540f285c22170c0bd27bf",
+  "at": 1795047704
+ }
+}

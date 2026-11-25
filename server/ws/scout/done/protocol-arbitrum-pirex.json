@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-pirex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1528,
+ "chain": "arbitrum",
+ "slug": "pirex",
+ "name": "Pirex",
+ "category": "Yield",
+ "tvl_usd": 64142,
+ "url": "https://pirex.io/",
+ "github": null,
+ "listed_days_ago": 1528,
+ "run_id": "ea884de2b197469aa35be4519f6b5d45",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Arbitrum Pirex pxGMX 0x9a59..f999/pxGLP 0x0eac..c892, flywheel PirexRewards 0x612293..6fde + producer PirexGmx 0xb0e54c..a856 (all code confirmed): accrueStrategy/accrueUser/claim/accrueAndClaim are permissionless but pay caller $0 (Fei flywheel: rewards pro-rata to pxGMX/pxGLP holders + fee to PirexFees, never msg.sender); fresh-EOA call reverts 'RewardTracker: forbidden' (downstream GMX, not a role gate). 7d (blk 524674976->526740922) Transfers/ClaimRewards/AccrueStrategy all 0 (92d control: 14/15); last activity 2026-10-26 (28.2d ago); TVL 64142 USD.",
+  "kb": [
+   "attempts:4031",
+   "protocols:2160"
+  ],
+  "run_id": "ea884de2b197469aa35be4519f6b5d45",
+  "at": 1795419878
+ }
+}

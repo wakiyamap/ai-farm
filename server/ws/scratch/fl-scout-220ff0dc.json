@@ -1,0 +1,29 @@
+{
+ "run_id": "220ff0dc15634ce4ace21ec9c7908c8f",
+ "scout": "Fluid lending liquidation pond (lead 24, protocols 16-18, attempts 267)",
+ "head_arbitrum": "521719142",
+ "tvl_usd": {
+  "arbitrum": 180664671,
+  "base": 25410376,
+  "ethereum": 714467690,
+  "source": "yields.llama.fi/pools 2026-11-06T07:1xZ",
+  "snapshot": "scratch/fl-pools.json",
+  "lending_rows": "scratch/fl-scout-pools.json"
+ },
+ "candidate_topic0": [
+  "0x33560156358557189d1b040201ab2e121a573bcf3840e502ef6c169fb7e9a03c = LiquidationHappened(bytes32,address,uint256,uint256,uint256)",
+  "0x9088a66fccb7160f716962f1ebb20d3d41f73bcb9cb5bd9516924a3510100172 = LiquidationHappened(bytes32,address,uint256,int256,int256)"
+ ],
+ "topic_scan": "0 hits in each 2000-block window at head, head-200k, head-1M (both hashes)",
+ "failed_memory_addresses": [
+  "0x5C4cB6507A1DBfF6712D301D196e31A65D8184F8 no code",
+  "0x6A1e79e79e55A90397483157379372905C887914 no code"
+ ],
+ "dns_notes": [
+  "docs.fluidprotocol.org ENOTFOUND from web_fetch",
+  "arblockscout.com DNS failed earlier sessions",
+  "api.github.com reachable but org FluidProtocol shows public_repos=2 (docs repos not found there)",
+  "raw.githubusercontent.com reachable (404s = wrong paths)",
+  "api.llama.fi and yields.llama.fi reachable"
+ ]
+}

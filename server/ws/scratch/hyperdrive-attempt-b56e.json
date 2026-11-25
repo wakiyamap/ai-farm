@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-hyperdrive",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Public checkpoint() currently pays no caller because every registered Ethereum pool has checkpointRewarder=0x0. No pool event appeared in the measured week; governance fee collection is role gated and pays the fee collector.",
+  "numbers": "Window block 26429971 (2026-11-16 20:26:11 UTC) to 26480215 (2026-11-23 20:26:11 UTC), from eth_getBlockByNumber timestamp binary search. Registry 0xbe082293b646cb619a638d29e8eff7cf2f46aa3a getNumberOfInstances()=13; 13/13 getPoolConfig() checkpointRewarder=0x0. eth_getLogs for CreateCheckpoint topic0=0xff888cf98d2696e95c8c39aa98c9ad55a5378008f7a56614c9353b7137a57ab7 across all 13: 0 events; no-topic scan on all 13: 0 logs (no-topic scan). Control: USDC 0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 Transfer topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef over recent blocks 0x1940df0..0x1940e57 returned 9941 logs; no-topic returned 11011. Fresh-address eth_call checkpoint(1795392000,0) on sDAI pool succeeded, gross=0 USD (no reward token configured). eth_estimateGas=178329; eth_gasPrice=0.152960485 gwei; ETH $1729.07 at coins.llama.fi coingecko:ethereum timestamp 1795465515; estimated gas ~$0.0472/call. No last-week payees or tx samples to price."
+}

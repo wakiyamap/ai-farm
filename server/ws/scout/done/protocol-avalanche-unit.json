@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-unit",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 640,
+ "chain": "avalanche",
+ "slug": "unit",
+ "name": "Unit",
+ "category": "Bridge",
+ "tvl_usd": 303165,
+ "url": "https://hyperunit.xyz/deposit",
+ "github": null,
+ "listed_days_ago": 640,
+ "run_id": "aaab1d0cdd6944beb35ef09c86044a31",
+ "result": {
+  "verdict": "not_found",
+  "line": "No contracts on avalanche: Unit is a 2-of-3 MPC guardian bridge (docs.hyperunit.xyz); the only avalanche address is the treasury EOA 0x84e49dDcAD2eBFE7474Fa7A3d3eb1fe8bC103A16 (eth_getCode=0x, nonce 1030, 43,549.6 AVAX = $310,103 at $7.1207 AVAX, coins.llama.fi, matching the $303k TVL); deposits are plain AVAX transfers to derived addresses and withdrawals are guardian-broadcast batches, so there is no callable function and no reward.",
+  "kb": [
+   "attempts:1997"
+  ],
+  "run_id": "aaab1d0cdd6944beb35ef09c86044a31",
+  "at": 1794977374
+ }
+}

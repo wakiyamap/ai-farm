@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "morpho-watcher-ethereum paper review",
+  "outcome": "review_fix",
+  "reason": "Current bot.js SHA256 5bc05a2a repairs prior long-pending receipt recovery and offline stop-test.js ALL PASS. manifest-check PASS; independent Ethereum fork proof of unchanged artifact at reset 26328589: guard tx 0x6fd779664b5dea208c6d117e290fdab66f53528f724e64ff9ca991f200058068 reverted NO_PROFIT and kept USDC 0; success tx 0x6f6b2b55a64600437112d9e4af8c9fc419e2ec263931b8f1e185e7fbfc9849e0 gained 3.711168 USDC. Ledger has no new morpho_blue.liquidate on Ethereum after block 26378725 through cursor 26381162. New operational blocker: manifest capital_usd 400 and no principal_usdc cause promotion funding to be native ETH, while bot.js LIVE_BALANCE_CAP_USD=18 and preflight returns without sending whenever the funded wallet exceeds 18 USD (lines 901-909). Reduce manifest funding to a compatible native amount and resubmit. No promotion attempted.",
+  "numbers": "manifest capital_usd 400; bot live balance cap 18 USD; fork success +3.711168 USDC; signed fee cap 460000 gas x 17.5 gwei = 0.00805 ETH; current code SHA256 5bc05a2acaf393d539339fd54fee316f867a69585438196dcfd17f54125a2c16",
+  "bot_id": "morpho-watcher-ethereum"
+}

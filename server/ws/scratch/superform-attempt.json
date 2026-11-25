@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-superform",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only keeper-style functions on Arbitrum (CoreStateRegistry 0x3721b0e1 processPayload / updateDepositPayload / updateWithdrawPayload, EmergencyQueue executeQueuedWithdrawal) are gated by RBAC roles (verified by source _onlyAllowedCaller + eth_call revert NOT_PRIVILEGED_CALLER from a fresh address); current processor EOA 0x23c658fe050b4eaeb9401768bf5911d11621629c. The two truly open functions (finalizeRescueFailedDeposits, forwardDustToPaymaster) pay depositors / the paymaster, not the caller. No function anyone can call that pays the caller.",
+ "numbers": "7d (blocks 522,864,225-525,364,225, 2026-11-11..18, eth_getLogs): CSR events 0 (last processPayload 2026-11-08 by 0x23c658fe...); router 0xa195608c user-ops logs 7 (singleDirect*/singleXChain* deposits+withdrawals, users pay, e.g. tx 0x87749a7e... 2026-11-18); factory SuperformCreated 0 (last createSuperform 2025-11-17). Same-shape control returned logs (router window 0x1f4d5000-0x1f500000 = 1 log), so zeros are real. Gas 0.02 gwei (eth_gasPrice 0x1335f80), ETH $1761 (coins.llama.fi 2026-11-18) => a ~300k-gas keeper call costs ~$0.01-0.05. TVL $150,055 (DefiLlama). Gross to a stranger caller: $0."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hypurrfi-isolated",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 580,
+ "chain": "hyperevm",
+ "slug": "hypurrfi-isolated",
+ "name": "HypurrFi Isolated",
+ "category": "Lending",
+ "tvl_usd": 272912,
+ "url": "https://hypurrfi.com/",
+ "github": null,
+ "listed_days_ago": 580,
+ "run_id": "a1b77008ca974d1590cb57c220b1431c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidate() permissionless (no role in FraxlendPairCore source) but pays nothing to strangers in 7d: 2 Liquidate events (pair 0xcda6d421 USDT0/hbUSDT, borrower 0x0b0937b777f2ee55756bd06f7c3ca58d4958c7cc, callers 0x0400b53b, 0x9cae352d) received 329.8/286.7 hbUSDT ($375/$326) vs $384/$334 debt repaid -> gross -$9.6/-$8.3 (3% bonus < 5% protocolLiquidationFee); the 18 pairs with 8% bonus (+2.6% net) had 0 liquidations in 7d (last 12.4d ago); only 7 Liquidate events in 61d across 20 pairs; batch gas $9.7/$80, standalone liquidate ~300k gas ~$0.002 @0.1 gwei (HYPE $68.77 coins.llama.fi).",
+  "kb": [
+   "attempts:1947",
+   "protocols:559"
+  ],
+  "run_id": "a1b77008ca974d1590cb57c220b1431c",
+  "at": 1794966685
+ }
+}

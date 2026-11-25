@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-factor-leverage-vault",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1132,
+ "chain": "arbitrum",
+ "slug": "factor-leverage-vault",
+ "name": "Factor Leverage Vault",
+ "category": "Leveraged Farming",
+ "tvl_usd": 27988,
+ "url": "https://app.factor.fi/studio",
+ "github": null,
+ "listed_days_ago": 1132,
+ "run_id": "ffd30b08acc14cfdb800a6b63526fb5f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "26 FactorLeverageVault registries + 7 strategy families verified: every value fn (claimRewards x3, supply/borrow/repay/withdraw, addLeverage/closeLeverage) is onlyOwner=position-NFT-holder (claimRewards from fresh addr reverts NOT_OWNER on live position 0xa8688674); only permissionless calls createPosition/burnPosition pay 0; no liquidate in Factor (liquidations happen on Aave/Compound/Silo); 0 events on all 26 registries in 7 d (blk 524611884-526665375, 11-16..11-23; controls 609-1011 logs in history), last position 2025-11-25; gross 0 USD/call, TVL 27,988 USD.",
+  "kb": [
+   "attempts:3926",
+   "protocols:2077"
+  ],
+  "run_id": "ffd30b08acc14cfdb800a6b63526fb5f",
+  "at": 1795396968
+ }
+}

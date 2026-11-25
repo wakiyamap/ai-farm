@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-acryptos",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "acryptos",
+ "name": "ACryptoS",
+ "category": "Liquidity Manager",
+ "tvl_usd": 873214,
+ "url": "https://www.acryptos.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "7aa5c76db804435ba74ac2ddbb73dfa5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "harvest()/performUpkeep anyone-callable (eth_call fresh addr ok, no role revert) but 0 stranger calls in 7 days on 2 sampled vaults of ~40 (explorer txs, latest txs 2026-11-08; wrapper 0x16C4BA.. last harvest() 2025-01-06); docs promise 0.3% harvester fee, harvest() eth_call returns 194.32 acsSLIZ (~bash.001 at SLIZ bash.0000053 coins.llama.fi); deposits disabled and vaults paused since 2026-11-08 exploit, ACryptoS being deprecated (TVL 73,214).",
+  "kb": [
+   "attempts:2605",
+   "protocols:1082"
+  ],
+  "run_id": "7aa5c76db804435ba74ac2ddbb73dfa5",
+  "at": 1795113907
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "infusion",
+  "status": "measured",
+  "checked": "Infusion v1 (V2-fork AMM), Infusion-Finance/infusion-v1 deployments/1.0.0/base/*.json + DefiLlama adapter (uniTvlExport factory 0x2D9A3a...). Contracts on base (all eth_getCode non-empty): PairFactory 0x2D9A3a2bd6400eE28d770c7254cA840c82faf23f (allPairsLength()=29 via eth_call), Router 0x1E891C9F96DcA29Da8B97bE3403D16135EBe8028, LockFactory 0x2d259c6C1A7aCB410326Ca662a26Ca3fDDb890BA (lockManager 0x628c4951a34d8f1990940dbda33532b0cf5cf164), InfusionLibrary 0x447259cab5eA4A234650D012bEbDAc74b4B4b1dF. 11 of 29 pairs have FeeDistributor+TokenLocker (feeDistributors(pair) mapping). eth_getLogs FeesClaimed 0xf6d260df... and FeesReceived 0x987e721f... (topic0 from source sigs, matched live logs on the FDs) across all 11 FDs, blocks 57979068 (2026-11-15T23:43:09Z) - 61003143 (2026-11-22T23:43Z)."
+}

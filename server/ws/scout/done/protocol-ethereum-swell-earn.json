@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-swell-earn",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 756,
+ "chain": "ethereum",
+ "slug": "swell-earn",
+ "name": "Swell Earn",
+ "category": "Yield Aggregator",
+ "tvl_usd": 364834,
+ "url": "https://app.swellnetwork.io/earn/vaults",
+ "github": null,
+ "listed_days_ago": 756,
+ "run_id": "dffb5427bc2d490eb4a082da54d1f1b0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Swell Earn on ethereum = 2 Raft BoringVaults (earnETH 0x9Ed15383940CC380fAEF0a75edacE507cC775f22, earnBTC 0x66E47E6957B85Cf62564610B76dD206BB04d831a): only write fns enter/exit/manage behind Raft Auth roles (stranger eth_call reverts UNAUTHORIZED), no permissionless harvest/claim; 7d (blocks 26410613-26461013, 2026-11-14..11-21) = 1 tx / 2 logs (one user Exit), 0 USD gross to strangers; TVL 332k USD (llama.fi).",
+  "kb": [
+   "attempts:3183"
+  ],
+  "run_id": "dffb5427bc2d490eb4a082da54d1f1b0",
+  "at": 1795234780
+ }
+}

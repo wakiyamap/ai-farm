@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-overtime",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The permissionless round-closing keeper functions on the 5 Overtime/Thales liquidity pools on OP Mainnet pay the caller 0: verified source (SportsAMMV2LiquidityPool.sol, ThalesAMMLiquidityPool.sol) transfers only to safeBox, LP users and defaultLiquidityProvider, never msg.sender, and a sample closeRound tx moved 0 wei (Claimed + Transfer amounts 0). Only the protocol's own EOAs run them; nothing for a stranger to take.",
+ "numbers": "7d (blocks 159477643-159780043, 168.0h): 4 RoundClosed + 3 RoundClosingBatchProcessed + 3 SafeBoxSharePaid across the 5 pools (eth_getLogs, topic0 via cast keccak). Callers: EOA 0xff936b80783b32ad3f2b4e610d04c9778c4669a0 (3/4) and 0xe881267d8c6f026fe3832b59c88e605b3a5cf24e (1/4) - protocol backend EOAs (eth_getCode 0x). Sample closeRound tx 0x08694ad1d52087534a21eaaf69654c6405686a3c406f36c1b58732dd903f5d60: gasUsed 376,562 @ effectiveGasPrice 1,040,883 wei = 3.92e-7 ETH = $0.0007 (ETH $1747.71 coins.llama.fi 2026-11-20 07:15 UTC); gross to caller $0. eth_call from fresh 0x1111..1111: prepareRoundClosing reverts CantCloseRound, closeRound/processRoundClosingBatch revert RoundClosingNotPrepared, exerciseTicketsReadyToBeExercisedBatch(10) succeeds - no role revert."
+}

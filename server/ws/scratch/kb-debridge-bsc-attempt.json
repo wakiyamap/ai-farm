@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-debridge",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The only callable reward-shaped function on the deBridge DMP gate is claim(...), which pays _autoParams.executionFee to msg.sender, but submissionId hashes msg.sender so the oracle signatures designate the claim executor: a stranger passing by cannot claim anyone's pending transfer and there is no free reward pot - the fee only exists on orders whose creator pre-specified that executor (auto-claim services). No owner/role revert on the eth_call (callable, signature-designated). DLN (inventory order-taking) on BSC is the same mechanism class already closed dead_end on ethereum (attempts 1252, 1416). 7-day claim volume unmeasured: bsc eth_getLogs was unavailable to scout today (lane budget spent + public nodes refuse getLogs); the verdict rests on the source-level mechanism, not on a zero.",
+ "numbers": "TVL 352,363 USD (candidate row); gate proxy 0x43dE2d77BF8027e25dBD179B491e8d64f38398aA impl 0x797161bcc625155d2302251404ccb93c2632658e (EIP-1967 slot), version()=421 (eth_call); claim sel 0xc280c905 from fresh addr reverts 0x74bb49d5 SubmissionNotConfirmed (repo debridge-contracts-v1 error list); gas: eth_gasPrice 0.05 gwei 2026-11-19 13:39Z, ~150k gas claim = 7.5e-6 BNB = 0.0044 USD at BNB 591.45 USD (coins.llama.fi, ts 1795095317); getLogs sample 16 windows x 5000 blocks all failed 'all providers failed: public: limit exceeded'; scout lane 300542/300000 CU (relay /health 13:31Z)"
+}

@@ -1,0 +1,39 @@
+{
+ "block": 53265095,
+ "reset_block": 53265094,
+ "account": "0x1a7c950a8fff56a7cc679b4cbd085f910c1e7234",
+ "holder": "0x1a7c950a8fff56a7cc679b4cbd085f910c1e7234",
+ "borrowMkt": "0xedc817a28e8b93b03976fbd4a3ddbc9f7d176c22",
+ "coll": "0xde8df9d942d78ede3ca06e60712582f79cfffc64",
+ "underlying": "0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b",
+ "swap_route": "WADO -> WETH (PancakeV3 pool 0x792f465e fee100) -> USDC (PancakeV3 pool 0x4a7af46b), the measured winner route of tx 0x61e686ee",
+ "borrow_route": "none (borrow underlying is USDC; no borrow swap)",
+ "window_blocks": ">=32 (liquidatable at blk-32 per mw-window-batch.json, captured at block 53265095)",
+ "maxRepay_usd": 60,
+ "success": {
+  "tx": "0x8ef583a1b252f1c000f97cc5b845484628c463fcd2e0a392891428935d1ba56f",
+  "status": 1,
+  "gasUsed": 1639248,
+  "usdc_before": 0.0,
+  "usdc_after": 3.912517,
+  "profit_usd": 3.912517
+ },
+ "guard": {
+  "tx": "0x1bce618f262f8f167e93489416afeaed42f2cd3c004c762d3932e7976d7b9ae7",
+  "status": 0,
+  "gasUsed": 1909904,
+  "revert_reason": "NO_PROFIT",
+  "usdc_after": 0.0,
+  "minProfit_usd": 3.922518,
+  "floor_note": "measured success profit +0.01 USD accrual-drift margin +1 wei (borrowBalanceCurrent accrues per second; phase profits drift ~+-0.002 USD)"
+ },
+ "eligibility": {
+  "tx": "0x5270961616ae69a0f0ff76312ac72310fa7552854f8958cc68beca108e6b73b1",
+  "status": 0,
+  "revert_reason": "NOT_LIQUIDATABLE"
+ },
+ "executor": "0x8f7a45ebde059392e46a46dcc14ab24681a961ea",
+ "proof_ok": true,
+ "fork_reset_block": 53265094,
+ "fork_generation_after": "see fork status"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-pancakeswap-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "pancakeswap-amm",
+ "name": "PancakeSwap AMM",
+ "category": "Dexs",
+ "tvl_usd": 517008,
+ "url": "https://pancakeswap.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "592b0280234344df9d8ba73939648ccb",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Uniswap V2 fork, no function pays a caller: factory 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E (849 pairs, feeTo 0x82b852d8..) + PancakePair (mint/burn/swap/skim/sync, no collect/flash) pay only LPs; 9 SmartChef farms (factory 0xD621A46e..) had 0 Harvest events in 7d (control: 91 Swap events same shape on 32 sampled pairs), harvest() reverts from a stranger; TVL 517k USD",
+  "kb": [
+   "attempts:2633",
+   "protocols:1106"
+  ],
+  "run_id": "592b0280234344df9d8ba73939648ccb",
+  "at": 1795120348
+ }
+}

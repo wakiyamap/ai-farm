@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-w-dex",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only roleless pay-the-caller function is Algebra FarmingCenter.claimReward (0x70510fBc...): eth_call from a fresh address returns 0, and the contract has exactly 1 transaction ever (its creation tx at block 65914075, 2024-12-25, etherscan txs listing) - EternalFarming was never used, so the reward pot is empty and no one has ever claimed. The DEX itself is active but every payment (swap fees via NPM.collect, limit-order fills via kill/withdraw) is gated by LP/position ownership - capital, not a free caller reward.",
+  "numbers": "claimReward fresh eth_call = 0 (block 0x5cf9284 = 97,489,540, 2026-11-17). FarmingCenter txs total: 1 (creation 65914075). Activity control: SwapRouter 0x8dcAc06A... >=200 txs in last 7d (etherscan newest-first page, all ts >= now-7d); NPM 0x4e98... same; LimitOrderManager place/kill txs within minutes of check. Gas 274 gwei (eth_gasPrice 0x3fc8c4b13e) x POL $0.0829 (coins.llama.fi polygon:0...1010) => ~150k-gas claim = ~$0.0034."
+}

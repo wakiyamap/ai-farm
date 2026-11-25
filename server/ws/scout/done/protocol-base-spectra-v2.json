@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-spectra-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 894,
+ "chain": "base",
+ "slug": "spectra-v2",
+ "name": "Spectra V2",
+ "category": "Yield",
+ "tvl_usd": 575549,
+ "url": "https://app.spectra.finance/fixed-rate",
+ "github": null,
+ "listed_days_ago": 894,
+ "run_id": "fbf98ff2d1d34290b4dcd771da47f619",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: Spectra V2 Base (Factory 0x51100574, Registry 0x786da12e, 88 PTs; active market PT-sjEUR 0x17c8b7a2, pool $397k) - claimFees pays only the feeCollector (fresh caller reverts 0x5c427cd9), claimRewards role_gated (0x068ca9d8), updateYield/storeRatesAtExpiry open-call but pay 0, claimYield pays msg.sender's own yield (fresh = 0); 7d activity only user depositIBT/claimYieldInIBT on one market; gas $0.001/call (0.006 gwei, ETH $1790 coins.llama.fi)",
+  "kb": [
+   "attempts:2154",
+   "protocols:726"
+  ],
+  "run_id": "fbf98ff2d1d34290b4dcd771da47f619",
+  "at": 1795010294
+ }
+}

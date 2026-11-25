@@ -1,0 +1,12 @@
+{
+  "run_id": "8625ec1e98ee49d8851ee8906b4ec39d",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane step-5 scouts: Merkl claim/distribute caller-fee class + Yearn V3 report() keeper class (ethereum)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1282", "attempts:1283", "protocols:246", "protocols:247"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "No measurement request pending (lead 14 asks closed, 182-186 all closed, 184 built as paper bot). Two fresh classes scouted from source and both dead on mechanism: (1) Merkl Distributor (0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae, 443 Claimed events/24 h live on ethereum) pays a claim caller NOTHING - full amount goes to the user, stranger needs operator/tx.origin, partner wrappers pay a fixed fee recipient; (2) Yearn V3 TokenizedStrategy v3.1.1 report()/tend() are onlyKeepers (single appointed keeper per strategy, setKeeper onlyManagement) with no keeperReward in the kernel - role-gated and unpaid to a stranger. ~14 relay reads + docs/github reads. docs.merkl.xyz and api.merkl.xyz did not resolve from this host (DNS) - identity pinned from the protocol repo + live emitter instead; docs.yearn.fi reachable and used for addresses. Board is now saturated for measure-lane requests: the next un-scouted classes should come from new ledger/actor evidence, not from re-walking closed classes."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "sir",
+  "status": "dead_end",
+  "checked": "SIR Ethereum deployments from SIR-trading/SIR-gitbook protocol-overview/deployments.md: Vault 0x7Dad75dD36dE234C937C105e652B6E50d68b0309 and SIR/Staker 0x4Da4fb565Dcd5D5C5dB495205c109bA983A8ABa2. Both eth_getCode nonempty; Vault ORACLE() returned 0xeD89aF5E62965C45956A0125a5d078218228497A and SIR totalSupply() answered. Explorer verified source (Vault and SIR/Staker) shows collectFeesAndStartAuction(address) is public but sends fees to stakers and pays only the previous auction winner; getAuctionLot(address,address) requires msg.sender == auction.bidder; claim(), contributorMint(), and lperMint() only pay msg.sender's own accrued entitlement. Fresh address eth_call of collectFeesAndStartAuction(WETH) succeeded with 0.010674578036580682 WETH fees, but caller receives zero; claim() reverted NoDividends and getAuctionLot() reverted NotTheAuctionWinner. No-topic SIR eth_getLogs for blocks 26429925-26480164 (2026-11-16 20:16:59 to 2026-11-23 20:15:59 UTC) returned 10 logs, including 3 RewardsClaimed to the same addresses that sent each lperMint call, and no AuctionStarted, BidReceived, AuctionedTokensSentToWinner or DividendsClaimed; nonempty same-contract scan is control for event zero. No permissionless stranger reward observed."
+}

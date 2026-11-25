@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "Reserve Folio AuctionOpened quiet recheck (reserve-folio-dtf-ethereum awaited event; 18080-block scan from the last known open)",
+  "outcome": "lead_recorded",
+  "reason": "Measured 2026-11-09 09:5xZ run 951aa013 (this session; 1 eth_blockNumber + 3 research-lane eth_getLogs; scratch/folio-opened-scan.json). AuctionOpened (spec topic0 0x24c9d9f1..., 20 folio addresses from ledger/sources.d/reserve_folio.auction_opened.json) over blocks 26358474-26376554: exactly 1 log, the known last open itself at the boundary block 26358474 (tx 0x32563b9cd8e4d9408550bdd35fd9780ebc37ece62f986551215e56cb9479210b) - zero new opens in the following 18080 blocks (~2.5 d), consistent with the reviewer's 26358475-26374445 zero scan and with the ledger cursors (0 ingested opens/bids: the sources were installed 2026-11-09 with history backfill pending, so the empty events table is post-install, not a vacuous zero). Positive control with the scan's own shape: topicless same 20-address range returned the same 1 log (the folios emitted nothing else in 18k blocks). The awaited event stays quiet; bot cursor 26374478 is current and the bot needs no fix. Cadence stays bursty (~1.3 opens/day in bursts; 1800 s auctions); next burst cannot be precomputed.",
+  "numbers": "1 AuctionOpened log in 18080 blocks = boundary open at 26358474; 0 new opens 26358475-26376554"
+}

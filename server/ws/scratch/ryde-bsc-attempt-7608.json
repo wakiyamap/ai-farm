@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "RYDEME/RYDE4 BSC atomic pool arbitrage behind executor 0x0000000000be226afde21672a5e4adc45692e69d",
+  "outcome": "dead_end_recorded",
+  "reason": "The RYDE4 launch burst expired and the observed executor pays its BNB proceeds to fixed third-party addresses, with no observed transfer to the transaction sender. No current RYDE4 opportunity or reproducible positive caller delta supports a trial bot. Reopen only for a new independently measured pool gap with an executor that returns the net to our wallet.",
+  "numbers": "Recheck 2026-11-22 02:10 UTC: eth_getLogs via relay, BSC blocks 134978393-134996768, RYDE4 0x6a2b0b704650a93f7495d728c3b851a1c5f73172 Transfer topic0 cast keccak Transfer(address,address,uint256): 4971 logs, zero touching executor 0x0000000000be226afde21672a5e4adc45692e69d; scratch/ryde-fresh-filter.json, scratch/ryde-fresh-logs.json, scratch/ryde-fresh-audit.json. Same filter shape at historical block 134333281: 28 logs, two touching executor; scratch/ryde-control-logs.json. Last executor take in earlier 7d census: block 134714956, 2026-11-20 14:53:15 UTC, tx 0x532d522f0d1531847397985c2167afb1b789dc2eea24594c223b3d34c835d586. Thus no take in roughly 35 h despite token activity. Earlier 362 takes paid 0.28508075 BNB gross ($155.95 at $547.04/BNB); call traces scratch/ryde-trace*.json show 88.90-91.73% paid to 48Club and the rest to fixed EOA 0x000000000076403c099f98973a39018fe4ff2343, none to caller. Five largest sampled gas $0.039-$0.052 each (scratch/s4-ryde-sample.json)."
+}

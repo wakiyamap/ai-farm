@@ -1,0 +1,27 @@
+{
+ "id": "protocol-hyperevm-symbiosis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1692,
+ "chain": "hyperevm",
+ "slug": "symbiosis",
+ "name": "Symbiosis",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 118906,
+ "url": "https://symbiosis.finance",
+ "github": [
+  "symbiosis-finance"
+ ],
+ "listed_days_ago": 1692,
+ "run_id": "e6da61e7d76c4f918e9c54a4a33bcd93",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BridgeV2 0x5523985926aa12ba58dc5ad00ddca99678d7227e receiveRequestV2Signed (anyone + MPC sig) called 70x/7d, all by one EOA 0x67f9b3e5...851d, caller paid 0: stableBridgingFee (USDC 250000 raw = $0.25, 3/5 samples; 0.00025 UETH, 2/5) goes to the bridge pot (51.45 USDC ever, withdrawFee onlyOwnerOrAdmin); gas $0.001-0.013/call (157k-1.4M gas @ 0.1-1.7 gwei, HYPE $68.479 coins.llama.fi 2026-11-19 12:07Z); receiveRequestV2 onlyMPC reverts 'BridgeV2: forbidden' from fresh address, Portal.metaUnsynthesize/unsynthesize onlyBridge; MetaRouter 0 calls/7d (last 28.8d ago).",
+  "kb": [
+   "attempts:2503",
+   "protocols:1003"
+  ],
+  "run_id": "e6da61e7d76c4f918e9c54a4a33bcd93",
+  "at": 1795090264
+ }
+}

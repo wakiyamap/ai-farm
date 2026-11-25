@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-jpegd",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1687,
+ "chain": "ethereum",
+ "slug": "jpegd",
+ "name": "JPEG'd",
+ "category": "NFT Lending",
+ "tvl_usd": 398212,
+ "url": "",
+ "github": [
+  "jpegd"
+ ],
+ "listed_days_ago": 1687,
+ "run_id": "64247c6b4ab14bfb9fad78e2d5247a95",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no anyone-pays-caller fn: accrue() pays 0, collect() DAO_ROLE-gated, vault liquidate() LIQUIDATOR_ROLE-gated (eth_call reverts), Liquidator wrappers pay nothing (NFTs to DAO, source comment); 0 events in 7d (blocks 26,415,434-26,465,689, control WETH 45,843 logs/1000 blk) across all 34 vaults + LP_STAKING + STAKING_CONTRACT, dormant since 2025-07-03, whole-protocol debt 0.0564 pETH ~95 USD (pETH 1686.35 coins.llama.fi)",
+  "kb": [
+   "attempts:3452",
+   "protocols:1738"
+  ],
+  "run_id": "64247c6b4ab14bfb9fad78e2d5247a95",
+  "at": 1795291349
+ }
+}

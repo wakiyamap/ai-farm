@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-elk",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "elk",
+ "name": "Elk",
+ "category": "Dexs",
+ "tvl_usd": 30400,
+ "url": "https://elk.finance",
+ "github": [
+  "elkfinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "0490272afc6a42ee967aafa798d42471",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Elk bsc = vanilla Uni V2 fork (ElkFactory 0x31affd875e9f68cd6cd12cee8943566c9a4bba13 + ElkPair, Sourcify full match): createPair/mint/burn/swap/skim/sync pay only the LP, feeTo()=0x0, skim excess 0 on both pairs, ELK token (Elk.sol) has no mint/claim; TVL 30,991 USD, 132 txs and 107,337 ELK (~704 USD) moved in 6.93 d (blocks 133,963,257-135,290,151), gas 0.0043 USD/call, gross/call 0.",
+  "kb": [
+   "attempts:4140"
+  ],
+  "run_id": "0490272afc6a42ee967aafa798d42471",
+  "at": 1795447461
+ }
+}

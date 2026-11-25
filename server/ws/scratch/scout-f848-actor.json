@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "address": "0xf848670508a8f83767b0a1bf53a5fac737d30e31",
+  "strategy": "Atomic Felix feUSD redemption arbitrage: executor buys feUSD, redeems against WHYPE/kHYPE CDP branches, sells collateral, and sends USDT0 spread to owner.",
+  "evidence": "Ledger felix_cdp.redemption: 14 events/7 tx in blocks 52056964-52075217, 1420 feUSD principal; receipts 0xcf2b1528b9b2d9620f94a55b338fe2d1ce1852c105125677c441e68928cdffad, 0xbe9ed0dc5bbd1bc0d4716305e8b15863d6b5e5a7480f9fe6c8edf6a88897937d, 0x3431759a0e325c63ad13ffc26ed1e21d29ad3d4f2af057717dd791e212a628ea, 0x015d2039b265c228b0212fe7dc949315b9008a55615c8c2692321aa385697125. Explorer txs found owner calls executor 0x01ce5aa238f1ca4cc194b8256651b60642fe4b1a. Sample of 15 recent executor calls: 8 succeeded, 7 reverted; actor received 0.417074 USDT0 total, gross about $0.4166, sample gas about $0.2635, net about $0.153 excluding deployment. USDT0 0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb symbol and 6 decimals read by eth_call; coins.llama.fi price $0.9987818, HYPE $63.38975 at 2026-11-24 00:11 UTC. Redemption is a permissionless Felix CDP function; see KB lead 149 and official Felix docs there. This is trading spread, not a direct protocol bounty.",
+  "est_profit_usd_day": 0.12
+}

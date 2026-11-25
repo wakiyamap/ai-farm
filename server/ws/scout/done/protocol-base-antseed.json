@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-antseed",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 62,
+ "chain": "base",
+ "slug": "antseed",
+ "name": "Antseed",
+ "category": "Decentralized AI",
+ "tvl_usd": 26658,
+ "url": "https://antseed.com/",
+ "github": [
+  "AntSeed"
+ ],
+ "listed_days_ago": 62,
+ "run_id": "15d8cc7f56734e1f96cf3da304b4b8c5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: every AntSeed Base reward call is a self-claim (fresh-address eth_call reverts NotRewardRecipient / NotPositionOwner 0x70d645e3); 7d blocks 57719476-60743473: 26 BuyerUsageRewardClaimed (2.29-8968 ANTS) + 1 SellerOperatorRewardClaimed (6047 ANTS) + 7 StakerUsageRewardsClaimed (2.8-339 ANTS) to 21+ distinct users, ANTS unpriced (coins.llama.fi empty), gas 0.002-0.003 USD/call; indexPoolRewards and settleEpochRemainder callable by anyone but pay the caller 0.",
+  "kb": [
+   "attempts:3666",
+   "protocols:1891"
+  ],
+  "run_id": "15d8cc7f56734e1f96cf3da304b4b8c5",
+  "at": 1795339611
+ }
+}

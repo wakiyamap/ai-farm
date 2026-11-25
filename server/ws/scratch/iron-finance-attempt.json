@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-iron-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Iron Bank lending is a Compound fork with the reward layer stripped (no comp()/claim/distribute in the verified comptroller source, comp() eth_call reverts): the only publicly callable function that pays the caller is liquidateBorrow (10% seize discount), but it paid nobody - 0 LiquidateBorrow events in 7d and 30d across all 8 rTokens and the markets emitted 0 logs at all in 7d. The 4 IronSwap pools are plain stableswap (no keeper-reward function); ICE token owner-gated. Dead-site protocol (deadUrl=true, 2022 exploit).",
+  "numbers": "LiquidateBorrow events (topic0 0xce90ba2b2071bac4e5192122914b066423f829b0359f5157241394f8390ada85) on 8 markets blocks 0x5c71de6-0x5d1dc46 (7d) = 0, and 0x5a27ee6-latest (30d) = 0; all-logs from the 8 markets 7d = 0; control USDC Transfer 1634 logs/950 blocks same query shape; pools 887 logs/7d (user swaps only, gross to keepers 0); TVL polygon $296.3k, borrowed $90.3k (api.llama.fi/protocol/iron-finance 2026-11-20); gas per hypothetical liquidateBorrow ~350k gas x 271 gwei (eth_gasPrice 0x3f5d55e93b) = 0.095 POL = $0.0074 at POL $0.0784 (coins.llama.fi ts 1795164949)"
+}

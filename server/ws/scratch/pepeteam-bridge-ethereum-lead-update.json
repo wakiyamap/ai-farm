@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "pepeteam_bridge ExecutorV3.execute (releaseTokens gaslessReward)",
+  "status": "dead_end",
+  "why": "Closed by builder run 34e6238a (attempts:3456): non-trial Ethereum EV is not clearly positive. The 2026-11-14..21 measured reward pool was $7.42 total, $1.06/day gross before gas, relay reads and competing submissions; the official relayer took 26/38 releases. Two observed solo stranger calls lost after gas, and the sole profitable 3-release bundle returned $3.88 net once, equivalent to $0.55/day over the full window. The operator-signed payload supply is an additional dependency. Source for amounts and txs: attempts:3369/protocols:1678; full bundle tx 0x5586af55d2915ff7047d98bedf19cbf9e3ad0aea017d4a984cea1faa3aae480f.",
+  "next_steps": "Do not build on this 7-day evidence. Reopen only if a later full 7-day scan proves repeatable, accessible signed bundles with >$1/day net after measured gas and reads, and shows they remain available beyond the farm reaction time (Ethereum 12 s). Then test fresh-address access at the parent block and fork-prove an atomic executor."
+}

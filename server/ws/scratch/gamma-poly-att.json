@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-gamma",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Gamma (Hypervisor vaults) on Polygon: every state-changing non-owner function is deposit (UniProxy-whitelist) or withdraw (pays the caller's own shares); rebalance/compound onlyOwner on the vault and proxy.rebalance 'only rebalancer' (eth_call reverts from fresh address, verified source GammaStrategies/hypervisor master). The rebalancers mapping points at Gamma keeper EOAs (0x9625e4bb..., 0x661d1534...) set by onlyOwner, and the rebalance fee goes to the feeRecipient ARG the rebalancer picks, not a stranger caller. 7d activity is real but sub-gas: 580 Rebalance events / 364 txs / 24 of 286 live vaults, fee pool 12.26 USD total on one vault (0.034 USD/call avg) vs gas 0.019-0.033 USD/call.",
+ "numbers": "303 vaults (5 registries, counter() 61/17/143/81/1 via Multicall3), 286 live; Rebalance topic0 0xbc4c20ad... blocks 97236386-97638786: 580 events/364 txs/24 vaults, senders 0x9625e4bb + 0x661d1534 (EOAs, sample of 10 txs); nonzero-fee events 31/580, all on vault 0xc604b42b... (USDC/WETH): 6.2873 USDC + 0.0034097 WETH = 12.26 USD 7d, max event 1.66 USD; gas 680k-1202k @ 342-351 gwei = 0.019-0.033 USD (POL 0.078787, WETH 1751.20, coins.llama.fi 2026-11-20T08:43Z). Sources: projects/visor/config.js, explorer blockscout (no verified vault source), raw GitHub Hypervisor.sol/RebalanceProxy.sol master, eth_call from 0x1111...1111."
+}

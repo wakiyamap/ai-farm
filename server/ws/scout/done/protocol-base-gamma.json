@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-gamma",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "gamma",
+ "name": "Gamma",
+ "category": "Liquidity Manager",
+ "tvl_usd": 173263,
+ "url": "https://www.gamma.xyz",
+ "github": [
+  "GammaStrategies"
+ ],
+ "listed_days_ago": null,
+ "run_id": "0366c09c6c414651a428d7bd202daf83",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 67 live Gamma hypervisors (70 in 11 registries, Hypervisor v1.3) on Base; only keeper action is rebalance - fresh-address eth_call reverts 'only owner' (vault owner = one of 9 RebalanceProxy) and 'only rebalancer' (role = Gamma EOA 0xf6192d63..756337), which sets feeRecipient = Gamma wallet 0x81639d88..bc3067; 0 Rebalance in last 7d (blocks 56681632-59705629; control same range/addresses = 5 Deposit + 3 Withdraw), 224 in the prior week from that one EOA over 3 vaults; fee 0.0-0.86 USD/call (mean 0.30, sample of 5 txs) vs gas 0.005-0.007 USD.",
+  "kb": [
+   "attempts:2685",
+   "protocols:1142"
+  ],
+  "run_id": "0366c09c6c414651a428d7bd202daf83",
+  "at": 1795132412
+ }
+}

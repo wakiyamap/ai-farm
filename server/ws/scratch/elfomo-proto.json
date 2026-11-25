@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "elfomofi",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/elfomofi/index.js -> 2 VaultsManagers on Base: 0x64f8be47a011df0fab47319d5de258d18e93f4ef (fromBlock 44952928) and 0xe34cd3682af9c04303386499fba215b38eff6106 (fromBlock 45354975); both have code and identical bytecode; verified source via Blockscout (VaultsManager.sol + Admin/Base/Signatures, vault = EpochBasedVault.sol). VaultCreated logs (topic0 0x6d95096c...): vault 0xb140d7671db11fbd7d9f474c01700715b6dd98f4 (mgr1) and 0x8d385b9393591476016d74009bf36a3960a4fd51 (mgr2); refToken = USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (6 dec); tradingVaultAddress of vault1 is a Gnosis Safe proxy (0xbb1b19f138db3925883a96ff7a304277460e0c99), not a keeper contract. Public surface: only claim(uint256) is callable by anyone; deposit/requestWithdraw need a backend EIP-712 signature bound to msg.sender; fillWithdrawRequest/cancelRequest require msg.sender == vault.vaultAddress; syncFees requires a registered vault (msg.sender); settleEpoch/processWithdrawals are onlyOwner. eth_call claim(0) from a fresh address reverts with custom error 0x602ed5a6 = RequestNotFilled (state check, not a role gate). claim() transfers refToken to the stored request.user and pays the caller nothing; no reward/fee field exists anywhere in the manager or vault source."
+}

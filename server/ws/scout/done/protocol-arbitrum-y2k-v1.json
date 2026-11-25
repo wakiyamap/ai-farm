@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-y2k-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1431,
+ "chain": "arbitrum",
+ "slug": "y2k-v1",
+ "name": "Y2K V1",
+ "category": "Derivatives",
+ "tvl_usd": 28130,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1431,
+ "run_id": "4673574d79f64cefad6ab9d4ac5e2326",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Controller 0x225acf1d triggerEndEpoch/triggerDepeg/triggerNullEpoch are public (eth_call from fresh addr reverts state EpochFinishedAlready, not role) but pay the caller 0 - verified source transfers only between hedge/risk vaults; 0 controller events in 7d (blocks 524664762 [2026-11-16] -> 526721538 [2026-11-23], no-topic scan, real empty; control WETH Transfer 9999), last keeper tx 2023-05-14 (0xe6e793f7..), gas per trigger 784,337 gas ~0.03 USD (gasPrice 0.02 gwei, ETH 1729 USD coins.llama.fi ts 1795413313); TVL 28,854 USD api.llama.fi 2026-11-23",
+  "kb": [
+   "attempts:4007",
+   "protocols:2140"
+  ],
+  "run_id": "4673574d79f64cefad6ab9d4ac5e2326",
+  "at": 1795413739
+ }
+}

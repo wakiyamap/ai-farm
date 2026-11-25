@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-zerobase-cedefi",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The base vault 0xCc5Df5C68d8c991035B6A437D4e00A99875228E4 (DefiLlama adapter projects/ZEROBASE) is depositor self-service staking: claim_41202704/cancelClaim require claimItem.user == msg.sender (eth_call from a fresh address reverts), transferToCeffu is onlyRole(BOT_ROLE), sendLpTokens is airdropAddr-only, setters are admin-only; rewards accrue to stakers from an admin-set rate (11.2%/yr) funded off-chain, so no stranger who calls is paid anything. 7-day census (eth_getLogs returned 13 logs total): 11 self-claims + 2 flash withdraws by 11 distinct users, 2,331 USDC gross, gas $0.003-0.006 per call.",
+  "numbers": "7d logs (eth_getLogs blocks 55,784,120-58,808,120, 2026-11-17): 11 ClaimAssets + 2 FlashWithdraw + 0 stake/requestClaim; gross 2,331 USDC claimed (largest $2,001.60, tx 0x9d646e599d38749813d37f088a58a0eb4b2ca72b37d74f8df12c8eb7fcd068b2); gas 271k-351k gas/call at 0.0063-0.0112 gwei = $0.003-$0.006 (ETH $1,806.19, coins.llama.fi); getTVL(USDC)=10,563,557; getCurrentRewardRate(USDC)=(1120,10000)=11.2%/yr; WAITING_TIME=604,800 s"
+}

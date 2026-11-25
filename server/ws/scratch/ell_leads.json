@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "ellipsis_finance LPStaking.claim + FeeDistributor.claim",
+  "status": "measured",
+  "why": "4 permissionless claims paid out in 7d (2026-11-17..11-19): 60.7 EPX to 0x19803164 (tx 0x253c1814...), 5,642,723.55 EPX to 0x8189f0af (tx 0x84659fdf...), FeeDistributor $1.46+ to 0xcb116735 (tx 0xbd710c45..., gas $0.30) and ~$1 to 0x19803164 (tx 0x61428153..., gas $0.36). Payment always goes to the staker/locker themselves (or their claimReceiver): the 11-19 third-party call paid the receiver, the caller earned nothing.",
+  "next_steps": "LPStaking 0x5B74C99AA2356B4eAa7B85dC486843eDff8Dfdbe claim(address,address[]); FeeDistributor 0x3670c10C6a4994EC8926eDCf54bF53092217EE1b claim(address,address[]). 7d counts: 2+2 claims, 3 deposits, 4 withdraws (5 wallets total; blocks 133,278,000-134,622,268). Gas $0.015-0.36/claim (0.05 gwei BNB, $574.83). To earn, a bot must hold a position: lock EPX for the fee stream (which is currently ZERO - no FeesReceived in 7 days) or stake an approved LP for EPX emissions (global 139.3 EPX/s, weekly votes 0-10, week 240 all-10-votes pool got the whole rate; EPX unpriced, 27.03B minted). Nobody competes (no keepers; nobody claims in the same block - 4 claims/7d). Weak lead: needs capital in a zombie token; no keeper-fee route for a stranger caller."
+}

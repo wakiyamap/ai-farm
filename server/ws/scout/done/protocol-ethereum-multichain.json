@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-multichain",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "multichain",
+ "name": "Multichain",
+ "category": "Bridge",
+ "tvl_usd": 14303769,
+ "url": "",
+ "github": [
+  "anyswap"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b1ac3ed946aa41388a6ba6579becb8b2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: dead MPC bridge - all 30 ethereum depositAddrs are EOAs (no code; hold 2,486,279 USDC of 13,941,554 USD TVL); 464 router vaults verified AnyswapV5/V6ERC20, 0 reward fns in 58, withdraw() from a stranger pays 0, mint/Swapin onlyAuth; EXECUTOR 0x2A038e10 + NEW_ADDR no code; AnyCall router 0xD1310E dead since 2023-10-06; 7d scan of all 464 vaults (blk 26417721 11-15 -> 26467977 11-22) = 44 logs, all user approve/transfer (control USDC 30,805/500 blk); 100k gas = 1.97 USD",
+  "kb": [
+   "attempts:3577",
+   "protocols:1823"
+  ],
+  "run_id": "b1ac3ed946aa41388a6ba6579becb8b2",
+  "at": 1795319201
+ }
+}

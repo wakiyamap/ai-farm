@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-frgmnt",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers (marginal). PoolLogic 0x704c56974e0CA4BF8ff8fe8acc51FBF1E053878E harvest() (0x4641257d) is the only external function that pays the caller; 4 distinct non-team wallets harvested $0.08-$2.61 each in 7 days, gross > gas in every sample. But the payment is the caller's OWN accrued staking yield (pro rata to staked sfUSD), not a bounty: a stranger with no stake reverts NothingToHarvest (0x3f29331a), and everything else is onlyManager/onlyPoolManagerLogic/onlyRole. Farm would have to park up to $400 in sfUSD for ~2.5-2.7% APY gross (~$0.03/day).",
+  "numbers": "7d Harvest logs: 4 of 4 (topic0 0xc9695243a805adb74c91f28311176c65b417e842d5699893cef56d18bfa48cba, blocks 0x34f8a35..0x37db6b5). Gross/call $0.084/$0.17/$0.23/$2.61, total $3.09. Gas/call 805k-880k gas @ 0.006-0.010 gwei = $0.01-0.02 (receipts 0x2eb571f0..., 0x0a42f895...; ETH $1819.05 coins.llama.fi 2026-11-17). Vault: 118,740 shares, $120,806 totalFundValue, NAV 1.0174 since 2026-03-27, perf fee 20%, manager 0x18f84ea9d3351081780d817e5edd554112cf81ab. 7d Stake events: 2 ($0.23, $2.6, same wallets re-staking). Sources: repo frgmnt-dao/Frgmnt_fUSD@audit (.openzeppelin/base.json), DefiLlama adapter projects/frgmnt/index.js."
+}

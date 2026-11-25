@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-sable-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1196,
+ "chain": "bsc",
+ "slug": "sable-finance",
+ "name": "Sable Finance",
+ "category": "CDP",
+ "tvl_usd": 500073,
+ "url": "https://sable.finance",
+ "github": null,
+ "listed_days_ago": 1196,
+ "run_id": "b0bc6a7fd4fa488ebb291fc8fa15421c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Liquity V1 fork, TVL = one trove (845.32 BNB = 87k vs 71,064 USDS debt, ICR ~686% at BNB 576.54 USD): liquidate(address,bytes[]) ad1c3e62 + batchLiquidateTroves + claimCollateral callable by anyone (revert is trove-state code '3', not role) but pay 0: no liquidatable trove, BO/TM/StabilityPool BNB balances 0, lastFeeOperationTime 2026-11-04 and sole trove still open => no liquidation or redemption in last 7 days; gas ~0.01 USD/call at 0.05 gwei; 7d getLogs scan blocked by scout lane budget (305900/300000), state evidence used.",
+  "kb": [
+   "attempts:2269",
+   "protocols:820"
+  ],
+  "run_id": "b0bc6a7fd4fa488ebb291fc8fa15421c",
+  "at": 1795038773
+ }
+}

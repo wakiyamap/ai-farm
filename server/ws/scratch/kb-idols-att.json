@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-the-idols",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. IdolMain 0x439cac149b935ae1d726569800972e1669d17094 exposes updateRewardPerGod() (public, nonReentrant, no role gate: eth_call from fresh address returns 0x) which pays msg.sender 1% of newly accrued stETH (updateCallerReward read = 100bp). In the last 7 days a stranger EOA called it and was paid 0.000836 stETH ($1.41) for $0.035 gas; the rest of the pot goes to a daily incumbent EOA. Small: ~1-6 USD gross per call, one call/day.",
+  "numbers": "Window blocks 26415426 (2026-11-14 ~19:50 UTC) to 26469784 (2026-11-21 ~19:52 UTC) via eth_getBlockByNumber timestamps. 16 RewardPerGodUpdated events (topic0 0x36a30c326145f46930b670cc96f30b18857e1611cc506d87eb2413d9ad774fc7, cast keccak of verified-source sig, cross-checked in receipts of 0x439cac) in 9 txs. Sample calls (5 of 9): stranger 0x9f0aa104 tx 0x736fca34... paid 0.000836 stETH=$1.41 (Transfer stETH->caller, token 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84 read from constructor, decimals 18 on chain), gas 101,422 x 0.203 gwei = $0.035; stranger 0x1f6e6cb4 tx 0xb3d0bcf3... paid 0, gas 75,525 = $0.034; incumbent 0xbc7e039e tx 0xb462e8d4... two updates with fee transfers 0.001919+0.001536 stETH=$5.8 (other transfers in that bundle are marketplace flows, not counted); tx 0x2683f074... paid callers 0.2754 stETH total transfers incl marketplace. Price: stETH $1682.78 coins.llama.fi 2026-11-21T20:07Z (18 decimals read on chain). Principal stethPrincipalBalance()=2705.37 stETH=$4.55M; currentUpdateReward()=0 at latest (pot drained by daily call).",
+  "bot_id": null
+}

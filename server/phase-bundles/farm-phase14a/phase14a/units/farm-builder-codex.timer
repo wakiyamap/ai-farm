@@ -1,0 +1,11 @@
+# Phase 14a: builder on Codex, 8 sessions a day (02:10 JST and every 3 hours),
+# offset 1.5 h from builder-claude.
+[Unit]
+Description=Farm builder on Codex (builder-codex), every 3 hours
+
+[Timer]
+OnCalendar=*-*-* 02/3:10:00 Asia/Tokyo
+Unit=agent@builder-codex.service
+
+[Install]
+WantedBy=timers.target

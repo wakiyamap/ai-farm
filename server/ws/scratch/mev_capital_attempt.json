@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-mev-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "Verdict role_gated. MEV Capital is a DefiLlama 'Risk Curator' (no own ethereum contract; TVL 6.4M ETH-side sits in curated third-party vaults: MetaMorpho/Mellow-Amphor/Symbiotic/Term). Every state-changing function that could pay a caller is gated to MEV Capital's own roles: Mellow rebalance() reverts AccessControlUnauthorizedAccount, MetaMorpho run() reverts OnlyCurator, Term report()/tend() revert '!keeper'. The remaining public funcs (deposit/withdraw/redeem/claim) are user actions that pay the caller nothing, so no stranger earns a reward by calling.",
+  "numbers": "7d window blocks 26409188 (ts 1794610751) -> 26467125 (head 2026-11-20, ts 1795215547) from eth_getBlockByNumber timestamps. Mellow Amphor vault 0x5fd1...67cd rebalance()=0x7d7c2a1c: 0 events in 7d (topic0 0x7d6777c735b10f616d6f9d64f06e49370db2f04a19bfc849efe6ce8440cefd03 from cast keccak 'Rebalance((uint256,uint256,uint256,uint256)[],uint256)'; also 0 over 40d back to block 26150000). CONTROL: Transfer topic0 0xddf252ad... on same vault+range returned logs (query shape valid). Fresh-addr eth_call gating: rebalance() 0xe2517d3f AccessControlUnauthorizedAccount; MetaMorpho 0xd630... run(bytes) reverts (OnlyCurator); Term 0xa10c... report() 0x2606a10b & tend() 0x440368a3 revert '!keeper' (keeper()=0x5c39ad7b12487094f9222f0797b2a1ecbf708111). No gross USD: no stranger-callable paying fn exists. Gas N/A."
+}

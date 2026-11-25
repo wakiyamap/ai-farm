@@ -1,0 +1,22 @@
+{
+ "id": "protocol-arbitrum-hyperithm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "arbitrum",
+ "slug": "hyperithm",
+ "name": "Hyperithm",
+ "category": "Risk Curators",
+ "tvl_usd": 300153,
+ "url": "https://www.hyperithm.com",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "0c5a15a459214cc3bfeb8b0b25084306",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Hyperithm on Arbitrum = 1 Morpho MetaMorphoV1_1 vault 0x4B6F1C9E5d470b97181786b26da0d0945A7cf027 (296,727 USDC) + empty Blend vault (0); MetaMorpho 1.1 has no permissionless caller-paid accrual fn (reallocate=allocator role, caps=curator role); only permissionless payout skim(token) pays stored skimRecipient, never the caller, and skimRecipient=0x0 on both so skim() reverts ZeroAddress (0xd92e233d); 7d: 0 Skim events (control: 11 Deposits, blocks 522742190-525161390), 0 Reallocate; idle USDC 0 so skim pays 0 anyway; gas 0.02 gwei -> ~bash.002/call at ETH 812 (coins.llama.fi).",
+  "kb": [],
+  "run_id": "0c5a15a459214cc3bfeb8b0b25084306",
+  "at": 1794956165
+ }
+}

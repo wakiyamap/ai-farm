@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-dforce-lending",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: dForce (LiQee) BSC lending pool RewardDistributor.claimAllReward(address[]) is public and pays the holder argument (safeTransfer, no role); fresh-addr eth_call succeeds. But the distributor is paused with zero global distribution speeds and made 0 FIS transfers over the last 7 days (measured zero, control passed), so no stranger was paid and the reward pot is idle (630.06 FIS, unpriced). The pool is near-dead (borrowed 5.71 USD). The live successor market on BSC is Unitus (attempt 2223), a separate protocol.",
+  "numbers": "TVL 111,847 USD / borrowed 5.71 USD (api.llama.fi/protocol/dforce-lending 2026-11-20). Comptroller 0x6d29...af110, RewardDistributor 0xaa27...b215, reward token FIS 0xf4ba...b1fc (18 dec). 7-day FIS Transfers from distributor = 0 over blocks 133276368-134620535 (28 getLogs chunks, 0 provider errors; control 15,608 USDT Transfers in 200 blocks). Gas: claimAllReward([fresh]) estimateGas 1,126,238 units x 0.05 gwei = 0.0000563 BNB = 0.032 USD (BNB 571.69 USD, coins.llama.fi ts 1795144208). Distributor FIS balance 630.06 (usd: unpriced, no llama/coingecko price). paused()=true, globalDistributionSpeed=0, globalDistributionSupplySpeed=0."
+}

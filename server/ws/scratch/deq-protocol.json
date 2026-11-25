@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "deq",
+  "status": "dead_end",
+  "checked": "Verdict no_reward. Official https://docs.deq.fi/addresses lists Staked Avail proxy 0x3742f3fcc56b2d46c7b8ca77c23be60cd43ca80a, Avail Withdrawal Helper proxy 0x696e882437553011b459efa245c8b59f62d4ea61, and Avail Depository proxy 0x11780211a1aab0059bca3e8e201cfe08287319ee. eth_getCode nonempty for all; getters assets() and avail() returned values. Current EIP-1967 implementation slots point to verified Etherscan source at 0x3ce617ef3bb29333fd24370a570036f237110e21, 0x2603537d10c7bd27ee75427d222ddfc51c637f16, 0x6fe46c5cfcad18b833c7933e40867d7571370a5e. Source inspection: StakedAvail.updateAssets is UPDATER_ROLE-only; AvailDepository.deposit is DEPOSITOR_ROLE-only; helper burn(id) transfers AVAIL to receipt owner, not caller; no caller bounty/keeper fee in the three contracts. eth_call from 0x000000000000000000000000000000000000dEaD on updateAssets(1) and deposit() reverted AccessControlUnauthorizedAccount. Official https://deq.fi says discontinued, withdrawal-only. No eligible reward function, so no seven-day event count or USD payout claimed."
+}

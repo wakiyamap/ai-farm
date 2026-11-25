@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-uniswap-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 656,
+ "chain": "optimism",
+ "slug": "uniswap-v4",
+ "name": "Uniswap V4",
+ "category": "Dexs",
+ "tvl_usd": 1342679,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 656,
+ "run_id": "b4a11f7a182443e3bc9dbc5e3c479033",
+ "result": {
+  "verdict": "unpaid",
+  "line": "V4 core PoolManager 0x9a13f98cb987694c9f086b1f5eb990eea8264ec3 has no caller-paid fn; collectProtocolFees reverts 0x48f5c3ed InvalidCaller from a stranger (reproduced); only permissionless entry is V4FeeAdapter 0xd85393784234fb2ee4f077867a8b78e1ad4ce56b collect(CollectParams[]) - succeeds from a stranger but pays the hard-coded TokenJar 0xb13285df724ea75f3f1e9912010b7e491dcd5ee3, caller 0: 7 d = 19 FeesCollected in 1 batch tx 0x914ffc30 by keeper 0x16f09eaa..., gross ~USD 329 to Jar, gas 6.83M x 0.0121 gwei = USD 0.15 (ETH $1,809 llama), pot now 0.0398 ETH = USD 72",
+  "kb": [
+   "attempts:2022",
+   "protocols:613"
+  ],
+  "run_id": "b4a11f7a182443e3bc9dbc5e3c479033",
+  "at": 1794981727
+ }
+}

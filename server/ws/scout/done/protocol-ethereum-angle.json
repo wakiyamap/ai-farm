@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-angle",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1842,
+ "chain": "ethereum",
+ "slug": "angle",
+ "name": "Angle",
+ "category": "CDP",
+ "tvl_usd": 1494790,
+ "url": "https://app.angle.money",
+ "github": [
+  "AngleProtocol"
+ ],
+ "listed_days_ago": 1842,
+ "run_id": "9fa0ef2135f047ff8909318e4bcfead3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Angle Borrow liquidate(uint256[],uint256[],address,address) 0xfc29b021 is open to anyone (source: whenNotPaused+nonReentrant only; stranger eth_call reverts HealthyVault 0x57fa6d84, not a role) and pays 5-13% collateral discount, but 0 LiquidatedVaults events across all 9 official vault managers in the last 7 d (blocks 26415844 2026-11-14 21:14 UTC to 26467119 head) and 0 since block 25427968 (2026-06-30, ~144 d); controls positive (534 EURA Transfers 7 d same shape; the 9 managers emitted 2 other events in the window); book ~72.7k EURA debt so paid 0 USD gross, nobody took it.",
+  "kb": [
+   "attempts:3478"
+  ],
+  "run_id": "9fa0ef2135f047ff8909318e4bcfead3",
+  "at": 1795296382
+ }
+}

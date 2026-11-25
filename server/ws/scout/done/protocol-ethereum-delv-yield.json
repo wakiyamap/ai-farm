@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-delv-yield",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "delv-yield",
+ "name": "DELV Yield",
+ "category": "Yield",
+ "tvl_usd": 605542,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e1651987952e42f9b72676fbc33eb852",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no caller-paid function on any of 74 tracked contracts (38 tranches last minted blk 15884809 Jul-2022, 27 CCP pools, 9 Balancer wp; source: only deposit/withdraw/hitSpeedbump/Balancer swap, fees to LP): 7d blk 26416361-26466777 (11-14 to 11-21) no-topic scan = 42+50 logs, all holder Transfers + 16 FeeCollection swap fees to LP, 0 USD paid to callers; TVL 605,542 USD (llama), matured 2021-22 tranches (underlying()=USDC read on chain).",
+  "kb": [
+   "attempts:3519"
+  ],
+  "run_id": "e1651987952e42f9b72676fbc33eb852",
+  "at": 1795304557
+ }
+}

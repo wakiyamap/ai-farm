@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-cega-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Cega V1 FCN/LOV option products have no function anyone can call that pays the caller: every payout path in the verified sources goes to depositors, the feeRecipient, or a receiver set by Cega's trader admin; processDepositQueue/processWithdrawalQueue/collectFees/rolloverVault are onlyTraderAdmin (a stranger's eth_call reverts). The protocol is also dormant: zero events on all 16 contract addresses in the last 30 days.",
+  "numbers": "7d window blocks 26,414,886 (2026-11-14 18:02 UTC) to 26,465,136 (2026-11-21 18:01 UTC), no-topic eth_getLogs on 16 Cega addresses (CegaState 0x0730AA13...f26B, viewer 0x31C73c07...F2C4, 9 FCNProduct, 6 LOVProduct): 0 logs; same 7d and same 30d: 0 logs; control Aave V3 Pool 0x87870Bca...A4E2 same shape last 2000 blocks: 5,478 logs. Last Cega event: 2026-08-31, tx 0x71e6fcb5b1abd6a14fa64b4576142be123bea8cfe23f00d7e7add299c49b11ee, addToWithdrawalQueue (sel 0x596dfbe4) by user 0x5df6a71c62895b22b73c4fd5d015526876819366 to go-fast 0x56F00A399151EC74cf7bE8DC38225363E84975E6. Gross reward per stranger call: 0 USD (no transfer to msg.sender in FCNProduct.sol/LOVProduct.sol sources; eth_call processDepositQueue from 0x3F72EAe3... reverts role-gated; checkBarriers open but reverts '500:WS' in current vault state). TVL 120,657 USD (DefiLlama candidate row 2026-11-21); underlying token USDC 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 (read from LOVProduct constructor arg)."
+}

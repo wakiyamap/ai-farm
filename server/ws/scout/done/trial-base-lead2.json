@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead2",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 2,
+ "target": "aave_v3 live liquidation bot (promotion of aave-watcher-base)",
+ "run_id": "ff6bac7005a745398cd8c897102630ac",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d base: 249 aave_v3 liquidations / 29 distinct takers; sample 19 all-success: median gross $291 (top-5 $4.1k-$25.6k, largest debtToCover $512k); median takeable->taken 0 blocks - 15/19 same-block (winners bid 15 gwei priority ~$33/tx), 4/19 catchable (47k-\u2265500k blocks) but dust \u2264$0.002; one attempt 1.2M gas = $0.01 at base fee 0.005 gwei (ETH $1819, coins.llama.fi)",
+  "kb": [
+   "attempts:1470",
+   "leads:2"
+  ],
+  "run_id": "ff6bac7005a745398cd8c897102630ac",
+  "at": 1794861840
+ }
+}

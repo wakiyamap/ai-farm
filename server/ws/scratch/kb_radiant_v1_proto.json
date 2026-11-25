@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "radiant_v1",
+  "status": "dead_end",
+  "checked": "2026-11-19 run 641b3ced scout. DefiLlama radiant-v1 (TVL 208k): addressesProviderRegistry 0x7BB843f889e3a0B307299c3B65e089bFfe9c0bE0 (verified source LendingPoolAddressesProviderRegistry), getAddressesProvidersList() -> provider 0xe21b295ed46528efd5f3ef66e18bc6ad1c87f003 (eth_getCode non-0, getLendingPool() answers) -> LendingPool proxy 0x2032b9a8e9f7e76768ca9271003d3e43e1616b1f (getReservesList() = 6 reserves WBTC/USDT/USDC.e/DAI/WETH/+1), impl 0xab843bec136e848fc47f0eb24902b61f158534d6 (verified Aave v2 fork source). Public-pay function class: liquidationCall(...) is external whenNotPaused (no role), pays liquidation bonus to caller; eth_call from 0x..dEaD reverts '42' (health-factor, not role). No keeper/claim functions pay a stranger (RDNT drip is internal; aToken rewards self-claimed). LiquidationCall topic0 0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286: 0 events in 7d (from 0x1f34a070) and 0 in 30d (from 0x1ecf95a5) via relay eth_getLogs; control same shape: 799 USDC.e Transfer logs recent range. Pool alive (49 events/125k blocks incl Repay 0x4cdde6e0...). Dead end: nothing paid a stranger in 7d."
+}

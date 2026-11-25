@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "curve_llamalend controller.liquidate",
+ "status": "measured",
+ "why": "Permissionless liquidate(address,uint256) on 25 LlamaLend v1 controllers (factory 0xcaec110c784c9df37240a8ce096d352a75922dea, arbitrum). In the last 7 days (blocks 523330166-525374422) 2 Liquidate events: tx 0x9a4113c2efb52155abbf4e3a332c41d5730a20deae26aa8c47b6241b4744dd29 taken by 0x8ab5db84d241f4cca7de44d9f84d393f78b099f1 (4.7963 USDC-scale output, gas 0.027 USD) and tx 0x33b7fc9e63d46bcfef8e232c06d0ff39d83bbbf435022960a51361d0d9da750e taken by pro cross-chain liquidator 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd (dust, gas 0.053 USD). Liquidator keeps the liquidation discount (~1-7% of repaid debt). (est ~0.1 USD/day)",
+ "next_steps": "Sweep users_to_liquidate() + health(user) across the 25 controllers, call liquidate(user,min_x) when health<0. 7-day count = 2 events over 25 markets (dust, <=~5 USD gross each), gas 0.03-0.05 USD/call (Arbitrum, gasUsed x effGP, ETH 1736.40 DefiLlama). Marginal: 2/week frequency on 777k TVL; the pro bot 0x5ac9bc14 already watches it. Trial candidate only if a queue-sweep bot is cheap enough; no first-block race pressure at 2/week."
+}

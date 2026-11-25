@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-float",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "float",
+ "name": "Float",
+ "category": "Derivatives",
+ "tvl_usd": 125957,
+ "url": "",
+ "github": [
+  "Float-Capital"
+ ],
+ "listed_days_ago": null,
+ "run_id": "927d7b1e8aab4e74bafcd2e8f7ed23fc",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LongShort.updateSystemState(uint32) is callable by anyone (eth_call OK from fresh addr, markets 1-7) but pays 0: 0 logs on all 11 Float polygon proxies (LongShort 0x168a..b733, Staker 0xe7C8..C47F, Treasury 0xeb1bB3..6441, Keeper 0x21d9..04e15 + 7 amDAI vaults) over 7d (97,235,468->97,638,668); control same shape: 2 SystemStateUpdated over 90d, both incidental in user exitEverything tx 0x0aa93468 (2026-10-17, last protocol tx); gross 0 USD/call vs gas; TVL 125,957 USD (DefiLlama 2026-11-20); no stranger paid.",
+  "kb": [
+   "attempts:2829",
+   "protocols:1253"
+  ],
+  "run_id": "927d7b1e8aab4e74bafcd2e8f7ed23fc",
+  "at": 1795163996
+ }
+}

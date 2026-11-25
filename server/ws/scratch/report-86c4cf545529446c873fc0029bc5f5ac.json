@@ -1,0 +1,12 @@
+{
+  "run_id": "86c4cf545529446c873fc0029bc5f5ac",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "whype-gap-elysium (lead 184) - review 46671717 fix round 3 became an EV verdict: same-pool holding-frame route closed dead_end",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1293", "leads:184"],
+  "wiki_pages": ["methods/holding-frame.md"],
+  "bot_ids": ["whype-gap-elysium"],
+  "injection_seen": false,
+  "notes": "Recomputed the attempt-1276 saved series exactly (12 trips, -5.86/100 before gas = -1.08 USD/day at 20 USD; 5% stop does not save it) and proved the compliant holding-frame entry guard (sell >= cost at the moment's exit pool) structurally impossible for a same-pool round trip (post-buy quote = (1-fee)^2 = 99.78% of cost, matching the fork proof). Measured the only compliant same-chain route change (buy A, sell B): passes 4.5% of entry samples at median -0.425% margin - both pools share the discount vs the external reference. Calibration variants span -26.5..+7.3/100 on the single window, no clearly positive after-gas EV; 3 consecutive sessions on the route, no 4th per the stop rule. Recorded attempts:1293, set lead 184 dead_end with reopener conditions, stopped the paper service (dir left for the reviewer to archive), extended wiki methods/holding-frame.md with the entry-guard pitfall."
+}

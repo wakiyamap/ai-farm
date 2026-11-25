@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-wineryswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1520,
+ "chain": "bsc",
+ "slug": "wineryswap",
+ "name": "WinerySwap",
+ "category": "Dexs",
+ "tvl_usd": 80436,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1520,
+ "run_id": "65ae61a61e624eb2b0570d77ab7a3b98",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Plain UniV2 fork (WineryFactory 0x79c342fd, WineryRouter 0x8bffb556, 35 WineryPairs, CORK 0xe7eada32 owner=EOA, feeTo=GnosisSafe): no callable function pays the caller, no MasterChef (router has no chef getter, pair no harvest, skim-type excluded); 7d getLogs blocks 133886086 (2026-11-16) -> 135230086 (2026-11-23): 1844 swaps on WBNB/BUSD pair (control, query alive), 44 CORK transfers only among 2 CORK pools + arb EOA 0x3686b849, caller gross 0 USD; TVL 80,436 USD (DefiLlama 2026-11-23).",
+  "kb": [
+   "attempts:4026"
+  ],
+  "run_id": "65ae61a61e624eb2b0570d77ab7a3b98",
+  "at": 1795418710
+ }
+}

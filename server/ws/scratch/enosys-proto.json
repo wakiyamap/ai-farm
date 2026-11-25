@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "enosys_bridge",
+ "status": "dead_end",
+ "checked": "DefiLlama slug enosys-bridge (module enosys-bridge/index.js; folder projects/enosys-bridge removed from DefiLlama-Adapters main at commit ca9a0728 2026-06-22, adapter read at 20bb62a8). Ethereum contracts per adapter: 0x37aca97a99d1b4260a5e9821d0ef14947fb68970 and 0x8936761f2903ed1af2b269e6fa3a79ebb0162c51 (tokensAndOwners USDT/WETH/QNT); eth_getCode non-empty both; Etherscan-verified as WrapDepositRedeem v0.8.17 (source flrfinance/bridge-contracts, Enosys = ex-Flare Finance, parent#enosys). Only reward-ish functions: approveExecute/batchApproveExecute (signer-gated, Multisig.tryApprove reverts SignerNotActive; earns 250 bps validator fee) and claimValidatorFees (public but pays validatorFeeRecipients[validator], not the caller). Verdict role_gated."
+}

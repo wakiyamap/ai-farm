@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-cega-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "cega-v2",
+ "name": "Cega V2",
+ "category": "Options",
+ "tvl_usd": 73990,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "100379e6a9eb416a89676352ce34652c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "CegaEntry diamond 0xfd62eebaa64d2f33bbdb42e713fba7e94ef2da50 (TVL 73990 USD): 204 selectors/21 facets from 27 DiamondCut logs; open fns (fcn/dcs/sfn StartTrade, SettleVault, Check*, SubmitDispute, claimPendleYield, fillOrder) pay 0 to caller (late fee goes caller->CegaFeeReceiver, FCNVaultLogic.sol); collectVaultFees/Rollover/EndAuction onlyTraderAdmin; 7d (blocks 524754313 2026-11-16 -> 526811772 2026-11-23, no-topic scan, USDC control 15749 logs) = 1 event: one EOA's own WithdrawalProcessed (0x9f569a8a..., gas 0.004 USD); 30d = 3 such events, 0 offramp fills.",
+  "kb": [
+   "attempts:4108",
+   "protocols:2230"
+  ],
+  "run_id": "100379e6a9eb416a89676352ce34652c",
+  "at": 1795439307
+ }
+}

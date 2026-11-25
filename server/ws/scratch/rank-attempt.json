@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-rank-trading",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Rank Trading is a managed-vault protocol whose only public functions are user self-service (invest/withdraw/unlock); no function pays a reward to whoever calls it, and it is dormant - all 13 strategy vaults expired 2026-04-18..2026-08-07, shares redeemed to ~0, 0 events across 23 protocol contracts in the last 7 days. Nothing to keep.",
+ "numbers": "TVL 1.67M USD (session context, DefiLlama). 13 strategies, expiry from times(): 2026-04-18, 04-23, 04-30, 05-01, 05-02, 08-06, 08-07 x6. Share supply <= 1.0 on all. Activity sample: 0 logs in 10x5000 blocks of 1,344,000 (3.7%, 0.45 s blocks, head 134222385); controls USDC same windows: 17,266 / 37,581 logs. withdraw() fresh addr: revert 0x5583cdbc. premium()=0. Strategy impl 0xf9b1859266b21dfc02c8bd31e11103f97a1aaffd ABI from 4byte+adapter (unverified source)."
+}

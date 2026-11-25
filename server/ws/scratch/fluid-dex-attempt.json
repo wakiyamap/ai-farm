@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-fluid-dex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Fluid DEX pools on polygon (FluidDEX poolT1) expose only user operations (swapIn/swapOut, deposit/withdraw/borrow/payback variants, oraclePrice) plus an auth-gated admin fallback (isGlobalAuth/isDexAuth); there is no reward, bounty, keeper-fee, harvest, claim, settle or liquidation function anyone can call. Fluid DEX charges zero trade fees, so there is no fee pot to harvest; vault liquidations belong to fluid_lending (KB 16/17/18), not this protocol. Pools are alive but the protocol pays nobody: 7d swaps are arbitrage by a handful of EOAs paying their own gas.",
+  "numbers": "84 Swap txs in 7d, block 0x5cad52e..97,783,726, eth_getLogs over 7 pool contracts (control: USDC Transfer same shape = 13,638 logs): USDT/USDC 0x2886a01a 47, AUSD/USDC 0xde632c3a 37, 5 other pools 0. Sample of 5 of 84: 4 from EOA 0xb4b919ddea467cf55fbf0d2c28cf3eafc9b1da00; gas 801k-1.13M gas/tx = 0.018-0.045 USD at POL $0.0818 (coins.llama.fi 2026-11-18); gross paid by protocol per call 0. TVL $1.15M (candidate). DexResolver 0xa17798d03bB563c618b9C44cAd937340Bad99138."
+}

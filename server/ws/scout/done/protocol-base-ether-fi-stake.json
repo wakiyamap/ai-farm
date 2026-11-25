@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-ether-fi-stake",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1355,
+ "chain": "base",
+ "slug": "ether.fi-stake",
+ "name": "ether.fi Stake",
+ "category": "Liquid Staking",
+ "tvl_usd": 2507399,
+ "url": "https://www.ether.fi",
+ "github": null,
+ "listed_days_ago": 1355,
+ "run_id": "e7b50af951154efab8ba861359901cd2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Base footprint = 2 BoringVaults only (eBTC 0x657e...C642 2.44M USD, sETHFI 0x86B5...0161 0.17M USD); ABI has no reward fns; manage/enter/exit revert 'UNAUTHORIZED' from stranger eth_call; 7d: 2 transfers + 3 approves, 0 keeper calls, 0 paid (gas 0.006 gwei ~\\bash.001/call).",
+  "kb": [
+   "attempts:2337",
+   "protocols:879"
+  ],
+  "run_id": "e7b50af951154efab8ba861359901cd2",
+  "at": 1795054233
+ }
+}

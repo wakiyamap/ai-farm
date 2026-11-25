@@ -1,0 +1,12 @@
+{
+  "run_id": "7d0dcc85e6cf4941983991e361754ab1",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "actor-arbitrum-0x1eaf2060ca863556f9c2773c750574c831fcc22c",
+  "outcome": "scouted",
+  "kb_rows": ["actors:290", "attempts:2967", "leads:57"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Revert Lend liquidator executor contract on arbitrum (nonce 1, owner 0x862a6d56, unverified; 33-EOA worker fleet calls its 0xd6cc22c2 in bursts at 8.16/min, sample of 200 newest txs, 8 FAILED, no-op trigger 55.6k gas = 0.0018 USD): 6 liquidations in 7 d = 0.86/day, 307.64 USDC forwarded to treasury 0x500368ec = 43.95 USD/day (2.32-168.70 per call, 1.3-2.1 pct of the repaid debt), gas 745489 x 0.03825 gwei = 0.047 USD (0x965073ab, ETH 1652 USD coins.llama.fi). Profit is the public V3Vault 0x74e6afef liquidation margin (ledger: 16 events / 5 executor contracts in the same 7 d), already measured as leads:57 with trial-revert-lend-arbitrum paper-running; the contract itself pays a hardcoded treasury, so it is not copyable at the contract level."
+}

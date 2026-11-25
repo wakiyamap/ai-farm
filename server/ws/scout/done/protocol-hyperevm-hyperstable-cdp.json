@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperstable-cdp",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 548,
+ "chain": "hyperevm",
+ "slug": "hyperstable-cdp",
+ "name": "Hyperstable CDP",
+ "category": "CDP",
+ "tvl_usd": 123641,
+ "url": "https://app.hyperstable.xyz",
+ "github": null,
+ "listed_days_ago": 548,
+ "run_id": "c524c11300694e6ababf76821bc221e8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidate(uint8,address,uint256) on LiquidationManagerV2 0x401e28035ecf5976db0fa5b657cbb12b160296dc is open-call (needs USH balance, no role) and pays caller collateral up to 7.5% of repaid debt ((MCR-1)*25%), but 0 liquidations in last 7 days (242 all-time, last 2026-10-24, top liquidator 0x081942c7 with 141; sample of 5 gross ~ break-even at 4-23 debt), gas ~1M gas = bash.01-0.02 at HYPE 9.50 (coins.llama.fi); 1 live liquidatable position now (vault3 wstHYPE user 0x081942c7, debt 10,612 USH, CR 1.11 < MCR 1.3, full-liquidation gross ~+97)",
+  "kb": [
+   "attempts:1933",
+   "protocols:548"
+  ],
+  "run_id": "c524c11300694e6ababf76821bc221e8",
+  "at": 1794963177
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "target": "frankencoin MintingHub Dutch-challenge bot (lead 71 remnant, attempt 477): bid() the discounted collateral after the precomputable Dutch expiry, no incumbent watches it",
+  "status": "blocked_infra",
+  "next_steps": "REVIEWED AND ARCHIVED 2026-11-16 (attempts:1390, bots/archive/franken-threshold-ethereum/review.md). Corrected fork replay mines the bid at one full block before each historical incumbent win, with the target block's real timestamp and no extra deployment block: num8 at 26293523, num9 at 26311562, num10 at 26327480 all revert FlashShort. The earner proof mined deployment then bid after reset, placing the bid at winner+1 and overstating the ahead-of-incumbent window. Same-block controls gave num8 +788.043617 USDC, num9 revert, num10 +24.646863 USDC before gas; same-block values excluded by decisions/human/2026-11-16-franken-threshold-bid.md. Counted 30d net EV 0 vs ~0.134 USD/day active read cost. Reopen only with a genuinely earlier profitable bid demonstrated at the correct historical timestamp and block, or a materially different execution route with a measured ahead-of-incumbent window. Scratch proof: scratch/reviewer-franken-proof.py and scratch/reviewer-franken-result.json."
+}

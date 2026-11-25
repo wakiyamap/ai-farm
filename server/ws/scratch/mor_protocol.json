@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "morpheusai",
+  "status": "measured",
+  "checked": "DefiLlama adapter projects/MorpheusAI/index.js (raw github): 0x47176B2Af9885dC6C4575d4eFd63895f7Aaa4790 (DepositPool, impl 0xdb10daef167ea2233ba6811457dd24d676fbd670) and 0xDf1AC1AC255d91F5f4B1E3B4Aef57c5350F64C7A (DistributorV2, impl 0x52f76e8be3dfabcc3b0ded02882a22be47dade03); both ERC1967Proxy, eth_getCode non-empty, impl sources via explorer (capital-protocol DepositPool.sol / DistributorV2.sol) + MorpheusAIs/Docs Smart Contracts. depositToken()=stETH 0xae7ab96520de3a18e5e111b5eaab095312d7fe84 (decimals 18 read on chain). DepositPool public fns: stake/withdraw/claim/claimFor/lockClaim; claim(uint256,address) payable, no role gate (eth_call from fresh addr reverts 'DS: nothing to claim', not role). claimFor needs per-staker whitelist or preset claimReceiver. Rewards leave L1 as MOR mint via L1SenderV2 0x2efd4430489e1a05a89c2f51811ac661b7e5ff84 (MOR token 0x092Baadb7DeF4C3981454dD9c0A0d7FF07bCfc86 has no code on ethereum - it is on Arbitrum/L1). DistributorV2 public distributeRewards/withdrawYield/updateDepositTokensPrices are accounting only, pay the caller nothing; claimAaveRewards/withdrawUndistributedRewards onlyOwner. Pool 0 detail via rewardPoolsProtocolDetails(0): 14d claimLockAfterStake/AfterClaim, 7d withdrawLock, minimalStake 0.01 stETH."
+}

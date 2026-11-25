@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-nova-nlp",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 58,
+ "chain": "hyperevm",
+ "slug": "nova-nlp",
+ "name": "Nova NLP",
+ "category": "Risk Curators",
+ "tvl_usd": 61459,
+ "url": "https://nova.markets/",
+ "github": null,
+ "listed_days_ago": 58,
+ "run_id": "689e0df5727242f1b76ba48b1e6cd63d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Nova NLP = permissioned Lagoon v0.6.0 USDC vault 0xEeEd7BB939d65938Fe8f40dd898Cd5942E32f09E hyperevm (61,398 USDC); settleDeposit/settleRedeem/expireTotalAssets/claim*OnBehalf onlySafe (fresh-addr eth_call reverts OnlySafe; safe 0x01e187f0...), updateNewTotalAssets onlyValuationManager; no reward/bounty in source; 7d blocks 51,317,896-51,932,716 (11-15 to 11-22): 2 logs = 1 user requestRedeem 0xa592d382, settleDeposit last 11-03 by Safe; stranger gross 0 USD.",
+  "kb": [
+   "attempts:3661"
+  ],
+  "run_id": "689e0df5727242f1b76ba48b1e6cd63d",
+  "at": 1795338686
+ }
+}

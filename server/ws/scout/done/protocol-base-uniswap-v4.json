@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-uniswap-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 656,
+ "chain": "base",
+ "slug": "uniswap-v4",
+ "name": "Uniswap V4",
+ "category": "Dexs",
+ "tvl_usd": 81779452,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 656,
+ "run_id": "37fbf3a8730f4d99ac6eb70833a9a46a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "V4FeeAdapter 0xc53dd825 collect() is permissionless (stranger eth_call ok) but pays the caller 0: 7 d (blocks 55.93M-58.95M) = 51 collect txs by 4 EOA keepers, 709 FeesCollected events, one call moves ~$145-310 (0.023-0.091 ETH + 98-145 USDC, sample 5/51; ETH $1810.91 llama) to the fixed TokenJar 0x9bd25e67 while the caller pays $3.3-23.5 gas; PoolManager.collectProtocolFees is controller-gated (reverts 0x48f5c3ed InvalidCaller), LP fees self-service -> no stranger was paid",
+  "kb": [
+   "attempts:2016",
+   "protocols:612"
+  ],
+  "run_id": "37fbf3a8730f4d99ac6eb70833a9a46a",
+  "at": 1794981134
+ }
+}

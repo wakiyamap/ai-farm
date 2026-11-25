@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-shprd",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. SHPRD index-vault factory + 8 vaults live on arbitrum but the only keeper-style functions (vault harvestManagementFees/harvestPerformanceFees) are HARVESTER_ROLE-gated (members: team Gnosis Safe 0xaebb602c2f8e3cc5e1f76df270796f53175c8e93 and a no-code address) and pay the team feesReceiver 0xe7a8902fccd96440bd907cbb927988197a3de473, not the caller; redeemForced is admin-gated and deposit/redeem are user ops. Protocol is dormant: newest tx across all 9 contracts is 2026-10-24 (25 d ago), 0 events/calls in the last 7 days, so nothing was paid to anyone recently, let alone a stranger.",
+  "numbers": "8 vaults, TVL $343,726 (candidate, DefiLlama); HARVESTER_ROLE members 2 (getRoleMember, vault 0x8736f6b2...); newest activity 2026-10-24 per Blockscout /addresses/{a}/transactions on all 9 addrs (2026-11-18) => 0 in 7d; role-revert from fresh addr 0x1111... (eth_call latest); gas 0.02002 gwei (eth_gasPrice), a ~150k-gas vault call would cost ~$0.005 at ETH $1770.44 (coins.llama.fi 2026-11-18)."
+}

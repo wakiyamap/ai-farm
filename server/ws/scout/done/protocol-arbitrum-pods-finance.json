@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-pods-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1867,
+ "chain": "arbitrum",
+ "slug": "pods-finance",
+ "name": "Pods Finance",
+ "category": "Options",
+ "tvl_usd": 32053,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1867,
+ "run_id": "402bb95e347b41ac8597611118cd319f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "0 logs in 7 d (blocks 524748212-526806040, control 353 USDC.e Transfers/6096 blocks same run) on all 56 protocol contracts (OptionFactory 0xabfce317..58c0, AMMFactory 0x6575e244..4ae3, CM 0x84601612..9008, Helper, PriceProvider, IVGuesser 0x62fafd02..7bf8 + 20 pools + 31 options); no caller-paid fn: withdraw() position-gated, withdrawRewards() owner-gated, updateAcceptableRange() pays 0; last pool created 2022-06-08, last option 2023-02-09; TVL 32,053 USD is stale 2021-23 balances",
+  "kb": [
+   "attempts:4103"
+  ],
+  "run_id": "402bb95e347b41ac8597611118cd319f",
+  "at": 1795438063
+ }
+}

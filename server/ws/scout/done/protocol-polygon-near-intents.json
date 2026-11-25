@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-near-intents",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 395,
+ "chain": "polygon",
+ "slug": "near-intents",
+ "name": "NEAR Intents",
+ "category": "Bridge",
+ "tvl_usd": 1511085,
+ "url": "https://near.com/",
+ "github": null,
+ "listed_days_ago": 395,
+ "run_id": "afa28b9ebd3c472a98480dd1eed62e20",
+ "result": {
+  "verdict": "unpaid",
+  "line": "polygon: only contract is the HOT-bridge MetaWallet 0x233c5370...b4cd (other 2 adapter owners are EOAs); withdraw(uint128,address,address,uint128,bytes) is open to any caller (fresh-address eth_call reverts 'ECDSA: invalid signature v value', a signature gate not a role) but pays receiver_id and never msg.sender - 10 withdraw calls in 6.99d (blocks 97,081,112-97,485,263), gross to receivers 4,400.82 (largest 8,794.41 USDC tx 0x94c74e22), gross to the caller bash in all samples, gas bash.0013-0.0035/call (POL bash.0821), fee pot fees()=e-10 and onlyOwner-drainable.",
+  "kb": [
+   "attempts:1790",
+   "protocols:447"
+  ],
+  "run_id": "afa28b9ebd3c472a98480dd1eed62e20",
+  "at": 1794934113
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-pepeteam-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1325,
+ "chain": "ethereum",
+ "slug": "pepeteam-bridge",
+ "name": "PepeTeam Bridge",
+ "category": "Bridge",
+ "tvl_usd": 320048,
+ "url": "https://bridge.pepe.team",
+ "github": null,
+ "listed_days_ago": 1325,
+ "run_id": "a0a8d4d5a4b549d38201ca591aa7765e",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "ExecutorV3.execute() (0xa106a0e6..) is public and releaseTokens pays gaslessReward to tx.origin; 7d blocks 26414080-26464324 (11-14 to 11-21): 43 Executed, 38 releases all with reward>0, pool 3.316 USDT + 0.002442 ETH = 7.42 USD (~1.06/day, ETH 1682 llama 11-21T15:25Z); 9 submitters, official relayer 0xa0443132 took 26/38; stranger 0x953c1ba7 gross 3.95 vs gas 0.07 USD on 0x5586af55, but solo calls gross 0.015-0.50 vs gas 0.04-0.12 = only bundled releases clear gas",
+  "kb": [
+   "attempts:3369",
+   "leads:366"
+  ],
+  "run_id": "a0a8d4d5a4b549d38201ca591aa7765e",
+  "at": 1795275079
+ }
+}

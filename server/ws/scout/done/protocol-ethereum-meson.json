@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-meson",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 934,
+ "chain": "ethereum",
+ "slug": "meson",
+ "name": "Meson",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 103375,
+ "url": "https://meson.fi/home",
+ "github": [
+  "MesonFi"
+ ],
+ "listed_days_ago": 934,
+ "run_id": "5210eb6391cf461bb911096e6cb3ea0d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No callable function pays its caller: 7d full census of 161 vault txs at 0x25aB3Efd52e6470681CE037cD546Dc60726948D3 (impl 0xF7DACE61, blocks 26412103-26462383, 11-14..11-21) = 82 simpleExecuteSwap (users deposit), 17 directExecuteSwap (callers pay), 62 directRelease ALL by Meson's relayer 0x666d6b8a44d226150ca9058beebafe0e3ac065a2 paying the recipient argument 0.5-9,995 USD (trace sample 5 of 62) while the caller receives 0 on-chain (gas ~97-115k = ~bash.03); cancelSwap anyone-callable but 0 calls; fees deducted from release amount, owner-gated withdrawServiceFee.",
+  "kb": [
+   "attempts:3250"
+  ],
+  "run_id": "5210eb6391cf461bb911096e6cb3ea0d",
+  "at": 1795251546
+ }
+}

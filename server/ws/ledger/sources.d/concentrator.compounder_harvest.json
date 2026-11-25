@@ -1,0 +1,28 @@
+{
+  "id": "concentrator.compounder_harvest",
+  "protocol": "concentrator",
+  "kind": "harvest_bounty",
+  "chains": {
+    "ethereum": [
+      "0x2b95A1Dcc3D405535f9ed33c219ab38E8d7e0884",
+      "0xDAF03D70Fe637b91bA6E521A32E1Fb39256d3EC9",
+      "0xb15Ad6113264094Fd9BF2238729410A07EBE5ABa",
+      "0x43E54C2E7b3e294De3A155785F52AB49d87B9922",
+      "0x606462126E4Bd5c4D153Fe09967e4C46C9c7FeCf",
+      "0xb0903Ab70a7467eE5756074b31ac88aEBb8fB777",
+      "0x00Bac667a4cCf9089aB1Db978238C555C4349545"
+    ]
+  },
+  "event": "Harvest(address,address,uint256,uint256,uint256)",
+  "indexed": [
+    "caller",
+    "recipient"
+  ],
+  "data": [
+    "assets",
+    "performanceFee",
+    "harvesterBounty"
+  ],
+  "actor_field": "recipient",
+  "topic0": "0xd25759d838eb0a46600f8f327cce144e61d7caefbef27010fe31e2aab091704f"
+}

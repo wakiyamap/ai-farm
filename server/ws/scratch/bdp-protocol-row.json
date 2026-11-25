@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "big_data_protocol",
+  "status": "dead_end",
+  "checked": "Protocol repo https://github.com/bigdataprotocol/bdp-contracts/blob/master/deploy/config.js identifies BDPToken 0xf3dcbc6d72a4e1892f7917b7c43b74131df8480e, BDPMaster 0x0De845955E2bF089012F682fE9bC81dD5f11B372, bAlphaToken 0x7a5ce6abD131EA6B148a022CB76fc180ae3315A6, bAlphaMaster 0xf20084BA368567fa3dA1Da85b43Ac1AC310880C8. All four have bytecode and getters answer through rpc.py; both masters' source verified by explorer. Public updatePool/massUpdatePools pay the updater nothing; claimReward pays only the staker msg.sender. BDP seedPoolAmount()=0 and bAlpha cap()=totalSupply()=18000.1e18 at 2026-11-23 22:21 UTC. Full no-topic scan of both masters, Ethereum blocks 26430547-26480788 (2026-11-16 22:21:35 to 2026-11-23 22:21:23 UTC), returned 0 events; same-shape no-topic USDC control at block 26480788 returned 83 logs. Fresh-address BDP claimReward(0) reverts 'BDPToken: cannot mint for pool'; fresh-address bAlpha claimReward(0) succeeds but pays zero. Verdict unpaid: no caller reward and farming emissions depleted."
+}

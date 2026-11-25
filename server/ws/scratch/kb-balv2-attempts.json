@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-balancer-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Balancer V2 base has no function that pays a stranger caller: gauge claim_rewards() is permissionless but pays only the caller's own accrued BAL (fresh address with no stake earns 0) and the whole reward flow is 2 claims in 7 days totalling 15.8 BAL = 1.80 USD; the fee-sweep fn ProtocolFeesWithdrawer.withdrawCollectedFees is authorizer-gated (eth_call from fresh address reverts BAL#401) and dormant since 2023-07-12 with a ~empty pot (collector BAL/USDC 0, WETH 0.0008 USD). Same shape as the arbitrum balancer-v2 dead_end (attempt 2608) and base balancer-v3 (attempt 2045).",
+  "numbers": "7d window fromBlock 0x35f6a00..head 59694912 (ts 1795129358): Minted 2 events (15.57 BAL tx 0x06fb86ed1594f8f7760f74f53117deff33f9c6c443f447646d73320102961d83, 0.19 BAL tx 0x9434401407b715144409d5ff51ef5478e559e5a0c044e07cbc29ccdaafd962a0); PoolBalanceChanged 26; withdrawer txs 1 total, last block 1205667 ts 1689200681; gas 150k x 6001748 wei x 1755.90 = 0.0016 USD/claim; BAL 0.1141 USD, WETH 1755.90 USD (coins.llama.fi 2026-11-19 22:52Z); TVL 189,498 USD (DefiLlama candidate row)."
+}

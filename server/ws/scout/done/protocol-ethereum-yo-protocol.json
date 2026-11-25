@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-yo-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 609,
+ "chain": "ethereum",
+ "slug": "yo-protocol",
+ "name": "YO Protocol",
+ "category": "Yield Aggregator",
+ "tvl_usd": 7839444,
+ "url": "https://app.yo.xyz",
+ "github": [
+  "yoprotocol"
+ ],
+ "listed_days_ago": 609,
+ "run_id": "7240d113ed274cf7a373266f605ff4d0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 6 ethereum vaults live (yoUSD 3,344,888 USDC, Edge 319,732 USDC, USDC=0xa0b86991 6-dec on-chain); 7d blocks 26,409,572-26,459,852: 215 logs = 23 RedeemRequest + 36 Deposit + 23 Withdraw all user self-pay, RequestFulfilled 0, RequestCancelled 0; fulfillRedeem from fresh addr reverts Unauthorized 0x82b42900, oracle updater-only pays 0, docs Redeemer 0x0439... is an EOA; no stranger reward (same architecture as base KB580 / arbitrum KB577)",
+  "kb": [
+   "attempts:3114",
+   "protocols:1486"
+  ],
+  "run_id": "7240d113ed274cf7a373266f605ff4d0",
+  "at": 1795221131
+ }
+}

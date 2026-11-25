@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-blackwing",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 962,
+ "chain": "ethereum",
+ "slug": "blackwing",
+ "name": "Blackwing",
+ "category": "Farm",
+ "tvl_usd": 139628,
+ "url": "https://blackwing.fi/",
+ "github": null,
+ "listed_days_ago": 962,
+ "run_id": "639bed36d5784c0caf8a5bbadfb9964a",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: ethereum vault 0xc6aDE8A68026d582AB37B879D188caF7e405dD09 (impl 0xa9229928, byte-identical to verified arb BlackwingVault; withdrawBlockWait()=0 answers) has only permissionless deposit/withdraw of caller's own assets, NoopDeployer deploy() reverts '1' and totalDeployedAmount(WETH)=0; 7 d blocks 26,410,941-26,462,466 (11-14 to 11-21): 1 BalanceChange (no-topic control), a 0.049995 WETH ($81.33) withdrawal by 0xbbc0cbef.., gas $0.144 at WETH $1,626.78, gross to caller $0, 0 deposits; TVL $128,565.",
+  "kb": [
+   "attempts:3253"
+  ],
+  "run_id": "639bed36d5784c0caf8a5bbadfb9964a",
+  "at": 1795252272
+ }
+}

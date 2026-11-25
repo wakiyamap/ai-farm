@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-yama-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1333,
+ "chain": "arbitrum",
+ "slug": "yama-finance",
+ "name": "Yama Finance",
+ "category": "CDP",
+ "tvl_usd": 79989,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1333,
+ "run_id": "80d0b14d137843e7856f8f90591e0375",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Callable, bounty-less: CDP.updateInterest/setInterestRates/liquidate-trigger succeed from a fresh address but source shows no caller payment (claim = dutch-auction discount, needs YSS); 7d (blocks 524646814 2026-11-16 -> 526702531 2026-11-23): 0 events on CDPModule+Liquidator, 1 PSM Withdraw 5.08 YSS no fee; last stranger payment ClaimAuction 2026-03-25 tx 0x340a4b67 (243 d ago; history 120 claims/136 inits/133 liquidates as control); 6 vaults all over-collateralized, borrowingDisabled=1; gas ~$0.003/call (0.02 gwei, ETH $1733.96 coins.llama.fi 2026-11-23 04:24 UTC)",
+  "kb": [
+   "attempts:3976"
+  ],
+  "run_id": "80d0b14d137843e7856f8f90591e0375",
+  "at": 1795408044
+ }
+}

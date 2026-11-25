@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-rhino-fi",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. DVFDepositContract behind proxy 0xBA4EEE20...3A7E is a pure bridge escrow: every payout function reverts 'UNAUTHORIZED' from a fresh address (eth_call), and the only stranger-callable one, withdrawVmFunds, sweeps the VM balance to the owner, paying the caller 0. The two callers in the last week are rhino's own authorized signers paying user recipients - same verdict as Arbitrum (attempt 2632).",
+  "numbers": "withdrawV2 from fresh addr: revert 'UNAUTHORIZED' (eth_call). 836 BridgedWithdrawal logs / 836 txs over blocks 97519829-97640781 (~2.8d, eth_getLogs). Sample of 25 txs (explorer): 22x withdrawV2 by 0x7401e624f0e74d041f2d8a6f1429d8eaa51e208f, 2x withdrawWithData by 0x51497124089abdec0d3749d6db082f66ca03750a, both authorized()=true. Sample tx 0xd65346e0...4b8c: 98759 gas @ 329.97 gwei = 0.0326 POL ~= $0.0026 gas (POL $0.0784, coins.llama.fi 2026-11-20 09:25 UTC). Gross to caller: $0."
+}

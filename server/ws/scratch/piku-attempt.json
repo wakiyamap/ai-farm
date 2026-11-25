@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-piku-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid - institutional basis-trading platform (USP stablecoin + Morini Capital vaults, ~$24M USDC). The only permissionless callable state functions are accrueAndProcess() and updateLateStatus() on the Accountable strategy proxy 0xcbbbd21c793218bb5f18d4159c5709619ecafca6; both succeed via eth_call from a fresh address but pay the caller 0 (no transfer to msg.sender, fees minted as shares to manager/treasury). Everything else is role-gated (Midas mint/burn roles, onlyAuth whitelisted deposits, dvnPublisher publishRate, onlyBorrower borrow/repay) or a plain ERC20 share transfer.",
+ "numbers": "accrueAndProcess 0x2b2eb02c: 3 calls last 7d on 0xcbbbd2 (explorer txs page to 1794580859 >7d back; blocks 26430157/26431952/26446313), all by keeper EOA 0x185a0d7a4e0686cd3221c7cb8fca59e6d3e4ecec; gross to caller $0; gas sample tx 0xfdd3e92f...: 253,986 gas @ 0.107 gwei = 2.73e-5 ETH = $0.044 (ETH $1,623.50, coins.llama.fi 2026-11-20 17:39 UTC). eth_call from 0x1234...7890: accrueAndProcess returns usedAssets=0, updateLateStatus ok. TVL 24.2M USDC (candidate 2026-11-20; adapter module piku-dao)."
+}

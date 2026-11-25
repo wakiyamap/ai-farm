@@ -1,0 +1,22 @@
+{
+ "id": "protocol-base-wasabi-perps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1300,
+ "chain": "base",
+ "slug": "wasabi-perps",
+ "name": "Wasabi Perps",
+ "category": "Derivatives",
+ "tvl_usd": 233710,
+ "url": "https://app.wasabi.xyz",
+ "github": null,
+ "listed_days_ago": 1300,
+ "run_id": "1617eef76d364c1fbd5fa768b869aa30",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Base deployment frozen: long/short pool proxies (0xbDaE5dF4.., 0xA456c77d..) revert every eth_call since the 2026-04-30 upgradeToAndCall (impl slot -> proxy with zero impl); 505 vaults scanned 7d (block 57,357,504->59,296,252): 2 Transfer logs, both user withdraw burns (tx 0x21deea5d.., 2026-11-17), bash gross paid to strangers, no keeper/liquidation/reward calls (wasabiRouter last tx 2026-10-23, vaultBoostManager 2026-04-30); TVL 33,710 (api.llama.fi).",
+  "kb": [],
+  "run_id": "1617eef76d364c1fbd5fa768b869aa30",
+  "at": 1795050398
+ }
+}

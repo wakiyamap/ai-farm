@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-katana-pre-launch",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 514,
+ "chain": "ethereum",
+ "slug": "katana-pre-launch",
+ "name": "Katana Pre-Launch",
+ "category": "Farm",
+ "tvl_usd": 17256780,
+ "url": "https://app.katana.network/",
+ "github": null,
+ "listed_days_ago": 514,
+ "run_id": "2d4cc5586a8846399fa4c47d7eea580f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no on-chain reward fn on ethereum: 4 Yearn V3 vaults (kpdUSDC/USDT/WBTC/WETH, apiVersion 3.0.4, no harvest/poke/claim in 101-fn source) + 2 BoringVaults (enter/exit/manage requiresAuth, eth_call from 0xdead reverts UNAUTHORIZED); 7d logs over all 6 = 12 (7 Transfer + 2 Approval + 3 Exit user redemptions, 0 on the 4 vaults, same-query control non-empty); the 70M KAT pro-rata + Krate NFTs accrue off-chain, claimed on Katana chain/app",
+  "kb": [
+   "attempts:3065",
+   "protocols:1446"
+  ],
+  "run_id": "2d4cc5586a8846399fa4c47d7eea580f",
+  "at": 1795210953
+ }
+}

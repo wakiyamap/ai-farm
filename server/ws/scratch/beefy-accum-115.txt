@@ -1,0 +1,58 @@
+# beefy.charged_fees post-fix accumulation snapshot 2026-11-12T20:1xZ (run 71fbfd31)
+# per vault: chain vault want_token decimals events raw_callFees_sum  (fee interpretation: 18-dec tokens: raw = token units; USDC/USDG 6-dec vaults: AMBIGUOUS - see KB attempts)
+ethereum	0xea1c8999c20f76afafce34ed6265890eff8b3b36	USDC	dec6	n5	raw238670001039823
+ethereum	0x4f9484c76466c810d255fd8616dc0835e3b35cc4	crvUSDTWBTCWETH	dec18	n9	raw207410398046122
+ethereum	0xb220b9067023868bfb240098f2bee6ca13677218	FrxMsUSD	dec18	n5	raw177515179779178
+ethereum	0x16f18a829fbc9dd26446027580f4422cf44ea741	pmcrvUSD	dec18	n4	raw156593272712536
+ethereum	0x175f5061f5eb2a2f30a2dacefeddd3efd3a0911f	HemiCbWBTC	dec18	n3	raw147804335126615
+ethereum	0x3f0880c0f0af6446a0bc11c94f8827a1013d5a00	RLUSD/USDC	dec18	n6	raw146329426678229
+ethereum	0x0069ed931908c34d06116a568c4eb5cfa7bd9646	reusdscrv	dec18	n4	raw126291535889519
+ethereum	0xad4e2c979a3dfa69c11f8fe4700e7ad3340eb327	USDSstUSDS	dec18	n4	raw121621568823178
+ethereum	0x367a0970ba47ea29c97bbe354c964b829686b92f	crvUSDETHCRV	dec18	n5	raw119909890300781
+ethereum	0xee9b2932cd66ea7089eba67099d0c1c610519595	msETHWETH-f	dec18	n9	raw105811833817987
+ethereum	0x3b7434ecaedd847fe2ef872daf18094f4f386031	USDC/USDf	dec18	n5	raw102030354198179
+ethereum	0xdef1be4d80a990847f8c7a1e15e824ff2749c0de	BIFI	dec18	n28	raw96850633237931
+ethereum	0xe57713aa4731478b4d0efad3fd3bc887a0aec66b	USDCfxUSD	dec18	n7	raw92333252501248
+ethereum	0xf1ad4ea791181178f8d0435ad398e49df057eb47	CVX	dec18	n4	raw88603981800464
+ethereum	0xb50d373a65fcfc39c7e2d6ab78d71ac1b9f7b58d	USDC	dec6	n4	raw84240438746275
+ethereum	0xbc3617d6d657bf250da87a60cde4ce7d7fcb1be5	crvU-sUSDe	dec18	n1	raw70049686047333
+ethereum	0xe8b7ed624481d69f43d616ae4a4c6531d088301f	PYUSDUSDC	dec18	n1	raw60428546500079
+arbitrum	0xc607ad283b44607f41a4b4038be8ef0d86eb82ac	USDG	dec6	n1	raw1478842506815
+arbitrum	0x2c0aa176d337e70bad16d3e07717582745a8dac1	cowPancakeWETH-USDC	dec18	n1	raw988004453768
+arbitrum	0x37932e6e79810ec1503dc95ff24369290305727d	cowPancakeWBTC-USDC	dec18	n1	raw839744519599
+arbitrum	0x50371d6ecfd666da59af1fd3901ecdf09854bc26	crvUSDT	dec18	n1	raw489073814630
+arbitrum	0x3c6f6e0c4775dde79bbe576a738d706b422c23e9	cowPancakeWETH-USDT	dec18	n2	raw361821859206
+arbitrum	0x8b34e162f6786e9f50cac4dfbb7816fc9acd6468	cowPancakeWBTC-WETH	dec18	n1	raw340866155873
+arbitrum	0x12dfb33d484208dab551ca313deac96e06d74838	crvUSDC.e	dec18	n1	raw274968230913
+arbitrum	0xfe2ceb2472ef0b39c662a033e2a572cbb009af6b	USDC	dec6	n2	raw204919629003
+arbitrum	0x75dfc877cda660a6c3ef98f3fb38f6ecf6fa51b0	crvUSDC	dec18	n1	raw94545923822
+arbitrum	0xdc75db302b2a2020c42235851a6f2a07fbf0bf86	cowPancakeUSDC-USDT	dec18	n1	raw12714459604
+
+## Snapshot 2026-11-12T21:3xZ run 843aef7a (window ~26.4 h of 48 h; window start 2026-11-11T19:10Z)
+# per-vault within-window callFees raw (18-dec wei units of the want token per attempt 1036 scale) + events
+ethereum	0xdef1be4d80a990847f8c7a1e15e824ff2749c0de	BIFI	n30	raw1655600838535811
+ethereum	0xea1c8999c20f76afafce34ed6265890eff8b3b36	USDC	dec6-vault-but-18dec-scale	n5	raw1108621693684410
+ethereum	0x4f9484c76466c810d255fd8616dc0835e3b35cc4	crvUSDTWBTCWETH	n10	raw923619784075969
+ethereum	0xee9b2932cd66ea7089eba67099d0c1c610519595	msETHWETH-f	n10	raw829148529653625
+ethereum	0x3f0880c0f0af6446a0bc11c94f8827a1013d5a00	RLUSD/USDC	n7	raw759015733726166
+ethereum	0xe57713aa4731478b4d0efad3fd3bc887a0aec66b	USDCfxUSD	n7	raw579572683054595
+ethereum	0xb220b9067023868bfb240098f2bee6ca13677218	FrxMsUSD	n5	raw554920734135671
+ethereum	0x16f18a829fbc9dd26446027580f4422cf44ea741	pmcrvUSD	n4	raw493644571293389
+ethereum	0x3b7434ecaedd847fe2ef872daf18094f4f386031	USDC/USDf	n5	raw452944060367730
+ethereum	0x175f5061f5eb2a2dacefeddd3efd3a0911f	HemiCbWBTC	n4	raw428750719748789
+ethereum	0x367a0970ba47ea29c97bbe354c964b829686b92f	crvUSDETHCRV	n5	raw371223289833768
+ethereum	0x0069ed931908c34d06116a568c4eb5cfa7bd9646	reusdscrv	n4	raw365512614683332
+ethereum	0xad4e2c979a3dfa69c11f8fe4700e7ad3340eb327	USDSstUSDS	n4	raw346805587018252
+ethereum	0xf1ad4ea791181178f8d0435ad398e49df057eb47	CVX	n4	raw258851032200689
+ethereum	0xb50d373a65fcfc39c7e2d6ab78d71ac1b9f7b58d	USDC	dec6-vault	n4	raw251999286676944
+ethereum	0xbc3617d6d657bf250da87a60cde4ce7d7fcb1be5	crvU-sUSDe	n1	raw70049686047333
+ethereum	0xe8b7ed624481d69f43d616ae4a4c6531d088301f	PYUSDUSDC	n1	raw60428546500079
+ethereum TOTAL: 110 events, 17 vaults, callFees_raw_sum ~9.51e15
+# arbitrum: 13 events, 10 vaults, raw sums 1.3e12..1.7e15 (tiny scale, unchanged from 25h snapshot except +1 event)
+# caller cohort (within window): 0x091179e3c74e33545ce8cc07fa385827256cb84f 62 (dominant, actor 136-era peer of actor135), 0x00ae3b7e535d6e003132bf0000000000005d5e03 22 (actor135), 0x7e79a8173b3f63395d6a59f8ca4af214c29d359b 12, 0x03d9964f4d93a24b58c0fc3a8df3474b59ba8557 11 (new), 0xec58746c8f93ead05833c930eae7bca6bd97d996 8 (actor136, Stake DAO incumbent overlap), 0x164dc5333938299b6db62f73b63f8270ff3892c2 3, +5 singletons
+# SNAPSHOT 2026-11-12T22:0xZ run c1f6bd2e: window at ~26.9h (48h matures 2026-11-13T19:10Z) - ledger-only, 0 RPC.
+ethereum 112 events, 17 vaults, callFees_raw_sum 9.6309e15 (last event 1794519203 = 22:03Z, ~30 min old); arbitrum 14 events, 10 vaults, raw 6.1524e12 (last event ~59 min old). Ingestion flowing.
+strict post-fix (ts>=1794424200) caller cohort: 0x091179e3...cb84f 62, 0x00ae3b7e...5d5e03 23 (actor135), 0x7e79a817...d359b 13, 0xec58746c...d996 8 (actor136), 0x164dc533...92c2 3, +3 singletons (0xbf63adda, 0xbc5e3431, 0xa88e98bb).
+note: the 26.4h snapshot cohort line (0x03d9964f 11) counted some pre-fix events - strictly post-fix that caller has 0 in-window events; strict cohort sums to 112 = event count.
+cursors all verified at head 26401660/523682955 at 22:0xZ.
+2026-11-12T22:10Z 27.0h/48h: 112 ethereum (raw callFees 9.6309e15, max block 26401580, last 21:33:23Z) + 14 arbitrum (6.1524e12, 523680920, last 21:40:33Z) - IDENTICAL to the 22:0xZ snapshot; cohort unchanged (0x091179e3 62, 0x00ae3b7e 23, 0x7e79a817 13, arb 0x03d9964f 12, 0xec58746c 8, 0x164dc533 3, 4 singletons); head 26401769; run 21f03330

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-defi-swap",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "defi-swap",
+ "name": "Defi Swap",
+ "category": "Dexs",
+ "tvl_usd": 851854,
+ "url": "https://crypto.com/defi/swap",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "32dc69f8214e445b90b75dc362755938",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Uniswap V2 fork (CroDefiSwapFactory 0x9DEB29c9...9A9D, 100 pairs): no public function pays the caller; setFee* role_gated ('FORBIDDEN - only current feeSetter'), skim/sync pay 0; 1,852 Swap events in 7d (blocks 26416355-26466755, 6 of 100 pairs sample, topic0 from verified ABI) all by external routers/arb bots paying the 0.30% fee (feeToBasisPoint 5), gross to stranger 0",
+  "kb": [
+   "attempts:3517"
+  ],
+  "run_id": "32dc69f8214e445b90b75dc362755938",
+  "at": 1795304136
+ }
+}

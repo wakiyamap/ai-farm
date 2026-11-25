@@ -1,0 +1,16 @@
+{
+ "id": "across.filled_relay",
+ "protocol": "across",
+ "kind": "crosschain_intent_fill",
+ "chains": {
+  "ethereum": ["0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5"],
+  "arbitrum": ["0xe35e9842fceaca96570b734083f4a58e8f7c5f2a"],
+  "base": ["0x09aea4b2242abc8bb4bb78d537a67a245a7bec64"],
+  "optimism": ["0x6f26bf09b1c792e3228e5467807a900a503c0281"]
+ },
+ "event": "FilledRelay(bytes32,bytes32,uint256,uint256,uint256,uint256,uint256,uint32,uint32,bytes32,bytes32,bytes32,bytes32,bytes32,(bytes32,bytes32,uint256,uint8))",
+ "topic0": "0x44b559f101f8fbcc8a0ea43fa91a05a729a5ea6e14a7c75aa750374690137208",
+ "indexed": [],
+ "data": ["input_token", "output_token", "input_amount", "output_amount", "repayment_chain_id"],
+ "actor_field": "tx_from"
+}

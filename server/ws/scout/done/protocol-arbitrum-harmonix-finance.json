@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-harmonix-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 861,
+ "chain": "arbitrum",
+ "slug": "harmonix-finance",
+ "name": "Harmonix Finance",
+ "category": "Yield",
+ "tvl_usd": 439185,
+ "url": "https://app.harmonix.fi",
+ "github": [
+  "harmonixfi"
+ ],
+ "listed_days_ago": 861,
+ "run_id": "7fac2f4c908042a5a65bc4b81422d93b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "9 vaults behind factory 0x3363...0135 (TVL 439k USDT); only 0xf12f...00e3 active in 7d: 5x syncBalance by keeper 0x562b8f8e (role ROCK_ONYX_OPTIONS_TRADER, fresh-address eth_call reverts) pays caller $0, gas $0.07/call (38,473 gas @1.02 gwei, ETH $1801 llama.fi); all other ops _auth(ROCK_ONYX_ADMIN_ROLE); users' own deposits/withdrawals were the only payments, no stranger paid (sample of 11 txs of 25-tx page)",
+  "kb": [
+   "attempts:2126",
+   "protocols:701"
+  ],
+  "run_id": "7fac2f4c908042a5a65bc4b81422d93b",
+  "at": 1795005040
+ }
+}

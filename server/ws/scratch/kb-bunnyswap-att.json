@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-bunnyswap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The single FRIEND/WETH pool (UniV2-style) has no callable function that pays the caller: mint/burn/swap need principal, skim(address) pays balance-minus-reserve which is exactly 0 today (both token balances equal getReserves). No claim/claimFees/harvest/collect/distribute selectors on the contract and no reward events (no-topic 7d scan shows only Sync/Swap/Transfer topic0s taken from the scan itself). Fees accrue to the LP inside the reserves; all 29 swaps in 7d were made by one address.",
+  "numbers": "7d window 2026-11-15T21:29:59Z..2026-11-22T21:29:59Z = blocks 57,939,117..60,963,117 (eth_getBlockByNumber timestamps, base 0.2s/block). eth_getLogs on 0x7cfc830448484cdf830625373820241e61ef4acf (no topics, topic0 from receipts): 63 logs = 29 Swap (d78ad95f..), 30 Sync (1c411e9a..), 4 Transfer. Unique swapper: 1 address 0xbf250ae227de43dedaf01ccbfd8cc83027efc1e2 (sample 29 of 29). WETH flow per swap: median 0.0027, max 0.121 WETH. Pool holds 18.7894 WETH (~32,360 USD @ 1722.41, coins.llama.fi ts 1795383234) + 17,428,604.75 FRIEND (~33,120 USD @ 0.001900, coins.llama.fi ts 1795378082); skim excess 0 both sides. Gas base ~0.002 USD/call. eth_call from stranger 0x..dEaD: skim(address) needs arg, mint(address)/burn(address) revert without value/args."
+}

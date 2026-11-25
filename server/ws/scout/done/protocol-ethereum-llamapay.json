@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-llamapay",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1675,
+ "chain": "ethereum",
+ "slug": "llamapay",
+ "name": "LlamaPay",
+ "category": "Payments",
+ "tvl_usd": 280245,
+ "url": "https://llamapay.io",
+ "github": [
+  "LlamaPay"
+ ],
+ "listed_days_ago": 1675,
+ "run_id": "e18d22c7036f422db4b29c7e27726f49",
+ "result": {
+  "verdict": "unpaid",
+  "line": "withdraw(address,address,uint216) is permissionless on 77 ethereum payment contracts but pays the recipient argument only (source: token.safeTransfer(to,...), no msg.sender transfer, no reward pot): 7d (blocks 26415317-26465572, 11-14 to 11-21) 22 Withdraws, gross to recipients 22,451 USD, 20/22 self-claims, 2 stranger callers delivered 1,540 USD USDC and received 0; gas 0.02-0.13 USD/call; TokenEscrow redeem 0 events 7d (control 56 in 30d)",
+  "kb": [
+   "attempts:3446",
+   "protocols:1735"
+  ],
+  "run_id": "e18d22c7036f422db4b29c7e27726f49",
+  "at": 1795290371
+ }
+}

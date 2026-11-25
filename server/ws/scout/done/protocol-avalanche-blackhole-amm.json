@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-blackhole-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 490,
+ "chain": "avalanche",
+ "slug": "blackhole-amm",
+ "name": "Blackhole AMM",
+ "category": "Dexs",
+ "tvl_usd": 1100284,
+ "url": "https://blackhole.xyz/",
+ "github": null,
+ "listed_days_ago": 490,
+ "run_id": "63e353a3e36d40ad887eadf4f1be889e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Blackhole AMM (avalanche, ve(3,3) Thena-V2 fork): only anyone-callable keeper fn is weekly epoch advance update_period() 0xed29fc11 on Minter 0xAcc34Ad5...479B - 1 call in last 7d (Nov 12, tx 0x9821a76b...d8c5, caller EOA 0x9740726b...2fd3; prior week same caller 0x8a140dcb...), caller paid 0 BLACK/0 AVAX (sample of 2 of 2 weekly calls; emissions 8.63M BLACK went to GaugeManager/team 5%/distributor), gas 1.05M @7.5gwei = 0.0079 AVAX = $0.056 (AVAX $7.09 coins.llama.fi); nudge() reverts NA between Thursday flips",
+  "kb": [
+   "attempts:1855"
+  ],
+  "run_id": "63e353a3e36d40ad887eadf4f1be889e",
+  "at": 1794946190
+ }
+}

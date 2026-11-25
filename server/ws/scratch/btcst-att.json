@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-btcst",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - BTCST vaults expose open MasterChef functions (updatePool(uint256), massUpdatePools(), claimReward(address,uint256)) that a stranger can call without a role revert, but they pay the caller nothing: updatePool/massUpdatePools only move global indices (eth_call OK, returns 0x), claimReward(fresh,0) returns 0. Pools were touched ~2.1-2.8 days ago per poolInfo.lastRewardBlock, so the protocol is barely alive, but with scout-lane bsc eth_getLogs dead (lane 301,302/300,000 CU, public nodes limit exceeded) there is no event-level proof of anyone being paid in the last 7d; 4 of 6 vaults have distinct unanalyzed impls. Not worth a leads row: nothing pays the caller.",
+  "numbers": "TVL $768k / $42.6k staking (api.llama.fi 2026-11-19); 6 vault proxies (eth_getCode OK); vault1+2 impl 0xEF2fE8189673a27ef3cfff0ea7f44d5e4a2d280b (MasterChef, selectors via 4byte); vault1 rToken sigmaDOGE 0xe550a593...404a (on-chain read); newest lastRewardBlock 134,119,440 vs head 134,791,565 = 407,933 blocks ~2.1 d at measured 0.446 s/block; gasPrice 0.05 gwei (eth_gasPrice 15:35 UTC) => ~1e-5 BNB/call, usd unpriced; getLogs failed all day for scout lane on bsc."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-swan-dao",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. SwanUSD lender (MonolithMarket instance) has public liquidate/writeOff (no role gating: eth_call from fresh address gives state reverts 'insufficient liquidatable debt' / returns false, never a role revert), but 0 Liquidated, 0 WrittenOff and 0 Redeemed events in the last 7 days (blocks 26,405,619-26,456,019; positive control 429 logs same query incl. InterestAccrued 235, Bought 44, Sold 28), and 0 of 65 positions are liquidatable today (closest LTV/CF 0.973). Nothing pays a stranger right now; the only liquidation ever was 2026-10-30, before the window. Same lender already tracked as protocols:monolith id 262 / leads:199 (watch line for the first Liquidated/Redeemed trigger).",
+  "numbers": "gross_7d=0 USD (0 Liquidated/0 WrittenOff/0 Redeemed); debt 587,899 SWAN over 65 positions; liquidation incentive 0-10% bps, MIN_LIQUIDATION_DEBT 10,000 SWAN; redeemFeeBps 175; single historical liquidation: repay 1,011 SWAN -> 0.3866 wstETH (~844 USD at contract price 2183.51 USD/wstETH, getCollateralPrice block 26456019, 2026-11-20 ~09:50Z); source: lender 0x4ed5c72816aBc1b67ac31DdAbE31cff4a8c56a15 eth_getLogs + eth_call"
+}

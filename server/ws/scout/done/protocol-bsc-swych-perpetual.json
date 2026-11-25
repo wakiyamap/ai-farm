@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-swych-perpetual",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 966,
+ "chain": "bsc",
+ "slug": "swych-perpetual",
+ "name": "Swych Perpetual",
+ "category": "Derivatives",
+ "tvl_usd": 151004,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 966,
+ "run_id": "7b3dabc2d5fc44668cfa38d8924ea7e3",
+ "result": {
+  "verdict": "unclear",
+  "line": "GMX-v1 fork on bsc (vault proxy 0xF86f...802d, orderManager 0x092d...2dce, feeDistributor 0x7c57...d6b1); executeOrder onlyExecutor (executor 0x1cb9...0dc5 has no code), distributeSurplus/withdrawFee FeeDistributorOnly, fd.withdrawFee pays DAO not caller; only permissionless candidate is liquidatePosition (fresh eth_call hits InvalidTokenPair, not a role revert) but 7-day event scan failed: scout lane budget spent (CU 305374/300000, 48/269 windows 'all providers failed'); activity tiny: nextOrderId 4317 since 2024-03, TVL 151,651 USD (api.llama.fi)",
+  "kb": [
+   "attempts:2192",
+   "protocols:760"
+  ],
+  "run_id": "7b3dabc2d5fc44668cfa38d8924ea7e3",
+  "at": 1795020204
+ }
+}

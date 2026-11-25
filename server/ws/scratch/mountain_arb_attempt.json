@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-mountain-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Mountain Protocol on arbitrum is just the USDM token (0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C) + wUSDM ERC4626 wrapper (0x57f5e098cad7a3d1eed53991d4d66c45c9af7812). No function exists that pays a caller (no claim/reward/distribute/harvest/auction/liquidation); yield accrues to holders via rewardMultiplier, and every state-changing fn is role-gated. Mirrors ethereum protocols:1631 dead_end (wind-down, Anchorage acquisition).",
+  "numbers": "Verified ABI (explorer, Etherscan): USDM impl 0x7f2f92c4dbda28d8cd7d046e005f65c0540f331e; only state-changing fns approve/transfer/permit/mint(MINTER_ROLE)/burn(BURNER_ROLE)/blockAccounts(BLOCKLIST)/pause(PAUSE)/setRewardMultiplier(DEFAULT_ADMIN)/addRewardMultiplier(ORACLE)/upgradeTo(UPGRADE). eth_call from 0x00..dEaD: setRewardMultiplier revert 'missing role 0x00..00', addRewardMultiplier revert 'missing role 0x68e79a7b..'. totalSupply()=45,136.567 USDM (18 decimals read on chain), listed tvl_usd 45,246. 7d = blocks 0x1f44f66e (ts 1794792208 = 2026-11-16) to 0x1f644c05 (ts 1795396991 = 2026-11-23) from eth_getBlockByNumber timestamps: no-topic eth_getLogs USDM proxy 17 logs (12 Transfer 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef via cast keccak, 5 Approval, no unknown topic0); wUSDM proxy 4 logs; same-shape same-window control. Gross per call to a stranger: 0 - nothing pays callers."
+}

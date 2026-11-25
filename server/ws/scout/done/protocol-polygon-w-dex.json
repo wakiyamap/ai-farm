@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-w-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 438,
+ "chain": "polygon",
+ "slug": "w-dex",
+ "name": "W-DEX",
+ "category": "Dexs",
+ "tvl_usd": 819915,
+ "url": "https://w-dex.ai/",
+ "github": null,
+ "listed_days_ago": 438,
+ "run_id": "4f8869eed2bd4478b50d142757045bba",
+ "result": {
+  "verdict": "unpaid",
+  "line": "W-DEX (Algebra Integral fork): FarmingCenter 0x70510fBc... is the only roleless pay-the-caller fn (claimReward(address,address,uint256), fresh eth_call returns 0) and it has exactly 1 tx ever - its creation 2024-12-25 - so the EternalFarming pot is empty; DEX is active (SwapRouter 0x8dcA... and NPM 0x4e98... each >=200 txs/7d, LimitOrderManager place/kill within minutes) but every payout (collect, kill/withdraw) is LP/position-owner gated; gas 274 gwei x POL 0.0829 USD = ~0.003 USD per claim (eth_gasPrice, coins.llama.fi, block 97489540).",
+  "kb": [
+   "attempts:1830",
+   "protocols:472"
+  ],
+  "run_id": "4f8869eed2bd4478b50d142757045bba",
+  "at": 1794940182
+ }
+}

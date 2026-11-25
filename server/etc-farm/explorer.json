@@ -1,0 +1,26 @@
+{
+  "listen": [
+    "127.0.0.1",
+    29484
+  ],
+  "upstream": "https://api.etherscan.io/v2/api",
+  "chains": {
+    "ethereum": 1,
+    "base": 8453,
+    "arbitrum": 42161,
+    "bsc": 56,
+    "polygon": 137,
+    "avalanche": 43114,
+    "optimism": 10,
+    "hyperevm": 999,
+    "elysium": 99901
+  },
+  "min_interval_s": 0.4,
+  "daily_limit": 20000,
+  "timeout_s": 20,
+  "blockscout": {
+    "upstream": "https://api.blockscout.com/v2/api",
+    "min_interval_s": 0.25,
+    "daily_limit": 20000
+  }
+}

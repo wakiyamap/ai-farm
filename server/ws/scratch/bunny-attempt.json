@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-bunny",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only permissionless state-changing functions are Vault.harvest()/VaultRelayInternal.harvest() (eth_call from stranger 0x..dEaD succeeds on 0xEDfcB78e; estimateGas 114k = 0.0000057 BNB = $0.003) and BunnyChef.bulkUpdateRewards(); harvest only re-stakes harvested CAKE into CAKE MasterChef and pays the caller 0 (VaultCakeToCake.sol:243-248). Jackpot-pot openPot/closePot/harvest are onlyKeeper (stranger eth_call reverts 'VaultController: caller is not the owner or keeper'). Protocol is dormant: 0 Harvested events over 7 days across all 47 pool addresses, 0 on the 6 leveraged vaults, 0 Deposited on the 4 jackpots.",
+  "numbers": "7d window blocks 133,144,576-134,616,300 (bsc ~0.45 s/block, ~1.47M blocks); Harvested topic0 0x8e55ccfc..50183 over 47 pools + 6 leveraged vaults = 0 logs; Deposited topic0 0x2da466a7..42c4 over 4 pots = 0 logs; control: same query shape on CAKE token 0x0e09fabb.. returned 801 Transfer logs in same range, and same Harvested topic on 0xEDfcB78e returns >response-size since genesis (so the zero is real, not a bad topic). gasPrice 0.05 gwei (eth_gasPrice), harvest estimateGas 114,008 => 5.7e-6 BNB; BNB $572.17 (coins.llama.fi coingecko:binancecoin, ts 1795142406) => gas ~$0.003/call, gross $0. Pot TVL totalValueInUSD: 2,119 USD (0xa9b005d8) + 2,004 USD (0xD6019665). Protocol TVL $3.23M (candidate)."
+}

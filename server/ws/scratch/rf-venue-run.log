@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/srv/farm/ws/scratch/rf-venue-proof.py", line 160, in <module>
+    assert norm(r) == "0x1", "success tx reverted: %s" % json.dumps(r)[-300:]
+           ^^^^^^^^^^^^^^^^
+AssertionError: success tx reverted: 1a5a69cd507aac35b40ce5c699bc65d3f4629ab145fdc757d674", "blockNumber": "0x19168c3", "gasUsed": "0x69736", "effectiveGasPrice": "0x4281bc1c", "from": "0x000000000000000000000000000000000000f007", "to": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0", "contractAddress": null, "blockTimestamp": 1793377429}

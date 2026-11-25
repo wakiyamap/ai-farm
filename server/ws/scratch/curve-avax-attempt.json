@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-curve-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: no permissionless function that pays the caller on Curve avalanche. 176 pools (eth_call pool_count on Main Registry 0x8474DDBE...c9f6=5, StableSwap Factory 0xB17B674d...d031=114, CryptoSwap Registry 0x90F42183...0988=2, SS-NG Factory 0x1764ee18...4585=55) are exchange-only: keeper-class selectors harvest()/claim()/checkpoint()/poke() revert on sample pool 0x30df229c...2ac7 (control: A() and get_virtual_price() answer there); gauges pay stakers' own accrual, not a caller bounty; the hooker/fee-collector compensation contract (the only Curve caller-paid class, protocols:1089) is not deployed on avalanche (curvefi/docs deployments.json avalanche has fees/fee-receiver only); x-dao minters are bridge infra.",
+ "numbers": "176 pools (pool_count eth_call 2026-11-19); TVL 2.1M USD (api.llama.fi/protocol/curve-dex Avalanche, 2026-11-19); 0 caller-paid functions found (ABI/docs: adapters projects/curve + curvefi/docs static/deployments.json; snowtrace reports sample pool contract source not verified, blockscout API down); gas 7.55 gwei x 500k = ~0.026 USD at AVAX 6.898 USD (coins.llama.fi ts 1795124410)"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-summer-fi-pro",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1211,
+ "chain": "arbitrum",
+ "slug": "summer.fi-pro",
+ "name": "Summer.fi Pro",
+ "category": "CDP Manager",
+ "tvl_usd": 187314,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1211,
+ "run_id": "4844cbcbb13a4d47a3f54101a7fb2d2b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "AutomationBotV2 0xE018AeA8...937a + executor 0x2d43e845...8d8f on arbitrum; only paying fn executor.execute (gas refund to msg.sender) is whitelist-gated (fresh address reverts, callers(past keeper)=true); TriggerExecuted last 7d = 0 (control: 1 at 2025-08-13 block 367956825, tx 0xb4468af4...), executor ETH balance 0, protocol sunset 2026-02-12 (deprecated on DefiLlama, TVL 182k USD)",
+  "kb": [
+   "protocols:826",
+   "attempts:2275"
+  ],
+  "run_id": "4844cbcbb13a4d47a3f54101a7fb2d2b",
+  "at": 1795040751
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-damm-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 66,
+ "chain": "arbitrum",
+ "slug": "damm-capital",
+ "name": "DAMM Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 1467532,
+ "url": "https://dammcap.finance/",
+ "github": [
+  "DAMM-Cap"
+ ],
+ "listed_days_ago": 66,
+ "run_id": "21ee61b1e14c4bcb80b2114ae3d601de",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Lagoon ERC-7540 vault 0xe5d6eb448ac5a762c1ebe8cd1692b9cd08025176 (DAMMstable, impl 0xe50554ec): settleDeposit/settleRedeem/expireTotalAssets/claimSharesOnBehalf revert OnlySafe(0x1f334f59...) from a fresh address, updateNewTotalAssets reverts OnlyValuationManager; 7d events SettleDeposit 0, SettleRedeem 2 (txs 0xb2769656.., 0x31019986.. by DAMM EOAs 0x5822b262/0x46565eed via intent executor, ~420k gas = ~bash.016 each at 0.02 gwei, ETH 833.67 llama.fi), pays caller bash gross; no reward/bounty function in the ABI",
+  "kb": [
+   "attempts:1611"
+  ],
+  "run_id": "21ee61b1e14c4bcb80b2114ae3d601de",
+  "at": 1794895872
+ }
+}

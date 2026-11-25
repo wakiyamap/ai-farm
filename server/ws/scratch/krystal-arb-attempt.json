@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-krystal-auto-farm-vault",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Same PrivateVault system already scouted dead_end on base (KB protocols:602) and bsc (:604): the only non-owner entry point multicall is onlyAuthorized (owner|admin|whitelisted caller) and no function pays msg.sender - fees go to Krystal's configManager.feeRecipient. Verified fresh on arbitrum: stranger multicall reverts Unauthorized, 7d vault callers are the vault owners themselves, legacy share-vault factories dormant.",
+ "numbers": "Factory 0x99029ddf03de6446524f7ffa6585458b58dc1eee (adapter projects/krystal/autofarm.js, fromBlock 418784587); impl 0x34c1b3f20c83f0d959ea8ff5a6d37960bd2362e3 (arbiscan-verified); 390 VaultsCreated total (topic0 from no-topic factory scan), 1 in 7d; window blocks 524540402 (2026-11-15)..526594219 (2026-11-22); stranger eth_call multicall([],[],[],[]) revert 0x82b42900, owner passes; sample of 6 vaults: 1 active, 3 logs, all from owner EOA 0x3105cca78664f34255d498b6d9dcbfcd33ab9c86 (txs 0x418c2812..., 0xb8025b2c...); legacy 5 factories 0 logs 7d with same-shape control = 1; feeRecipient() 0x8e2a9d954e7c88a00d3571eeab3d5e733a309426; gasPrice 0.02 gwei -> 200k-gas call $0.007 (ETH $1713.79 coins.llama.fi 2026-11-22 19:05 UTC). Candidate TVL $37.6k (session context, api.llama.fi)."
+}

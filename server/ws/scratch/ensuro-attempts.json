@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-ensuro",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Ensuro V3 on ethereum has no callable function that pays a caller: policy injection (newPolicy) makes the caller PAY the premium, and every keeper-style function (CFL depositIntoYieldVault/withdrawFromYieldVault/repayDebt/cashOutPayouts, PremiumsAccount recordEarnings/repayLoans) is AccessManager role-gated. All 7d insurance flow is done by one partner operator EOA.",
+  "numbers": "7d window blocks 26413798-26464198 (2026-11-14 to 11-21, timestamps from eth_getBlockByNumber). PolicyPool 0xd81a8b5be59ceae0f9e27455a998b4fdac9fa0a3 untopic eth_getLogs scan: 8143 logs = NewPolicy 2817 (topic0 0x988ac1a1..., from receipt), PolicyResolved 2457 (0x54f4a270...), Transfer 2817, PolicyReplaced 15, Withdraw 27, Deposit 5. NewPolicy by risk module: 0x95ec92ee7539d2fe38f68d593f1451fa88452891 2706, 0xd51002dc... 105, 0xb0ff4889... 6. Both sampled NewPolicy and PolicyResolved txs from EOA 0xb8acc68daedb5c131870d71f83d2ff7bfc89bfb7 via forwarder 0x7529abff0f8665a4e7fcd52d0f528090435d10e selector 0x765e827f. Stranger 0x...f17e eth_call depositIntoYieldVault(1) -> revert 0x068ca9d8 (AccessManagerUnauthorizedAccount); recordEarnings() -> same revert. TVL 2.43M USD (DefiLlama, 2026-11-21). Gas: ethereum, role revert on read; no stranger payout to price (gross 0)."
+}

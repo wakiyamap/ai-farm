@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-treedefi",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: TreeDefi MasterChef (SEED farm) on bsc is callable but pays nothing to a caller. No public function pays a caller fee (no harvest/poke; deposit/withdraw pay msg.sender own pending SEED only) and emissions are dead (treePerBlock=0, getCurrentPerBlock=0 after weekly -2% decay since 2021-03-28). Zero events of any kind on the masterchef in 7 d and zero on the COT staking proxy; site says 'on standby'. A stranger calling massUpdatePools/withdraw(0,0)/deposit(0,0) gets 0.",
+  "numbers": "masterchef 0xA9a438B8b2E41B3bf322DBA139aF9490DC226953 (from DefiLlama registries/masterchef.js; Sourcify v2 match 29534523, ABI matches all 34 dispatcher selectors): poolLength()=42, tree()=SEED 0x40b34cc972908060d6d527276e17c105d224559d (decimals 18 on chain), treePerBlock()=0, getCurrentPerBlock()=0 at block 135304796. 7 d = blocks 133963332 (2026-11-16 16:56:30 UTC) to 135304796 (2026-11-23): topic-less eth_getLogs on masterchef = 0 logs (control: same shape on SEED token = 84 logs, so a real zero); COT staking proxy 0xdC6D09e794C36E7126A0C67bdBca62B3A37D7927 = 0 logs. eth_call from 0x000000000000000000000000000000000000dEaD: massUpdatePools(), withdraw(0,0), deposit(0,0) all return 0x (no role revert). SEED.balanceOf(masterchef) = 427,653.74 SEED; SEED $0.00040791 (coingecko 'treedefi', last_updated_at 1770083760 = 2026-02-03, stale) ~ 174 USD pot; BNB $567.93 (coingecko 2026-11-23 16:47 UTC), bsc gas per call ~ $0.01-0.05."
+}

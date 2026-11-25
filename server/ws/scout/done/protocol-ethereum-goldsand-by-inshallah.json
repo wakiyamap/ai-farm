@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-goldsand-by-inshallah",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 698,
+ "chain": "ethereum",
+ "slug": "goldsand-by-inshallah",
+ "name": "Goldsand by InshAllah",
+ "category": "Liquid Staking",
+ "tvl_usd": 247131,
+ "url": "https://goldsand.fi/",
+ "github": [
+  "inshallah-network"
+ ],
+ "listed_days_ago": 698,
+ "run_id": "b8e79b22bbd54f49b2fe1a6b028d9fe3",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only keeper fn depositFundsIfPossible on Goldsand proxy 0x6659...d36f is OPERATOR_ROLE-only (stranger eth_call reverts AccessControlUnauthorizedAccount); source has no payment-to-caller anywhere; 7d no-topic event scan blocks 26410285-26460538 = 0 (WETH control 2409), last tx 2025-10-22 fund(); TVL 225,894 USD, DefiLlama deprecated=true",
+  "kb": [
+   "attempts:3150"
+  ],
+  "run_id": "b8e79b22bbd54f49b2fe1a6b028d9fe3",
+  "at": 1795228997
+ }
+}

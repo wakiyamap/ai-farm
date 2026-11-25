@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "latteswap",
+ "status": "dead_end",
+ "checked": "UniV2-fork DEX on bsc (DefiLlama registries/uniswapV2.js, deadUrl=true, github org latteswap-official last push 2022). Addresses from repo latteswap-official/latteswap-config prod.json. eth_getCode non-empty: Factory 0x4DcE5Bdb81B8D5EdB66cA1b8b2616A8E0Dd5f807 (getter allPairsLength()=45), MasterBarista 0xbCeE0d15a4402C9Cc894D52cc5E9982F60C463d6 (proxy, impl 0xeae3fc08394f25c6dff82c14698dc330ab4b49af, latte()=LATTE 0x8d78c2...), LatteVault 0x0201740f48158B43f72c30a39C122925008E1EE5 (impl 0xd839c004f5167a7ed1a7cd135c18fbf718589935), Booster 0xfE663C8C580832A916F8D9e9fF8e13Cb814Ec14d (impl 0x63cde775edc14ba2ab8bae76357144719a08b890). Sourcify v2 matched sources. Factory ABI = plain UniV2 (createPair/setFeeTo...), no caller-paid function. eth_call from fresh 0x1111...1111: MasterBarista.harvest(for,stakeToken) reverts 'MasterBarista::_harvest::only funder' (funder whitelist), LatteVault.harvest() reverts 'LatteVault::onlyFarmer::msg.sender is not farmer' (okFarmers role); only massUpdatePools() is open but pays nothing (source: state update, no transfer to msg.sender). MasterBarista source: harvest pays pending LATTE to beneficiary _for, caller gets fee only if in stakeTokenCallerContracts registry."
+}

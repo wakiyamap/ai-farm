@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-swell-l2-farm",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 953,
+ "chain": "ethereum",
+ "slug": "swell-l2-farm",
+ "name": "Swell L2 Farm",
+ "category": "Farm",
+ "tvl_usd": 1346088,
+ "url": "https://www.swellnetwork.io/",
+ "github": null,
+ "listed_days_ago": 953,
+ "run_id": "e7801013804b4c2ba0686b9467ad8d56",
+ "result": {
+  "verdict": "no_reward",
+  "line": "SimpleStakingERC20 0x38D43a...d774 (verified) has only deposit/withdraw of the caller's own stake (fresh-address withdraw reverts INSUFFICIENT_BALANCE 0x50b1f356); no claim/reward fn; SWELL ERC20 0x0a6e...5676 pays nothing; 7d (blocks 26412132 2026-11-14 -> 26462389 2026-11-21) no-topic scan: 6 Withdraw + 0 Deposit, reward paid to strangers = 0 USD (TVL 1.215M USD is user principal).",
+  "kb": [
+   "attempts:3249",
+   "protocols:1578"
+  ],
+  "run_id": "e7801013804b4c2ba0686b9467ad8d56",
+  "at": 1795251259
+ }
+}

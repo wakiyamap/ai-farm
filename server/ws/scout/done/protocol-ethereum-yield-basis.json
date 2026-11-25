@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-yield-basis",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 419,
+ "chain": "ethereum",
+ "slug": "yield-basis",
+ "name": "Yield Basis",
+ "category": "Leveraged Farming",
+ "tvl_usd": 75968247,
+ "url": "https://yieldbasis.com/",
+ "github": null,
+ "listed_days_ago": 419,
+ "run_id": "933d7fdec8ac4d52a8cbc957fb8dfd1c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Curve-llamaland-style leveraged LP, 11 markets, factory 0x370a449F, TVL 70.4M USD (llama 2026-11-20); callable LT.distribute_borrower_fees + AMM.collect_fees succeed from a fresh address but pay the caller 0 (fees donated to Curve pool / accrued to YB holders); 7d: 2087 DBF events, 136.7-190 crvUSD total (~137-190 USD, sample of 1515), gas 131475 = 0.42 USD/call @1.99 gwei x ETH 1610; user flow only (Deposit 1031, Withdraw 258, ~782 AMM exchanges all buyer=own VirtualPool via aggregator routers); no liquidation, set_rate admin-gated (0 events/7d)",
+  "kb": [
+   "attempts:3033",
+   "protocols:1423"
+  ],
+  "run_id": "933d7fdec8ac4d52a8cbc957fb8dfd1c",
+  "at": 1795204807
+ }
+}

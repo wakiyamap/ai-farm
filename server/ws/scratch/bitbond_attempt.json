@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-bitbond-lockers",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. All value-moving functions of Bitbond TokenLockerV3 on bsc (withdraw(address,uint256), relock(uint40), withdrawExcessTokens(address), recoverUnsupportedTokens(address)) revert 'Ownable: caller is not the owner' when called from a fresh address, and the owner is the user who created the locker: withdraw returns the owner's own locked tokens, there is no reward, fee or bounty that a stranger can claim. 238 locker contracts, TVL 148,817 USD (LP tokens in custody); sampled 17, all one contract family.",
+  "numbers": "238 lockers (metis.bitbond.com/api/defillama/bsc/token-lockers totalCount, 2026-11-18); TVL 148,817 USD (candidate/DefiLlama); eth_call from 0x5555555555555555555555555555555555555555 on 0x00e6a24a10ee22ebbe3339bab92fdd905e52f3a8 and 0x03fdf4ea7819c037cc20909d4ca7423eb52d89b3: all 4 entry points revert Ownable (revert string read); 0 logs from 14 sampled lockers over 4x5000-block windows blocks 0x7f8ae1c-0x80062c3 (relayed eth_getLogs, bsc, latest 134243011); controls same run: BNB 40 blocks = 4562 logs (address filter exact-match verified), BUSD 1000 blocks = 67 logs; owner-only withdraw on 0x00e6... reverts 0x116460f7 (still locked, unlockTime 1823788800 = 2027-10-17)."
+}

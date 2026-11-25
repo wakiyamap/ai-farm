@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-cian-yield-layer",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 730,
+ "chain": "ethereum",
+ "slug": "cian-yield-layer",
+ "name": "CIAN Yield Layer",
+ "category": "Yield Aggregator",
+ "tvl_usd": 157235975,
+ "url": "https://yieldlayer.cian.app/vaults/0xB13aa2d0345b0439b064f26B82D8dCf3f508775d?chainId=1&utm_source=TPFDZE",
+ "github": null,
+ "listed_days_ago": 730,
+ "run_id": "b6436682edd44ba8989f85c47b501fe8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: vault 0xB13aa2d0 impl VaultYieldETH 0xa1dc0b6a (verified): collectRevenue/collectManagementFee require msg.sender==feeReceiver 0xc554747f (CIAN, pays itself; stranger reverts InvalidFeeReceiver), updateExchangePrice onlyRebalancer; 7d (blocks 26410488 2026-11-14 -> 26460744 2026-11-21): 3x UpdateExchangePrice by CIAN 0x994cc8ef, 0 fee collects (1 in ~370d: block 24432777, 6.64 WETH); 0 gross to strangers",
+  "kb": [
+   "attempts:3166",
+   "protocols:1523"
+  ],
+  "run_id": "b6436682edd44ba8989f85c47b501fe8",
+  "at": 1795231643
+ }
+}

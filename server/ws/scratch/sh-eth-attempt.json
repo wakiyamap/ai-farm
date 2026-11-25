@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-stablehodl",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the ethereum pool (proxy 0x109D3042a3c682F94107b3818e93b3aDE2A47544, verified impl stake_pool 0xc34df695167aa2f9571976ffd5e3e0e95a53e470) is the same fully custodial deposit contract as the bsc/polygon deployments: deposit() forwards stables straight to masterAddress EOA 0x6a102c501a9eade49e6224cec7834c89112ccead and pays nothing to the caller; the verified source has no claim/reward/harvest/distribute/settle/epoch function anyone can call (emergencyWithdraw is ADMIN_ROLE, confirmed reverting from a fresh address). Yield accrues off-chain. Contract is also idle: 0 logs in the last 7 days (no-topic scan, control at last deposit block 25,054,048 of 2026-05-09 returns the log with receipt topic0).",
+  "numbers": "TVL book 998,977 USD = poolTokenAmounts(USDT) 998,884.45 + (USDC) 61.15 (eth_call latest, block 26,458,972); actual on-chain custody: proxy USDT balance 0, master EOA 95,500 USDT (balanceOf 0x70a08231). 7d events: 0 Deposit (topic0 0x4e2ca0515ed1aef1395f66b5303bb5d6f1bf9d61a353fa53f73f8ac9973fa9f6 from receipt) and 0 logs of any kind on the proxy (no-topic scan 26,408,572..26,458,972); last tx 2026-05-09 (explorer txs, tx 0x7a271f9d211539ed2d3bc0bf95f8ce0ca264ba4d0d5961d871d19ea083e83adb). Gas/reward per call: n/a, no callable paying function. Sources: DefiLlama adapter raw GitHub; explorer source ethereum (stake_pool, solc 0.8.23); rpc.py ethereum eth_call/eth_getLogs/eth_getCode."
+}

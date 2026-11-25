@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "primitive",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/primitive/index.js names RMM engine 0xd3541aD19C9523c268eDe8792310867C57BE39e4 and v1 registry 0x16274044dab9635Df2B5AeAF7CeCb5f381c71680. eth_getCode nonempty for both; eth_call risky() on engine returned WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2; registry getAllOptionClonesLength() returned 74. Etherscan verified source via explorer source: PrimitiveEngine.sol, Registry.sol, Option.sol. Engine updateLastTimestamp is public but only updates storage and emits an event; fresh-address eth_call with zero pool reverts UninitializedError(), not a role error. Engine create/deposit/withdraw/allocate/remove/swap exchange tokens against caller deposits, margins or liquidity. Registry deployment pays no caller reward. V1 option mint/exercise/redeem/close pay only against input option/redeem/strike tokens; updateCacheBalances pays nothing. No public caller reward function identified."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-bearnfi",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only stranger-callable functions are bVault strategy earn()/farm()/convertDustToEarned() (public, whenNotPaused, notPublic=0), but the contract pays the caller nothing - performance fee goes to operator and buybacks to treasury (BvaultsStrategy.sol distributeFees/buyBack1/2), and nothing was earned in the last 7 days at all: max lastEarnBlock across all 54 strategies is 31.4 days old (last done by team keeper 0x5057c51325b7a5cd52aa698669cd0cb8c0b00ba5). bDollar side (Treasury/Boardroom/Oracle) is onlyOperator or user-claim flows; comptroller has 0 borrows. Protocol dormant since ~2021, DefiLlama snapshots empty since 2025-09-20.",
+  "numbers": "earn() eth_call from fresh addr: OK 23/54 strategies, 31 revert on farm state (24x INSUFFICIENT_INPUT_AMOUNT, 1 Pausable), none role-gated. 0 earn calls in 7d: max lastEarnBlock 128,546,570 (ts 1792430687) vs head 134,613,804 on 2026-11-20 (rpc.py bsc). Last keeper tx 0x3c65847cbe17df051d76062ffe1de8dbaa62737a2725210ed299b888c948de2a gasUsed 1,474,902 x 0.05 gwei (eth_gasPrice) x BNB $571.82 (coins.llama.fi ts 1795141229) = $0.042 gas cost, $0 reward to caller. TVL $594,912 = BDO $511,932 + BUSD $59 + 509.8 WBNB (api.llama.fi/protocol/bearnfi chainTvls; tokensInUsd empty since date 1758412800). 54 strategy addresses from api.bdollar.fi get-vaults via web.archive 20211023022827 (API itself HTTP 000 2026-11-20)."
+}

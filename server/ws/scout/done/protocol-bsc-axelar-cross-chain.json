@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-axelar-cross-chain",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 593,
+ "chain": "bsc",
+ "slug": "axelar-cross-chain",
+ "name": "Axelar Cross Chain",
+ "category": "Bridge",
+ "tvl_usd": 3652561,
+ "url": "https://axelar.network",
+ "github": null,
+ "listed_days_ago": 593,
+ "run_id": "44c3791431fd42e88d874cc3ad782ffc",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No function on Axelar's BSC contracts pays the caller: gateway execute(bytes) (0x304acf33..) is open (~240 calls/7d est; 6-event sample over 4x5000-block windows; callers = processor EOAs 0x2102c32a.., 0xcd5a6286.., 0x8dbee8f3.., 0x51a3c407..) but pays 0 USD on-chain (no bounty in source; relayers paid in AXL on Axelar), gas ~281k x 0.05-0.072 gwei ~ 0.01 USD at BNB 590.77 (coingecko); GasService collectFees onlyCollector; USDX token (TVL 3.59M USD, api.llama.fi) is a plain ERC20 with no claim fn",
+  "kb": [
+   "attempts:1965",
+   "protocols:571"
+  ],
+  "run_id": "44c3791431fd42e88d874cc3ad782ffc",
+  "at": 1794970444
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-xtoken",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. xToken's ethereum keeper functions (xU3LPStable rebalance/collect/migratePosition/admin*, xSNXa TradeAccounting swaps) are onlyOwnerOrManager / onlyXSNXAdmin-gated; withdrawFees() is revenue-controller-only; eth_call rebalance() from a stranger reverts 'Function may be called only by owner or manager'. The protocol is dormant: 7d window had only 2 plain ERC20 Transfer logs across the 15 TVL-holding fund + factory addresses and no keeper call; last fund tx (approve) Nov 5 2026, last factory pool deploy Jun 2023.",
+  "numbers": "7d blocks 26418804 (2026-11-15) -> 26469058 (2026-11-22): 2 logs (xAavea 0x80DC4686.., xAaveb 0x704De569.. Transfer topic0 0x8c5be1e5), 0 keeper calls; control same-shape 60d window = 37 logs. Factory 0x090559D5..: 0 DeployedIncentivizedPool (CLR) events on ethereum, 32 DeployedNonIncentivizedPool, 16 DeployedUniV3Pool, 97 InitiatedRewardsProgram, 13 EthFeeWithdraw, last deploy block 17481743. Sources: explorer (LMTerminal 0x3b11cea4.., xU3LPStable 0x9fa1e833.., TradeAccounting 0x226d1d4b..); owner() = 0x38138586aedb29b436eab16105b09c317f5a79dd. TVL 656,287 USD (DefiLlama api.llama.fi 2026-11-22)."
+}

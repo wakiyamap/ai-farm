@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-basalt-vault",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 127,
+ "chain": "arbitrum",
+ "slug": "basalt-vault",
+ "name": "Basalt Vault",
+ "category": "Yield",
+ "tvl_usd": 120210,
+ "url": "https://btva.io",
+ "github": [
+  "basalt-vault"
+ ],
+ "listed_days_ago": 127,
+ "run_id": "a18de89e5e384a7fb2b592d5abad3908",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: keeper fns (rebalance, finalizeDeposit/Withdraw/Rebalance, unstuckPending) are protocol-manager-or-NFT-owner only (stranger eth_call -> NotVaultNftOwner 0xfafca3c8 / NotManagerOrNftOwner 0x5d8f8c1a); caller paid 0 - keeper pays Dolomite 0.0003 ETH ~0.55 USD/op (ETH 1828.51 llama); 0 calls protocol-wide in last 7d (ManagerContract/DepositHandler/WithdrawHandler/FeeSplitter/factory, explorer txs), last keeper rebalance 2026-09-21 block 1790003779 tx 0x9920912767076740b7a88e1ecca57f8f8bbfa1226a1f9d4b47603dca479376aa by EOA 0xf36b7f65; nextTokenId=17, TVL 120210 USD.",
+  "kb": [
+   "attempts:1646",
+   "protocols:340"
+  ],
+  "run_id": "a18de89e5e384a7fb2b592d5abad3908",
+  "at": 1794903578
+ }
+}

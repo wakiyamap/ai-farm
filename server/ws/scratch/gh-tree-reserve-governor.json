@@ -1,0 +1,738 @@
+{
+  "sha": "389d5209c9355c40ed0f38f7bfc14b07c77c3d84",
+  "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/389d5209c9355c40ed0f38f7bfc14b07c77c3d84",
+  "tree": [
+    {
+      "path": ".env.example",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "823d6195819f236fa1de0fbf833a17fe716a18cb",
+      "size": 20,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/823d6195819f236fa1de0fbf833a17fe716a18cb"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5541a1803476ff625c11520dc39c9bfb60205bc0",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/5541a1803476ff625c11520dc39c9bfb60205bc0"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1d4431876c23782e1fdece82a5b007fe42f4e16c",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/1d4431876c23782e1fdece82a5b007fe42f4e16c"
+    },
+    {
+      "path": ".github/workflows/artifacts.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4a5422555c1a6ba9dee8abb5bbc2068c5d7ccca",
+      "size": 2176,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/d4a5422555c1a6ba9dee8abb5bbc2068c5d7ccca"
+    },
+    {
+      "path": ".github/workflows/build.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb99e92bd59bf14002fab3189c73b2732f88318a",
+      "size": 957,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/bb99e92bd59bf14002fab3189c73b2732f88318a"
+    },
+    {
+      "path": ".github/workflows/test.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "200b47d95b78e7deaf88e5f41d23846e945f4313",
+      "size": 860,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/200b47d95b78e7deaf88e5f41d23846e945f4313"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "024862c994ec18aa577e61e83b02cf46e00e03ed",
+      "size": 206,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/024862c994ec18aa577e61e83b02cf46e00e03ed"
+    },
+    {
+      "path": ".vscode",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1db41e957073b957d21befc697a2b12cc6f344dc",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/1db41e957073b957d21befc697a2b12cc6f344dc"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b3ca6c546faf1adcce3841d3d2dd7a990864753",
+      "size": 36,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/5b3ca6c546faf1adcce3841d3d2dd7a990864753"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "021818fff136747d3743486e91091fa302eca5ab",
+      "size": 2825,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/021818fff136747d3743486e91091fa302eca5ab"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b18ad3bff979a2ca527800d7262de37a3a8f508b",
+      "size": 1064,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/b18ad3bff979a2ca527800d7262de37a3a8f508b"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "065a095d4a455bbc193eb34e6cbc4ac015f89988",
+      "size": 46472,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/065a095d4a455bbc193eb34e6cbc4ac015f89988"
+    },
+    {
+      "path": "audits",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8a43ce2e8add8c5ea92e5dbc52ac911178b52cc4",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/8a43ce2e8add8c5ea92e5dbc52ac911178b52cc4"
+    },
+    {
+      "path": "audits/Reserve-security-review_2026-02-27.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "696c5fa93c6da8c3898b621afb91dc5b0c70861d",
+      "size": 260989,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/696c5fa93c6da8c3898b621afb91dc5b0c70861d"
+    },
+    {
+      "path": "contracts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "596874d96f992f23d567955a7eb1967593d24dbb",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/596874d96f992f23d567955a7eb1967593d24dbb"
+    },
+    {
+      "path": "contracts/Deployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90d3c94fffa17ef52dc1d5f334bfb6e6f4c243eb",
+      "size": 13325,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/90d3c94fffa17ef52dc1d5f334bfb6e6f4c243eb"
+    },
+    {
+      "path": "contracts/Guardian.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3211e304f850da1196330651379a8fcc4e04c688",
+      "size": 4927,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/3211e304f850da1196330651379a8fcc4e04c688"
+    },
+    {
+      "path": "contracts/VersionRegistry.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e19b7e186830dcda6dd0c5f9976edaa8b6f94824",
+      "size": 3225,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/e19b7e186830dcda6dd0c5f9976edaa8b6f94824"
+    },
+    {
+      "path": "contracts/artifacts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fc883a47d76e1ebd1636af9dcf603892ef13a696",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/fc883a47d76e1ebd1636af9dcf603892ef13a696"
+    },
+    {
+      "path": "contracts/artifacts/GovernanceUpgradeLibDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cba6a4758a2715ef45e5e202e53ff571d92da5e3",
+      "size": 3345,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/cba6a4758a2715ef45e5e202e53ff571d92da5e3"
+    },
+    {
+      "path": "contracts/artifacts/GuardianDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "91acdde5d14c3ae4d80a0d6d2f55e338ae78c14b",
+      "size": 11483,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/91acdde5d14c3ae4d80a0d6d2f55e338ae78c14b"
+    },
+    {
+      "path": "contracts/artifacts/OptimisticSelectorRegistryDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72f073ca6fa932c005cf20961eeb558282696d64",
+      "size": 10159,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/72f073ca6fa932c005cf20961eeb558282696d64"
+    },
+    {
+      "path": "contracts/artifacts/ProposalLibDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33b48c9d4044efe95c1a16d7c90dad0453833db5",
+      "size": 20447,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/33b48c9d4044efe95c1a16d7c90dad0453833db5"
+    },
+    {
+      "path": "contracts/artifacts/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aef60c094b385ba52c46882d6cae93a208a23376",
+      "size": 45,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/aef60c094b385ba52c46882d6cae93a208a23376"
+    },
+    {
+      "path": "contracts/artifacts/ReserveOptimisticGovernanceVersionRegistryDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5eb5f24ddccfd9d9dc4da08311b9752fd6f6c4fc",
+      "size": 5609,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/5eb5f24ddccfd9d9dc4da08311b9752fd6f6c4fc"
+    },
+    {
+      "path": "contracts/artifacts/ReserveOptimisticGovernorDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89f6a61fa447c90f67cb0f639d9a9c16a63b499d",
+      "size": 74524,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/89f6a61fa447c90f67cb0f639d9a9c16a63b499d"
+    },
+    {
+      "path": "contracts/artifacts/ReserveOptimisticGovernorDeployerDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87449d16defe8103f506422bbd80f24080b03df3",
+      "size": 31745,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/87449d16defe8103f506422bbd80f24080b03df3"
+    },
+    {
+      "path": "contracts/artifacts/RewardTokenRegistryDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66905be86c58ed8793bb910e927e05097fd188b4",
+      "size": 4520,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/66905be86c58ed8793bb910e927e05097fd188b4"
+    },
+    {
+      "path": "contracts/artifacts/StakingVaultDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e97ec8db1b3b140d1c92dcb3c7c2a8324003ea8",
+      "size": 62711,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/9e97ec8db1b3b140d1c92dcb3c7c2a8324003ea8"
+    },
+    {
+      "path": "contracts/artifacts/StakingVaultUpgradeLibDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b68bd2a7574f0d83977900c3c2f8f15e5673050",
+      "size": 7672,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/7b68bd2a7574f0d83977900c3c2f8f15e5673050"
+    },
+    {
+      "path": "contracts/artifacts/ThrottleLibDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "491bbeac99f2ed71e2634dd5c477c17ef379beca",
+      "size": 2083,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/491bbeac99f2ed71e2634dd5c477c17ef379beca"
+    },
+    {
+      "path": "contracts/artifacts/TimelockControllerOptimisticDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6bf7663f9ec4acc08867bc08fd65536038fbe41a",
+      "size": 27008,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/6bf7663f9ec4acc08867bc08fd65536038fbe41a"
+    },
+    {
+      "path": "contracts/artifacts/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5dcc9a1ce95707576983f7572fc7ad3626713f20",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/5dcc9a1ce95707576983f7572fc7ad3626713f20"
+    },
+    {
+      "path": "contracts/artifacts/utils/DeployHelper.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58f7a3e575bb42800c8bb8809071a12188786627",
+      "size": 1277,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/58f7a3e575bb42800c8bb8809071a12188786627"
+    },
+    {
+      "path": "contracts/governance",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "90befcaff818e8d08af3f276bc9ef1b9a21d246f",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/90befcaff818e8d08af3f276bc9ef1b9a21d246f"
+    },
+    {
+      "path": "contracts/governance/OptimisticSelectorRegistry.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27c607db962517c8e9b253a8f409590937d03273",
+      "size": 4125,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/27c607db962517c8e9b253a8f409590937d03273"
+    },
+    {
+      "path": "contracts/governance/ReserveOptimisticGovernor.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e30408b3f81de93ba28b4e2dca8812d70320340f",
+      "size": 20365,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/e30408b3f81de93ba28b4e2dca8812d70320340f"
+    },
+    {
+      "path": "contracts/governance/TimelockControllerOptimistic.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6fff44b227861911af0e115f50e5cc2acf051bb",
+      "size": 4928,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/b6fff44b227861911af0e115f50e5cc2acf051bb"
+    },
+    {
+      "path": "contracts/governance/lib",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7ed7a720be2b4bbfa0c1890d16c82dfe11b95dad",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/7ed7a720be2b4bbfa0c1890d16c82dfe11b95dad"
+    },
+    {
+      "path": "contracts/governance/lib/GovernanceUpgradeLib.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b142b84ed97accaa72d21e2a114130236a19c4d6",
+      "size": 2033,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/b142b84ed97accaa72d21e2a114130236a19c4d6"
+    },
+    {
+      "path": "contracts/governance/lib/ProposalLib.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cb6e5f08eb43e317b22e5f4f0ee68bb25ad1e90",
+      "size": 10509,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/7cb6e5f08eb43e317b22e5f4f0ee68bb25ad1e90"
+    },
+    {
+      "path": "contracts/governance/lib/ThrottleLib.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a444da33539c51753eedb00282bb108b4182566e",
+      "size": 2174,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/a444da33539c51753eedb00282bb108b4182566e"
+    },
+    {
+      "path": "contracts/interfaces",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5482b108812d3bba13eab2173f5946288b2976e7",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/5482b108812d3bba13eab2173f5946288b2976e7"
+    },
+    {
+      "path": "contracts/interfaces/IAverageVotes.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "608fd4a7c4eb931edf8ebd37d4212f6291c2c84d",
+      "size": 935,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/608fd4a7c4eb931edf8ebd37d4212f6291c2c84d"
+    },
+    {
+      "path": "contracts/interfaces/IDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "093cf315981093318f95cf3cd83d537c22ac59b7",
+      "size": 2286,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/093cf315981093318f95cf3cd83d537c22ac59b7"
+    },
+    {
+      "path": "contracts/interfaces/IOptimisticSelectorRegistry.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e278ce96846d737f97fa1d9ac9a8682b754d7304",
+      "size": 692,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/e278ce96846d737f97fa1d9ac9a8682b754d7304"
+    },
+    {
+      "path": "contracts/interfaces/IOptimisticVotes.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de97ebaf2fc025388f332c064d1389662075cd7e",
+      "size": 1357,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/de97ebaf2fc025388f332c064d1389662075cd7e"
+    },
+    {
+      "path": "contracts/interfaces/IReserveOptimisticGovernor.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "684a2e6d5a86c124d1c83fa320d10592ae5f450f",
+      "size": 2792,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/684a2e6d5a86c124d1c83fa320d10592ae5f450f"
+    },
+    {
+      "path": "contracts/interfaces/IRewardTokenRegistry.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b881cc83d0b692e70008edf5559bc608cfafaff3",
+      "size": 164,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/b881cc83d0b692e70008edf5559bc608cfafaff3"
+    },
+    {
+      "path": "contracts/interfaces/IRoleRegistry.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a65579cffd6a2bd508bb143044cc4cf2778e9dc3",
+      "size": 241,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/a65579cffd6a2bd508bb143044cc4cf2778e9dc3"
+    },
+    {
+      "path": "contracts/interfaces/ITimelockControllerOptimistic.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bbd0f56a37349c9c74ecad2fb751b61b68512893",
+      "size": 917,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/bbd0f56a37349c9c74ecad2fb751b61b68512893"
+    },
+    {
+      "path": "contracts/staking",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "752bfb4a20eadf541992bae73d7f1dc6548db968",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/752bfb4a20eadf541992bae73d7f1dc6548db968"
+    },
+    {
+      "path": "contracts/staking/ERC20AverageVotesUpgradeable.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f1fc1c565f4bc34a6f3cd8def087af2bc0cc8c2",
+      "size": 2267,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/8f1fc1c565f4bc34a6f3cd8def087af2bc0cc8c2"
+    },
+    {
+      "path": "contracts/staking/ERC20OptimisticVotesUpgradeable.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd93fb2bb9a24b1102a6c5faffa6fb11ec18048f",
+      "size": 7626,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/fd93fb2bb9a24b1102a6c5faffa6fb11ec18048f"
+    },
+    {
+      "path": "contracts/staking/RewardTokenRegistry.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "164a9da9d48a0356ef7267416890de085f0a3fa5",
+      "size": 2435,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/164a9da9d48a0356ef7267416890de085f0a3fa5"
+    },
+    {
+      "path": "contracts/staking/StakingVault.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "051b9efb82a420ece8d57256e27319cf7aedfb8c",
+      "size": 19190,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/051b9efb82a420ece8d57256e27319cf7aedfb8c"
+    },
+    {
+      "path": "contracts/staking/UnstakingManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00160395ce3a14ddd1699d462555481429b6e512",
+      "size": 2580,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/00160395ce3a14ddd1699d462555481429b6e512"
+    },
+    {
+      "path": "contracts/staking/lib",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9c229446f602b335461f6e244bd04a65faa5a1cf",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/9c229446f602b335461f6e244bd04a65faa5a1cf"
+    },
+    {
+      "path": "contracts/staking/lib/StakingVaultUpgradeLib.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4db4b81cdf5ebea7e59bbd4367d0a9baa10c5296",
+      "size": 1429,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/4db4b81cdf5ebea7e59bbd4367d0a9baa10c5296"
+    },
+    {
+      "path": "contracts/staking/lib/VoteIntegralLib.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce7877d7d95f6456572824d89b52d4f02ecd5ad5",
+      "size": 8457,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/ce7877d7d95f6456572824d89b52d4f02ecd5ad5"
+    },
+    {
+      "path": "contracts/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d92bb5c111cae116364aa21bb65a9e61ea0a5da0",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/d92bb5c111cae116364aa21bb65a9e61ea0a5da0"
+    },
+    {
+      "path": "contracts/utils/Constants.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14184f25c6293c93dbe60ca68ec4e771cbaa6edf",
+      "size": 1612,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/14184f25c6293c93dbe60ca68ec4e771cbaa6edf"
+    },
+    {
+      "path": "contracts/utils/Versioned.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e18ca234ea209ece01019c5069a429df38d72c97",
+      "size": 378,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/e18ca234ea209ece01019c5069a429df38d72c97"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e31f0f8374b452c2326799bd7111a85b6bb69d3a",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/e31f0f8374b452c2326799bd7111a85b6bb69d3a"
+    },
+    {
+      "path": "docs/average-votes.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed663385478ef632a3cc3221392ff91ec46fc8fc",
+      "size": 9992,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/ed663385478ef632a3cc3221392ff91ec46fc8fc"
+    },
+    {
+      "path": "foundry.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93c8150b667efd7a27148ed55527247e70ba58e9",
+      "size": 857,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/93c8150b667efd7a27148ed55527247e70ba58e9"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "393ba04de88622a95050e14e13b9e30e7a0a66e8",
+      "size": 1157,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/393ba04de88622a95050e14e13b9e30e7a0a66e8"
+    },
+    {
+      "path": "patches",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6195f00cb222df2e57ad300ad68cb6c590ddc2c2",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/6195f00cb222df2e57ad300ad68cb6c590ddc2c2"
+    },
+    {
+      "path": "patches/@openzeppelin__contracts-upgradeable.patch",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abdba2ab24bbf682cb2cf677fecd17edfc9bc052",
+      "size": 1818,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/abdba2ab24bbf682cb2cf677fecd17edfc9bc052"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0184ce8003aed0187381ede09582dd1dbde6c26",
+      "size": 101795,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/f0184ce8003aed0187381ede09582dd1dbde6c26"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0a7bd8577fbc503fb84a6de8c6d242945ab9d7f",
+      "size": 146,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/e0a7bd8577fbc503fb84a6de8c6d242945ab9d7f"
+    },
+    {
+      "path": "remappings.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22c85a4b86cb394b6fba7cca35a4fd08795d4f7b",
+      "size": 599,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/22c85a4b86cb394b6fba7cca35a4fd08795d4f7b"
+    },
+    {
+      "path": "script",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2ff1cab651d5a49b1fd7e1ef5fac90c9c3442b9b",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/2ff1cab651d5a49b1fd7e1ef5fac90c9c3442b9b"
+    },
+    {
+      "path": "script/Deploy.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef3fe0c54c7bee9a51f9cf839e05316109c682c5",
+      "size": 5250,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/ef3fe0c54c7bee9a51f9cf839e05316109c682c5"
+    },
+    {
+      "path": "scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f1a756f43901d2ed5828039f7afdaa6855399788",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/f1a756f43901d2ed5828039f7afdaa6855399788"
+    },
+    {
+      "path": "scripts/generate-artifacts.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "dec71759b518c5874de6acf8a5f956807ee342b0",
+      "size": 1115,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/dec71759b518c5874de6acf8a5f956807ee342b0"
+    },
+    {
+      "path": "test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "75fa5af0dc0907b78b40c22d5966dab86a80fc25",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/75fa5af0dc0907b78b40c22d5966dab86a80fc25"
+    },
+    {
+      "path": "test/Artifacts.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f004228106843266cdaa44da03a51aafd5cae770",
+      "size": 5613,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/f004228106843266cdaa44da03a51aafd5cae770"
+    },
+    {
+      "path": "test/ERC20AverageVotes.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24d41980e2ea2576aa43d57877f1303bd7ec9907",
+      "size": 15084,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/24d41980e2ea2576aa43d57877f1303bd7ec9907"
+    },
+    {
+      "path": "test/ReserveOptimisticGovernor.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "533651602236fe4b254cf14ed1a0389e769ffa87",
+      "size": 121335,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/533651602236fe4b254cf14ed1a0389e769ffa87"
+    },
+    {
+      "path": "test/StakingVault.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f87e8b6092e48799960ae2f631e5aa841fdf881",
+      "size": 60124,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/4f87e8b6092e48799960ae2f631e5aa841fdf881"
+    },
+    {
+      "path": "test/bench",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7675b59fcc267723c73fc30b11aef8f0fc6bed41",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/7675b59fcc267723c73fc30b11aef8f0fc6bed41"
+    },
+    {
+      "path": "test/bench/AverageVotesGasBenchmark.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a9bdfe1c16e4b5c627f0054e7856534e987be6c",
+      "size": 6443,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/2a9bdfe1c16e4b5c627f0054e7856534e987be6c"
+    },
+    {
+      "path": "test/fork",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0639e583ef30931a02a65a85d30939a95f3ed112",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/0639e583ef30931a02a65a85d30939a95f3ed112"
+    },
+    {
+      "path": "test/fork/AverageVotesUpgrade.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "570f7ac9313e4a0a564b72f8f31979876f2a949e",
+      "size": 8483,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/570f7ac9313e4a0a564b72f8f31979876f2a949e"
+    },
+    {
+      "path": "test/fork/DtfUpgrade.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cce122c28fdb8fb0b7088bf1c2b18583a60b1c47",
+      "size": 15493,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/cce122c28fdb8fb0b7088bf1c2b18583a60b1c47"
+    },
+    {
+      "path": "test/fork/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c47e271eca25b79b1424ffa3b3f708ab8a3c15f",
+      "size": 2633,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/0c47e271eca25b79b1424ffa3b3f708ab8a3c15f"
+    },
+    {
+      "path": "test/mocks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d70f4bbc09b6e2d7acd14240df55fab81f3ab6ca",
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/trees/d70f4bbc09b6e2d7acd14240df55fab81f3ab6ca"
+    },
+    {
+      "path": "test/mocks/MockERC20.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "900f0f964a4d203d5b318a418fbf4466c11bd68d",
+      "size": 335,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/900f0f964a4d203d5b318a418fbf4466c11bd68d"
+    },
+    {
+      "path": "test/mocks/MockRoleRegistry.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7534592e924d4341716ba29967628516c3fb51a0",
+      "size": 936,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/7534592e924d4341716ba29967628516c3fb51a0"
+    },
+    {
+      "path": "test/mocks/ReserveOptimisticGovernorDeployerV2Mock.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86fff968542d60f86c851c8e8f75379bfcc6d8a1",
+      "size": 1015,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/86fff968542d60f86c851c8e8f75379bfcc6d8a1"
+    },
+    {
+      "path": "test/mocks/ReserveOptimisticGovernorV2Mock.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0379b2eb7022f012d77c7c93776a0040b2c8fa4e",
+      "size": 372,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/0379b2eb7022f012d77c7c93776a0040b2c8fa4e"
+    },
+    {
+      "path": "test/mocks/StakingVaultV2Mock.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6af07a3ae6f8e68f06e6ef69670ee3e51fdecf9f",
+      "size": 317,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/6af07a3ae6f8e68f06e6ef69670ee3e51fdecf9f"
+    },
+    {
+      "path": "test/mocks/TimelockControllerOptimisticV2Mock.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "438dbca2eee61b8209bf0b523ec32474cb9857e9",
+      "size": 384,
+      "url": "https://api.github.com/repos/reserve-protocol/reserve-governor/git/blobs/438dbca2eee61b8209bf0b523ec32474cb9857e9"
+    }
+  ],
+  "truncated": false
+}

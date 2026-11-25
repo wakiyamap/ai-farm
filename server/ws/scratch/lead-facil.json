@@ -1,0 +1,7 @@
+{
+  "chain": "any",
+  "target": "crvUSD Facilitator run() poke class: permissionless facilitator maintenance paying the caller a CRV reward (keeper/poke class per 2026-11-08 beyond-liquidations)",
+  "why": "Non-liquidation keeper/poke candidate named by the 2026-11-08 beyond-liquidations decision (scheduled maintenance poke with caller reward). Scout twice: attempt 659 (identity hunt started, dropped for the moonwell census) and this session attempt 662 (identity hunt closed negative on every reachable primary source + 6-day CRV Transfer census shows no facilitator payment signature: 62384 logs, no small-amount contract-to-EOA keeper-cadence pair; top senders are emissions flows).",
+  "next_steps": "Closed dead_end 2026-11-09 run 69d711e8 (attempt 662): identity unpinned (docs deployments page + deployments.json + curvefi org repos + curve-stablecoin/scrvusd/curve-frontend trees + Curve API + Blockscout name searches all negative); census evidence scratch/crv-facil-logs.json (blocks 26333248-26376448, CRV 0xD533a949740bb3306d119CC777fa900bA034cd52, complete). Reopen only with a primary-source identity (verified contract source or an official deployment-list entry) whose source shows a permissionless run()/distribute() paying the caller in CRV; then measure reward size and gas before any bot.",
+  "status": "dead_end"
+}

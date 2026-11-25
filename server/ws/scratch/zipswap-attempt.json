@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-zipswap",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Plain Uniswap V2 fork (factory 0x8BCeDD62DD46F1A76F8A1633d4f5B76e0CDa521E, verified source) with no function anyone can call that pays the caller: pair ABI is standard mint/burn/swap/skim/sync; feeTo is an EOA (0x8602ee2f..7ed7) so fees leave the pool to the project; skim() pays the caller 0 (LP money, skim type (S)). Pools are active (6748 swaps/7d) but that is arbitrage profit from price gaps taken by external routers, not a protocol reward.",
+ "numbers": "7d window blocks 159613604 (ts 1794825985, 2026-11-16) to 159916004 (ts 1795430785, 2026-11-23), 2.0 s blocks (eth_getBlockByNumber). No-topic eth_getLogs over all 108 pair addresses (factory PairCreated scan, 108 logs): 6748 Swap (topic0 0xd78ad95fa46c994b.. from the no-topic scan = standard V2 hash), 6755 Sync, 4 Mint, 3 Burn. Top pair 0x1a981daa7967c66c3356ad044979bc82e4a478b9: 2873 swaps. Sample of 5 swap txs: senders 0x56995cbb.., 0x7d58bc1f.., 0x148397c9.., 0xa40833c4.., 0xa79c12bc.. (external routers/EOAs). allPairsLength()=109; TVL 59,068 USD (candidate/DefiLlama). Gas: n/a, no caller reward to compare."
+}

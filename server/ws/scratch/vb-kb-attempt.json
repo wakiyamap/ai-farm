@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-venombridge",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. VenomBridge (Everscale<->EVM bridge) MultiVault diamond on Avalanche is live but idle: the only stranger-callable reward path is deposit(d, expectedMinBounty, pendingWithdrawalIds) which fills pending withdrawals and keeps their bounty, but the bounty pot is empty (pendingWithdrawalsTotal=0) and the vault saw zero activity in 7 days. Approvals (setPendingWithdrawalApprove) and skim are role-gated (governance/withdrawGuardian/management).",
+  "numbers": "7d window blocks 100426782 (2026-11-15 22:43Z) to 101108459 (head, 2026-11-22, eth_blockNumber 0x606caeb); no-topic eth_getLogs on vault 0x4aB740157721105aE503fbad756a578171512525 in 10k-block chunks (74 chunks): 0 logs; control WAVAX 0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7 Transfer 1253 logs in 2000 blocks same shape (eth_getLogs via relay). pendingWithdrawalsTotal(WAVAX)=0, pendingWithdrawalsTotal(0x46f84dc6564cdd93922f7bfb88b03d35308d87c9)=0, getCash(WAVAX)=0 (eth_call latest). emergencyShutdown()=false. Routescan txlist newest vault tx 1790601439 = 2026-09-28 (lags ~8d). TVL 39,213 USD (candidate), llama latest point 248,076 USD 2026-11-22. Gas cost N/A (no calls to pay for)."
+}

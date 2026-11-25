@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "address": "0x8b28e0c8c51065af37acb7e72c6f0e71b4d4bb95",
+  "strategy": "Unverified owner-gated executor contract driven only by EOA 0x4d0e7d94ad5af4a41e84817a19f23c726e17e9cf (every external fn entry checks tx.origin == that EOA; owner() returns it). EOA sends executeBatch(tuple[] calls) = ~5 flash-loan steps per tx (Balancer V2 vault flash loan + Aave V3 Pool ops + swaps across WETH/USDC/USDT/USDS/stETH/GHO/SETH2, PROFIT_LT_GAS revert guard per step). Private executor of one searcher, not a public job: no protocol fee is paid to it and the ETH it forwards to its owner is ~0.",
+  "evidence": "executeBatch txs 0x387b646114e7a31c507fa0818482712828a93d8598ec9fb1cb61fc6ba6d13072 (blk 26445790, 5x BatchStep event 0xb39ef345 + BatchCompleted 0x2403003b), 0xa61888280658d17fd76e1fe0a68641092d0c9a94cd2b2581697951de1b01c84c, 0x246580f36797b0c0dce4cb6e8cfb71908e380acf257f7dca479cef87ff45e539; 8 executeBatch in blocks 26396686-26445790 (eth_getLogs topic0 0x2403003b on the executor, 7d); all txs from 0x4d0e7d94ad5af4a41e84817a19f23c726e17e9cf (explorer txs); tx.origin guard seen in bytecode entry function",
+  "est_profit_usd_day": 0
+}

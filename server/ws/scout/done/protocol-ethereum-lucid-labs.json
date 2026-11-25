@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-lucid-labs",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 29,
+ "chain": "ethereum",
+ "slug": "lucid-labs",
+ "name": "Lucid Labs",
+ "category": "Bridge",
+ "tvl_usd": 139494,
+ "url": "https://www.lucidlabs.fi",
+ "github": [
+  "LucidLabsFi"
+ ],
+ "listed_days_ago": 29,
+ "run_id": "1c6c7fd895054d12b62ed4edabda073a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "execute(bytes32) is the only public callable action on the 4 ethereum controllers (USDC 0x3b55a4C0..135f, USDT 0x4f65f6e8..207C, WETH 0xc0FCe0c5, WBTC 0x530d8C1f): 0 calls in 7d, pays the recipient not the caller - all 9 TransferExecuted mints (10.00-1,142.95 USDT, 87.62-248.82 USDC) came via the Polymer adapter on the threshold=1 path, 0 USD to the caller; minBridges()=0 on all 4 so execute reverts MultiBridgeTransfersDisabled and TransferExecutable fired 0x since block 25,000,000 (143 TransferExecuted); yield fns role-gated; gas ref 1.36 USD (317,829 @ 0.2454 gwei, ETH 1,746.57).",
+  "kb": [
+   "attempts:2866",
+   "protocols:1284"
+  ],
+  "run_id": "1c6c7fd895054d12b62ed4edabda073a",
+  "at": 1795170410
+ }
+}

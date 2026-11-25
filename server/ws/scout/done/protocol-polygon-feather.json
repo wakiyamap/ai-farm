@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-feather",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 388,
+ "chain": "polygon",
+ "slug": "feather",
+ "name": "Feather",
+ "category": "Risk Curators",
+ "tvl_usd": 321226,
+ "url": "https://app.feather.zone/",
+ "github": null,
+ "listed_days_ago": 388,
+ "run_id": "37a95d354456498aaa96240968b85fdd",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Feather Polygon = 2 Morpho VaultV2 vaults it curates: Feather BRZ 0x902Af532 (1.196M BRZ, ~219k USD) + Feather frxUSD 0x922c8433 (116.8k, ~117k USD) = llama TVL 323.8k; no function pays a caller: accrueInterest anyone-callable (eth_call fresh EOA ok) but pays 0 to caller (fee -> curator Safe 0x66d702c8), allocate/deallocate revert Unauthorized 0x82b42900 from fresh EOA; 7d logs (96780372..97483686): 833 events (AccrueInterest 212, Deposit 72, Withdraw 91), Merkl rewards need a vault position",
+  "kb": [
+   "attempts:1780",
+   "protocols:438"
+  ],
+  "run_id": "37a95d354456498aaa96240968b85fdd",
+  "at": 1794931824
+ }
+}

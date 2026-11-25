@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-contango-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated: the two reward paths on base are both gated and both quiet. claimRewards(bytes32,address) on ContangoProxy reverts Unauthorised from a fresh address (owner-gated, like avalanche protocols:801). OrderManager.execute pays the caller keeperReward = gasMultiplier x gas cost from the order owner's balance, but requires operator-granted BOT_ROLE (keccak256('BOT')) and had 0 events of any kind in 7 days; the deployed Contango version has no liquidation module and networks.json Liquidations has no base address. Protocol-wide only 3 trade txs in 7 days, all by Contango's own bot (0xb04cc3c2.. via MaestroProxy).",
+ "numbers": "7d window blocks 56183841-59207841 (eth_getLogs 50k chunks, relay scout lane, control: ContangoProxy 42 logs same shape): ContangoProxy 42 logs / 3 txs (32x PositionUpserted), 0 RewardsClaimed; OrderManagerProxy 0 logs (0 OrderPlaced, 0 OrderExecuted); gross keeper reward observed 0 USD; gas price 6,000,128 wei = 0.006 gwei (eth_gasPrice) so a 1M-gas tx costs 6e-6 ETH = 0.01 USD at ETH 1756.15 USD (coins.llama.fi coingecko:ethereum); TVL 650,399 USD (DefiLlama candidate)."
+}

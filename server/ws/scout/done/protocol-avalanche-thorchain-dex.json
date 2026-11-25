@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-thorchain-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "thorchain-dex",
+ "name": "THORChain DEX",
+ "category": "Dexs",
+ "tvl_usd": 819383,
+ "url": "https://thorchain.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "518afb49bdbd4d4cbae0374d652126bc",
+ "result": {
+  "verdict": "no_reward",
+  "line": "THORChain's avalanche side = one InboundRouter 0x00dc6100103bc402d490aee3f9a5560cbd91f1d4 (7,521 B code; DefiLlama has no adapter addr, explorer source unavailable, funcs from bytecode+4byte): only permissionless entry is depositWithExpiry (user deposit, pays caller 0, gas 38,691 ~ 0.002 USD @ 6.60 USD/AVAX); transferOut is signer-gated (stranger eth_call reverts), signer pays 0.00075 AVAX ~ 0.005 USD and receives 0 on-chain; rewards accrue in RUNE on THORChain, not avalanche; TVL 783,710 USD (api.llama.fi 2026-11-19).",
+  "kb": [
+   "attempts:2672",
+   "protocols:1132"
+  ],
+  "run_id": "518afb49bdbd4d4cbae0374d652126bc",
+  "at": 1795128783
+ }
+}

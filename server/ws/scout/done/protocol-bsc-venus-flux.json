@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-venus-flux",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 256,
+ "chain": "bsc",
+ "slug": "venus-flux",
+ "name": "Venus Flux",
+ "category": "Lending",
+ "tvl_usd": 1075147,
+ "url": "https://flux.venus.io/lending/56",
+ "github": null,
+ "listed_days_ago": 256,
+ "run_id": "15def8eec2214743bbec6030bb1b11f9",
+ "result": {
+  "verdict": "unclear",
+  "line": "Venus Flux = Venus white-label Instadapp Fluid Lending on BSC: FToken/unified-liquidity 0x52Aa899454998Be5b000Ad077a46Bbe360F4e497 (Fluid FToken impl 0x3560a1d1..., Sourcify exact) + LiquidityResolver 0xca13A15de31235A37134B4717021C35A3CF25C60; listedTokens()=10, getOverallTokensData@134120803 shows borrows USDT 189k + USDD 217k + ETH 23 (~425k USD, TVL 1.07M DefiLlama) so lending is live; missing: Borrowable/Liquidity BSC addresses (BscScan keyless blocked, Instadapp deployments.md has no BNB row) -> no 7d reward-function census, no gross/gas",
+  "kb": [
+   "protocols:392",
+   "attempts:1725"
+  ],
+  "run_id": "15def8eec2214743bbec6030bb1b11f9",
+  "at": 1794919929
+ }
+}

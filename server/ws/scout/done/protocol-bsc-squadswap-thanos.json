@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-squadswap-thanos",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 94,
+ "chain": "bsc",
+ "slug": "squadswap-thanos",
+ "name": "SquadSwap Thanos",
+ "category": "Dexs",
+ "tvl_usd": 516970,
+ "url": "https://squadswap.com/",
+ "github": null,
+ "listed_days_ago": 94,
+ "run_id": "431c337487964dc4a306177766df02be",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Uni-v4-fork AMM on bsc (6 contracts, all with code, docs+adapter); only pay-a-recipient fn collectProtocolFees reverts 0x48f5c3ed even from owner and accrued fees are dust (binPM 1.1e-8 BNB, clPM 3.5e-6 BNB ~ bash.002 @ BNB 546.12); activity = 976 binPM logs/961 user-swap txs per 4000 blocks (30 min; control USDT 30,630 logs/200 blocks), gas 0.05 gwei ~bash.004/tx; no reward/claim/harvest fn for strangers",
+  "kb": [
+   "attempts:2968"
+  ],
+  "run_id": "431c337487964dc4a306177766df02be",
+  "at": 1795190804
+ }
+}

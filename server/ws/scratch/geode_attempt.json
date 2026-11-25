@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-geode",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only anyone-callable reward function, Portal.claimFee(planetId,claimerId), pays nothing today: the 388.20 AVAX fee accrued to the active operator is not claimable because the Portal contract holds only 372.71 AVAX, so the low-level send fails and eth_call from a fresh address reverts 'StakeUtils: Failed to send Avax'; the planet-maintainer's own accumulatedFee is 0. Everything else is role-gated (claimSurplus onlyMaintainer, reportOracle msg.sender==ORACLE) and the whole protocol is dormant. Nothing to earn here.",
+  "numbers": "gross 7d = 0 (0 events of any kind, full Portal scan blocks 100,080,000-100,743,279 = 67x10k, 2026-11-19; control USDC 1 window = 11,120 logs); unpaid fee pot = accumulatedFee 388.20 AVAX = $2,742 at $7.064/AVAX (coins.llama.fi, 2026-11-19) vs Portal balance 372.71 AVAX; DWP balance 7.51 AVAX; claimants: maintainer(planet)=0xdcedf06f...2e44, maintainer(operator)=0xa2d67ff6...ce64; gas: 7.5 gwei (eth_gasPrice) x ~100k gas = ~$0.005 per claimFee attempt; TVL $373k (api.llama.fi); last Portal log ~block 26,190,000 (2023-02-13)."
+}

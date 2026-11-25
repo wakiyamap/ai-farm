@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "address": "0x5451c4b4ea335bfb71f75316594bb68d26d30917",
+  "strategy": "Morpho Blue liquidator (pass-through flash-loan executor). EOA driver 0x87cb19121d625988defd645ba15279c1d3c73d20 calls this contract (has onMorphoFlashLoan/sweep/operator, owner 0xbe32f44a932e750e1405a1cf258111337c310769) with selector 0x4d9c0cd7; it flash-loans USDC from Morpho (0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb), batch-liquidates (1-42 positions per tx, avg 11; 428 of 488 in the cbBTC/USDC market 0x9103c3b4..., rest WETH/uSOL markets), sells the seized collateral in the same tx, repays the loan, and sends the liquidation bonus in USDC to the owner wallet in the same tx (executor itself nets exactly 0 in every token and holds 0).",
+  "evidence": "ledger events morpho_blue.liquidate caller=0x5451...: 488 liquidations in 44 txs, 2026-11-05..11-15. Batch txs 0x521d346fe225c33f820da354a354c9ae86ccde13013b48ec6fb55a36e7871027 (42 liq, 2,071,637 gas, owner +228.92 USDC), 0x12405737d54b725cdeb34125e5c54f9c8893bb4babd13997a7349d5269224c9e (40 liq), 0xa09d68ef5c4fc7c996acefcced031a5742f84ad7057b61f44bf06946182748a5 (38 liq, +268.94 USDC), 0x207a3d36ed28fdceb294d5c4ec12de207cd7ecdc98a028a553add05fd1366787 (1 liq, 485,884 gas, +3.85 USDC). Owner USDC inflows: eth_getLogs USDC Transfer to=0xbe32f44a... from block 0x32b0000: 46 transfers $2,213.53, $2,146.79 of them inside the 44 liquidation txs.",
+  "est_profit_usd_day": 154
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-wing-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "wing-finance",
+ "name": "Wing Finance",
+ "category": "Lending",
+ "tvl_usd": 106026,
+ "url": "https://wing.finance",
+ "github": null,
+ "listed_days_ago": null,
+ "retries": 1,
+ "run_id": "e127fd2b16a04b25938f72f72b9e1a03",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Compound-fork flash pool (comptroller 0x49620e9b...60a69, impl 0x17afa1eb, 19 fToken markets): no claim/reward function exists; accrueInterest open to strangers but pays 0 (7-day sweep keeper spent 962,487 gas = $0.03, value 0); 0 LiquidateBorrow in 7d (268x5k-block eth_getLogs, control returned logs); whole-pool debt $903.76 so liquidation bonus is dust; repayByInsurance role-gated.",
+  "kb": [
+   "attempts:2822",
+   "protocols:1246"
+  ],
+  "run_id": "e127fd2b16a04b25938f72f72b9e1a03",
+  "at": 1795162054
+ }
+}

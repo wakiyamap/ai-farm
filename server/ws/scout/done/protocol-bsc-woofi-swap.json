@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-woofi-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1727,
+ "chain": "bsc",
+ "slug": "woofi-swap",
+ "name": "WOOFi Swap",
+ "category": "Dexs",
+ "tvl_usd": 273704,
+ "url": "https://woofi.com",
+ "github": null,
+ "listed_days_ago": 1727,
+ "run_id": "71786b79aa5a43c6bd462eee5b63d197",
+ "result": {
+  "verdict": "unpaid",
+  "line": "WOOFi Swap bsc (WooRouterV2 0x4c4AF8DB.., WooPPV2.2 0x5520385b.., RebateManager 0x76166140..): only stranger-callable payout claimRebate() pays the caller's own pending rebate - stranger gets 0; the whole 21,960 USDT pot sits in 22 named broker slots (1inch, 0x...), distributeFees reverts 'WooFeeManager: !admin' from a fresh EOA; gas ~0.05 gwei = bash.003/call (BNB 91.92); 7d ClaimReward count unverified - relay bsc getLogs providers spent (scout 300,542/300,000 CU), 1 successful 5000-blk chunk = 0 logs",
+  "kb": [
+   "attempts:2526"
+  ],
+  "run_id": "71786b79aa5a43c6bd462eee5b63d197",
+  "at": 1795096370
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "ellipsis_finance LPStaking.claim + FeeDistributor.claim",
+  "outcome": "dead_end_recorded",
+  "reason": "No caller payout: both public claim entries credit the staker or their configured receiver, so an outsider who triggers a claim earns zero. A bot would have to own a stake. The fee-lock route cannot meet the 7-day holding-frame exit: official Ellipsis locking docs specify a 1-week minimum lock followed by a 7-day streaming release. The LP route requires a persistent LP position and has no evidenced positive EV at farm scale: zero FeesReceived in the measured 7-day window, zero votes to sampled pools in week 241, and EPX has no reliable USD quote in the previous measurement. No executor or paper bot is justified.",
+  "numbers": "Prior relay scan scratch/ellipsis_7d_logs.json, BSC blocks 133278000-134622268: LPStaking 2 ClaimedReward logs (11 total), FeeDistributor 34 FeesClaimed logs in 2 tx and 0 FeesReceived. FeeDistributor claim tx 0xbd710c45367ea87f2d82534036057b6f4fe14fae3605cea2aaa3c74f1d376b9e paid receiver in event topics; prior attempts:2749 found a third-party call also paid the receiver. Prior attempts:2749 measured fee claims gross about $1-$1.46 versus $0.30-$0.36 gas, with no fee accruing in the window; LP EPX price unverified. Official docs: https://docs.ellipsis.finance/the-epx-token/locking and https://docs.ellipsis.finance/liquidity-providers/staking-for-epx-rewards (retrieved 2026-11-20)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-parallel-protocol-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Every keeper-class function on the ParallelizerUSDp diamond reverts for a stranger (updateOracle and sellRewards NotTrusted 0xc22a648e; release and processSurplus AccessManagedUnauthorized 0x068ca9d8 via AccessManager 0x94ea8800...5f7a) and the only keeper job that runs - updateOracle - is executed solely by one trusted keeper 0x82f603cd...657a, which itself is paid 0: its receipts carry no token transfer and no value. No facet in the source pays msg.sender anything; same conclusion as the avalanche, hyperevm and base instances.",
+  "numbers": "updateOracle 18 events in 7d (blocks 26408489-26458889, topic0 0x8d1ba64ec7e754c448f8fc563a78c865de6719a0ed302eb3307b92b4ddaf27d4 from receipt; explorer txs: all 18 txs from 0x82f603cd2c2166c9d94b3ca78a16a754f0a6657a); keeper receipt 0x8900c45c15ea5f7ba1dba8c6a480436ccfbb65f981908ecb32f8c58d519d568a gross $0, gas 121,081 = 0.19 USD at 0.955 gwei (eth_gasPrice 2026-11-20 21:10 UTC) x ETH 1603.09 USD (coins.llama.fi ts 1795209013); TVL 167,523 USD (session context); 4 collaterals via getCollateralList() 0xb7181361."
+}

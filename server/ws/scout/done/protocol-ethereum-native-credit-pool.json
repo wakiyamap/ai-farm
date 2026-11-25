@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-native-credit-pool",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 909,
+ "chain": "ethereum",
+ "slug": "native-credit-pool",
+ "name": "Native Credit Pool",
+ "category": "Lending",
+ "tvl_usd": 6742238,
+ "url": "https://native.org",
+ "github": null,
+ "listed_days_ago": 909,
+ "run_id": "aa054bc0070c48a1a30676bbbc57d2f9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "CreditVault 0xe3D41d...f2EF, same verified contract as arbitrum/base/bsc dead_ends: all payout fns revert role-gated from fresh addr (epochUpdate OnlyEpochUpdater, settle/removeCollateral/repay OnlyTrader, liquidate OnlyLiquidator, pay OnlyLpToken, withdrawReserve OnlyFeeWithdrawer); only unpermissioned addCollateral pulls tokens in, pays 0. 7d blocks 26411700-26464320: 6 logs, all EpochUpdated from team keeper 0xbf381e1c via epochUpdater; 0 successful direct txs (1 FAILED probe); last settle 2026-07-13. Stranger gross 0; TVL 6.37M+borrowed 3.67M USD.",
+  "kb": [
+   "attempts:3232",
+   "protocols:1567"
+  ],
+  "run_id": "aa054bc0070c48a1a30676bbbc57d2f9",
+  "at": 1795246840
+ }
+}

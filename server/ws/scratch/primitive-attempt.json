@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-primitive",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Verified Ethereum RMM engine and v1 registry/option logic expose trading, liquidity, option settlement, and state updates, but no permissionless keeper or bounty payment.",
+  "numbers": "2 adapter contracts verified on chain: engine 0xd3541aD19C9523c268eDe8792310867C57BE39e4, registry 0x16274044dab9635Df2B5AeAF7CeCb5f381c71680. Registry getter reports 74 option clones. Public timestamp update gross reward = 0 token units by source inspection; gross USD and gas USD per reward call not applicable because there is no reward function. Sources: DefiLlama Primitive adapter; explorer verified source PrimitiveEngine.sol lines 126-142, 145-403, Registry.sol lines 134-181, Option.sol lines 139-160 and 217-390; eth_call risky(), getAllOptionClonesLength(), updateLastTimestamp(0)."
+}

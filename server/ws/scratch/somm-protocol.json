@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "sommelier",
+  "status": "dead_end",
+  "checked": "Two Cellar v2.5 proxies (DefiLlama adapter projects/sommelier/cellar-constants.js): Real Yield USD 0x392B1E6905bb8449d26af701Cdea6Ff47bF6e5A8 (impl 0x4aec526182f64d4c75dadf43c8a86a69f91ef5ae, CellarWithOracleWithBalancerFlashLoansWithMultiAssetDeposit) and Real Yield ETH 0xC47bB288178Ea40bF520a91826a3DEE9e0DbFA4C. eth_getCode non-empty; asset()/name()/totalAssets() answer via relay. Verified source (Etherscan): the only keeper-style function, callOnAdaptor (rebalance/manage), is _onlyOwner (owner 0xee75ba2c81c04dca4b0ed6d1b7077c188fede4d2, 21 owner-gated call sites); everything else is owner-only setters or ERC4626 user functions (deposit/mint/withdraw/redeem) that pay msg.sender nothing; no payable functions and no reward/bounty/fee-to-caller logic anywhere in src/base. eth_call callOnAdaptor([]) from a stranger address reverts. eth_getLogs last 7d (blocks 522944148-525544148, both addresses): 0 AdaptorCalled events; same-shape control (Transfer topic on the same 2 addresses) returned 4 logs. explorer txs: USD cellar last direct tx 2026-10-19 (redeem; mass user exits 2026-10-13), ETH cellar last redeem 2026-11-16, otherwise only ERC20 transfer/approve. Even the owner's automation receives no on-chain payment from the cellar."
+}

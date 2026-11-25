@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "aster_bridge",
+  "status": "dead_end",
+  "checked": "Aster Bridge (Astherus/Vest shuttle bridge; DefiLlama slug aster-bridge, TVL 191.8M USD Ethereum per api.llama.fi 2026-11-21). Vault 0x604DD02d620633Ae427888d41bfd15e38483736E (UUPS proxy -> impl 0x2cc878ac49c3bf8b0f2b053af7845ba6590eec4f 'AstherusVault', verified source via explorer; adapter DefiLlama-Adapters/projects/astherus/index.js). eth_getCode non-0x; paused() getter answers false. Full verified-source function scan: only payout paths withdraw(uint256,ValidatorInfo[],WithdrawAction,bytes[]) and withdraw(address,uint256,UserRequestInfo,BusinessInfo,SignatureInfo) and cancelWithdraw are onlyRole(OPERATE_ROLE) (fresh-address eth_call -> AccessControlUnauthorizedAccount role keccak OPERATE_ROLE 0x26dad9af...); withdrawFee is onlyRole(ADMIN_ROLE); deposits are open but pay nothing. 7d (blocks 26411489-26461744, 2026-11-14 to 2026-11-21): 942 Withdraw + 1825 Deposit events, callers = 2 bridge relayer EOAs, per-call fee ~0.5 USD accrues to vault fees[currency] (0 WithdrawFee events in 7d). Same verdict as arbitrum:2128 and bsc:2138 (role_gated)."
+}

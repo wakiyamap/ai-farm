@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-ultrayield-curator",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the curator's Base contracts are two active user-facing vaults (edgeUSDC MetaMorphoV1.1, 343,826 USDC; mBASIS Midas issuance token, ~145,550 USD) plus 7 empty Euler EVaults; no public function pays the caller. deposit/redeem flows pay the user's own capital, mint/burn/approveRequest are role-gated, and Euler's public touch()/convertFees() pay 0 to the caller (fees go to feeReceiver). Nothing a stranger can claim; UltraYield itself is the fee recipient as curator.",
+  "numbers": "Base TVL 489,899 USD (api.llama.fi/protocol/ultrayield-curator 2026-11-17) = edgeUSDC 343,825.85 USDC (eth_call totalAssets) + mBASIS 118,608 (145,550 USD, api.ultrayield.app vault detail) + Euler vaults ~0. 7.25d Transfer getLogs over all 9 contracts (blocks 55,561,032-58,706,128): 190 logs (edgeUSDC 57, mBASIS 133, Euler 0). touch()/convertFees() eth_call from fresh address: success, 0 paid. ETH $1762.16 (coins.llama.fi). Gas moot (no paid callable)."
+}

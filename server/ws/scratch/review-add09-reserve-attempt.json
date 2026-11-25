@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "Reserve eUSD/ETH+ scheduled revenue Dutch auctions",
+  "outcome": "review_fix",
+  "bot_id": "reserve-dutch-ethereum",
+  "reason": "Human 2026-11-10-first-live-incident.md repaired the gate blocker. Current code/manifest/executor hashes still match reviewer run 7cbf8b95, whose fork success and guard revert remain credited; manifest-check and node --check pass. Full live-loss-stop checklist now fails: pending receipts do not block later signer sends; ETH/USD may be cached from the prior 45-second cycle; missing receipt fee fields are treated as zero and discarded; state.json writes are non-atomic and failed-write flag clears on a later write; STOPPED.json write errors are swallowed and startup ignores marker; damaged/missing state silently resets loss to zero with no accepted-hash recovery; no comprehensive offline proof. Fix all before promotion. Ledger reserve_revenue.started block 26379242 tx 0x5d6065e33a586deef7349c9542d3268532e3d434222022adf7654453bec42e6b had six starts but no weETH sell; paper heartbeat through 26383031 active=0, so no awaited detection miss. See bots/paper/reserve-dutch-ethereum/review.md top entry.",
+  "numbers": "Signed ceiling 1050000 gas x 2 gwei = 0.0021 ETH, value zero, manifest loss cap 20 USD. Previous fork success tx 0x36638cb9009bb90c22758fc09bb3efd90863823df46bd0d68037f9494f157ee1; guard revert 0x84a91bcdcf6ad5f1a64abc7deaa8baa5b422e008eeecf77f4c900bb674dc37ba. Ledger started cursor 26382957; last awaited pair 26348213."
+}

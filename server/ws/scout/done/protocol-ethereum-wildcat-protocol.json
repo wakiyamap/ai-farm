@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-wildcat-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1084,
+ "chain": "ethereum",
+ "slug": "wildcat-protocol",
+ "name": "Wildcat Protocol",
+ "category": "Uncollateralized Lending",
+ "tvl_usd": 7860985,
+ "url": "https://wildcat.finance",
+ "github": [
+  "wildcat-finance"
+ ],
+ "listed_days_ago": 1084,
+ "run_id": "f35d38d25be54dc2abef68c044b9a496",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Callable pokes exist and are used (7d blocks 26412905-26463178: 154 updateState, 9 collectFees, 32 executeWithdrawal over 32 markets) but pay the caller 0: fees (~3,940 USD/7d avg ~438/call, USDC+USDT+WETH) go to protocol feeRecipient 0x35A5D1bd..8554, withdrawals (10.1M USDC+USDT/7d) to lenders; gas ~0.037 USD; eth_call from fresh address passes (no role).",
+  "kb": [
+   "attempts:3299"
+  ],
+  "run_id": "f35d38d25be54dc2abef68c044b9a496",
+  "at": 1795261064
+ }
+}

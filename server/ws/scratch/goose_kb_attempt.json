@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-goose",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The deployed BSC USDVault exposes only user-facing functions (deposit, withdraw, unLockDeposit, redeem, redeemAndUnLockDeposit) that move the caller's own USDT and pay the caller nothing; everything else is onlyOwner (custodian/storage admin) or onlyManager (LpToken.updatePrice). No reward/bounty/harvest/settle function exists (all 22 runtime selectors match the repo). Protocol is also near-dormant: 0 events in the last 7 days, 447 user events in ~2 years, lpToken price not updated since 2025-10-10.",
+  "numbers": "7d events: 0 (269 eth_getLogs chunks x 5000 blocks, blocks 132936493-134278764, control: 19,395 USDT Transfers/300 blocks same lane); eventId 447 total since Nov-2024; last event 2026-10-27 block 130005416; TVL 5.36M USD = 4,873,240.47 lp shares x 1.099246 (lpToken 0x94c31e6e8f9ef8ec1b101df1407c920c9edd2722); gas 0.05 gwei (eth_gasPrice), ~100k-gas call = 0.000005 BNB = 0.003 USD at BNB 592.39 (coins.llama.fi coingecko:binancecoin)."
+}

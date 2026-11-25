@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-bitbond-lockers",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 613,
+ "chain": "bsc",
+ "slug": "bitbond-lockers",
+ "name": "Bitbond Lockers",
+ "category": "Token Locker",
+ "tvl_usd": 148817,
+ "url": "https://tokentool.bitbond.com/",
+ "github": null,
+ "listed_days_ago": 613,
+ "run_id": "6595a667707349e3a31a3a387dd5ae4e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bitbond TokenLockerV3 custody: 238 lockers on bsc, TVL 148,817 USD (metis.bitbond.com API); withdraw/relock/withdrawExcessTokens/recoverUnsupportedTokens all revert 'Ownable: caller is not the owner' from a fresh address (eth_call on 0x00e6a24a...f3a8, 0x03fdf4ea...89b3) and pay the owner only their own locked tokens; 0 events from 14 sampled lockers over 4x5000 blocks (blocks 0x7f8ae1c-0x80062c3; same-run controls 4562 BNB / 67 BUSD).",
+  "kb": [
+   "attempts:1983",
+   "protocols:585"
+  ],
+  "run_id": "6595a667707349e3a31a3a387dd5ae4e",
+  "at": 1794974323
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-llamapay",
+  "outcome": "lead_recorded",
+  "reason": "unclear: LlamaPay BSC contracts confirmed (factory 0xde1C04855c2828431ba637675B6929A684f84C7F, 35 v3 stream payment contracts, one per token) and withdraw(address,address,uint216) 0x17a566e4 is permissionless and pays the recipient argument (not the caller: caller pays gas, protocol pays no keeper reward), so a bot only earns if it is itself a stream recipient. The 7-day Withdraw-event count and sample amounts could not be measured: scout-lane CU was spent (300080/300000), the relay fell back to public nodes and every bsc eth_getLogs returned 'all providers failed: public: limit exceeded' / 'no provider available' (same-shape control on USDT Transfers over 1280 blocks also failed), so per the zero-needs-control rule no event figure is recorded.",
+  "numbers": "35 payment contracts (factory getLlamaPayContractCount()=0x23 via relay eth_call, head ~134,491,920, 2026-11-19 ~11:05 UTC); BSC TVL 1,214,003 USD + 535 vesting (api.llama.fi/protocol/llamapay currentChainTvls.Binance, 2026-11-19 11:09 UTC); DAI 1.0005 USD, 18 dec (coins.llama.fi 2026-11-19 11:09 UTC); 7d Withdraw events: unmeasured (eth_getLogs provider-exhausted, scout lane 300080/300000 CU)"
+}

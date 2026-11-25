@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-cyclone",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "cyclone",
+ "name": "Cyclone",
+ "category": "Yield",
+ "tvl_usd": 258536,
+ "url": "",
+ "github": [
+  "cycloneprotocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b61891d1916f4ca69f88ee7726b21d32",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Cyclone bsc (5 mixer pools + Aeolus staking, addrs from cyclone-frontend-public config): only public callable updateBlockReward() succeeds from a stranger but pays it 0 (CYC accrues to depositors only); mintReward/claim/harvest selectors revert; 0 events on all 8 contracts over 7d (269x5000-chunk getLogs, same-shape control 43,819 logs), lastRewardBlock shows last touch ~10d ago and Aeolus dead since 2022; 39,345 gas = $0.0011/call at 0.05 gwei, BNB $572.34 (llama 1795143323).",
+  "kb": [
+   "attempts:2739",
+   "protocols:1182"
+  ],
+  "run_id": "b61891d1916f4ca69f88ee7726b21d32",
+  "at": 1795143669
+ }
+}

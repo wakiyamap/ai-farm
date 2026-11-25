@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "hyperwave",
+  "status": "dead_end",
+  "checked": "2026-11-17 scout. DefiLlama adapter projects/hyperwave (constants.js) + docs.hyperwavefi.xyz/references/contracts + explorer source (etherscan/hyperevm) + RPC. HyperEVM contracts are a Rabithole boring-vault stack: BoringVault share tokens hwHLP 0x9FD7466f987Fd4C45a5BBDe22ED8aba5BC8D72d1, hwHYPE 0x4DE03cA1F02591B717495cfA19913aD56a2f5858 (name()='Hyperwave HYPE'), hwUSD 0xa2f8Da4a55898B6c947Fa392eF8d6BFd87A4Ff77, GWAVE 0x855CeDD0e13BE116f3EB17FA7B7b682999f55C4f (enter/exit/manage all requiresAuth); TellerWithMultiAssetSupport per vault (public deposit, no payment to caller); AccountantWithRateProviders per vault, updateExchangeRate(0x3458113d) requiresAuth - eth_call from 0x1111.. reverts 'UNAUTHORIZED', from team EOA 0xb7f6c2088f2c2b0c8fb40ff64a231d333fbc9e19 succeeds; claimFees only callable by the vault; hwHLP Atomic Queue 0xfaf3288976f5548ebcfb1ba9e86ccc467a075c53 unverified, only user self-calls of safeUpdateAtomicRequest (atomic-swap redeem via GlueX aggregator). No function pays a caller. The yield engine itself (HLP trading, deposit buffer) lives on HyperCore, not HyperEVM; the ~$760k TVL DefiLlama reports is under chain 'Hyperliquid L1'."
+}

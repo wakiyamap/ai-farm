@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-sierra-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only Sierra contract on Avalanche (SIERRA vault token, proxy 0x6E6080e1...78f7, verified LYTPool impl 0x51c3f2ce...3dfd) has no function that pays a caller: deposit/requestRedeem are MarketMaker-whitelist, processRedemptions/openClaims are Issuer, claim is claimant-only, and the controller's setExchangeRateDynamic reverts MissingRole from a stranger. The single recurring keeper job (hourly/daily exchange-rate push, 55 calls/7d from one EOA 0xc1849678...) is paid nothing (no transfer in receipts), so even with the role there is no revenue.",
+  "numbers": "7d window blocks 99,944,938-100,564,938 (snowtrace txlist; control 6 txs on 0x6bCB49... vault): pool 8 txs all approve() by 3 EOAs; controller 55 txs all setExchangeRateDynamic from keeper 0xc18496783ddb433e5972e889f8ef13b269d514c7; keeper gas 400,000 x 7.45 gwei = 0.00298 AVAX = $0.022 (AVAX $7.23 coins.llama.fi); gross per call $0. exchangeRate 1.04857 (18 dec), totalSupply 836,624 shares, idle totalAssets 54,829 USDC (6 dec); TVL $6.2M = reserve EOAs + OpenTrade vaults per adapter projects/sierra-money. Stranger eth_calls: 0x67ca592f NotMarketMaker, 0x54ec5063 NotIssuer, 0xea8e4eb5 MissingRole (cast sig of error names)."
+}

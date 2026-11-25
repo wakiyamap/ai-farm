@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-derivadex",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "derivadex",
+ "name": "DerivaDEX",
+ "category": "Derivatives",
+ "tvl_usd": 609742,
+ "url": "http://derivadex.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "6301d85d41dc403fb1b902d77e73e30d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "DerivaDEX ethereum = one diamond 0x6fb8aa6fc6f27e591423009194529ae126660027; its only caller-paid fn InsuranceFund.advanceOtherRewardsInterval pays 10 DDX (0.48 USD at 0.047989) vs 0.09 USD gas (1,430,698 gas x 0.0365 gwei, ETH 1682.41), but the stream is closed: fresh eth_call reverts 'IFund: other rewards checkpointing ended' (miningFinalBlockNumber 14,103,517 < latest 26,466,872); 0 calls / 0 logs in 7 d (blocks 26416595-26466872, control window returned 2), last paid call 2026-11-05 tx 0xa165074a by keeper EOA 0x3c299e4324ef7ae935165dbe7036e058ce369d55.",
+  "kb": [
+   "attempts:3523",
+   "protocols:1786"
+  ],
+  "run_id": "6301d85d41dc403fb1b902d77e73e30d",
+  "at": 1795305207
+ }
+}

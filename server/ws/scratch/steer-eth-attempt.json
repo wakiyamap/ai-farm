@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-steer-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only paid keeper path is Orchestrator.executeAction (tend), which reverts NOT_A_KEEPER from a fresh address (keeper-registry license check); all 3 keeper slots are filled (bonded EOAs). rewardPerAction = 0 and the keeper is only reimbursed for gas via GasVault, so gross ~= gas cost and net ~= 0. vault.tend itself is onlyRole(MANAGER_ROLE); poke() is public but pays nothing.",
+  "numbers": "7d window blocks 26413600 (2026-11-14 13:43 UTC) -> 26463911 (2026-11-21 13:55 UTC), 15 executed actions (subgraph steer-protocol-mainnet status=executed timestamp_gt 1794663908; 15<100 cap). Callers all registered keepers: 0x138c8b01fa4f1771730a211df6613e349379d52e, 0x60ffe2cd891bf9b590b2551cb36850450c330ed3, 0xbd93ffd91c48c013e8907c0cdc74b3231e80654f (sample of 5 receipts: 0x138c8b01 x4, 0x60ffe2cd x1). Sum gasUsed 15 runs = 0.02742 ETH = $46.71, $3.11/run (sample of 5: $1.99-$4.33, 529814-1102244 gas @ 2.14-2.31 gwei). rewardPerAction()=0 (eth_call to 0x4867dc4e). Fresh-address executeAction eth_call reverts NOT_A_KEEPER; keeper-from control reverts 'Votes lacking' (past license). KeeperRegistry 0x86fd6c835feea48e1f344d0312d9b081441ced69 maxNumKeepers=3 currentNumKeepers=3. GasVault VaultGasUsed 15 events 7d = 0.02742 ETH reimbursed (matches). ETH $1703.80 coins.llama.fi 1795269015. PanopticDynamicJobs 2 executions ever, last 1783978763 (2026-07-13), 0 in 7d (same-shape control returns 2). TVL ethereum $722,370 (candidate)."
+}

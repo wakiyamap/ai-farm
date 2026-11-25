@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "sushi_bentobox",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/sushiswap-bentobox/index.js gives ethereum BentoBox 0xf5bce5077908a1b7370b9ae04adc565ebd643966; eth_getCode non-empty, verified source BentoBoxV1.sol (Sushi fork, ctor arg WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2), strategy(token)/totals(token) getters answer. Only public reward-shaped function is harvest(token,balance,maxChangeAmount) (no modifier). Source: profit from strategy.harvest is added to totals[token].elastic (credited to depositors' shares); no transfer to msg.sender. strategy(WETH)=0xba45964c74da01b0d8f44805997c7fa8e92d214a, strategy(DAI)=0x68eea36bc1f2cbb262f09ed0eb6eb353c8251acd (BaseStrategy: harvest only acts when sender==strategy itself, onlyBentoBox); all other held tokens have strategy=0x0 and their harvest reverts (MIM eth_call revert - missing strategy, not a role). strategyData: targetPercentage=0, balance=0 for both; strategy.harvest(0,fresh) eth_call from box returns 0 (pot empty). No skim/claim function (funds sent directly are lost per contract doc). 7d no-topic log scan: 24 logs, zero strategy/harvest events."
+}

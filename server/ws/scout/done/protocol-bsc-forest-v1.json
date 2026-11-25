@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-forest-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 243,
+ "chain": "bsc",
+ "slug": "forest-v1",
+ "name": "Forest V1",
+ "category": "Dexs",
+ "tvl_usd": 25923,
+ "url": "https://forest.inc/",
+ "github": null,
+ "listed_days_ago": 243,
+ "run_id": "45c06c8d3d114cc680c5be0e65c28358",
+ "result": {
+  "verdict": "unpaid",
+  "line": "forest_v1 bsc: pool 0xb6C6B8bF9d415E2D91B95134800De146Dcc5dc94 kickExpiredDeposit callable by anyone (eth_call from fresh addr ok) but kickRewardIncentive=0 and 0 KickRewardIncentiveUpdated events since genesis -> pays 0; 0 calls in 7d (blocks 133958902-135302287, control 47 Withdrawn); lifetime 1001 withdraws vs 1456 burns (455 kicks paid 0); gas ~0.004 USD (0.05 gwei x 130k, BNB 568.21), FOREST 0.0353 USD",
+  "kb": [
+   "attempts:4158"
+  ],
+  "run_id": "45c06c8d3d114cc680c5be0e65c28358",
+  "at": 1795451555
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-uniswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "bsc",
+ "slug": "uniswap-v3",
+ "name": "Uniswap V3",
+ "category": "Dexs",
+ "tvl_usd": 42559733,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "f1c04b4542e447d0b737b8d6f057c905",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: only token-out fn anyone can call is pool collect(recipient,ticks,maxes) paying msg.sender OWN fees (fresh eth_call -> (0,0)); collectProtocol factory-owner-gated (reverts fresh, OK from 0x3f07f08b); 7d sample 7x5000 blk, 17 pools of factory 0xdb1d10011ad0ff90774d0c6bb92e5c5c8b4461f7: 241 Collect (~9.3k/7d), 0 CollectProtocol; 94% to whale manager 0x7b8a01b3 (largest 199,915 USDT+1,940 NIGHT blk 0x803927b); collect gas 244k @0.05 gwei = 0.007 USD (BNB 587.69 llama) - LP-fee stream only, same as protocols:933/935",
+  "kb": [
+   "attempts:2412"
+  ],
+  "run_id": "f1c04b4542e447d0b737b8d6f057c905",
+  "at": 1795069839
+ }
+}

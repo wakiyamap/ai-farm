@@ -1,0 +1,14 @@
+{
+  "relay_url": "http://127.0.0.1:8545",
+  "max_capital_usd": 2000,
+  "max_daily_loss_usd": 200,
+  "max_loss_per_tx_usd": 20,
+  "max_capital_per_bot_usd": 400,
+  "chains": ["base", "arbitrum", "ethereum"],
+  "usdc": {
+    "ethereum": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "base": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "arbitrum": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+  },
+  "watchdog_interval_s": 15
+}

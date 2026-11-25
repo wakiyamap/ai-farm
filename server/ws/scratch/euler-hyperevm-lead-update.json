@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "euler_v2 liquidate",
+  "status": "dead_end",
+  "why": "Corrected by builder-codex run 367cf930 (attempt recorded this run): the prior +$2.30 oracle-valued gross on tx 0xf6ea50ec was not a realizable exit. Receipt token flows show two-pool UBTC sale gave 858.616666 USDC against 858.001488 repaid = $0.615178 gross; 946,533 gas at 5.307 gwei cost about $0.345 at HYPE $68.70, leaving ~$0.270 before deployment. The four other 7-day captures paid dust (0.0000010577 WHYPE, 0.000016785 bhHYPE, 0.00029406 kHYPE, 0.023293 USDT0), each at 0.82-1.27M gas. Realized week has only one material capture; perfect exclusive take yields ~$0.039/day before deployment. Protocol remains open to anyone via EVC controller setup, but this route is uneconomic to develop now.",
+  "next_steps": "Reopen only after a new 7-day receipt set shows repeated pool-exit proceeds, not oracle collateral values, leaving materially more than gas plus deploy cost. For a fresh capture: parse its ERC-20 Transfer logs into the liquidator and owner; net the configured USDC/native balance against debt repayment; price its actual receipt gas. Check a fresh address with checkLiquidation at the parent block; bare liquidate returns E_ControllerDisabled (0x13790bf0) until the EVC controller is enabled. Historic fork reset on HyperEVM serves head storage (wiki pitfalls/hyperevm-fork-head-state.md); a full proof needs a synthetic head-fork position and a two-pool swap route. Current historical case no longer takeable at head (getter 0,0)."
+}

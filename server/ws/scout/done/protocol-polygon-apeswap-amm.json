@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-apeswap-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "apeswap-amm",
+ "name": "ApeSwap AMM",
+ "category": "Dexs",
+ "tvl_usd": 229425,
+ "url": "https://www.ape.bond/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "9ad038098b3f459185b86ee97fec0a1f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "polygon apeswap-amm = ApeFactory 0xcf083be4164828f00cae704ec15a36d711491284 + 1468 standard UniV2 pairs only: no function pays a caller (createPair open but pays nothing, setFeeTo/setFeeToSetter feeToSetter-gated, no harvest/claim); TVL 224,249 USD (api.llama.fi 2026-11-20); PairCreated 7d=0 (blocks 0x5cb90f5..0x5d1d26f, control 21,001 USDC Transfer logs same run), 38d=4.",
+  "kb": [
+   "attempts:2816",
+   "protocols:1241"
+  ],
+  "run_id": "9ad038098b3f459185b86ee97fec0a1f",
+  "at": 1795161164
+ }
+}

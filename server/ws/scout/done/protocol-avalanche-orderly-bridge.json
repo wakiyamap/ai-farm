@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-orderly-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1467,
+ "chain": "avalanche",
+ "slug": "orderly-bridge",
+ "name": "Orderly Bridge",
+ "category": "Bridge",
+ "tvl_usd": 167563,
+ "url": "https://orderly.network",
+ "github": null,
+ "listed_days_ago": 1467,
+ "run_id": "db58e5609cd64693a45ca2b189af7419",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Orderly Bridge on avalanche = Orderly Vault escrow 0x816f7224..67e9 (impl 0x4f8C0F4F..F083, same bytecode as verified ethereum 'Vault', OrderlyNetwork/evm-cross-chain): 170,000 USDC escrowed; 7d = 51 txs, all deposits from 9 EOAs, 0 withdraw/rebalanceMint; value-moving fns revert 0x833d33e7 OnlyCrossChainManagerCanCall from a fresh address (delegateSwap 'Only swap operator', admin onlyOwner); public deposit pays caller 0, costs 499,405 gas = 0.0042 AVAX = bash.03 (AVAX .06) + 0.0444 AVAX LZ fee.",
+  "kb": [
+   "attempts:2379",
+   "protocols:912"
+  ],
+  "run_id": "db58e5609cd64693a45ca2b189af7419",
+  "at": 1795063276
+ }
+}

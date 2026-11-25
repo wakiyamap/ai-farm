@@ -1,0 +1,12 @@
+{
+  "run_id": "a39c1fa82b3d43988233f7d6024c501e",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "lead 197 Moonwell ReserveAutomation reserve sales on Base (build lane, session 3 of 3): fork-proved the whole flash route (VAMM borrow WELL -> getReserves at discount -> UniV3 USDC->WETH -> repay ceil(q3*100/99)) end-to-end on the shared fork and closed the lead blocked_infra",
+  "outcome": "blocked_infra",
+  "kb_rows": ["attempts:1392", "leads:197"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Fixed the last two executor blockers (UniV3 sqrtPriceLimitX96 must stay below MAX_SQRT_RATIO - 2**160-2 reverts 'SPL'; the swap callback is uniswapV3SwapCallback(int256,int256,bytes)=0xfa461e33 on the executor itself). Success tx 0xedf6a8d7.. at reset 37876859 with zero leftovers, guard revert 0x5b94cacc.., lot-taken revert 0x78e6dbf5..; proof script scratch/mw-reserve-buy/proof.py. No bot placed: profit at the incumbent take class d=0.9898 is ~0 (discount 1.02% ~= 1% VAMM fee + 0.01% UniV3 fee, profitWei=142) and the incumbent takes every whole lot ~3h09m into each period, so the d<0.99 profit region never has a lot left - earning the lead's EV means beating 0xcadd173b in a latency race, on top of the sale being governance-paused (no SaleInitiated since 2025-11-19; closure check 2026-12-16)."
+}

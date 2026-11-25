@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-saffron-vaults",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 113,
+ "chain": "ethereum",
+ "slug": "saffron-vaults",
+ "name": "Saffron Vaults",
+ "category": "Yield",
+ "tvl_usd": 1395678,
+ "url": "https://saffron.finance",
+ "github": null,
+ "listed_days_ago": 113,
+ "run_id": "3dfd007a45844bbe8092cef60f983a01",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ethereum factory 0x7fE8...b200 + 98 UniV3Vaults (49 started, 44 ended): claim()/deposit()/withdraw() pay only token-holding msg.sender (fresh eth_call claim() reverts 'NCT'), adapter onlyVault, factory createVault onlyOwner - no keeper payout; 0 events in last 7d on all 98 vaults+adapters+factory (no-topic scan, blocks 26406003-26456403; USDC control 8886 logs/83 blk), last event block 26401732 (~7.6d ago) was a depositor withdrawing own funds; TVL 1.34M USD",
+  "kb": [
+   "attempts:2912"
+  ],
+  "run_id": "3dfd007a45844bbe8092cef60f983a01",
+  "at": 1795179505
+ }
+}

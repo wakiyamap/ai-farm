@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-angle",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1844,
+ "chain": "arbitrum",
+ "slug": "angle",
+ "name": "Angle",
+ "category": "CDP",
+ "tvl_usd": 30126,
+ "url": "https://app.angle.money",
+ "github": [
+  "AngleProtocol"
+ ],
+ "listed_days_ago": 1844,
+ "run_id": "f1940b0d3a6c4506a79e00c77c9d004d",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Angle on arbitrum = Borrow CDP only: 5 VaultManagers under Treasury 0x0D710512E100C171139D2Cf5708f22C680eccF52 (vaultManagerList 0..4); 7 d blocks 524746000-526802805 (11-16/11-23): 3 LiquidatedVaults (topic0 from receipt 0xa7c899f6) taken by 3 distinct stranger EOAs, gross 42.74 + 4.56 + ~1.6 USDC vs gas 0.03-0.09 USD (0.02 gwei x 1718 USD ETH); liquidate is the only caller-paid fn (ABI: no stake/claim; Treasury surplus fn pays surplusManager) = existing lead 354 with paper bot trial-angle-liq-arbitrum, no new lead; other managers 0.4-29 EURA debt.",
+  "kb": [
+   "attempts:4098",
+   "protocols:2220"
+  ],
+  "run_id": "f1940b0d3a6c4506a79e00c77c9d004d",
+  "at": 1795437144
+ }
+}

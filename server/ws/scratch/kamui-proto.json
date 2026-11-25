@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "kamui_finance",
+  "status": "dead_end",
+  "checked": "Contracts from DefiLlama: no projects/kamui-finance/index.js (404); api.llama.fi/protocol/kamui-finance tvlCodePath = registries/curators.js, which lists 4 ERC-4626/7540 vaults on Lagoon infra (raw.githubusercontent DefiLlama-Adapters main): Stable 0xcDA323c2DF692d989B24BA51D0aCCa924cf9a344, Balanced 0xA5AE405242f42C47996a0C6857ff10a77F9bdeE6, Boosted 0x9E0DB8F43bb91e2148B0Db920E21370525CF3Aab, kGear 0xe9Fc51dF9168361c9cF00383C644Ae9dcF2aD6b0. All four have code (eth_getCode) and totalAssets() (0x01e1d114, cast sig) answers: 2,460,265 / 1,255,847 / 440,532 / 80,000 USDC (sum 4.236M = llama currentChainTvls 4.236M; underlying USDC 6-dec confirmed via llama tokens field, totalAssets raw/1e6 matches). Proxies = LagoonVaultProxy (explorer source at vault addr); ERC1967 impl for all 4 = 0x6c77c47fb8168e22976c3b0338cb1769c952249f = Lagoon v0.6.0 Vault (hopperlabsxyz), same impl already assessed in attempts:686 for NAVI-curated Lagoon. Source: explorer source 0x6c77... -> src/v0.6.0/vault/Vault-v0.6.0.sol. No caller-payment mechanism: grep reward|incentive|bounty over src/ = 0; fees mint as FeeTaken shares to the fee receiver (Kamui). Verdict role_gated -> dead_end."
+}

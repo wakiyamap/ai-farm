@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-deltaprime",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1386,
+ "chain": "arbitrum",
+ "slug": "deltaprime",
+ "name": "DeltaPrime",
+ "category": "Leveraged Farming",
+ "tvl_usd": 1326749,
+ "url": "https://deltaprime.io",
+ "github": null,
+ "listed_days_ago": 1386,
+ "run_id": "bfc9cca3fdf1483db8ff3ec62f33cbc0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Liquidation is the only reward fn and is liquidator-whitelist gated (fresh-address eth_call reverts OnlyWhitelistedLiquidators 0x12dcff05); fee goes to stability pool+treasury not caller: 7d = 1 Liquidated + 4 snapshots (keepers 0x6907890f, 0x3390d219), liquidator gross $0 vs gas $0.39 (5.56M gas @0.04 gwei, ETH $1767.73 coins.llama.fi); no msg.sender payouts anywhere in deployed contracts.",
+  "kb": [
+   "attempts:2346"
+  ],
+  "run_id": "bfc9cca3fdf1483db8ff3ec62f33cbc0",
+  "at": 1795056561
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-shift-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The two ethereum SyVaults (risexUSDC 0x5F70E536190C15E5959DbFeF2F2632E540da74CD, shiftEUR 0xF4761cC51DC4532b064b7E0Bf0883bcA3F84375e, DefiLlama adapter) are custodian-run ERC-7540 vaults: the only state-advancing calls (epochSettle, settleRedeemBatch) are keeper/allocator role-gated and pay the caller nothing - fees go to feeRecipient. A stranger eth_call of epochSettle reverts SyVault__NotKeeper (0xa80020f3). shiftEUR additionally looks dormant (0 logs 7d, getters revert 0x).",
+  "numbers": "7d (blocks 26407753-26458153, no-topic scan, control = same-shape scan returning 47 logs): risexUSDC 37 epochSettle settlements, all from keeper 0x64d072c98e7fa0688d006836076567f00cf44b2f; gross to caller $0 (PerformanceFeeCollected x6 pays feeRecipient in shares); gas 174,492-193,523/settle (4 of 37 receipts sampled) = ~$0.29 at 1.027 gwei (eth_gasPrice 2026-11-20 18:44 UTC) x ETH $1,635.74 (coins.llama.fi WETH). TVL: risexUSDC totalAssets 197,902 USDC (asset read on-chain: 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, 6dp); shiftEUR ~1,109 units, dormant."
+}

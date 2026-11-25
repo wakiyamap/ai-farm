@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-autofinance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "autofinance",
+ "name": "AUTOfinance",
+ "category": "Yield",
+ "tvl_usd": 27968971,
+ "url": "https://www.auto.finance",
+ "github": [
+  "Tokemak"
+ ],
+ "listed_days_ago": null,
+ "run_id": "e717bfe32af64742976587b3a2608005",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 12 AutoPool vaults on ethereum (SystemRegistry 0x2218..4285 -> registry 0x7e58..64e4, listVaults=12, AutopoolETH verified impls); updateDebtReporting + flashRebalance revert AccessDenied() 0x4ca88867 from fresh addr (12/12, 5/5); 7d blocks 26416160-26466416: 49 updateDebtReporting txs ALL from ops EOA 0x1a65e4..96a3 paying 2.6-5.3 USD gas (ETH 1681.86, 2.1-2.6 gwei) for 0 gross, 60 flashRebalance txs from 4 SOLVER-role EOAs (6.8-17.4 USD gas, profit=spread not protocol pay), 0/264 vault Transfer logs to any caller; legacy Tokemak rollover already dead_end (attempt 613)",
+  "kb": [
+   "attempts:3498"
+  ],
+  "run_id": "e717bfe32af64742976587b3a2608005",
+  "at": 1795300139
+ }
+}

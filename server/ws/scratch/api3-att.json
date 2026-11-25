@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-api3",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Api3 on base is a Morpho VaultV2 curator, not a protocol with keeper rewards: its whole 1,326,143 USD Base TVL is one vault, Labu WETH 0x4d72fed1b6ce42f8dea811f7b6685ebe4ec04e01 (734.51 WETH, asset WETH 0x4200000000000000000000000000000000000006, owner/curator are API3 Safes 0x26d9aa12.../0x7d02b68d...). The only permissionless keeper fn is accrueInterest(): eth_call from a fresh address succeeds (not role_gated) but pays the caller 0 - the fee shares go to API3's fee recipients (VaultV2.sol L636-644). Its own oracle contracts (Api3ServerV1 0x709944a48cAf83535e43471680fDA4905FB3920a, Api3MarketV2, OEV extension) are deployed but have no stranger-paid functions.",
+  "numbers": "597 AccrueInterest events in ~7d (eth_getLogs chunks of 50k blocks, 0x35bb2ab-0x38c86ab; callers 0xe7dbde2e..., 0x3b6b2a48..., 0xc9cc05d3... via batch routers 0x2b08a911/0x4d28d900); gross per call to caller = 0 USD; gas 0.005 gwei (receipt 0x533a17ac37b20b5a992e794efc26ce8c84afc5ead57a0ba94ff46213d3ec2e8e effectiveGasPrice 0x4c4f28) so a ~150k-gas standalone accrueInterest is well under $0.01; TVL 1,326,143 USD (api.llama.fi/protocol/api3 2026-11-19); totalAssets 734.5149363233835e18 WETH (eth_call 0x01e1d114)"
+}

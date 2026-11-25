@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "goplus_locker_v2",
+  "status": "dead_end",
+  "checked": "GoPlus Locker V2 TokenLocker at 0xF17A08A7d41F53B24AD07Eb322CBBdA2ebdeC04b (Base; verified source via blockscout explorer source; DefiLlama adapter projects/goplus-locker-v2/index.js; nextLockId()=62, getter answers). Enumerated full ABI (explorer abi). Value-moving fns: lock/lockWithPermit/vestingLock/vestingLockWithPermit = user deposits that pay a fee to a FIXED feeReceiver 0x521faacdfa097ad35a32387727e468f7fd032fd6 (onlyOwner can change it); unlock(lockId) = owner reclaims own deposit, gated by validLockOwner modifier (eth_call unlock(1) from fresh addr reverts 'Not lock owner'); updateLock/updateLockWitPermit (owner top-up, validLockOwner); transferLock/acceptLock (owner->pendingOwner, pendingOwner gate); addOrUpdateFee/updateFeeReceiver (onlyOwner). No reward/bounty/harvest/keeper/checkpoint/claim function exists. Last OnUnlock (block 50,998,104, lockId 58) tx.from == recipient owner 0xdb90a3b897da478d7375d53ea68a699fb6231b5a = self-claim, never a stranger. 0 locker events in last 7 days (control: 103 lifetime logs, so query shape is valid)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-woofi-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1462,
+ "chain": "polygon",
+ "slug": "woofi-earn",
+ "name": "WOOFi Earn",
+ "category": "Yield",
+ "tvl_usd": 312860,
+ "url": "https://woofi.com/en/trade/",
+ "github": null,
+ "listed_days_ago": 1462,
+ "run_id": "9a882b44719c424b8600e56e3744107a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 7 SuperCharger vaults (~312.9k USD, main V2 USDC 0x1109e035); 7d = 6 WeeklySettle events on the 3 live V2 vaults (sample 6 of 6), all by WOOFi ops wallet 0x3668ba88, and start/endWeeklySettle revert '!ADMIN' from a fresh address; gross to caller $0 (receipts show only the 0x1010 gas refund), gas $0.007-0.019/call (206752-568406 gas x 414 gwei, POL $0.0822); only stranger-callable state fn accureInterest pays $0.",
+  "kb": [
+   "attempts:2376",
+   "protocols:909"
+  ],
+  "run_id": "9a882b44719c424b8600e56e3744107a",
+  "at": 1795062623
+ }
+}

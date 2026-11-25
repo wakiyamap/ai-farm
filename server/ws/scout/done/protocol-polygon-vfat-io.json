@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-vfat-io",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 916,
+ "chain": "polygon",
+ "slug": "vfat.io",
+ "name": "vfat.io",
+ "category": "Yield Aggregator",
+ "tvl_usd": 354824,
+ "url": "https://vfat.io/yield",
+ "github": null,
+ "listed_days_ago": 916,
+ "run_id": "21d61175fd4440d8a13aaa419d929502",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Sickle v1 automationStrategy 0xf0002b2f97bc4830943cb0fbf875af1c13af0ec0 compoundFor/harvestFor/executeFor gated by 1-entry admin whitelist approvedAutomators = Sickle's own bot 0xb0bada5d45d939a03c6d211d24a61a4418d7cd13 (isApprovedAutomator(stranger)=false, per-sickle consent required, executeFor from fresh addr reverts); sample of last 25 automation txs (~3.7d, etherscan): 13 keeper calls all from 0xb0bada, 0 strangers; caller pays gasAccount reimbursement only; gas 1,419,770 @ 240 gwei = 0.341 POL = $0.028/batch (POL $0.08118 coins.llama.fi); TVL 354,552 USD (api.vfat.io 2026-11-18)",
+  "kb": [
+   "attempts:2170",
+   "protocols:740"
+  ],
+  "run_id": "21d61175fd4440d8a13aaa419d929502",
+  "at": 1795014473
+ }
+}

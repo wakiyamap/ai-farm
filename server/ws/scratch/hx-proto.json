@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "harmonix_finance",
+  "status": "dead_end",
+  "checked": "ERC4626 vault protocol on HyperEVM. Factory (DefiLlama adapter projects/harmonix/index.js): 0x8085C67f122B7C7c7AB06864ac359536640f5E28, getVaultsTVL()=0x0e631718 returned 4,551,409 USDT at block ~51.59M 2026-11-18 (matches llama). 2 vaults in vaultList(uint256): 0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c (impl 0xe35d1c19625d0f72fee2697a4b1b5ab9cf8ac6be), 0x1368ee9d1212ae5b26ff166049220051a9eebc42 (impl 0x297e2f4f10814e2fcc8796801cf5d36c32cd1f9e). Implementations NOT verified on explorer; source from harmonixfi/core-smart-contract (repo HEAD is newer than deployment: deployed has redeem(shares,receiver,owner), no canCompleteWithdraw). On both vaults, from fresh address 0x1111...1111, eth_call harvestManagementFee(), harvestPerformanceFee(), updateNav() all revert 'INVALID_ROLE' (2026-11-18). Fees minted as shares to managementFeeReceiver/performanceFeeReceiver (protocol), not the caller. Keeper 0xa3e2e81079bf3d4f708be4c6a6897e82749424c6 calls updateNav()/harvestPerformanceFee() every 60-180s (6 txs in 8 min, explorer txs 2026-11-18). Other externals: acquireWithdrawalFunds only callable by balanceContract; zap/deposit/redeem are user functions, no keeper bounty found."
+}

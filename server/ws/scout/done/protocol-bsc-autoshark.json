@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-autoshark",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1791,
+ "chain": "bsc",
+ "slug": "autoshark",
+ "name": "AutoShark",
+ "category": "Dexs",
+ "tvl_usd": 136392,
+ "url": "",
+ "github": [
+  "autoshark-finance"
+ ],
+ "listed_days_ago": 1791,
+ "run_id": "b9667983581944a3b3852b2849d8906c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "UniV2-fork DEX, TVL 135,488 USD (llama 2026-11-19): jawsPool 0x5D2112Ba getReward() anyone-callable but pays a fresh caller 0 (emissions ended periodFinish 2024-01-19, was 1.44 JAWS/day); SharkChef 0x115Beb updateRewardsOf and PantherVault 0x9e7aEb harvest pay the vault not the caller; PantherChef 0x058451 pool0 allocPoint=0 lastRewardBlock 117,991,748 vs head 134,526,138; 7-day log counts unavailable: scout lane CU spent 301,302/300,000, bsc getLogs (incl WBNB control) all providers failed",
+  "kb": [
+   "attempts:2553",
+   "protocols:1048"
+  ],
+  "run_id": "b9667983581944a3b3852b2849d8906c",
+  "at": 1795101973
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "probe": "{'code': 3, 'message': 'execution reverted: funding swap failed', 'data': '0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001366756e64696e672073776170206661696c656400000000000000000000000000'}",
+ "trace_errs": [
+  {
+   "from": "0x000000000000000000000000000000000000f007",
+   "to": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0",
+   "fn": "0x7cda801a",
+   "err": "execution reverted",
+   "type": "CALL"
+  },
+  {
+   "from": "0xd98d34008d1bbb29013592c637f8e9fca4179fa0",
+   "to": "0x6131b5fae19ea4f9d964eac0408e4408b66337b5",
+   "fn": "0xe21fd0e9",
+   "err": "execution reverted",
+   "type": "CALL"
+  },
+  {
+   "from": "0x6131b5fae19ea4f9d964eac0408e4408b66337b5",
+   "to": "0x8f10b468b06c6fd214b65f87778827f7d113f996",
+   "fn": "0xd9c45357",
+   "err": "execution reverted",
+   "type": "CALL"
+  },
+  {
+   "from": "0x8f10b468b06c6fd214b65f87778827f7d113f996",
+   "to": "0xd7a5c6b52756e795f680b0f7e0c2f21281dde6ef",
+   "fn": "0xd9c45357",
+   "err": "execution reverted",
+   "type": "DELEGATECALL"
+  }
+ ]
+}

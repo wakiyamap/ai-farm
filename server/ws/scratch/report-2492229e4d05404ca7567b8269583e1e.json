@@ -1,0 +1,12 @@
+{
+  "run_id": "2492229e4d05404ca7567b8269583e1e",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "exactly base slow-taker liquidations (lead 172): taker census + fork proof",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1236", "leads:172"],
+  "wiki_pages": ["mechanisms/exactly-base-liquidations.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Lead 172 closed: the exactly market liquidate(address,uint256,address) entry is gated by a msg.sender allowlist (0x310a2694 isAllowed); the farm executor (Morpho native flash + SwapRouter02, targets as calldata per the 2026-11-15 decision, deployed 0x48ee2653 on the fork) proved the whole path up to the gate and reverts exactly there (fork tx 0x8ee9e726). The 5 counted crash captures (685 USD/72 h, 6-13 s windows) belong to exactly's own allowlisted liquidator system - the same incumbents attempts 637/1070 measured net -74 USD/day incl bad debt - not an open slow-taker class. Reopen needs exactly to list the farm executor plus a bad-debt-corrected net EV."
+}

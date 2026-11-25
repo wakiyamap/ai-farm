@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-timeswap-v1",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Timeswap V1 is AMM-based lending (like V2, KB 108): the pair contract exposes only user ops (mint/burn/lend/withdraw/borrow/pay, caller pays in) and collectProtocolFee (require msg.sender == factory.owner, E216); the Convenience wrapper's redeem/collect functions pay msg.sender itself, not a stranger caller. No liquidation incentive or keeper function exists. Protocol also fully dormant: zero events on all 3 pairs since 2026-09-06.",
+ "numbers": "TVL $43,939 (candidate). Pair balances 2026-11-23: 0xab1f6adc... 835.20 miMATIC (0xa3fa99a1..., token address+symbol read on chain; usd unpriced, miMATIC ~1 USD), 0x8b339b8c... 11,102.72 miMATIC, 0xb496e5c8... 9,506.13 USDC.e (6 dec on chain). 7d window blocks 97410083 (2026-11-16) to 97813283 (2026-11-23) by timestamp search; eth_getLogs no-topics: 0 logs pairs+factory+convenience, and 0 logs on all 3 pairs from block 93343744 (2026-09-06, ts checked). Control: same-shape getLogs on WPOL 0x0d500b1d... last 3000 blocks = 5823 logs. Factory 0x572583d84A72D2e2CBd72a6abC95CEe689828C42 CreatePair x2 (topic0 0x58e59580cc0153b14c553b340b7d7ae6ab3df9747aa39f82941816c5db3869f2 from cast keccak); selectors from cast sig. Sources: github.com/Timeswap-Labs/Timeswap-V1-Core + Timeswap-V1-Convenience."
+}

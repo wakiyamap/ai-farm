@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-concrete",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 649,
+ "chain": "ethereum",
+ "slug": "concrete",
+ "name": "Concrete",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 952855863,
+ "url": "https://app.concrete.xyz",
+ "github": null,
+ "listed_days_ago": 649,
+ "run_id": "aea787ea14bf4f0fb1a461d2ded98cba",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Concrete ethereum: 81 V2 Gene Vaults $952.9M TVL (10 impls, all explorer ABIs: 0 reward/bounty fns); closeEpoch/processEpoch/claimUsersBatch/priority-withdrawal role-gated (stranger eth_call reverts 0xe2517d3f MissingRole), only accrueYield() stranger-callable (impls fb65336d ctDeltaWeETH $499M + 1b5cd91e thUSD $20M, ALLOCATOR-gated on the other $350M) but pays 0; 7d blocks 26409875-26460130: YieldAccrued 109 (all Concrete role wallets 0xbd0c31d7,0xb9bf100f..; control Transfer 73 same shape), gas $0.012/call (70,980 gas x 0.106 gwei, ETH $1,623.80 coins.llama.fi), reward $0.",
+  "kb": [
+   "attempts:3128"
+  ],
+  "run_id": "aea787ea14bf4f0fb1a461d2ded98cba",
+  "at": 1795224058
+ }
+}

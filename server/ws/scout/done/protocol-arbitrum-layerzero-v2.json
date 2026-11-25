@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-layerzero-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "layerzero-v2",
+ "name": "LayerZero V2",
+ "category": "Bridge",
+ "tvl_usd": 66721883,
+ "url": "https://layerzero.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "3ebf5049bf714a849b8c773210b480fa",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bridge infra: endpoint 0x1a440760 pays msg.sender nothing; only reward-shaped fn is UlnV3 0x975bcd72 withdrawFee, gated by the caller's own fee balance (eth_call fresh addr reverts LZ_MessageLib_InvalidAmount(1,0)); 47 NativeFeeWithdrawn events in 7d (blocks 523016149-525716149) totalling 11.29 ETH (~19,840 USD at ETH 1757.03) went to only 4 protocol DVN/executor addresses (executor 0x31cae3b7 7.83, then 1.80/0.84/0.83), no stranger; gas ~0.0000012 ETH (~0.002 USD) per withdraw; OFT escrow withdrawPlannerFee/withdrawTreasuryFee/burnLockedUSDC all revert 0x5bd25eff from a fresh address.",
+  "kb": [
+   "attempts:2628",
+   "protocols:1100"
+  ],
+  "run_id": "3ebf5049bf714a849b8c773210b480fa",
+  "at": 1795119505
+ }
+}

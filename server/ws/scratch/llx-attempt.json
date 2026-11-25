@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-limitless-exchange",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Limitless Exchange on Base is a Polymarket-stack CLOB (CTFExchange fillOrder/fillOrders/matchOrders all onlyOperator; centralized matching by operator keys). OrderFilled has no reward field (no reward budget) and sampled fills carried fee=0; public CTF/NegRiskAdapter redeem/split/merge pay only the caller's own balance, so no function pays a stranger a keeper-style reward. Verdict role_gated with no_reward for public claim paths.",
+  "numbers": "TVL 312,558 USD (candidate). Active venue CTFExchange 0x05c748E2f4DcDe0ec9Fa8DDc40DE6b867f923fa5: 40 and 29 OrderFilled in two 10k-block windows (eth_getLogs topic0 0xd0a08e8c..., 2026-11-18, blocks 58,998,000-59,007,999 and 59,018,000-59,027,999 @ ~0.2s/block => ~60-145 fills/hour, order 1e3-1e4 fills/7d); 6 sampled fills 0.11-13.05 USDC gross, fee field = 0 in all 6. Legacy exchange 0xa4409D98... last tx 2026-05-25 (Blockscout). Base gas ~0.02-0.05 gwei: fill ~150-300k gas ~ $0.02-0.10 (estimate, no fill price source fetched). Sources: docs.limitless.exchange/user-guide/smart-contracts, Blockscout source of CTFExchange.sol/NegRiskAdapter.sol, rpc eth_getLogs."
+}

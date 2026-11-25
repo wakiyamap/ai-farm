@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-balancer-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 705,
+ "chain": "base",
+ "slug": "balancer-v3",
+ "name": "Balancer V3",
+ "category": "Dexs",
+ "tvl_usd": 302231,
+ "url": "https://balancer.fi/",
+ "github": null,
+ "listed_days_ago": 705,
+ "run_id": "e795e8be0aa447a4b6160a51de3974a3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no caller-paid fn on Base: Router/vault 0xbA1333333333a1BA1108E8412f11850A5C319bA9 (code ok, getVaultExtension->0x0e8b0765...) exposes only swap/liquidity/settle/unlock/quote; 5 TVL pools (sr-hBTC/cbBTC GYROE 109k, rETH-Aave 82k, Aave USDC/GHO 49k, waBasUSDC-DAG 15k, derolas-v2 10k) + 4 Surge/MEV hooks have no reward/claim/distribute/checkpoint fn (extension fns revert 0x9fd25b36 outside vault context); Swap sample 40 evs/2x200k blocks (~43/day, control non-zero); fees pay LPs, protocol fees pay DAO treasury 0-to-caller per arbitrum same-codebase measurement (attempts:2044).",
+  "kb": [
+   "attempts:2045",
+   "protocols:634"
+  ],
+  "run_id": "e795e8be0aa447a4b6160a51de3974a3",
+  "at": 1794987537
+ }
+}

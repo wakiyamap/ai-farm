@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-3jane-lending",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The only permissionless functions on MorphoCredit (accrueInterest, accruePremiumsForBorrowers) pay the caller $0 (feeRecipient = 0x0, no transfer to msg.sender in verified source); every keeper-ish action is role-gated (USD3 report() reverts '!keeper' from a stranger; CreditLine settle/closeCycle onlyOwnerOrOzd; MarkdownController onlyMorphoCredit). The fork has no liquidate. A single protocol keeper EOA pays gas to accrue premiums every ~3 days.",
+ "numbers": "7d window blocks 26,419,958-26,460,278 (rpc.py eth_getLogs, no-topic scan control = 382 logs on 0xde6e08ac): AccrueInterest 172 (topic0 0x9d9bd501), Withdraw 110 (0xa56fc0ad), Supply 87 (0xedf88704), PremiumAccrued 13 (0x090eee6a); no Borrow/Repay in 7d (their topic0s absent from the no-topic scan). Direct txs to proxy over 7d (explorer txs, sample of all ~26 shown): all selector 0x78c56d65 accruePremiumsForBorrowers from one EOA 0x485828f6373c5fb1aa1dd8a58d6a6e7803fc5b15 at ~1 per 3 days. Gas/call 632,883 (receipts 0xc8394a43..., 0x4e32fa06...) x gasPrice 1.077 gwei (eth_gasPrice) x ETH $1,594.65 (coingecko 2026-11-20 20:47 UTC) = $1.09; gross reward/call $0. eth_call accruePremiumsForBorrowers + accrueInterest from 0x1111..1111 succeed; USD3 report() reverts '!keeper'."
+}

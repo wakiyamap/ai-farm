@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-sodex-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "not_found. No SoDEX contracts on polygon: the DefiLlama registry (registries/sumTokens.js key 'sodex', no projects/ adapter) lists only two shared custody EOAs per chain, and eth_getCode = 0x for both on polygon. The polygon 'TVL' is plain USDC/USDT sitting in those EOAs, moved by the operator; there is no contract and therefore no callable function, reward or otherwise. Consistent with the same protocol's verdicts on arbitrum/bsc/base/ethereum/hyperevm (KB protocols 411/413/414/1391/1931).",
+ "numbers": "eth_getCode=0x for 0x72b2f19f05c8d78ea7bb9fb9fe551f06f31ba287 and 0x00b7aF089770a1ED44648213Cd56d6E4d80411f5 (rpc.py polygon latest, 2026-11-22). balanceOf controls: addr1 = 28,129.38 USDC + 11,657.50 USDT, addr2 = 999.93 USDC (USDC 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359, USDT 0xc2132D05D31c914a87C6611c10748AEb04B58e8F, both 6 decimals; addresses from registry + explorer txs of the EOA); sum ~40.8k USD matches DefiLlama TVL 40,916 (api.llama.fi/protocol/sodex-bridge). explorer txs polygon 0x72b2...: last 25 txs all custodial USDC transfers / inbound gas top-ups, block range 95.5M-97,691,858 (ts 1791989866-1795243256, Nov 14-22); the 25 shown txs are custodial transfers and gas top-ups only, no contract interaction beyond USDC/USDT transfers."
+}

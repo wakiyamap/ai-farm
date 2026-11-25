@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "ethos_rewards claim()",
+  "status": "measured",
+  "why": "EthosRewards 0xc7994a22318eceb08767fd21cd8f4d4e8803548a claim() paid 57 distinct stranger EOAs 1,349.9 WHUF (~$2,372 at WHUF $1.757, coins.llama.fi 2026-11-18) in the last 7 days (75 RewardClaimed events, blocks 55.92M-58.95M, eth_getLogs topic0 0x106f923f993c2149d49b4255ff723acafa1f2d94393f561d3eda32ae348f7241). Median claim $3.76, mean $31.62, largest 548.5 WHUF = $964 (tx 0x31e2b1e58d...). Senders are the claimers themselves (EOA-direct, no forwarder/keeper set). Gas per claim 110,427 x ~0.008 gwei = ~$0.0016 (receipt 0xaf52ca00..., ETH $1,812 llama.fi).",
+  "next_steps": "Contract EthosRewards proxy 0xc7994a22318eceb08767fd21cd8f4d4e8803548a, fn claim() (no args, no role; pays msg.sender their WHUF accrual; a caller with no committed stake reverts NoRewardsToClaim - NOT a pull-bounty for anyone). 7-day count 75 claims / 57 addresses. Catch: accrual comes from a committed balance in EthosVouchV2 (ETHOS_VOUCH_V2 0x8b5ef9c00152cadbfeda4f59212edb6e2e45de11 calls credit/debit); emissions emissionRateBps 690, currentRewardRateBps 1865 (WHUF-denominated, pool holds 1.79M WHUF). To earn: buy WHUF, commit via VouchV2, claim periodically - yield in WHUF carries WHUF price risk; no latency race (self-directed pull, no competition per claim). Builder to check VouchV2 commit/uncommit mechanics and any lock."
+}

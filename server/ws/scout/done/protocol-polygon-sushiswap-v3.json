@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-sushiswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1320,
+ "chain": "polygon",
+ "slug": "sushiswap-v3",
+ "name": "SushiSwap V3",
+ "category": "Dexs",
+ "tvl_usd": 847183,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": 1320,
+ "run_id": "06f4af81485a44208ca90ac45199e26a",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Pure UniV3 (SwapType) fork: factory 0x917933899c6a5F8E37F31E19f92CdBFF7e8FF0e2 + verified pool ABI have no callable function that pays the caller (createPool/setOwner/enableFeeAmount; mint/collect/burn/swap/flash/skim all LP-driven, setFeeProtocol/collectProtocol onlyFactoryOwner); 847k USD TVL sits in dormant pools: top 2 (0x1b0585...960c 149.9k USDC.e+102.2 WETH ~331k USD, 0xf1a1...2a32 1.01M WPOL+25.7 WETH ~128k USD at POL 0.081/ETH 1776, coins.llama.fi) had 0 Swap/Collect/Transfer events in last 7d, blocks 97261675-97564075 (same-run control: factory returned 7 PoolCreated).",
+  "kb": [
+   "attempts:2321",
+   "protocols:862"
+  ],
+  "run_id": "06f4af81485a44208ca90ac45199e26a",
+  "at": 1795051912
+ }
+}

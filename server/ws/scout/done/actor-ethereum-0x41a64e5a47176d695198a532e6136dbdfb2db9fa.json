@@ -1,0 +1,19 @@
+{
+ "id": "actor-ethereum-0x41a64e5a47176d695198a532e6136dbdfb2db9fa",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "ethereum",
+ "address": "0x41a64e5a47176d695198a532e6136dbdfb2db9fa",
+ "run_id": "d7be247e0e1d4f5989d2cc1140450032",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Proprietary flash-arb executor contract (unverified, deployed 2026-11-20 blk 26455798, called only by owner EOA 0xbe6bbb45 via 0x0c89e77a): Morpho USDT flashLoan 607-155,971 USDT -> multi-leg swaps Uni V4 PoolManager/V3/V2 routers + Aave V2 pool -> leftover ETH forwarded to EOA 0x4838b106; 23 calls in 1.8 h (contract 7 h old), gross skim median ~0.02 ETH (~30 USD)/call, 4 sweeps 2.6-10.9 ETH, 22/23 traced total 38.4 ETH = ~62.4k USD at ETH 1625.76 (coins.llama.fi 18:03 UTC); gas 0.4-9.1 Mgas @ 3.9-21.5 gwei = ~0.3-160 USD/call; protocol pays nothing to caller -> no_reward.",
+  "kb": [
+   "actors:295",
+   "attempts:3005"
+  ],
+  "run_id": "d7be247e0e1d4f5989d2cc1140450032",
+  "at": 1795198624
+ }
+}

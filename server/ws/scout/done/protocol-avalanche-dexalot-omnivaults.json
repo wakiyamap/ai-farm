@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-dexalot-omnivaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 11,
+ "chain": "avalanche",
+ "slug": "dexalot-omnivaults",
+ "name": "Dexalot OmniVaults",
+ "category": "Yield",
+ "tvl_usd": 390412,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 11,
+ "run_id": "0da80467b8784be0bd9eec891fbadbe2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All payout callables role-gated (executor topupGas/fallback OMNITRADER_ROLE, revert 0xe2517d3f from fresh addr; RFQ claimBalance REBALANCER_ADMIN, processXFerPayload PORTFOLIO_BRIDGE); only permissionless fn removeFromSwapQueue pays trader not caller, queue empty (0 SwapQueue/7d, control 2163 SwapExecuted same scan, blocks 100212985-100532985); RFQ fills = signed-quote taker swaps: 2163/7d, 282 takers (top 0x4a097d66, 648), median 100 USD p90 1000 max 29837, ~1.04M USD/7d, gas 118833x7.5gwei=0.0064 USD (AVAX 7.18 llama).",
+  "kb": [
+   "attempts:1580",
+   "protocols:290"
+  ],
+  "run_id": "0da80467b8784be0bd9eec891fbadbe2",
+  "at": 1794890349
+ }
+}

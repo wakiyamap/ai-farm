@@ -1,0 +1,28 @@
+{
+ "id": "protocol-ethereum-immutablex",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1227,
+ "chain": "ethereum",
+ "slug": "immutablex",
+ "name": "ImmutableX",
+ "category": "NFT Marketplace",
+ "tvl_usd": 442780,
+ "url": "https://imx.community/",
+ "github": [
+  "immutable"
+ ],
+ "listed_days_ago": 1227,
+ "run_id": "8848e0e16d23460eb61859a7aedd5101",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "imX bridge 0x5FDCCA53617f4d2b9134B29090C87D01058e27e9 withdraw(uint256,uint256) callable by anyone pays the owner's registered eth key: 13 payouts in 7d (12 txs, blocks 26414176-26463424, 11-14 to 11-21) gross ~70, median bash.85, max 63.59 GOG + 51.38 OMI (tx 0xf1de7a..e0cd), gas bash.04-0.50/call; but the payout is the user's own escrow principal, not a reward - caller captures nothing unless it owns the claim (rollup sunset 2026-02-11, migration done 2026-03-09)",
+  "kb": [
+   "attempts:3332",
+   "leads:362",
+   "protocols:1648"
+  ],
+  "run_id": "8848e0e16d23460eb61859a7aedd5101",
+  "at": 1795267567
+ }
+}

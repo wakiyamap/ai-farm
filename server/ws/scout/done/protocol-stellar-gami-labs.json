@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-gami-labs",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 176,
+ "chain": "stellar",
+ "slug": "gami-labs",
+ "name": "Gami Labs",
+ "category": "Risk Curators",
+ "tvl_usd": 35147804,
+ "url": "https://gamilabs.io/",
+ "github": null,
+ "listed_days_ago": 176,
+ "run_id": "081f1b735e4745a58edeef31b9b78b4c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Upshift/OZ FungibleVaults CCL3WITW..XRUTY (earnUSDC) + CC6TRAPQ..KZ7J (earnXLM) on Stellar: 5 events in 7d (ledgers 65493256@2026-11-15T15:38Z..65613256@11-22T12:58Z; 1 deposit 4,472 USDC, 2 withdraws, 1 operator update; quiet 6.5d); source upshift-protocol/stellar-upshift-vault-contracts shows every housekeeping fn require_operator/admin/controller and deposit/withdraw pay nobody but the caller's own shares - no fn pays a stranger; fee/call 1,020,502 stroops = 0.102 XLM = 0.013 USD (XLM 0.12866 @1795352266).",
+  "kb": [
+   "attempts:3727",
+   "protocols:1941"
+  ],
+  "run_id": "081f1b735e4745a58edeef31b9b78b4c",
+  "at": 1795353329
+ }
+}

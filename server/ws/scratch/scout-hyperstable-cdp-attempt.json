@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-hyperstable-cdp",
+ "outcome": "dead_end_recorded",
+ "reason": "verdict unpaid. LiquidationManagerV2.liquidate(uint8,address,uint256) is open to anyone (no role; eth_call from a stranger reverts only on USH balance, not a role) and pays the caller collateral at up to 7.5% over debt ((MCR-1)*25% bonus). But 0 liquidations in the last 7 days (242 all-time; last 2026-10-24), so no stranger was paid this week. One live liquidatable position now: vault 3 (wstHYPE), user 0x081942c75ff82341ab9f71d5df8b1309f6ddbc3e, debt 10,612 USH, CR 1.11 < MCR 1.3, gross ~+$797 on a full liquidation at today's prices; gas ~1M HYPE-gas = $0.01-0.02.",
+ "numbers": "7d Liquidation events: 0 (control: 258 logs same query all-time, of which 242 Liquidation); last liquidation block 49,411,436 = 2026-10-24T16:08Z; last-5 sample gross: debt 13.95-23.28 USH vs seized 0.19-0.32 wstHYPE x $72.19/share ~= break-even; current: vaultDebt(0)=4,503 USH, vaultDebt(3)=10,612 USH, all vaults MCR 1.3 (v8 1.1), liquidatorRewardBps=0.25e18, bufferRewardsBps=0.25e18 (eth_call liquidationConfiguration(uint8)); full liquidation of the CR-1.11 position: required 158.05 shares x $72.19 = $11,409 vs debt $10,612 = +$797 (7.5%); gasUsed 975k-1.02M, gasPrice 0.125-0.2 gwei => $0.009-0.014 at HYPE $69.50 (coins.llama.fi hyperevm:0x5555...5555); prices: HYPE $69.50, vault sharePrice 0=$69.58, 3=$72.19 (protocol's own assetPrice)"
+}

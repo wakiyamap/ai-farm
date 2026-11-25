@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-orderly-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1467,
+ "chain": "bsc",
+ "slug": "orderly-bridge",
+ "name": "Orderly Bridge",
+ "category": "Bridge",
+ "tvl_usd": 1343395,
+ "url": "https://orderly.network",
+ "github": null,
+ "listed_days_ago": 1467,
+ "run_id": "33a711604e004d159e7bed2b680a7881",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Vault 0x816f...67e9 (DefiLlama adapter): withdraw/rebalance onlyCrossChainManager (eth_call from fresh addr reverts 0x833d33e7), delegateSwap onlySwapOperator, any-call deposit/delegateSigner pay 0; 7d blocks 133,098,122-134,441,227: 220 AccountWithdraw + 400 AccountDepositTo, 200/220 sender==receiver via router 0x3ebd57..., fee 1 USDT/BNB (~-586) kept by protocol, gas bash.015/call (0.05 gwei x 511k gas, BNB 86.16 coins.llama.fi) - no stranger paid",
+  "kb": [
+   "attempts:2383",
+   "protocols:918"
+  ],
+  "run_id": "33a711604e004d159e7bed2b680a7881",
+  "at": 1795063761
+ }
+}

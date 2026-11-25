@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-four-meme",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 784,
+ "chain": "bsc",
+ "slug": "four.meme",
+ "name": "four.meme",
+ "category": "Launchpad",
+ "tvl_usd": 3540317,
+ "url": "https://four.meme",
+ "github": null,
+ "listed_days_ago": 784,
+ "run_id": "0169df460691436a873fe8ddb483cb76",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BSC launchpad, TVL 3.54M USD: permissionless TaxToken.dispatchTax() and OpenFourCore.migrate() pay the caller 0 (source: no msg.sender payout); claimFee/claimDevFee/claimPartnerFee pay only the caller's or recipient's own accrued balance; 5% protocol rebate auto-sends to fixed 0x2b6e6e4d...; FeeRouter claim events 0 in a sample of 3x5000-block windows of the last 7 days (block 134291906, control on 442 blocks ok, 5000 flaky); keepers role-gated (grantOperator/grantDeployer/withdraw)",
+  "kb": [
+   "protocols:673",
+   "attempts:2087"
+  ],
+  "run_id": "0169df460691436a873fe8ddb483cb76",
+  "at": 1794996376
+ }
+}

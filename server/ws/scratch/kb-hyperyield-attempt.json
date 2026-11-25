@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hyperyield",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid (dormant). Aave V3 fork on HyperEVM: the only public pay-the-caller function is liquidationCall (source-confirmed public, no role modifier), but both Pools emitted 0 events of any kind in the last 7 days and 0 LiquidationCall ever in the visible tx history; last tx to either pool was 2026-11-10. Nothing pays a stranger: no liquidatable-position bounty taken, and the sampled users carry zero debt.",
+  "numbers": "7d window blocks 51353223 (2026-11-15T18:45Z) to 51968043 (2026-11-22T18:45Z) from eth_getBlockByNumber timestamps; chunked no-topic eth_getLogs on pools 0x8cc02b04..f4e9 + 0xc0fd3f8e..1f12, 123 queries, 0 errors, 0 logs; control same shape at block 50859530 returns 2 logs (withdraw tx 0x6233039f2183839f7db7d937552a6bc4bdcf0806a79e7c7b21ba219c4d06583c); last tx Pool B block 50859530 ts 1794282608 (2026-11-10), Pool A block 50247580 ts 1793680632 (2026-11-03) per explorer txs; liquidationCall eth_call from fresh address reverts on health check (public in Pool.sol, core-contracts 1.19.4); gas ~200k x 1 gwei (eth_gasPrice) = 0.0002 HYPE = 0.0125 USD at HYPE 62.50 USD (coins.llama.fi coingecko:hyperliquid 2026-11-22 18:50 UTC); llama tvl 30,064 / borrowed 59,879 USD (api.llama.fi/protocol/hyperyield 2026-11-22 18:44 UTC)"
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-turtle-club",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The 3 Turtle Avalanche vaults are Lagoon v0.5.0 (OptinProxy -> impl 0x33F65C8D025b5418C7f8dd248C2Ec1d31881D465); every keeper-like function (settleDeposit, settleRedeem, expireTotalAssets, claimSharesOnBehalf, updateNewTotalAssets) is onlySafe/onlyValuationManager and reverts from a fresh address, and none of them pays the caller anything. 7 days of logs show only one investor EOA doing its own approve/withdraw - no keeper, no stranger paid.",
+  "numbers": "TVL avalanche 35,400 USD (api.llama.fi 2026-11-22). 7d window = blocks 100410372 (2026-11-15 17:55:31) -> 101091367 (2026-11-22 17:55:31), 680,995 blocks @0.888 s. eth_getLogs (chunked <=9.5k blocks, 3 vault addresses, no topics): 4 logs / 3 txs, all from EOA 0xfc67418ff4ffb7f39769587bfd425d750b9f0663 on the AVAX vault (Withdraw 30.79 AVAX, tx 0xba61376a68055b4c4ae1fc0ef525b6ed9a16f41ba97b937c3ee7f3bfd11f7673); USDC/BTC vaults 0 logs. settleDeposit(0) eth_call from 0x1111..1111 reverts on all 3 (role revert). Gross paid to callers in 7d: 0 USD; gas irrelevant. Source: routescan getsourcecode / Sourcify full match, src/v0.5.0/Vault.sol modifiers."
+}

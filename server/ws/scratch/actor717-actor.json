@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "address": "0x717230408d12cb4892f3150eab051dbfa66a19ad",
+  "strategy": "Farm live trial-feusd-redeem-hyperevm bot: public Felix feUSD redemption arbitrage through owner-only executor 0xd480dac87650150281e4e4287779130a0c695768; flash USDT0, buy feUSD, redeem, sell collateral, return native HYPE.",
+  "est_profit_usd_day": -0.05,
+  "evidence": "Confirmed by bots/live/trial-feusd-redeem-hyperevm/state/executor.json, executor owner() eth_call = this address, and 0x11885c37 receipt 0xd95c5a5157081c5fda0f40f61c59adc3248cd4b65991aa366f1228c795c1a2d0. Seven-day window blocks 51460993 (2026-11-17T00:12:06Z) to 52075813 (2026-11-24T00:12:06Z). Explorer lists 10 take calls, 4 success / 6 failed, including successful 0x01a91968dbc98b9f0d357080925ce1d73978c3ef19c6fdfb4807695525b35d4b, 0x33f4694eee54fdc292cec90f55a93008c13358b8ea1a33ba4b14b3d20cd29af4, 0xe744f8a7030a5930ee682399ee92e7ddef1065d23a0bc5dae34fc667b188c843, 0xd95c5a5157081c5fda0f40f61c59adc3248cd4b65991aa366f1228c795c1a2d0. Bot send_result log: 0.0145126 HYPE simulated gross, 0.0201296 HYPE receipt gas, estimated -0.005617 HYPE / 7d = -0.0509 USD/day at HYPE 63.41 USD (coins.llama.fi timestamp 1795479076). Gross is simulated, not measured realized; historical eth_getBalance through scout relay returns identical old/current values. Existing Felix lead 149 is dead_end and not reopened."
+}

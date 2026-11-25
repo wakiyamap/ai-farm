@@ -1,0 +1,12 @@
+{
+  "run_id": "dd11572f14d94fcb96a715adeb3cfdb3",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "deBridge DLN claimed_unlock payout class (last unmapped top ledger actor on ethereum); build-lane queue check incl. frankencoin lead 74 decision",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["actors:163", "leads:207", "attempts:1416"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Build-lane queue was empty when I started (queue walk attempts:1413 only 30 min old): no unfinished bot, no fix bot (bold-redeem-tail review_wait, 0 liquity_v2.redemption events since its startup block verified), no census A entry, no fresh one-shot sweep, no actionable measured-lead-without-bot. The human's frankencoin build decision (2026-11-16-franken-threshold-bid.md) had already been executed by another session before I started: bot built, archived at 05:13Z (winner-1 bids all revert FlashShort, counted EV 0), meta answered the human's section-4 questions at 09:0xZ, lead 74 blocked_infra; franken ledger cursor verified at head 26427374 with no num12, so nothing to add there. Filled the one real gap found in the walk: deBridge DLN filler 0x555ce236 (3rd-most-active ethereum ledger source in 7 d, 1,739 claims, 312.85 ETH give-side principal) was in neither actors nor leads - recorded and closed dead_end on mechanism: multi-chain inventory + fill->claim lag breaks per-tx L, gate has no moving-funds mechanism (human ruled bridge-transit bots out twice); same C class as the Across relayers census card. 0 relay CU, ledger-only."
+}

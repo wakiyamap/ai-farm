@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-vest-markets",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 965,
+ "chain": "arbitrum",
+ "slug": "vest-markets",
+ "name": "Vest Markets",
+ "category": "Derivatives",
+ "tvl_usd": 106461,
+ "url": "https://alpha.vestmarkets.com",
+ "github": null,
+ "listed_days_ago": 965,
+ "run_id": "704bbee50a2244aebf36ee40347c61a5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "SrcBridge proxy 0x80C526d1c2fddADB3Cd39810cd7A79E07b0EDa00 is the whole Arbitrum footprint (106,473.88 USDC = TVL); 7d (blocks 523.46M-525.76M): 41 withdraw() calls totaling 337,433 USDC, all by protocol operator 0x0eee2e82d76cb655f57bb1a4b62610020d69ff85 (BRIDGE_OPERATOR_ROLE), pays recipient arg and 0 to caller, gas $0.0047/call (134,502 x 0.02 gwei x WETH $1748.88); processSending role-gated, no caller-reward function exists",
+  "kb": [
+   "attempts:2686"
+  ],
+  "run_id": "704bbee50a2244aebf36ee40347c61a5",
+  "at": 1795132610
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-symbiosis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1697,
+ "chain": "optimism",
+ "slug": "symbiosis",
+ "name": "Symbiosis",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 26395,
+ "url": "https://symbiosis.finance",
+ "github": [
+  "symbiosis-finance"
+ ],
+ "listed_days_ago": 1697,
+ "run_id": "fe71d2f91bf843c39d89b848e4bb5e7e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "receiveRequestV2Signed is the only anyone-callable completing fn (MPC sig, no role) and pays the caller $0: the 21 BurnCompleted fee sums in 7d (blocks 159611659..159910491) = 0.00325 WETH ($5.62) + 1.70 USDC.e ($1.70) = $7.32 gross, all paid to the bridge contract (owner-withdrawable), none to the caller; all 21 calls by Symbiosis' own EOA 0x67f9b3e5..851d; gas $0.00005-0.0015/call (3 receipts); Portal.unsynthesize onlyBridge, receiveRequestV2 onlyMPC (fresh-address eth_calls revert).",
+  "kb": [
+   "attempts:4063",
+   "protocols:2189"
+  ],
+  "run_id": "fe71d2f91bf843c39d89b848e4bb5e7e",
+  "at": 1795427624
+ }
+}

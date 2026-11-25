@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-pangolin-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Pangolin V3 on Avalanche is a Uniswap V3 fork ('elixir'): the only reward-bearing functions are NPM claimReward(tokenId,recipient) / collect(params), gated by ERC721 owner-or-approved (stranger eth_call reverts 'Na'), and pool collectProtocol/setRewardRate behind onlyFactoryOwner; nothing anyone can call pays the caller. PNG incentive stream has ended (pool rewardRateEffectiveUntil 2026-04-29) and 0 ClaimReward events in 7 days; the 19 Collects are LPs self-collecting their own swap fees - no keeper or stranger bounty exists.",
+  "numbers": "7d NPM logs blocks 100512667-100815067 (30x10k eth_getLogs, same-shape control returned logs): ClaimReward 0, Collect 19, IncreaseLiquidity 12, DecreaseLiquidity 8, Transfer 10, Approval 1 (50 total). Sample 5 collect txs: callers 0x591ab0357154de66ea7a4cd753b9a1b0e4620ca2 x3, 0x1017399ccb846e9b803086f88cb6323e212d3ed9, 0xc894f5dc05a74944ebca9df288653c1053325cdb; gasUsed 231,441 @ 9 gwei = 0.00208 AVAX = $0.014 (AVAX $6.95, coins.llama.fi 2026-11-19 22:27 UTC). Pool PNG/WAVAX@500 0xFc2bb1598DeF8283EE36718f9adC0A721Fb2e722 rewardSlot()=(1e18 X48, until 1777649737=2026-04-29). TVL $122,441 Avalanche (api.llama.fi/protocol/pangolin-v3). Factory 0x1128F23D0bc0A8396E9FBC3c0c68f5EA228B8256 (2793 B code), NPM 0xf40937279F38D0c1f97aFA5919F1cB3cB7f06A7F."
+}

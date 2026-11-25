@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-maya-protocol",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Maya Protocol on ethereum is plumbing: the only active contract (MAYAChain_Router 0xe3985E6b61b814F7Cdb188766562ba71b446B46d) exposes deposit/transferOut/returnVaultAssets-style functions that pay the caller nothing; deposits are user-driven and transferOut/returnVaultAssets are called only by Maya's TSS vault EOAs. The pool TVL itself sits in codeless EOA vault addresses, so there is no callable function that pays a stranger.",
+ "numbers": "Router 0xe3985E...: 5,686 events in 7d (blocks 26,418,442 2026-11-15 -> 26,463,274 2026-11-21, eth_getLogs no-topic scan on 3 router addresses; only two topic0 present, cast keccak: Deposit(address,address,uint256,string)=0xef519b7e... 2,502, TransferOut(address,address,address,uint256,string)=0xa9cd03aa... 3,184; same-shape control = this non-zero scan). Other 2 routers 0 events/7d. Vault EOA 0xe1a928a7543c246e059221a96d85203d493bc463 eth_getCode=0x. TVL ethereum (midgard.mayachain.info/v2/pools, 2026-11-21, px USD from assetPriceUSD): ETH.ETH 250.34 ETH px 1653.46, ETH.USDC 120,309 USDC, ETH.USDT 110,037 USDT, ETH.WSTETH 1.48 wstETH px 2077.21; sum ~= 650k USD vs 719k candidate. Source: explorer source ethereum 0xe3985E... (MAYAChain_Router.sol, Etherscan verified)."
+}

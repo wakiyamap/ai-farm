@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-babydogeswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1500,
+ "chain": "bsc",
+ "slug": "babydogeswap",
+ "name": "BabyDogeSwap",
+ "category": "Dexs",
+ "tvl_usd": 1785662,
+ "url": "https://swap.babydoge.com/",
+ "github": null,
+ "listed_days_ago": 1500,
+ "run_id": "3b73131bb78640a5b8577aa60110cb9e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniV2 factory 0x4693B62E5fc9c0a45F89D62e6300a03C85f43137 + reflection single-stake vault 0xcecd3e7eadae1ad0c94f53bf6a2af188df1a90d0 (ABI from bytecode, 37 externals: owner setters/views/user deposit-withdraw only; stranger withdraw/emergencyWithdraw revert) -> no function pays a caller; vault idle: 0 logs in 6x5000-block windows over 7d (control WBNB 18,345 logs/1000 blocks), lastRewardBlock 1.92M blocks (~10 d) behind; totalPendingReward 1.43e12 BABY ~= $368 all-stakers, vault balance ~$652, gas 0.05 gwei ~$0.003/call",
+  "kb": [
+   "attempts:2421"
+  ],
+  "run_id": "3b73131bb78640a5b8577aa60110cb9e",
+  "at": 1795071502
+ }
+}

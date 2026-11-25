@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-iotube",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1766,
+ "chain": "polygon",
+ "slug": "iotube",
+ "name": "ioTube",
+ "category": "Bridge",
+ "tvl_usd": 267833,
+ "url": "https://iotube.org",
+ "github": null,
+ "listed_days_ago": 1766,
+ "run_id": "f5f0c8c5319b445ab0d27d239f20a944",
+ "result": {
+  "verdict": "no_reward",
+  "line": "ioTube polygon (TokenSafe 0xA239F03C..99e45, TokenList 0xDe9395d2..Bb0f7, Cashier 0xf72CFb70..29be, all eth_getCode+getters OK): no stranger-payable reward fn - TokenSafe's only state fn is mint() onlyOwner, TokenList all onlyOwner, Cashier withdrawToken reverts from a fresh address and pause/unpause/setDepositFee are owner fns; Cashier paused()=true since owner pause 2024-11-06, 0 txs on all 3 contracts in last 7 days (polygon.blockscout.com 2026-11-19), TVL 267,833 USD idle.",
+  "kb": [
+   "attempts:2545",
+   "protocols:1043"
+  ],
+  "run_id": "f5f0c8c5319b445ab0d27d239f20a944",
+  "at": 1795100173
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "stoneusd",
+  "status": "dead_end",
+  "checked": "2026-11-20 run abe329ec scout: DefiLlama adapter projects/stakestone-stoneusd/index.js names the only ethereum contract 0x6A6E3a4396993A4eC98a6f4A654Cc0819538721e (Token, \"StakeStone USD\"/STONEUSD, 18 decimals read on chain, totalSupply 1,604,710.84 -> $1.67M at $1.0393 from coins.llama.fi ts 1795191609). eth_getCode non-empty (~6.8 KB); symbol() returns STONEUSD. Verified source via explorer (Token.sol BUSL-1.1, OZ ERC20+AccessControl, constructor admin 0x1aa475b9bf0539d5133227e71d12a1c34b98a58e, accessRegistry 0x728da61583441bb4326481ae27edeaaaa2d75c19): full interface is ERC-20 + AccessControl + accessRegistry()/isBlacklisted() views + mint(to,amount) onlyRole(MINTER_ROLE) + burn(amount) self-burn. No reward/bounty/claim/harvest/redeem/settle function anyone can call; nothing pays a caller. 7-day no-topic eth_getLogs scan of the token (blocks 26,400,105-26,460,601): 4 logs total, 3 Transfers of 0.01 STONEUSD + 1 Approval, no unknown topic0; control same shape USDC 100 blocks = 13,101 logs."
+}

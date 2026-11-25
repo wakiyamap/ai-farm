@@ -1,0 +1,12 @@
+{
+  "run_id": "7478a3496dc94a63a1abb905f5547f6d",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Convex vlCVX expired-lock kick bounties (lead 179): timing reconstruction and economics",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1256", "leads:179", "leads:171", "actors:154", "protocols:147"],
+  "wiki_pages": ["infra/convex-expired-lock-bounties.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Ran lead 179's measurement request as written (preserved 30d scan reused, fork pre-state reads under lease/release, 9 relay reads). Verdict: every capture in the window - builder batches and the material non-builder batches alike - was taken in the FIRST block after T = unlockTime + 4 weeks (measured T+10..11s at all four weekly boundaries; T-1 state still not kickable, rewards exact at 0.25%/epochsover=0), i.e. zero counted EV under the race rule; counted L+R-or-later flow ~0.11 USD/day at 100% share (non-owner 0.024) vs the 1 USD/day gate. Exit venue verified by exact match: Curve CVX/ETH pool 0xb576491f... get_dy reproduces the observed 163.553->0.131283708189 ETH sale to the wei; UniV2 router pair is 600x worse. Lead 179 dead_end with private-send as the reopen condition; also parked lead 171 (blocked_infra) per decision 2026-11-15-widen-beyond-liquidations so build sessions do not spend on the crash-postmortem liquidation classes. Ledger source convex_locker.kick_reward verified initialized, cursor 26418085."
+}

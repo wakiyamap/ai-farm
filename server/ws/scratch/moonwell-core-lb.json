@@ -1,0 +1,16 @@
+{
+  "id": "moonwell_core.liquidate_borrow",
+  "protocol": "moonwell",
+  "kind": "liquidation",
+  "chains": {
+    "base": [
+      "0xedc817a28e8b93b03976fbd4a3ddbc9f7d176c22",
+      "0x628ff693426583d9a7fb391e54366292f509d457"
+    ]
+  },
+  "event": "LiquidateBorrow(address,address,uint256,address,uint256)",
+  "topic0": "0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52",
+  "indexed": [],
+  "data": ["liquidator", "borrower", "repayAmount", "mTokenCollateral", "seizeTokens"],
+  "actor_field": "tx_from"
+}

@@ -1,0 +1,170 @@
+#!/usr/bin/env python3
+"""Wiki CLI for agents.
+
+  wiki search "<query>" [--limit N]          ranked matches: path, type, first line
+  wiki read <path>                           print a page
+  wiki history <path>                        recent commits for a page
+  wiki write <path> -m "<message>" [--file F]  write a page (content from F or stdin)
+
+Pages start with frontmatter ('type', 'chains', 'protocols'); 'author' and
+'updated' are filled in automatically. Writes go through wiki-write, which runs
+as farmdata via sudo.
+"""
+import argparse
+import os
+import re
+import subprocess
+import sys
+
+WIKI_DIR = "/srv/farm/ws/wiki"
+WRITER = "/opt/farm/bin/wiki-write"
+PATH_RE = re.compile(r"^(?:[a-z0-9][a-z0-9_-]*/){0,3}[a-z0-9][a-z0-9_-]*\.md$")
+MAX_READ = 64 * 1024
+
+
+def die(msg, code=2):
+    print(f"wiki: {msg}", file=sys.stderr)
+    sys.exit(code)
+
+
+def pages():
+    for root, dirs, files in os.walk(WIKI_DIR):
+        dirs[:] = [d for d in dirs if not d.startswith(".")]
+        for name in files:
+            if name.endswith(".md") and not name.startswith("."):
+                full = os.path.join(root, name)
+                yield os.path.relpath(full, WIKI_DIR), full
+
+
+def parse(text):
+    meta, body = {}, text
+    if text.startswith("---\n"):
+        end = text.find("\n---\n", 4)
+        if end > 0:
+            for line in text[4:end].splitlines():
+                key, _, value = line.partition(":")
+                meta[key.strip()] = value.strip()
+            body = text[end + 5:]
+    return meta, body
+
+
+def first_line(body):
+    for line in body.splitlines():
+        line = line.strip().lstrip("#").strip()
+        if line:
+            return line[:160]
+    return ""
+
+
+def cmd_search(query, limit):
+    terms = [t for t in re.findall(r"0x[0-9a-fA-F]+|[\w.-]+", query.lower()) if len(t) > 1]
+    if not terms:
+        die("empty query")
+    need = max(1, (len(terms) + 1) // 2)
+    hits = []
+    for rel, full in pages():
+        try:
+            with open(full, encoding="utf-8", errors="replace") as f:
+                text = f.read(MAX_READ)
+        except OSError:
+            continue
+        meta, body = parse(text)
+        head = (rel + " " + " ".join(meta.values())).lower()
+        low = body.lower()
+        matched, score = 0, 0
+        for term in terms:
+            in_head, count = term in head, low.count(term)
+            if in_head or count:
+                matched += 1
+                score += (5 if in_head else 0) + min(count, 5)
+        if matched >= need:
+            hits.append((matched, score, rel, meta, body))
+    hits.sort(key=lambda h: (-h[0], -h[1], h[2]))
+    for matched, _, rel, meta, body in hits[:limit]:
+        kind = meta.get("type", "?")
+        if kind == "redirect":
+            print(f"{rel}\tredirect -> {meta.get('to', '?')}")
+        else:
+            print(f"{rel}\t{kind}\t{meta.get('updated', '')}\t{first_line(body)}")
+    if len(hits) > limit:
+        print(f"... {len(hits) - limit} more matches; add more specific terms")
+    if not hits:
+        print("no matches")
+
+
+def check_path(path):
+    if not PATH_RE.match(path):
+        die("path must look like 'mechanism/aave-liquidation.md'")
+    return os.path.join(WIKI_DIR, path)
+
+
+def cmd_read(path):
+    full = check_path(path)
+    try:
+        with open(full, encoding="utf-8", errors="replace") as f:
+            text = f.read(MAX_READ + 1)
+    except FileNotFoundError:
+        die(f"no such page: {path}")
+    sys.stdout.write(text[:MAX_READ])
+    if len(text) > MAX_READ:
+        print("\n... truncated")
+
+
+def cmd_history(path):
+    check_path(path)
+    res = subprocess.run(
+        ["git", "-c", f"safe.directory={WIKI_DIR}", "-C", WIKI_DIR, "log", "-n", "20",
+         "--format=%h %ad %an %s", "--date=short", "--", path],
+        capture_output=True, text=True, check=False)
+    sys.stdout.write(res.stdout or "no history\n")
+
+
+def cmd_write(path, message, file):
+    check_path(path)
+    if file:
+        try:
+            with open(file, encoding="utf-8") as f:
+                content = f.read()
+        except OSError as exc:
+            die(f"can't read {file}: {exc}")
+    else:
+        content = sys.stdin.read()
+    who = ["--role", os.environ.get("FARM_ROLE", "unknown"),
+           "--model", os.environ.get("FARM_MODEL", "unknown"),
+           "--run-id", os.environ.get("FARM_RUN_ID", "manual")]
+    proc = subprocess.run(["sudo", "-n", "-u", "farmdata", WRITER, *who, path, message],
+                          input=content, text=True, capture_output=True, check=False)
+    sys.stdout.write(proc.stdout)
+    sys.stderr.write(proc.stderr)
+    sys.exit(proc.returncode)
+
+
+def main(argv):
+    p = argparse.ArgumentParser(prog="wiki", description=__doc__,
+                                formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = p.add_subparsers(dest="cmd", required=True)
+    s = sub.add_parser("search")
+    s.add_argument("query")
+    s.add_argument("--limit", type=int, default=10)
+    r = sub.add_parser("read")
+    r.add_argument("path")
+    h = sub.add_parser("history")
+    h.add_argument("path")
+    w = sub.add_parser("write")
+    w.add_argument("path")
+    w.add_argument("-m", "--message", required=True)
+    w.add_argument("--file")
+    args = p.parse_args(argv)
+
+    if args.cmd == "search":
+        cmd_search(args.query, max(1, min(args.limit, 20)))
+    elif args.cmd == "read":
+        cmd_read(args.path)
+    elif args.cmd == "history":
+        cmd_history(args.path)
+    else:
+        cmd_write(args.path, args.message, args.file)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

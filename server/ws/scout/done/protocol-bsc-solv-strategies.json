@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-solv-strategies",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 559,
+ "chain": "bsc",
+ "slug": "solv-strategies",
+ "name": "Solv Strategies",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 33579385,
+ "url": "https://solv.finance",
+ "github": null,
+ "listed_days_ago": 559,
+ "run_id": "c9db2e7669b54ae4818bf69744bacfcc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Solv Strategies bsc (33.6M USD, 4 share tokens SolvBTC.BNB/BERA/STRK/XLM + navOracle 0x9c491539...ab50889, settles on OpenFundMarket 0xaE050694...42F3): stranger eth_call closeCurrentRedeemSlot reverts 'OFM: only pool manager' (setSubscribe/setRedeemNav also role-gated, claims self-paid per attempts:1411); 0 events on the 4 strategy poolIds in 5000-block (~62 min) sample at head 134219427 vs 665-log CAKE control; gross 0 USD, gas 0.00063 USD/tx (0.05 gwei x BNB 595.16, coins.llama.fi)",
+  "kb": [
+   "attempts:1935",
+   "protocols:549"
+  ],
+  "run_id": "c9db2e7669b54ae4818bf69744bacfcc",
+  "at": 1794963742
+ }
+}

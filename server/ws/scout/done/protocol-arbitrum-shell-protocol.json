@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-shell-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "shell-protocol",
+ "name": "Shell Protocol",
+ "category": "Dexs",
+ "tvl_usd": 107288,
+ "url": "https://www.shellprotocol.io/",
+ "github": [
+  "cowri"
+ ],
+ "listed_days_ago": null,
+ "run_id": "27a30f840be547db8ad832f2df529d29",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Shell Arbitrum = Ocean AMM hub (legacy TVL holder 0xC32eB36f886F638fffD836DF44C124074cFe3584, TVL $105,991; current Ocean 0x96B4f4E401cCD70Ec850C1CF8b405Ad58FD5fB7a idle since 1789464013): public functions are only doInteraction/doMultipleInteractions (user swaps - caller pays, 18 txs/7d on legacy Ocean, 2+6 swaps, all user ops) and onlyOwner changeUnwrapFee; verified source has no reward/claim/harvest/liquidation function paying a caller, gross/call = $0.",
+  "kb": [
+   "attempts:2634"
+  ],
+  "run_id": "27a30f840be547db8ad832f2df529d29",
+  "at": 1795120713
+ }
+}

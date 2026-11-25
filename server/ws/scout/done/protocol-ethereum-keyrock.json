@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-keyrock",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 76,
+ "chain": "ethereum",
+ "slug": "keyrock",
+ "name": "Keyrock",
+ "category": "Risk Curators",
+ "tvl_usd": 7161852,
+ "url": "https://keyrock.com/",
+ "github": null,
+ "listed_days_ago": 76,
+ "run_id": "b49361d8e567454d9d7e7ba3431ea26b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Keyrock on ethereum = 2 Morpho VaultV2 contracts (Keyrock USDC 0x04422053... totalAssets 7,835,869 USDC @decimals 6, Keyrock RLUSD 0x41BA71cf... ~736 USD) + old v1 vault 53k USDC: pure ERC4626, admin fns behind owner/curator/allocator roles (owner 0xba7554 = sole allocator), no reward/bounty/claim fn anyone can call; 5 txs in 7d (users approve/withdraw + owner allocation multicall), gross 0 USD per open call.",
+  "kb": [
+   "attempts:2896",
+   "protocols:1314"
+  ],
+  "run_id": "b49361d8e567454d9d7e7ba3431ea26b",
+  "at": 1795176219
+ }
+}

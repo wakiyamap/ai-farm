@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-hats-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Hats V2 (bug-bounty vaults) has an open-callable payment path (approveClaim after challenge period pays the claim beneficiary, not the caller) but paid nobody in the last 7 days: 0 txs to all 20 vaults (last vault tx 2026-11-08) and 0 claim events; eth_call approveClaim reverts NoActiveClaimExists. The only registry activity (logClaim, 3d ago) charges the caller a fee. No keeper/reward function pays a stranger; bounty only flows when a real bug report arrives.",
+ "numbers": "20 vaults (hatVaults(0..19)), assets USDC.e/USDC; arbitrum chainTVL 131604 USD (api.llama.fi 2026-11-18); 0/20 vaults with txs in 7d, last tx block 514042556 ts 1791788244 (explorer txs, Etherscan); registry last tx logClaim block 524671191 tx 0xf405833046e21be4d70872111962181a00f4a6927df910e7135de96099d24e9f; approveClaim eth_call revert 0x34286f66 NoActiveClaimExists; registry 0xa80d0a371f4d37afcc55188233bb4ad463af9e48"
+}

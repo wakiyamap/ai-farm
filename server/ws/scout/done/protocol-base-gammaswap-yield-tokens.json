@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-gammaswap-yield-tokens",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 466,
+ "chain": "base",
+ "slug": "gammaswap-yield-tokens",
+ "name": "GammaSwap Yield Tokens",
+ "category": "Yield",
+ "tvl_usd": 65577,
+ "url": "https://app.gammaswap.com/yield-tokens",
+ "github": null,
+ "listed_days_ago": 466,
+ "run_id": "1926f945717c4b0cafcae15dcddff506",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: 2 GS GammaPool vaults on base (0xaeb6aab7..48cf, 0xdf58ecbf..0a88; TVL 65,577 USD); only stranger-callable paying fn is liquidate(uint256) (no role gate, batchLiquidations is a no-op in VaultGammaPool), and it paid 0 in 7d: blocks 57845492(11-15)..60869494(11-22) = 28 txs, all from one EOA 0x820c5a8b (14x processDepositsAndWithdrawals + 14x processFeeCollection via 0x4dfbd084), 0 liquidations, liquidate(1) reverts from fresh address (no liquidatable loan); gas 0.03 USD (2.79M gas x 0.0062 gwei, ETH 1718.08 USD coins.llama.fi 2026-11-22T16:26Z)",
+  "kb": [
+   "attempts:3778",
+   "protocols:1975"
+  ],
+  "run_id": "1926f945717c4b0cafcae15dcddff506",
+  "at": 1795364959
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-moremarkets-xyz",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only keeper-class functions are report()/tend() on the RLUSD Term/vault 0xb962fd1aBd9A365140493Bd499AcF1eC0AcfF040; both revert '!keeper' from a fresh address (single keeper 0x5c39ad7b12487094f9222f0797b2a1ecbf708111, setKeeper onlyManagement) and pay nothing on-chain even when run. The free auctionClosed() pays 0; sellRepoToken is a swap without bounty; the hypeETH/BTC/USD mTokens are mint/burn-only ERC20s (Midas roles). Protocol is dormant: zero vault events in 7 days, vault holds ~$31, and moremarkets.xyz DNS no longer resolves.",
+  "numbers": "eth_call report()/tend() from 0x00000000000000000000000000000000cafe0001 @26458712: revert 'execution reverted: !keeper'; auctionClosed(): success, no transfer. eth_getLogs vault 26408312-26458712 (7d, no-topic) = 0; control same shape hypeETH 0x8E2C.. = 4 logs (0x96a13b46...). Last tx to vault: block 25833452 (ts 1787675867, 2026-08-24, etherscan txs). totalAssets()=30682692661137518172 (RLUSD 0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD, decimals 18 on chain) = 30.68 RLUSD = $30.68 (RLUSD $0.99997, coins.llama.fi ts 1795206840 2026-11-20). hypeETH assets 25.86 WETH-equiv (25.649274531431131771 supply x feed 100802624/1e8) ~ $41.6k (WETH $1608.52 coins.llama.fi ts 1795206832). Gas: n/a, no live calls."
+}

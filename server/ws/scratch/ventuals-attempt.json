@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-ventuals",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid - the only anyone-callable state functions are StakingVaultManager.processBatch/finalizeBatch (daily withdrawal-batch rounds, whenNotPaused only, no role gate); they pay the caller 0 (contract has no native/token payment to msg.sender, verified source) and over the last 7 days all 4 batch rounds were run by one project ops wallet. Protocol is sunsetting (June 15 2026): points discontinued, no token, claims just return users' own HYPE principal to their HyperCore account. No stranger-earning mechanism.",
+ "numbers": "7d (blocks 51180193-51499609, eth_getLogs on Manager 0x88888880793F89cE85777FF2e0e2d366bf05b20c): 8 ProcessBatch + 4 FinalizeBatch events = 4 daily rounds, all 8 txs from 0xdcb5c73a6789a91887e32ac3817dc410bfe270c2; 5 ClaimWithdraw (self-claims, e.g. 0x2028185650f136c3bad42984f3da2926968285fdff9248bf9f1adc4e4e07d178 batchClaimWithdraws, pays the owner's own principal, not the caller); 2 QueueWithdraw. eth_call processBatch(1)/finalizeBatch from fresh addr revert BatchNotReady(readyAt=1794928870) = timing, not role. Gas: processBatch 185,522, finalizeBatch 209,137 gas, gasPrice 0.12-0.21 gwei (samples 5 txs) -> ~2.4e-5 HYPE ~ $0.002/call at HYPE $68.62 (coins.llama.fi 2026-11-17). Gross to caller $0. Vault totalBalance 3842.91 HYPE ~ $263.7k (matches DefiLlama TVL $258k). Withdraw queue 5243, batches 285."
+}

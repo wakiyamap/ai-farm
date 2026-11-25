@@ -1,0 +1,20 @@
+{
+ "id": "actor-base-0x225a38bc71102999dd13478bfabd7c4d53f2dc17",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "base",
+ "address": "0x225a38bc71102999dd13478bfabd7c4d53f2dc17",
+ "run_id": "3e0080781afc42abb5f685a103aee751",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "UniswapX V3 dutch-order filler on Base via V3DutchOrderReactor 0x000000008a8330b5d1f43a62bf4c673a49f27ba0 (contract is a pass-through for treasury 0x51c72848...): 967 fills Nov 12-15 (~300/day, 51% of the 1900 fills on the two Base V3 reactors, 12+ other fillers take it too), gross median ~.4k USDC-equiv per fill (~M/day volume), gas 186-232k gas @0.006 gwei = bash.002-0.003/call; spread vs Chainlink ETH/USD at same fill block median ~0 bps (sample of 12 of 967; range -0.6..+17.9 bps) - paid by the order spread in-tx, edge thin, needs inventory and fast quoting",
+  "kb": [
+   "attempts:1512",
+   "leads:219",
+   "actors:183"
+  ],
+  "run_id": "3e0080781afc42abb5f685a103aee751",
+  "at": 1794872851
+ }
+}

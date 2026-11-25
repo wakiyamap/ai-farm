@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "nawa_protocol",
+  "status": "dead_end",
+  "checked": "Nawa USDT Vault (RWA, Shariah-compliant private-credit vault). Single ethereum contract per DefiLlama adapter projects/nawa/index.js: proxy 0x6FE78B942C566fE2b8D0881cf3577C1B1511F204 (UUPS, ERC1967 impl 0xabba41142d2bf47a847987603347f94120d45043, verified 'NawaUSDTVault' via explorer source). eth_getCode non-empty; getters answer: asset()=USDT 0xdac17f958d2ee523a2206206994597c13d831ec7, latestAum=150,000 USDT, pendingRedemptionAum=411,000 USDT, totalClaimable=0, approvedOutstanding=0. Permissionless fns (claim, claimFor(user), processQueue(n), deposit, requestRedeem, cancelRequest) pay the caller/recipient nothing: contract charges no on-chain fee (fees taken off-chain before AUM reports); claimFor pushes claimable[user] to user, keeper gets 0. eth_call claim()/claimFor(fresh) from fresh addr revert NothingToClaim (0x969bf728), not NotAuthorized. Work fns are role-gated: updateAum(aumUpdater 0xff30ec44f28a586f0e9371a4100e96ec52a98cfc), approveRequest/approveAndPay/payApproved(redeemManager 0x650e7a67615f8264eba01f5c7ad5d7d37413cd8e), fundFromBackstop(backstop=admin 0x61c507a6ac4e6fcf62d9ba337e8774d2e7520d7b), sweepToStrategy onlyAdmin. fundsManager 0x3c7c22d108ddbd8190f3caa3a5bcd99cbd8469e2 is an EOA (code 0x): swept USDT leaves chain."
+}

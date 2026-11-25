@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "puffer_stake",
+ "status": "dead_end",
+ "checked": "DefiLlama slug puffer-stake -> module puffer-lrt/index.js, single address pufETH vault 0xD9A442856C234a39a81a089C06451EBAa4306a72 (erc4626Sum). Proxy confirmed non-0x; ERC1967 impl slot = 0x3b2fdfdefe919dbcce0bc5ac426097d5523b8afa (PufferVaultV5, verified source via explorer). Getter totalAssets() = 9849.58 ETH at block 26462856 (2026-11-21). Keeper-ish externals initiateETHWithdrawalsFromLido(uint256[]), claimWithdrawalsFromLido(uint256[]), mintRewards(uint256), depositRewards(), revertMintRewards(uint256,uint256) all revert AccessManagedUnauthorized(caller) (0x068ca9d8) from fresh addr 0x1111...1111 -> AccessManager role-gated (docs: Operations Multisig). None transfers anything to the caller (proceeds to vault). No-topic eth_getLogs control scan of the vault, blocks 26403552 (2026-11-13) to 26462856 (2026-11-21) in two slices: 620 logs, topic0s only Transfer/Approval/Deposit/Withdraw-like; 0 RequestedWithdrawals/ClaimedWithdrawals (topics cast keccak of source sigs). Last-7d txs (explorer txs) are all user approve/transfer/redeem."
+}

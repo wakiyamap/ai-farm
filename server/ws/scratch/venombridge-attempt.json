@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-venombridge",
+  "outcome": "lead_recorded",
+  "reason": "unclear: No Ethereum vault events or stranger payouts appeared in the measured seven-day window. The source has a public deposit path that can credit an Everscale withdrawal bounty, but current payable bounty and remote receipt were not established, so gross and gas per earning call cannot be measured.",
+  "numbers": "7 d window: Ethereum blocks 26430050 (2026-11-16 20:41:59 UTC) through 26480292 (2026-11-23 20:41:35 UTC), timestamp from eth_getBlockByNumber. Vault 0x4aB740157721105aE503fbad756a578171512525: eth_getLogs address-only 0 logs; no-topic scan, no unknown topic0. Control: address-only USDC 0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, blocks 26480192-26480292, 10899 logs. Historical vault block 26311023: 3 logs, tx 0xef3835c722a778eb14f7aa22521a488ea4690927d3f6a55311c30aea032c8e57. Recent paid calls 0 observed; gross USD unpriced/unverified; gas USD unmeasured because no earning call in window. Source: verified MultiVaultFacetDeposit._deposit, MultiVaultFacetPendingWithdrawals, MultiVaultFacetFees.skim."
+}

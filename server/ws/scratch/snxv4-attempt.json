@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-synthetix-v4",
+  "outcome": "lead_recorded",
+  "reason": "unclear (contract identity). No confirmed synthetix-v4 contract on ethereum reachable from DefiLlama or the protocol's own sources: no adapter in DefiLlama-Adapters (tree shows only synthetix-v1/v2), no v4 repo in Synthetixio GitHub, and no USDT holder contract matching the 784k USDT TVL. So no getter, no eth_call, no 7-day function census was possible this session. What IS measured: the venue is the same USDT-margin perps pool of protocols:148 (keeper EOA active with Snaxpot VRF fulfills only), its 11-market settle/liquidate keeper class was already census-closed on 190 d of zero OrderCommitted with a valid topic-only control (attempt 603), and the TVL series is a declining withdrawal curve (1,265k -> 784k USDT since 2026-06-23), i.e. no sign of reward-bearing activity. Missing to close: the venue contract address (ask: from the app frontend bundle or an OrderFilled tx found via alchemy_getAssetTransfers on USDT).",
+  "numbers": "TVL 852,147 USD = 784,254 USDT + 41.956 WETH (api.llama.fi/protocol/synthetix-v4 @1795324763; USDT price 0.9978 coins.llama.fi @1795328031); head 26468791 (0x193e1b7); keeper 0x98d4cfd7...f8f: 5/25 recent txs in 7d window (since ts 1794723231), all fulfillRandomWords -> 0xd7f86b4b...0893a, value 0 (explorer txs); USDT top-25 holders: 0 contracts matching 784k (nearest 939,652 / 642,421 EOAs, eth.blockscout.com/api/v2); adapter repo git tree: projects/synthetix-v1, synthetix-v2 only"
+}

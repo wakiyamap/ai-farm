@@ -1,0 +1,28 @@
+{
+ "id": "protocol-bsc-gamma",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "gamma",
+ "name": "Gamma",
+ "category": "Liquidity Manager",
+ "tvl_usd": 484213,
+ "url": "https://www.gamma.xyz",
+ "github": [
+  "GammaStrategies"
+ ],
+ "listed_days_ago": null,
+ "retries": 1,
+ "run_id": "a2b3352d4aaf469aaacbe5fa2042ca42",
+ "result": {
+  "verdict": "role_gated",
+  "line": "308 vaults in 4 registries (Uniswap 23, Pancakeswap 0, Thena 232, ThenaV3 55); 869 Rebalance events in 7d (blocks 133299055-134642458, 42 vaults; sample of 15 txs: 3 Gamma keeper EOAs, incl 0x7a244a56..., 0x661d1534...); fresh-address eth_call reverts (only owner / only rebalancer); fee goes to caller-chosen feeRecipient, only 65/869 events nonzero, max 0.0006 USD (0.0086 VELVET) / 0.0017 USD (0.0034 ASTER, coins.llama.fi 2026-11-20T06:09Z) vs gas 782k-1.78M @0.0625 gwei = 0.028-0.064 USD",
+  "kb": [
+   "attempts:2790",
+   "protocols:1220"
+  ],
+  "run_id": "a2b3352d4aaf469aaacbe5fa2042ca42",
+  "at": 1795155156
+ }
+}

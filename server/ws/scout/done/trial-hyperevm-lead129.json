@@ -1,0 +1,20 @@
+{
+ "id": "trial-hyperevm-lead129",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "hyperevm",
+ "lead_id": 129,
+ "target": "HyperEVM non-liquidation maintenance classes beyond the closed keeper scout (lead 127): liquid-staking / yield-aggregator / curator pokes (kinetiq-*, sthype, hyperbeat-*, hyperlend-pooled, felix-vault",
+ "run_id": "96f3d2da389c46fb8b70defd9e225034",
+ "result": {
+  "verdict": "unpaid",
+  "line": "felix_cdp.redemption (only in-scope entry with a stream) 7 d: 397 events / 251 txs / 8 takers, 54,843 feUSD, mean 218/tx; sample of 20 largest: redemption leg at event price = -0.5 pct of face (largest 1,113.88 USD coll vs 1,120 feUSD), no caller reward; takeable->taken 0 blocks (state class; attempts 15-40 blocks apart, busiest taker median gap 180 s); winner fee 7.434 gwei on 1.20M gas = 0.615 USD (2nd 10.391 gwei on 1.99M = 1.417 USD); one attempt = 71-93k gas for a bare poke = 0.0005 USD at the 0.1 gwei base, ~0.6 USD for a full redemption; pinned poke families pay 0 (841/842/900/1018).",
+  "kb": [
+   "attempts:1476",
+   "leads:129"
+  ],
+  "run_id": "96f3d2da389c46fb8b70defd9e225034",
+  "at": 1794864186
+ }
+}

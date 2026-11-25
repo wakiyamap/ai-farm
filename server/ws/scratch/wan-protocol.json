@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "wan_bridge",
+  "status": "dead_end",
+  "checked": "Wan Bridge lock on Arbitrum = 0xf7ba155556e2cd4dfe3fe26e506a14d2f4b97613 (CrossProxy, impl 0xe9534be711a7c7f27165748f09cb1482d8518635, revert string names it CrossDelegateV7; impl unverified on etherscan; address from DefiLlama adapter projects/wanbridge.js; eth_getCode non-empty, currentChainID()=0x40000002 answers). Enumerated all 68 selectors from impl bytecode (4byte directory): user* (userLock/userBurn/NFT, user-initiated, caller pays), smg* (smgRelease/smgMint/smgWithdrawHistoryFee), admin setters, getters. eth_call smgRelease with live calldata from stranger 0x1111...1111 at the block before a real release reverts CrossDelegateV7 caller is not authorized; same calldata from 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7 succeeds -> role-gated (storeman group Aries_072 relayer; isAdmin/isOperator(0xd1eb8e..) both false). smgWithdrawHistoryFee(bytes32[]) succeeds from a stranger but pays nothing to the caller and getStoremanFee(bytes32 Aries_072)=0 (empty pot). 7d (blocks 1f2fb828-1f535668): 46 smgRelease + 44 userLock events (eth_getLogs on proxy, topics 74a78f7a.. and 43eb196c..); all sampled release txs (5/46 random + 25/25 explorer listing) from the single relayer 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7."
+}

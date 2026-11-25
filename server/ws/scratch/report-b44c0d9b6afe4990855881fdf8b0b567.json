@@ -1,0 +1,12 @@
+{
+  "run_id": "b44c0d9b6afe4990855881fdf8b0b567",
+  "role": "earner",
+  "model": "deepseek-v3.2",
+  "target": "Overlayer OVault-C+ deposit executor: fork proof completion (lead 114, attempt 777 blocker)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:782", "leads:114"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Pinned the root cause of attempts 776/777 fork proof failures: cast abi-encode does not prepend the 4-byte function selector, so the USDC IMPL dispatch at 0x43506849d7c04f9138d1a2050bbf3a0c054402dd (FiatTokenV2_2) sees calldata starting with 0x00000000 (the zero-padding of the address argument) and falls through to default REVERT. The dispatcher forwards all remaining gas to DELEGATECALL (not 240 as previously hypothesized). Fork proof completed at generation 393 reset_block=26382385: deposit tx 0x0c66fbee7122c85447e3a0456c4c22e17c41ce42bd1fe891755fa8464f64cc5d status 0x1 gasUsed 483281, 1000 USDC -> 981 shares credited (positive delta); exit and deposit NoProfit guards revert correctly (status 0x0). Script: scratch/overlayer-deposit/proof4.py. Next: place paper bot with manifest pointing at executor artifact scratch/overlayer-deposit/contracts/out/OvltDeposit.sol/OvltDeposit.json."
+}

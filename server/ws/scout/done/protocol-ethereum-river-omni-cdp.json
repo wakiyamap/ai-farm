@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-river-omni-cdp",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 962,
+ "chain": "ethereum",
+ "slug": "river-omni-cdp",
+ "name": "River Omni-CDP",
+ "category": "CeDeFi",
+ "tvl_usd": 354127,
+ "url": "https://app.riverai.inc/",
+ "github": null,
+ "listed_days_ago": 962,
+ "run_id": "fbca0faf783346a999a8f6cf39c00b4a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidate(address,address) 0x86b9d81f on SatoshiXApp diamond 0xb837...67e6 pays caller 2e18 satUSD (.99) but reverts 'TroveManager: nothing to liquidate' from a stranger on all 4 open troves (book 99,417 satUSD = 8.8k); 7 d blocks 26412217-26462473 (ts 1794647197-1795383067), no-topic getLogs all 14 adapter addresses = 12 logs from 2 txs (sample of 12 of 12; USDC control 5309), both Redemptions where the caller pays a 0.5% fee and takes WETH worth .48 / 96.6 (gas bash.29 / bash.22): 0 liquidations, 0 claims, bash.00 gross to a stranger.",
+  "kb": [
+   "attempts:3256",
+   "protocols:1585"
+  ],
+  "run_id": "fbca0faf783346a999a8f6cf39c00b4a",
+  "at": 1795253102
+ }
+}

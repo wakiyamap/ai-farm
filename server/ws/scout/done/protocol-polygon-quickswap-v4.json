@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-quickswap-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 464,
+ "chain": "polygon",
+ "slug": "quickswap-v4",
+ "name": "Quickswap V4",
+ "category": "Dexs",
+ "tvl_usd": 44949,
+ "url": "https://dapp.quickswap.exchange/",
+ "github": null,
+ "listed_days_ago": 464,
+ "run_id": "7445a924436b423aae5ff272d1c2bc55",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Algebra UniV3 fork, factory 0x134c1dbe48...; pool skim() (the only caller-paying fn) is plugin-gated (_checkIfPlugin, eth_call from fresh addr reverts notAllowed 0x932984d2); 0 Skim events in 7d across all 257 pools (blocks 97368887-97772087 2026-11-15..11-22, no-topic scan, control: 740 Swap logs same shape); no reward/claim/harvest/auction fn on factory/pool/plugin/vaultFactory; fees move inside swaps; gas 280 gwei, skim 69,485 gas = ~0.0015 USD (POL 0.07565, llama 1795364310); TVL 44.9k",
+  "kb": [
+   "attempts:3777",
+   "protocols:1973"
+  ],
+  "run_id": "7445a924436b423aae5ff272d1c2bc55",
+  "at": 1795364569
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "mycelium_perpetual_pools v2 12-hour PoolKeeper upkeep (trial-mycelium-v2-arbitrum)",
+  "outcome": "paper_placed",
+  "reason": "Built and started paper trial-mycelium-v2-arbitrum. Forge compiled the owner-only atomic executor; fork replayed a real paid v2 upkeep with a positive 0.548597 USDC wallet delta, early and after-take NotDue reverts, and an oversized minOut NoProfit revert. Manifest checker OK; paper service active/running, interval 43200, next due 2026-11-22 15:41:08 UTC. Direct paper relay simulation at that due time returned 565015 USDC units and a 538708 gas estimate. Trial needs no natural paper capture before review.",
+  "numbers": "scratch/trial-mycelium-v2-arbitrum/proof-result.json: success 0xf72103116035800e2369c437ef277f310861efbbe29a239ccd249cca30a94989 status 1, owner +548597 USDC units, 475665 gas; early 0x7c66648422ef95b03876f3f565a6cbf773cc9d1e0e66e41e608432982674ce0b and after-take 0x87e342182092d3808ed35bf31c2e5f71965fd8f01b31272e441c8426bb80a4e9 reverted NotDue; guard 0x51ca3386f4dd89806be6cf9fab35aeb489c7f38d3cd9e8b1caa2701cab29e549 reverted NoProfit. Paper start log at ts 1795357065, `sim` at due 1795362068 = (565015,'ok',538708).",
+  "bot_id": "trial-mycelium-v2-arbitrum"
+}

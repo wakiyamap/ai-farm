@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-portal",
+ "outcome": "lead_recorded",
+ "reason": "unclear: Portal/Wormhole token bridge has a genuinely permissionless reward path - completeTransfer(bytes) pays the VAA's fee field to msg.sender when the recipient is someone else - but no stranger-with-fee payment was confirmed in the 7d sample. 380 TransferRedeemed events/7d (topic0 0xcaf280c8..., blocks 0x1f2f611e..0x1f544b1e); sample of 15: 10 go through routers (0x1293a54e... x7), 5 direct, and all 5 direct receipts show exactly one ERC-20 transfer, a mint to the caller itself (3x 68 wSOL, 1x 318.19 WGNK, 1x 48.48 CAW) i.e. caller==recipient self-redemption, fee 0 (two transfers would appear if a fee went to a non-recipient msg.sender). Missing to close: per-VAA fee decoding (parseTransfer needs the payload, not the VAA) and whether non-zero-fee redemptions exist that a stranger could take before the relayer.",
+ "numbers": "380 TransferRedeemed/7d (eth_getLogs, 380 txs, 15 sampled); direct completeTransfer 5/15, routers 10/15; gasUsed 271k-309k, effGasPrice 0.02-0.52 gwei (receipts) => gas ~0.0000056-0.000146 ETH; fee samples paid to caller: 3x 68 wSOL (self-redemption, 0 fee), 318.19 WGNK (9 dec), 48.48 CAW; wSOL $74.64 coins.llama.fi 2026-11-19T12:16Z; bridge 0x0b2402144Bb366A632D14B83F244D2e0e21bD39c chainId()=23"
+}

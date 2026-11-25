@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-bundles",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 435,
+ "chain": "ethereum",
+ "slug": "bundles",
+ "name": "Bundles",
+ "category": "Indexes",
+ "tvl_usd": 215223,
+ "url": "https://bundles.fi/",
+ "github": null,
+ "listed_days_ago": 435,
+ "run_id": "06b861425b654f0f9cc2da01ef8e976a",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Index.rebalance (sel 0x98880506, indexFactory 0x661F8b1E.., anyone-callable with IIndexCallee callback): 8 calls in 7d, all by stranger EOA 0xee5f1096950ee296df87fe83c6726521d8c8259f (not index owner); gross 0.50-7.32 USD/call (5 of 8 traced, ETH forwarded in-tx) vs ~0.05 USD gas (361-442k gas @ 0.077 gwei, WETH 1593); caller pays BUN fee 132-1838 BUN (~1-13 USD) into the index; total ~18 USD/7d; AMM pairs 0 Swap/Mint logs in 7d (no-topic scan of 14 contracts).",
+  "kb": [
+   "attempts:3046",
+   "leads:336"
+  ],
+  "run_id": "06b861425b654f0f9cc2da01ef8e976a",
+  "at": 1795207765
+ }
+}

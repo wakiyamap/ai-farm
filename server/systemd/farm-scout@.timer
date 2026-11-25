@@ -1,0 +1,14 @@
+# Phase 14b: start scout session %i one minute after the last one ended. A session starts only
+# when the queue has a candidate and the local model answers (ExecCondition in the unit drop-in);
+# the 10-minute calendar entry is a safety net in case a skipped start does not re-arm the timer.
+[Unit]
+Description=Farm scout %i (phase 14b)
+
+[Timer]
+OnActiveSec=1min
+OnUnitInactiveSec=1min
+OnCalendar=*:0/10
+Unit=agent@scout-%i.service
+
+[Install]
+WantedBy=timers.target

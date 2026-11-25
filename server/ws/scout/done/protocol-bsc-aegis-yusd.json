@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-aegis-yusd",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 585,
+ "chain": "bsc",
+ "slug": "aegis-yusd",
+ "name": "Aegis YUSD",
+ "category": "Basis Trading",
+ "tvl_usd": 1227976,
+ "url": "https://app.aegis.im",
+ "github": null,
+ "listed_days_ago": 585,
+ "run_id": "02a42302da634431851cc1c0aa17af0b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All keeper-like fns role/whitelist/signature-gated (depositIncome -> AccessControlUnauthorizedAccount, mint -> NotWhitelisted, eth_call from fresh addr): only the protocol's own AA wallet 0x3ebd..4859 via bundler 0xd0dc..c279 acts, ~1 tx/day (daily depositIncome ~42.40 YUSD, e.g. tx 0x34be67aa, 93697 gas @0.06 gwei = bash.003 BNB 91.74 coins.llama.fi); 0 user claims vs 3138.87 YUSD rewards pot in 7d; TVL .23M; sample of 7 daily 5000-block windows, control USDC 34427 logs.",
+  "kb": [
+   "attempts:1955",
+   "protocols:562"
+  ],
+  "run_id": "02a42302da634431851cc1c0aa17af0b",
+  "at": 1794968545
+ }
+}

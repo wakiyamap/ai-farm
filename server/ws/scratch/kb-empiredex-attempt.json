@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-empiredex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Vanilla Uniswap V2 fork on BSC (factory 0x06530550A48F990360DFD642d2132354A144F31d, 40 pairs): no function that pays a stranger caller - mint/swap/burn/skim pay the caller itself or LPs; no masterchef/bounty layer found (site dead, no GitHub, explorer unverified). AMM still alive but quiet: ~380 swaps/7d extrapolated, 0 mints in sample.",
+  "numbers": "allPairsLength=40 (eth_call 0x574f2ba3, block latest 134537358); cadence 191,880 blk/day (timestamps 0x6af588d2..0x6aff274b over 1.4M blk); Swap/Mint sample 12 windows x 5000 blk (60,000 of 1,343,162 blk, 4.5%) on 40 pair addresses, topics [Swap,Mint] -> 17 Swap, 0 Mint (~380 swaps/7d); control: same-shape WBNB(0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c) Transfer 31 blk -> 423 logs; DefiLlama TVL Binance 1,864,129 USD 2026-11-19. Caveat: scout lane CU spent today (301,632/300,000), first getLogs zeros were public-node artifacts, sample rerun on paper lane."
+}

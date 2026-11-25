@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-titano-swych",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Titano Swych is a vanilla UniswapV2 fork on BSC (factory 0x80f112CD8Ac529d6993090A0c9a04E01d495BfBf, Sourcify exact match, no collect()). The only function anyone can call for pay is skim(address) on a pair; it is not role-gated (eth_call from a fresh address succeeds) but every pot is empty: balance-of-pair minus getReserves = exactly 0 on both sides of all 3 funded pools, and 0 Skim events in 7 days (full scan, 0 of 1,264 logged Swap+Skim events). LPs keep fees in reserve; nobody pays strangers here.",
+  "numbers": "TVL $668,599 (api.llama.fi, 2026-11-19). Factory allPairsLength=126. FeeTo=feeToSetter=0x264b60a8...a1b0 (EOA, no code). Funded pools: 0xcb3a3874 USDT/BUSD 253.1k/252.7k; 0x180847f6 WBNB/BUSD 79.65 WBNB/46.9k; 0x9aef03fd TITANO pool. skim pot = 0 on all 3 (exact balance-reserve diff, eth_call batch, 2026-11-19). 7d skim count 0 vs Swap control 1264 (eth_getLogs 133120874..134463977, 269 chunks). Sample of 4x5000 blocks over all 126 pairs: 15 Swap, 0 Skim. Skim gas ~30k x 0.05 gwei x $587.28/BNB = $0.0009 (eth_gasPrice 0x2faf080; coins.llama.fi WBNB 587.28).",
+  "bot_id": null
+}

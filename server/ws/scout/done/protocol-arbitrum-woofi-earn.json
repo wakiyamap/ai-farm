@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-woofi-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1462,
+ "chain": "arbitrum",
+ "slug": "woofi-earn",
+ "name": "WOOFi Earn",
+ "category": "Yield",
+ "tvl_usd": 1430304,
+ "url": "https://woofi.com/en/trade/",
+ "github": null,
+ "listed_days_ago": 1462,
+ "run_id": "cb746c5817c0461cb612811ed9924112",
+ "result": {
+  "verdict": "role_gated",
+  "line": "5 SuperCharger vaults (1.41M USD deposits): keeper ops role-gated (startWeeklySettle/endWeeklySettle revert '!ADMIN' from fresh addr); 8 settle events in 7d all by WOOFi wallet 0x3668ba88a32332269483a0eb2406a7f8149b486d paying caller 0; only stranger-callable accureInterest() pays 0 (gas 36,731/~$0.001 vs 119,774/~$0.004 for settle, ETH $1801 llama.fi; control Deposit getLogs=3).",
+  "kb": [
+   "attempts:2371",
+   "protocols:904"
+  ],
+  "run_id": "cb746c5817c0461cb612811ed9924112",
+  "at": 1795061263
+ }
+}

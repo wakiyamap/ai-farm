@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "kyotoswap",
+  "status": "dead_end",
+  "checked": "DefiLlama slug kyotoswap (forkedFrom U2, tvlCodePath registries/uniswapV2.js; projects/kyotoswap/index.js 404 on main, website dead deadUrl=true). Factory 0x1c3e50dbbcd05831c3a695d45d2b5bcd691ad8d8 (eth_getCode non-empty, Sourcify exact match; allPairsLength()=37, feeTo=0xbad1d1181c0a7c3189d504453aae6819b73aed09, ABI = plain U2 factory: createPair/getPair/allPairs/feeTo/feeToSetter, no reward fns). KSWAP token 0x29ABc4D03D133D8Fd1F1C54318428353CE08727E = proxied ERC20 (impl 0xda1835bd4b521594b2b85a2b288cafa81ccf8537: mint/blacklist/pause = role-gated). Active pairs from 7d token Transfers: KSWAP/WBNB 0xe3c6bbec762702801b682ab58e27b4137de3eaff (token1 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c WBNB) and KSWAP/BUSD 0x8379e36f123d7d9a03fb20317f4cc1b19630b5b5 (token1 0xe9e7cea3dedca5984780bafc599bd69add087d56 BUSD); pair ABI (Sourcify exact) = U2 + ControllerFee variant (controllerFeeAddress/feeAmount/setControllerFee*): swap/mint/burn/skim/sync only, no caller-paid reward fn. 97 Swap events in 7d on these 2 pairs (blocks 133875800-135219281, 2026-11-16 to 2026-11-23, relay eth_getLogs; KSWAP Transfer topic0 from cast keccak). Verdict no_reward: fees go to feeTo address and LPs, skim out of scope per skim type (S)."
+}

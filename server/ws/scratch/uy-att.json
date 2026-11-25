@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-ultrayield-curator",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. UltraYield's 3 HyperEVM contracts (Hyperbeat TokenizedAccount proxies 0xc061d389/0x96c6cbb6, LoopedHYPE boring vault 0x5748ae79) have anyone-callable housekeeping (collectFees, chargeManagementFee, processAllClaimsByDate) but no function pays the caller: fees go to a fixed feesCollector and withdrawals to the depositors themselves; the boring-vault and accountant entry points are requiresAuth. A daily keeper (0xe0b7deab...) eats gas to process claims for free.",
+ "numbers": "7d: processAllClaimsByDate ~1x/day (~7 calls, all by 0xe0b7deab801d864650dec58cbd1b3c441d058c79, explorer txs 0xc061d389...); sample tx 0x4809e6dca4...cdf13f: gasUsed 115,913 @ effectiveGasPrice 1.1 gwei = 0.0001275 HYPE = $0.009 (HYPE $68.14, coins.llama.fi 2026-11-17), paid to receiver 0.01031436 UBTC (~$1.2, redeemer's own funds), paid to caller $0. eth_call from fresh 0x1111: collectFees + chargeManagementFee succeed, no role revert. Source: explorer-verified Hyperbeat TokenizedAccount impl 0x8ef540b1..., zero reward/keeper payment to msg.sender in whole file."
+}

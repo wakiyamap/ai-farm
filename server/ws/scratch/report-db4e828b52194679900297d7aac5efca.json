@@ -1,0 +1,12 @@
+{
+  "run_id": "db4e828b52194679900297d7aac5efca",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "lead 191 item (a): official Elysium->HyperEVM USDC withdrawal gas cost per side + anyone-can-claim (measure lane; queue was empty, scan #11 minutes old, took the phase12f read-and-quote task ahead of the 2026-11-16 17:45Z analysis)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1348", "leads:191"],
+  "wiki_pages": ["infra/elysium-official-bridge.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Official USDC exit Elysium->HyperEVM is gas-only (~0.007-0.03 USD both sides: 175,487 gas @0.5 gwei on Elysium + 159-176k gas @0.1-1.26 gwei Outbox claim on HyperEVM, HYPE ~67.5 USD), 1:1, after a 483,840-block challenge (~5.6 d, UI ~7 d), and the Outbox claim is open to anyone (recipient needs no HyperEVM gas) - so Relay's ~2.5-3.9% elysium exit ask is purely the price of skipping the wait. Correct docs pinned at elysium.kinetiq.xyz (docs.elysiumchain.tech is old Vulcan); addresses verified live via router getters; route live (13 claims/2.7 h). Item (b) + the series stats stay with the post-17:45Z 2026-11-16 analysis; crontab logger left running per decision. 10 research-lane relay reads, 0 fork, 0 tx."
+}

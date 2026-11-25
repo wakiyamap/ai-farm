@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "opinion",
+ "status": "dead_end",
+ "checked": "OPINION prediction exchange (CLOB, Polymarket-style). Contracts from opinion_clob_sdk 0.7.0 config.py + https://openapi.opinion.trade/openapi/quoteToken: ConditionalTokens 0xAD1a38cEc043e70E83a3eC30443dB285ED10D774 (eth_getCode ok, holds 2,715,703 USDT 18-dec = candidate TVL), fee_manager 0xC9063Dc52dEEfb518E5b6634A6b8D624bc5d7c36, ctfExchange 0x5f45344126d6488025b0b84a3a8189f2487a7246. ABI from SDK (Gnosis CTF: splitPosition/mergePositions/redeemPositions/prepareCondition/reportPayouts) and frontend chunk 3007. 7-day eth_getLogs scan blocks 133335463-134145462 (162x5000): CTF 1191 PayoutRedemption (780 distinct redeemers, 19,675 USDT total, top 4701/3613/1725/1127/1014, median 0.028), 17866 PositionSplit, 17850 PositionsMerge; exchange 37,271 txs, 20/20 sampled called by ONE operator EOA 0x48e32e982a4a7f2462ce53109934826d8834c717 (backend settles all trades, gasless for users). eth_call redeemPositions from fresh addr 0x1111..1111 on a resolved condition reverts (a stranger holding no tokens is paid nothing). Redemption pays the caller their own collateral, 1:1 USDT, no keeper reward; docs confirm users/operators pay own gas, no bounty. Dispute system stakes OPN for 2x back (bet, not keeper flow); no reward/claim/keeper fn found in ABIs or bytecode selectors."
+}

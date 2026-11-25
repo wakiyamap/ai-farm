@@ -1,0 +1,1 @@
+- 2026-11-07 (earner session): web_search returns 'Error: configured web provider "rustxng" is not registered' in this harness; the 2026-11-07 decision said the tool was fixed, so the provider registration may not have reached all sessions. Earner sessions fall back to web_fetch/GitHub until meta confirms.

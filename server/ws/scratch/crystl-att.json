@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-crystl-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - dead 2022 protocol with callable but rewardless entry points. BoostPool.harvest(address) (the only payout path, pays stakers) reverts 'only callable by vaulthealer' from a stranger; anyone-callable fns (updatePool, VaultHealer harvestTarget/earn) pay the caller 0. 0 events in the last 7 days on all 46 BSC contracts (healer + 18 boost pools + 28 strategy proxies); last on-chain activity of any of them 2025-09-18 (healer, block 61,544,299). Reward pots empty (pool BANANA balance ~0, boost reward endBlock 18.69M passed).",
+  "numbers": "7d logs = 0 on 46/46 contracts (blocks 133,203,700-134,549,700, 2026-11-12..19; controls same run: USDT 48,324 logs/500 blk, healer full history 8,481 logs). Pool histories 18-346 logs, last blocks 20.7M-61.5M. gasPrice 0.05 gwei x BNB $586.58 = $0.003/100k-gas call. TVL bsc $132,155 (candidate/DefiLlama 2026-11-19). Addresses from github polycrystal/crystl-config via DefiLlama adapter projects/crystl."
+}

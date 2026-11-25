@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-balancer-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Balancer V3 on Base has no callable function that pays the caller: the Router/vault 0xbA13...bA9 is the only public entry (extension reverts outside vault context) and its full ABI is swap/liquidity/settle/unlock/quote plus transfer helpers; the 5 TVL pools and all 4 hook contracts expose no reward/claim/distribute/checkpoint/auction fn. Swap fees accrue to LPs, protocol fees to the DAO treasury ($0 to caller, measured on the same codebase on arbitrum, attempt 2044). Activity is negligible anyway (~43 swaps/day).",
+ "numbers": "TVL 302,231 USD candidate / 5 tracked pools ~264k USD (DefiLlama yields API 2026-11-18). Router Swap events: sample of 40 of full history in 2x200k-block windows (58,582,893-58,982,892: 24 + 16; ~0.2s blocks -> ~43 swaps/day; same-shape control non-zero). 1,818 PoolInitialized events since fromBlock 25,343,854 (eth_getLogs, 12 chunks of 3M blocks) = mostly dust permissionless pools. Gas reference: Base native gas, no reward call to price since gross = 0. Source: eth_getLogs via relay (scout lane), explorer abi (Blockscout), api-v3.balancer.fi GraphQL, registries/balancer.js."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "avalanche",
+ "target": "protocol-avalanche-hedgefarm",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid - the only stranger-callable function is SmartFarmooor Alpha2 harvest()/performUpkeep() (public, no role revert), but it pays the caller nothing (fee to feeManager, profit compounded) and the vault is empty (totalSupply 0, module balance 0). The whole $36k TVL sits in Alpha1 v1/v2 vaults whose harvest(bool)/start/stop are onlyManagerOwner (revert 'Unauthorized' from a fresh address). 0 calls of any kind in the last 7 days on all 3 contracts; protocol dormant since 2023-2024.",
+ "numbers": "TVL 36,365 USDC = v1 0xdE41..929E 6,695.06 + v2 0x6090..01da 29,669.44 (totalBalance() 6,695,057,648 + 29,669,444,767 µUSDC; = DefiLlama 36,362). Alpha2 0x3C39..B1A3: totalSupply 0, getLastUpdatedModulesBalance 0, baseToken BTC.b (8dec), minHarvestThreshold 50,000 = 0.05 BTC.b, performanceFee 20%, automationRules 0x0. 7 d window blocks 100455179@2026-11-16T06:40Z..100455179@2026-11-23T06:40Z (routescan head 100740991@2026-11-23T06:39Z, public-provider heads differ): 0 txs (txlist desc page1 last txs v1 2026-10-02 1 wei dust 0x3b8beebf, v2 2024-05-07 0x2ba0622e, alpha2 2023-10-01 0xd4640f8a), 0 internal calls, 0 event logs; control USDC Transfers 2731 logs / 2000 blocks. Gas 7.9 gwei x 200k = 0.0016 AVAX = 0.011 USD at AVAX 6.71 USD (coins.llama.fi 2026-11-23T06:41Z). eth_call harvest(false) from 0x1111..1111: v1/v2 REVERT 'Unauthorized'; alpha2 harvest() REVERT TRANSFER_ZERO_VALUE (module, not role)."
+}

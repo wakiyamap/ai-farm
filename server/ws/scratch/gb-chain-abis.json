@@ -1,0 +1,119 @@
+{
+ "WMoo": {
+  "name": null,
+  "proxy_for_impl": true,
+  "fns": []
+ },
+ "Moo": {
+  "name": null,
+  "proxy_for_impl": true,
+  "fns": []
+ },
+ "ERC4626a": {
+  "name": "ERC4626Adapter",
+  "proxy_for_impl": false,
+  "fns": [
+   "acl()",
+   "asset()",
+   "contractType()",
+   "creditManager()",
+   "deposit(uint256,address)",
+   "depositDiff(uint256)",
+   "mint(uint256,address)",
+   "redeem(uint256,address,address)",
+   "redeemDiff(uint256)",
+   "serialize()",
+   "targetContract()",
+   "vault()",
+   "version()",
+   "withdraw(uint256,address,address)"
+  ]
+ },
+ "ERC4626b": {
+  "name": "ERC4626Adapter",
+  "proxy_for_impl": false,
+  "fns": [
+   "acl()",
+   "asset()",
+   "contractType()",
+   "creditManager()",
+   "deposit(uint256,address)",
+   "depositDiff(uint256)",
+   "mint(uint256,address)",
+   "redeem(uint256,address,address)",
+   "redeemDiff(uint256)",
+   "serialize()",
+   "targetContract()",
+   "vault()",
+   "version()",
+   "withdraw(uint256,address,address)"
+  ]
+ },
+ "gateway": {
+  "name": "BalancerV3RouterGateway",
+  "proxy_for_impl": false,
+  "fns": [
+   "addLiquidityUnbalanced(address,uint256[],uint256,bool,bytes)",
+   "balancerV3Router()",
+   "contractType()",
+   "permit2()",
+   "removeLiquiditySingleTokenExactIn(address,uint256,address,uint256,bool,bytes)",
+   "swapSingleTokenExactIn(address,address,address,uint256,uint256,uint256,bool,bytes)",
+   "version()"
+  ]
+ },
+ "wrap0bfc": {
+  "name": "TransparentUpgradeableProxy",
+  "proxy_for_impl": true,
+  "fns": [],
+  "impl": [
+   {
+    "address_hash": "0x487c2C53c0866F0A73ae317bD1A28F63ADcD9aD1",
+    "name": "StataTokenV2"
+   }
+  ]
+ },
+ "router": {
+  "name": "Router",
+  "proxy_for_impl": false,
+  "fns": [
+   "addLiquidityCustom(address,uint256[],uint256,bool,bytes)",
+   "addLiquidityHook(tuple)",
+   "addLiquidityProportional(address,uint256[],uint256,bool,bytes)",
+   "addLiquiditySingleTokenExactOut(address,address,uint256,uint256,bool,bytes)",
+   "addLiquidityUnbalanced(address,uint256[],uint256,bool,bytes)",
+   "donate(address,uint256[],bool,bytes)",
+   "getSender()",
+   "initialize(address,address[],uint256[],uint256,bool,bytes)",
+   "initializeHook(tuple)",
+   "multicall(bytes[])",
+   "permitBatchAndCall(tuple[],bytes[],tuple,bytes,bytes[])",
+   "queryAddLiquidityCustom(address,uint256[],uint256,address,bytes)",
+   "queryAddLiquidityHook(tuple)",
+   "queryAddLiquidityProportional(address,uint256,address,bytes)",
+   "queryAddLiquiditySingleTokenExactOut(address,address,uint256,address,bytes)",
+   "queryAddLiquidityUnbalanced(address,uint256[],address,bytes)",
+   "queryRemoveLiquidityCustom(address,uint256,uint256[],address,bytes)",
+   "queryRemoveLiquidityHook(tuple)",
+   "queryRemoveLiquidityProportional(address,uint256,address,bytes)",
+   "queryRemoveLiquidityRecovery(address,uint256)",
+   "queryRemoveLiquidityRecoveryHook(address,address,uint256)",
+   "queryRemoveLiquiditySingleTokenExactIn(address,uint256,address,address,bytes)",
+   "queryRemoveLiquiditySingleTokenExactOut(address,address,uint256,address,bytes)",
+   "querySwapHook(tuple)",
+   "querySwapSingleTokenExactIn(address,address,address,uint256,address,bytes)",
+   "querySwapSingleTokenExactOut(address,address,address,uint256,address,bytes)",
+   "removeLiquidityCustom(address,uint256,uint256[],bool,bytes)",
+   "removeLiquidityHook(tuple)",
+   "removeLiquidityProportional(address,uint256,uint256[],bool,bytes)",
+   "removeLiquidityRecovery(address,uint256,uint256[])",
+   "removeLiquidityRecoveryHook(address,address,uint256,uint256[])",
+   "removeLiquiditySingleTokenExactIn(address,uint256,address,uint256,bool,bytes)",
+   "removeLiquiditySingleTokenExactOut(address,uint256,address,uint256,bool,bytes)",
+   "swapSingleTokenExactIn(address,address,address,uint256,uint256,uint256,bool,bytes)",
+   "swapSingleTokenExactOut(address,address,address,uint256,uint256,uint256,bool,bytes)",
+   "swapSingleTokenHook(tuple)",
+   "version()"
+  ]
+ }
+}

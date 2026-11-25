@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-equilibria",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: PendleBooster.earmarkRewards(pid) on 0x4D32C8Ff2fACC771eC7Efc70d6A8468bC30C26bF is open (no role; eth_call from a fresh address succeeds) and pays the caller earmarkIncentive 0.5% of claimed rewards, but nothing is claimed: 0 EarmarkIncentiveSent and 0 RewardClaimed in 7d and 30d, and the pending pots are empty (4 of 5 sampled markets zero, largest 0.018 PENDLE ~ 0.023 USD -> 0.5% = 0.0001 USD vs ~1.02 USD gas). Matches attempts:2323 on bsc/arbitrum/base/optimism/hyperevm; ethereum was the remaining chain and closes the pattern.",
+ "numbers": "7d blocks 26,416,821 (2026-11-14T13:41Z) -> 26,463,800 (2026-11-21T13:33Z): 0 EarmarkIncentiveSent (topic0 0xeb61b307.. from interface), 0 RewardClaimed (0x24b5efa6..); no-topic scan same range 17 logs (Withdrawn 0x92ccf450 x3 = topic0 validated, 0x73e52f1e x14 from vlEqb txs). 30d from block 26,249,548: 0 EarmarkIncentiveSent. poolLength=380, earmarkIncentive=50/10000. Pending PENDLE (0x808507121b80c02388fad14726482e061b8da827, 18 dec) via claimRewards view, sample 5 of 380 markets: [0,0,0,0,0.01813]; PENDLE 1.2634 USD, ETH 1687.43 USD (coins.llama.fi 2026-11-21T13:26Z). Gas: eth_estimateGas earmarkRewards(378)=401,985 @ 1.499 gwei = ~1.02 USD. ethereum TVL 6.57M USD (api.llama.fi chainTvls 2026-11-21)."
+}

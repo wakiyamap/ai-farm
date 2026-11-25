@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "lombard_vaults",
+  "status": "dead_end",
+  "checked": "BoringVault managed fund ('Bitcoin Earn'). DefiLlama adapter projects/lombard-vault (module lombard-vault/index.js) points to vault LBTCV=0x5401b8620E5FB570064CA9114fd1e135fd77D57c (eth_getCode non-0x, confirmed). Traced: vault.hook()=0x2ea43384f1a98765257bc6cb26c7131debdeb9b3 (TellerWithMultiAssetSupport), hook.accountant()=0x28634d0c5edc67cf2450e74dea49b90a4ff93dce (AccountantWithRateProviders, verified source). Accountant authority (AccessManager)=0xf3e03ef7df97511a52f31ea7a22329619db2bdf4, owner()=0x0. Keeper-relevant fns: updateExchangeRate(uint96) is solmate 'requiresAuth' -> eth_call from fresh addr 0x...deadbeef reverts 'UNAUTHORIZED'; struct AccountantState has NO reportReward field so it pays the caller 0. claimFees() is msg.sender==vault only. Vault manage() is requiresAuth (manager only). Public enter/exit/deposit are user-driven (caller deposits assets, is not paid a reward). No function pays a stranger."
+}

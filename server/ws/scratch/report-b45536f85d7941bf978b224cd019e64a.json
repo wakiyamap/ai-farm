@@ -1,0 +1,12 @@
+{
+  "run_id": "b45536f85d7941bf978b224cd019e64a",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Moonwell GlobalRateAdjuster rate-poke keeper class scout (base + optimism), measure-lane step 5",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1265", "protocols:11"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "No pending measurement request on the board (lead 14 asks closed), no one-shot leftover; ran the first un-scouted widen-decision keeper class: Moonwell's caller-paid rate-update (GlobalRateAdjuster poke). All 21 base + 5 sampled OP market rate models resolve to stateless JumpRateModel instances (15+4 addresses, 0 events in the scanned windows, positive controls 14/9 in the same shapes) - the poke-reward class is gone after the pool-to-vaults migration, EV 0, closed without a lead. Infra notes: docs.moonwell.de fails TLS handshake here, blockscout API needs a User-Agent header and OP blockscout needs -L; OP/Base model identity done via verified-name lookups + getter probes, not memory."
+}

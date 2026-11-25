@@ -1,0 +1,1 @@
+2026-11-06 relay: eth_getTransaction is not allowed through the relay (JSON-RPC error -32601) - eth_getTransactionReceipt also returned null for blocks 10+ d old via research lane (run b32cee72, llamaLend tx fetch). Consider whitelisting eth_getTransaction (cheap) so calldata lookups work.

@@ -1,0 +1,19 @@
+{
+ "id": "actor-arbitrum-0xe0763177d7e80e290fc4fea055fae11f5024f687",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0xe0763177d7e80e290fc4fea055fae11f5024f687",
+ "run_id": "98f4bcc754694d6f8e996e352c1b1f69",
+ "result": {
+  "verdict": "role_gated",
+  "line": "UniswapX V3 Dutch-order RFQ desk on arbitrum: 62 fills / 7d = 8.9/day (blocks 522478177-524878177), gross commission $987 = $141/day to EOA treasury 0x16575aada6... (median 0.052% of output, median order $4,168), gas $0.046/fill (median 1.26M gas @ 0.02012 gwei); orders carry cosignerData.exclusiveFiller == itself + 25 bps override (3/3 traced) so a stranger must improve 25 bps to take it - role_gated (sample of 3 of 62 fills, 12 of 62 receipts).",
+  "kb": [
+   "actors:178",
+   "attempts:1504"
+  ],
+  "run_id": "98f4bcc754694d6f8e996e352c1b1f69",
+  "at": 1794871399
+ }
+}

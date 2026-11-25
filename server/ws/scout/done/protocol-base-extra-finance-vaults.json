@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-extra-finance-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 531,
+ "chain": "base",
+ "slug": "extra-finance-vaults",
+ "name": "Extra Finance Vaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 551429,
+ "url": "https://app.extrafi.io/",
+ "github": null,
+ "listed_days_ago": 531,
+ "run_id": "7ca07a2f5b9545cfb75f477a6ef5c1d2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "two plain MetaMorpho V1.1 vaults only: exmWETH 0x5a32..7a8c (117,353 USD) + exmUSDC 0x2347..3b5e (433,143) = the 551k TVL; only keeper action reallocate() is onlyAllocatorRole (isAllocator whitelist OR curator 0x9e33faae OR owner) - fresh-address eth_call reverts NotAllocatorRole 0xf7137c0f on both - and pays the caller 0; skim() pays skimRecipient, accept* pay nobody; 0 Reallocate/Skim events in 7d (blocks 55788679-58812679; shape control 2 logs over 51380224-55788679, USDC control 13638); last reallocate 2026-09-17 tx 0x9ed00879 by 0x5f0761ee, 163,383 gas = 0.0021 USD at ETH 1799 (llama.fi)",
+  "kb": [
+   "attempts:1892",
+   "protocols:517"
+  ],
+  "run_id": "7ca07a2f5b9545cfb75f477a6ef5c1d2",
+  "at": 1794953624
+ }
+}

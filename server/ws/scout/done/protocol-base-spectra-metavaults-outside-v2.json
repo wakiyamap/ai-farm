@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-spectra-metavaults-outside-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 264,
+ "chain": "base",
+ "slug": "spectra-metavaults-outside-v2",
+ "name": "Spectra MetaVaults Outside V2",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 3042279,
+ "url": "https://app.spectra.finance/metavaults",
+ "github": null,
+ "listed_days_ago": 264,
+ "run_id": "bf57c95b43114b1e80d7d17f14416e9f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "3 metavaults, 3.04M USD TVL on base: only permissionless fn is MetaVaultWrapper.updateEpochID (eth_call from stranger ok, pays 0 - no transfer/reward in either impl source); AsyncVault open/settle onlyOwner (stranger eth_call reverts Solady OwnableUnauthorizedAccount, owner = user 0x5e93..b9a); 7d: 1 tx across all 6 wrapper+infra contracts (user redeem), same-shape control returned older txs.",
+  "kb": [
+   "attempts:1734",
+   "protocols:399"
+  ],
+  "run_id": "bf57c95b43114b1e80d7d17f14416e9f",
+  "at": 1794921419
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-impermax-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "impermax-v2",
+ "name": "Impermax V2",
+ "category": "Lending",
+ "tvl_usd": 34297,
+ "url": "https://impermax.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "89bba266e31147ef97183fb5b3be1656",
+ "result": {
+  "verdict": "unpaid",
+  "line": "StakedLPToken.reinvest (only require msg.sender==tx.origin) paid strangers 14x in ~8.4 d (blocks 524,394,974-526,817,336) but dust: sample of 5 bounties gross $0.012-$0.102 (SLIZ/FISH/SLNA microcaps, ~$350 liq each) vs $0.025-$0.047 gas/vault, whole-protocol ~$0.60 gross/7 d; Borrowable.liquidate 0 events, 2 Borrows (topic-only control OK), TVL 34,297 USD.",
+  "kb": [
+   "attempts:4115",
+   "protocols:2237"
+  ],
+  "run_id": "89bba266e31147ef97183fb5b3be1656",
+  "at": 1795441582
+ }
+}

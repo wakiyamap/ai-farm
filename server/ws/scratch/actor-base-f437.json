@@ -1,0 +1,7 @@
+{
+"chain":"base",
+"address":"0xf437f62053acb121665b8fdbfea8f214fb8e589d",
+"strategy":"Base high-frequency searcher/rebalancer EOA: calls 0x0575b823c22585f1828bbc133d5e522a8499165c selector 0xe45e1ed2 (~0.9 tx/block, 826k gas/tx; the tx internally routes AERO/xAERO emissions transfers and a USDC transferFrom by vault contracts - a bundled emissions-to-stable pipeline), pays own gas (~960 USD/day gas bill at 0.005 gwei if 1/blk - the largest gas burner measured), zero payouts to itself in the window",
+"evidence":"measured 2026-11-11 run d0ee55b1: trace_block census (59/100 blocks); sample tx 0xc83c5e1a2cc1546f3891ecb471ce99dd7d67381215d5ea83464ec5578a2d2e23 gasUsed 826180; caller native delta across its block ~0; transfers toAddress 0 inflows / 2800 blocks at head 56022910; scratch/base-census-d0ee/",
+"est_profit_usd_day":0
+}

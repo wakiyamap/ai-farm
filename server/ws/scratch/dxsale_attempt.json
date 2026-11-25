@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-dxsale",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. DxSale's BSC contracts (3 DxLocker V3 lockers + 2 LockerV3.3 storages from the DefiLlama adapter) expose no function that pays a caller-reward. The only busy callable is unlockToken(uint256) (0xdd2e0ac0), gated to the caller's own locks: eth_call from a fresh address reverts 'err: LockDep - user doesnt have a locker!'. Value moved per call is the caller's own vested Cake-LP, not a protocol payment to strangers.",
+ "numbers": "lockerNumberOpen: 9812/3363/14223 on 0xEb3a9C...e449/0x8655...679a/0x5b5e...29b6; lockerIDCount 3350/2558 on storages (eth_call 2026-11-19). 7d eth_getLogs 3x5000-blk sample (latest block 134474310): recent 2526 logs (2526 onUnlock+3 onLock), mid 502, early 0 (control CAKE same shape 880). 5/5 sample onUnlock txs from one address 0x6ac496edc011d0eae8e60991f3ee240f324a1084, gasUsed 0x493e0 (300k) at 0.05 gwei = ~0.009 USD gas (BNB 589.66 USD, coins.llama.fi); payout per call ~1.45 Cake-LP to caller itself (tx 0x73bfd377bb895a051ff13dcb29f035fe54efe2fbbbdaadff71c58ef1ea6f4eb5)."
+}

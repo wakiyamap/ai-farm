@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "bundles",
+ "status": "measured",
+ "checked": "Bundles.fi v2 (bundles.fi, DefiLlama slug bundles, TVL ~215k). Contracts from DefiLlama adapter projects/bundles/index.js, all confirmed via eth_getCode + getters. indexFactory 0x661F8b1Ef3d24E99C461E0523Fd441Ed8d49bF19 (Factory.sol, verified; indexesLength()=3), swapFactory 0xAcff9eee0a5522000E7141b77107359A6462E8d2 (UniV2-fork AMM; allPairsLength()=11), indexes 0xe202345c1a32a98f894f02d077af98108376ade3 / 0xd19d6750760a8f41fc376c81526fcd8b38ab0d5a / 0xc5fb2f3820492c1d8058aa00d390542ee5109420 (tokens[0]=BUN via getTokens()), BUN 0x695f775551fb0D28b64101c9507c06F334b4bA86. Source read (Etherscan): only public functions that pay: Index.rebalance/rebalanceProtocolTokenIn/Out (anyone, callback IIndexCallee, caller pays BUN fee, keeps spread); claimDividend is positions[msg.sender] self-claim; claimReserve onlyOwner; Oracle.update pair-only; skim/sync unpaid. 7-day no-topic eth_getLogs on all 14 contracts: 10 logs total = 8x Rebalanced (topic0 0x619b96ef from receipt) + 1 Burn + 1 Sync on BUN/ETH pair; zero Swap/Mint events on any of 11 pairs. AMM leg dead; the only activity is index rebalancing."
+}

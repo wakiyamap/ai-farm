@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-uniswap-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the standard Uniswap V2 deployment on avalanche (factory 0x9e5A..799C, router 0xf1d7..bcf9, standard UniswapV2Pair - sources verified on routescan) has no function that pays a caller: factory is createPair + role-gated setters (feeTo=0x0, so no protocol fee even accrues), router is pure swap/liquidity where the caller pays, and the pair's only open pay-style function is skim(address) which pays only stranded tokens (0 today). LP fees bake into reserves - there is nothing to claim. The DEX is near-dormant (6 swaps / 7d on the two best candidate pairs, ~$0.12 gross each), so even the swap mechanism is a rounding error at this TVL.",
+  "numbers": "factory 0x9e5A52f57b3038F1B8EeE45F28b3C1967e22799C: allPairsLength 12264, feeTo 0x0 (eth_call). Router 0xf1d7cc64fb4452f05c498126312ebe29f30fbcf9: factory()=0x9e5A... (eth_call). Pairs probed: 0x6239ae4d661379b71a90c4c79f0a95297342e391 (WAVAX/USDC, reserves ~2.5 WAVAX), 0x746c8cb107508033dfb7f6b0e94ec7600efc99a7 (WAVAX/USDt). 7d eth_getLogs blocks 100339293..100738903 (40 relay chunks, 0 errors, both pairs): 6 Swap, 0 Mint, 0 Burn (control: query shape returns Sync+Swap logs in the same range). Swap gross ~0.017 WAVAX (~$0.12) vs ~$0.02 gas; AVAX $7.04 (coins.llama.fi 2026-11-19). TVL 118,076 USD / 12,264 pairs (DefiLlama candidate + adapter)."
+}

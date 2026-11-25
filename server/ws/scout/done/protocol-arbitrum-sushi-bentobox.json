@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-sushi-bentobox",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1490,
+ "chain": "arbitrum",
+ "slug": "sushi-bentobox",
+ "name": "Sushi BentoBox",
+ "category": "Yield",
+ "tvl_usd": 1221944,
+ "url": "https://www.sushi.com",
+ "github": null,
+ "listed_days_ago": 1490,
+ "run_id": "c1386732972848c2842e18f40101c0e3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BentoBoxV1 0x74c764d41b77dbbb4fe771dab1939b00b146894a is a passive vault: harvest(addr,bool,uint) reverts from a fresh address (strategy(token)=0x0 for WETH/USDC/USDT/USDC.e/GMX/ARB); last 7d (blocks 521941655-525541655): 0 strategy events, 0 flashloans vs 618 LogDeposit same query shape (control); TVL 1.21M USD (llama.fi); no public function pays the caller.",
+  "kb": [
+   "attempts:2415"
+  ],
+  "run_id": "c1386732972848c2842e18f40101c0e3",
+  "at": 1795070569
+ }
+}

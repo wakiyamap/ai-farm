@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-yearn-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "yearn-finance",
+ "name": "Yearn Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 2112802,
+ "url": "https://yearn.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "261c8fabdaa44e2195689689aa9d8ef5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Yearn Base = V3 stack: 2 vaults 2,012,620 USDC (TYD 0xb13CF163 1,275,085 + yvUSDC-H 0xc3BD0A21 737,535, asset USDC 0x833589.. 6-dec). 7d blocks 56,531,770-59,731,770: 10 StrategyReported in 7 txs, all from one keeper EOA 0x3a3a4d8f via relayer 0x4e440bbc multicall; gain booked to vaults 13.65-378.23 USDC, caller paid 0.00 USDC, gas 166,181 @ 0.105 gwei = 0.031 USD (ETH 1754.77 coins.llama.fi). process_report (REPORTING_MANAGER) / update_debt (DEBT_MANAGER) revert 'not allowed' from a fresh address; strategy harvestAndReport onlySelf ('!self'); legacy v0.4.6 harvest(address) reverts too.",
+  "kb": [
+   "attempts:2710",
+   "protocols:1160"
+  ],
+  "run_id": "261c8fabdaa44e2195689689aa9d8ef5",
+  "at": 1795137197
+ }
+}

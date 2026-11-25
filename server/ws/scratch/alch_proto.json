@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "alchemist",
+ "status": "dead_end",
+ "checked": "DefiLlama projects/alchemist/index.js: AludelFactory 0xf016fa84d5f3a252409a63b5cb89b555a0d27ccf InstanceAdded logs (fromBlock 11881110) -> 22 RewardPool instances (eth_getCode non-0x; owner() answers on all 22), owner = the Aludel per instance (e.g. 0x93c31fc68e613f9a89114f10b38f9fd2ea5de6bc, getAludelData() answers). Verified source (explorer, alchemistcoin/aludel-factory layout): public fns are stake(vault,amount,permission), unstakeAndClaim(vault,amount,permission) (reward+bonus tokens paid to the vault argument = the staker's own position, caller gets nothing), rageQuit (callable but forfeits reward); fund/registerVaultFactory/registerBonusToken/rescueTokensFromRewardPool are onlyOwner; RewardPool.sendERC20 onlyOwner. No bounty/keeper/poke function anywhere. github.com/alchemistcoin (Alchemix v1 brand: Crucible/MistX/Copper)."
+}

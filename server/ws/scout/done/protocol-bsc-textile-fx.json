@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-textile-fx",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 104,
+ "chain": "bsc",
+ "slug": "textile-fx",
+ "name": "Textile FX",
+ "category": "Dexs",
+ "tvl_usd": 575689,
+ "url": "https://app.textilecredit.com",
+ "github": null,
+ "listed_days_ago": 104,
+ "run_id": "19de8a5a4ef347199a36f443ba4a4a43",
+ "result": {
+  "verdict": "unpaid",
+  "line": "UniswapX LimitOrderReactor RFQ DEX (cNGN<->USDT, BSC): executor.fill()/reactor.executeBatch() callable by anyone but pay 0 - caller is the swap taker; 29 fills/7d, ~$63k routed (top $19.2k, median ~$20), 9 callers, gas $0.016-0.044, only fee is 2 bps TO Textile; vault epoch-close permissionless but pays 0",
+  "kb": [
+   "attempts:1640"
+  ],
+  "run_id": "19de8a5a4ef347199a36f443ba4a4a43",
+  "at": 1794902176
+ }
+}

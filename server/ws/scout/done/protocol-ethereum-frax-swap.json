@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-frax-swap",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1518,
+ "chain": "ethereum",
+ "slug": "frax-swap",
+ "name": "Frax Swap",
+ "category": "Dexs",
+ "tvl_usd": 4482749,
+ "url": "https://frax.com/swap",
+ "github": null,
+ "listed_days_ago": 1518,
+ "run_id": "d6c3244930a34e3ab4b897f918be354d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: Uniswap-V2+TWAMM fork (factories 0xb076b06f, 0x43ec799e, 44 pairs, feeTo=0x0); the only permissionless keeper fn executeVirtualOrders succeeds from a fresh address but transfers 0; 7d (blocks 26414708->26464960, 11-14->11-21, no-topic scan, control 8384 logs): 2810 swaps, 2480 VirtualOrderExecution (1 standalone tx, 77950 gas ~= 0.20 USD, 0 paid), 0 WithdrawProceeds/Cancel/Mint/Burn; withdrawProceedsFromLongTermSwap is order-owner-gated (reverts from fresh even on expired live order); skim dust 0 on top-5 pairs",
+  "kb": [
+   "attempts:3411",
+   "protocols:1710"
+  ],
+  "run_id": "d6c3244930a34e3ab4b897f918be354d",
+  "at": 1795282753
+ }
+}

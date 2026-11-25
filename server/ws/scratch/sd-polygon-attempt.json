@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-stake-dao-yield",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid first. The whole Polygon listing is one legacy yVault (am3CRV LP) 0x7d60F21072b585351dFd5E8b17109458D97ec120: the only publicly callable keeper-ish function earn() succeeds from a fresh address but pays 0 (no reward transfer to msg.sender in source), and the compounding function strategy.harvest() is strategist|governance-gated (revert '!authorized') and has not run since 2023-08. Vault had 0 txs in the last 7 days.",
+ "numbers": "TVL 301,742 USD (api.llama.fi 2026-11-20); earn() gross 0 USD, gas 80,527 (eth_estimateGas latest) x 267.8 gwei (eth_gasPrice latest) x POL 0.0784 USD (coins.llama.fi ts 1795167046) = 0.0017 USD/call; vault txs last 7d = 0 (explorer txs, latest 2026-11-11 block 97135950), no earn() call in 25 latest txs back to 2026-06; strategy harvest last 7d = 0, last ever 2023-08-22 tx 0xdfdf135e2df548e71f25dc677b7159463345ab2f10aef315f1e81e738acd78fc; harvest() eth_call from fresh addr reverts '!authorized'"
+}

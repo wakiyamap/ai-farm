@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-portal",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1710,
+ "chain": "base",
+ "slug": "portal",
+ "name": "Portal",
+ "category": "Bridge",
+ "tvl_usd": 1350470,
+ "url": "https://portalbridge.com",
+ "github": [
+  "wormhole-foundation"
+ ],
+ "listed_days_ago": 1710,
+ "run_id": "8538a125340e4a3c898a538265988350",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Portal (Wormhole) token bridge on base 0x8d2de8d2f73F1F4cAB472AC9A881C9b123C79627 (impl 0x24850c6f...): completeTransfer(bytes) anyone-callable, pays msg.sender the VAA arbiter fee (eth_call from fresh addr reverts 'transfer already completed', not role-gated); 7d = 1,696 TransferRedeemed (sample 15 of 1,696): fee 0 in 10/10 direct calls, recipient==caller 10/10 (self-redemptions); gas ~263k x 0.006-0.02 gwei = $0.003-0.01 at ETH $1804 (llama 1795093199) -> no stranger paid in 7d.",
+  "kb": [
+   "attempts:2517",
+   "protocols:1017"
+  ],
+  "run_id": "8538a125340e4a3c898a538265988350",
+  "at": 1795093531
+ }
+}

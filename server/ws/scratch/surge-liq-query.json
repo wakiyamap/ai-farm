@@ -1,0 +1,1 @@
+{"query":"query { q1: Loan(where: { liquidationTriggerCount: { gt: 0 } }, order_by: { lastLiquidationTriggeredAt: desc }, limit: 1000) { id chainId currentDebtStable currentCollateralSats liquidationTriggerCount totalCollateralLiquidated lastLiquidationTriggeredAt lastLiquidationTriggeredBy lastHealthCheckCR } }"}

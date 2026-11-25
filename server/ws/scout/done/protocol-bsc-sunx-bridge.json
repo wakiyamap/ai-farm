@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-sunx-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 418,
+ "chain": "bsc",
+ "slug": "sunx-bridge",
+ "name": "SunX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 1363811,
+ "url": "https://www.sunx.io/",
+ "github": null,
+ "listed_days_ago": 418,
+ "run_id": "fe95610882124b35b8b916a865edf4cd",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BSC SunX bridge = SunperpVault USDT-lock proxy 0x4d1Be6c39Fe3fB1362ff602a6c0CBB5B3BF64eC7 (impl 0x9ac0c8...0152 verified on ethereum); only money-out fns withdraw/withdrawWhitelist pay action.receiver (the user, not the caller) and are onlyRole(OPERATE_ROLE) (0x84d9090c124094209564123302987f2f02a04f4a, 0x3e5092e35f4b7b3804211a33ffbd19b2b1e3c8ee); fresh-address eth_call reverts, paused=false; 7d to 134162688: 4 Withdraw all by 0x84d9090c, 16.5-102.1 USDT to users, caller gross 0 USD, gas 151,224@0.08gwei=0.007 USD (BNB 586.96 llama.fi); 2 Deposit control hits.",
+  "kb": [
+   "attempts:1822"
+  ],
+  "run_id": "fe95610882124b35b8b916a865edf4cd",
+  "at": 1794938367
+ }
+}

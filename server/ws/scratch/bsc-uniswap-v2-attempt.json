@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-uniswap-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the BSC Uniswap V2 core is canonical (factory 0x8909Dc15e40173Ff4699343b6eB8132c65e18eC6, 9,413 pairs); the only anyone-can-call function that pays a recipient is pair.skim(address) - no role, an eth_call from a fresh address executes - but the pot is empty: balance-minus-reserve is exactly 0 for both tokens on all 6 sampled pairs and 0 Skim events fired in 7 sample windows over the last 7 days, while the same getLogs shape returned 4 Swap logs on the same addresses in one window. mint/burn are LP operations with the caller's own capital; factory functions pay the caller nothing.",
+  "numbers": "TVL $2,725,964 (DefiLlama candidate); skim pot 0/0 on 6/6 sampled pairs; Skim events 0 of 0 in 7 windows x 5000 blocks (133,047,992-134,252,991, ~2.6% of the 7-day range at ~0.45 s/block measured 461 s / 1024 blocks); control Swap events 4 in 134,448,000-134,452,991 (eth_getLogs); skim gasUsed 54,089 (debug_traceCall) x eth_gasPrice 0.05 gwei = 2.7e12 wei = ~0.0000027 BNB ~ $0.0016 at BNB $587.03 (coins.llama.fi 2026-11-19); factory allPairsLength 9413; feeTo = 0xc6Ae6373CEcc9e595A6C8b9fe581925a8c84f70A"
+}

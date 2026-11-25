@@ -1,0 +1,33 @@
+# Local door to Pyth Hermes for agents and bots (phase 15c). It holds the Pyth API key
+# (systemd credential from /etc/farm/pyth-hermes.key, root 0600); callers use
+# http://127.0.0.1:29486 and never see the key. Listens on loopback. No state on disk.
+[Unit]
+Description=Farm hermes (Pyth Hermes, key kept here)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+DynamicUser=yes
+LoadCredential=key:/etc/farm/pyth-hermes.key
+LoadCredential=conf:/etc/farm/hermes.json
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 -I -B /opt/farm/bin/farm-hermes
+Restart=always
+RestartSec=10
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryMax=256M
+SyslogIdentifier=farm-hermes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-smardex-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1342,
+ "chain": "arbitrum",
+ "slug": "smardex-amm",
+ "name": "SMARDEX AMM",
+ "category": "Dexs",
+ "tvl_usd": 37438,
+ "url": "https://smardex.io",
+ "github": null,
+ "listed_days_ago": 1342,
+ "run_id": "28c52bd547684c23aff782b2c9971e90",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniV2-style DEX, factory 0x41A00e3FbE7F479A99bA6822704d9c5dEB611F22 (43 pairs, TVL 37k USD): no claim/keeper fn pays a caller \u2014 LP fees auto-accrue into reserves, pool fees auto-swapped to SDEX and burned by AutoSwapperL2.executeWork inside the user's own mint/burn; 7d (blocks 524649549->526705708, 2026-11-16->23): 156 Swap logs/91 txs (119 from one aggregator), 8 Burn, 6 Mint; sample swap gas 330677 gas = 0.012 USD; LP APY 0.117% on the 25.8k USD WETH-SDEX pool; stranger burn reverts INSUFFICIENT_LIQUIDITY_BURNED",
+  "kb": [
+   "attempts:3979",
+   "protocols:2118"
+  ],
+  "run_id": "28c52bd547684c23aff782b2c9971e90",
+  "at": 1795408818
+ }
+}

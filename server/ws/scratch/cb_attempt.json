@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-cbridge",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: cBridge 2.0 Router (0x1619DE6B6B20eD217a58d00f37B9d47C7663feca) and OriginalTokenVault (0xFe31bFc4f7C9b69246a6dc0087D91a91Cb040f76) have no function that pays the caller. withdraw/relay/executeDelayedTransfer are publicly callable but pay the receiver argument (bridge principal), never msg.sender; 3/3 sampled withdraw txs had caller == receiver. No owner-gated reward pot to harvest exists.",
+ "numbers": "7d to router: 453 txs (Blockscout paged, cut 2026-11-12T16:40Z): relay 308, send 134 (incl 8 native), withdraw 5, updateSigners 3, addLiquidity 1. Sample withdraws: 0x2653e433... (0.019487 WETH = $34.53), 0xa08a8a35... (0.812394 WETH = $1439.48), 0x68569e73... (2.743915 USDC = $2.74); tokens from WithdrawDone event, decimals read on chain (WETH 18, USDC 6); ETH $1771.90 coins.llama.fi ts 1795107374 (2026-11-19 16:56Z). Gas 173592-185273 gas/withdraw x 0.0201 gwei (eth_gasPrice) = ~$0.006. Gross to caller = $0 (pays receiver only). 0 WithdrawDone in the 1.9d window getLogs could reach (public-node archive depth; scout Alchemy lane spent 301632/300000 CU); control returned 8 logs same shape."
+}

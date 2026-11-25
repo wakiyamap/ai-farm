@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-gamma",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Same structure as Arbitrum/Base: the only keeper-style action on BSC vaults is rebalance/compound, the Hypervisor gates it onlyOwner (owner = an admin/RebalanceProxy contract) and the proxy gates rebalance onlyRebalancer(hypervisor) per vault; 869 Rebalance events in the last 7 days were all sent by 2-3 Gamma keeper EOAs and the fee goes to a feeRecipient argument the caller picks (Gamma's wallet), so a stranger is never paid. eth_call from a fresh address reverts (only owner / only rebalancer). Fees are sub-cent anyway.",
+ "numbers": "308 vaults in 4 registries (config.js visor bsc: Uniswap 23, Pancakeswap 0, Thena 232, ThenaV3 55; counter()/registry(uint256) on-chain, protocols:1220); 869 Rebalance events / 869 txs blocks 133299055-134642458 (7d to 2026-11-20T05:52Z), 42 of 308 vaults, sample of 15 senders = 0x7a244a56621c36c2ef2fc4d6e58bef46cb68e86f x8, 0xeacb28419b484dd4684bdffc93ff8a4c19e6bb12 x6, 0x661d1534214ca4bba95d6273c4f2c69d8f083926 x1 (EOAs); only 65/869 events carry nonzero feeAmount0/1, max 0.00859 VELVET (0x8b194370825e37b33373e74a41009161808c1488, 18 dec on chain) = 0.0006 USD, 0.00343 ASTER = 0.0017 USD (coins.llama.fi 2026-11-20T06:09Z, VELVET 0.06938 by contract, ASTER 0.50052); gas 782k-1.78M @ 0.0625 gwei = 0.028-0.064 USD (BNB 571.65); TVL 484,213 USD; fresh-address eth_call reverts on both vault.rebalance and proxy.rebalance"
+}

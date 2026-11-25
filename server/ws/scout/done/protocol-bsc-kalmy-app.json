@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-kalmy-app",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1753,
+ "chain": "bsc",
+ "slug": "kalmy-app",
+ "name": "Kalmy App",
+ "category": "Yield",
+ "tvl_usd": 30572,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1753,
+ "run_id": "d2886ae57c034a72a760937bb24b3579",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Kalmy BSC dormant: 0 logs/7d across all 83 protocol contracts (blocks 133914253-135257670, 2026-11-16->11-23; same-shape control Pancake V2 MasterChef 355 logs); only permissionless reward fn on workers is reinvest() (0xfdb5a03e) - eth_call from fresh addr passes role check, reverts 'Pancake: TRANSFER_FAILED' (empty CAKE pot), pays caller 0 by design; gross 0 USD, TVL 30,572 USD.",
+  "kb": [
+   "protocols:2201",
+   "attempts:4076"
+  ],
+  "run_id": "d2886ae57c034a72a760937bb24b3579",
+  "at": 1795431395
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-frax-swap",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Uniswap-V2-fork AMM with no keeper-callable, stranger-paid function (same verdict as the avalanche frax_swap scout, protocols:954). feeTo()=0x0 on both factories, docs list only Factory+Router; the TWAMM executeVirtualOrders(uint256) is anyone-callable but pays 0 (no transfer to caller) and order claims require order.owner==msg.sender. The protocol is also economically idle: 0 Swap events across all 157 pairs in 30 days.",
+ "numbers": "V2 factory 0x54F454D747e037Da288dB568D4121117EAb34e79 allPairsLength()=154, feeTo()=0x0; V1 factory 0xc2544A32872A91F4A553b404C6950e89De901fdb allPairsLength()=3, feeTo()=0x0 (eth_call @latest 97,577,910). Swap events across all 157 pairs: 7d=0, 30d=0; control 26,155 USDC Transfer logs / 2,000 blocks same shape; PairCreated 30d=0. Gas 243 gwei (eth_gasPrice) x POL $0.0821 (coins.llama.fi coingecko:polygon-ecosystem-token) = ~$0.001 per 60k gas. TVL $112,960."
+}

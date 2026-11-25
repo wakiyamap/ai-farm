@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-swapbased-concentrated-liquidity",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. PancakeSwap-V3 (Plunder) fork: reward paths are user-driven (harvest/collect/collectTo require the LP NFT owner; upkeep/add/updatePools are owner/operator). The one open-to-anyone function, updateLiquidity(tokenId), pays the caller 0. emergency()=true so LM emissions are switched off and MasterChefV3 holds no idle native/WETH/USDC (all 0). No stranger-payable keeper reward exists.",
+  "numbers": "7d window blocks 58023221 (2026-11-16) to 61047217 (2026-11-23), timestamps 1794795019-1795399819 from eth_getBlockByNumber: eth_getLogs on MasterChefV3 0xeBA10CDb4C2186800f2704538FbDBBBE7F6D245b with no topic filter returned exactly 2 events, both Withdraw (topic0 0xf341246a..., matched to Withdraw(address,address,uint256,uint256) via cast keccak; no-topic scan used as control). eth_call: emergency()=true, totalAllocPoint()=9997 (0x270d), globalCakePerSecond()=2.2280e12 reward tokens/s (18-dec) but reward accrual is skipped in harvestOperation when emergency. MasterChef native balance 0 wei; WETH 0x4200000000000000000000000000000000000006 (from contract source WETH constant) balance 0; USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 balance 0. TVL per api.llama.fi 37,706 USD 2026-11-23. Gas cost per call on base trivial (<0.01 USD); no call pays anything so gross/gas = 0."
+}

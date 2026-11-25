@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "ethena_usdtb",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/ethena-usdtb/index.js lists ONE contract: USDtb token 0xc139190f447e929f090edeb554d95abb8b18ac1c (eth_getCode non-0x, totalSupply getter answers: 314,888,117 USDtb ~ matches candidate TVL 314.9M). Token is TransparentUpgradeableProxy -> impl 0x9d6d77a21702b9afcf924983fbfb84aaaae79589 (etherscan). Full impl ABI = role-managed ERC-20 (AccessControl: MINTER_BURNER_ROLE, BLOCKLISTER_ROLE, PAUSER_ROLE): state-changing fns are transfer/approve/permit/mint/burn/blockAccounts/unblockAccounts/pause/grantRole/transferAdmin only. No function pays a caller (no claim/harvest/poke/settle/reward); no reward/distribution events in ABI (only Transfer/Approval/Role*/AccountsBlocked/Paused/Admin/EIP712). mint from fresh address 0x1111..1111 reverts 'AccessControl: missing role 0xcfd53186..' (role_gated). Yield on USDtb accrues via off-chain redemption rate, nothing to claim on-chain. DefiLlama API 'address' field 0x57e114b691db790c35207b2e685d4a43181e6061 is the ENA token (generic metadata), not a protocol contract."
+}

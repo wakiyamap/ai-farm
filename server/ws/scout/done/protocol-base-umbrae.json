@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-umbrae",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 75,
+ "chain": "base",
+ "slug": "umbrae",
+ "name": "Umbrae",
+ "category": "Dexs",
+ "tvl_usd": 63777,
+ "url": "https://umbrae.io",
+ "github": null,
+ "listed_days_ago": 75,
+ "run_id": "d955c9e85bb84f3e9433be0b85b66347",
+ "result": {
+  "verdict": "unpaid",
+  "line": "31 pairs on Base (factories 15+15+1); only roleless funds-moving fns: DLMM collectProtocolFees/X/Y pays 100% to recipient 0x4247dba6..5014, caller 0 - 19 calls/7d (blocks 57725787 2026-11-15 - 60749787 2026-11-22) all by keeper EOA 0x502517c4..a057a, gas 85,646 ~= 0.0009 USD; skimUntracked pot empty (eth_call reverts on all 31 pairs, 0 events/7d, control: no-topic scan 567 logs on 0x05de9d85..); DAMM 1 pair 10 swaps 0 fee claims/7d - no stranger paid.",
+  "kb": [
+   "attempts:3672"
+  ],
+  "run_id": "d955c9e85bb84f3e9433be0b85b66347",
+  "at": 1795340933
+ }
+}

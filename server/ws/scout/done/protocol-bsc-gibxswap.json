@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-gibxswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1823,
+ "chain": "bsc",
+ "slug": "gibxswap",
+ "name": "GIBXSwap",
+ "category": "Dexs",
+ "tvl_usd": 580622,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1823,
+ "run_id": "7fc35047e8984f22bf89e745abccc55e",
+ "result": {
+  "verdict": "unclear",
+  "line": "live X token 0xAE28 + factory 0x97bC (58 pairs) confirmed; repo reward contracts chef 0xFEc95 / SwapMining 0x2008B6 are wired to abandoned 1-pair factory 0x1f59: chef lastRewardBlock 10,701,366 (Sep 2021), not a minter of live token; SwapMining poolLength()=0, reward()=9.54e11 wei/blk (~0 USD at X=0.000055); takerWithdraw() callable by fresh address, pays 0; 7-day callers unmeasured: all bsc eth_getLogs on scout lane hit provider limits, same-shape WBNB control 0 in-run; live router/chef of factory 0x97bC unidentified (no bsc explorer provider, bscscan 403)",
+  "kb": [
+   "attempts:2571"
+  ],
+  "run_id": "7fc35047e8984f22bf89e745abccc55e",
+  "at": 1795106235
+ }
+}

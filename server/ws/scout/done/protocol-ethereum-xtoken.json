@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-xtoken",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "xtoken",
+ "name": "xToken",
+ "category": "Liquidity Manager",
+ "tvl_usd": 656287,
+ "url": "",
+ "github": [
+  "xtokenmarket"
+ ],
+ "listed_days_ago": null,
+ "run_id": "df4f9d41fafe403683f7f1b37a35a887",
+ "result": {
+  "verdict": "role_gated",
+  "line": "keeper fns rebalance()/collect()/migratePosition() are onlyOwnerOrManager on xU3LPStable (0x9fa1e833) + onlyXSNXAdmin on TradeAccounting (0x226d1d4b); eth_call rebalance() from stranger reverts 'only by owner or manager'; 7d (blocks 26418804 2026-11-15 -> 26469058 2026-11-22) = 2 logs across 15 fund+factory addrs (2 user Transfers on xAavea/b), 0 keeper calls, 0 USD gross/call; protocol dormant (last fund tx Nov 5, last pool deploy Jun 2023), TVL 656k USD",
+  "kb": [
+   "attempts:3634"
+  ],
+  "run_id": "df4f9d41fafe403683f7f1b37a35a887",
+  "at": 1795331738
+ }
+}

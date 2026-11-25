@@ -1,0 +1,1 @@
+session-report.py rejects a duplicate run_id, so a report appended early in a session cannot be amended when the run later gains more KB rows or a wiki page (run f1aa6a5b: report at 23:30 predates attempts:133 + pitfalls/aave-threshold-crossing-arbitrum.md). Suggest: coverage already flags this? consider allowing a second line with a suffix run_id or documenting "report late".

@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-uniswap-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: no Uniswap V2 function anyone can call pays the caller. Factory ABI is createPair + feeTo setters only, pair ABI is canonical UniswapV2Pair (mint/burn/swap/skim/sync, all position moves where the caller brings tokens); stranger eth_calls pay 0, mint/burn revert for a caller with no LP. Value flows to LPs via swap fees (0.30%) and feeTo at mint, never to the caller, so there is no keeper/bounty stream to take.",
+  "numbers": "7d window blocks 26414552 (2026-11-14T16:54Z) - 26468901 (2026-11-21T16:54Z) from eth_getBlockByNumber timestamps: 327 factory PairCreated logs (topic0 0x0d3648bd... from receipt, = cast keccak PairCreated(address,address,address,uint256)); allPairsLength()=528376 (eth_call block latest 26468901); fresh-address eth_calls on pair 0x2b5d7bc14cdf1cbeeea5fcae938850f658505649: sync()/skim() OK, mint/burn revert; router 0x7a250d... ABI has 25 entries, zero reward-named fns; TVL 610257345 USD (candidate).",
+  "bot_id": null
+}

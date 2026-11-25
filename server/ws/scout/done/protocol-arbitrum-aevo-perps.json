@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-aevo-perps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1316,
+ "chain": "arbitrum",
+ "slug": "aevo-perps",
+ "name": "Aevo Perps",
+ "category": "Derivatives",
+ "tvl_usd": 759955,
+ "url": "https://app.aevo.xyz/r/defillama",
+ "github": null,
+ "listed_days_ago": 1316,
+ "run_id": "64f08f15bfe94499be840086d234ba1f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Aevo Perps on Arbitrum = Socket bridge vaults only (USDC.e 0x80d40e32.., USDC 0x7711c90b.., WETH 0x90bfb3c3.., src/Vault.sol); sole public fn unlockPendingFor(address,address) pays the receiver arg and 0 to the caller (no fee/reward), eth_call from fresh addr succeeds (not role-gated); 0 calls in last 7d and 14d (0 PendingTokensTransferred; control: 2 TokensUnlocked + 4 TokensDeposited same query); pending pot 265.04 USDC is user funds, full-receive gas 377,929 @ 0.0201 gwei = 0.014 USD (ETH 1783.99 coins.llama.fi); Arbitrum TVL 697k USD.",
+  "kb": [
+   "protocols:857",
+   "attempts:2316"
+  ],
+  "run_id": "64f08f15bfe94499be840086d234ba1f",
+  "at": 1795050737
+ }
+}

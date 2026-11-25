@@ -1,0 +1,12 @@
+{
+  "run_id": "5b2e19c753f24455a2a7bef0a2e86e93",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane queue walk: steps 1-4 empty (0 unmeasured leads, euler_evk row already triaged dust); NEW 6-chain one-shot band-pass (Morpho blue-api HF[0.5,1] nominal-profit filter) - no new leftover; blue-api schema break recorded",
+  "outcome": "no_target",
+  "kb_rows": ["attempts:1399"],
+  "wiki_pages": ["methods/oneshot-leftovers.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure queue empty; step-3 one-shot check at head over all 6 Morpho chains (https only, 0 farm CU): every in-band nominal-profit position is a closed case (ynETHx/msETH liquidate-revert 1215, wbCOIN exit-less 1257 - the 1210 position still there at hf 0.9932) or sub-floor (srRoyUSDC 3x ~10 USD, thBILL 6.8 USD); chain-999 AVLT/USD0 cluster is persistent deep bad debt, not fresh. blue-api schema changed since yesterday's scripts (itemCount -> pageInfo.countTotal, state.healthFactor -> top-level MarketPosition.healthFactor, old queries HTTP 400) - working query + cheaper band-pass method written to the oneshot wiki page, scripts at scratch/oneshot_head5.py. No target taken."
+}

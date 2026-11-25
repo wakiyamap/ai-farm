@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-bmx-freestyle",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. BMX Freestyle (SYMMIO frontend) on Base has its contracts (accountSource MultiAccount 0x6D63921D8203044f6AbaD8F346d3AEa9A2719dDD + shared SYMMIO core diamond 0x91cf2d8ed503ec52768999aa6d8dbea6e52dbe43) and permissionless caller-reward functions (liquidatePartyA/B, deferredLiquidatePartyA, forceCancelQuote, forceClosePosition, settleAndForceClosePosition), but the instance is dormant: 0 events on accountSource and 0 external txs since 2026-09-19; nothing to liquidate or force-close, so nothing was paid to any caller in the last 7 days. All these calls also require a SYMMIO off-chain Muon signature.",
+  "numbers": "7d logs (blocks 56,043,902-59,067,902, 61x50k chunks via scout lane): accountSource 0 (control: same scan returned 130 on the core); core 130 (104 in one tx at block 56,193,528; last external tx to core 2026-11-04 block 53,501,863; recent core logs emitted via router 0x39e5d7c13d61d0d493ecc9b7a7f38905df2db923). accountSource last external tx 2026-09-19 block 51,477,894 (blockscout). Subgraph goldsky base_analytics: tradeVolume/deposit/withdraw 0 through stale tip ~2026-10-30. eth_call forceCancelQuote(1) from fresh addr: revert (condition, not role). Gas 0.006 gwei = <$0.01 per 100k-gas call; ETH $1799.18 (coins.llama.fi 2026-11-18). Gross paid to strangers 7d: $0."
+}

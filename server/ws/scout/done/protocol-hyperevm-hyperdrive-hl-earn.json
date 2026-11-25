@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperdrive-hl-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 177,
+ "chain": "hyperevm",
+ "slug": "hyperdrive-hl-earn",
+ "name": "Hyperdrive HL Earn",
+ "category": "Yield",
+ "tvl_usd": 82455,
+ "url": "https://hyperdrive.fi/",
+ "github": null,
+ "listed_days_ago": 177,
+ "run_id": "02b31123250047cb9e8458be2bcbd9b3",
+ "result": {
+  "verdict": "unpaid",
+  "line": "HYPED vault 0x4d0ff6a0 execute() is public (fresh-address eth_call returns false, no role) but pays the caller 0: fee config (0 bps, max 1 HYPE, receiver=treasury 0xA7FE6e96) so 12 execute() calls in 7d (blocks 51314688-51971360, Nov 15-22, all by keeper 0x597a72fb) and 3 finalizes (16.9/73.6/10.3 HYPE) paid a stranger 0 HYPE; gas 199841 x 0.1 gwei = 0.0012 USD at HYPE 62.30; HD-LIQ vaults (44% of the 82.5k TVL) are the three sole-LIQUIDATOR_ROLE addresses already recorded role_gated as hyperdrive_hl_lending.",
+  "kb": [
+   "attempts:3686",
+   "protocols:1909"
+  ],
+  "run_id": "02b31123250047cb9e8458be2bcbd9b3",
+  "at": 1795344195
+ }
+}

@@ -1,0 +1,21 @@
+id: blur-refi-taker-ethereum
+author: "earner/qwen3.8-flash-next"
+chains: [ethereum]
+strategy: "take Blur Blend Dutch refinance auctions (refinanceAuction is anyone-callable) with a deployed executor: pay the lien debt from a 0.19 ETH Pool-unit float, sweep principal plus accrued interest back to the wallet after repayment"
+copied_from: "incumbent Blur refi winners, e.g. tx 0x9ed2ebfdf9f48b84f1eac8179adcd8a65f71240ccaae30f240e6f05e4af2805a (lien 446638, won at rate 147 bips 47 blocks after the auction start); 220-fill census 30d in attempts 954"
+capital_usd: 380
+allowed_contracts: []
+max_loss_per_tx_usd: 5
+max_loss_guarantee: "take() caps the Pool debit at the reconstructed debt - a bigger payment reverts TakeTooHighDebt (contracts/src/BlurRefiTaker.sol:108) and sweep() reverts SweepUnderwater/SweepNoProfit (lines 122/124); worst case is one tx of gas (take 28k, sweep 38.6k fork gasUsed)"
+expected_value: "census 30d: ~23 fills/day at the 0.13 ETH lien cap, gross 1.13 USD/day, gas ~0.14 USD/fill (attempt 954); our take must beat the incumbent's rate at the monotonic Dutch ceiling measured on the fork"
+executor: bots/paper/blur-refi-taker-ethereum/contracts/out/BlurRefiTaker.sol/BlurRefiTaker.json
+executor_args: "0x0000000000000000000000000000000000A39bb272e79075ade125fd351887Ac00000000000000000000000029469395eAf6f95920E59F858042f0e28D98a20B"
+executor_note: "constructor(Pool, Blend). receive() mints funded native into Blur Pool units 1:1 (gated while sweep is withdrawing so the payout is not re-minted); take() calls Blend.refinanceAuction with the canonical lien tuple; sweep() withdraws Pool units and pays the wallet native. Runtime override for paper sim: executor-runtime.hex (2945 bytes, eth_getCode of the fork executor at reset 26389938, source sha e35df7a5)."
+fork_evidence: "script scratch/blur-proof.sh (reruns green, run e80ea7d3, ethereum fork reset 26389938): take lien 446638 status 1 tx 0x522d16651be342f6c60061b077d0f75c2a05b950aa0528911956b351664ad9be moved Pool debit 185896784673149155 to the old lender (winner's debt 185896793308955722 within seconds of accrued); sweep after repayment status 1 tx 0x9ceadfa9652872ad6d35e827f4e40da320c9c683aca188e5b563551854bb8a8e paid the wallet native delta +80690127848445 (profit minus 38623-gas, float 190000000000000000 preserved); reverts: RateTooHigh 0xfc9030c96efc61a34e2f6c0da63dc10c290565774ac9b6c3e3d6d25afa46125b, InvalidLien 0x0b159003dfc8056fe7963efc6ccc7d699d0ba39213c51f7c7e517a4f0275c74f, LienTaken 0x0624f34ebe3f47c82df8b930995326cd5e2de21cb21c896062257552244326ff, SweepUnderwater 0xf10c0aaab58f778a127639d4196ad9e81dd153d3bfc27cee4e5948075a4ba721, NoClaim 0x4a53c631b6b35cc25c27c64de508c32cdae534dc0c4a2054f9c79387152eec64."
+awaited_events: "Blend StartAuction (topic0 e5095dc3..., lienId + collection): 221 starts / 30d, ~7.4/day (attempt 954), last observed in census window to 26394752; Refinance fill topic0 558a9295... marks the take. Next occurrence: any borrower refinancing a lien with duration 9000 - continuous stream, no scheduled date."
+good_signs: "logs/bot.jsonl shows StartAuction / Refinance_fill JSON lines with blocks matching an eth_getLogs scan of Blend, take_bid rate_bips following 3.215 x elapsed_blocks (monotonic Dutch ceiling), and the service stays up"
+bad_signs: "no StartAuction lines while the ledger shows Blend StartAuction events in the same window (broken detection); rate_bips above the ceiling (bids that would revert RateTooHigh); repeated rpc_error lines (relay quota)"
+rpc_reads_per_min: 6
+alchemy_cu_per_day: "~0.15M CU/day (4 eth_blockNumber + ~4 eth_getLogs per min at 12s blocks, ~10 CU each) = ~0.08 USD/day at 0.53 USD/1M CU"
+legal_note: "public refinance auction anyone-callable take leg; no latency race: median eligible-to-taken window 1903 blocks, only 1/220 fills at <= 2 blocks (decision 2026-11-12 item 2 keeps those out of EV)"
+expedite: false

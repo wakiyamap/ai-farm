@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Dynamic context for a builder session (phase 14a): the earner context (build lane, without the
+# lane line) plus the trial candidates of decision 2026-11-17-cheap-chain-trials.
+set -uo pipefail
+export PATH=/opt/farm/bin:$PATH
+/opt/farm/context/earner "${1:-builder}" 2>/dev/null | grep -v '^- lane:' || echo "- (earner context failed)"
+echo
+echo "### Trial candidates (non-ethereum leads closed as blocked_infra, newest 10)"
+kb query "SELECT id, chain, substr(target,1,100) AS target, substr(why,1,140) AS why FROM leads WHERE status='blocked_infra' AND chain NOT IN ('ethereum','any') ORDER BY updated_at DESC LIMIT 10" 2>/dev/null || echo "(kb unavailable)"
+echo
+echo "### Trial bots live: $(ls -d /srv/farm/ws/bots/live/trial-* 2>/dev/null | wc -l) / 10"

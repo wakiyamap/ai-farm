@@ -1,0 +1,20 @@
+{
+ "id": "actor-base-0x9b824dd3ec24280e40ef43015ccf3073bf4cc7a9",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "base",
+ "address": "0x9b824dd3ec24280e40ef43015ccf3073bf4cc7a9",
+ "run_id": "e94b0d2a23084bfebcd453b87c359d43",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "base UniswapX V3DutchOrderReactor filler desk (treasury 0x9b82..., whitelisted gas EOA 0x5f8d..., revenue booked to 0xb666... in-tx): 172 fills 2026-11-12..15 (43/day, 1 order/tx; ledger uniswapx.fill); in-tx realized margin median ~$2.1/fill, mean $5.5, range $0.61-12.91 (sample of 7 priced of 10 receipts; 3 unpriceable) => ~$90-240 gross/day; gas avg 1.47M @ 0.018 gwei = ~$0.05/call (~$2/day, ETH $1819.9 coins.llama.fi); entry fn 0x085c8c5e whitelist-gated to its own bot, reactor order flow open (12+ fillers, leads:219) but mostly exclusive-window RFQ - copy needs quoting + inventory",
+  "kb": [
+   "attempts:1516",
+   "actors:187",
+   "leads:219"
+  ],
+  "run_id": "e94b0d2a23084bfebcd453b87c359d43",
+  "at": 1794874237
+ }
+}

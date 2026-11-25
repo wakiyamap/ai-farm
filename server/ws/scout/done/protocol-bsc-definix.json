@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-definix",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1817,
+ "chain": "bsc",
+ "slug": "definix",
+ "name": "Definix",
+ "category": "Dexs",
+ "tvl_usd": 249178,
+ "url": "https://definix.com/en",
+ "github": [
+  "thesixnetwork"
+ ],
+ "listed_days_ago": 1817,
+ "run_id": "fb558647c5a449b6b064e3cbf63c6beb",
+ "result": {
+  "verdict": "unclear",
+  "line": "V2-fork DEX + 2 MasterChefs; only stranger-payable fn is pair skim(address) (eth_call OK from fresh addr, no role) and excess-over-reserves = 0 on 3/3 sampled pairs (DINIX/WBNB 8.5 WBNB ~4,983 USD at BNB 586.05, SIX/BUSD 8,173 BUSD, 31 pairs, factory 0x43eBb0cb9bD53A3Ed928Dd662095aCE1cef92D19); 7-day census unmeasurable: bsc eth_getLogs failed all attempts incl. control (no provider), no explorer route; DINIX unpriced",
+  "kb": [
+   "attempts:2567",
+   "protocols:1056"
+  ],
+  "run_id": "fb558647c5a449b6b064e3cbf63c6beb",
+  "at": 1795105022
+ }
+}

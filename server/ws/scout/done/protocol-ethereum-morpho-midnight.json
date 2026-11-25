@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-morpho-midnight",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 118,
+ "chain": "ethereum",
+ "slug": "morpho-midnight",
+ "name": "Morpho Midnight",
+ "category": "Lending",
+ "tvl_usd": 217150988,
+ "url": "https://app.morpho.org",
+ "github": null,
+ "listed_days_ago": 118,
+ "run_id": "1ebf2bd2eca2476a8c8bc673ba404af8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidate() open-call (liquidatorGate=0, 6 distinct callers in 118d) but 0 Liquidate events in strict 7d (control: 758 logs same scan); last 2 at block 26405255 (7.14d ago) paid gross ~0.28 USD (seized 1+454 sats cbBTC) vs 1.40 USD gas; 34 Liquidate in 118d on the 121.4M USD borrowed book (largest 100 USD repaid), and all 7 markets maturing in the next 7d have totalUnits=0 - the maturity-burst pipeline (base lead 44 class) is empty on ethereum",
+  "kb": [
+   "attempts:2921"
+  ],
+  "run_id": "1ebf2bd2eca2476a8c8bc673ba404af8",
+  "at": 1795181293
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "id": "protocol-base-frgmnt",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 145,
+ "chain": "base",
+ "slug": "frgmnt",
+ "name": "Frgmnt",
+ "category": "Yield Aggregator",
+ "tvl_usd": 120792,
+ "url": "https://frgmnt.fi/",
+ "github": [
+  "frgmnt-dao"
+ ],
+ "listed_days_ago": 145,
+ "run_id": "a662b0ce65f44949a1a5f88a4357c1fa",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Frgmnt base PoolLogic 0x704c5697...878E harvest() (0x4641257d) is the only external fn that pays the caller: 4 harvests by 4 distinct non-team wallets in 7d, gross $0.08-$2.61 (total $3.09) vs gas $0.010-$0.016 (805k-880k gas @ 0.006-0.010 gwei, ETH $1819 coins.llama.fi); the pay is the caller's own accrued staking yield (pro rata, vault $120.8k, NAV +1.74% since 2026-03-27 = ~2.5% APY gross), fresh address reverts NothingToHarvest, all else onlyManager/onlyPoolManagerLogic/onlyRole; marginal for a $400 stake (~$0.03/day).",
+  "kb": [
+   "attempts:1652",
+   "leads:237",
+   "protocols:346"
+  ],
+  "run_id": "a662b0ce65f44949a1a5f88a4357c1fa",
+  "at": 1794905115
+ }
+}

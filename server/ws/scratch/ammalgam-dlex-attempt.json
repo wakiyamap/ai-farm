@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-ammalgam-dlex",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: liquidate(address,address,uint256) is the only function on Ammalgam DLEX that pays a stranger (premium to the `to` recipient arg) but 0 paid liquidations in the last 7 days; exactly 1 in all-time history (2026-10-12). Pools are active but liquidations are rare (~1 per 39 days of protocol life), need a saturated/unhealthy borrower, and HARD/LEVERAGE types require transferring the repayment in before the call.",
+  "numbers": "Liquidate events 7d = 0 across all 10 pairs, blocks 26406048-26456448 (topic0 0x642dd4d37ddd32036b9797cec464c0045dd2118c549066ae6b0f88e32240c2d0, from source + receipt of 0x70c7dbd1815804234f16d736ad1f59872276e6e27a204798d7769e7a4e999dca; control same query shape: 1271 Swap events). All-time Liquidate = 1 (2026-10-12 block 26178644, repaidY 0.00136 WETH = $2.36 at ETH $1736.81 coins.llama.fi ts 1795179891). liquidate eth_call used 421k gas (no-op trace); at gasPrice 0.255 gwei (eth_gasPrice 2026-11-20) a real call ~0.5-3M gas = $0.19-$1.31. TVL $302k / borrowed $400k (api.llama.fi 2026-11-20). Top pair USDC/WETH 0x728fd0a966b993fe518b00122d51e494f99abd6a: 804 Swap events 7d."
+}

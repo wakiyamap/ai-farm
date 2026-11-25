@@ -1,0 +1,34 @@
+# A local fork of one mainnet (anvil), fed by the relay's research lane.
+# Agents and paper bots use it to execute whole liquidations with fake funds,
+# deploy liquidator contracts, and replay historical transactions.
+# Instance name = chain (base | arbitrum | ethereum). Port = 9001..9003 (see fork.env).
+[Unit]
+Description=Farm fork node (%i)
+After=rpc-relay.service
+Requires=rpc-relay.service
+
+[Service]
+Type=exec
+User=farmfork
+Group=farmfork
+EnvironmentFile=/etc/farm/fork.env
+EnvironmentFile=/etc/farm/fork-%i.env
+ExecStart=/opt/foundry/bin/anvil \
+  --host 127.0.0.1 --port ${FORK_PORT} --chain-id ${FORK_CHAIN_ID} \
+  --fork-url http://127.0.0.1:8545/%i?lane=research \
+  --auto-impersonate --no-rate-limit --retries 5 --timeout 45000 \
+  --compute-units-per-second 300
+# anvil 1.9 has no --silent; its per-request log goes to stdout, so drop stdout and keep stderr (errors) in the journal
+StandardOutput=null
+StandardError=journal
+Restart=always
+RestartSec=10
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+MemoryMax=6G
+SyslogIdentifier=fork-%i
+
+[Install]
+WantedBy=multi-user.target

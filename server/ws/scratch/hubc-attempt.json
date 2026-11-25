@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-hub-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Hub Capital is a Lagoon ERC7540 vault (0xca790385506b790554571cbc9da73f0130cdcfd5, impl 0xe50554ec802375c9c3f9c087a8a7bb8c26d3dedf). Every maintenance function (settleDeposit, settleRedeem, expireTotalAssets, claimSharesOnBehalf) reverts from a fresh address with OnlySafe(safe()=0x774a9d67975c2bd5aa52dd89873a2be0c607f888, the curator's Safe); updateNewTotalAssets is gated to valuation manager 0x2949c8b8522b3e096deeb8865fccc17c64f20cc0. Nothing pays a stranger. Same verdict as the five prior Lagoon scouts.",
+  "numbers": "7d window blocks 26405400-26455787 (2026-11-13..11-20): 0 logs on vault (no-topic scan; control NAVI nUSDC vault 0x4749...d4da = 16 logs same shape). Last tx block 26365342 (2026-11-07). totalAssets() 1,007,000,000,000 units of asset 0x6da4d1859ba1d02d095d2246142cdad52233e27c (decimals() reverts; DefiLlama TVL 1,006,808 USD -> ~6-dec $1 token); feeRates()=(0,1000); gross/caller 0. Sources: rpc.py ethereum eth_call/eth_getLogs/eth_getTransactionReceipt, explorer abi/txs, api.llama.fi/protocol/hub-capital, 2026-11-20."
+}

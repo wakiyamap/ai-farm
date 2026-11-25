@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-architect",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Architect is a Morpho-vault curator: on base it has 4 ERC-4626 vaults (MetaMorphoV1_1 + one VaultV2) created by owner 0xC2f4848Adc95Adb16Cc79a3365814cB08439ee28, and none of them exposes a stranger-callable function that pays the caller. VaultV2 accrueInterest() is callable by anyone but pays nothing; everything else is deposit/mint/redeem/withdraw (paid by the user) or behind owner/setter checks (skim, setFee, reallocate).The only stranger-callable state-changing function found (VaultV2 accrueInterest, 0xa6afed95) pays 0, and the protocol's whole on-chain pot is $2.18.",
+ "numbers": "on-chain vault totalAssets across the 4 vaults = 2,176,447 USDC units (6 dec) ~= $2.18 at block 58470254, vs DefiLlama tvl_usd 1,264,871 (api.llama.fi/protocol/architect) - the DefiLlama figure is not reproducible on-chain. eth_getLogs on the 4 vault addresses over 0x34ce20e..latest (3.1M blocks, ~7 d on 0.2 s base blocks): 0 events; same-shape control over 0x24a00d4..latest returned 39 events (all setup txs dated 2025-11-20). ETH price 1828.22 USD (base.blockscout.com exchange_rate, 2026-11-17). Vaults: 0x5C5bf79298A550dA3fCA596CD020F1300b0A0E70 $2.18, 0x5ABecC90CdAd38385d1D0f2D78dD7453e25bC387 100 wei, 0x42Cecd40ACd47E7e68e67F82415b6f3DaBB0D445 0, 0x3618a5A1B88E3e66cdAbBBb614eDCd590f8D0D29 0."
+}

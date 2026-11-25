@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-cove-boosties",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only permissionless reward call is claimRewards(addr,receiver) on the 26 Cove reward gauges; it has no role (eth_call from fresh address returns without revert) but pays the staker's own accrued COVE, and the COVE emission stream ended 2025-05-30 (getRewardData periodFinish == lastUpdate), so a new entrant claims 0. Nobody claimed anything: zero logs across all 26 gauges over 7d and over 35d. DYFIRedeemerV2.massRedeem (anyone, leftover ETH to caller) has had 0 calls in 365d and holds no dYFI.",
+  "numbers": "7d window blocks 26411891 (ts 1794643271, 2026-11-14) to 26462273 (ts 1795249607, 2026-11-21). Gauge logs in 7d: 0 (single eth_getLogs, 26 addresses; control same shape: USDC 200 blocks = 16955 logs; same 26-address shape over 365d on the two non-dust gauges 0x2bcc0654.. and 0x7c37d1ca.. = 20 logs, last activity block 25036773 ts 1778079971 = 2026-05-06). DYFIRedeemerV2 0x17072491..: 0 logs 7d, 0 CallerReward (topic0 0x6a7e572532edb337d37cb60b3c55f207057bd0c15eede79f58cda282f82b86a4, cast keccak) + 0 DYfiRedeemed over 90d, 0 logs over 365d. COVE (0x32fb7d6e0cbeb9433772689aa4647828cc7cbba8, decimals 18 read on chain) balances held by gauges 306,461 (g3-auto) and 251,056 (g11-auto); coins.llama.fi returned no price -> usd: unpriced. g3-auto totalAssets 160,218 units, g11 eUSDe-auto 85,912 eUSDe, other 24 gauges dust. Protocol TVL 234,857 USD (api.llama.fi/protocol/cove-boosties, ts 1795243535).",
+  "bot_id": null
+}

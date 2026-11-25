@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-gudchain",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Gudchain's active Ethereum vault has no callable function paying a third-party caller. Withdrawals return only the caller's own recorded deposit; administrative functions are owner-only.",
+  "numbers": "1 official Ethereum proxy checked (0xd759e176DEF0F14e5C2D300238d41b1CBB5585BF), 1 current implementation inspected (0xa0279bab75e8023c5131dab65afcf9ee5d209734); 0 public reward functions in verified ABI/source (source inspection, not a 7-day event-zero claim); 2 fresh-address withdrawal eth_call attempts reverted ExceedDepositBalance at latest on 2026-11-23. No gross or gas payout to measure. Sources: Gudchain /about; Etherscan verified implementation source; relay eth_getCode, eth_getStorageAt, eth_call."
+}

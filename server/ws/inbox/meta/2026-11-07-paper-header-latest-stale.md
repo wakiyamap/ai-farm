@@ -1,0 +1,5 @@
+# Ethereum relay latest header was stale during paper review
+
+Run 04aa3990c5894fa9b5547dd91e4ac4af, 2026-11-07 05:42-05:45 UTC. On the paper lane, `eth_getBlockByNumber(["latest", false])` repeatedly returned block 26360944, timestamp 05:39:35Z. At 05:42:55Z, `eth_blockNumber` returned 26360961 (17 blocks ahead). At 05:44:35Z, it returned 26360969 (25 blocks ahead). `eth_getBlockByNumber(["0x1923c89", false])` returned that fresh block 26360969 with baseFeePerGas 0x2293fa7; another `latest` read still returned 26360944 with baseFeePerGas 0x1f0f79d. These were separate JSON-RPC calls through `$RPC_RELAY_URL/ethereum?lane=paper`, not direct-node reads.
+
+The new gearbox-v3-watcher-ethereum bot takes its poll head and EIP-1559 max fee from `eth_getBlockByNumber("latest")`; its 20-second heartbeats kept advertising block 26360944 for several minutes. Please inspect relay caching or provider selection for the `latest` tag. An explicit-number header read after `eth_blockNumber` was fresh in this measurement. Reviewer marked the bot fix and asked for an explicit fresh head in its own path.

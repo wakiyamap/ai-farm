@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-dexalot-omnivaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 14,
+ "chain": "bsc",
+ "slug": "dexalot-omnivaults",
+ "name": "Dexalot OmniVaults",
+ "category": "Yield",
+ "tvl_usd": 101218,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 14,
+ "run_id": "27dd5925da824a1682df146c8636b799",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 4 BSC-leg vaults (ids 0,7,8,11), 8 contracts confirmed (RFQ VERSION 2.1.1/2.1.2); all payout functions role-gated (executor topupGas/fallback=OMNITRADER_ROLE, RFQ claimBalance=REBALANCER_ADMIN_ROLE, stranger reverts measured); 7d full scan (269x5000 blk, 0 err): 3 GasTopup 0.01 BNB=$5.84 to trader EOAs only, 82 RebalancerWithdraw, 0 SwapQueue; only venue activity 628 SwapExecuted/382 takers/$266k fills (taker-pays, gas $0.009-0.016 @ 0.05 gwei, BNB $583.74). Same as arb/avax (protocols 166/290).",
+  "kb": [
+   "attempts:2624",
+   "protocols:1098"
+  ],
+  "run_id": "27dd5925da824a1682df146c8636b799",
+  "at": 1795118505
+ }
+}

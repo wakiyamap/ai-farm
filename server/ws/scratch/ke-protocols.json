@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "kinetiq_earn",
+  "status": "dead_end",
+  "checked": "Kinetiq Earn = Veda boring-vault stack on HyperEVM (DefiLlama adapter projects/kinetiq-earn/index.js, TVL 27.7M USD). Contracts (adapter + on-chain, all eth_getCode != 0x, verified source via explorer/etherscan): vault BoringVault 0x9BA2EDc44E0A4632EB4723E81d4142353e1bB160 (symbol vKHYPE, getters answer), teller TellerWithMultiAssetSupport 0x29C0C36eD3788F1549b6a1fd78F40c51F0f73158 (teller constructor args owner/vault/accountant match), accountant AccountantWithRateProviders 0x74392Fa56405081d5C7D93882856c245387Cece2 (getRate answers), RolesAuthority 0x345bb6a4249419e34a7c750b90178fc7b2e4c50f (set post-deploy; owner 0x5f2f11ad8656439d5c14d9b351f8b09cdac2a02d). Full verified-source review of every non-view function: vault manage/enter/exit/setBeforeTransferHook requiresAuth; teller deposit/depositWithPermit public but user pays (no caller reward), bulkDeposit/bulkWithdraw/refundDeposit + all admin requiresAuth, NO user withdraw and NO withdrawWithAuthorization/gas-refund module; accountant claimFees has no modifier but reverts AccountantWithRateProviders__OnlyCallableByBoringVault (0x7e3db46f) from a fresh EOA, rest requiresAuth. No keeper bounty, fee-to-caller or poke-with-payment anywhere in the three contracts."
+}

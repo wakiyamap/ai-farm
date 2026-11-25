@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-puppyfun",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 619,
+ "chain": "bsc",
+ "slug": "puppyfun",
+ "name": "Puppyfun",
+ "category": "Launchpad",
+ "tvl_usd": 27123,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 619,
+ "run_id": "73896f3c2e4549268a9c5de37fb5eee0",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only stranger-callable payout is virtual-DEX pair skim() (no role, pays recipient): eth_call from fresh address reverts 'Nothing to skim', excess 0 on 5/5 sampled of 781 pairs; swap() whitelist-gated ('Not allowed to swap'), claimTokens pays only caller's own vesting; 0 events on factory/launcher/5 pairs in 7d (blocks 133786203-135129652, controls pass), last launch 2026-09-30; gas 0.05 gwei (skim ~0.003 USD) vs 0 USD gross.",
+  "kb": [
+   "attempts:3821",
+   "protocols:2002"
+  ],
+  "run_id": "73896f3c2e4549268a9c5de37fb5eee0",
+  "at": 1795374226
+ }
+}

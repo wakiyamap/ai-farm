@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-debridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1727,
+ "chain": "bsc",
+ "slug": "debridge",
+ "name": "deBridge",
+ "category": "Bridge",
+ "tvl_usd": 352363,
+ "url": "https://app.debridge.com",
+ "github": [
+  "debridge-finance"
+ ],
+ "listed_days_ago": 1727,
+ "run_id": "5e0130332efe4220ba15283fbf7a5338",
+ "result": {
+  "verdict": "unpaid",
+  "line": "DMP gate 0x43dE2d77...98aA (impl 0x797161bc..., version()=421): only callable reward fn is claim(), pays executionFee to msg.sender but msg.sender is hashed into submissionId (signatures designate the executor) so no stranger-takeable reward; eth_call from fresh addr reverts SubmissionNotConfirmed 0x74bb49d5; gas ~0.0044 USD/call (0.05 gwei, BNB 591.45 coins.llama.fi 13:39Z); 7d event counts unmeasurable (bsc getLogs refused, scout lane 300542/300000 CU); DLN side = inventory class already dead_end (attempts 1252/1416)",
+  "kb": [
+   "attempts:2523",
+   "protocols:1023"
+  ],
+  "run_id": "5e0130332efe4220ba15283fbf7a5338",
+  "at": 1795095694
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-treehouse-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 797,
+ "chain": "avalanche",
+ "slug": "treehouse-protocol",
+ "name": "Treehouse Protocol",
+ "category": "DOR",
+ "tvl_usd": 6307523,
+ "url": "https://www.treehouse.finance/",
+ "github": null,
+ "listed_days_ago": 797,
+ "run_id": "8de432ab20af4f41869fac63e4205b07",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only keeper entry executeOnStrategy on 0xca8539b480f1bb97697f763a77d08fa733abbb51 reverts from a stranger (executors role), 0 calls last 7d (3 all-time, last 2025-08-25); no function pays a stranger (fastlane 2% fee to treasury); vault 0x3fc60aAc idle (0 txs 7d, 160,091 sAVAX), sTAURI 4 txs 7d all approve; gas ~0.005 USD/call (7.5 nAVAX, AVAX 7.08)",
+  "kb": [
+   "attempts:2094",
+   "protocols:679"
+  ],
+  "run_id": "8de432ab20af4f41869fac63e4205b07",
+  "at": 1794998309
+ }
+}

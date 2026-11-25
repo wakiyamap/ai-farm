@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "arrakis_v1",
+  "status": "dead_end",
+  "checked": "Arrakis V1 (G-UNI vaults, DefiLlama slug arrakis-v1, module sorbetfinance/index.js; no projects/arrakis-v1 adapter, 404) on polygon, scout run 8566dc155d6549339f1c6266839c0e7a, 2026-11-23. Factory proxy 0x37265A834e95D11c36527451c7844eF346dC342a (adapter config; eth_getCode non-empty; getDeployers()=35; getPools(address) over the 35 -> 117 pools). EIP1967 impl slots: 0xd2bb190dd88e7af5df176064ec42f6dfa8672f40 GUniPool (60 pools), 0xec6402ed9c402ccae4ebba7ff48445865760ce2f ArrakisVaultV1 (49), 0x5fac83c66c3d6105936bd9f6746b930d397da903 ArrakisVaultV1 (8) (blockscout verified source). All 3 share Gelatofied.sol: rebalance/withdrawManagerBalance(fee,token)/withdrawGelatoBalance require msg.sender==GELATO immutable = 0x7598e84b2e114ab62cab288ce5f7d5f6bad35bba (contract, 5,483 bytes) and pay feeAmount to GELATO; executiveRebalance onlyManager. On the two ArrakisVaultV1 impls withdrawManagerBalance()/withdrawArrakisBalance() are anyone-callable (eth_call from fresh 0xd00be11e... succeeds) but pay managerTreasury/arrakisTreasury, not the caller. 7d (blocks 97430060..97833260): 20 logs / 12 txs / 4 pools, all LP Transfer/Approval/FeesEarned/Burned, 0 Rebalance. Same verdict as ethereum (attempt 3495) and optimism (attempt 4165)."
+}

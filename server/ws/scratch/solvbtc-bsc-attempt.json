@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-solvbtc",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. SolvBTC on bsc (Bridge, $4.25M TVL) is a pure custody layer: the whole DefiLlama footprint is 3 Gnosis Safes v1.3.0 (3-of-5, behind Vyper minimal proxies) + 3 dust EOAs. The Safe ABI has no reward/claim/harvest/keeper function; the only pay-the-caller candidate execTransaction requires owner signatures (reverted from a fresh address) and 7d activity is 6 IN + 1 OUT operator moves (Solv market proxy 0xaE05...242F3 -> custody Safe), no stranger paid. Nothing an outside bot could call for revenue.",
+ "numbers": "TVL 65.3534 BTCB = $4.176M at $63,904.52 (coins.llama.fi, 2026-11-18) all in Safe 0x9537Bc0546506785bD1eBd19fD67d1F06800D185; Safes 0x9a1922da..., 0xcdaaaa09e6... hold 0; nonces 241/60/32; 7d (blocks 133520756-134327156, alchemy_getAssetTransfers): 6 IN (all from 0xaE050694c137aD777611286C316E5FDda58242F3) + 1 OUT (to 0xaa295ff24c1130a4ceb07842860a8fd7cb9de9cd) on 0x9537, 0 on 0xcdaaaa; sample IN 0.00386 BTCB tx 0x9e7d26200fb54d8469fdfe8c8a4764fa793f2e6db9b886b7b65aa05fbb45e084; USDT0 0xcbb7c000...33bf has no code on bsc. Details protocols:733."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-aperocket",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: ApeRocket earn-vaults on BSC are dormant. Vault entry points exist (deposit/withdraw open to anyone) but the only keeper-style function rebalance() reverts even from the owner, there is no caller-reward function in the ABI, and there were zero events from all 27 vaults + staking in 13 days. No stranger was paid; gross 0.",
+ "numbers": "TVL 35,929 USD (DefiLlama 2026-11-23). 27 vault proxies + staking from DefiLlama adapter; proxy 0xa13eF34F11cD905A1aACe891e3Fd1b355D770e7F code confirmed, balance()/STAKING_TOKEN() answer (eth_call). rebalance() 0x7d7c2a1c reverts from 0xdEaD and from owner 0x6b70f0...2b2e on 3 vaults sampled of 27; paused()=false. 7d getLogs 0 of 0: blocks 134733784 (2026-11-16 ts 1794839613) -> 135289280 (2026-11-23 ts 1795445135), no-topic scan, 28 addresses; control same shape BANANA 0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95 blocks 0x8100000-0x81059c0 = 24 logs. 13d extension from 132777984 still 0. Gas/USD n/a (no calls)."
+}

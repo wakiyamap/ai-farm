@@ -1,0 +1,19 @@
+{
+ "id": "actor-base-0x79f630cc1f3b0c686913920b39c559a5d89229ba",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "base",
+ "address": "0x79f630cc1f3b0c686913920b39c559a5d89229ba",
+ "run_id": "b60aba6c8d914deab7fc8c9e04d68bd7",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Base private cycle-arb executor (run()=0xc0406226; WETH->USDC->cbBTC->WETH via UniV3); many EOAs race run() ~467/h (~11,200/day, ~32% land); spread accrues to FIXED payee=deployer 0x95c055, caller gets 0 (pays ~$0.0045 gas). Gross to contract ~+$0.017/run = ~$150-200/day. Fresh stranger calling run() is NOT paid -> own funds, not a job.",
+  "kb": [
+   "attempts:3213",
+   "actors:318"
+  ],
+  "run_id": "b60aba6c8d914deab7fc8c9e04d68bd7",
+  "at": 1795242350
+ }
+}

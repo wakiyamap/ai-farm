@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-mars-poolin",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "mars-poolin",
+ "name": "Mars Poolin",
+ "category": "Yield",
+ "tvl_usd": 121430,
+ "url": "https://mars.poolin.fi",
+ "github": [
+  "MarsFi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "e63cdc6213b14aed87977c40186c876a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: getIncome() (0xf247e3de, staking proxy 0x5CBaDe4D03Ea436F792E9f939E70908524949efd) is the only anyone-callable function and pays the caller 0 USD (callTracer: STATICCALLs + 1 accrual event, no transfer); 7d blocks 26417616-26467871 (11-15 to 11-22, timestamps): 1 protocol call total (EOA 0x15b0ec2d..., tx 0x2112322c4f6f..., 101795 gas ~= 0.03 USD), wBTC pot on staking proxy = 0, getReward/exit pay msg.sender own accrued only; no-topic getLogs over 13 protocol addresses = 25 logs (control non-zero), 0 pays to strangers",
+  "kb": [
+   "attempts:3572",
+   "protocols:1818"
+  ],
+  "run_id": "e63cdc6213b14aed87977c40186c876a",
+  "at": 1795317660
+ }
+}

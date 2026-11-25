@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "actor-base-0x609c873861fe5db54ec982d476d6535c1561f94c",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers - the EOA is paid by 0xdb5637 (not own funds): each tx CREATEs a throwaway contract that calls claim(epoch) 0x576913e8 on 0xdb5637, which sends a fixed 0.00002 ETH to the fresh contract, forwarded to the EOA in the same tx (traced). Mechanically open to any fresh address (no proof/signature in calldata, only an epoch number; scheduledAt(epoch) gates the time). CAVEAT: attempt:2330 already judged this contract a prize game, NOT ALLOWED under S (gambling) - the lead is recorded but may be unbuildable for the farm.",
+  "numbers": "232 claims in 7d (eth_getLogs on payment event topic0 0x4cc4e2a1284006914465e82a99bce908c3ad5b5d4b08fbef40faf68169cee2a8 from 0xdb5637, blocks 57033542-latest; sample of 4 submitters, all this EOA; indices 25-256): 2026-11-16 217 (backlog catch-up), 11-17..11-20: 4,4,4,3 (~3-4/day now). Gross 0.00002 ETH/call = 0.0326 USD (Chainlink ETH/USD 1628.87, feed 0x71041ddd.., read 2026-11-20T17:58Z). Gas/call: 288,719 gas @ effectiveGasPrice 0.005 gwei = 0.00000144 ETH + l1Fee 0x3da2bfa87 wei ~ 0.00000146 ETH = ~0.0024 USD (receipt 0x31742fe43d54f6ee6f7ba9cfa3548fe541c7744bddbcf761c863117cdeebff1b). Net ~0.0000185 ETH ~0.030 USD/call -> ~0.10 USD/day at current rate. Payer 0xdb5637 balance 0x8f197577366e4 wei ~0.0025 ETH (~125 claims, ~4.1 USD total) left at 2026-11-20."
+}

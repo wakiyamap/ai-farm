@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "actor-optimism-0x9ab1daea841cb6c0c0ac716531f03d50a97b8497",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. EOA keeper on HAI (Liquity V2 fork): every tx is one workUpdateRate() call (0xdbbb74d5) on OracleJob 0xF4F18205D8D46638489865e42c0a71a3d4F9FC22 paid 0.05 HAI to the caller's SAFEEngine internal-coin account; 7 distinct keepers took 2,518 rewards in 7 d on this contract (protocols:277 measured, any caller). Same slot is already trialed (leads:212 trial-updaterate-hai-optimism); this actor is one of the incumbents, taking ~7 of ~24 daily rate windows at 7200 s spacing, net only ~0.1 USD/day at its own gas prices.",
+  "numbers": "7 d window 2026-11-10..17 (ledger source hai.oracle_job_reward): 48 rewards / 48 txs = 6.9/day (full window since 11-09: 52); daily 11-09..16: 3,9,3,11,4,5,7,10 (actor_daily). Gross 0.05 HAI = 0.0617 USD/call (HAI 1.2338 USD coins.llama.fi 2026-11-17) => 0.43 USD/day. Gas: gasUsed 266,829 constant (6/6 receipts), effectiveGasPrice 0.005-0.099 gwei => 1.34e-6..2.63e-5 ETH = 0.0025-0.048 USD/call (ETH 1829.54 USD coins.llama.fi), L1 data fee included in Blockscout actual fee 1.344e-6 ETH on 0xf96d9075... => ~0.33 USD/day gas at the usual 0.098 gwei; net ~0.1 USD/day. Reward paid as internal SFT coin credit, exit via CoinJoin + UniV3 sell costs extra (keeper batches, unmeasured)."
+}

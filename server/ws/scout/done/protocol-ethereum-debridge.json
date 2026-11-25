@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-debridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1730,
+ "chain": "ethereum",
+ "slug": "debridge",
+ "name": "deBridge",
+ "category": "Bridge",
+ "tvl_usd": 974243,
+ "url": "https://app.debridge.com",
+ "github": [
+  "debridge-finance"
+ ],
+ "listed_days_ago": 1730,
+ "run_id": "7f0441000f14433b91df20ea1c4b4e15",
+ "result": {
+  "verdict": "unpaid",
+  "line": "DMP gate 0x43dE2d77...98aA (impl 0x797161bc, version 421): claim() callable by anyone, pays executionFee to msg.sender; 336 Claimed in 7d (blocks 26415576-26465832, topic0 from receipt) but only 7/336 carry a fee - week total ~10 USD (largest 0.005 ETH = 8.41 USD, user self-claim; 6 fees 0.2-0.6 USD to deBridge relayer 0xde5ce22a, 14/15 sampled claims his), gas ~0.1-0.6 USD/call (ETH 1682.83 coins.llama.fi 20:36Z); 329 pay 0, pot near-empty",
+  "kb": [
+   "attempts:3466"
+  ],
+  "run_id": "7f0441000f14433b91df20ea1c4b4e15",
+  "at": 1795293549
+ }
+}

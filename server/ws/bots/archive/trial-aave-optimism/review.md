@@ -1,0 +1,23 @@
+# Review 2026-11-17 20:22 UTC — promote (cheap-chain trial)
+
+Decision: **promote — cheap-chain trial**. `next_review_at: null`. Reviewer run `35ea4b72d5d749ce8831417bf672d3a9`.
+
+The bot code, manifest and Solidity executor source match the SHA-256 hashes in the 15:36 UTC independent technical approval below. `manifest-check.py` passes; attempts:1771 records owner +199.218889 USDC in the OP fork, `NoProfit` and exhausted guard reverts, nonowner revert, zero checked balances and approvals, and bot calldata self-test. The paid public entry 0xa9f4277c71807310f5aaf449acddf9ce5be95a9f39bb8758a92828ec75083801 is within seven days. The bot estimates gas, caps the signed fee plus stated $0.02 L1 allowance below $0.90, requires gross above that cap, puts the cap in the executor's USDC `minProfit`, and bids at most 50% of gross. Capital $15 is within the OP $18 native wallet cap. Expected relay plus feed cost is 54,000 CU/day = $0.0286/day. With BSC's promotion there are nine live trials and one open slot; the trial's competition and EV are measured in live by the human's 2026-11-17 trial policy.
+
+# Review 2026-11-17 17:10 UTC — wait (cheap-chain trial capacity)
+
+Decision: **wait — prior cheap-chain trial technical approval stands; ten trial bots remain live**. `next_review_at: 2026-11-17T19:00:00Z`. Reviewer run `4f7118b6333f4ef9999b9ea8aeca8f55`.
+
+Bot code, manifest and named executor source remain byte-identical to the SHA-256 hashes in the previous technical review. Only paper state changed. `gate status` at 17:07 UTC showed ten live `trial-*` bots and no freeze; the human decision `2026-11-17-cheap-chain-trials.md` limits simultaneous live trials to ten. Recheck when a slot opens.
+
+# Review 2026-11-17 15:36 UTC — wait (cheap-chain trial capacity)
+
+Decision: **wait — cheap-chain trial passes technical review; ten trial bots occupy the live cap**. `next_review_at: 2026-11-17T17:00:00Z`. Reviewer run `eb3285a1ce6249b1be5637d795995098`.
+
+`manifest-check.py` PASS and `forge build` PASS. OP Mainnet, `capital_usd: 15`, `max_loss_per_tx_usd: 1`, `allowed_contracts: []`. The bot sends only if simulated gross exceeds its signed gas cap, estimates gas, caps `maxFeePerGas x gasLimit + $0.02` L1 allowance below $0.90, and bids at most 50% of simulated gross as priority fee. Its native wallet is within the OP Stack $18 cap. It waits on confirmed Pool `LiquidationCall` `/logs` and timer scans, not pending transactions. Paper mode only logs simulations; live mode uses the signer's address and `EXECUTOR_ADDR_OPTIMISM` or `EXECUTOR_ADDR`. No setup transaction or baked target is present. The owner-only Solidity executor flash borrows the cover, liquidates and swaps atomically, reverts on insufficient debt-token gain, and transfers USDC or unwrapped ETH to the bot wallet. The callback checks the active lender. Exact approvals and all checked balances return to zero.
+
+I independently reran `scratch/trial-aave-optimism/proof.py` on the OP fork at parent block 159471567 using the current artifact: `NoProfit` guard tx `0x4765cf5c...6f2460a6ee53af4f80108a` reverted with owner USDC unchanged; success tx `0x35e99302...da68db98090d3ebc` used 983,115 gas and paid 199.218889 USDC to the owner; the exhausted and nonowner calls reverted. Executor USDC, WBTC, native and Pool/Morpho/router allowances were zero after success. `selftest.py` matched bot calldata to `cast`, found a paper opportunity and 201.544865 USDC simulated gross at the proof parent, and found none 30 blocks earlier when HF was 1.0050. Paid entry within seven days: Aave liquidation `0xa9f4277c71807310f5aaf449acddf9ce5be95a9f39bb8758a92828ec75083801`, block 159471568; the reproduced gross exceeds this send's gas. Fresh owner/executor calls prove the public entry is callable by anyone.
+
+README counts 59 LiquidationCall events and ten liquidator contracts over seven days; 18 of 23 native-USDC debt takes flipped in the capture block, five were under water at the parent block, and tips ranged 0.000025–386 gwei. Trial rules waive the reaction-time class, EV and natural paper capture. Paper logs show regular near scans with zero underwater users since the 14:49 UTC start. Expected relay plus feed reads: 54,000 CU/day at $0.53 per million = $0.0286/day; relay reads have a 75,000 CU/day code cap. `gate status` at 15:33 UTC showed ten live `trial-*` bots, no freeze and no free trial slot. Do not promote until a trial slot opens.
+
+Source SHA-256: bot `089096367619ed4c42427b1844c39ae377790eae2ccacbcc78f4ebd261c9585d`; manifest `9930bbbc77bd220a2069bc92015111170a36e0d94d11b3525ee8deda6a36646f`; executor source `83b4719ec32c7a682d088915aaa2a98433f59c892ee1897ec78440040e08086d`.

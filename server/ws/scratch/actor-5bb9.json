@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "address": "0x5bb9ece5e30beb69553eaee25d0598e3bf928140",
+  "strategy": "Atlas smart-wallet liquidator: keeper EOAs submit through Atlas router 0x8ad1ae9d97c79aa68a0a151e83ff3942f68f86c1 (execute 0x024181a6); the wallet (minimal ERC1967 proxy, impl 0xbfd9a59b unverified) repays USDC/USDT debt on Aave v3 pool 0x794a61358d6845594f94dc1db02a252b5b4814ad via liquidationCall (0x00a718a9) and seizes WETH collateral at 4.5-5.25% bonus in-transaction; capital lives in a wallet module (0x33690097f6), idle USDC balance 0; leftover ETH swept to owner EOA 0xab6deeaf17d69f091e6fe8e9f472a69c7112ce45",
+  "evidence": "ledger aave_v3.liquidation events 2026-11-08..15 (11 events, actor=liquidator); txs 0x5df2cc2b2939cdf11cc2877761132ec923ede65ee2be0756b5ae1f8b49db3f68, 0x4b4d4b413a49e49ccf1fd0665aa068032c97f300a1c9f0a0db9cbab76738041c, 0x82e4468e49046996b2a6d114697aa20b81377ad2dd01165653c85b3f94b46d13, 0xd17ca109ac3892469639b17b62de7e1cc088e5c32bf42ba2f59b16c99d5c744d; debug_traceTransaction callTracer on 0x82e4468 and 0x4b4d4b41 (scratch/trace-82e4.json, scratch/trace-4b4d.json)",
+  "est_profit_usd_day": 80,
+  "our_bot_id": "trial-aave-arbitrum"
+}

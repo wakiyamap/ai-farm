@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-hypezion-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 201,
+ "chain": "hyperevm",
+ "slug": "hypezion-finance",
+ "name": "HypeZion Finance",
+ "category": "CDP",
+ "tvl_usd": 37847,
+ "url": "https://www.hypezion.com/",
+ "github": null,
+ "listed_days_ago": 201,
+ "run_id": "933611654eba44eebb34ac27281670fa",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: harvest/compound/updateNAV=OPERATOR_ROLE, updatePrice=ORACLE_ROLE, collectFees=ADMIN (fresh-addr eth_call on deployed proxies reverts OZ AccessControl e2517d3f); none pays the caller; permissionless updateSystemState/triggerIntervention/exitRecoveryMode transfer 0; 7d blk 51324600@2026-11-15..51939424@2026-11-22 hzUSD Transfer=0 & oracle/exch/KYM logs=0 (control 0xb5e3=119) => no stranger paid. 12 contracts on hyperevm(999), TVL ~30-38k.",
+  "kb": [
+   "attempts:3695"
+  ],
+  "run_id": "933611654eba44eebb34ac27281670fa",
+  "at": 1795345376
+ }
+}

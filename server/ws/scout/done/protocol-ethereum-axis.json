@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-axis",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 89,
+ "chain": "ethereum",
+ "slug": "axis",
+ "name": "Axis",
+ "category": "Basis Trading",
+ "tvl_usd": 69394361,
+ "url": "https://axis.to",
+ "github": null,
+ "listed_days_ago": 89,
+ "run_id": "bd0a8a7194cd4554a3f7ff966a1efb2c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 4 Axis V2 proxies live (USDx 0xa1fA..33f8 supply 68.6M, USDxMarket 0x5aE3..f58C, MarketConfig 0xce2c..4D46, StakedUSDx 0xEB89..2AA4). All keeper fns issuer-role-gated: fresh-addr eth_call reverts AccessControlUnauthorizedAccount (serviceRedemptions/fundRewards/cancelOrder); settle only by operators. 23 OrderSettled/7d all by 0xde195d.., 18 RedemptionsServiced/7d all by 0x714ed1.. (topics from receipts). Caller gross 0 USD (transfers go to user receiver); gas bash.22/settle (340k gas), bash.05/svc (77k) at 0.371 gwei, ETH 737 (llama ts 1795177502)",
+  "kb": [
+   "attempts:2903",
+   "protocols:1321"
+  ],
+  "run_id": "bd0a8a7194cd4554a3f7ff966a1efb2c",
+  "at": 1795177928
+ }
+}

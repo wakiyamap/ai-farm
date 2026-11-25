@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-extra-finance-vaults",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The listing is just two plain Morpho Vault V1.1 (MetaMorpho) share tokens on Base (exmWETH 0x5A32099837D89E3a794a44fb131CBbAD41f87a8C, exmUSDC 0x23479229e52Ab6aaD312D0B03DF9F33B46753B5e). Nothing in their verified external surface pays the caller: the only keeper action reallocate() is onlyAllocatorRole (isAllocator whitelist OR curator OR owner) and reverts for a stranger; skim() pays the skimRecipient, and the accept* functions pay nobody. No reward pot, no fee to the caller, and no activity in the last 7 days at all.",
+  "numbers": "TVL 551,429 USD = 117,353 (exmWETH) + 433,143 (exmUSDC) Morpho graphql 2026-11-17. reallocate from fresh address: revert 0xf7137c0f = NotAllocatorRole() on both (eth_call latest). ReallocateSupply/ReallocateWithdraw/Skim events in last 7 days (blocks 55788679..58812679, both addresses): 0; shape control 51380224..55788679 = 2 logs (tx 0x9ed00879b6b996c8916f5da62f4647d26b0b0d9f714740883ee738accac9abeb, block 51447125, 2026-09-17, caller 0x5f0761eed6cd7f0bd91d847e955cd78bb50b0647); USDC Transfer control 1000 blocks = 13638 logs. Last reallocate gas 163,383 @ 0.0072 gwei = 0.00000118 ETH = 0.0021 USD at ETH 1798.85 USD (coins.llama.fi 2026-11-17). Gross per call to a caller: 0 (reallocate moves funds only). Last tx per Blockscout: exmWETH block 53118249 (2026-10-26), exmUSDC block 53359925 (2026-11-01)."
+}

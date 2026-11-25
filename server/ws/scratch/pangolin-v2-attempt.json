@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-pangolin-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Pangolin V2 on Avalanche is a vanilla Uniswap V2 fork (factory 0xefa94DE7a4656D787667C749f7E1223D71E9FD88, 3660 pairs) plus a MasterChef staking layer. No function anyone can call pays the caller a keeper/bounty reward: factory createPair (open) and pair mint/burn/swap/skim/sync pay only the caller's own LP value or skim dust, and chef harvest pays a staker their own accrued PNG (0 to a stranger with no stake). Earning here means providing liquidity and staking, not acting as a keeper.",
+  "numbers": "TVL 1,526,001 USD (candidate, Dexs); allPairsLength()=3660; factory eth_getCode != 0x and allPairs(0)=0xa37cd29a87975f44b83f06f9ba4d51879a99d378 (getter answers); skim(address) eth_call from fresh 0x1111..1111 returned 0x with no revert (open, pays balance-above-reserve dust); source verified via Routescan + pangolindex/exchange-contracts. Checked 2026-11-19."
+}

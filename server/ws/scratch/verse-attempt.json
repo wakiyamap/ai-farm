@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-verse",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward - Verse ethereum is a pure Sushi 'Swaps' fork (fee-on-transfer UniV2): factory/router/pair expose only user-driven swap/mint/burn (caller pays gas, receives its own trade output, no protocol payout), skim() pays feeTo (0x21ae363b6c9b16158a8e7e3b14ced19ce6f5b492, team) not msg.sender, and there is no farm/MasterChef on ethereum (no staking in the DefiLlama registry entry, yields.llama.fi returns 0 verse pools). DEX is alive (1073 swaps/7d across 13 active pairs) but nothing on it pays a stranger for calling.",
+  "numbers": "TVL 207,709 USD (DefiLlama, session context 2026-11-21). Factory 0xee3E9E46E34a27dC755a63e2849C9913Ee1A06E2 (verified 'SwapsFactory', solc 0.8.14; eth_getCode non-0x; allPairsLength()=32, feeTo()/feeToSetter() answer). 7d window: blocks 26415246 (2026-11-14, ts 1794683675) to 26465500 (2026-11-21, ts 1795288475), blocks found by timestamp binary search via eth_getBlockByNumber. No-topic eth_getLogs over all 32 pair addresses (list from factory PairCreated logs, 32 logs): Swap 1073 (topic0 0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822 taken from the contracts' own events via no-topic scan), Sync 1074, Mint 1, Transfer 2, Burn 0; 13/32 pairs active, 88 distinct swap senders, 1052 distinct txs. eth_gasPrice 0x72733e5 = 0.12 gwei (2026-11-21). No reward-type function to eth_call: verified source (11 files via explorer) contains no reward/bounty/keeper/claim fns."
+}

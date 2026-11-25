@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-bakeryswap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. UniswapV2-fork core (factory 0x01bF7C66c6BD861915CdaaE475042d3c4BaE16A7, confirmed live: allPairsLength 3088) has no function that pays a caller; the staking 'Bakery' chef cannot be confirmed on chain (DefiLlama adapter deleted from repo, bakeryswap.org parked, bakery.gg origin 526, explorer has no bsc; historic candidate 0xB2C89Bc8B86F13f87bbA5207Ad9280f86AdC30a3 has eth_getCode 0x). BAKE reward flow measured ~0: 0 Transfers in 4x500-block windows at 0/1/3/7 days back (head 134,613,254) with same-run WBNB control 4,008 logs; WBNB/BAKE pair 0xc2eed0f5a0dc28cfa895084bc0a9b8b8279ae492 0 Swap in a 196-block window. BAKE $0.0002477 -> even a 1000-BAKE claim is $0.25; protocol is a zombie at TVL 1.6M.",
+  "numbers": "factory pairs=3088 (allPairsLength, block latest 134613254); BAKE transfers 0/4 sampled 500-block windows (control WBNB 4008/196 blocks, same run); pair WBNB/BAKE swap events 0/196 blocks; BAKE $0.0002477 coins.llama.fi ts 1795133280; BNB $570.21 ts 1795140561; gasPrice 0x2faf080 (0.05 gwei) -> 100k gas ~ $0.003"
+}

@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-ultrayield-curator",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. All 4 internal vaults (ultrayield-eth, ultrayield-usd, ultrayield-btc, edge-usd1) use CompliantUltraVault (UUPS ERC-7540). The only keeper-type function fulfillMultipleRedeems(address[],uint256[],address[]) is behind OPERATOR_ROLE and pays no reward to the caller (withdrawal fee goes to feeRecipient, not msg.sender). Oracle and rate-provider writes are onlyOwner. ~7 fulfill calls in last 7d by 2 operators, 0 USD gross to caller, ~197k gas per call.",
+  "numbers": "TVL ~26.8M USD (6 vaults, api.ultrayield.app v2, 2026-11-20). Fulfill gas ~197k (receipt 0x1806da4d, ultrayield-eth, block 26449508 ts 1795095887). Operators: 0xe1e4c9f726d084dbbf5b6c2ba4b7bb117937d684 (ultrayield-eth/usd), 0x4b48d46e84264a73ac37f2a23c945f376c89c616 (edge-usd1). Fulfill count last 7d: ultrayield-usd 5, ultrayield-eth 1, edge-usd1 1, ultrayield-btc 0 (sample of ~7 from explorer txs). Gross to caller: 0 USD (no ETH/WETH transfer to caller in receipt). Gas cost: ~197k at 2.16 Gwei × $1629.75 ETH ≈ $0.69 per call (coins.llama.fi, 1795200289).",
+  "bot_id": null
+}

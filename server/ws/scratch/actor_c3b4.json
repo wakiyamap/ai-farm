@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "address": "0xc3b4196e407ae10d1e315182811b849eaf753956",
+  "strategy": "Atlas/Anoma (FastLane) user smart account owned by EOA 0x3bd76d3d2e36141c0915df14d10153a4f3ff58ff; sends no txs itself - solver 0xbdaf054a42a32e7fbc4ef094f6121b8a84410d92 settles its intents by calling the AtlETH/Atlas contract 0x8ad1ae9d97c79aa68a0a151e83ff3942f68f86c1 which calls the account back (sel 0x024181a6) and routes WBTC->WETH->USDC/USDT swaps through it (Aave executeOperation, Uni V3 pool 0x2f5e87c9, flash from 0x6c247b1f); owner sweeps net WETH. A user wallet of the intent protocol, not a keeper.",
+  "evidence": "deploy 0x3d668d2774baffc10c726207a07d5a06a9cd2771381895c19baf8cb44d71db45 (blk 524679769, 2026-11-16 07:08 UTC, creator 0x3bd76d3d); only settlement 0x9e1d8c7198a5039790c26bc93ab0bd11eed45d0dc0ec877c8db836f97ab7f29a (blk 526130645, 2026-11-21 04:06 UTC, by 0xbdaf054a, net +0.020591163778317538 WETH); owner sweep(address,uint256) 0x744a51dc9b062763977a0f589fafe054e88709456da5aa218023b7acd9e95465 swept that exact 0.020591 WETH to 0x3bd7; owner() eth_call = 0x3bd76d3d2e36141c0915df14d10153a4f3ff58ff; native balance 0",
+  "est_profit_usd_day": 6.0
+}

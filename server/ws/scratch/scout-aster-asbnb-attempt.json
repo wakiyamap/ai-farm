@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-aster-asbnb",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. asBNB's on-chain reward paths are all permissioned: compoundRewards(uint256) on the asBNB Mint proxy reverts 'Caller is not yieldProxy', and settleActivity()/processMintQueue(uint256)/withdrawFee/collectWithdrawalFee revert AccessControlUnauthorizedAccount (roles 0x902cbe3a.. and 0xaf290d86..) when eth_called from a fresh address. Fee pots are empty (feeAvailable()=0, withdrawalFeeAvailable()=0, rewardedAmount()=0). Launchpool/Megadrop yield arrives custodially and is credited by Aster's own yieldProxy bot; nothing on bsc pays a stranger.",
+  "numbers": "Contracts (docs.asterdex.com smart contracts page, eth_getCode non-0x): asBNB token 0x77734e70b6E88b4d82fE632a168EDf6e700912b6 (plain ERC20, no reward fn); Mint proxy 0x2F31ab8950c50080E77999fa456372f276952fD8 impl 0x7f52773065fd350b5a935ce2b293fdb16551a6fc; yieldProxy 0xe861dd4b0ab6f3a42943e6ef441c3c611cd1bec2 impl 0x1b04834f51574ffdef7511e271c09d4070de1b1a. totalTokens 78,268 BNB = 46.3M USD at BNB 591.38 USD (coins.llama.fi coingecko:binancecoin). 24h log scan of Mint proxy (39 x 5000-block windows over 192000 blocks at 0.45s/block, all succeeded; control WBNB Transfer 12 logs same shape): 12 events, all user flows (e.g. burnAsBnb 0xe03b6dbc from 0xff4bcc43..157d, tx 0xe1878107fe11e27c1b..); no keeper-reward events. No gas/reward per call to measure: every reward fn reverts for a stranger (eth_call from 0x1111..1111)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-zkbob",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1454,
+ "chain": "polygon",
+ "slug": "zkbob",
+ "name": "zkBob",
+ "category": "Privacy",
+ "tvl_usd": 125193,
+ "url": "https://app.zkbob.com",
+ "github": null,
+ "listed_days_ago": 1454,
+ "run_id": "61c9175d64944e2cb5d97f629f434678",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Polygon pool 0x72e6B59D4a90ab232e55D4BB7ed2dD17494D62fB holds 125,225 USDC (= $125,195 TVL, api.llama.fi); every mutating fn is role-gated (transact onlyOperator = relayer 0xc2c4ad59.., redeemUpTo/disableWithdrawalQueue redemptionOperator only, withdrawFee operator/feeReceiver, fillMigrationOrder expired 2023-12-01) and none pays the caller (fees accrue to operator); stranger eth_calls revert 'not an operator'/'not authorized'; 0 pool calls in last 7 days (last tx 47d ago, failed; last successful transact 121d ago), gas ~$0.0005/call (POL $0.0821 coins.llama.fi)",
+  "kb": [
+   "attempts:2369",
+   "protocols:902"
+  ],
+  "run_id": "61c9175d64944e2cb5d97f629f434678",
+  "at": 1795060973
+ }
+}

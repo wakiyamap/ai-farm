@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "olive_network",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/olive-network/index.js lists 15 ERC20 vaults and 1 ETH vault. On 2026-11-23, all 16 had nonempty eth_getCode and an answering token() (ERC20) or administrator() (ETH) getter via rpc.py. Explorer source maps them to three verified implementations: Strategy 0x05c9f5d566fb6e1a07712a18b642697d5aea14cb and 0x8d8f21d23787b8db2305892ffeed5786b38d7480, and StrategyETH 0xa2e9c6177f81a1337b656d3b066fd20c7cf8cab4. In all three, the only harvest() is onlyOperator and unimplemented (reverts); rescue() is onlyOperator; public withdraw functions return only msg.sender's booked deposit. Fresh 0x1111111111111111111111111111111111111111 eth_call harvest() reverts !operator on ERC20 vault 0x700886a402d42113aD94D9756f08A923BB5aC77A and ETH vault 0xd94a9FBae86e662350FFEbB352f70c3CBeb9E96e. No permissionless caller-paid function to measure over 7 days."
+}

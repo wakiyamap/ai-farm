@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-acre",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Acre has no permissionless caller-paid reward in the reviewed Ethereum contracts. Maintenance functions are role gated; public deposit finalization pays the deposit owner and treasury, not the caller.",
+  "numbers": "8 deployment addresses from acre-btc/acre Solidity mainnet deployment JSONs: all eth_getCode != 0x and each had an answering getter via rpc.py on 2026-11-23 20:07 UTC. MidasAllocator.allocate() fresh caller 0x1111111111111111111111111111111111111111 reverted with 0x7a2ede7d (maintainer restriction); BitcoinDepositorV2.finalizeDeposit(0) reverted with 0x4860cade (invalid deposit state). Caller reward amount: none specified in source; 7-day caller-reward count and gross/gas: not applicable because no caller-paid function was found. Sources: https://github.com/acre-btc/acre/tree/main/solidity/contracts ; https://github.com/acre-btc/acre/tree/main/solidity/deployments/mainnet ; Etherscan verified implementation sources via explorer source."
+}

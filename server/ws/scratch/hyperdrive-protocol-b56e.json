@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "hyperdrive",
+  "status": "dead_end",
+  "checked": "DELV deployments.json (https://raw.githubusercontent.com/delvtech/hyperdrive/main/deployments.json) gives registry 0xbe082293b646cb619a638d29e8eff7cf2f46aa3a; DefiLlama adapter omits final 'a' and has a 39-digit invalid address. Registry getNumberOfInstances()=13 and getInstanceAtIndex(0..12) returned 13 pools; eth_getCode nonempty and getPoolConfig() answered for all 13. All 13 current checkpointRewarder fields are 0x0; HyperdriveCheckpoint._applyCheckpoint only invokes claimCheckpointReward if that address is nonzero. Fresh address eth_call checkpoint(today,0) on sDAI pool 0x324395D5d835F84a02A75Aa26814f6fD22F25698 succeeded. HyperdriveAdmin._collectGovernanceFee restricts caller to pauser, fee collector, or governance and requires fee-collector destination. Seven-day eth_getLogs on all 13 pools returned 0 CreateCheckpoint and 0 no-topic logs, with USDC Transfer same-shape control returning 9941 logs (2026-11-23 recent 360 blocks). Protocol source: explorer source ethereum 0x324395D5d835F84a02A75Aa26814f6fD22F25698."
+}

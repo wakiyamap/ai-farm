@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hyperwave",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The HyperEVM deployment is a boring-vault share-token stack (BoringVault + Teller + Accountant + Atomic Queue); the only keeper-style job is AccountantWithRateProviders.updateExchangeRate, gated by solmate RolesAuthority (reverts UNAUTHORIZED from a stranger), called only by one team EOA, and it pays the caller nothing. No function in any HyperWave HyperEVM contract pays a caller or recipient argument; deposits/redemptions are user-pushed and the actual yield engine is on HyperCore, not HyperEVM.",
+  "numbers": "updateExchangeRate calls: all 12 observed calls to hwHLP accountant 0x78E3Ac5Bf48dcAF1835e7F9861542c0D43D0B03E over the last ~12 days (incl. tx 0xe7193e109467761da1ef58a7dec1a62489ae755d097685bd51b80c695a07d8ef at ts 1794672540) came from one EOA 0xb7f6c2088f2c2b0c8fb40ff64a231d333fbc9e19, ~2/day (explorer txs hyperevm). Gross to caller per call: $0 (fees accrue to protocol payoutAddress; claimFees is vault-only). Gas 53,974 (receipt of tx above) at 0.165 gwei (eth_gasPrice 0x9d31667) x HYPE $68.08 (coins.llama.fi, coingecko:hyperliquid) = $0.0006/call. Atomic Queue 0xfaf3288976f5548ebcfb1ba9e86ccc467a075c53: ~15 calls in last 2 days all safeUpdateAtomicRequest from distinct user EOAs (control for the zero: explorer txs listing does show many distinct senders there)."
+}

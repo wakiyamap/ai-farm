@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "cyclone",
+  "status": "dead_end",
+  "checked": "Cyclone zk-mixer ethereum side (DefiLlama slug cyclone, TVL ~$104k; DefiLlama adapter projects/cyclone/index.js 404, addresses from protocol's own repo cycloneprotocol/cyclone-frontend-public main src/config/ETHMainConfig.ts). 4 CycloneV2.2/2.3 mixer pools: Latte 100 ETH 0xd619c8da0a58b63be7fa69b4cc648916fe95fa1b, Expresso 100k USDT 0xa38b6742cef9573f7f97c387278fa31482539c3d, Test 10 USDT 0xbb95a50eab815edb4f7a7bf94c540caced34f194, Cold Brew 100 TORN 0x09f03488291063a8f3c67d2aab7002419d11c113; AeolusV2 staking 0xdc71bc29d12960a3ee5452fac6f033a1b8e756fb; UniswapV2CycloneRouter 0x602b40bf327c10370483ae5ecde15a7bb480dcca (4 functions, no reward fn); CYC 0x8861cff2366c1128fd699b68304ad99a0764ef9a. All 6 have code, getters answer (rewardPerBlock, lastRewardBlock, cycToken). Only public callable reward-family fn is updateBlockReward() (eth_call from fresh addr ok) - pays caller 0, accumulator-only per verified source (etherscan CycloneV2dot2.sol). withdraw() pays _relayer but needs a zk proof. 0 events on all 6 addresses in 7d (blocks 26416430-26466685, 2026-11-14 to 2026-11-21; control TORN same shape 3310 logs). Same conclusion as bsc side (protocols:1182, attempts:2739): unpaid/dead."
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "14b727258f8046e1a16b938221769261",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "slow-sweep Morpho Blue base liquidation (lead 170, base)",
+  "outcome": "blocked_infra",
+  "kb_rows": ["attempts:1243", "leads:170"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measured the lead's premise at parent blocks and killed it: all 23 probed crash-1-2 sweep positions (15-batch 0xe60feb23, 0x95c077d3 dust batches, the 2,291 USD OETH case) were HEALTHY at the parent block and captured inside the block where they crossed - window < 0.2 s vs R = 3 s, a latency race. Attempt 1193's 'liquidatable 2.8 d back' was a ~91x mis-scaled price read. Lead 170 set blocked_infra (revive only if reaction time drops below one 0.2 s block); SlowSweepTake.sol stays sound in scratch/c21a. Fork lease released, claim deleted."
+}

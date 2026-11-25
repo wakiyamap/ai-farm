@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-uncx-network-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1229,
+ "chain": "base",
+ "slug": "uncx-network-v3",
+ "name": "UNCX Network V3",
+ "category": "Token Locker",
+ "tvl_usd": 5765804,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 1229,
+ "run_id": "e84806850d6640f4bace44b72274bc80",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All 3 Base lockers (UniV3 0x231278... 1161 locks, 0x d6cd8f... 0, SlipStream 0xb403e6... 8): collect/withdraw/relock/migrate gated to lock.owner/additionalCollector/AUTO_COLLECT_ACCOUNT (EOA 0xd45dd9.., code=0x); eth_call collect from a stranger reverts 'OWNER'; fees/gauge rewards go to the lock owner, so a stranger earns bash (gas would be $0.002 at 0.006 gwei x ~200k, ETH $1763 coins.llama.fi); 7d (blocks 56230192-59254194, 61x50k chunks): 3 logs total, all onWithdraw owner pulls, 0 elsewhere (control USDC 17541 logs/2k blocks); same role_gated pattern as uncx_network_v4.",
+  "kb": [
+   "attempts:2278",
+   "protocols:829"
+  ],
+  "run_id": "e84806850d6640f4bace44b72274bc80",
+  "at": 1795041508
+ }
+}

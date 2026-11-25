@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-angstrom",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 480,
+ "chain": "ethereum",
+ "slug": "angstrom",
+ "name": "Angstrom",
+ "category": "Dexs",
+ "tvl_usd": 1087982,
+ "url": "https://angstrom.xyz/",
+ "github": [
+  "SorellaLabs"
+ ],
+ "listed_days_ago": 480,
+ "run_id": "8322ef2ec07c4ed0b7fd7e2f7b394b1c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "hook 0x0000000aa232009084bd71a5797d089aa4edfad4 execute(bytes) gated by _isNode (fresh eth_call reverts NotNode 0x5cd26b68; slot-1 storage 1 for 3 callers, 0 for 0xdead control); ControllerV1 0x1746484e... totalNodes()=3 (0x2252f216/0x5875db54/0xc917c3fa), 25/25 sampled calls from these 3 (~1 per 4.7 blocks, blocks 26458774-26458892); caller pays 0 reward (fee pulls onlyController, bundle fee cap 0.4% accrues to controller/LP).",
+  "kb": [
+   "attempts:3058",
+   "protocols:1440"
+  ],
+  "run_id": "8322ef2ec07c4ed0b7fd7e2f7b394b1c",
+  "at": 1795209352
+ }
+}

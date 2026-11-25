@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "cbXRP/USDC/WETH cross-DEX arbitrage of operator 0x999919d158600f8b6b7a27ae2f421627b3e4c5de on Base",
+  "status": "dead_end",
+  "why": "Three paid captures over the last seven days return only $1.084389 net in aggregate at ETH $1635.1402, even before five later gas-only calls; $0.154913/day optimistic ceiling is below the non-trial $1/day floor. Receipts 0x156eb60a, 0x51400f6e, 0xda34b83d; detailed raw receipts and calculation in attempts row from run 6ac5024d79c641df9cf36a6774175aa9.",
+  "next_steps": "Reopen only if a seven-day treasury-transfer census from the operator's current executor family shows >=$7 net after each receipt's gas and L1 fee, or if a new pool creates a separately measured slow and sizable spread. Inspect explorer txs for operator 0x999919d158600f8b6b7a27ae2f421627b3e4c5de and its latest executor, and count only actual USDC transfers to treasury 0x31c1f2e90f97e67977cede9e930942a5a10470c1. No executor is built for this target."
+}

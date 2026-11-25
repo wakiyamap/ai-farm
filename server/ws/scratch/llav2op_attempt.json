@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-curve-llamalend-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "Verdict unpaid. The only function anyone can call for pay is controller liquidate(address,uint256[,frac,callbacker,calldata]) on the 3 LlamaLend v2 controllers (fresh-address eth_call reverts Loan-doesnt-exist, so no role gate), but there were 0 Liquidate events in the last 7 days, only 3 in the whole 5-month lifetime (last 2026-10-08), and users_to_liquidate() returns 0 on all 3 controllers right now. collect_fees() is callable by anyone but routes fees to the factory fee_receiver, not the caller. Sample liquidations are dust (largest debt $277).",
+ "numbers": "3 markets (ctrls 0x745422bf..., 0x9fc15ac3..., 0xb5ec7a3d...) from factory 0x5F94073E3f51c1FFf92ffc6b4B06b7Af193B3640 market_count()=3. Liquidate topic0 0x642dd4d3...: eth_getLogs blocks 152,500,000-159,653,392 = 3 events lifetime, 0 in last 7d (since 159,350,986); control Borrow same shape/range = 767 events. Lifetime liquidation txs: 0x07b17b15 2026-06-26 debt 277.45 USDC gasUsed 828,703 (liquidator contract 0x4661f836 via EOA 0x0771483e); 0x714b2643 2026-07-16 debt 0.000325 USDC gasUsed 1,266,557 (0xf9348ca3 via 0x4012852a); 0x312ecbb6 2026-10-08 debt 0.4555 USDC coll 0.000202 opETH gasUsed 956,079 (EOA 0x10a86548). Gas: eth_gasPrice 1,009,629 wei on 2026-11-17 -> ~0.002 USD per 1M gas at ETH 1810.62 USD (coins.llama.fi); L1 data fee extra (~cents). users_to_liquidate()=0 on all 3 (eth_call latest)."
+}

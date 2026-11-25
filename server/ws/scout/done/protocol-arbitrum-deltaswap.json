@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-deltaswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1026,
+ "chain": "arbitrum",
+ "slug": "deltaswap",
+ "name": "DeltaSwap",
+ "category": "Dexs",
+ "tvl_usd": 110089,
+ "url": "https://gammaswap.com",
+ "github": null,
+ "listed_days_ago": 1026,
+ "run_id": "4dc9cd4352194f31a3134df9f9b31042",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only fee-paying fns on DeltaSwap (GammaSwap v2) arbitrum are GammaPool liquidate/liquidateWithLP/batchLiquidations (factory 0xfd513630..., 52 pools, TVL 106,358 USD); eth_call liquidate(1) from a fresh address reverts NotLiquidator() 0xd891a1b7 - immutable LIQUIDATOR whitelist (protocol's own v1-liquidator bot); markets dormant too (top pool 0x7fba21dd... last tx 2025-08-06, AMM factory 0xcb85e122... last tx 2024-10-29); no 7-day gross/gas measured: scout lane spent (305,574/300,000 CU) and public nodes refuse archive eth_getLogs",
+  "kb": [
+   "attempts:2214",
+   "protocols:778"
+  ],
+  "run_id": "4dc9cd4352194f31a3134df9f9b31042",
+  "at": 1795025213
+ }
+}

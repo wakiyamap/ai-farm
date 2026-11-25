@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "shardingdao",
+  "status": "dead_end",
+  "checked": "DefiLlama registry https://github.com/DefiLlama/DefiLlama-Adapters/blob/main/registries/sumTokens.js identifies staking proxy 0x0feCcB11C5B61B3922C511d0f002c0b72D770dCE. Relay eth_getCode returned deployed bytecode; getPoolLength() returned 12. Etherscan verified source MarketingMiningDelegator (implementation 0xab2cc3ab140e7596c5de18d1269ac39c53bd0db0) shows permissionless massUpdatePools()/updatePoolDividend(uint256) update accounting only and transfer nothing to caller; addAvailableDividend(uint256,bool) transfers SHD from caller into pool; withdraw/withdrawETH return only msg.sender's stake and accrued SHD. No public stranger-caller reward in this contract. No-topic eth_getLogs 2026-11-16 20:21:47 UTC block 26429949 to 2026-11-23 20:22:11 UTC block 26480195 returned 0; same no-topic query shape against WETH returned 788 logs over the last 14 blocks. Etherscan tx listing's newest transaction is 2026-10-26."
+}

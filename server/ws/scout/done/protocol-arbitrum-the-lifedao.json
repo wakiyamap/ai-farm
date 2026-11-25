@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-the-lifedao",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 190,
+ "chain": "arbitrum",
+ "slug": "the-lifedao",
+ "name": "The LifeDAO",
+ "category": "CeDeFi",
+ "tvl_usd": 94995,
+ "url": "https://thelifedao.io/",
+ "github": null,
+ "listed_days_ago": 190,
+ "run_id": "67a3959697f1463d9ca3058b028433f5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: SFVault 0x6d1b...d4f9 takeFees/investIntoStrategy/withdrawFromStrategy + aggregator harvest/rebalance gated by KEEPER/OPERATOR on AddressManager 0x0353...4178 (fresh-address eth_call takeFees reverts 0x74827ad3 SFVault__NotAuthorizedCaller); 7d events: 1 investIntoStrategy (tx 0x43c4...2cd2, protocol keeper 0x50b2...afc39), 0 withdraw, 0 fees; caller gross 0 (fees go to ADMIN__SF_FEE_RECEIVER), gas bash.05/call (1.43M gas @ 0.021 gwei, ETH 707.59); TVL 5k, control 5 Transfer logs in window",
+  "kb": [
+   "attempts:3691"
+  ],
+  "run_id": "67a3959697f1463d9ca3058b028433f5",
+  "at": 1795344541
+ }
+}

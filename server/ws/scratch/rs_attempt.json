@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-radioshack",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Plain UniswapV2 fork on bsc: factory has no minter/treasury and feeTo=0xdead, so no function pays a caller; the two staking contracts pay only msg.sender their own stake/accrual. The MasterChef-like farm (4 pools) was last touched 2026-01-14 (pool 0, allocPoint 4000) and 2023-03-19 (pool 1) per lastReward timestamps read from poolInfo state, so nothing was paid to anyone in the last 7 days; the whole reward pot is 5.86M RADIO = 221 USD.",
+ "numbers": "block 134514641 (rpc.py bsc, 2026-11-19): factory 0x98957ab49b8bc9f7ddbCfD8BcC83728085ecb238 feeTo=0xdead, allPairsLength=182, minter()/treasury() revert; sRADIO vault 0xACc89554Fb28A94e5578d8A1B04E88Aa7788D261 holds 85,195,166 RADIO (balanceOf); farm 0x68b761d63e488c1d7c5f282c9b7d9a9791c17d3a poolLength=4, poolInfo(0) lastReward ts 1768404785 = 2026-01-14T15:33Z allocPoint 4000, poolInfo(1) ts 1679186500 = 2023-03-19, pools 2-3 allocPoint 0 ts 2022-11-18; farm holds 5,860,690 RADIO (18 decimals, on-chain) x 0.00003768 USD (RADIO, coins.llama.fi bsc:0x30807D3b851A31d62415B8bb7Af7dCa59390434a, 2026-11-19T13:56Z) = 221 USD; stranger eth_call harvest/deposit(uint256) revert (no standalone selector), sRADIO leave(0) succeeds paying caller 0. Sources: DefiLlama adapter projects/radioshack/index.js + github.com/radioshackswap/contracts (master)."
+}

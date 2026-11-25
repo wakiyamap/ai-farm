@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-hop-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Hop v1 L2 bridges on Polygon (6 token bridges + CCTP, addresses from hop-protocol/hop SDK mainnet.ts, explorer source L2_PolygonBridge) pay the caller only the bonderFee inside bondWithdrawal/bondWithdrawalAndDistribute, both onlyBonder (whitelisted 0xa6a688F107851131F0E1dce493EbBebFAf99203e, getIsBonder->true; fresh EOA eth_call reverts). Permissionless withdraw/settleBondedWithdrawal(s)/commitTransfers pay the recipient or the bonder argument, never the caller; distribute (relayerFee) is onlyL1Bridge. Protocol effectively dormant: 0 events in the last 7 days on all 7 bridges, last activity 2026-10-25 (user's own Withdrew on ETH bridge). Same verdict as hop_protocol on arbitrum/base/optimism.",
+  "numbers": "7d getLogs blocks 97,334,831-97,637,231 (302,400 blk, 5 topics x 7 bridges) = 0; +3 further weeks = 0 until block 96,171,456 (2026-10-25 21:09Z) 2x Withdrew tx 0x518da369caa301e2d436a12333b3a9c3401a2b2cff0cf222267a71f8e5b64ed4; control 7,748 USDC.e Transfers in 160 blocks; gas 141,557 @ 279.96 gwei = 0.0396 POL = 0.0031 USD (POL 0.0787 coins.llama.fi 2026-11-20 08:45Z); TVL Polygon 157,100 USD (api.llama.fi 2026-11-20)"
+}

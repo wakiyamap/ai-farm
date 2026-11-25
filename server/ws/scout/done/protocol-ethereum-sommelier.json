@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-sommelier",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1511,
+ "chain": "ethereum",
+ "slug": "sommelier",
+ "name": "Sommelier",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 691386,
+ "url": "https://somm.finance/",
+ "github": null,
+ "listed_days_ago": 1511,
+ "run_id": "4b4ebc6ce6b047a2b469597726b767d3",
+ "result": {
+  "verdict": "role_gated",
+  "line": "29 ethereum cellars (DefiLlama cellar-constants): all keeper functions owner- or forwarder-gated (callOnAdaptor reverts from a stranger, owner() = 0x69592e6f; cachePriceRouter UNAUTHORIZED; share-price-oracle performUpkeep needs the Automation forwarder); source has no payable/reward fn; sendFees() is stranger-callable and pays 0. 7 d no-topic scan of all 29 (blocks 26,414,700 11-14 17:24Z to 26,464,971 11-21 17:28Z): 24 logs / 19 txs = 14 setSharePriceOracle admin txs by 0x9e168b49 (0 paid) + 5 user txs. Gross 0 USD vs 0.027 USD gas (112,151 gas @ 0.141 gwei, ETH 1682).",
+  "kb": [
+   "attempts:3412",
+   "protocols:1630"
+  ],
+  "run_id": "4b4ebc6ce6b047a2b469597726b767d3",
+  "at": 1795282957
+ }
+}

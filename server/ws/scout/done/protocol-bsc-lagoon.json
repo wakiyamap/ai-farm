@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-lagoon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 693,
+ "chain": "bsc",
+ "slug": "lagoon",
+ "name": "Lagoon",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 2077032,
+ "url": "https://lagoon.finance",
+ "github": [
+  "hopperlabsxyz"
+ ],
+ "listed_days_ago": 693,
+ "run_id": "b332feb8cddc4dd3a0807308dac1e81a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BSC Lagoon = ERC-7540 vault proxy 'SPY ETF' 0x236582bb8e6b5d382e346d2ee80e1a7273d4cd4a (impl 0x7175e7e5c246e2e5c8c54ede2ee0180e39fca879, version()='v0.5.0', hopperlabsxyz/lagoon-v0): settleDeposit/settleRedeem/claimSharesOnBehalf onlySafe (all revert 0xfde82f1f(safe=0x8d644f8f1f2e3deb83eda0328dbad3e336cd0ac1) from stranger 0x1111..1111), updateNewTotalAssets onlyValuationManager, no open paying function; totalAssets 0.1652 SPYx (near-empty); 0 vault logs in 8x5000-blk sample windows over 7d, control USDC 21410 logs/1000 blk.",
+  "kb": [
+   "attempts:2041",
+   "protocols:630"
+  ],
+  "run_id": "b332feb8cddc4dd3a0807308dac1e81a",
+  "at": 1794986224
+ }
+}

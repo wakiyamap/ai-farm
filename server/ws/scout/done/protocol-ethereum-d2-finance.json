@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-d2-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 866,
+ "chain": "ethereum",
+ "slug": "d2-finance",
+ "name": "D2 Finance",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 178164,
+ "url": "https://d2.finance/strategies",
+ "github": null,
+ "listed_days_ago": 866,
+ "run_id": "2f452bd25240429aacfe1bdd0877f640",
+ "result": {
+  "verdict": "role_gated",
+  "line": "2 ethereum VaultV3 epoch custody vaults: DRV++ 0x07Dff4...dAF4 totalAssets 0 (dormant since 2025-04-16); Debasement++ 0x1F7BAe...4C36 48.03 XAUT = 168,996 USD (XAUT 3518.41 coins.llama.fi ts 1795243839), mid-epoch custodied=1. All state-changers onlyOwner/onlyTrader/whitelist+epoch-gated: custodyFunds from fresh reverts '!trader', startEpoch 'Ownable: caller is not the owner'; no function pays a caller. 0 txs in 7d window blocks 26411560-26461803 on both (control: same query shows Nov 5-8 burst, gross to caller 0). Same dead_end as base/arbitrum/hyperevm.",
+  "kb": [
+   "attempts:3223",
+   "protocols:1558"
+  ],
+  "run_id": "2f452bd25240429aacfe1bdd0877f640",
+  "at": 1795244198
+ }
+}

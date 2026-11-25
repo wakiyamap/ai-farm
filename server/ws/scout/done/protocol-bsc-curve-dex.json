@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-curve-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "curve-dex",
+ "name": "Curve DEX",
+ "category": "Dexs",
+ "tvl_usd": 51917,
+ "url": "https://curve.finance",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "25c787b162594782863bcf09776419bd",
+ "result": {
+  "verdict": "no_reward",
+  "line": "bsc curve_dex: 3 NG factories (ssng 299/twocrypto 141/tricrypto 36 pools), addressProvider stub has no registry/MINTER (no gauges); pool externals only exchange/add/remove + withdraw_admin_fees which pays factory fee_receiver 0x98b4029c...c0b6 not the caller (eth_call from fresh addr: no revert); 7d (blocks 133947606-135291002, 2026-11-16->23) no-topic scan of all 476 pools: 3737 logs / 27 pools, all topic0 identified from verified sources, 0 reward/ClaimAdminFee events; TVL 41,571 USD (llama 2026-11-23)",
+  "kb": [
+   "attempts:4136",
+   "protocols:2257"
+  ],
+  "run_id": "25c787b162594782863bcf09776419bd",
+  "at": 1795446518
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "ccip",
+  "status": "dead_end",
+  "checked": "2026-11-17 run 7e6ed5cb (scout): DefiLlama adapter projects/ccip/index.js (TokenAdminRegistry 0xc8df5D618c6a59Cc6A311E96a39450381001464F, getAllConfiguredTokens works, pools are BurnMintTokenPoolAndProxy 1.5.0 / USDCTokenPoolProxy 2.0.0). Router 0xf4c7e640eDa248ef95972845A62Bdc74237805db found on-chain (pool getRouter()), eth_getCode non-empty, getOffRamps() answers (83 registrations, 29 unique ramps). Verified OffRamp source via snowtrace API: public writes are commit (MMN/OCR3 signature-gated), execute / executeSingleMessage (permissionless), manuallyExecute (owner). None of them transfers anything to the caller: CCIP pays its oracle network off-chain in LINK from the fee vault (withdrawals onlyOwner); users pay fees, recipients receive tokens. Router ABI has no claim/reward/distribute function. Activity: 5 Router txs in 7d, 0 ExecutionSuccess events across all 29 ramps in 7d. Verdict unpaid: callable but pays the caller 0 gross; no stranger reward exists."
+}

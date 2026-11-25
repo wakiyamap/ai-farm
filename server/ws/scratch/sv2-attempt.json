@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-seamless-v2",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. Seamless V2 = Seamless Leverage Tokens, same protocol as protocols:263 (seamless_leverage_tokens); re-measured on a fresh 7 d window: 4 takes (all LM Rebalance events), 3 distinct stranger takers, best call gross 16.08 USD vs 0.44 USD gas. Class is tiny: ~15.9 USD net after gas over 7 d across ALL takers (2.3 USD/day), consistent with the prior 90 d measurement of 1.44 USD/day (attempts:1395, below farm floor, reopen triggers there).",
+ "numbers": "{\"window_blocks\": \"26408630-26459030 (7 d)\", \"lm_rebalance_n\": 4, \"adapter_take_n\": 4, \"distinct_takers\": 3, \"gross_usd_best_call\": 16.08, \"gross_usd_range\": \"-0.95 to 16.08 (LT equity-loss proxy, WETH 18 dec read on-chain)\", \"gas_usd_range\": \"0.21-0.81\", \"eth_usd\": 1618.86, \"price_source\": \"coins.llama.fi 2026-11-20 21:40 UTC\", \"class_net_usd_7d_after_gas\": 15.93, \"class_usd_day\": 2.28, \"prior_90d\": \"attempts:1395: 10 takes 0.0756 ETH gross, 1.44 USD/day net whole class\", \"take_txs\": \"0x837651da.., 0x4d1014b1.., 0x05daba3c.., 0xb3e3b6c5..\", \"topics\": \"Rebalance 0x1ece35fa.. cast keccak; Take 0xf5613330.. cast keccak; LeverageTokenCreated 7d n=0 with same-shape control\"}"
+}

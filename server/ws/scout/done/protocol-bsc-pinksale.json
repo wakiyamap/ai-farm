@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-pinksale",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1624,
+ "chain": "bsc",
+ "slug": "pinksale",
+ "name": "PinkSale",
+ "category": "Launchpad",
+ "tvl_usd": 122027682,
+ "url": "https://www.pinksale.finance",
+ "github": null,
+ "listed_days_ago": 1624,
+ "run_id": "06681f4abd3048508b0d1014483bd2b4",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Only 2 BSC contracts (adapter): lockers 0x7ee05842.. and 0x407993575..; both active (58,706 and 1,113,836 locks; sample of 3x5000-block windows over 7d: 37/4, 5/1, 14/11 LockAdded/LockRemoved on vault2, 0/0 on vault1 with vault2 as control); only payout fn unlock(uint256) is require(userLock.owner==msg.sender) and pays msg.sender itself (Sourcify sources; eth_call from fresh addr reverts) \u2014 no function pays a stranger caller",
+  "kb": [
+   "attempts:2475"
+  ],
+  "run_id": "06681f4abd3048508b0d1014483bd2b4",
+  "at": 1795082200
+ }
+}

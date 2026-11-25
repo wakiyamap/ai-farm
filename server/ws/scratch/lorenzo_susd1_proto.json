@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "lorenzo_susd1plus",
+ "status": "dead_end",
+ "checked": "(DefiLlama slug lorenzo-susd1+; adapter projects/lorenzo-susd1plus) DefiLlama adapter projects/lorenzo-susd1plus/index.js gives BSC sUSD1+ proxy 0x4F2760B32720F013E900DC92F65480137391199b (name()='sUSD1+' answers, underlying()=USD1 0x8d0D000eE44948FC98c9b98a4fA4921476F08B0d). UUPS proxy, impl 0x972c27ee69b19d7648cef365700c22713a9a31fd (eth_getCode non-empty). Verified source github.com/lorenzo-protocol/OTF-Contract contracts/vaults/USD1/sUSD1PlusVault.sol + Vault.sol + CeDeFiManager.sol; 55/63 repo selectors present in impl bytecode and unmatched bytecode selectors resolve (4byte.directory) to custom errors/getters only. No reward/claim/bounty/fee function exists: public state-changing fns (deposit, requestWithdraw, withdraw(requestId), confirmShare, refundShare, burn, supply, unsupply) all credit msg.sender with its OWN funds; keeper ops setUnitNav/resetUnitNav/updatePortfolios/setSigner/pause are onlyManager; mint/burnFrom onlyMinter/onlyBurner (CCIP); directDeposit onlyDepositor."
+}

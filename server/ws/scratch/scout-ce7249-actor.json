@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "address": "0xce7249ae6b984529a3217d6a03513d3645c93f8f",
+  "strategy": "Self-funded micro HYPE leverage-loop bot (EOA, 28 h old): wraps native to WHYPE, supplies WHYPE collateral to Morpho Blue (0x68e37de8d93d3496ae143f2e900490f6280c57cd) and HyperLend (0x00a89d7a5a02160f20150ebea7a2b5e4879a1a8b), borrows USDC (0xb88339cb7199b77e23db6e890353e22632ba630f), swaps back to WHYPE via DEX routers, loops/rebalances via its own redeployed executor contracts (0x7967a56d -> 0xe291804f -> 0xf013612d, all deployed by it). ~75 tick calls/day (sel 0x0ec1bfbe, 27k gas, no logs) plus loop-up/down (sel 0x80183bf0, 34/200 txs FAILED = retries). ~270 txs/day recent rate (200 txs covered 17.5 h; explorer caps at 200 of whole 28 h history).",
+  "evidence": "funding 0.3 HYPE from 0xc9ec02c2b6ff833ca113d86e5813dc8ad42bbe12, first tx 0x511e73f987e2448237b26e48d3b39ffcec07bc8b47d3096aa94a1d597f35d86d (block 51400111, 2026-11-16 17:34 UTC); Morpho borrow 0x3699d0a1844f8acaecf659e03cdc5adc6a6aeeb57f279102c85c3abe6f507a26; helper success 0x2e6008834abb039574ffe0604070459d241397506f45e113683df971d78331c3 (274k gas); helper FAILED 0x3474d9f888b094410cc3a29a2fa0379da36aa6c61e9f55f19f8a72738726cc9a; HyperLend borrow 0x76f837047642bb6a35516f825968acc8a7b798093418200ea11366ec6e4eeeff; tick 0xaff87ab1fd50aabe6843f4f8bf04f458b5acb8e72efb723339dc2a8fb7674234; alchemy_getAssetTransfers whole-history: 0 incoming erc20, outgoing 4x USDC total 18.45 USD + 10x WHYPE 0.225 HYPE to Morpho + 0.391 native to WHYPE",
+  "est_profit_usd_day": 0.0
+}

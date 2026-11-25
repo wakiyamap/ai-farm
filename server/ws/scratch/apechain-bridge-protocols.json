@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "apechain_bridge",
+  "status": "dead_end",
+  "checked": "DefiLlama apechain-bridge = module apechain, registry sumTokens.js (github DefiLlama-Adapters/main/registries/sumTokens.js L1153): ethereum TVL = wstETH @ 0xc8a12b1DB09ec5a43919906d94Fa7eeAef1131D1 + sDAI @ 0xf33D21137cD0B878f3A18Cc60cD74F842c59cb00 (matches tokensInUsd $176.6k wstETH + $132.7k sDAI = $309k vs candidate $326k). Both confirmed contracts (eth_getCode not 0x) with getters answering: StETHVault.stEth()=0xae7ab96520de3a18e5e111b5eaab095312d7fe84, wstEth()=0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0; L1Oft4626Router.vault()=0x83f20f44975d03b1b09e64809b757c47f942beea (sDAI), getExchangeRate()=1.1832, getFeeAmount()=0. Verified source (explorer etherscan): StETHVault = pure OZ ERC4626 (stETH->wstETH wrap); L1Oft4626Router = ERC4626+LayerZero OFT4626 router (ApeChain 'DeCent' bridge, docs.apechain.com shows ApeChain is an Arbitrum Orbit L3, parent 42161 - canonical Orbit bridge lives on Arbitrum, not ethereum). Only keeper-ish function rebase(uint32,uint256,uint256) is onlyRole(REBASE_ROLE) (eth_call from fresh addr reverts AccessControlUnauthorizedAccount 0xe2517d3f); it pays nothing - caller pays the LayerZero fee (payable, MessagingFee(msg.value,0)). Rest is user-driven deposit/depositAndSend/redeem or onlyOwner/onlyLzEndpoint."
+}

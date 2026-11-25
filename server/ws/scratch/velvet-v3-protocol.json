@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "velvet_v3",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/velvet-capital-v3/index.js identifies Ethereum factories 0x7c530c9ED5E734964453Ce62Ae9C4e31a247738B and 0xEADd9EEF6F21EaE3d0f1c6031F0F455522a081C2. Both have code and portfolioId() returns 14 and 69 at latest. Sample portfolio 0x2543150a131def46a531e7cd5e787e4c3848aaef (factory A) and 0x53885fa8979fcecdc028753aa451950be884e79e (factory B) have code and answer feeModule(). Verified Etherscan Portfolio implementations 0x0a6c29668c2319069cf10be94e30f0752bd321e3 and 0x6d07f7748cec6d4d72b3d719a2cab1527a08dd47: claimRewardTokens(address,bytes) is onlyRebalancerContract; fresh 0xdead eth_call on each reverts CallerNotRebalancerContract() selector 0x7f3d3344. FeeModule implementation 0xfeb3eb96b09b88e71d39f1f44fb9e7cebab7edc1 has public chargeProtocolAndManagementFees(), but _mintProtocolAndManagementFees mints exclusively to assetManagerTreasury() and velvetTreasury(), never caller. No permissionless caller reward identified."
+}

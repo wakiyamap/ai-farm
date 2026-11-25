@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-proxy",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Proxy Finance (PRXY/BTCpx): the only open-callable reward-class function is PRXYStaking.rebase() (0x015CEe3aB6d03267B1B2c05D2Ac9e2250AF5268d, public, no role per verified source) - it advances the OHM-v2 epoch and pays the caller 0; it now reverts 'Pausable: paused' because the PRXY token (0xab3d689c22a2bb821f50a4ff0f21a7980dcb8591) is paused. claim(address) is open-callable but pays the recipient their own stake (stranger call succeeds paying 0). BTCpx wrapper (custodial) pays no caller. 0 staking-contract txs in last 7 days (last 2025-02-06; all 2024-12..2025-02 calls errored), so nothing to price.",
+ "numbers": "staking txs last 7d = 0 (polygon.blockscout.com txlist, head 97596302 2026-11-19, control PRXY token returned 2026-11-08/10/13 txs); last staking tx 2025-02-06; rebase() gross to caller 0 USD (source PRXYStaking.sol lines 680-701, no transfer to msg.sender); claim(stranger) eth_call success 0x (void); PRXY paused()=1; TVL 16,952,980 USD candidate / Polygon 16,647,744 (api.llama.fi/protocol/proxy 2026-11-19) = custodial WBTC backing BTCpx, staking TVL 0."
+}

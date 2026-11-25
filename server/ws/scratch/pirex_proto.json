@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "pirex",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/pirex/index.js: ethereum = PirexCvx vault 0x35A398425d9f1029021A92bc3d2557D42C8588D7 + pxBTRFLY 0x10978Db3885bA79Bf1Bc823E108085FB88e6F02f (pxGMX/pxGLP are Arbitrum). Both have code (eth_getCode). Verified source pulled via explorer (PirexCvx.sol, PirexCvxConvex.sol, PirexFees.sol). Permissionless-by-source and confirmed by eth_call from fresh EOA: claimMiscRewards() 0x5ed810ac ok, lock() 0xf83d08ba ok (comment 'Non-permissioned relock method'), claimVotiumRewards([]) reverts custom EmptyArray (no role gate). None pays msg.sender: rewards go to vault + PirexFees.treasury/contributors (PirexCvx.sol L733-828, PirexFees.distributeFees). pxBTRFLY operator() = vault proxy 0xdfd47203098d63db1cd6562ff8c5bad5a195eaf4 (impl 0x218c927f9159aa2a485bbd164e70b6d0b7371e63, Dinero-migration wrapper: only holder redeemSnapshotRewards/migrate, no keeper fn), 0 logs in 7d."
+}

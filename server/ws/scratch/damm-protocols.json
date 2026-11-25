@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "damm_capital",
+  "status": "dead_end",
+  "checked": "DAMM Capital on Arbitrum = one Lagoon v0.5.0 ERC-7540 vault, DAMMstable (name() 'DAMM Stablecoin Fund'), proxy 0xe5d6eb448ac5a762c1ebe8cd1692b9cd08025176 (address from DefiLlama registries/curators.js; beacon 0x58a7729125aca9e5e9c687018e66bfdd5b2d4490, impl 0xe50554ec802375c9c3f9c087a8a7bb8c26d3dedf verified source). asset()=USDT0 0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9. Full impl ABI reviewed: no reward/bounty/fee-claim function pays msg.sender or a recipient; keeper-shaped fns settleDeposit(uint256), settleRedeem(uint256), expireTotalAssets(), claimSharesOnBehalf(address[]) all revert from a fresh address with OnlySafe(0x1f334f5947ca5170c3e31c044e718369b62e5cb5) (selector 0xfde82f1f); updateNewTotalAssets reverts OnlyValuationManager(0x1f33...) (0x14c9222d). deposit/redeem/claimSharesAndRequestRedeem are user actions where the caller pays, not earns. Last 7d (blocks 522.46M-524.96M, eth_getLogs): SettleDeposit 0, SettleRedeem 2, DepositRequest 0, Transfer 12 (control). The 2 settles were paid for by DAMM's own EOAs 0x5822b262edda82d2c6a436b598ff96fa9ab894c4 and 0x46565eedb0bb948ae787dd105cce300f736da28e via Safe + intent executor 0x781388759eacb9892f60d77d9a99c9be2f7f4ada (execute/IntentExecuted) - i.e. protocol-side housekeeping, no stranger paid."
+}

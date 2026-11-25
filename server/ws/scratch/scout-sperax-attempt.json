@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-sperax-usd",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers: collectInterest(address) on the 4 Sperax USDs strategies is permissionless and pays the caller 10 bps of collected interest; 7 strangers (4 EOAs, 3 contract wallets) took 34 payouts in 27 txs in the last 7 days, 21 txs with gross>gas. But the scale is tiny: 0.369 USD gross vs 0.311 USD gas protocol-wide per 7 d (winners' net 0.114 USD/wk), so it confirms the 2026-11-18 arithmetic close (protocols:725) - mechanism alive, economically dead; captured as protocols/leads rows, not worth a bot.",
+  "numbers": "7d = blocks 523600701-525648991 (Nov 12-19): HarvestIncentiveCollected (topic0 0xe6d6fc55e90a98a14da63c638a7d214e458bc4ded271f41d6fe76f2354391bb9) 34 events / 27 txs (aave 0x974993eE...3388: 12, compound 0xBCeb4862...2442: 10, 4th 0xa503a325...bdab: 12, stargate 0xb9C91007...A136: 0); control USDC Transfer 5038 logs/500 blk. Gross 261,423 USDC + 60,497 USDT + 47,151 USDCe (6-dec, from event token topic) = 0.3691 USD; gas/tx 4.3e-6-2.75e-5 ETH (0.008-0.050 USD) at ETH 1808.84 USD coins.llama.fi 2026-11-19 15:05 UTC; total gas 0.3107 USD. harvestIncentiveRate()=10 read on all 4. aave checkInterestEarned now 1.612/3.980/3.463 USD USDC/USDT/USDCe. Sample txs 0x2966f457d1322f60c4973636ed69771881869a155184233832664bc97af9de67, 0x55c51fbf62a56942d2563a8271e4928e4d6fbdfa01517a914478fa899b9e0d63, 0xbe3f63c1f8b888ae516b4308d4169892b555c0c05e085d7a104def0af298c4c4. DefiLlama tvl/protocol sperax-usd 503,923 USD (candidate), repo Sperax/USDs-v2 addresses.",
+  "bot_id": null
+}

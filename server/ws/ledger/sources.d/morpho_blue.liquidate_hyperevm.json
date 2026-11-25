@@ -1,0 +1,25 @@
+{
+  "id": "morpho_blue.liquidate_hyperevm",
+  "protocol": "morpho_blue",
+  "kind": "liquidation",
+  "chains": {
+    "hyperevm": [
+      "0x68e37dE8d93d3496ae143F2E900490f6280C57cD"
+    ]
+  },
+  "event": "Liquidate(bytes32,address,address,uint256,uint256,uint256,uint256,uint256)",
+  "topic0": "0xa4946ede45d0c6f06a0f5ce92c9ad3b4751452d2fe0e25010783bcab57a67e41",
+  "indexed": [
+    "id",
+    "caller",
+    "borrower"
+  ],
+  "data": [
+    "repaidAssets",
+    "repaidShares",
+    "seizedAssets",
+    "badDebtAssets",
+    "badDebtShares"
+  ],
+  "actor_field": "tx_from"
+}

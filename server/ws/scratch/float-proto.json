@@ -1,0 +1,6 @@
+{
+  "chain": "polygon",
+  "protocol": "float",
+  "status": "dead_end",
+  "checked": "Float Capital AMM (fUSD-era LongShort). Addresses from DefiLlama adapter projects/float-capital/index.js + Float-Capital/contracts deployments/polygon + on-chain EIP1967 slots; all confirmed via eth_getCode (680-byte proxies) and getters. Proxies: TreasuryAlpha 0xeb1bB399997463d8Fd0cb85C89Da0fc958006441, Staker 0xe7C89eb987c415B4233789E5ceC0eE7407d2C47F, LongShort 0x168a5d1217AEcd258b03018d5bF1A1677A07b733, Keeper 0x21d9C06036f9710254E164436E79Fa8702C04e15, + 7 Aave yield vaults (adapter list) holding amDAI (0x27f8d03b3a2196956ed754badc28d73be8830a6e). Verifier getters: LongShort latestMarket()=8, updateSystemState(1..7) eth_call from fresh 0x1111..11 returns OK (0x). ABIs via etherscan (explorer abi). Source: Float-Capital/contracts master (TreasuryAlpha.sol, longShort/template/LongShort.sol). No caller-payment logic anywhere: updateSystemState/executeOutstandingNextPriceSettlementsUser are void with no transfer/reward; GEMS gm() only on trader functions (gemCollecting modifier); Staker claimFloatCustomFor pays FLT to the staker itself. Keeper proxy has only view/should-update checkers. Protocol is winding down: TVL $125,957 (DefiLlama 2026-11-20), zero events across all 11 proxies in last 7 days."
+}

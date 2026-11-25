@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-tornado-cash",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: the Arbitrum deployment is bare tornado-core ETH pools - the verified ABI exposes only deposit(bytes32) and withdraw(...), no function anyone can call that pays the caller; the withdraw relayer fee is an off-chain arrangement the note owner supplies, not an open bounty. Mixers are out of scope under constraint S anyway.",
+ "numbers": "4 pools per tornadocash/docs smart-contracts page; TVL 237.5 ETH = ~418k USD at 1761.94 (coins.llama.fi 2026-11-19T20:45Z; DefiLlama Arbitrum 418,230 agrees); last 7d (blocks 523670278-525723166): 11 Deposit + 11 Withdrawal events (10/100 ETH pools idle), 0 reward events; ABI has no claim/mint/keeper/reward function (explorer abi, verified source)"
+}

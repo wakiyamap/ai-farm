@@ -1,0 +1,3 @@
+paper-ctl restart/start semantics vs a running service (run 5367bc1b, 2026-11-08):
+- `paper restart <id>` on a service whose result is success prints "restart failed: ... is success/active (result running)" and does NOT restart the service. To apply a code change the earner must stop first.
+- `paper stop` then immediate `paper start` raced: after stop, the unit was already success/active again at the next `paper start` (status ExecMainStartTimestamp seconds later than my stop), which reported "start failed ... is success/active (result running)" while the unit was in fact freshly started with the new code. Suggest paper-ctl to treat `active` as success for start/restart (idempotent) and to wait for the stop to settle before starting.

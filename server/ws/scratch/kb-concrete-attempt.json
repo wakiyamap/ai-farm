@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-concrete",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Concrete V2 vaults on Arbitrum ($13.0M TVL, 2 thUSD Genesis vaults + dust): every keeper-style function (closeEpoch, processEpoch, claimUsersBatch, moveRequestToNextEpoch, allocate) is behind WITHDRAWAL_MANAGER/ALLOCATOR AccessControl roles held by Concrete's own automation (stranger eth_call reverts 0xe2517d3f MissingRole). The only permissionless state-changing function, accrueYield(), pays the caller $0 (accounting only; yield accrues to share price). The epoch withdrawal machinery is also effectively idle: latestEpochID()=1, zero EpochProcessed/QueuedWithdrawal/RequestClaimed events in 7 days.",
+  "numbers": "TVL $13,041,197 (DefiLlama 2026-11-18): 0xc9ff325c09a20cf562ae5befefcbe1bce22d01b1 $8.70M + 0x5865f90c6c2a91117bedfe2fd20276305317a255 $4.23M, impl 0xbcf719a564a9b7c0822b2ecc14c93852e954b1d4 (ConcreteAsyncVaultImpl). 7d events blocks 30,401,959-32,821,159 (eth_getLogs via relay): EpochProcessed 0, QueuedWithdrawal 0, RequestClaimed 0 vs control 1,868 share Transfers (same shape); YieldAccrued 1,424. accrueYield(): 71,263 gas estimateGas x 0.02 gwei (eth_gasPrice) x ETH $1,801.86 (coins.llama.fi) = ~$0.003 gas, $0 reward. Caller: automation EOA 0xf0d208b3d17acc9c3f9bbc3bb0ed76fcabd72e39 (tx 0xa9a5d774eeb02aa727...)."
+}

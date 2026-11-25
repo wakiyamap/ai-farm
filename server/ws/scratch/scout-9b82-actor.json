@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "address": "0x9b824dd3ec24280e40ef43015ccf3073bf4cc7a9",
+ "strategy": "UniswapX V3DutchOrderReactor filler desk (RFQ market-maker treasury): its whitelisted gas EOA 0x5f8d74fcfe0b42a3a4d5646c0f5d9124059817a2 calls the contract's batch execute (sel 0x085c8c5e, whitelist-gated via addWhitelistedCaller); in each fill tx the contract receives the swapper's input token (mostly USDC), swaps through 0x103502909141f7025a94b7b99a276dcd128e21a8 inside the same tx, delivers the order output to the swapper, and books the realized spread to revenueRecipient 0xb666fd9b55572a3cf6d42b16fb550787670a000f (owner 0x19bb1986f0d57d0315cf9c42f7fa1d4ba9c0798f; reactor emits OrderFilled with filler = this contract)",
+ "evidence": "ledger events source uniswapx.fill actor=this addr: 172 fills, txs 0x20a6720086bb61f72e89b9677b83a355145ac034ae65e9af83f0598c8e1cdfc1 (600 USDC in, 46.07 tok rev, ~$0.61), 0x0e8d3d4e613036d46004072711f41f9c50133af51f0ef05ac97574f6ec968843 (~$1.13), 0xf993fd852c4487581588b2b9cbfdb00668b057265ce05c13f4edaee77bd9e4db (~$12.91), 0x3f53951120dbe9b8d5b2a7262a7b93381f8e71de61eb6cb3078cb3b9ba8c1a46 (~$6.89), 0x006dbabe8c78a2284f147a47a695399ebc58494e1acbcb443cbdfb76bb3fcdff (~$2.14); getters owner()/revenueRecipient()/isWhitelistedCaller(0x5f8d..) true via eth_call",
+ "est_profit_usd_day": 90
+}

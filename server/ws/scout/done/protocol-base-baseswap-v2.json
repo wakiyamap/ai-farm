@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-baseswap-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1201,
+ "chain": "base",
+ "slug": "baseswap-v2",
+ "name": "BaseSwap V2",
+ "category": "Dexs",
+ "tvl_usd": 471966,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1201,
+ "retries": 1,
+ "run_id": "234030b50d7f4f089265c2a66dd73f67",
+ "result": {
+  "verdict": "no_reward",
+  "line": "PancakeV2 fork (factory 0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB verified, 8306 pairs): only open fns are createPair (PairCreated 7d = 0, pays creator 0) and pair skim (Skim 7d = 0 on top pair WETH/USDC, excess-over-reserves = 0 on 3 top pairs -> pays 0); mint/burn/swap are user-driven (2662 Swap 7d on that pair via 0x/Permit2 aggregators, full 7d scan 62x49k blocks 56251701-59275701, zeros controlled by that count); setFeeTo/setFeeToSetter role-gated; gas ~bash.0005/call (0.006 gwei x 50k, ETH 777 coins.llama.fi)",
+  "kb": [
+   "attempts:2296"
+  ],
+  "run_id": "234030b50d7f4f089265c2a66dd73f67",
+  "at": 1795046108
+ }
+}

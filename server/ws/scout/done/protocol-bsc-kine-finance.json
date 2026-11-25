@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-kine-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "kine-finance",
+ "name": "Kine Finance",
+ "category": "Yield",
+ "tvl_usd": 280199,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "645ff62464384d8e8ef84cd0bc6ae928",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Kine Finance BSC = dormant Compound-fork money market (comptroller 0x3c2ddd48, 9 share markets from getAllMarkets): only mint()/redeem(uint256)/ERC20 on kBNB and kMCD impl 0x013a07ef, no liquidateBorrow/borrow/claimReward/rewardToken selectors (claimReward eth_call reverts empty); 7d (blocks 134426610-134628210): 0 Transfer + 0 LiquidateBorrow on all 9 markets, control WBNB same-shape 11874 logs/500 blk; TVL 270k USD, gross 0, gas ~0.02 USD.",
+  "kb": [
+   "attempts:2758",
+   "protocols:1196"
+  ],
+  "run_id": "645ff62464384d8e8ef84cd0bc6ae928",
+  "at": 1795148104
+ }
+}

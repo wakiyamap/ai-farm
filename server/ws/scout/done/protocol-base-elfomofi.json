@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-elfomofi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "elfomofi",
+ "name": "ElfomoFi",
+ "category": "Dexs",
+ "tvl_usd": 1052278,
+ "url": "https://elfomo.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "899dae3214d54275a529ab04795668ed",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only stranger-callable fn on elfomofi (managers 0x64f8be47.., 0xe34cd368.. + 2 EpochBasedVaults, USDC) is claim(uint256): pays the stored request.user, caller gets $0 (no keeper fee in source); 7d window blk 56.56M-59.70M: 0 claims, 0 deposits, 0 withdraws, only 2 owner-driven settleEpoch txs (0x972c7331.., 0x48a3fae1..); 0 Filled requests pending; since Apr 2026: 13 deposits, 1 claim (0x78ef9a97.., caller 0x88476513 != user, paid 0), 48 fee syncs; gas per claim <bash.01 (0.006 gwei).",
+  "kb": [
+   "attempts:2682"
+  ],
+  "run_id": "899dae3214d54275a529ab04795668ed",
+  "at": 1795131859
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-goodentry",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1299,
+ "chain": "arbitrum",
+ "slug": "goodentry",
+ "name": "GoodEntry",
+ "category": "Derivatives",
+ "tvl_usd": 32353,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1299,
+ "run_id": "fed67d21dc4945a1b69b0140b5555403",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PM closePosition pays a stranger half the exercise fee; deployed fee = 0.05 USDC gross per call (debug_traceCall on 0x0f652aad.. closing #8252; explorer source says 4e6 but deployed older), gas ~0.01-0.03 USD; 7d (blocks 524636600 2026-11-16 -> 526689946 2026-11-23): 0 opens/0 closes on all 4 PMs, control same-shape 110d scan returns 31 events (sample 31 of 31); all 17 closes were self-closes by 0x00cd2b6f..; 2 positions stranger-closable now (WETH #8252, WBTC #2798) for 0.05 USDC each, left open since Dec 2023.",
+  "kb": [
+   "attempts:3966"
+  ],
+  "run_id": "fed67d21dc4945a1b69b0140b5555403",
+  "at": 1795405100
+ }
+}

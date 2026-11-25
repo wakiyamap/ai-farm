@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-rysk-v12",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 493,
+ "chain": "hyperevm",
+ "slug": "rysk-v12",
+ "name": "Rysk V12",
+ "category": "Options Vault",
+ "tvl_usd": 25279638,
+ "url": "https://app.rysk.finance",
+ "github": null,
+ "listed_days_ago": 493,
+ "run_id": "392cff1b3ec94a5c995552db6611f2a2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Rysk V12 HyperEVM (Rysk proxy 0x8c8bcb...4e35, Gamma-fork Controller 0x84d84e...b212, MarginPool 0x24a44f...1ab4): every funds-moving fn is operator-gated - fresh-address eth_calls revert 'bad operator' / 'C6' / 'Sender is not farmer' (selfServiceAllowed=0, farmer=0x0); 25/25 latest txs (2026-11-17 15:23-19:13 UTC) from operator EOA 0x65802c...9e48 paying its own gas 0.006 USD/settle (746736 gas @ 0.1107 gwei, HYPE 67.89 coins.llama.fi), no caller reward - users pay gasFee to Rysk; TVL 26.5M (llama).",
+  "kb": [
+   "attempts:1858",
+   "protocols:491"
+  ],
+  "run_id": "392cff1b3ec94a5c995552db6611f2a2",
+  "at": 1794946960
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-sushiswap-v3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1323,
+ "chain": "ethereum",
+ "slug": "sushiswap-v3",
+ "name": "SushiSwap V3",
+ "category": "Dexs",
+ "tvl_usd": 20597608,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": 1323,
+ "run_id": "f5ea8a19d45c4fb1a9cacfc9079cf04f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Plain Uniswap V3 core fork (factory 0xbACEB8eC6b9355Dfc0269C18bac9d6E2Bdc29C4F, verified source solc 0.7.6): no function pays a caller - collect pays only the position owner (stranger eth_call returns (0,0)), collectProtocol/setFeeProtocol onlyFactoryOwner (revert), no skim (bc25cf77 absent from pool bytecode); pools live (top pool DAI/WETH 0.3% 0x769db46f39c42ee7ad5f71f4167c47edd281e767: TVL 7.48M USD, vol 22.7M USD/7d, yields.llama.fi 2026-11-21).",
+  "kb": [
+   "attempts:3367"
+  ],
+  "run_id": "f5ea8a19d45c4fb1a9cacfc9079cf04f",
+  "at": 1795274406
+ }
+}

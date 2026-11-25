@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-dialectic",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 78,
+ "chain": "ethereum",
+ "slug": "dialectic",
+ "name": "Dialectic",
+ "category": "Risk Curators",
+ "tvl_usd": 92816,
+ "url": "https://dialectic.com/",
+ "github": [
+  "dialecticch"
+ ],
+ "listed_days_ago": 78,
+ "run_id": "0f22ff13c02643f1b59585b645e59b70",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Risk-curator vault wrapper (TVL 92,805 USD, api.llama.fi 2026-11-23): Royco vaults 0xcD9f5907..2a32 / 0x41ce72e0..2c56 (impl 0x1b5cd91e..) + MetaMorpho vaults (owner 0x8c9918Ab..BA0c); only accrueYield() is open to anyone (eth_call from 0xdEaD succeeds, no role revert) but pays msg.sender 0 USD; 7d (blocks 0x19328f4 2026-11-15 to 0x1940d7d 2026-11-23): 3 YieldAccrued events, 0 standalone accrueYield calls (sample of 15 txs), control no-topic scan 19 logs; processEpoch/closeEpoch/allocate role-gated.",
+  "kb": [
+   "attempts:4202",
+   "protocols:2319"
+  ],
+  "run_id": "0f22ff13c02643f1b59585b645e59b70",
+  "at": 1795463242
+ }
+}

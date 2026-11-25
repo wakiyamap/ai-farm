@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-compound-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "compound-v1",
+ "name": "Compound V1",
+ "category": "Lending",
+ "tvl_usd": 2274439,
+ "url": "https://www.compound.xyz/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "bb1ef11958db415f88f28efd6452c24c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: the whole protocol is one paused MoneyMarket 0x3FDA67f7583380E67ef93072294a7fAc882FD7E7 (solc 0.4.24); liquidateBorrow is public with a 5% discount but eth_call from a fresh address returns 25 CONTRACT_PAUSED, 0 logs of any kind in 7 d (blocks 26,416,836 ts1794702815 - 26,466,647 ts1795302263; control: same query shape since 25,369,488 returns 5 Failure logs), last successful BorrowLiquidated block 15,328,894 (Apr 2022), 5 markets ZRX/BAT/REP/WETH/SAI holding 426.61 WETH + 165.8k SAI + 166.0k BAT (2.27M USD TVL)",
+  "kb": [
+   "attempts:3510"
+  ],
+  "run_id": "bb1ef11958db415f88f28efd6452c24c",
+  "at": 1795302835
+ }
+}

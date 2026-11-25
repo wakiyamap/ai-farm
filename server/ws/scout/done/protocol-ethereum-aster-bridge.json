@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-aster-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 866,
+ "chain": "ethereum",
+ "slug": "aster-bridge",
+ "name": "Aster Bridge",
+ "category": "Bridge",
+ "tvl_usd": 187207731,
+ "url": "https://www.asterdex.com",
+ "github": null,
+ "listed_days_ago": 866,
+ "run_id": "10a1d5fea20641c199b371d895bade0f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: AstherusVault 0x604DD02d...736E withdraw/cancelWithdraw onlyRole(OPERATE_ROLE) (fresh-addr eth_call reverts AccessControlUnauthorizedAccount); 7d (blocks 26411489-26461744, 11-14 to 11-21): 942 Withdraw by 2 relayer EOAs, ~175k gas (~0.40 USD) each, fee ~0.5 USD/call (~457 USD/7d USDT+USDC+USD1+ETH-token) accrues to vault fees[] ADMIN-only, 0 WithdrawFee events; sample of 5 of 942.",
+  "kb": [
+   "attempts:3222",
+   "protocols:1557"
+  ],
+  "run_id": "10a1d5fea20641c199b371d895bade0f",
+  "at": 1795243999
+ }
+}

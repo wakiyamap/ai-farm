@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-hydrex-integral",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 506,
+ "chain": "base",
+ "slug": "hydrex-integral",
+ "name": "Hydrex Integral",
+ "category": "Dexs",
+ "tvl_usd": 2583142,
+ "url": "https://www.hydrex.fi?anchorRef=0x798fF1e6D7AFd28c333eE6eBe03125d30ec6eF10",
+ "github": null,
+ "listed_days_ago": 506,
+ "run_id": "106d9d7ddb3d462281789b5dc877bc35",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Public Minter.update_period (0xed29fc11, 0xa7d64625f45548a19b2a19e28e7546bb2839003e) and Voter.distributeAll (0xc69E3eF39E3fFBcE2A1c570f8d3ADF76909ef17b) pay msg.sender 0 (verified source: emissions to gauges, no caller transfer); voter last-100-tx sample 5.26 d: 0 distribute, only user claims (38 claimBribes/31 vote/19 claimFees); minter had 6 direct txs ever, last update_period 2026-01-29 by 0xbe0ca442d6; HYDX 0.01886 USD (coins.llama.fi); gross per call to caller = 0 USD",
+  "kb": [
+   "attempts:1874",
+   "protocols:501"
+  ],
+  "run_id": "106d9d7ddb3d462281789b5dc877bc35",
+  "at": 1794949844
+ }
+}

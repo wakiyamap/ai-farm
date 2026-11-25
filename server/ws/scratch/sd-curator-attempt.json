@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-stake-dao-curator",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Stake DAO Curator is its curated Morpho vaults (VaultV2 + MetaMorpho v1.1 + frxUSD v1). No function on any of them pays the caller: interest/fee accrual (accrueInterest) is public but pays the curator's fee recipients, not the caller; the rest is ERC4626 user ops or role-gated admin. Nothing to collect as a stranger.",
+  "numbers": "TVL 1,086,824 USD (api.llama.fi currentChainTvls, 2026-11-20 ~11:30 UTC, USDC+frxUSD vaults). Vaults: 0x8EDC...E9E6f (VaultV2, 'Stake DAO USDC High Yield'), 0x13AA...E4c5 (MetaMorphoV1_1), 0xB2376c...72a3 (Stake DAO frxUSD v1), owner proxy 0xB0552b...C765; sources verified on explorer, addresses from DefiLlama registries/curators.js L1246-1260 + Morpho API. 7d eth_getLogs blocks 26405622-26456022: v2 vault 26 logs (10 Transfer, 6 AccrueInterest, 3 Approval, Deposit/Withdrawal/config; AccrueInterest only inside 3 user/router txs, e.g. 0x0fd68e111bc40cd0131c2834cc27a905c7e46d3c4eaebbbb6f8adfa1f06f19e0 from 0x20acb38b9268f694657ebefcd2ac9bcb8a103d2e); v1 and frxUSD vaults 0 logs (no-topic scan). eth_call accrueInterest() from fresh address succeeds, caller gross 0; gas ~100k ETH transfer-class (unpaid, not worth pricing)."
+}

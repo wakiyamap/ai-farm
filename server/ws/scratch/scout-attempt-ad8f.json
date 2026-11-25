@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "actor-hyperevm-0xad8faabd7fd1e2b7463c066c5c69eb355c19ddf8",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers - the EOA runs Morpho Blue kHYPE/USDC (market 0x96c47d37) liquidations through the permissionless shared wrapper 0xd49a4d98 fn 0x8d6ac3b9, which repays/seizes/swaps in-tx and pays msg.sender native change (fresh-caller eth_call succeeds, not auctioneer-gated like 0xf2314753 in attempts:920). But the fills measured are dust: gross native to the caller is below one attempt's gas, so the pair wrapper+EOA is net-negative in USD per fill; it likely chases non-USD incentives or aggregates dust. Job itself already covered by leads:228 (direct route) and leads:230 (kHYPE/USDC markets); this adds the 0xd49a wrapper route as a second ungated entry.",
+ "numbers": "2026-11-19 only (day-1 EOA): 5 wrapper calls, 4 success = 4 Liquidate events (ledger actor_daily, source cursor at head 51642355), 1 failed. Gross to caller 6.5e-6 to 2.0e-4 HYPE = $0.0004-$0.0134 (HYPE $66.87, coins.llama.fi 2026-11-19T02:00Z); gas 444653-501274 gas @ 1.5338e9 wei eff. = 0.00068-0.00077 HYPE = $0.046-$0.051 per call (receipts); net ~= -$0.04/fill. ~10 native HYPE transfers to 5 sibling EOAs (total ~0.15 HYPE). est_profit_usd_day ~ 0 (dust)."
+}

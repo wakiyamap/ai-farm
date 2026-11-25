@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "aera_v2",
+  "status": "dead_end",
+  "checked": "Aera V2 (ex-Gelato GGV, slug aera-v2, module projects/aera/index.js). 85 vaults enumerated from VaultCreated topic0 0xba9c8bd6 across the 5 ethereum factories in the adapter (0x8a7c03e9f037ba096f1fa8b48bfd65c7578327c9, 0xbebb92ed09688e64dc38c240b600d0b1d504ee56, 0x6b8d4485e11aae228a32FAe5802c6d4BA25EA404, 0x9500948c2BEeeB2Da4CC3aA21CB05Bd2e7C27191, 0x38896b4ac8420b8A2B768001Da44d11109F1797D; eth_getCode non-empty on checked factories, getter claims/guardians answer). Source github aera-finance/aera-contracts-public v2/: AeraVaultV2 submit(Operation[]) is onlyGuardian, execute onlyOwner, claim() external but pays only fees[msg.sender] (the per-vault feeRecipient). Active vault 0xd243c77814729b0b5d351966c3ebf0ab852d2cde: owner 0xb69138e82db9cd116d6cca1c2784d0ead3345138, guardian=feeRecipient 0xff8e5a9c3a17099b0d97576ea8e54dd462298df2, fee()=0. No open-to-strangers paid entry point; role_gated."
+}

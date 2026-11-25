@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-manaswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 514,
+ "chain": "hyperevm",
+ "slug": "manaswap",
+ "name": "ManaSwap",
+ "category": "Dexs",
+ "tvl_usd": 36833,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 514,
+ "run_id": "dc6e911865e54f33a3a8ddfd05f85a26",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Dead 6-pair UniswapV2 fork (factory 0x46BC787Bf21D9178f2dEbAD939e76c7E9Dd0A392, TVL 38.4k USD): only caller-paid fn is skim(address) (fresh-address eth_call ok, un gated) and it pays 0 - excess 0 on both tokens of all 6 pairs; 0 events/7d (blocks 51,347,989 2026-11-15 -> 51,962,748 2026-11-22, controls: factory 6 PairCreated lifetime, pair0 5,535 creation-window logs); last Swap any pair block 43,670,652 2026-08-20; gas ~0.0003 USD/call (0.1 gwei x 50k, HYPE 62.87 USD llama 11-22).",
+  "kb": [
+   "attempts:3794",
+   "protocols:1985"
+  ],
+  "run_id": "dc6e911865e54f33a3a8ddfd05f85a26",
+  "at": 1795368491
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-gamma",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "gamma",
+ "name": "Gamma",
+ "category": "Liquidity Manager",
+ "tvl_usd": 256432,
+ "url": "https://www.gamma.xyz",
+ "github": [
+  "GammaStrategies"
+ ],
+ "listed_days_ago": null,
+ "run_id": "4facff8cdd3f4a27b31b7206e58205d5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Gamma Arbitrum (310 hypervisors via 6 registries, TVL 253,599 USD): only keeper action is rebalance/compound, both role-gated (Hypervisor onlyOwner=RebalanceProxy 0xce1ebe29...; proxy onlyRebalancer); fresh-address eth_call reverts 'only owner'/'only rebalancer'; 1,339 Rebalance events in last 7d (blocks 523107943-525707943, 42 vaults) all from 4 Gamma keeper EOAs (sample of 12 txs); fee goes to rebalancer-set feeRecipient, stranger gross = 0 USD, gas ~0.01-0.05 USD unpaid.",
+  "kb": [
+   "attempts:2619",
+   "protocols:1094"
+  ],
+  "run_id": "4facff8cdd3f4a27b31b7206e58205d5",
+  "at": 1795117247
+ }
+}

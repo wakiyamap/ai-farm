@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-thorchain-dex",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Ethereum side is the legacy THORChain_Router v4.1 0xd37bbe5744d730a1d98d8dc97c42f0ca46ad7146 (+ dormant RouterV6 0x00dc61... at 0 activity 7d). Verified source has no owner/roles and no reward/claim/harvest function anyone can call for a payout: deposits pay nothing, transferOut makes the caller front the payout to a protocol-chosen recipient and pay its own gas. Rewards accrue in RUNE on THORChain L1; same no_reward verdict as avalanche:1132, base:1159, bsc:1215.",
+ "numbers": "7d blocks 26,418,570 (ts 1794723647) - 26,468,824 (ts 1795328447), 12.035 s/block: 26,862 router logs = Deposit 10,488 + TransferOut 15,981 + TransferAllowance 393 (topic0s from receipts + cast keccak; no-topic scan, RouterV6 0 logs with same-shape control). Gross to caller 0 (source + eth_call stranger 0x1111..11 transferOut -> 0x). Gas transferOut 39,836-80,086 @ 2.11-2.15 gwei (5 receipt samples) ~ $0.23 at ETH $1,657.39 (coins.llama.fi ts 1795328697). TVL $8,486,589 (candidate/DefiLlama). Sources: Midgard v2 observed txs, explorer source etherscan THORChain_Router.sol, rpc.py eth_getLogs/eth_call."
+}

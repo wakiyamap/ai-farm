@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "zarban LendingPool liquidationCall",
+  "status": "measured",
+  "why": "Stranger paid in last 7d: liquidator 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd repaid 13.9296 DAI of user 0xb9fc7acf436b608671aecd6aff079ff526471ced and received 0.167304 AAVE (block 526136333 ~2026-11-20, tx 0xf06a38475ba848adbd1546c8a0523afcb0db445ea087373add27a657c5096977); gross = 0.167304 x $98.67 - 13.9296 x $1 ~= $2.58 (AAVE price coins.llama.fi 2026-11-22T19:14Z, confidence 0.99).",
+  "next_steps": "Contract: LendingPool 0xC62545B7f466317b014773D1C605cA0D0931B0Fd (Aave v2 fork), fn liquidationCall(collateralAsset, principalAsset, debtToCover, user, receiveZToken). 7d count: 1 (eth_getLogs, control = 17 any-logs same pool/range). Gross/call $2.58 (sample of 1 of 1). Gas: 1,319,703 x 0.020 gwei = 0.0000264 ETH = $0.045 (ETH $1712.33 coins.llama.fi 2026-11-22T19:20Z). Frequency ~1 liquidation / 7d on $29.7k TVL, timing not known in advance -> trial candidate, needs a cheap unhealthy-position watch loop. SCS side (Maker-style): dog.bark(ilk,urn,kpr) and clip.redo(id,kpr) pay tip 30-50 ZAR (~$0.13-0.22 at ZAR $0.00446 coins.llama.fi 1795374247) + chip 0.1% of tab to the kpr arg (read from tip()/chip() on clips), but 0 Bark/Kick/Redo/Take in 7d and 0 active auctions now (last SCS activity 2026-09-27), so nothing to take there today."
+}

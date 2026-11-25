@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-volmex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Volmex on Arbitrum is 4 VolmexProtocol proxy vaults (tokenized volatility, DAI + USDC.e). Public entry points collateralize/redeem/redeemSettled are user operations that pay the caller nothing (issuance/redeem fees <=5% accrue to accumulatedFees, withdrawn only by the owner via claimAccumulatedFees); settle is onlyOwner. No claim/reward/keeper function exists, so no stranger can be paid.",
+  "numbers": "TVL 131,157 USD = 8,679.31 DAI (0xf613b5...) + 0.74 DAI (0xE462...) + 48,685.53 USDC.e (0xF9b0...) + 73,791.86 USDC.e (0xdf87...); balances read via balanceOf, decimals 18/6 on chain, prices coins.llama.fi 2026-11-19T20:52Z (DAI 1.0000, USDC.e 0.9995). Calls in last 7 days: 1 (redeem() tx 0x0d7f44b309a15248992770c586936162f5fc64b482dab88937a094a506ef4351, 2026-11-18, block 525283815, caller 0xcbd32a214c9202d1e9a37bd03b2c0ed5b7c9fa20, user's own collateral, gross reward 0). Other 3 proxies idle since 2025-06 / 2026-07 (explorer txs, 2026-11-19). Sources: DefiLlama registries/sumTokens.js, explorer source + volmexfinance/volmex-core."
+}

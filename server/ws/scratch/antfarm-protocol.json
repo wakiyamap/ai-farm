@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "antfarm_finance",
+  "status": "unmeasured",
+  "checked": "DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/antfarm-finance/index.js names factory 0xE48AEE124F9933661d4DD3Eb265fA9e153e32CBe and staking 0x6142b36B3dD1812993C2ecaa300b962A7Da0A900. Both have nonempty eth_getCode; factory allPairsLength() returned 39, antfarmToken() returned 0x518b63Da813D46556FEa041A88b52e3CAa8C16a8. Factory pair[0] 0x59540c3d75d70cc4cf822c7581b888390effa92a has code and token0() returns ATF. Etherscan verified factory source includes AntfarmPair/AntfarmAtfPair templates: claimDividend belongs to msg.sender position, swap fees accrue to LPs, updateOracle/sync pay no caller bounty. eth_call claimDividend(dead,0) from fresh dead address returned 0. Staking owner() returned 0x529c78ee582e4293a20ab60c848506eadd8723d8; claimableRewards(dead) returned 0 and claimStakingRewards() from dead reverted NullAmount(). withdrawTotalTokenBalance(ATF) from dead reverted Ownable. Staking source and ABI were unavailable on Etherscan/Blockscout, so unknown methods and seven-day calls/payouts were not fully checked."
+}

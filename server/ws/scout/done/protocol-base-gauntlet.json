@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-gauntlet",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "base",
+ "slug": "gauntlet",
+ "name": "Gauntlet",
+ "category": "Risk Curators",
+ "tvl_usd": 644528716,
+ "url": "https://www.gauntlet.xyz",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "fcc0977a4157488f9cf486ba0162bb1c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Gauntlet base = Morpho v1.1 curator vaults (USDC Prime 0xeE8F4eC.. $396M) + 17 Aera vaults; reallocate (rebalance) is onlyAllocatorRole and reverts from a stranger, 115 events/7d all from one allocator EOA 0xffd6bf49 (pays caller 0, ~$0.005 gas on base @0.006gwei/ETH $1824); skim\u2192skimRecipient, Aera claim() reverts NoClaimableFeesForCaller for a stranger.",
+  "kb": [
+   "attempts:1910",
+   "protocols:531"
+  ],
+  "run_id": "fcc0977a4157488f9cf486ba0162bb1c",
+  "at": 1794958075
+ }
+}

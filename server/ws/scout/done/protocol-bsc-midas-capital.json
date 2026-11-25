@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-midas-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1580,
+ "chain": "bsc",
+ "slug": "midas-capital",
+ "name": "Midas Capital",
+ "category": "Lending",
+ "tvl_usd": 88870,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1580,
+ "run_id": "8504912fe5cf4df498321eaa59e828f6",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no caller-paid function on bsc: 13 compound-fork guard comptrollers + 80 Risedle f-markets (89k USD TVL) expose no claim/claimComp/claimReward (revert 0xf9fa14c8), accrueInterest() callable but pays 0; 7d (blocks 133,894,000-135,237,354, 11-16 to 11-23) 0 comptroller logs (USDC control 22,656/200blk), 16 market logs from 8 bot txs, 0 liquidations, 0 claims; gas 0.05 gwei (~0.003 USD/100k)",
+  "kb": [
+   "attempts:4043",
+   "protocols:2170"
+  ],
+  "run_id": "8504912fe5cf4df498321eaa59e828f6",
+  "at": 1795422538
+ }
+}

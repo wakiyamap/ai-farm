@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-gambit-financial",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1257,
+ "chain": "bsc",
+ "slug": "gambit-financial",
+ "name": "Gambit Financial",
+ "category": "Derivatives",
+ "tvl_usd": 199275,
+ "url": "https://gambit.financial",
+ "github": [
+  "xvi10"
+ ],
+ "listed_days_ago": 1257,
+ "run_id": "12a1695705cd4935908ae1f16001fcd8",
+ "result": {
+  "verdict": "unclear",
+  "line": "Gambit = GMX V1 fork; Vault 0xc73A8DcAc88498FD4b4B1b2AaA37b0a2614Ff67B (Sourcify exact match, core/Vault.sol): liquidatePosition(...,_feeReceiver) external, no role modifier, pays flat USD 5.00 (liquidationFeeUsd 5e30 @1e30) to recipient arg; withdrawFees onlyGov. Dormant: TVL 194,755 USD, deadUrl, ~USD 36 moved in 7d. Unclear because the 7d LiquidatePosition count failed: 67/70 getLogs windows (4,500 blocks, head 134,401,480) gave 'all providers failed: no provider available' on bsc.",
+  "kb": [
+   "attempts:2297"
+  ],
+  "run_id": "12a1695705cd4935908ae1f16001fcd8",
+  "at": 1795046136
+ }
+}

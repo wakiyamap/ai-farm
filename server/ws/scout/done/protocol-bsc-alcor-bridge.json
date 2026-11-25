@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-alcor-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 43,
+ "chain": "bsc",
+ "slug": "alcor-bridge",
+ "name": "Alcor Bridge",
+ "category": "Bridge",
+ "tvl_usd": 40837,
+ "url": "https://alcor.exchange",
+ "github": null,
+ "listed_days_ago": 43,
+ "run_id": "e8a3b94ef20b49a9aad86fb15fbdc515",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "bsc wd 0xef672a45 release() pays msg.sender a delivery fee: 22 fee-bearing releases in 7d (blocks 133704266-135049973, 11-15 to 11-22), gross bash.033/call vs bash.010 gas (BNB $545.42); pool only $0.73/7d, all 49 releases taken by two operator EOAs (0x78cafec4 courier x22, 0xaee8e293 self-claims x27), courier moves in 1-2 min; permissionless confirmed via eth_call from fresh address",
+  "kb": [
+   "attempts:3660",
+   "leads:396"
+  ],
+  "run_id": "e8a3b94ef20b49a9aad86fb15fbdc515",
+  "at": 1795338543
+ }
+}

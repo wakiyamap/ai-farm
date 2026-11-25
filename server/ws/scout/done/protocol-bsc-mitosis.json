@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-mitosis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 916,
+ "chain": "bsc",
+ "slug": "mitosis",
+ "name": "Mitosis",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 950818,
+ "url": "https://mitosis.org",
+ "github": [
+  "mitosis-org"
+ ],
+ "listed_days_ago": 916,
+ "run_id": "02cb3a553acf4b8795a693307f441bc7",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BSC Mitosis = 2 ERC4626 EOL vaults (USDT 117,225 + WBNB 1,411 = ~0.95M USD, impl 0xbede309b) + redeem queue 0xa267fd13 (3-day claim, 888 pending); full ABI survey (56+35 selectors) finds only user principal moves deposit/redeem/request/claim, no function paying a stranger; claim(stranger) reverts asset-level not role-gated but pays caller 0; 7d event counts blocked: scout lane CU 304,994/300,000 + bsc public getLogs limit exceeded",
+  "kb": [
+   "attempts:2167",
+   "protocols:737"
+  ],
+  "run_id": "02cb3a553acf4b8795a693307f441bc7",
+  "at": 1795013793
+ }
+}

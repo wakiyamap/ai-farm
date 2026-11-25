@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-waterline",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 75,
+ "chain": "ethereum",
+ "slug": "waterline",
+ "name": "Waterline",
+ "category": "Risk Curators",
+ "tvl_usd": 22447049,
+ "url": "https://www.waterline.build",
+ "github": null,
+ "listed_days_ago": 75,
+ "run_id": "e5a2623806904b1c82ac4a9397f1c64d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "4 Morpho VaultV2 (M1/Reservoir USDC/Reservoir rUSD/InfiniFi USDC) + MorphoMarketV1AdapterV2 supply-only adapters: no function pays a stranger caller; accrueInterest callable by anyone pays 0 (494 accrual txs/6.8d, all incidental to user txs), forceDeallocate 0 calls/6.8d and its 0.001% penalty goes to the vault not the caller, allocate/deallocate allocator/sentinel-gated, skim skimRecipient-gated (no-topic getLogs 26405876-26456082, 3527 logs control)",
+  "kb": [
+   "attempts:2891",
+   "protocols:1309"
+  ],
+  "run_id": "e5a2623806904b1c82ac4a9397f1c64d",
+  "at": 1795175498
+ }
+}

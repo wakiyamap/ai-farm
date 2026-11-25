@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-nest-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 306,
+ "chain": "hyperevm",
+ "slug": "nest-amm",
+ "name": "nest AMM",
+ "category": "Dexs",
+ "tvl_usd": 137267,
+ "url": "https://app.usenest.xyz/",
+ "github": null,
+ "listed_days_ago": 306,
+ "run_id": "11b116c588984fe19f71a4424810c258",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ve(3,3) housekeeping is public but pays the caller 0: Minter.update_period + Voter.distributeAll/distributeFees have no msg.sender transfer (verified source, impl 0xEaAA90ba/0xc5A2F1A9); only caller in 7d is team EOA 0xe8824947475e8ffcd2690076a5a9fd178a136a4e (distributeFees ~1/2s @ bash.0013, weekly distributeAll 8.52M gas = bash.09, tx 0xf754bdc4...); weekly 15.92M NEST (~05k @ bash.01286) goes to LP gauges, caller share bash; no other pay-a-stranger function found (GaugeRewarder claim = signed user claim, NestRaise whitelisted, batch compound role-gated).",
+  "kb": [
+   "attempts:1747",
+   "protocols:410"
+  ],
+  "run_id": "11b116c588984fe19f71a4424810c258",
+  "at": 1794924219
+ }
+}

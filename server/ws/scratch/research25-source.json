@@ -1,0 +1,20 @@
+{
+  "id": "curve_fee_collector.hook_act",
+  "protocol": "curve_fee_collector",
+  "kind": "fee_forward_checkpoint",
+  "chains": {
+    "ethereum": [
+      "0x9A9DF35cd8E88565694CA6AD5093c236C7f6f69D"
+    ]
+  },
+  "event": "Act(address,uint256)",
+  "topic0": "0x83e8742d4075ee00e849ab2f0b53c4e624037599ba0032d97a8f64760bf268ab",
+  "indexed": [
+    "receiver"
+  ],
+  "data": [
+    "hook_compensation"
+  ],
+  "actor_field": "receiver",
+  "note": "FeeCollector forward invokes Hooker Act. hook_compensation is ONLY extra hook reward (currently zero), NOT total keeper earnings: join same tx crvUSD Transfer from collector 0xa2Bcd1a4Efbd04B63cd03f5aFf2561106ebCCE00 to receiver for forward_fee. Act also includes standalone act calls; require collector transfer + DutyAct for forward classification. infra/curve-fee-collector-forward.md"
+}

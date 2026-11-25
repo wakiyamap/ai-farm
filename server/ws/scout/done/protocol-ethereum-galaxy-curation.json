@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-galaxy-curation",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 180,
+ "chain": "ethereum",
+ "slug": "galaxy-curation",
+ "name": "Galaxy Curation",
+ "category": "Risk Curators",
+ "tvl_usd": 34508192,
+ "url": "https://www.galaxy.com/",
+ "github": null,
+ "listed_days_ago": 180,
+ "run_id": "b10c4d05c8f24c98a806b1a30ecd8832",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Ethereum Galaxy Curation = 5 standard Morpho VaultV2 vaults (USDT $10.9M, USDC $10.0M, USDC-Enhanced $8.8M, WETH $4.1M, FeeWrapper USDC $1.1M, Morpho API 2026-11-20); only role-free fn accrueInterest() (eth_call ok from fresh addr on all 5, void) pays caller $0 - fees go to fee recipients; 29 AccrueInterest logs / 7d (blocks 26,406,498-26,456,898; callers = user wallets 0x00c04ae9/0xd92bade2/0x2d704241 via router 0x02912516, side-effect of deposits/withdraws, no keeper); gross $0 vs gas $0.12/call (176,171 gas x 0.376 gwei, ETH $1,755.64 llama 2026-11-20); same finding as base (protocols:363).",
+  "kb": [
+   "attempts:2941",
+   "protocols:1351"
+  ],
+  "run_id": "b10c4d05c8f24c98a806b1a30ecd8832",
+  "at": 1795185214
+ }
+}

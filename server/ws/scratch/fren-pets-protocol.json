@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "fren_pets",
+ "status": "unmeasured",
+ "checked": "DefiLlama fren-pets: token $FP 0xff0c532fdb8cd566ae169c1cb157ff2bdc83e105 (Sourcify match, ERC-20 fee token, no reward fns; name()/symbol() read on chain = 'Fren Pet'). Game diamond 0x0e22B5f3E11944578b37ED04F5312Dfc246f443C (428-byte proxy, owner() answers, address from frenpet.xyz JS chunks abi r.GAME). GAME ABI extracted from site JS (290 entries). 7d window blocks 57,115,000 (2026-11-15) to 60,994,157 (2026-11-22): PetKilled 55 (reward field 1 wei each), ClaimRewards 5,374 (median 9.96 units, sum ~43,411), RedeemRewards 57, DiceSettle 0 (same query shape returned non-zero on other topics = control OK). No DiamondLoupe (facets()/facetAddress reverted). Blockscout 503 all session, etherscan not_on_plan; facet source unread, so recipient (caller vs pet owner) and token of ClaimRewards unverified. $FP price 2.1458 USD decimals 18 (coins.llama.fi 1795387976); base gasPrice 0.006 gwei."
+}

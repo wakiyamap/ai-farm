@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "frigg.eco",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/frigg.eco 404; api.llama.fi/protocol/frigg.eco gives address 0x90D53b872ce6421122B41a290aCdD22a5eD931bd. Verified source (etherscan): ATT token (Agatobwe, ERC20Capped+AccessControl) - mint/burn ROUTER_ROLE, setBondExpiry/setPrimaryMarketActive DEFAULT_ADMIN_ROLE; no reward functions. primaryRouter 0x96418df8b474e90e49183cc23fa41e4ad8b0ddbe (verified): only user-facing buy(address,uint256)/sell(address,uint256) payable ops behind routerGater.checkGatedStatus; tokenData[ATT] read on chain: issuer=0xa7db365e49021049ec81d1f5b184f52fe1dd9279 (GnosisSafe), issuancePrice=1e10 (100 USD/ATT), expiryPrice=5.5e9 (181.81 USDC/ATT redemption), denominated USDC 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48. State: seeBondExpiryStatus=false, isPrimaryMarketActive=true, routerGater=0x0 (getter + slot 1). eth_call buy and sell from fresh 0x1111...11 both revert (zero gater: call to empty address, empty returndata). No keeper/reward function exists."
+}

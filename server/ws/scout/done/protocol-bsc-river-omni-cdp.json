@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-river-omni-cdp",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 960,
+ "chain": "bsc",
+ "slug": "river-omni-cdp",
+ "name": "River Omni-CDP",
+ "category": "CeDeFi",
+ "tvl_usd": 47609413,
+ "url": "https://app.riverai.inc/",
+ "github": null,
+ "listed_days_ago": 960,
+ "run_id": "c834eee18c134df28b9cf076f67a7e7c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidate/liquidateTroves on core diamond 0x07Bb..A4Ec are anyone-callable (stranger eth_call reaches 'nothing to liquidate', pays caller 2e18 sUSDX gas comp ~2 USD when a trove goes under), but BSC slice is empty: 3 troves total (getTroveOwnersCount 1/1/0), sunsetting false, and 0 txs to the 4 core contracts in 31 blocks sampled across the 2.68M-block 7d window (eth_getBlockReceipts; bsc getLogs lane spent 'all providers failed')",
+  "kb": [
+   "attempts:2191",
+   "protocols:759"
+  ],
+  "run_id": "c834eee18c134df28b9cf076f67a7e7c",
+  "at": 1795019559
+ }
+}

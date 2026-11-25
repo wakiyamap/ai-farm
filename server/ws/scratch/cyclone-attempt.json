@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-cyclone",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid verdict. The only public callable reward-family function on Cyclone's bsc contracts is updateBlockReward() (5 mixer pools + Aeolus staking + router): an eth_call from a stranger address succeeds (not role-gated) but pays the caller exactly 0 - it just updates the CYC accumulator, rewards go pro-rata to depositors/stakers on their own deposit/withdraw. No mintReward/claim/harvest function exists (all selectors revert). Protocol is dormant: zero events on all 8 contracts in 7 days; Aeolus staking untouched since 2022.",
+  "numbers": "0 events in 7d over 8 addresses (269x5000-block eth_getLogs, blocks 133.27M-134.62M; same-shape control WBNB+USDC 1 chunk = 43,819 logs). updateBlockReward from fresh addr: OK on all 6 reward contracts, pays 0 BNB/token to caller. estimateGas 39,345 = $0.0011 at 0.05 gwei (eth_gasPrice) x BNB $572.34 (coins.llama.fi ts 1795143323). lastRewardBlock 132,638,437 (pools) vs latest 134,618,351 at 0.45 s/block = last state change ~10.3d ago; AeolusV2 lastRewardBlock 63,975,312 (2022)."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "vfat_io",
+  "status": "dead_end",
+  "checked": "vfat.io on Base is a vfat.tools fork of Sickle (smart-wallet yield aggregator): SickleFactory 0x71d234a3e1dfc161cc1d081e6496e76627baac31 (eth_getCode non-empty), SickleRegistry 0x2ef5eafa8711e2441bd519eed5d09f8dfef2ecf3, wallet proxy e.g. 0xdc5c8dfb0b8a4fdb4db02a7a9502cd8bd265bbc6 -> impl 0xfff75d099baee29f447866bc5299cd67c04761c8 (Blockscout verified source, author vfat.tools). Getter confirmed: wallet.registry() (0x7b103999) returns the registry. TVL $15.13M on Base, 5003 users (api.vfat.io/v4/sickle-stats 2026-11-18). Source (7-9 files) has NO task/keeper module: wallet's only write fn is multicall(address[],bytes[]) gated by registry.isWhitelistedCaller (eth_call multicall([],[]) from fresh 0xf39F... reverts = CallerNotWhitelisted 0x252c8273); registry writes onlyAdmin except setReferralCode(bytes32) (free registration); factory deploy(address,bytes32) is public but a self-service wallet creation paying the caller nothing (estimateGas 142,879 from fresh addr). Harvests are done by whitelisted strategy callers; yield accrues to the wallet owner."
+}

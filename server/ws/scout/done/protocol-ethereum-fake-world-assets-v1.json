@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-fake-world-assets-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 116,
+ "chain": "ethereum",
+ "slug": "fake-world-assets-v1",
+ "name": "Fake World Assets V1",
+ "category": "Luck Games",
+ "tvl_usd": 179333,
+ "url": "https://www.fwa.fun",
+ "github": null,
+ "listed_days_ago": 116,
+ "run_id": "bdf9e6482f6b496881e6fd00b3717c46",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: on 0xb276f62db0ce8ca2ca5bc522695be604521eac1c (FWA v1, holds 99.36 ETH = 175k USD) keeper fns activateListings/processAcquisitions/finalizeUnsettled/payoutFees are permissionless but pay caller 0 (source read + eth_call from fresh addr); 7d no-topic log scan (119 logs control, 0 unknown topic0): 59 ListingWithdrawn 2.95 ETH + 59 EarningsAccrued 2.749 ETH + 1 EarningsWithdrawn 4.273 ETH, all by one depositor 0x47ee184d...68f9, 0 acquisitions, payoutFees reverts NoOwnerFees, gas/call ~bash.017 (32,931 gas @ 0.296 gwei).",
+  "kb": [
+   "attempts:2915",
+   "protocols:1330"
+  ],
+  "run_id": "bdf9e6482f6b496881e6fd00b3717c46",
+  "at": 1795180046
+ }
+}

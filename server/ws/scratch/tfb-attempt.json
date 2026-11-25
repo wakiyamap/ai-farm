@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-team-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Team Finance bsc lockers (v3 proxy 0x0c89c0407775dd89b12918b9c0aa42bf96518820 -> impl 0x6dd27f2b..., v2 0x7536592bb74b5d62eb82e8b93b17eed4eed9a85c) have no function anyone can call for a reward: every state-changing user function requires msg.sender == withdrawalAddress (or NFT owner) and pays all funds to that caller-user; admin setters are onlyOwner; lock fees flow user -> companyWallet. Vesting.claim pays the account argument, caller gets 0. Third chain confirming the same codebase dead_end.",
+  "numbers": "depositId v3=14918, v2=9597 (eth_call); fresh-address eth_call reverts: withdrawTokens 'Unauthorised to unlock', mintNFTforLock 'Unauthorised', collectUniswapV3LPFees 'No NFT locked'; withdrawal logs 0/7 daily 5000-block windows and 0/40 consecutive windows ~25 h (blocks 134277097-134482096, eth_getLogs bsc via relay, 5000-block cap); BSC block time 0.45 s (measured from block timestamps 1794977999/1795029888); TVL $17,430,254 (DefiLlama candidate row)."
+}

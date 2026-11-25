@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-arbitrove",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1205,
+ "chain": "arbitrum",
+ "slug": "arbitrove",
+ "name": "Arbitrove",
+ "category": "Indexes",
+ "tvl_usd": 483650,
+ "url": "https://nitrocartel.finance",
+ "github": null,
+ "listed_days_ago": 1205,
+ "run_id": "4a7cb476a99c4d19ac112edf19786065",
+ "result": {
+  "verdict": "role_gated",
+  "line": "rebalance() onlyOwner on both vaults (ALP 0xb49B6A3F..., GmBTC 0xc16ce97d..., verified 'Vault' impls); deposit/withdraw onlyRouter, no stranger-payable payout; protocol dormant: 0 vault Transfer events in last 7d (blocks 0x1f40e826..0x1f51a826; control USDC 5109 logs/2k blocks), router 0xb62e2ff3... last tx 2026-11-04 FAILED, prior activity 2024; TVL 483,650 USD",
+  "kb": [
+   "attempts:2276",
+   "protocols:827"
+  ],
+  "run_id": "4a7cb476a99c4d19ac112edf19786065",
+  "at": 1795040811
+ }
+}

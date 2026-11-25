@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-teahouse-managed",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1211,
+ "chain": "arbitrum",
+ "slug": "teahouse-managed",
+ "name": "Teahouse Managed",
+ "category": "Yield Aggregator",
+ "tvl_usd": 108190,
+ "url": "https://vault.teahouse.finance",
+ "github": null,
+ "listed_days_ago": 1211,
+ "run_id": "f5353b8a65c94abc8b88572fe04e0612",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only cycle-advance fn enterNextCycle on HighTableVault (6 active vaults verified) is AUDITOR-gated (stranger eth_call reverts 0x96ecaba8 OnlyAvailableToAuditors) and pays the caller $0: sample 2026-11-16 tx 0xff045f02 paid 2.86+0.13 USDC fees to fee vaults 0x3e0ab2b9/0xd0022fb6, auditor 0xbcb12a8f got nothing; 3/6 vaults advanced a cycle in last 7 days (state getters), USDT vault dormant since 2026-05-04; gas 142,211 @ 0.02 gwei = $0.005 (ETH $1761 coins.llama.fi).",
+  "kb": [
+   "attempts:2277"
+  ],
+  "run_id": "f5353b8a65c94abc8b88572fe04e0612",
+  "at": 1795041336
+ }
+}

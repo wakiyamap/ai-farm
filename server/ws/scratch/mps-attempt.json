@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-mycelium-perpetual-swaps",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only function that pays a caller-specified receiver is Vault.liquidatePosition(... ,_feeReceiver) which pays liquidationFeeUsd = 0.30 USD in the collateral token, but inPrivateLiquidationMode=true and an eth_call from a fresh address reverts 'Vault: invalid liquidator'. The perp Vault has had no logs at all in the last 7 days (frozen: last successful Vault tx 2022-11-24, last Router tx 2023-10-30), so even the 0.30 USD reward never appears. The staking RewardTracker is alive (claim by stakers 2026-11-20) but pays msg.sender's own accrued rewards, no third-party keeper reward.",
+  "numbers": "Vault 0xDfbA8AD57d2c62F61F0a60B2C508bCdeb182f855, Router 0x3cD2f02b9e39CcC781d0c07fC0286f654e53A76d, USDG 0xE61a61b9ce1bd12e17a53aeeee1005ef6c1b2e80 (18 dec, read on chain); liquidationFeeUsd()=3e29 raw = 0.30 USD (30-digit USD precision, GMX v1 Vault.sol verified source); eth_call liquidatePosition from 0x...deadbe -> revert 'Vault: invalid liquidator' (latest block 526746196, ts 1795424714); Vault 7d no-topic getLogs blocks 524703489-526746196 (2026-11-16 to 2026-11-23) = 0 logs, control WETH Transfer same shape 0x1f654000-0x1f658253 = 8627 logs; last successful Vault tx block 40711863 ts 1669259955 (2022-11-24), Router txs explorer last block 145052953 ts 1698565468 (2023-10-30); staking claim tx 0xb18a5e9f... block 526018478 ts 1795201870 (2026-11-20). TVL 84,962 USD (candidate, DefiLlama 2026-11-23)."
+}

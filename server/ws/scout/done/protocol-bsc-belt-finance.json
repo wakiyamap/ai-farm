@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-belt-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "belt-finance",
+ "name": "Belt Finance",
+ "category": "Yield",
+ "tvl_usd": 11285241,
+ "url": "https://belt.fi/",
+ "github": [
+  "BeltFi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "e2d13ac38848428896a0f6a3555fa613",
+ "result": {
+  "verdict": "role_gated",
+  "line": "rebalance() is the only keeper fn on the 7 belt* vaults (5.41M of 10.88M TVL measured on chain): eth_call from fresh address reverts 'Not authorized' (gov|policyAdmin 0x2f99d712bd3e3e72d3b5abb5b4361bd1d770784f|owner, MultiStrategyTokenImpl.sol), pays caller 0 even when called; updateAllStrategies() open but 'System paused'; 0 Rebalance + 0 vault Transfer logs in 4x4,500-block windows sampled across 7 days (head 134,614,796; control 7,075 WBNB Transfers/300 blocks); gas 0.003 USD/100k @0.05 gwei",
+  "kb": [
+   "attempts:2730",
+   "protocols:1174"
+  ],
+  "run_id": "e2d13ac38848428896a0f6a3555fa613",
+  "at": 1795142281
+ }
+}

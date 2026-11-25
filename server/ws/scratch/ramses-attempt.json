@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-ramses-legacy-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the public epoch/distribution functions (Minter.updatePeriod/updatePeriodAndRebase, Voter.distribute/distributeAll, Pair.mintFee) succeed by eth_call from a stranger address and are role-free, but verified source shows no payment to the caller - the weekly 1,500,000 RAM emissions go to gauges/LPs and pair fees to feeRecipient/FeeDistributor. A single keeper already sweeps weekly (22 distribute txs / 7d from 0x8068e05da1cb8832fc75d263ff3dcda1bd579f0c); gross to caller $0 vs gas $0.026-0.071 per call.",
+  "numbers": "7d: 22 DistributeReward events, 1 sender (sample of 22 of 22); weekly emissions 1.5M RAM = $29,169 to gauges (RAM $0.0194 coins.llama.fi); distribute gasUsed 383,059-439,603 at 1.0-2.58 gwei = 0.00038-0.0010 HYPE = $0.026-0.071/call (5 sample receipts, avg $0.037; HYPE $68.51 coins.llama.fi 1794914708). eth_call from 0x1111...1111: updatePeriod -> 2967, distribute/distributeAll -> success. Sources: eth_getLogs voter 0x9aab8c415af5936b09c595b09b1ff15cbadcd843 topic0 0x4fa9693c.. blocks 0x3071a71-0x311db71; tx 0x8fb8b2f23e4d68c505648e732802a07643a4c97b051bc7c338db194fffd9f7ca. Explorer txs: Minter direct updatePeriodAndRebase last seen block 26429095 (2026-02-05), since then only via Voter.distribute."
+}

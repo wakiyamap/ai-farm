@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-katana-pre-launch",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The 6 ethereum contracts (4 Yearn V3 vaults kpdUSDC/USDT/WBTC/WETH + 2 BoringVaults) have no function anyone can call that pays the caller: Yearn V3 3.0.4 has no harvest/poke/claim (verified from Etherscan source, 101 functions), BoringVault enter/exit/manage are requiresAuth (eth_call enter from 0xdead reverts UNAUTHORIZED). The protocol's reward is an off-chain KAT airdrop (pro-rata 70M KAT + Krate NFTs) claimed on Katana chain, so nothing to earn from on ethereum.",
+  "numbers": "7-day eth_getLogs over all 6 addresses (blocks 26397843-26459043): 12 logs total = 7 Transfer + 2 Approval + 3 Exit(0xe0c82280, keccak Exit(address,address,uint256,address,uint256)); all on the 2 BoringVaults, 0 on the 4 Yearn vaults (same query returned the 12, so the vault zeros are with control). Last vault tx 2026-11-11 (approve). Exit = user redemption paying the user's own assets, not a caller reward. Sources: DefiLlama adapter projects/katana-prelaunch/index.js; Etherscan sources for 0xF470...014d and 0x69d2...C16B; TVL 17.2M USD (api.llama.fi 2026-11-20)."
+}

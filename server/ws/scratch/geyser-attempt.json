@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-geyser",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. GYSR/Geyser pools pay rewards only to callers that already hold a staked position: claim/update from a fresh address revert, clean/withdraw are controller-only, so no function pays a stranger. Whole protocol is dormant: zero events from all 52 v2 pools and 91 v1 geysers in the last 7 days, and the top pool's reward pot is 0.",
+ "numbers": "7d window blocks 26417036 (2026-11-15) to 26467292 (2026-11-22) from timestamps. v2 pools 52 (PoolFactory 0xc517a08aee9ca160a610752e50a6ed8087049091 count()=52): 0 logs, no-topic scan. v1 geysers 91 (GeyserFactory 0xcada3423d33259a94c1ed1a7aeecb73b87d0b684 GeyserCreated logs): 0 logs, no-topic scan. Control: WETH address-only no-topic scan blocks 26467000-26467292 = 10479 logs (same query shape). GeyserToken 0xbEa98c05eEAe2f3bC8c3565Db7551Eb738c8CCAb: 2 Transfer events in 7d. rewardBalances() top pool 0x30c0f65d9b27ebe2cc2a49cbcb4133230b3fb381 = 0 (reward pot empty; 346573.1 GYSR staked, GYSR unpriced on coins.llama.fi 1795310157). Gas: eth_gasPrice 0.1182 gwei, ~200k gas/claim = 0.00024 ETH = 0.40 USD at WETH 1681.41 USD (coins.llama.fi 1795310157). eth_call claim(0,,) and update(,) from 0x1111..11 revert. DefiLlama tvl 99.3k USD ethereum (api.llama.fi/protocol/geyser 1795310027)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-oreoswap",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Polyroll MasterChef + UniswapV2 fork (same shape as alienfi attempts:3990). The only anyone-callable functions (massUpdatePools, updatePool) pay the caller nothing - emissions are minted to the internal Stake contract - and oreoPerBlock is 0 on both masterchefs, so nothing accrues. harvest pays a recipient argument but reverts from a fresh address ('_harvest: only funder'). The whole protocol is idle: 0 events in 7 days on both masterchefs; last factory tx was 2023-03-23.",
+  "numbers": "Blocks 524662397 (2026-11-16 05:41:57) -> 526720273 (2026-11-23 ~05:50 UTC): 0 logs on MC 0xa481384653c484901b301634086c8625e550bbec and 0 on old MC proxy 0xeb66b69d1cc6ef04575a11d4b0a6427b1cdacc45 (no-topic scan; control: WETH 0x82af49447d8a07e3bd95bd0d56f35241523fbab1 same shape = 4881 logs / 5000 blocks). eth_call from fresh 0x...beef: massUpdatePools() ok, updatePool(OREO) ok, harvest(fresh, OREO) revert '_harvest: only funder'. State: oreoPerBlock=0 both MCs; totalAllocPoint 3645 / poolLength 26 (current MC), 1750 / 10 (old MC). Last txs (etherscan): current MC 2025-12-02 failed removePool from 0xac1f54fe84a04bf9ded5396bda6e4cc9bc338543; old MC 2023-02-23; factory 2023-03-23. TVL 47,794 USD (candidate). Sources: DefiLlama adapter projects/oreoswap/index.js, verified source via explorer, rpc.py eth_call/eth_getLogs."
+}

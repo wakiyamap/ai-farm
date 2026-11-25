@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-ring-few",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: ring-few on BSC is a pure 1:1 wrapper (FewFactory + FewWrappedToken from github.com/RingProtocol/few-factory). The only functions anyone can call (createToken, wrap/unwrap/wrapTo/unwrapTo, burn) pay the caller 0; mint and burnFrom are role-gated (core minter/burner). No claim/reward/harvest/distribute function exists.",
+  "numbers": "factory 0xEeE400Eabfba8F60f4e6B351D8577394BeB972CD, allWrappedTokensLength=59 (eth_call, block 134,347,444+); createToken open: eth_call from fresh 0x1111..1111 with BUSD 0xe9e7...7d56 returns new token address, reward to caller 0; gas 0.05 gwei (eth_gasPrice 0x2faf080) x BNB $579.70 (coins.llama.fi WBNB 0xbb4C..095c) => caller-paid deploy gas ~1.2M ~= $0.035, so net -gas; wrapper holds 2,497 WBNB vs 33,773 fwWBNB supply; WrappedTokenCreated events: 0 in 12x5000-block sample of the last 7 days (0.45 s blocks, ~4.5% of the range); control scan then blocked by relay lane budget (public: limit exceeded)"
+}

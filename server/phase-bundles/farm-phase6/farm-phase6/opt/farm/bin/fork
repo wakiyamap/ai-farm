@@ -1,0 +1,194 @@
+#!/usr/bin/env python3
+"""Fork CLI for agents: a local anvil fork of each mainnet (no real funds, no keys).
+
+  fork url <chain>                           JSON-RPC URL of the fork (also $FORK_URL_<CHAIN>)
+  fork status [<chain>]                      block number of each fork vs. mainnet head
+  fork reset <chain> [<block>]               re-fork from mainnet head (or a block); wipes local state
+  fork fund <chain> <address> <eth>          give an address fake native balance on the fork
+  fork fund-token <chain> <token> <holder> <to> <amount>   move ERC-20 from a rich holder (impersonated)
+  fork deploy <chain> <bytecode.hex> [<from>]   deploy creation bytecode; prints the address
+  fork call <chain> '<json tx>'              eth_call on the fork
+  fork send <chain> '<json tx>'              send a tx from any address (impersonated, no key) and print receipt
+  fork trace <chain> <txhash>                debug_traceTransaction callTracer on the fork
+  fork replay <chain> <txhash>               re-fork at tx's block-1 and re-execute the mainnet tx (same from/to/data)
+
+A fork is shared by everyone; `reset` it before a measurement that depends on
+clean state, and say so in your notes. Compile contracts with `forge build`
+(Foundry is installed at /opt/foundry/bin).
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+import urllib.request
+
+PORTS = {"base": 9001, "arbitrum": 9002, "ethereum": 9003}
+RELAY = os.environ.get("RPC_RELAY_URL", "http://127.0.0.1:8545")
+ADDR = re.compile(r"^0x[0-9a-fA-F]{40}$")
+HASH = re.compile(r"^0x[0-9a-fA-F]{64}$")
+
+
+def die(m):
+    print(f"fork: {m}", file=sys.stderr)
+    sys.exit(2)
+
+
+def url(chain):
+    if chain not in PORTS:
+        die(f"chain must be one of {sorted(PORTS)}")
+    return f"http://127.0.0.1:{PORTS[chain]}"
+
+
+def rpc(u, method, params):
+    body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
+    req = urllib.request.Request(u, data=body, headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            out = json.loads(r.read())
+    except OSError as exc:
+        die(f"{u}: {exc}")
+    if "error" in out:
+        die(f"{method}: {out['error'].get('message')} {out['error'].get('data', '')}")
+    return out["result"]
+
+
+def head(chain, lane="research"):
+    return int(rpc(f"{RELAY}/{chain}?lane={lane}", "eth_blockNumber", []), 16)
+
+
+def cmd_status(chain=None):
+    for c in ([chain] if chain else sorted(PORTS)):
+        try:
+            fb = int(rpc(url(c), "eth_blockNumber", []), 16)
+            print(f"{c}\tfork {fb}\tmainnet {head(c)}\t{url(c)}")
+        except SystemExit:
+            print(f"{c}\tdown\t{url(c)}")
+
+
+def cmd_reset(chain, block=None):
+    f = {"jsonRpcUrl": f"{RELAY}/{chain}?lane=research"}
+    if block:
+        f["blockNumber"] = int(block)
+    rpc(url(chain), "anvil_reset", [{"forking": f}])
+    print(f"ok reset {chain} at block {int(rpc(url(chain), 'eth_blockNumber', []), 16)}")
+
+
+def cmd_fund(chain, address, eth):
+    if not ADDR.match(address):
+        die("bad address")
+    wei = int(float(eth) * 1e18)
+    rpc(url(chain), "anvil_setBalance", [address, hex(wei)])
+    print(f"ok {address} balance {eth} ETH on {chain} fork")
+
+
+def selector(sig):
+    try:
+        from Crypto.Hash import keccak
+    except ImportError:
+        sys.path.insert(0, "/opt/farm/pylib")
+        from Crypto.Hash import keccak
+    h = keccak.new(digest_bits=256)
+    h.update(sig.encode())
+    return h.hexdigest()[:8]
+
+
+def cmd_fund_token(chain, token, holder, to, amount):
+    for a in (token, holder, to):
+        if not ADDR.match(a):
+            die("bad address")
+    u = url(chain)
+    rpc(u, "anvil_setBalance", [holder, hex(10**18)])     # gas for the impersonated holder
+    data = "0x" + selector("transfer(address,uint256)") + to[2:].rjust(64, "0") + int(amount).to_bytes(32, "big").hex()
+    h = rpc(u, "eth_sendTransaction", [{"from": holder, "to": token, "data": data, "gas": hex(200000)}])
+    r = rpc(u, "eth_getTransactionReceipt", [h])
+    print(f"{'ok' if r and r.get('status') == '0x1' else 'FAILED'} transfer {amount} of {token} {holder} -> {to} ({h})")
+
+
+def cmd_deploy(chain, path, frm=None):
+    with open(path, encoding="utf-8") as f:
+        code = f.read().strip()
+    if not code.startswith("0x"):
+        code = "0x" + code
+    u = url(chain)
+    frm = frm or "0x" + "f" * 39 + "e"
+    rpc(u, "anvil_setBalance", [frm, hex(10**19)])
+    h = rpc(u, "eth_sendTransaction", [{"from": frm, "data": code, "gas": hex(8_000_000)}])
+    r = rpc(u, "eth_getTransactionReceipt", [h])
+    if not r or r.get("status") != "0x1":
+        die(f"deployment reverted ({h})")
+    print(r["contractAddress"])
+
+
+def cmd_call(chain, txjson):
+    print(rpc(url(chain), "eth_call", [json.loads(txjson), "latest"]))
+
+
+def cmd_send(chain, txjson):
+    tx = json.loads(txjson)
+    if "from" not in tx:
+        die("tx needs 'from' (any address; the fork impersonates it)")
+    u = url(chain)
+    bal = int(rpc(u, "eth_getBalance", [tx["from"], "latest"]), 16)
+    if bal < 10**17:
+        rpc(u, "anvil_setBalance", [tx["from"], hex(10**18)])
+    h = rpc(u, "eth_sendTransaction", [tx])
+    print(json.dumps(rpc(u, "eth_getTransactionReceipt", [h]), indent=1))
+
+
+def cmd_trace(chain, txhash):
+    if not HASH.match(txhash):
+        die("bad tx hash")
+    print(json.dumps(rpc(url(chain), "debug_traceTransaction", [txhash, {"tracer": "callTracer"}]), indent=1))
+
+
+def cmd_replay(chain, txhash):
+    if not HASH.match(txhash):
+        die("bad tx hash")
+    tx = rpc(f"{RELAY}/{chain}?lane=research", "eth_getTransactionByHash", [txhash])
+    if not tx:
+        die("tx not found on mainnet")
+    blk = int(tx["blockNumber"], 16)
+    cmd_reset(chain, blk - 1)
+    u = url(chain)
+    rpc(u, "anvil_setBalance", [tx["from"], hex(int(rpc(u, "eth_getBalance", [tx["from"], "latest"]), 16) + 10**18)])
+    h = rpc(u, "eth_sendTransaction", [{"from": tx["from"], "to": tx["to"], "data": tx.get("input", "0x"),
+                                        "value": tx.get("value", "0x0"), "gas": tx.get("gas", hex(3_000_000))}])
+    r = rpc(u, "eth_getTransactionReceipt", [h])
+    print(f"replayed at block {blk - 1}+1: status {r.get('status')} gasUsed {int(r.get('gasUsed', '0x0'), 16)} logs {len(r.get('logs', []))}; fork tx {h}")
+
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help", "help"):
+        print(__doc__.strip())
+        return
+    c, a = argv[0], argv[1:]
+    try:
+        if c == "url" and len(a) == 1:
+            print(url(a[0]))
+        elif c == "status":
+            cmd_status(a[0] if a else None)
+        elif c == "reset" and 1 <= len(a) <= 2:
+            cmd_reset(*a)
+        elif c == "fund" and len(a) == 3:
+            cmd_fund(*a)
+        elif c == "fund-token" and len(a) == 5:
+            cmd_fund_token(*a)
+        elif c == "deploy" and 2 <= len(a) <= 3:
+            cmd_deploy(*a)
+        elif c == "call" and len(a) == 2:
+            cmd_call(*a)
+        elif c == "send" and len(a) == 2:
+            cmd_send(*a)
+        elif c == "trace" and len(a) == 2:
+            cmd_trace(*a)
+        elif c == "replay" and len(a) == 2:
+            cmd_replay(*a)
+        else:
+            die("bad arguments; run 'fork help'")
+    except (ValueError, KeyError) as exc:
+        die(str(exc))
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

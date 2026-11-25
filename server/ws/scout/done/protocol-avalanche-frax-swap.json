@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-frax-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1515,
+ "chain": "avalanche",
+ "slug": "frax-swap",
+ "name": "Frax Swap",
+ "category": "Dexs",
+ "tvl_usd": 195315,
+ "url": "https://frax.com/swap",
+ "github": null,
+ "listed_days_ago": 1515,
+ "run_id": "5013fa3c0bef440f83517e99f3cb8219",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Uniswap-V2-fork AMM; feeTo=0x0 and docs list only Factory+Router (no distributor/gauge/keeper), so no function anyone can call pays a stranger; only reward is LP swap fees accruing inside pairs = $144.52 across all avalanche pools over 7d (one pool, WAVAX/FRAX, 944 swaps, $48k vol); TVL $193.7k. no_reward.",
+  "kb": [
+   "attempts:2426"
+  ],
+  "run_id": "5013fa3c0bef440f83517e99f3cb8219",
+  "at": 1795071934
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-liveart",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 369,
+ "chain": "base",
+ "slug": "liveart",
+ "name": "LiveArt",
+ "category": "RWA",
+ "tvl_usd": 36122,
+ "url": "https://www.liveart.ai/",
+ "github": [
+  "LiveArtx"
+ ],
+ "listed_days_ago": 369,
+ "run_id": "ba45db5503444be69363c5da6fcabe87",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ArtStaking 0x9800b88729295c660772a096fe827848d237d24a on Base: unstake() callable (eth_call ok from fresh addr) but pays 0 \u2014 stakeCreationCount=0 since 2025-09-09 deploy, 0 logs in 7d; stake()/claimAndStake() revert (isCliffPeriod() -> ART token lacks vestingStart()); KOODOG rwa token 0 logs 7d, ART 101 user Transfers 7d (no keeper pay); gas 0.006 gwei ~0.001 USD/call; no stranger paid (USDC control 28,496 logs/2,560 blk)",
+  "kb": [
+   "attempts:3758",
+   "protocols:1959"
+  ],
+  "run_id": "ba45db5503444be69363c5da6fcabe87",
+  "at": 1795360473
+ }
+}

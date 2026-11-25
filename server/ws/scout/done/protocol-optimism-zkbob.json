@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-zkbob",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1459,
+ "chain": "optimism",
+ "slug": "zkbob",
+ "name": "zkBob",
+ "category": "Privacy",
+ "tvl_usd": 63200,
+ "url": "https://app.zkbob.com",
+ "github": null,
+ "listed_days_ago": 1459,
+ "run_id": "6134eeae501345d2abae82d966275a05",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Both ZkBob OP pools (USDC 0x1CA8...c97C, WETH 0x5832...5992) had 0 events in 7d (blocks 159605465-159907865, same-shape control 14 logs prior); every mutating fn role-gated (transactV2/proveTreeUpdate onlyOperator on AllowListOperatorManager with allowListEnabled=true, redeemUpTo one redemptionOperator; eth_call from fresh addr reverts 'not an operator'/'not authorized'); last caller reward 677-1129 USDC WithdrawFee 2026-05-06 to whitelisted operators, gas <0.01 USD.",
+  "kb": [
+   "attempts:4014",
+   "protocols:2145"
+  ],
+  "run_id": "6134eeae501345d2abae82d966275a05",
+  "at": 1795415115
+ }
+}

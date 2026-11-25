@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "airpuff",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/airpuff/index.js (fetched 2026-11-21) lists 29 ethereum addresses: 25 leveraged vaults (e.g. weETH 0x5e0a74cb0F74D57F9d69914575b972ba6A14e27c, impl AirPuffVaultweETHM 0x73c98cb4182068eb61e855cf148d41ed9958b451, abstract AirPuffVaultM), ETH lending 0xdeF3AA48bad043e53207d359dcDFdE46F50b6C02 (impl AirPuffLendingETH 0x025347f0e979ca18a3ade6ae917926a937d38ad8), sUSDe staking 0x7c2a7009ffE52a69a8C877b47B07D5dB59C0e3b3, PUFF staking 0x296281cC6EB049F33aB278D946F18d9cacCFcfB5 (impl AirPuff1XAPUFF), AirPuffHandler 0x2a9644aae60d97480a65fc844e4252d7909ac5b9 (impl 0xa798b16d8a7947d2be8cdcae75f007b1813e7c5d unverified). eth_getCode non-0x on sampled proxies; getters answer (strategyAddresses() 0x100e196d, liquidatorRewardsPercent()=5000/10000). Anyone-payable mechanism: liquidatePosition(uint256,address) on the vaults (no role modifier in verified source; pays caller 50% of residual after debt+interest in WETH; liquidator posts nothing, vault swaps internally). openPosition/closePosition/deposit/withdraw are user actions (vault ones EOA-only via notTrxOrigin, no pay to caller). Lending lend/repayDebt are onlyAllowedVaults whitelisted. GitHub org Airpuff has only Audit-Report (no source)."
+}

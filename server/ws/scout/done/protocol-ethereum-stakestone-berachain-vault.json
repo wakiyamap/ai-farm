@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-stakestone-berachain-vault",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 693,
+ "chain": "ethereum",
+ "slug": "stakestone-berachain-vault",
+ "name": "StakeStone Berachain Vault",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 2295074,
+ "url": "https://app.stakestone.io/u/vault",
+ "github": null,
+ "listed_days_ago": 693,
+ "run_id": "6dd92245f7a84bc6bce9b3e109f0df68",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ETHVault 0x8f88aE..577f0 + BTCVault 0xf401Cc..DEec7 (StoneBeraVault/SBTCBeraVault, source verified): only keeper job rollToNextRound is VAULT_OPERATOR_ROLE-gated (fresh-address eth_call reverts AccessControlUnauthorizedAccount); public claimRedeemRequest is self-service (fresh caller reverts NoClaimableRedeem); 7d no-topic getLogs blocks 26410251-26460506 (11-14 to 11-21): 9 RedeemClaimed + 5 RedeemRequested + 1 Cancelled, all redeemer self-claims of 0.005-0.24 STONE (~8-423 USD at STONE 1739.72 coins.llama.fi), 0 RollToNextRound, gas ~0.07 USD; 0 paid to strangers.",
+  "kb": [
+   "attempts:3147",
+   "protocols:1510"
+  ],
+  "run_id": "6dd92245f7a84bc6bce9b3e109f0df68",
+  "at": 1795228595
+ }
+}

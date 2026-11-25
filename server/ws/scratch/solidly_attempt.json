@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-solidly-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: permissionless weekly mint and distribution calls reward gauges and NFT owners, with no caller incentive. Verified minter and rebaser source and sampled transaction call traces show no native or ERC-20 transfer to the caller; rebaser claim is tokenId-authorized.",
+  "numbers": "7 d timestamp window 2026-11-16 21:26:35 UTC block 26430273 (0x1934b41) to 2026-11-23 21:26:23 UTC block 26480515 (0x1940f83), via eth_getBlockByNumber binary search. Minter Mint topic0 0xb4c03061fb5b7fed76389d5af8f2e0ddb09f8c70d1333abbb62582835e10accb from receipt: 1 event/1 call, tx 0xd0ad396cbfe97343794ad2c26579331c99fdd029fbd070175be0f85a26a059f9, caller 0xce68d5e32bc1c7cd571b48c9af1c6cde6ee60e77. Voter DistributeReward topic0 0x4fa9693cae526341d334e2862ca2413b2e503f1266255f9e0869fb36e6d89b17 from receipt: 7 events/1 transaction, tx 0x1b62a88a73f0d2bb53f855698392b83c91aa30c841413aa58bd0699cb6515fc2, same caller. Sample of 2 of 2 calls: callTracer shows no native or ERC-20 transfer to caller; gross caller reward 0 SOLID, 0 ETH. SOLID 0x777172D858dC1599914a1C4c6c9fC48c99a60990 from minter _token() and rebaser token(), 18 decimals on chain. Minter gas 517859 at 129753324 wei/gas = 0.0000671939 ETH, $0.1155; voter gas 868657 at 120505446 wei/gas = 0.0001046779 ETH, $0.1799. ETH USD $1718.42 from coins.llama.fi/prices/current/coingecko:ethereum timestamp 1795469112 (2026-11-23). The event counts use eth_getLogs in stated window."
+}

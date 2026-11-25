@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-apeswap-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "apeswap-amm",
+ "name": "ApeSwap AMM",
+ "category": "Dexs",
+ "tvl_usd": 7010216,
+ "url": "https://www.ape.bond/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "06042667de554d37a26767abbdc4972a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ApeSwap AMM bsc: only caller-paying fns are MasterChef deposit/withdraw (0x5c8D727b..) and MC2 deposit/withdraw/harvestFromMasterApe (0x71354AC3..), all open to fresh EOAs, but emissions frozen (MC1 BONUS_MULTIPLIER=0, totalAllocPoint=1; MC2 bananaPerSecond=0) - 7d (blocks 133,265,294-134,609,294, control 20 PairCreated): 5 deposits (4 from 0x31b05a72, 1 from 0x9b685667), 0 BANANA paid in all 5 receipts, pendingCake/pendingBanana(fresh)=0; pot 15.69M BANANA unpriced; gas 122,861-278,489 gas = ~0.004-0.008 USD/call; factory 0x0841BD0B.. pays no caller (PancakeFactory); TVL 6.81M USD",
+  "kb": [
+   "attempts:2719",
+   "protocols:1167"
+  ],
+  "run_id": "06042667de554d37a26767abbdc4972a",
+  "at": 1795139630
+ }
+}

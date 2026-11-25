@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-bitfi-basis",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. bfBTC is a LayerZero OFT CeDeFi wrapper (Bfbtc.sol) run off-chain at Ceffu; the only epoch/maintenance functions (updateEpoch, nativeWithdraw, approveWithdraw, depositNative) are onlyMultisig and revert NotMultiSig (0xcfa65c8d) from a fresh address, while claim/deposit only move the caller's own principal and pay no reward. No stranger paid in 7d. Same conclusion as the Base and BSC dead_ends for this slug.",
+ "numbers": "7d = blocks 26,409,772 (ts 1794617771 = 2026-11-14) -> 26,460,007 (2026-11-21), boundaries verified via eth_getBlockByNumber. Proxy 0xCdFb58c8C859Cb3F62ebe9Cf2767F9e036C7fb15, impl 0x4ca67a794051e036eefb5aa4b34fe2bd836069f0. No-topic getLogs of proxy over 7d returned exactly 3 logs, all EpochUpdated (topic0 from receipt 0x2df6562a...bb876). Deposit 0, Claimed 0, WithdrawRequest 0, WithdrawalApproved 0, Transfer 0 (same-shape control = the 3 EpochUpdated returned). All 3 updateEpoch txs from EOA 0x4cb5d17b057ea29ceb7e2cc3004fbd80663be662 via Safe 0x1eb14ec5..., gasUsed ~118,563 each = $0.021 at 0.111 gwei (eth_gasPrice 0x6a01661) x ETH $1,621.77 (coins.llama.fi 2026-11-21 00:55Z). totalSupply 880.775 bfBTC ~ $51.97M at BTC $59,009.55 (coins.llama.fi); DefiLlama ETH TVL $57.96M. claim([]) from fresh addr returns 0x (pays 0); updateEpoch(1e18) from fresh reverts 0xcfa65c8d NotMultiSig."
+}

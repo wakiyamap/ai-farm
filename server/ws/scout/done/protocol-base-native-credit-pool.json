@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-native-credit-pool",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 907,
+ "chain": "base",
+ "slug": "native-credit-pool",
+ "name": "Native Credit Pool",
+ "category": "Lending",
+ "tvl_usd": 479118,
+ "url": "https://native.org",
+ "github": null,
+ "listed_days_ago": 907,
+ "run_id": "6ba3df5afbfa44c7a78c48fbf7e4635e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "CreditVault 0x74a4...1367 on base: all 8 state functions revert from a stranger (trader/settler, owner-whitelisted liquidator + signer EIP-712 sig, epochUpdater, feeWithdrawer); 0 calls in last 7d (last inbound tx 2026-09-20 blk 51,546,970, explorer txs; 0 events in 6x50k-block windows vs control USDC 19,961 logs/500 blk); TVL $479k, borrowed $6.3k (api.llama.fi 2026-11-18).",
+  "kb": [
+   "attempts:2157"
+  ],
+  "run_id": "6ba3df5afbfa44c7a78c48fbf7e4635e",
+  "at": 1795011067
+ }
+}

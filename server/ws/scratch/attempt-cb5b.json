@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "actor-bsc-0xcb5b41ba7a0a8fa389ae248a49685a1b9395100c",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers first, but at negligible scale, and it is the same closed class as lead 166. The candidate is a stateless UniswapX filler executor on V3DutchOrderReactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 (bsc): a fresh address would be paid the same in-tx spread - 6/6 fills are exact pass-through (candidate's ERC-20 net delta 0 in every fill) with the whole margin forwarded to treasury 0x500368ec - but it is a minor stranger taking cosigned RFQ orders: 6 fills in 9.2 covered days (0.65/day) while the reactor saw 1663 fills / 20 fillers in the same window (top desk 536). Per-fill skim 28-40 bps of notional matches lead 166's 25 bps exclusivityOverrideBps RFQ shape.",
+  "numbers": "6 fills / 9.2 covered days (ledger source uniswapx.fill bsc, block 131,969,234 -> 133,733,424 = Nov 6 -> Nov 15 09:14 UTC, retired since; 0 fills Nov 6-12 with control: 1663 events for 20 other fillers in the same table+range) = 0.65 fills/day, 3/day on its 2 active days. Gross per call (skim to 0x500368ec): $0.03-$1.28, mean $0.69, total $4.12. Gas per call $0.015-$0.70, mean $0.14 (411k-1.19M gas @ 0.05-1 gwei; BNB $589.35, coins.llama.fi coingecko:binancecoin 2026-11-17). Net ~$3.28 over 9.2 d = $0.36/day. Order notionals $15-$460.",
+  "bot_id": null
+}

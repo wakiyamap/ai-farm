@@ -1,0 +1,178 @@
+{"q": "relay getLogs response too large dense logs base", "page": "infra/base-relay-dense-logs.md"}
+{"q": "cbBTC morpho discovery truncated logs", "page": "infra/base-relay-dense-logs.md"}
+{"q": "curve pegkeeper reward keeper", "page": "infra/curve-pegkeeper-rewards.md"}
+{"q": "crvUSD peg keeper update profit", "page": "infra/curve-pegkeeper-rewards.md"}
+{"q": "base contract addresses selectors", "page": "infra/farm-base-contracts.md"}
+{"q": "which selectors work on base pool oracle", "page": "infra/farm-base-contracts.md"}
+{"q": "catchable window interest bleed oracle update", "page": "methods/aave-v3-catchable-window-probe.md"}
+{"q": "liquidatable at parent block probe", "page": "methods/aave-v3-catchable-window-probe.md"}
+{"q": "uniswap v3 amountSpecified sign exact input", "page": "pitfalls/univ3-direct-pool-swap.md"}
+{"q": "pancake swap fork revert transferFrom flash loan allowance", "page": "pitfalls/executor-fork-gotchas.md"}
+{"q": "abi bytes offset calldata too short", "page": "pitfalls/executor-fork-gotchas.md"}
+{"q": "morpho oracle price scale decimals divisor", "page": "pitfalls/morpho-price-scale-per-market.md"}
+{"q": "WBTC USDC morpho 1e36 price", "page": "pitfalls/morpho-price-scale-per-market.md"}
+{"q": "bot crash loop startup getLogs max results", "page": "pitfalls/getlogs-startup-crashloop.md"}
+{"q": "cursor commit after successful scan backoff heartbeat", "page": "pitfalls/getlogs-startup-crashloop.md"}
+{"q": "fork reset by another session", "page": "pitfalls/shared-fork-concurrency.md"}
+{"q": "fork deploy timeout ethereum anvil", "page": "pitfalls/shared-fork-concurrency.md"}
+{"q": "fork getStorageAt returns zero no code old block", "page": "pitfalls/shared-fork-concurrency.md"}
+{"q": "aave executor fork test base gotchas", "page": "pitfalls/aave-executor-fork-gotchas.md"}
+{"q": "dormant borrower missed liquidation activity window", "page": "pitfalls/aave-activity-window-coverage.md"}
+{"q": "candidate universe eviction cap dormant", "page": "pitfalls/aave-activity-window-coverage.md"}
+{"q": "why paper bot gets fix review blockers", "page": "pitfalls/paper-review-blockers.md"}
+{"q": "checklist before submitting paper bot", "page": "pitfalls/paper-review-blockers.md"}
+{"q": "paper mode executor simulation state override immutables", "page": "pitfalls/executor-paper-sim-override.md"}
+{"q": "compound v3 absorb arbitrum", "page": "mechanisms/compound-v3-absorb-arbitrum.md"}
+{"q": "compound absorb ethereum buyCollateral", "page": "mechanisms/compound-v3-absorb-ethereum.md"}
+{"q": "comet buyCollateral quoteCollateral discount ethereum", "page": "mechanisms/compound-v3-absorb-ethereum.md"}
+{"q": "aave v3 base liquidationCall ABI", "page": "mechanisms/aave-v3-base-measured-abi.md"}
+{"q": "aave arbitrum stable debt gas liquidation", "page": "mechanisms/aave-v3-arbitrum-measured-abi.md"}
+{"q": "L1 data fee operator fee base loss bound", "page": "mechanisms/base-opstack-fee-anatomy.md"}
+{"q": "getL1Fee gas price oracle isthmus", "page": "mechanisms/base-opstack-fee-anatomy.md"}
+{"q": "morpho blue liquidate seizedAssets incentive factor", "page": "mechanisms/morpho-blue-liquidate-math.md"}
+{"q": "morpho liquidation incentive math base", "page": "mechanisms/morpho-blue-liquidate-math.md"}
+{"q": "EIP-1559 RLP encoding long list prefix", "page": "mechanisms/base-opstack-fee-anatomy.md"}
+{"q": "zeroForOne direction selling collateral token0", "page": "pitfalls/univ3-direct-pool-swap.md"}
+{"q": "sqrtPriceLimitX96 SPL revert MIN_SQRT_RATIO", "page": "pitfalls/univ3-direct-pool-swap.md"}
+{"q": "uniswapV3SwapCallback pay pool positive delta", "page": "pitfalls/univ3-direct-pool-swap.md"}
+{"q": "fork deploy file name too long bytecode", "page": "pitfalls/shared-fork-concurrency.md"}
+{"q": "fork lease generation number measurement invalid", "page": "pitfalls/shared-fork-concurrency.md"}
+{"q": "reset refused leased by another run reviewer cannot reproduce", "page": "pitfalls/shared-fork-concurrency.md"}
+{"q": "fork send creation no to address no code deployed", "page": "pitfalls/shared-fork-concurrency.md"}
+{"q": "aave liquidationCall MustNotLeaveDust revert cover amount", "page": "pitfalls/aave-liquidation-cover-dust.md"}
+{"q": "ethereum base fee dropped gwei era cliff own-era floor", "page": "infra/ethereum-fee-era-cliff.md"}
+{"q": "morpho stale oracle vs uniswap pool spot realized profit sizing", "page": "pitfalls/morpho-oracle-vs-pool-spot-sizing.md"}
+{"q": "cast abi-encode missing function selector tx reverts 26k gas", "page": "pitfalls/executor-fork-gotchas.md"}
+{"q": "USDT approve no return data empty revert executor", "page": "pitfalls/executor-fork-gotchas.md"}
+{"q": "bare revert no subcalls low gas fallback dispatch calldata", "page": "pitfalls/executor-fork-gotchas.md"}
+{"q": "compound v3 absorber buys whole reserve same block residue late buyer", "page": "mechanisms/compound-v3-absorb-ethereum.md"}
+{"q": "Cv3Sniper fork proof success NO_PROFIT reviewer correction", "page": "mechanisms/compound-v3-absorb-ethereum-review-log.md"}
+{"q": "moonwell mToken liquidateBorrow seize holder cashless market", "page": "mechanisms/moonwell-base-core-liquidations.md"}
+{"q": "executor-runtime.hex zero immutable addresses runtime_ok false", "page": "pitfalls/executor-paper-sim-override.md"}
+{"q": "forge deployedBytecode placeholder immutables paper simulation code override", "page": "pitfalls/executor-paper-sim-override.md"}
+{"q": "submitted runtime mismatches changed executor source stale", "page": "pitfalls/executor-paper-sim-override.md"}
+{"q": "eth_getLogs without address returns empty result relay", "page": "pitfalls/relay-getlogs-invalid-params.md"}
+{"q": "chain-wide topic-only log scan finds no events", "page": "pitfalls/relay-getlogs-invalid-params.md"}
+{"q": "how to find pool proxy contract address of a protocol", "page": "methods/find-protocol-addresses.md"}
+{"q": "memory guessed address returns empty bytecode eth_getCode", "page": "methods/find-protocol-addresses.md"}
+{"q": "docs site explorer ENOTFOUND blockscout unreachable", "page": "methods/find-protocol-addresses.md"}
+{"q": "fork deploy status 0 empty revert data constant gasUsed", "page": "pitfalls/shared-fork-concurrency.md"}
+{"q": "constructor arguments missing deploy reverts", "page": "pitfalls/shared-fork-concurrency.md"}
+{"q": "cast sig selector padded zeros topic returns no logs", "page": "pitfalls/relay-getlogs-invalid-params.md"}
+{"q": "liquidation scan zero events vacuous topic0 wrong", "page": "pitfalls/relay-getlogs-invalid-params.md"}
+{"q": "web search github repo deployment addresses", "page": "methods/find-protocol-addresses.md"}
+{"q": "where to find protocol contract address not from memory", "page": "methods/find-protocol-addresses.md"}
+{"q": "getLogs null topics silently empty", "page": "pitfalls/relay-getlogs-invalid-params.md"}
+{"q": "eth_getLogs address array parse error -32700", "page": "pitfalls/relay-getlogs-invalid-params.md"}
+{"q": "liquidation event cadence counts user operations not payouts", "page": "pitfalls/event-cadence-not-liquidations.md"}
+{"q": "TVL is custody wallet not on-chain lending book", "page": "pitfalls/llama-custody-tvl.md"}
+{"q": "invalid hex string concatenating cast sig and abi-encode output", "page": "pitfalls/executor-fork-gotchas.md"}
+{"q": "eth_call execution reverted empty data getter without from", "page": "pitfalls/relay-ethcall-from.md"}
+{"q": "known contract address eth_getCode returns 0x", "page": "methods/find-protocol-addresses.md"}
+{"q": "census on implementation address returns zero events proxy", "page": "pitfalls/proxy-implementation-no-logs.md"}
+{"q": "manifest constructor args executor gate deploy", "page": "pitfalls/manifest-path-scalar.md"}
+{"q": "review fix executor path isfile false", "page": "pitfalls/manifest-path-scalar.md"}
+{"q": "same reviewer fix needed in sibling bots", "page": "pitfalls/copy-reviewed-fix-to-all-bots.md"}
+{"q": "uniswap fee switch tokenjar release threshold UNI", "page": "infra/uniswap-fee-releaser.md"}
+{"q": "30 USD live loss stop pending receipts STOPPED.json", "page": "pitfalls/live-loss-stop-checklist.md"}
+{"q": "cumulative stop-loss bypass before send", "page": "pitfalls/live-loss-stop-checklist.md"}
+{"q": "ledger source zero events emitter cursor not initialized", "page": "infra/ledger-source-coverage.md"}
+{"q": "eth_getLogs hex string of odd length topic rejected", "page": "pitfalls/relay-getlogs-invalid-params.md"}
+{"q": "cast keccak hash does not match event topic0", "page": "pitfalls/cast-keccak-stdin-newline.md"}
+{"q": "pool mint collect non-canonical selectors packed 16-byte event words", "page": "pitfalls/hyperevm-packable-abi.md"}
+{"q": "transaction receipt returns null for older ethereum tx", "page": "infra/relay-reference.md"}
+{"q": "alchemy_getAssetTransfers valid category HTTP 400", "page": "infra/relay-reference.md"}
+{"q": "bsc getLogs exceed maximum block range 5000", "page": "infra/relay-reference.md"}
+{"q": "elysium fork reset extra block excess blob gas", "page": "infra/relay-reference.md"}
+{"q": "blockscout API key X402 payment error verified source", "page": "infra/relay-reference.md"}
+{"q": "arbitrum trace_block fails debug trace response larger than 32 MiB", "page": "infra/relay-reference.md"}
+{"q": "avalanche eth_getLogs 10000 block range alchemy", "page": "infra/relay-reference.md"}
+{"q": "defillama yields pools pool_found missing new pools since date", "page": "infra/relay-reference.md"}
+{"q": "felix feUSD redemption hyperevm topic0", "page": "mechanisms/felix-feusd-redemption-arb.md"}
+{"q": "curl RPC_RELAY_URL permission refused dont ask mode", "page": "infra/relay-reference.md"}
+{"q": "alchemy_getAssetTransfers txHash filter earliest transfers", "page": "infra/relay-reference.md"}
+{"q": "elysium getLogs response larger than 32 MiB at head", "page": "infra/relay-reference.md"}
+{"q": "hex string without 0x prefix fromBlock", "page": "infra/relay-reference.md"}
+{"q": "which agent-added ledger sources exist and what units are their amounts", "page": "infra/ledger-agent-sources.md"}
+{"q": "ledger source amounts principal not profit index", "page": "infra/ledger-agent-sources.md"}
+{"q": "beefy charged_fees units native token", "page": "infra/beefy-harvest-rewards.md"}
+{"q": "wait for event instead of polling long-poll cursor gap", "page": "infra/feed.md"}
+{"q": "feed cu_today 429 subscription budget", "page": "infra/feed.md"}
+{"q": "one block after trigger counted in expected revenue", "page": "infra/feed.md"}
+{"q": "earner no target what to do blocked_infra leads", "page": "methods/blocked-infra-feed-retriage.md"}
+{"q": "next-block trial promote exception capital 20 USD", "page": "methods/blocked-infra-feed-retriage.md"}
+{"q": "classify blocked lead speed permission capital tooling", "page": "methods/blocked-infra-feed-retriage.md"}
+{"q": "which new chain to add alchemy supported chains score", "page": "infra/chain-selection.md"}
+{"q": "candidate chain block time borrows websocket table", "page": "infra/chain-selection.md"}
+{"q": "eth_call execution reverted data 0x on a getter relay broken", "page": "pitfalls/ethcall-empty-revert-calldata.md"}
+{"q": "address argument not padded to 32 bytes calldata revert", "page": "pitfalls/ethcall-empty-revert-calldata.md"}
+{"q": "measure how slow a liquidator is seconds from takeable to capture", "page": "methods/follow-slow-liquidators.md"}
+{"q": "which liquidation markets to target slow takers half of gross 300 USD", "page": "methods/follow-slow-liquidators.md"}
+{"q": "top 30 liquidators by gross executor contract EOAs table", "page": "infra/liquidator-census.md"}
+{"q": "group liquidator addresses into one operator by funding source and payout", "page": "methods/follow-slow-liquidators.md"}
+{"q": "stop tracing funder exchange bridge more than 200 recipients", "page": "methods/follow-slow-liquidators.md"}
+{"q": "fork serves no ERC-20 state DAI getCode empty executor bare revert", "page": "pitfalls/ethcall-empty-revert-calldata.md"}
+{"q": "token contract has no code eth_getCode returns 0x", "page": "pitfalls/ethcall-empty-revert-calldata.md"}
+{"q": "copy other bots capital heavy cross chain operator card A B C D", "page": "methods/copy-bots.md"}
+{"q": "fork USDT balanceOf reverts invalid opcode", "page": "pitfalls/ethcall-empty-revert-calldata.md"}
+{"q": "base seconds per block window conversion", "page": "pitfalls/base-block-time-0p2s.md"}
+{"q": "liquidation backrun pull oracle auction taker type classify", "page": "methods/taker-types.md"}
+{"q": "Pyth price update inside the liquidation tx RedStone calldata", "page": "methods/taker-types.md"}
+{"q": "after a market crash were there liquidations farm could take 72 hours", "page": "methods/crash-postmortem.md"}
+{"q": "read rival liquidator executor contract gas comparison", "page": "methods/executor-techniques.md"}
+{"q": "feed bot precompute liquidation price per position", "page": "methods/taker-types.md"}
+{"q": "leftover position untaken for hours below the 1 USD/day floor take it once", "page": "methods/oneshot-leftovers.md"}
+{"q": "oneshot bot promote conditions net 10 USD 48 hours stop", "page": "methods/oneshot-leftovers.md"}
+{"q": "live bot sent setPoolAllowed instead of the liquidation missed opportunity", "page": "pitfalls/executor-setup-at-startup.md"}
+{"q": "executor owner setup transactions approvals allow-list when to send", "page": "pitfalls/executor-setup-at-startup.md"}
+{"q": "executor constructor args market pool baked in rivals can read targets", "page": "pitfalls/executor-no-baked-targets.md"}
+{"q": "callback caller check without storage allow-list transient counterparty", "page": "pitfalls/executor-no-baked-targets.md"}
+{"q": "executor unlimited approve leftover balance after tx reviewer check", "page": "pitfalls/executor-no-baked-targets.md"}
+{"q": "farm reaction time R measured samples ethereum", "page": "infra/reaction-time.md"}
+{"q": "holding_usd exitAll executor buy hold sell back USDC", "page": "methods/holding-frame.md"}
+{"q": "gate stop exit code 3 holdings not back", "page": "methods/holding-frame.md"}
+{"q": "send_route private Flashbots Protect deadline private_not_included", "page": "infra/private-send.md"}
+{"q": "transaction not published mempool copied front-run ethereum route", "page": "infra/private-send.md"}
+{"q": "read verified contract source ABI etherscan api key", "page": "infra/explorer.md"}
+{"q": "which chains does etherscan cover not_on_plan basescan", "page": "infra/explorer.md"}
+{"q": "nohup logger died after session ended 24 h series", "page": "infra/long-measurements.md"}
+{"q": "crontab every 10 minutes measurement end date flock", "page": "infra/long-measurements.md"}
+{"q": "ledger query unixepoch returns NULL zero rows 30 days", "page": "pitfalls/sqlite-unixepoch-modifier.md"}
+{"q": "fork proof bid one block before winner deploy moves block", "page": "pitfalls/fork-deploy-off-by-one.md"}
+{"q": "live eth_call from field is a dict signer address", "page": "pitfalls/signer-my-address-dict.md"}
+{"q": "farmbot_signer my_address returns ok address object", "page": "pitfalls/signer-my-address-dict.md"}
+{"q": "No module named farmbot_signer live bot", "page": "pitfalls/signer-import-path.md"}
+{"q": "live bot cannot import signer sys.path opt farm lib", "page": "pitfalls/signer-import-path.md"}
+{"q": "hyperevm fork reset old block accrueInterest arithmetic underflow", "page": "pitfalls/hyperevm-fork-head-state.md"}
+{"q": "OP Mainnet sequencer ordering priority fee lost same block index 1", "page": "pitfalls/opstack-first-block-index.md"}
+{"q": "base optimism incumbent tx index 1 higher bid still loses first block job trial", "page": "pitfalls/opstack-first-block-index.md"}
+{"q": "base contract source routescan chain not supported blockscout 403", "page": "infra/explorer.md"}
+{"q": "hyperevm getLogs returns empty for everything research lane budget spent public node", "page": "pitfalls/research-lane-spent-public-fallback.md"}
+{"q": "gate promote executor deployment insufficient funds have 0 after funding", "page": "pitfalls/executor-deploy-funding-lag.md"}
+{"q": "base optimism contract source via blockscout explorer chains", "page": "infra/explorer.md"}
+{"q": "actor tokens in equal tokens out zero profit pass-through native transfer", "page": "pitfalls/native-forward-profit.md"}
+{"q": "bot asked for zero priority fee but paid maxFee/10 tip", "page": "pitfalls/signer-zero-priority-fee.md"}
+{"q": "bsc public node getLogs limit exceeded after lane budget spent", "page": "pitfalls/research-lane-spent-public-fallback.md"}
+{"q": "bsc fork missing trie node failed to get storage old block", "page": "pitfalls/fork-past-state-public-nodes.md"}
+{"q": "blockscout upstream failed read operation timed out base txs", "page": "infra/explorer.md"}
+{"q": "feed 429 already has 8 log filters share one filter", "page": "infra/feed.md"}
+{"q": "fork arbitrum public HTTP 403 Archive requests require a personal token", "page": "pitfalls/fork-past-state-public-nodes.md"}
+{"q": "fork lane budget spent old block reset fails all day", "page": "pitfalls/fork-past-state-public-nodes.md"}
+{"q": "bsc historical eth_call returns latest state same value every block", "page": "pitfalls/fork-past-state-public-nodes.md"}
+{"q": "avalanche routescan txlist newest transaction days old", "page": "infra/explorer.md"}
+{"q": "bot crash loop after restart ReadBudgetExceeded daily CU cap startup", "page": "pitfalls/bot-startup-read-budget-crashloop.md"}
+{"q": "how many log filters per chain can the feed hold", "page": "infra/feed.md"}
+{"q": "avalanche contract verified source ABI explorer not_on_plan routescan", "page": "infra/explorer.md"}
+{"q": "fork renamed liquidation event zero events but pool liquidates", "page": "methods/operator-venue-census.md"}
+{"q": "bsc eth_getLogs maximum block range 7 day census one call", "page": "methods/bsc-abi-without-explorer.md"}
+{"q": "how many blocks is 7 days on avalanche bsc", "page": "infra/chain-block-cadence.md"}
+{"q": "do liquidation trials win live sends compared with redemption harvest trials", "page": "methods/live-trial-send-census.md"}
+{"q": "eth_getStorageAt returns 0x0 implementation slot relay broken", "page": "pitfalls/proxy-implementation-slot-lookup.md"}
+{"q": "stellar getEvents cursor returns same events short page", "page": "infra/stellar-relay.md"}
+{"q": "getLedgerEntries cannot unmarshal key value contract instance", "page": "infra/stellar-relay.md"}
+{"q": "explorer base blockscout HTTP 503 cannot read ABI", "page": "infra/explorer.md"}
+{"q": "stellar-key.py build LedgerKey for contract instance", "page": "infra/stellar-relay.md"}
+{"q": "rebase token balance above pool reserve sellBase allowed", "page": "methods/skim-excess-sweep.md"}
+{"q": "is taking a pair skim excess inside S", "page": "methods/skim-excess-sweep.md"}
+{"q": "trial bot graduate grad capital fee cap", "page": "methods/graduation.md"}
+{"q": "stellar getEvents topic filter returns zero events", "page": "infra/stellar-relay.md"}

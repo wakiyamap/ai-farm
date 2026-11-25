@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-pharaoh-cl",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1067,
+ "chain": "avalanche",
+ "slug": "pharaoh-cl",
+ "name": "Pharaoh CL",
+ "category": "Dexs",
+ "tvl_usd": 3898978,
+ "url": "https://www.phar.gg/",
+ "github": null,
+ "listed_days_ago": 1067,
+ "run_id": "f1824ea518404403bf1bc784dfc05f28",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Pharaoh CL = old Ramses-V2 CL (factory proxy 0xAAA32926fcE6bE95ea2c51cB4Fcb60836D320C42, created 2023-11-08; impl 0x77dd39f2 ClPool). Callable keeper fn _advancePeriod() pays msg.sender 0 (no transfer in source); collectProtocol is onlyFeeCollector; mint/collect/burn/swap/flash pay only LPs/swappers; ve(3,3) Voter.distribute rail already measured at 0 (attempts 1797/2202). TVL $3.89M (api.llama.fi 2026-11-18), no stranger payout in the pool contract itself.",
+  "kb": [
+   "attempts:2224"
+  ],
+  "run_id": "f1824ea518404403bf1bc784dfc05f28",
+  "at": 1795027809
+ }
+}

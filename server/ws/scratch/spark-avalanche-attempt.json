@@ -1,0 +1,8 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-spark-savings",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. spUSDC SparkVault (proxy 0x28B3a8fb53B741A8Fd78c0fb9A6B2393d896a43d, impl 0xc2c0582d...7f12 verified on Routescan): the only anyone-can-call function is drip(), which pays the caller $0 (source has no fee and no transfer to msg.sender; interest accrues to holders via chi, and vsr is currently exactly RAY so accrual is 0%). All 7d Drip events came from user redeem() txs, zero standalone keeper pokes; take() is TAKER_ROLE-gated.",
+  "numbers": "7d (blocks 100282991-100585391, Routescan getLogs; relay getLogs works but is capped at 100 blocks/req on avalanche research lane): Drip=3, Withdraw=3, Transfer=3, Deposit=0 (control: same source/window returns the 3 non-zero). All 3 Drips inside redeem() txs (selector 0xba087652) from 3 distinct EOAs 0x9ea21703..., 0x8e9a8e50..., 0xd0b3ee76...; standalone drip() calls 7d = 0. Gross per drip() to caller $0 by construction; last drip diffs consistent with vsr=1e27 (0% APY). Standalone drip gas estimateGas=42,105 @ 7.5 gwei (eth_gasPrice) = 3.16e-4 AVAX ~= $0.002 (AVAX $7.09, coins.llama.fi coingecko:avalanche-2 ts 1794938724); sample redeem 0x3b6c2b8c... 127,849 gas @ 8 gwei ~= $0.007. TVL on avalanche ~$122k (totalSupply 121,974.2 spUSDC shares, 6-dec USDC asset).",
+  "bot_id": null
+}

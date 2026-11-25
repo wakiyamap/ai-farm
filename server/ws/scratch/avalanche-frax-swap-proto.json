@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "frax_swap",
+  "status": "dead_end",
+  "checked": "Uniswap-V2-fork AMM. Docs (docs.frax.finance/fraxswap/fraxswap-contract-addresses) list only Factory + Router, no distributor/gauge/minter/keeper. V2 factory 0xf77ca9B635898980fb219b4F4605C50e4ba58afF (eth_getCode !=0x, allPairsLength()=4, feeTo()=0x0), router 0x5977b16AA9aBC4D1281058C73B789C65Bf9ab3d3 (code). V1 deprecated factory 0x5Ca135cB8527d76e932f34B5145575F9d8cbE08E (code, allPairsLength()=2, feeTo()=0x0), feeToSetter 0xb3e03c9c1820c6216953fb1bbc6ffd232ac12a19 (owner). No function anyone can call that pays the caller: swap/mint/burn/skim are user-driven (caller = the user, not a keeper), factory createPair pays nobody, setFeeTo/setFeeToSetter are owner-gated. feeTo=0x0 means there is no protocol fee-harvester/claim. Only economic reward is LP swap fees that accrue inside pairs with no claim function."
+}

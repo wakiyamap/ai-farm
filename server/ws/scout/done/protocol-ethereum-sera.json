@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-sera",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 137,
+ "chain": "ethereum",
+ "slug": "sera",
+ "name": "Sera",
+ "category": "Dexs",
+ "tvl_usd": 111772,
+ "url": "https://sera.cx",
+ "github": [
+  "sera-cx"
+ ],
+ "listed_days_ago": 137,
+ "run_id": "4b8a8f9fff4b420c99312ae558109a8a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All entry points role-gated: Sera.matchOrders + SeraSOR.executeIntent need EXECUTOR_ROLE (fresh-address eth_call reverts AccessControlUnauthorizedAccount 0xe2517d3f); 10 OrderMatched/7d all called by operator EOA 0xf0d26d48 via batcher 0x1f4b366f (full set); take per match = 4.65 MYRT (6 dec, usd: unpriced) to treasury 0x562fffc5, never msg.sender; gas 294,707 = $0.83/match (ETH $1,729.62 llama 13:34Z); user fns pay the user, not the caller.",
+  "kb": [
+   "attempts:2925"
+  ],
+  "run_id": "4b8a8f9fff4b420c99312ae558109a8a",
+  "at": 1795181837
+ }
+}

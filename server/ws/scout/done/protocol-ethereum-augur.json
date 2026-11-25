@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-augur",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "augur",
+ "name": "Augur",
+ "category": "Prediction Market",
+ "tvl_usd": 1056713,
+ "url": "https://augur.net/",
+ "github": [
+  "AugurProject"
+ ],
+ "listed_days_ago": null,
+ "run_id": "71f0f10ed5d543e5aa5b67c17a4dee50",
+ "result": {
+  "verdict": "unpaid",
+  "line": "No function pays its caller: pokeRepMarketCapInAttoCash/runPeriodicals open but pay 0 (eth_call fresh addr OK), Market.finalize open but pays the stored creator; 7d (blocks 26416157-26466411, 2026-11-14->21): 479 hub events/118 txs, 1 MarketFinalized (caller==creator took own 219.82 DAI ~= 220 USD gross, gas 2.02M ~= 3.75 USD), 0 ParticipationTokensRedeemed, 0 MarketCreated, no Universe tx since 2026-03-19.",
+  "kb": [
+   "attempts:3496"
+  ],
+  "run_id": "71f0f10ed5d543e5aa5b67c17a4dee50",
+  "at": 1795299945
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-ventuals",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 195,
+ "chain": "hyperevm",
+ "slug": "ventuals",
+ "name": "Ventuals",
+ "category": "Interface",
+ "tvl_usd": 257996,
+ "url": "https://ventuals.com/trade",
+ "github": null,
+ "listed_days_ago": 195,
+ "run_id": "718b1278727640968caf725d29d41375",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Manager 0x8888..b20c processBatch/finalizeBatch anyone-callable (revert = BatchNotReady timing, not role) but pay caller $0: 7d = 4 daily rounds (8 ProcessBatch + 4 FinalizeBatch events, all txs from project wallet 0xdcb5c73a), 5 self-claims of users' own HYPE principal; gas 185k/209k @ 0.12-0.21 gwei = ~$0.002/call (HYPE $68.62 llama.fi); vault 3843 HYPE ~ $263.7k; protocol sunsetting since 2026-06-15",
+  "kb": [
+   "protocols:367",
+   "attempts:1684"
+  ],
+  "run_id": "718b1278727640968caf725d29d41375",
+  "at": 1794912708
+ }
+}

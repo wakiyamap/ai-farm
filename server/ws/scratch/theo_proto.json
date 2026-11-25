@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "theo_network_thusd",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/theo-network-thusd/index.js gave thUSD 0xa3fE5c7596024E6811E14F029937D5bd8Ae485b3 (UUPS ERC-20, name()=thUSD, totalSupply 138.61M @6dp), thBILL 0x5fa487bca6158c64046b2813623e20755091da0b (multi-asset ERC-4626), RESERVE 0xEc417Ccb6dD26868Cca993a92F37217b1D4b3c2f (Gnosis Safe). thUSD.minter() = 0x2d99ac801dc0edadd53f5688fef2317932e8696e (ThUSDMinter, verified source via explorer): mint/redeem(Order,sig) are onlyRole(MINTER_ROLE); redeemFeeBps=5 stays in redeemDestination, caller gets nothing. sthUSD vault (Blockscout search 'Staked thUSD') 0xA808Bc9775cb41c52C7842f8b50427fE7A770326 (impl 0x342487f9fe31d199dda8c89a1c34cc647c5a7dc3, SthUSD.sol): asset()=thUSD, setYield gated to yieldDistributor 0x5a69fb3e2fb7e78dfbdceafc5365d5803b745aac, initiateRedeem/redeem/withdraw are user self-service. All getters eth_call-confirmed on mainnet. No function anyone can call that pays the caller: eth_call redeem from fresh 0x7777.. reverts AccessControlUnauthorizedAccount."
+}

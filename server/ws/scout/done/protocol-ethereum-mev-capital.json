@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-mev-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "mev-capital",
+ "name": "MEV Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 6880632,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "02345f519bd44302b03e2ef22f78149d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Risk Curator, no own ethereum contract; TVL in curated 3rd-party vaults (MetaMorpho/Mellow-Amphor/Symbiotic/Term). All keeper fns gated to MEV Capital roles: rebalance()=AccessControlUnauthorizedAccount, MetaMorpho run()=OnlyCurator, Term report()/tend()='!keeper'. Mellow rebalance 0 events/7d (blocks 26409188->26467125, Transfer control returned logs). User deposit/withdraw/claim pay 0 to caller.",
+  "kb": [
+   "attempts:3092",
+   "protocols:1468"
+  ],
+  "run_id": "02345f519bd44302b03e2ef22f78149d",
+  "at": 1795216222
+ }
+}

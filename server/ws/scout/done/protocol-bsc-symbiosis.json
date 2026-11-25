@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-symbiosis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1692,
+ "chain": "bsc",
+ "slug": "symbiosis",
+ "name": "Symbiosis",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 631489,
+ "url": "https://symbiosis.finance",
+ "github": [
+  "symbiosis-finance"
+ ],
+ "listed_days_ago": 1692,
+ "run_id": "c0e7a304b7544b33936a2dc6f73c9469",
+ "result": {
+  "verdict": "role_gated",
+  "line": "BSC portal 0x5Aa5f...52FD4 (impl 0x422a0a...3596, versionRecipient 2.0.1, bridge 0xb8f275...81A8): all paying fns unsynthesize/metaUnsynthesize/revertSynthesize are onlyBridge (Portal.sol:115), open synthesize*/revertBurnRequest/metaRevertRequest pay caller 0 USD on BSC; TVL 631,489 USD; 7d call counts unmeasured - scout lane CU spent 300,120/300,000 and bsc public nodes refuse eth_getLogs (role gate is a code fact).",
+  "kb": [],
+  "run_id": "c0e7a304b7544b33936a2dc6f73c9469",
+  "at": 1795089840
+ }
+}

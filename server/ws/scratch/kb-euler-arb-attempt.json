@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-euler-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The two publicly-callable reward-bearing functions on Euler V2 arbitrum pay 0 right now: FeeFlowController buy() has an empty pot (getPrice()=0) and eToken liquidate() had 0 events on the 193 factory vaults in the last 7 days. The only chain-wide Liquidate in the window (1 event) came from a non-factory EVK vault kept by 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd (same keeper as leads:247 on Base), gross <= 10% discount x 28.12 USDC repaid. Liquidation class also closed for new scouting (decision 2026-11-15).",
+ "numbers": "factory 0x78Df1CF5bf06a7f27f2ACc580B934238C1b80D50 getProxyListLength=193; getPrice()=0 on 0xA1585dc7Cd4EF33f7a855fDE39771b37838B0bFE at block 525,296,856; Liquidate topic0 0x8246cc71...7d chain-wide scan blocks 523,253,292-525,296,856 = 1 event (tx 0x1b027d250047b219c6521d223a7ca4b21dc32ec0b388cadd12a54656c874b319, block 524,210,286, vault 0x5e4e8e2d..eUSDC-5 NOT in factory list, repay 28.12 USDC, maxLiquidationDiscount 10% (1000/1e4)); gas of that liquidation 883,493 @ 0.0229 gwei = 0.036 USD (ETH 1798.20 USD, coins.llama.fi coingecko:ETHEREUM 2026-11-18)"
+}

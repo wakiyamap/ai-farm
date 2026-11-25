@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-jetswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "jetswap",
+ "name": "JetSwap",
+ "category": "Dexs",
+ "tvl_usd": 154895,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "be066eb3459249feab0ebce1bf35767f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniV2 fork + Pancake v1 MasterChef (factory 0x668ad0ed..4AC7 457 pairs; chef 0x4e223990..1d85 26 pools, cakePerBlock 1e18, boostvaultaddr has no code): massUpdatePools/updatePool(5)/deposit/withdraw all eth_call OK from a fresh address but pay the caller 0 (mints go to devaddr 10%/burn 5%/boostvault 10%/syrup 100%, stakers harvest only their own pending); 7d (blocks 97337327-97639727) 4 Deposit/Withdraw events, all 1 self-compound tx by 0x8f3b596b..0804 on pid 2; same-shape control 155 logs; pWINGS unpriced (llama empty).",
+  "kb": [
+   "attempts:2840",
+   "protocols:1263"
+  ],
+  "run_id": "be066eb3459249feab0ebce1bf35767f",
+  "at": 1795165629
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "actor-optimism-0x56fc4f33788153b417347b723733c04a4dacc07e",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Contract wallet (unverified on Blockscout, created 2026-11-17 by 0x4da6fa436965c02fd72088e95eb84038ebc299aa, which is its only caller via fn 0x490beb1e) acting as a HAI OracleJob keeper: it calls workUpdateCollateralPrice(bytes32) (sel 0x4e6669ed) on OracleJob 0xf4f18205D8D46638489865e42c0a71a3d4F9FC22 and is paid 0.05 HAI per call to itself. A fresh address calling the same fn is paid the same 0.05 HAI (5 other addresses split ~360 rewards/day, top one 0xc9dfc714 at 171-203/day), so no role gating; the job is the same one already covered by leads 211/212/213 with trial bots live.",
+  "numbers": "7 rewards in the first 76 min of activity (ledger events hai.oracle_job_reward, blocks 159669078-159671369, 2026-11-17 17:35:33-18:51:55 UTC; sample of 7 of 7); gross 0.05 HAI = ~0.0617 USD/call (HAI price from leads:211 dated 2026-11-17); gas 240,096 gas x 0.10216 gwei = 2.45e-5 ETH = 0.0439 USD/call (receipt 0x4c459f6a..., ETH 1791.07 USD, coins.llama.fi coingecko:ethereum); net ~0.018 USD/call, est ~2.1 USD/day if the observed 76-min pace (5-7 items, HAIVELOV2, WSTETH, HAIVELO, MOO-VELO-V2-OP-VELO, MOO-VELO-BOLD-LUSD) holds; total job class 360 rewarded events/day on full days 2026-11-14/16 across 5 incumbents, 298 as of 18:51 UTC on 2026-11-17 (ledger actor_daily sums)"
+}

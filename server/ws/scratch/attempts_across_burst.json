@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "ledger-top Across crosschain_intent_fill burst actors 0x8b5606469e21c75edd7c74d1c7a65824675d9aff / 0xcad97616f91872c02ba3553db315db4015cbe850 / 0x07ae8551be970cb1cca11dd7a11f47ae82e70e67 - 7 d-window top-10 entry resolved: closed 3-day solver program, not an active class",
+  "outcome": "dead_end_recorded",
+  "reason": "Measured 2026-11-16 13:5xZ run a0bc0312 (measure lane; 3 local ledger queries, 0 relay CU). The session-context 7 d 'most active actors' top-10 lists these three with 690/259/109 events and '1 active day'; per-day ledger diff shows ALL their across.filled_relay activity lies on 2026-11-07/08/09 (8,103 + 2,599 + 2,023 events, zero after 2026-11-09). They are a finished multi-chain fill program (Census class C, same inventory shape as lead 207 deBridge DLN closed dead_end the same day on mechanism), not an open earning flow. Nothing left in the 7 d window to copy: zero events in the last 7 days. If a new Across fill actor appears with days>=3 in a fresh window, re-check per-day distribution before scoping.",
+  "numbers": "ledger ethereum across.filled_relay by actor, daily buckets: 0x8b5606: 3941+3472+690=8103; 0xcad97616: 1292+1047+260=2599; 0x07ae8551: 1443+470+110=2023; all first_ts=2026-11-07, last_ts=2026-11-09"
+}

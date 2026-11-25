@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "moonwell-maero-base paper review",
+  "outcome": "review_fix",
+  "reason": "Current artifact corrects comptroller tuple but lacks a profitable fork success and OWNER USDC payout: latest earner sweep24/25/26 runs all reverted NO_PROFIT, and attempts:857 records SELL1_FAILED. Manifest still calls liquidity at 55697122 a shortfall and has no reachable, profitable poll-catchable mAERO capture. Estimated 2.5M Alchemy CU/day remains above the human 1M/day rationale threshold with zero proven route profit. See review.md run eb077fe87c1c4e42bd1f417943fd66b9.",
+  "numbers": "sweep26.json tx 0x6c2f69b761fee8aa54c21a293f59a0acdd0e8073b83162d0d1908ef17559747a status 0, NO_PROFIT, owner payout 0; paper logs/bot.jsonl through 00:50 UTC: 474 heartbeats, 7 opportunities, 0 simulations; ledger moonwell_core.liquidate_borrow block 55828068 tx 0x04dfa747208381ad7c2e3631dadae3e42a7cf9173cd3c6c53c1291facbf7d980 repay 1.834885 USDC unsupported collateral; 60s CU estimate from 10M/day same-shape live bot at 15s; 55697122 fork lens (0,1.818657 USD liquidity,0 shortfall) in prior review attempts:855",
+  "bot_id": "moonwell-maero-base"
+}

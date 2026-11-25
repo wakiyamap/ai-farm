@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "injective_bridge",
+  "status": "measured",
+  "checked": "DefiLlama slug injective-bridge (module injective/index.js; adapter file 404 on main, recovered from prior commit 5061073). The protocol 'address' 0xe28b3b32b6c345a34ff64674606124dd5aceca30 is the INJ ERC20 token (InjectiveToken, plain mintable OZ ERC20, no bridge fns; custodian 0x7103... has no code). The real TVL holder is the Injective Peggy bridge (Gravity fork): TransparentUpgradeableProxy 0xf955c57f9ea9dc8781965feae0b6a2ace2bad6f3 -> impl 0x100dcb8b78c608d148cb207ac3875935dfe6abdc (verified 'Peggy', solc 0.8.0). Anyone-callable pay functions: submitBatch (msg.sender keeps summed batch fees, paid in the batch token), updateValset (msg.sender keeps newValset.rewardAmount). sendToInjective = user lock (no reward); deployERC20 reverts 'Not implemented'. 7d window (blocks 26417338 ts1794708863 2026-11-15 -> 26467651 2026-11-22): 24 TransactionBatchExecutedEvent (submitBatch, 7 distinct EOA submitters, 14 paid nonzero), 3 ValsetUpdatedEvent (all rewardAmount 0). Verdict pays_strangers."
+}

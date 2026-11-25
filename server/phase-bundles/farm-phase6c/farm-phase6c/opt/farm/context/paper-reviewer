@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# Dynamic context for the paper-reviewer: the review queue.
+#   due = NEW      no review.md yet
+#         CHANGED  code/manifest newer than review.md (earner resubmitted)
+#         YES      next_review_at is a date and it has passed
+#         no       nothing to do (next_review_at null/none and nothing changed)
+#         EXPEDITE manifest asks for it
+set -uo pipefail
+WS=/srv/farm/ws
+now=$(date -u +%s)
+echo
+echo "### Review queue"
+echo "| bot | service | expedite | last decision | next_review_at | changed since review | due |"
+echo "|---|---|---|---|---|---|---|"
+for d in "$WS"/bots/paper/*/; do
+  [[ -d "$d" ]] || continue
+  id=$(basename "$d")
+  st=$(systemctl show "paper@$id.service" -p SubState --value 2>/dev/null)
+  exp=$(grep -m1 -E '^expedite:' "$d/manifest.yaml" 2>/dev/null | awk '{print $2}')
+  dec="none"; nra=""; due="NEW"; changed="-"
+  if [[ -f "$d/review.md" ]]; then
+    dec=$(grep -i -m1 'decision:' "$d/review.md" | sed 's/.*decision: *//I')
+    nra=$(grep -i -m1 'next_review_at:' "$d/review.md" | sed 's/.*next_review_at: *//I')
+    due="no"
+    # files the earner may change, newer than the review (logs and the review itself excluded)
+    changed=$(find "$d" -type f -newer "$d/review.md" \
+                ! -name review.md ! -path "$d/logs/*" ! -name '*.jsonl' ! -name '*.log' \
+                -printf '%P\n' 2>/dev/null | head -5 | paste -sd ' ')
+    if [[ -n "$changed" ]]; then
+      due="CHANGED"
+    elif [[ -n "$nra" ]]; then
+      case "${nra,,}" in
+        null*|none*|never*|"") ;;                       # not a date: nothing scheduled
+        *) t=$(date -u -d "${nra%% *}" +%s 2>/dev/null) && (( t <= now )) && due="YES" ;;
+      esac
+    fi
+    [[ -z "$changed" ]] && changed="none"
+  fi
+  [[ "$exp" == "true" ]] && due="EXPEDITE"
+  echo "| $id | ${st:-not running} | ${exp:-false} | $dec | ${nra:-} | $changed | $due |"
+done
+echo
+echo "A bot whose due is 'no' needs no review this session: one line in the session report is enough."
+echo
+echo "Slots: $(systemctl list-units --plain --no-legend --state=active 'paper@*.service' | wc -l) running / 12"
+echo
+echo "Capital, daily loss and freeze state: run \`gate status\`."

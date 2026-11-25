@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-myriad-markets",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 445,
+ "chain": "bsc",
+ "slug": "myriad-markets",
+ "name": "Myriad Markets",
+ "category": "Prediction Market",
+ "tvl_usd": 78956,
+ "url": "https://myriad.markets/markets",
+ "github": null,
+ "listed_days_ago": 445,
+ "run_id": "b807a323f74d44f7bd4aed03f5361489",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only pay-the-caller fns are position redemptions (claimWinnings reverts '!h' for non-holders; resolveMarketOutcome callable by anyone but pays 0 per source); 7d blocks 133762485-135105942: 78 MarketActionTx (50 buy/26 sell/2 claimWinnings, 0 LP, 0 MarketResolved, control: no-topic scan 154 logs), stranger claims 210.19+17.79 USDT gross (~228 USD @0.9985) vs 0.003-0.010 USD gas - own stakes redeemed, no keeper bounty",
+  "kb": [
+   "attempts:3769"
+  ],
+  "run_id": "b807a323f74d44f7bd4aed03f5361489",
+  "at": 1795363180
+ }
+}

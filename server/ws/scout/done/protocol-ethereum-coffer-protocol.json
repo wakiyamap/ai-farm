@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-coffer-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 4,
+ "chain": "ethereum",
+ "slug": "coffer-protocol",
+ "name": "Coffer Protocol",
+ "category": "Lending",
+ "tvl_usd": 53916,
+ "url": "",
+ "github": [
+  "blockroad-doo"
+ ],
+ "listed_days_ago": 4,
+ "run_id": "7d291dd13fef499ea9414d47864147b0",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No function pays a caller: 7d logs across all 5 contracts (blocks 26,429,549-26,482,791) = 10 total, only 1 buyBond (1.85 ETH, tx 0xd3a71897) + validator ops; holderRedeemBondOrDefault reverts CallerIsNotHolder from a fresh address, declareDefault/exitValidator pay 0, escrow.claim pays own claim, FeeCurve.claim is permissionless but pays fixed treasury (pool 0.015665 ETH = 27.26 USD at 1740.02, never claimed); 0 BondRedeemed in 52-day history, coffer balance 0 ETH.",
+  "kb": [
+   "attempts:4192",
+   "protocols:2310"
+  ],
+  "run_id": "7d291dd13fef499ea9414d47864147b0",
+  "at": 1795460637
+ }
+}

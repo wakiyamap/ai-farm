@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-swan-dao",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 5,
+ "chain": "ethereum",
+ "slug": "swan-dao",
+ "name": "Swan DAO",
+ "category": "CDP",
+ "tvl_usd": 7633258,
+ "url": "https://www.swanusd.com/",
+ "github": null,
+ "listed_days_ago": 5,
+ "run_id": "d722126206704c7aafdce663bccc5b34",
+ "result": {
+  "verdict": "unpaid",
+  "line": "SwanUSD Monolith lender 0x4ed5c72816aBc1b67ac31DdAbE31cff4a8c56a15: public liquidate/writeOff (fresh-address eth_call: state revert 'insufficient liquidatable debt', not role), but 0 Liquidated/0 WrittenOff/0 Redeemed in last 7d (blocks 26,405,619-26,456,019; control 429 logs incl InterestAccrued 235), gross 0 USD vs ~0.3 USD gas; 0/65 positions liquidatable now (closest LTV/CF 0.973); only liquidation ever 2026-10-30: 1,011 SWAN repaid -> 0.3866 wstETH ~844 USD; debt 587,899 SWAN; same lender as monolith:262/lead:199 watch line",
+  "kb": [
+   "attempts:2858",
+   "protocols:1276"
+  ],
+  "run_id": "d722126206704c7aafdce663bccc5b34",
+  "at": 1795168710
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-anemoy-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 709,
+ "chain": "ethereum",
+ "slug": "anemoy-capital",
+ "name": "Anemoy Capital",
+ "category": "RWA",
+ "tvl_usd": 25914853,
+ "url": "https://www.anemoy.io",
+ "github": null,
+ "listed_days_ago": 709,
+ "run_id": "60f4dbe20df4470b9957bca1405f1d1b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Centrifuge V3 KYC fund (Tranche 0x8c21..4b86, AsyncVault 0xfe69..d77a, ARM 0xf482..61ae, FullRestrictions hook): no reward/keeper function in verified source, all user functions pay the investor not the caller, isPermissioned(stranger)=false; 7d (blocks 26410386-26460640, 11-14..11-21): 6 investor txs only (1 mint 2.76M shares ~3.1M USD, one 445k-share redeem), ARM 0 logs (no-topic scan, control 8/5), zero paid to strangers, gas 98k-454k @ 0.16-1.40 gwei = bash.03-1.03/tx (ETH 1616.87 USD coins.llama.fi).",
+  "kb": [
+   "attempts:3158",
+   "protocols:1519"
+  ],
+  "run_id": "60f4dbe20df4470b9957bca1405f1d1b",
+  "at": 1795230698
+ }
+}

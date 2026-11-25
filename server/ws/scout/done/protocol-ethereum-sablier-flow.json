@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-sablier-flow",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 580,
+ "chain": "ethereum",
+ "slug": "sablier-flow",
+ "name": "Sablier Flow",
+ "category": "Payments",
+ "tvl_usd": 380051,
+ "url": "https://app.sablier.com/payments/",
+ "github": null,
+ "listed_days_ago": 580,
+ "run_id": "fdf910490a7344babaf2a6c564053eb8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only withdraw/withdrawMax are stranger-callable on the 4 ethereum Flow contracts (0x844344cd.., 0x7a86d3e6.., 0x3df2aae.., 0x2d9221a..; 174 streams ever) and they pay the recipient, not the caller (caller must pass to=recipient and cover calculateMinFeeWei=0); 3 withdrawals in 7d (blocks 26409368 2026-11-13 to 26459626 2026-11-20), 5,183.30 USD gross USDC/USDT, all 3 by the recipients themselves (0x53fa888b, 0x26d34188, 0x6c005eb9), gas 118k-119k = 0.02-0.32 USD; everything else onlySender/onlyComptroller, void reverts Unauthorized from a stranger.",
+  "kb": [
+   "attempts:3102",
+   "protocols:1477"
+  ],
+  "run_id": "fdf910490a7344babaf2a6c564053eb8",
+  "at": 1795218274
+ }
+}

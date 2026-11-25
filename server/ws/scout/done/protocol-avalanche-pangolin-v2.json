@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-pangolin-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "pangolin-v2",
+ "name": "Pangolin V2",
+ "category": "Dexs",
+ "tvl_usd": 1526001,
+ "url": "https://app.pangolin.exchange/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "428faac14a234c9aa0033b0abe36d32c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: Pangolin V2 avax = vanilla UniV2 fork (factory 0xefa94DE7.., 3660 pairs) + MasterChef; no function anyone can call pays the caller (createPair/mint/burn/swap/skim pay own LP value or dust, chef harvest pays a staker their own PNG, 0 to a stranger). TVL 1,526,001 USD.",
+  "kb": [
+   "attempts:2662",
+   "protocols:1125"
+  ],
+  "run_id": "428faac14a234c9aa0033b0abe36d32c",
+  "at": 1795126892
+ }
+}

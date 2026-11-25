@@ -1,0 +1,5 @@
+{
+  "chain": "ethereum",
+  "protocol": "aura_finance",
+  "checked": "2026-11-12 run ce71d6eb (attempt 987): Booster 0xA57b8d98dAE62B26Ec3bcC4a365338157060B234 isShutdown()=true (eth_call 0xbf86d690), poolLength 283, last pool shutdown flag 1, earmarkIncentive 50 bps. BAL (0xba100000625a3754423978a60c9317c58a424e3D) Transfers out of the Booster: 0 in blocks 26346800-26397200; into it: 0 in 26196800-26397200 (with the correct Transfer topic and a same-run CRV census returning 8865 logs). The earmark caller-reward class is dead here. | 2026-11-21 scout run 8baf2a3c (attempt 3421): source-level proof added — verified Booster.sol (explorer source, convex-platform): earmarkRewards(uint256)/earmarkFees(address) begin require(!isShutdown,\"shutdown\") (stranger eth_call earmarkRewards(0) reverts 'shutdown'), distributeL2Fees(uint256) is bridgeDelegate-only; crv()=BAL 18dec. 7d BAL out/in of Booster 0/0 (blocks 26414900-26465182, 2026-11-14T18:23Z to 2026-11-21T18:07Z; control BAL topic0-only 38 logs/1536 blocks). Booster no-topic 7d scan: 5 logs, all Withdrawn — protocol zombie (TVL 7.8M USD). Verdict no_reward."
+}

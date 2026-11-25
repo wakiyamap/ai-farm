@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-mdex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "mdex",
+ "name": "MDEX",
+ "category": "Dexs",
+ "tvl_usd": 1259818,
+ "url": "https://mdex.com/",
+ "github": [
+  "mdexSwap"
+ ],
+ "listed_days_ago": null,
+ "run_id": "0a721e707ce141adadfc7cb297566020",
+ "result": {
+  "verdict": "unpaid",
+  "line": "UniV2/Pancake fork: only caller-paying fns are chef/boardroom deposit/withdraw + takerWithdraw paying msg.sender's own accrued MDX; boardroom 0x55c11417..a6fc9 poolLength()=2, fresh-addr deposit(0,0) pays 0 (40,109 gas = 0.011 USD at 0.05 gwei, BNB 570); rest onlyOwner/onlyRouter/onlyCaller; 24h: 0 PairCreated (also 0 in 7d-ago chunk; control 70 Swap on pair 0x09cb..d5fd same shape), 9 MDX Transfers all user moves (1.5-6.1 USD at 0.000454); reward flow near-dead at 1.26M TVL.",
+  "kb": [
+   "attempts:2759"
+  ],
+  "run_id": "0a721e707ce141adadfc7cb297566020",
+  "at": 1795148483
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-ultrayield-curator",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 387,
+ "chain": "base",
+ "slug": "ultrayield-curator",
+ "name": "UltraYield Curator",
+ "category": "Risk Curators",
+ "tvl_usd": 489899,
+ "url": "https://ultrayield.app/",
+ "github": null,
+ "listed_days_ago": 387,
+ "run_id": "1810adb6a4944996934cff75376050f1",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: Base TVL 489,899 USD = edgeUSDC MetaMorphoV1.1 343,826 USDC + mBASIS 145,550 USD + 7 empty Euler EVaults (totalAssets ~0); no public fn pays the caller (Euler touch()/convertFees() succeed from a fresh address, pay 0; mBASIS mint/burn/approveRequest role-gated; deposits/redeems pay the user's own capital); 190 Transfer logs in 7.25d over all 9 contracts (edgeUSDC 57, mBASIS 133, Euler 0), sources: adapter tvl.addresses.js, Sourcify, eth_call, eth_getLogs blocks 55.56M-58.71M.",
+  "kb": [
+   "attempts:1782",
+   "protocols:439"
+  ],
+  "run_id": "1810adb6a4944996934cff75376050f1",
+  "at": 1794931960
+ }
+}

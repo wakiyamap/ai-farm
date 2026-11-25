@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-frax-usd",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 456,
+ "chain": "ethereum",
+ "slug": "frax-usd",
+ "name": "Frax USD",
+ "category": "RWA",
+ "tvl_usd": 92526874,
+ "url": "https://frax.com/",
+ "github": null,
+ "listed_days_ago": 456,
+ "run_id": "42e41a7cdbfb4b05b5254f1b81f1885e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Pass-through mint/redeem system: only stranger-callable state change is sfrxUSD sync() (pays 0, 41,609 gas = $0.07, no transfer in source LinearRewardsErc4626_2.sol:237); custodian mint/redeem = 1:1 user swaps with mintFee=redeemFee=0 (7d: 1,243 Withdraw + 861 Deposit, 98 senders, 49,081 USDC out on USDC custodian 0x4F95C5bA..., impl sources verified); shuffleToRwa operator-whitelisted; no caller-paid reward anywhere.",
+  "kb": [
+   "attempts:3054",
+   "protocols:1436"
+  ],
+  "run_id": "42e41a7cdbfb4b05b5254f1b81f1885e",
+  "at": 1795208745
+ }
+}

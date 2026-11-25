@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "target": "morpho_blue liquidate via flash-loan batch executor (the 0x5451c4b4 pattern: many positions per tx, bonus swept to owner in-tx)",
+  "status": "measured",
+  "next_steps": "2026-11-17 builder-codex measurement, attempts:1541: 36 tx / 404 liquidations in trailing seven days, every transaction in cbBTC/USDC market 0x9103c3b4..., already scanned by paper bot trial-morpho-cbbtc-base. Receipt gas at $1,800/ETH median $8.91, 32/36 above trial $1/send cap. Four under cap: three paid owner USDC $1.517/$1.629/$1.634, gas $0.405/$0.427/$0.911; one paid $0, gas $0.535. All receipt and ledger evidence: scratch/morpho-batch-trial-cap.py and .json; payout log file scratch/owner-in-usdc.json. The route has no distinct market coverage and a separate paper bot duplicates the unfunded reviewed trial. Revisit only after that trial's real win-rate is measured or a non-overlapping market produces paid batches below $1 gas. Original batch mechanics and actor evidence remain in why; attempts:1514."
+}

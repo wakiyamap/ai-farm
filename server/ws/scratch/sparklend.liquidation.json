@@ -1,0 +1,24 @@
+{
+  "id": "sparklend.liquidation",
+  "protocol": "sparklend",
+  "kind": "liquidation",
+  "chains": {
+    "ethereum": [
+      "0xc13e21b648a5ee794902342038ff3adab66be987"
+    ]
+  },
+  "event": "LiquidationCall(address,address,address,uint256,uint256,address,bool)",
+  "topic0": "0xe413a321e8681d831f4dbccbca790d2952b56f977908e45be37335533e005286",
+  "indexed": [
+    "collateralAsset",
+    "liquidityAsset",
+    "liquidator"
+  ],
+  "data": [
+    "liquidity",
+    "healthFactor",
+    "user",
+    "burnedForLiquidator"
+  ],
+  "actor_field": "liquidator"
+}

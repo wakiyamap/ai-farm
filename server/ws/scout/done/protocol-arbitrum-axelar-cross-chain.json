@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-axelar-cross-chain",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 593,
+ "chain": "arbitrum",
+ "slug": "axelar-cross-chain",
+ "name": "Axelar Cross Chain",
+ "category": "Bridge",
+ "tvl_usd": 822604,
+ "url": "https://axelar.network",
+ "github": null,
+ "listed_days_ago": 593,
+ "run_id": "e228fe455f2144898acc57a2df9a6a4f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No permissionless paying fn on Axelar arbitrum: gateway execute(bytes) open (434 Executed/7d via eth_getLogs 0x1f28cd99..latest, callers 0x2102c32a, 0xc77820ee = Amplifier processors) pays caller $0 (gateway 0 ETH; relayer rewarded in AXL on Axelar), caller gas ~$0.010/tx (288k x 0.0202 gwei, ETH $1801.56 coins.llama.fi); gas service 0.076 ETH ($137) is onlyCollector (Operators 0x7DdB..fbC); ITS expressExecute costs the caller; USDX token (TVL $809k) plain AccessControl ERC20.",
+  "kb": [
+   "attempts:1963",
+   "protocols:569"
+  ],
+  "run_id": "e228fe455f2144898acc57a2df9a6a4f",
+  "at": 1794970306
+ }
+}

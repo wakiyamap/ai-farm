@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-dexalot-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1364,
+ "chain": "avalanche",
+ "slug": "dexalot-dex",
+ "name": "Dexalot DEX",
+ "category": "Dexs",
+ "tvl_usd": 175451,
+ "url": "https://app.dexalot.com/",
+ "github": null,
+ "listed_days_ago": 1364,
+ "run_id": "236f56dc6a5d43debfd9c396a9ee77d3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "MainnetRFQ 0xeed3c159...7cdd v1.2.8 (adapter projects/dexalot): 250 SwapExecuted in 7d (36/day, all same-chain USDC<->USDT via aggregators, ~$557k volume, 67 takers, taker spread vs parity sums -$27.7 = fair-market, no subsidy); no fn pays the caller - swaps need a signed Dexalot RFQ quote (fresh-addr eth_call reverts RF-QE-02, not role), claimBalance is REBALANCER_ADMIN_ROLE (9x/7d to Dexalot), removeFromSwapQueue pays the trader not the caller and queue empty (0 SwapQueue events); gas per RFQ leg bash.01-0.02 at 7.5 gwei, AVAX .99.",
+  "kb": [
+   "attempts:2343",
+   "protocols:882"
+  ],
+  "run_id": "236f56dc6a5d43debfd9c396a9ee77d3",
+  "at": 1795055598
+ }
+}

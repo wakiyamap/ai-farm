@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "fake_world_assets_v2",
+ "status": "dead_end",
+ "checked": "Luck-game NFT pool (fwa.fun/v2). DefiLlama adapter projects/fwa-fun-v2/index.js gives MAIN_POOL 0x958C41181182e76F221331b2755b77D9e1426A98, LAUNCH_MANAGER 0x716486a7bD6B4d7409fC4F8B52f0B23D2BcFac72, POOL_FACTORY 0xf5a3a153164791ab579c3d9ba5dbecf7cdfd300c (all ethereum, verified source via explorer; MAIN_POOL source src/FWAV2/FWAV2.sol). eth_getCode non-0x and getters answer (rewards()=0xa54b44c7a894aa19c49734a753d01f9b8c5f6516, acquisitionFee()=0.0518 ETH). Read every non-owner external fn of FWAV2.sol: activateListings, processAcquisitions, kickListing, finalizeUnsettled, payoutFees, withdrawEarnings, claimListingFees, recoverStuckNFT. None transfers ETH to msg.sender; ETH flows only to depositors, purchasers and the owner/payoutAddress. Builder reward (rewards.builderRewardBps()=1500) is a rebate of the acquire() caller's share of the protocol fee, paid by the FWAToken module, only reachable by first paying for a purchase. eth_call from fresh 0xf0eb..0001: processAcquisitions(10), activateListings(10), payoutFees() all succeed (no role gate)."
+}

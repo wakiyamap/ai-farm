@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-sodex-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 313,
+ "chain": "ethereum",
+ "slug": "sodex-bridge",
+ "name": "SoDEX Bridge",
+ "category": "Bridge",
+ "tvl_usd": 597739,
+ "url": "https://ssi.sosovalue.com",
+ "github": null,
+ "listed_days_ago": 313,
+ "run_id": "b9a3622d3d0f4461925429ba29fa9dae",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Ethereum SoDEX = 2 shared custody EOAs (eth_getCode 0x) + UUPS SoDexTokenBridge 0xCC7322..185B (impl 0x9fdec1..872a, same as Base): withdraw->WITHDRAWER_ROLE (fresh addr eth_call reverts 0xe2517d3f), callFor->CALLER_ROLE, completeAMLDeposit->aml module, bridgeNativeToken deposits are user-paid; proxy 0 events last 7d (control ~104d: 38 = 34 BridgeDeposit + 3 Upgraded + 1 AMLSet, 0 BridgeWithdraw), last tx block 26377493 ~11d ago; TVL 597,739 USD; nothing pays a stranger.",
+  "kb": [
+   "attempts:2990",
+   "protocols:1391"
+  ],
+  "run_id": "b9a3622d3d0f4461925429ba29fa9dae",
+  "at": 1795194610
+ }
+}

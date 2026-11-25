@@ -1,0 +1,20 @@
+{
+ "id": "actor-arbitrum-0xd767473b74397fa9c1e7a2bdb210020c648a6836",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0xd767473b74397fa9c1e7a2bdb210020c648a6836",
+ "run_id": "f772da65918c4fb9aa3cabf80c7300e8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "USD.ai keeper-job contract (unverified): 7-10 rotating fleet EOAs race fn 0x085c8c5e(address proxyWallet,bytes), ~90% calls fail, 2-12 fills/day (ledger uniswapx.fill 2026-11-05..15); each job pays 8.03 USDC to fixed EOA 0xb666fd9b...000f (not the caller; confirmed in 2 traces by different EOAs), contract collects ~2x10 USDC fee, gas 829k gas = bash.03 (0.02 gwei, ETH 1828.80 coins.llama.fi); ~55 USD/day to one operator - a fresh address is paid nothing in-tx",
+  "kb": [
+   "actors:175",
+   "attempts:1499",
+   "protocols:282"
+  ],
+  "run_id": "f772da65918c4fb9aa3cabf80c7300e8",
+  "at": 1794870007
+ }
+}

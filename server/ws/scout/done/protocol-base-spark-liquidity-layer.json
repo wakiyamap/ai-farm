@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-spark-liquidity-layer",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 592,
+ "chain": "base",
+ "slug": "spark-liquidity-layer",
+ "name": "Spark Liquidity Layer",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 368346860,
+ "url": "https://spark.finance/",
+ "github": null,
+ "listed_days_ago": 592,
+ "run_id": "a558e560d184477b9b8049f2851ebbd4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Base contracts are executor vaults: ALMProxy 0x2917956e..09cA doCall onlyRole(CONTROLLER) and ALMProxyFreezable 0x92d7..DDF9 doCall onlyRole(ALLOCATOR_ROLE) (MissingRole reverts from fresh address, verified source); only permissionless surface is PSM3 0x1601843c..347E swaps (6,285 Swap events / 7d, 67 distinct senders, median ~20k USD, idle USDC 999.5k) which pay the caller 0 protocol reward; Base TVL 468.5M USD (llama)",
+  "kb": [
+   "protocols:566",
+   "attempts:1959"
+  ],
+  "run_id": "a558e560d184477b9b8049f2851ebbd4",
+  "at": 1794969606
+ }
+}

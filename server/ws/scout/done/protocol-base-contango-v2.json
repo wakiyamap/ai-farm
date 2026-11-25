@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-contango-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1137,
+ "chain": "base",
+ "slug": "contango-v2",
+ "name": "Contango V2",
+ "category": "Derivatives",
+ "tvl_usd": 650399,
+ "url": "https://contango.xyz",
+ "github": null,
+ "listed_days_ago": 1137,
+ "run_id": "381ceac7d49a4aea8f7d112fbc252542",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Both reward paths gated and quiet on base: claimRewards(bytes32,address) reverts Unauthorised from a fresh address (owner-only); OrderManager.execute pays keeperReward=gasMultiplier x gas (~0.01 USD cost at 0.006 gwei, ETH 1756 USD) but needs operator-granted BOT_ROLE and had 0 events in 7d; whole protocol: 3 trade txs in 7d (blocks 56183841-59207841, 50k-chunk getLogs, control ok), all by Contango's own bot 0xb04cc3c2 via MaestroProxy, 0 RewardsClaimed, no liquidation contract deployed; TVL 650,399 USD.",
+  "kb": [
+   "attempts:2242",
+   "protocols:803"
+  ],
+  "run_id": "381ceac7d49a4aea8f7d112fbc252542",
+  "at": 1795031945
+ }
+}

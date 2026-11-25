@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "lead 73 incumbent-displacement recheck 4 (ledger-only, completed 2026-11-08 UTC day + 11-09 partial)",
+  "outcome": "lead_recorded",
+  "reason": "Measured 2026-11-09T01:4xZ run 3758c857 (this session, bonus after the 617 scout; ledger query on source inverse_finance_firm.force_replenish, json_extract of replenisherReward grouped by UTC day). Incumbent 0x31a9dd66772a59e253ec55a526627eae65155bce took 100 pct of the completed 2026-11-08 day: 4.7981 DOLA over 201 events, no competitor event that day (completing recheck 3's 199-event/4.694 DOLA partial-day cut); 2026-11-09 partial day (1.6 h at ledger head 26374042+): 9 events, 0.2958 DOLA, again 100 pct. Pool ceiling ~4.8 DOLA/day remains fully incumbent-held for a fourth consecutive check (11-05 100, 11-06 100, 11-07 84.5, 11-08 100, 11-09 partial 100); displacement gate (<50 pct over several days) stays closed, keep ledger-only monitoring of inverse_finance_firm.force_replenish, do not build.",
+  "numbers": "ledger inverse_finance_firm.force_replenish: 2026-11-08 201 events 4.7981 DOLA incumbent 100 pct; 2026-11-09 partial 9 events 0.2958 DOLA incumbent 100 pct; no other actor in either day"
+}

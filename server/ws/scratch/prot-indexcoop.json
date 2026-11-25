@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "index_coop",
+  "status": "dead_end",
+  "checked": "2026-11-16 run 01521c63 (attempt 1425): first farm session. llama slugs index-coop + set-protocol = same SetProtocol org, 9.4M USD TVL, sets on ethereum/arbitrum/base (DefiLlama adapter projects/indexcoop/index.js). Keeper class checked against docs.indexcoop.com (fli-keeper-bot-integration.md keeper page, llms.txt .md endpoints): FLI rebalance()/iterateRebalance() whitelist-only EOAs, no caller reward; ripcord() anyone-callable 1 ETH but crash-only (>2.7x leverage); new leverage-suite sets carry only SlippageIssuance + StreamingFeeModule + AaveLeverageModule (coop-operated lever/delever/sync); AuctionRebalanceModule 0x59d55d53a715b3b4581c52098bcb4075c2941dba 0 events in 90 d. Legacy FLI AUM ~1e5 USD (supplies 2296/2025 FLI). No paid anyone-callable poke for a stranger -> dead_end as keeper class."
+}

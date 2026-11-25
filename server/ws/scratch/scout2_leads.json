@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "db5637 epoch bounty claim(uint256 epoch)",
+  "why": "0xdb56379008ea220cceae071cf9ad8ed7145f1172 (Base, unverified, creator 0xfb5a13c54506c290ca8d6a3965b0e6fc43ce1d95, deploy block 51484480) pays a fixed 0.00002 ETH (0.0326 USD at Chainlink ETH/USD 1628.87 read 2026-11-20T17:58Z, feed 0x71041dddad3595f9ced3dccfbe3d1f4b0a16bb70) to msg.sender per claim(epoch). Only actor 0x609c873861fe5db54ec982d476d6535c1561f94c claims (232/232 claims in 7d, sample 4/4 txs verified; txs 0x31742fe.., 0x8eda5a..). CAUTION: attempt:2330 (2026-11-19) judged this contract a prize game and NOT ALLOWED under S (gambling/betting-style market) - check that flag before building.",
+  "next_steps": "Contract 0xdb56379008ea220cceae071cf9ad8ed7145f1172; fns claim(uint256) sel 0x576913e8, scheduledAt(uint256) sel 0x51673603 (returns due timestamp; ~6-8 h apart, 3-4 claims/day). 7d count 232 (eth_getLogs payment event topic0 0x4cc4e2a1284006914465e82a99bce908c3ad5b5d4b08fbef40faf68169cee2a8, 232 items, indices 25-256, next 257). Gross 0.00002 ETH/call; gas 288719 gas @0.005 gwei + L1 fee = ~0.00000146 ETH (~0.0024 USD)/call; net ~0.0000185 ETH (~0.030 USD)/call, ~0.10 USD/day. Payer balance only ~0.0025 ETH (~125 claims, ~4.1 USD) left as of 2026-11-20 - nearly drained. Claim must come from a fresh address (one claim per address): the EOA pays ~289k-gas CREATE per claim; nobody else takes the epochs (not first-block contested) but the farm may be barred by S per attempt:2330.",
+  "status": "measured"
+}

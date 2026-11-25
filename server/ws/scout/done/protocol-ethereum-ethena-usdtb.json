@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-ethena-usdtb",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 702,
+ "chain": "ethereum",
+ "slug": "ethena-usdtb",
+ "name": "Ethena USDtb",
+ "category": "RWA",
+ "tvl_usd": 314933257,
+ "url": "https://usdtb.money",
+ "github": null,
+ "listed_days_ago": 702,
+ "run_id": "9be1754014a74918ac74a7ac69eb2383",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Single-contract protocol: USDtb ERC-20 proxy 0xc139190f447e929f090edeb554d95abb8b18ac1c (impl 0x9d6d77...9589), totalSupply 314,888,117 USDtb 18-dec (~candidate TVL 314.9M); full ABI has no function that pays a caller (only role-gated mint/burn/blockAccounts/pause; mint from fresh addr reverts missing MINTER_BURNER_ROLE 0xcfd53186), yield accrues off-chain via redemption rate",
+  "kb": [
+   "attempts:3151"
+  ],
+  "run_id": "9be1754014a74918ac74a7ac69eb2383",
+  "at": 1795229172
+ }
+}

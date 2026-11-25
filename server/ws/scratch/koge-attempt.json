@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-kogefarm",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only anyone-callable keeper-style function is strategy harvest() (any EOA passes the require, eth_call from a fresh address succeeds), but it pays the caller 0: reward is swapped and the performance fee goes to the strategist, the rest is re-liquided; jars and MasterChef only pay users their own deposit/withdraw claims. And it is all dormant: zero calls in the last 7 days anywhere in the protocol (last MasterChef tx 2025-12-15, biggest jar 2024-07-17, strategies last harvested 2022-05-16).",
+  "numbers": "harvest() gross to caller = 0 USD; gas 469,693 (eth_estimateGas on 0x7c94529c7aa0b8cea32115273267f4de731000b7) x 278.2 gwei (eth_gasPrice) = 0.131 POL = $0.010 (POL $0.0784, coins.llama.fi 2026-11-20T09:03Z). Biggest jar 0xECbCe31d1723611Db11358a186B9328ce65D78cc balance 4,776.17 am3CRV. Sample of 20 of ~220 jars. 7-day counts = 0 on jars/strategies/MasterChef (explorer txs; same listings return pre-7-day rows as control). Last harvest tx 0x4fb54744cb477a3d50e2e1ea19216e7dd75ea8cf5af30a5d44edbeb6d63f6575 (2022-05-16, caller 0x85cf0915c8d3695b03da739e3eaefd5388eb5eef); last MasterChef tx 0xbda6669b865fe6d2c86fe526e799af725caef8db0c73af84a94571cc4d90456d (2025-12-15)."
+}

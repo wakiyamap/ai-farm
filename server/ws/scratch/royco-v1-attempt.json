@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-royco-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Royco V1 on arbitrum is 19 Infrared-style WrappedVaults (ERC20Rewards wrappers over external ERC-4626 vaults like Fluid fTokens; factory 0x75e5...3bca) whose only stranger-callable reward functions are claim(to)/claim(to,reward)/claimFees(to) - they pay only the caller's own accrued rewards, and no one claimed anything: 0 Claimed events on all 19 vaults in 7d and 0 in 90d. The markets are near-dormant (2 Transfer events on the top-3 vaults in 90d, last tx on the biggest vault 2026-09-28). No keeper/executor bounty to earn: deposits and claims are synchronous user actions. The 9 recipe markets live in the same dormant subgraph layer; no separate Weiroll executor payment was confirmable.",
+  "numbers": "7d blocks 522,973,876-525,273,876: Claimed=0 on all 19 markets (topic 0x913c9923...); 90d from 496,273,828: Claimed=0; 90d Transfer on 0x0623bd8e/0x13c798/0x149c96 = 2 events; control USDC Transfer 2.8k blocks = 10,015 logs (lane OK). eth_call claim/claimFees from fresh 0x..BEEF0001 succeeds (0x return, no role revert). Gas 0.02 gwei (eth_gasPrice 0x1312d00) x $1808.53 ETH (coins.llama.fi) = ~$0.004/claim at 100k gas. TVL $1.16M (DefiLlama royco-v1)."
+}

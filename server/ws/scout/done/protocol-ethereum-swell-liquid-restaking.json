@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-swell-liquid-restaking",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1024,
+ "chain": "ethereum",
+ "slug": "swell-liquid-restaking",
+ "name": "Swell Liquid Restaking",
+ "category": "Liquid Restaking",
+ "tvl_usd": 20195189,
+ "url": "https://app.swellnetwork.io/restake",
+ "github": null,
+ "listed_days_ago": 1024,
+ "run_id": "0c2d7a4553204a38a96270a5b2da8630",
+ "result": {
+  "verdict": "role_gated",
+  "line": "rswETH 0xFAe103DC9cf190eD75350761e95403b7b8aFa6c0 is the only contract; keeper fn reprice() is REPRICER-role gated (fresh-addr eth_call: AccessControl revert) and pays caller 0 (mints to node ops + treasury); 0 reprices in 7d (blocks 26414205 2026-11-14 - 26463431 2026-11-21, no-topic scan, control 270 logs), last 2026-11-13 tx 0x7c1d5353 from 0x900bb9f1: 1,860,333 gas = 2.71 USD paid for 0 back; deposits pay nothing; TVL 18.2M USD.",
+  "kb": [
+   "attempts:3280",
+   "protocols:1605"
+  ],
+  "run_id": "0c2d7a4553204a38a96270a5b2da8630",
+  "at": 1795257867
+ }
+}

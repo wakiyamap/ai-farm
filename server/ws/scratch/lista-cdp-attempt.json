@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-lista-cdp",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Re-verified protocols:651 / attempts:2067 (2026-11-18) on 2026-11-19: the only paid entries (Interaction.startAuction / resetAuction / buyFromAuction, tip+chip in lisUSD to the keeper argument) sit behind the auctionWhitelisted modifier and auctionWhitelistMode() still reads 1, so the stated reopen condition (mode 0) has not triggered. A fresh-address startAuction reverts 'Interaction/not-in-auction-whitelist'; dog.bark and clip.kick/redo/take are wards-auth only, so there is no way around Interaction. Not a pays-strangers candidate for the farm.",
+  "numbers": "2026-11-19, bsc head 134,469,088 (eth_blockNumber 0x803d5e0): eth_call from fresh 0x7777..7777 -> auctionWhitelistMode() 0x1e9990ff = 1; startAuction(address,address,address) 0x953790b1 reverts 'Interaction/not-in-auction-whitelist'. Interaction 0xB68443Ee3e828baD1526b3e0Bdf2Dfc6b1975ec4 eth_getCode non-0x (4325 bytes). explorer bsc no tx listing (etherscan not_on_plan, blockscout 404), so 7d caller counts not measured - pointless behind the gate (attempts:2067). Source: rpc.py bsc eth_call / eth_getCode / eth_blockNumber. Selectors via cast sig."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "actor-ethereum-0x8b28e0c8c51065af37acb7e72c6f0e71b4d4bb95",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The candidate is an unverified executor contract that only its owner EOA 0x4d0e7d94ad5af4a41e84817a19f23c726e17e9cf can drive (tx.origin check at the entry of every external fn; owner() returns it). Its only activity is 8 executeBatch(tuple[] calls) in 7 days (sample: all 8 of 8) - self-financed flash-loan batches (Balancer vault flash loan + Aave V3 ops + swaps), no protocol fee paid to it. ETH forwarded to the EOA per call is dust (0.00001-0.00008 ETH ~ $0.02-0.14), gas 0.0002-0.0083 ETH/call ($0.3-15 at $1776/ETH), so the week nets negative once gas is paid; the single +1.0018 ETH block inflow is a funding top-up, not revenue. User moving its own funds through its own executor, not a public paying job.",
+  "numbers": "7d (blocks 26396686-26445790, 8/8 executeBatch): sum gross forwarded 0.0003 ETH, sum gas 0.0137 ETH (~$24), net -0.013 ETH ~ -$23/7d = ~-$3/day (source: eth_getLogs topic0 0x2403003b + per-block EOA balance deltas via eth_getBalance + receipts, gasPrice 0.08-0.29 gwei); ETH/USD 1776.06 from coins.llama.fi 2026-11-19"
+}

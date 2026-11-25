@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-pureswap",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - PancakeSwap V1 fork on BSC; masterChef (0xB8692D7768cC70C8309B669c1f5a3d856909ADB8) deposit/withdraw pay PURE to the caller with no role gate, but zero masterChef events and zero pair swaps in the last 7 days: no stranger was paid, the DEX is inactive despite $217k TVL (deadUrl site, no GitHub).",
+  "numbers": "masterChef events 0 in 40x5000-block sample (~200k of ~1.34M 7d blocks, 0 errors); Swap events 0 in 6x5000 blocks over all 48 pairs; control WBNB Transfer 15 logs/1 block (getLogs shape OK); factory allPairsLength()=48, masterChef poolLength()=17; gas 0.05 gwei (eth_gasPrice) x ~120k gas ~= $0.0035 at BNB $584.52 (coins.llama.fi 2026-11-19T17:04Z); gross per call unmeasurable (no calls in 7d)."
+}

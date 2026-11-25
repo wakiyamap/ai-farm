@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "capyfi",
+ "status": "dead_end",
+ "checked": "2026-11-22 run 9e3b5d13 scout (candidate protocol-base-capyfi). Compound-v2 fork on Base; addresses from DefiLlama registries/compound.js: comptroller 0x00dc4965916e03A734190fA382633657c71f867E (impl 0xd31f102994ed0b01e5d5d25cba0a4bfbca9c5076), cether 0x654A9003Cb09ab8050D4Fdba12F4c5d3C60A548e. Both eth_getCode non-empty; comptroller getAllMarkets()=7 markets (cETH, cbTC/cbBTC 8d 0x0d8105b7.., cUSDC 0x5adb71ad.. underlying 0x833589.., wARS 0x304cc258.., wBRL 0x60122282.., wMXN 0x089b8704.., wCOP 0xc8010267..; underlying symbols/decimals read on-chain). Blockscout Cloudflare-blocked, etherscan key not_on_plan: ABI from on-chain bytecode selector extraction + eth_call. Reward machinery empty: getCompAddress()=0x0, compRate()=0, compAccrued(active user 0x51a79064..)=0, compSpeed() not implemented (reverts), claimComp(0x51a79064..) from fresh addr reverts. Mirror of ethereum capyfi (protocols:1549, attempts:3203 unpaid). Liquidation path (liquidateBorrow(address,uint256,address) 0xf5e3c462 on each market) callable by anyone but 0 liquidations in 7d."
+}

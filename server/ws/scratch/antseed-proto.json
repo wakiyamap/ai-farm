@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "antseed",
+ "status": "dead_end",
+ "checked": "AntSeed P2P AI-inference marketplace on Base. Docs: github.com/AntSeed/antseed apps/website/docs/reference/contracts.md (full Base address table) + source in packages/contracts. Reward-bearing contracts confirmed with eth_getCode and getters on 2026-11-22: AntseedUsageRewards 0x78330bF154172F1137219Bb559d4F3A270B3201F (claimBuyerReward, claimAgentReward: payable to accrual recipient only, fresh-address eth_call reverts NotRewardRecipient), AntseedSellerPoolsRewards 0x83cc5B9AA0c8cB8683F35462c385a5BAAa755EE5 (claimStakerRewards: reverts 0x70d645e3 NotPositionOwner from fresh address), AntseedVerificationResults 0x139ab1722a62a23371f491220902c460E9fAeAb2 (claimAuditorReward: 0 claims in 7d). Keeper-ish calls indexPoolRewards and settleEpochRemainder are callable by anyone but pay 0 to the caller (remainder goes to emissions reserve). Payments are ANTS-token self-claims by buyers/stakers/sellers (ANTSToken 0xa87EE81b2C0Bc659307ca2D9ffdC38514DD85263, 18 decimals read on chain); no function pays an arbitrary stranger caller. ANTS has no coins.llama.fi price (empty coins{} at 2026-11-22T09:20Z), so reward gross is unpriced in USD."
+}

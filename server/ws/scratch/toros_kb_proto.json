@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "toros",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/toros/index.js (raw.githubusercontent, 2026-11-23): polygon dhedgeFactory 0xfdc7b8bFe0DD3513Cc669bB8d601Cb83e2F69cB0 (ERC1967 proxy -> implementation 0x63e35730474109168a6f3e5244cfadccee62c7e0, verified source 'PoolFactory' v0.7.6, dHedge v1/v2 family; getDeployedFunds() answers with 1616 pools), torosMultisigManager 0x090e7fbd87a673ee3d0b6ccacf0e1d94fb90da59 (GnosisSafeProxy -> impl 0x3e5c63644e683549055b9be8653de26e0b4cd36e). Factory getManagedPools(address) reverts in current state (a fund reverts on poolManagerLogic()), so vaults sampled from deployedFunds (first 3 + last 3). getFundSummary() answers on vaults (0x8d4c472a35c7fe1cec4639647bde57e0041512fa totalFundValue raw 2.43e18; 0x269c5f18e5dc3fa54095c0070b25805c5d298c84 3.29e18 - dust). Same family as toros ethereum/arbitrum (attempts 3425/2458): execTransaction is manager-gated (Safe 0x090e... is the manager and is called only by its EOA owners); mintManagerFee() (0xcc3c6df6) is permissionless - eth_call from stranger 0x000000000000000000000000000000000000bEEf succeeds (empty return) - but fee shares go to manager+DAO, caller gets 0. No liquidation/auction/keeper-reward functions in the verified PoolFactory source."
+}

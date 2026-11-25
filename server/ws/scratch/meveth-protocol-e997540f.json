@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "mev_protocol",
+  "status": "dead_end",
+  "checked": "DefiLlama MEV Protocol adapter projects/meveth/index.js names mevETH 0x24ae2da0f361aa4be46b48eb19c91e02c5e4f27e. eth_getCode nonempty; fraction() answered. Verified Etherscan MevEth source shows grantRewards() restricted to stakingModule or mevEthShareVault; createValidator() and processWithdrawalQueue() onlyOperator; public claim(uint256) transfers WETH to the stored ticket.receiver, not caller. On-chain stakingModule() is 0xca3773d1a1bca3eda4ccc99f3939564a79467da5: code nonempty, mevEth() answers, verified WagyuStaker source makes payRewards(), sendFees(), payValidatorWithdraw() onlyOperator. On-chain mevEthShareVault() is 0x617c8de5bde54ffbb8d92716cc947858ca38f582: code nonempty, getOwners() answers, verified GnosisSafeProxy. Fresh 0x...dEaD eth_call to WagyuStaker payRewards(1) and sendFees(1) reverted Unauthorized (0x82b42900); mevETH grantRewards() with 1 wei reverted UnAuthorizedCaller (0xe3272bbb). No public function pays an arbitrary caller; 7-day event count and gross/gas are inapplicable to a caller reward. Sources: DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/meveth/index.js ; explorer source ethereum for the three addresses; Ethereum eth_call latest 2026-11-23T20:59Z."
+}

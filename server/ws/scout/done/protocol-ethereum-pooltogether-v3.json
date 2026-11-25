@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-pooltogether-v3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "pooltogether-v3",
+ "name": "PoolTogether V3",
+ "category": "Yield Lottery",
+ "tvl_usd": 4400813,
+ "url": "https://pooltogether.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "5c7a0fab3c824470b6629717634f7727",
+ "result": {
+  "verdict": "unpaid",
+  "line": "V3 ethereum (TVL 4,363,144 USD): only stranger-payable paying fn is TokenFaucet.claim/drip, dry - 0 Claimed/Dripped in 7d (blocks 0x1931B50-0x193E007) and 0 in 60d across 10 faucets (no-topic control 0); paying PrizePool fns all onlyPrizeStrategy; open captureAwardBalance/startAward/completeAward pay caller 0 USD, gas ~100-150k units.",
+  "kb": [
+   "attempts:3591",
+   "protocols:1836"
+  ],
+  "run_id": "5c7a0fab3c824470b6629717634f7727",
+  "at": 1795323217
+ }
+}

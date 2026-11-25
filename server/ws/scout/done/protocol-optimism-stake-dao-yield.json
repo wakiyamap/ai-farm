@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-stake-dao-yield",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "stake-dao-yield",
+ "name": "Stake DAO Yield",
+ "category": "Yield",
+ "tvl_usd": 203372,
+ "url": "https://stakedao.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "20e0764ff7dd414fbd7ecaf06ee079d6",
+ "result": {
+  "verdict": "unpaid",
+  "line": "10 v2 RewardVault Curve vaults (~200k USD) behind Accountant 0x8f872ce0: harvest(address[],bytes[],address) has no role and eth_call from a fresh address succeeds, but getHarvestFeePercent()=0 so it pays 0 CRV (0 USD) to the receiver; 15 Harvest events in 7d (blocks 159478031-159780431) all harvesterFee=0, all 12 txs are users' own claim() by 7 EOAs (top 393 CRV = 76 USD gross to self, CRV 0.1925 coins.llama.fi ts 1795159920), gas 397-880k gas @ 32-124 wei = 0.00002-0.0002 USD; same dead end as base 1155, arbitrum 1110, ethereum 237",
+  "kb": [
+   "attempts:2810",
+   "protocols:1237"
+  ],
+  "run_id": "20e0764ff7dd414fbd7ecaf06ee079d6",
+  "at": 1795160126
+ }
+}

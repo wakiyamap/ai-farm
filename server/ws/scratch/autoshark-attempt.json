@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-autoshark",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward/unpaid: UniV2-fork DEX (finsFactory 0xe759Dd4B9f99392Be64f1050a6A8018f73B53a13, TVL 135,488 USD DefiLlama 2026-11-19) plus reward contracts, but no function pays an outside caller. jawsPool 0x5D2112Ba... getReward() is anyone-callable and returns empty (pays 0) from a fresh address; its emissions ended periodFinish=2024-01-19 at 1.44 JAWS/day (JAWS usd: unpriced). SharkChef 0x115Beb... deposits are onlyVaults and public updateRewardsOf pays the caller nothing; PantherChef 0x058451... poolInfo(0) allocPoint=0 with lastRewardBlock 117,991,748 vs head 134,526,138; PantherVault.harvest() sends the chef rewards to the vault, not the caller; SharkPool.harvest() is empty in repo source. 7-day event counts unavailable: scout lane CU spent (301,302/300,000, relay /health 2026-11-19) so every bsc eth_getLogs (incl. WBNB control) failed with all providers failed: public: limit exceeded",
+  "numbers": "TVL 135488 USD (api.llama.fi 2026-11-19); jawsPool rewardRate 1.665e13 wei/s, periodFinish 2024-01-19 17:06 UTC, staked 69.8M JAWS; PantherChef pool0 allocPoint=0 lastRewardBlock=117991748 (head 134526138, block 0x804b4ba ts 1795101585); eth_call probes on 5 contracts confirmed code + getters (symbol JAWS, rewardRate, poolInfo, sharkPerBlock=40)"
+}

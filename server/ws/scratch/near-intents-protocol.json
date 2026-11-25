@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "near_intents",
+  "status": "dead_end",
+  "checked": "DefiLlama registry registries/sumTokens.js (near-intents, base) lists 3 owners; only 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd has code (eth_getCode; other two 0x). Sourcify-verified 'MetaWallet' (Omni-bridge EVM connector for NEAR Intents/HOT bridge), deploy tx 0x62b3a3a01ae00bcd10605449bb8e94b538ad7f0afb6eb8460269ab6f2436a35e block 27603335; ABI read from sourcify.dev v2 (base.blockscout.com CF-403 from this host). Getters answer: owner()=0x1affb938645fdf3d86f3f04f1d1d49d4e000ea16, verifyAddress()=0xbcfd8381fa8148d01fd7d5cbb0efcc96ce68176c, chainId()=8453, fees()=0, nonceMax()=27637. Public state-changing fns: deposit(bytes)/(bytes,address,uint128) (user deposits) and withdraw(uint128,address,address,uint128,bytes) payable - anyone holding a HOT-validator signature may call (eth_call from fresh address reverts 'ECDSA: invalid signature length', not a role gate), pays the full amount to receiver_id, msg.value is added to owner's fees; no caller reward exists in source. hot_verify(...) is view. withdrawFees/withdrawToken/withdrawEth/changeOwner/changeVerifyAddress are onlyOwner. ETH/USD 1779.22 from coins.llama.fi 2026-11-17."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-apostro",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Apostro is a Morpho/Euler risk curator with no bespoke contract on ethereum - its whole footprint per the DefiLlama curators registry is 2 owner wallets (a Gnosis Safe v1.3.0 0xf726311F85D45a7fECfFbC94bD8508a0A39958c6 and EOA 0x3B8DfE237895f737271371F339eEcbd66Face43e) that created 28 Euler v2 vaults; no public callable function pays the caller (Safe exec* are owner-gated and pay nothing), so nothing for a keeper bot to take. TVL 169k USD is the Euler vaults' deposits, counted under Euler's own mechanisms.",
+  "numbers": "ethereum TVL 169,142 USD (api.llama.fi 2026-11-20); Euler factory 0x29a56a1b8214d9cf7c5561811750d5cbdb45cc8e proxyList length 905, creator()==owner for 28 (aggregate3, block latest 0x193bc7b); Morpho owned vaults 0: CreateMetaMorpho 86 logs @0xa9c3d3a3..41101 from 18925584 and 383 @0x1897a899..35c24 from 21439510, CreateVaultV2 @0xA1D94F74..C0405 owner-topic 0 logs (control no-filter 804); topic0s via cast keccak of the adapter event signatures; Safe getters on-chain: VERSION()=1.3.0, getOwners()=3; sources: registries/curators.js + projects/helper/curators/*, etherscan tx lists of both wallets (no reward inflows to strangers)"
+}

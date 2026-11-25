@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-yearn-curating",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 538,
+ "chain": "ethereum",
+ "slug": "yearn-curating",
+ "name": "Yearn Curating",
+ "category": "Risk Curators",
+ "tvl_usd": 28798953,
+ "url": "https://yearn.fi/",
+ "github": null,
+ "listed_days_ago": 538,
+ "run_id": "b68ea8ce45d8449ca8c8d7ee8cc5961c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Curator label, not a protocol: 4 Yearn owners created exactly 7 Morpho VaultV2 vaults on ethereum (V2 factory scan; 0/471 on V1 factories), all verified VaultV2 with no reward/claim/distribute function in the 176-entry ABI; 2 funded vaults hold 6.37M USDC on chain (Yearn OG USDC 2.68M + OUSD Vault V2 3.70M; DefiLlama reports 24.7M); only stranger-callable accrueInterest() pays nothing (fee shares to curator recipients) - 38 events/7d, all inside user router txs; fresh-address eth_call returns 0x; gas 0.392 gwei ~0.02 USD.",
+  "kb": [
+   "attempts:3073",
+   "protocols:1452"
+  ],
+  "run_id": "b68ea8ce45d8449ca8c8d7ee8cc5961c",
+  "at": 1795212165
+ }
+}

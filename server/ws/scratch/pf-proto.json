@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "polygonfarm_finance",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter 404 (module polygonfarm-finance/index.js removed, tvlCodePath registries/masterchef.js, address field polygon:0xf5EA626334037a2cf0155D49eA6462fDdC6Eff19 = SPADE token, deadUrl true, github null). SPADE token 0xf5EA626334037a2cf0155D49eA6462fDdC6Eff19 verified (SPADEToken.sol, Polygonscan) has code; owner() = MasterChef 0x9a2c85efbbe4dd93cc9a9c925cea4a2b59c0db78 (verified PolygonFarmMasterChef.sol, Polygonscan), getters poolLength()=17, SpadePerBlock()=0.07 SPADE, totalAllocPoint()=10010 all answer. Referral 0x4a4ae735905fe530298d189091439a097bcd28a8 (verified PolygonFarmReferral.sol) only has recordReferral (onlyOperator) + updateOperator (onlyOwner). Anyone-callable MC functions deposit/withdraw/massUpdatePools now revert from a fresh address with 'Max supply reached' (SPADE MAXCAP 500035.017 > constant MAXCAPSUPPLY 500000e18, SPADEToken.sol L596); only emergencyWithdraw (forfeits pending SPADE, returns own LP) works. No keeper/liquidation/auction function pays a caller: rewards accrue pro-rata to stakers only."
+}

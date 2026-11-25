@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "empiredex",
+  "status": "dead_end",
+  "checked": "DefiLlama registries/uniswapV2.js lists factory 0x06530550A48F990360DFD642d2132354A144F31d (same address on avax/cronos/fantom/kava/polygon/xdai). eth_getCode non-empty; allPairsLength()=0x28=40; feeTo()=0x3f9b7da1d832199b2dd23670f2623193636f2e88; feeToSetter()=0x5abbd94bb0561938130d83fda22e672110e12528; owner() reverts - vanilla Uniswap V2 factory shape. All 40 pairs enumerated via allPairs(i); pair0=0x15443197c97009737e8e9fe3eac321affcba65c1 token0=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c (WBNB) token1=0xe9e7cea3dedca5984780bafc599bd69add087d56 (BUSD); no weth()/WBNB() getter on pair. explorer source failed (etherscan not_on_plan, blockscout 404); DefiLlama github null, deadUrl true, forkedFromIds=[2197] (Uniswap V2), website empty. Functions anyone can call (createPair, mint, swap, burn, skim) pay the caller nothing: LP fees accrue to LPs, feeTo to owner. 2026-11-19 scout run."
+}

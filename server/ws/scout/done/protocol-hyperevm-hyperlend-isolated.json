@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperlend-isolated",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 500,
+ "chain": "hyperevm",
+ "slug": "hyperlend-isolated",
+ "name": "HyperLend Isolated",
+ "category": "Lending",
+ "tvl_usd": 139404,
+ "url": "https://app.hyperlend.finance/?ref=DEFILLAMA",
+ "github": null,
+ "listed_days_ago": 500,
+ "run_id": "668773f0c36c49fcae029069c71197b9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "FraxLend-style HyperlendPair registry 0xf55AF86c9EC3a7d5fa6367c00a120E6B262f718d + 3 live pairs (1 of 4 has no code): the permissionless maintenance fns addInterest(bool)/updateExchangeRate() pay the caller 0 (gas 74,378/98,983 = bash.0005/bash.0007 at 0.1 gwei x HYPE 8.32 coins.llama.fi); the only fn paying msg.sender is liquidate (15% clean bonus, not role-gated - fresh-address eth_call reverts BorrowerSolvent 0x75e595fa) with 0 events in 7 d and 0 in ~130 d, vs 701 other pair logs in 7 d (125 AddInterest, 79 Deposit, 37 Withdraw, 1 BorrowAsset); borrows ~7,923 USDC + ~56,800 WHYPE, TVL 39K.",
+  "kb": [
+   "attempts:1865",
+   "protocols:495"
+  ],
+  "run_id": "668773f0c36c49fcae029069c71197b9",
+  "at": 1794948198
+ }
+}

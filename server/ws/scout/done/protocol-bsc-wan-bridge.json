@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-wan-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1526,
+ "chain": "bsc",
+ "slug": "wan-bridge",
+ "name": "Wan Bridge",
+ "category": "Bridge",
+ "tvl_usd": 418520,
+ "url": "https://bridge.wanchain.org",
+ "github": null,
+ "listed_days_ago": 1526,
+ "run_id": "2f5e532b307b4e78aa2d013cb90f7623",
+ "result": {
+  "verdict": "role_gated",
+  "line": "bsc lock 0xc3711bdbe7e3063bf6c22e7fed42f782ac82baee (CrossDelegateV7 impl 0xe1e64dfb20883a1869114fd97526d51417213c65): 7d scan blocks 133.12M-134.14M (203x5k windows, USDC control 35144 logs) = 45 logs/29 txs: 13 smgRelease + 3 smgMint ALL by storeman relayer 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7, 12 userLock by users; stranger smgRelease reverts 'caller is not authorized', storeman succeeds same calldata; getStoremanFee(Aries_072)=0; sample release paid 19.3 BNB (~$11,362) to recipient not caller; gas 220,600 x 0.05 gwei = $0.01 (BNB $588.71 coins.llama.fi).",
+  "kb": [
+   "attempts:2444",
+   "protocols:965"
+  ],
+  "run_id": "2f5e532b307b4e78aa2d013cb90f7623",
+  "at": 1795075974
+ }
+}

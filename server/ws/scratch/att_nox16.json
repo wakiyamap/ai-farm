@@ -1,0 +1,7 @@
+{
+  "chain": "any",
+  "target": "measure-lane queue walk (no target taken) + ledger-source-level analysis pass: every one of the 48 active ledger event sources has an analysis attempts row within the last ~14 h",
+  "outcome": "dead_end_recorded",
+  "reason": "Measured 2026-11-15 23:1xZ run 3c1f22a0 (measure lane; 0 relay CU, 0 fork, 0 tx; all local KB + ledger queries). Queue: no unfinished bots, no decision:fix paper bots waiting on an earner (bold-redeem-window-fix claim held by the parallel fix session; both paper bots freshly resubmitted 1351/1352), oneshot class closed at head 25 min ago (attempts:1349), zero unmeasured leads, and the last 3 decisions' measurement asks are all answered or due later (lead 191 item (b) + series stats after 2026-11-16 17:45Z with the crontab logger). New check: joined the 48 active ledger sources against attempts by class keyword - every non-liquidation source (across 1163, ajna 1309, alchemix 1277, angle 1338, beefy 115-line, concentrator 1049, convex 1340/1249, curve_fee_collector 1309, curve_pegkeeper 1259, debridge 1350, felix 149-line, frankencoin 1352, grvt 1307, inverse 1078, liquity_v1/v2 1351, olympus_heart 1292, pendle 1332, reserve_folio/revenue 19-line, stakedao 1049, uniswap_protocol_fees 1323, uniswapx 1251, yearn 1309) has a same-day analysis row; liquidation sources are closed by decision 2026-11-15-widen-beyond-liquidations. Board waits on researcher measurement requests, as attempts:1353 concluded 20 min ago.",
+  "numbers": "0 relay CU, 0 fork, 0 tx; 48 sources checked, 0 with unanalyzed data"
+}

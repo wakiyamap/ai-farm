@@ -1,0 +1,12 @@
+{
+  "run_id": "c08f4c3591c34449bb1aa574fae8b8bf",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "CL-pool rebalancer reward class on Aerodrome base + Velodrome OP (measure-lane step-5 keeper exploration after decision 2026-11-15-widen-beyond-liquidations)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1255", "leads:180"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure queue was empty to run: lead 14 asks already answered (attempts 1244/1245, live next-block trial unchanged), lead 179 claimed by run 7478a349 at 04:27Z, wbCOIN one-shot closed by attempts:1217 (no swap exit). Step-5 exploration proved from the primary repos (velodrome-finance/slipstream + aerodrome-finance/slipstream CLPool.sol, 0 rebalance/incentive matches) plus on-chain factory/pool getter controls that the mainline CL pools pay a caller nothing for rebalancing; the only line with the mechanic is velodrome-v3 (4.6M USD TVL, OP+9 chains) - left as lead 180 with an exact measurement request. No relay/fork anomalies; ~30 research-lane reads, no sends."
+}

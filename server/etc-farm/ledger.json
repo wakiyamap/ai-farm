@@ -1,0 +1,34 @@
+{
+  "relay_url": "http://127.0.0.1:8545",
+  "lane": "research",
+  "db": "/srv/farm/ws/ledger/ledger.db",
+  "seed_sources": "/etc/farm/ledger-sources.json",
+  "agent_sources_dir": "/srv/farm/ws/ledger/sources.d",
+  "backfill_days": 7,
+  "blocks_per_call": {
+    "ethereum": 2000,
+    "base": 5000,
+    "arbitrum": 10000,
+    "bsc": 10000,
+    "polygon": 4800,
+    "avalanche": 7300,
+    "optimism": 3600,
+    "hyperevm": 7300,
+    "elysium": 10000
+  },
+  "block_time_s": {
+    "ethereum": 12,
+    "base": 2,
+    "arbitrum": 0.25,
+    "bsc": 0.45,
+    "polygon": 1.5,
+    "avalanche": 0.981,
+    "optimism": 2.0,
+    "hyperevm": 0.984,
+    "elysium": 0.114
+  },
+  "max_cu_per_run": 20000,
+  "max_cu_per_run_agent_sources": 6000,
+  "max_agent_sources": 40,
+  "confirmations": 12
+}

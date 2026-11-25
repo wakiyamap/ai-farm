@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "premia_v2",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/premia/index.js names factory 0x4f273f4efa9ecf5dd245a338fad9fe0bab63b350 and legacy option 0x5920cb60B1c62dC69467bf7c6EDFcFb3f98548c0. eth_getCode nonempty; owner() and tokensLength() return values. Factory getPoolList() returns 7 pools, including 0xa4492fcDa2520cB68657d220f4D4aE3116359C10 (code nonempty). Etherscan verified PoolIO/PoolInternal: claimRewards(account,bool) sends mining reward to account with its userTVL; updateMiningPools() and PoolWrite.update() only update state; withdrawFees() transfers to immutable FEE_RECEIVER_ADDRESS. Legacy PremiaOption withdrawFrom requires approval and pays _from; withdraw pays sender's own written position. No caller bounty or stranger payout. No-topic eth_getLogs across factory, option, 7 pools returned 0 logs in 2026-11-16 23:20:59 to 2026-11-23 23:20:59 UTC; control DAI no-topic logs returned 179 in last 69 blocks. Sources: https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/premia/index.js ; Etherscan verified sources for 0x443126b27b0cede5d6e0e985ffccbd70cdf11b12 and 0x2c764ad3201a595c260a0ed4a194148af94d2c0c."
+}

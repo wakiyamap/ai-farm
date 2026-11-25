@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "infusion fee_distributor claim",
+  "status": "measured",
+  "why": "FeeDistributor.claim(address,address[]) pays the user/receiver argument (any account can trigger). In 7d (blocks 57979068..61003143, 2026-11-15T23:43Z..2026-11-22T23:43Z) exactly 1 claim tx across all 11 per-pool distributors: 0x87f54203944e783fb891f5836e1cb9cb28fd73355fc0c9e0a81e0b24be9ff0e7 (2026-11-16T23:52:42Z) paid LP 0x953c1ba7029c92741a1739dcd18a8a462109b618 (self-claim on FD 0x7721137f19b78b546cd890b9075b49678acb7ed8 of the WETH/USDC pair) 0.0015586 WETH + 2.7238 USDC = 5.40 USD gross (WETH $1718.75, USDC $0.9999, coins.llama.fi 2026-11-22T23:48Z) for 199,966 gas @ 0.007 gwei = $0.0024.",
+  "next_steps": "The payer is FeeDistributor.claim(_user,_tokens); a stranger caller without an LP lock is paid 0 (eth_call from fresh addr returns [0]) - to earn it the farm must itself hold LP + a locked position in the pool (LockFactory 0x2d259c6C1A7aCB410326Ca662a26Ca3fDDb890BA maps 11 of 29 pairs; example FD 0x7721137f19b78b546cd890b9075b49678acb7ed8 / pair 0xc868fcf8af03a2306c6b37db23b5a25b38b27eb9). depositFees() (pair fees -> locker pot) pays the caller 0 and was called only 2x in 7d (txs 0x39707df6..., 0x45bc5f8a...). Protocol nearly dormant: TVL $72.6k, 1 claim tx/7d, fee inflow ~5.4 USD/wk. No third-party keeper bounty; not a race (self-claims only)."
+}

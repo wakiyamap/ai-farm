@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-fortunafi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1079,
+ "chain": "ethereum",
+ "slug": "fortunafi",
+ "name": "Fortunafi",
+ "category": "RWA",
+ "tvl_usd": 144322,
+ "url": "https://fortunafi.com/",
+ "github": null,
+ "listed_days_ago": 1079,
+ "run_id": "6c6939aca8304b71bb14c16212c0b81a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "OffchainFund x10 (eth): processDeposit/batchProcessDeposit are the only ungated value-moving fns but mint shares to the depositor and never pay msg.sender (no reward path in verified source); 0 events from all 10 contracts in 7d (blocks 26412826 2026-11-14 to 26463082 2026-11-21; control USDT same-shape 3547 logs) and since 2025-07-04 (block 22847183); currentDepositCount=0, eth_call reverts 'account has no mint order'; gross to caller 0 USD.",
+  "kb": [
+   "attempts:3293"
+  ],
+  "run_id": "6c6939aca8304b71bb14c16212c0b81a",
+  "at": 1795259747
+ }
+}

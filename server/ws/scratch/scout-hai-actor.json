@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "address": "0x5386fbaf81607cb2641380eaa34d2e8bbddc44ef",
+  "strategy": "HAI (hai-on-op) oracle keeper: executor contract called by EOA 0xf8753c24f33f908d97fb04dae67ced48bb6f9c5e (entry selector 0x888cb47b) which calls OracleJob 0xF4F18205D8D46638489865e42c0a71a3d4F9FC22.workUpdateCollateralPrice(bytes32) in 5-item due-second batches (VELO,WETH,OP,TBTC,RETH), each item paying 0.05 HAI as SAFEEngine internal coins credited to the executor; ran hourly batches 2026-11-10..13 only, dormant since 2026-11-14 (class held by first-block incumbents c9dfc714/82c1ff92/a88e2855).",
+  "est_profit_usd_day": 0.25,
+  "evidence": "0xa93a332ad90c7457e7670aa3bcbe68247aa5d1767c165075e51118e449d9d777 (first, 5 rewards); 0x2c86d7c3269a258c8f823c01ec8afc02ed831b3d9f7ad1b187dae227fcc66327; 0x991789c9d57fcb168ed63853f2983b91b41e528f07b7af369408d32100cd6005 (last, traced: 5x workUpdateCollateralPrice 0x4e6669ed, args VELO/WETH/OP/TBTC/RETH); 0x44e75c53e4278ffb1d5bb8347ce8c150df9910d3ddcf16ef4b0f8d312827267b (1-reward single). Ledger source hai.oracle_job_reward (Rewarded(address,uint256) on 0xf4f18205), full window 2026-11-09..17, cursor 159643748."
+}

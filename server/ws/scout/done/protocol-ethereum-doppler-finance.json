@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-doppler-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 642,
+ "chain": "ethereum",
+ "slug": "doppler-finance",
+ "name": "Doppler Finance",
+ "category": "CeDeFi",
+ "tvl_usd": 155141,
+ "url": "https://app.doppler.finance",
+ "github": null,
+ "listed_days_ago": 642,
+ "run_id": "e5c567957b9c42ffbc1eecdecacc5361",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Vault (proxy 0xfD5366c739d08018286Dd0c6c0F547Ec72906717, token RLUSD 18dp) has no keeper reward: open claim() pays only the caller's own claimable (fresh address reverts 'No withdrawals to claim' = $0); 5 self-claims/7d, largest $1,004.07 (1,000.00 RLUSD principal + 4.03 interest, tx 0xa85c54eb75a6b42dce2d9d4c2170d787f627ef61b203218d93030fa218fb0b3f), gas $0.35; updateYield/undelegate onlyOperator (EOA 0xba55929b, 2 calls/7d); 24 vault logs total in 7d (blocks 26409770-26460026).",
+  "kb": [
+   "attempts:3126",
+   "protocols:1496"
+  ],
+  "run_id": "e5c567957b9c42ffbc1eecdecacc5361",
+  "at": 1795223341
+ }
+}

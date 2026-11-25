@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "muffin",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/muffin = 404 (no adapter); address field null. Contracts from muffinfi/muffin-subgraph config/mainnet.yaml (protocol repo): Hub proxy 0x6690384822afF0B65fE0C21a809F187F5c3fcdd8 (eth_getCode nonempty; Etherscan proxy -> impl 0x5dd2444a17edc079210077924906d5bdf432a858; getter maxNumOfTiers()=6 answers) and Manager 0xded07E2da859714F69d93f9794344606Ed67907E (eth_getCode nonempty; getter hub() returns the hub address). Uniswap-V3-style CLAMM (repo README). All external functions reviewed from verified source: deposit/withdraw/createPool/addTier/swap/swapMultiHop/mint/burn/setLimitOrderType/collectSettled - none pays the caller a reward; collectSettled only credits the position owner's own account (Positions.get keyed by owner=msg.sender, Pools.sol:816). collectProtocolFee + 7 set* functions are onlyGovernance. Whole-repo grep for reward/claim/incentive/bounty/harvest/poke: only collectSettled/settle hits. Migrator repo: single migrateFromUniV3WithPermit, user-funded."
+}

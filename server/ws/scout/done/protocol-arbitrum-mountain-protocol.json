@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-mountain-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1143,
+ "chain": "arbitrum",
+ "slug": "mountain-protocol",
+ "name": "Mountain Protocol",
+ "category": "RWA",
+ "tvl_usd": 45246,
+ "url": "https://mountainprotocol.com",
+ "github": [
+  "mountainprotocol"
+ ],
+ "listed_days_ago": 1143,
+ "run_id": "ca16aa40de7f4f3ab2eb95c67420178e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "USDM 0x59D9356E...508C + wUSDM 0x57f5e098...7812 on arbitrum: ABI (impl 0x7f2f92c4..331e, verified via explorer) has no claim/reward/distribute/harvest fn - yield accrues to holders via rewardMultiplier; all state-changing fns role-gated (eth_call from 0x..dEaD reverts 'missing role' on setRewardMultiplier DEFAULT_ADMIN + addRewardMultiplier ORACLE 0x68e79a7b..); 7d blocks 0x1f44f66e..0x1f644c05 (2026-11-16..11-23): 17 logs on USDM (12 Transfer, 5 Approval, no-topic scan), 4 on wUSDM; 0 USD gross per call, nothing pays a caller; supply 45,136 USDM (18 dec on chain). Same as ethereum dead_end.",
+  "kb": [
+   "attempts:3928"
+  ],
+  "run_id": "ca16aa40de7f4f3ab2eb95c67420178e",
+  "at": 1795397209
+ }
+}

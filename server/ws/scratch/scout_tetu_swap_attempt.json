@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-tetu-swap",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: the pair's only reward function claimAll() (claims Tetu SmartVault yield, selector 0xd1058e59 from cast sig) reverts from a stranger with 'TSP: Only recipient can claim' (eth_call from 0x000...e570 on pairs 0xbc7b9646.. and 0xf85ac8af..); each pair has a fixed per-pair rewardRecipient (a TetuProxyControlled distributor proxy, e.g. 0xc403a41f16587e223787e0e018473a6f2b1759d7) set by governance, so no stranger can earn. Swap fees also flow straight to rewardRecipient inside swap(). Protocol is dormant anyway: 0 events on all 31 pairs in the last 7 days.",
+  "numbers": "7 d window blocks 97,432,850 (2026-11-16 18:45 UTC) -> 97,836,050 (2026-11-23 18:45 UTC, from eth_getBlockByNumber timestamps): 0 logs across all 31 pair addresses (eth_getLogs no-topic scan, 31-addr control: same shape returned 7 logs over a 90-day lookback to block 92,648,050; last events Approval 2026-09-24 block 94,381,023 tx 0xc646b22d3e0a..., last Mint/Sync/Transfer 2026-08-26 txs 0x15e83776e33d..., 0xa4a5aac08c79...). Sample pair 0xbc7b96467f4e33b943ecd999432055127f600b61 code 15,973 bytes, getReserves blockTimestampLast = 1,695,756,069 (2023-10-27). allPairsLength 31 (0x574f2ba3 on factory proxy 0x684d8c187be836171a1af8d533e4724893031828). fee = 10 bps (most pairs) / 30 bps (WMATIC/SPHERE). TVL 49,964 USD (api.llama.fi 2026-11-23). No gross/gas USD: no stranger-callable payout, no calls to price in 7 d."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-avalon-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 948,
+ "chain": "bsc",
+ "slug": "avalon-finance",
+ "name": "Avalon Finance",
+ "category": "Lending",
+ "tvl_usd": 183414,
+ "url": "https://www.avalonfinance.xyz",
+ "github": null,
+ "listed_days_ago": 948,
+ "run_id": "d0e1138145004d9abc04089a7ccff60e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "7 Aave v3-fork pools on bsc (Pools 0xf9278c7c..a6d4 etc., via adapter dataHelpers->getPool, getters answer); 0 LiquidateEvent in 7 days (blocks 132994100-134337652, 27x50k chunks via publicnode, 0 failed) - actually 0 events of any kind; dormant 181k-USD book (api.llama.fi), liquidationCall callable (state revert, not role-gated), gross/call 0, gas ~0.015 USD (0.05 gwei x 500k x BNB 585.48, eth_gasPrice + coins.llama.fi)",
+  "kb": [
+   "attempts:2183",
+   "protocols:751"
+  ],
+  "run_id": "d0e1138145004d9abc04089a7ccff60e",
+  "at": 1795017469
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "any",
+  "target": "CappedBurnHook rebalance() keeper tip non-ethereum transplant: avalanche, hyperevm, elysium seven-day scan",
+  "outcome": "dead_end_recorded",
+  "reason": "No paid occurrence on any of the three remaining cheap-chain candidates over seven days, so the required recent paid transaction for a trial is absent. The six event topics were taken from an actual Ethereum CappedBurnHook receipt, and the same topic-only filter found both known Ethereum hook emitters in 7,200 blocks; pendingRebalance() answered at both. On Avalanche, HyperEVM, and Elysium the topic-only filter found zero emitters, with zero RPC errors. Same-run topic-only Transfer controls returned logs on all three chains. This is a seven-day activity result, not proof that the contracts were never deployed. Ethereum remains a latency race as in attempts:3360.",
+  "numbers": "scratch/r15c0/hooknet.py run 2026-11-22T17:12Z: avalanche blocks 100407609-101088609 (681000), 0 emitters/0 errors; hyperevm 51347350-51962350 (615000), 0/0; elysium 6819169-9639169 (2820000), 0/0. Block-date cutoff measured by scratch/c2012c17-7d-blocks.py as 2026-11-15T17:11:46Z. Same script ethereum blocks 26464872-26472072: hook emitters 0xc6c965bd (21 logs) and 0x087a4724 (3), both pendingRebalance() getter answered. relay-probe getlogs-topic-only controls near heads: avalanche 19 Transfer logs, hyperevm 10, elysium 1."
+}

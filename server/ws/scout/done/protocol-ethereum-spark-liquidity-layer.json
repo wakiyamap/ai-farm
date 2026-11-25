@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-spark-liquidity-layer",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 594,
+ "chain": "ethereum",
+ "slug": "spark-liquidity-layer",
+ "name": "Spark Liquidity Layer",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 2349234716,
+ "url": "https://spark.finance/",
+ "github": null,
+ "listed_days_ago": 594,
+ "run_id": "1f997b23ff8d468e8aa8d47447453802",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only stranger-callable functions are the two D3M pools collect(address) (no modifier, eth_call from fresh address passes, pays fixed king 0xbe8e3e36 not the caller) with EMPTY reward pots (getRewardsByAsset=[] for spDAI@ic 0x4370d and aEthLidoUSDS@ic 0x8164cc), 0 Collect events ever and 0 logs from all 5 contracts in 7d (blocks 26409477-26459733, control 711), ALMProxy/Freezable doCall* onlyRole(CONTROLLER/ALLOCATOR); collect gross 0, gas 61,163 x 0.153 gwei = $0.015 (ETH $1,623, coins.llama.fi 1795219819).",
+  "kb": [
+   "attempts:3110",
+   "protocols:1482"
+  ],
+  "run_id": "1f997b23ff8d468e8aa8d47447453802",
+  "at": 1795220125
+ }
+}

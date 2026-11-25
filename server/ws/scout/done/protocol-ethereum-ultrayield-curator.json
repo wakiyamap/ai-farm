@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-ultrayield-curator",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 389,
+ "chain": "ethereum",
+ "slug": "ultrayield-curator",
+ "name": "UltraYield Curator",
+ "category": "Risk Curators",
+ "tvl_usd": 26262020,
+ "url": "https://ultrayield.app/",
+ "github": null,
+ "listed_days_ago": 389,
+ "run_id": "cc433c0ba6ae47c9858b198d4be4f0e3",
+ "result": {
+  "verdict": "role_gated",
+  "line": "fulfillMultipleRedeems (OPERATOR_ROLE) ~7 calls/7d (sample of ~7 from explorer txs, ultrayield-usd 5 + ultrayield-eth 1 + edge-usd1 1); operators 0xe1e4c9f7 and 0x4b48d46e pay ~bash.69 gas/call (197k gas @ 2.16 gwei, ETH 630 coins.llama.fi 1795200289); gross to caller 0 USD (withdrawal fee to feeRecipient, not caller); no public callable stranger-reward function on any of the 4 vaults",
+  "kb": [
+   "protocols:1408",
+   "attempts:3015"
+  ],
+  "run_id": "cc433c0ba6ae47c9858b198d4be4f0e3",
+  "at": 1795200594
+ }
+}

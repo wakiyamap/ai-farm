@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-odyssey-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Odyssey Finance on ethereum is the same PositionRegistry + Strategy design already scouted on base (attempts:1839): the only function anyone can call is updateSnapshot(), a fee-snapshot checkpoint (1-week cooldown per position) that pays the caller 0; collectPendingFees(bytes) is keeper-gated (registry.getKeepers() = [], fresh address reverts SenderCanNotCollectFee 0x904e494c) and pays a FIXED feeCollector 0xd44a3e93a256c445f17a12f35a0ffef975ec6817, never the caller. All 32 positions emitted 0 events in 30 days, so no stranger earned anything here either.",
+ "numbers": "getPositions()=32, isOpen()=21, 8 impls (MorphoBorrowStrategy/SynthStrategy sharing Strategy.sol, verified via explorer source). updateSnapshot() eth_call from fresh 0x1111 succeeds on 3/3 open positions; estimateGas 125425 gas; eth_gasPrice 1.05 gwei; ETH $1597.05 (coins.llama.fi 2026-11-20, ts 1795208103) => gas ~$0.21/call, reward $0. 7d no-topic eth_getLogs on 32 positions blocks 26408406-26458806: 0 logs; 30d backscan 3x50400 blocks: 0 logs; control same shape: USDC 300 blocks 35381 logs. collectPendingFees from fresh reverts 0x904e494c. Registry isKeeper(fresh)=false, getKeepers()=[]. TVL ethereum $1,009,045 (api.llama.fi currentChainTvls 2026-11-20)."
+}

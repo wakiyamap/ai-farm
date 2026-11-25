@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "actor-base-0xbd94206161c0a6b1afd1c406b2ca55ce1200dae0",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. The address is a Morpho Blue liquidation executor contract driven by EOA 0x999919d1...c5de; each tx calls Morpho liquidate (1-8 borrowers), swaps the seized collateral to the debt token in-tx via Uni V3 pools and sweeps the bonus to treasury 0x31c1f2...70c1. Morpho's liquidation incentive pays any caller, so a fresh address taking the same call is paid. Bursty: active only 2026-11-05/08/09/12, idle since Nov 12 while Morpho liquidations continued (95 actors on Nov 14) - this pond is contested (lead 157 counted 221 callers).",
+  "numbers": "39 txs / 209 Liquidate events, 2026-11-05..12: 1/11/3/24 txs on Nov 5/8/9/12. All 39 receipts: gross swept $181.07, gas $41.46 (ETH $1818.96 DefiLlama 2026-11-16, per-tx effective gas price; EURC counted at par), net $139.61. Averages: $4.64 gross / $1.06 gas / $3.58 net per tx; $0.87 gross per liquidation; bonus 4.2-13% of repaid debt (repaid $3.4k-$296k per tx). est_profit_usd_day net ~$12 over the 12-day observation window (trailing 7d $9.3); per active day $34.9 net."
+}

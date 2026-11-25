@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-badger-dao",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "badger-dao",
+ "name": "Badger DAO",
+ "category": "Yield Aggregator",
+ "tvl_usd": 94699,
+ "url": "https://badger.com/",
+ "github": [
+  "Badger-Finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "a01eafa93b164a1e8843805b8f011174",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BadgerTree 0x635EB2C39C75954bb53Ebc011BDC6AfAAcE115A6 claim() is the only anyone-callable reward fn: pays msg.sender with its own merkle allocation, 0 Claimed events in 7d (blocks 524,751,016 2026-11-16 to 526,808,402 2026-11-23; control same-shape finds 8 logs, latest 2025-05-06), pot 3,499 BADGER = 822 USD (coins.llama.fi 2026-11-23 12:53 UTC); 9 vault proxies earn() reverts 'onlyAuthorizedActors' from a stranger (TVL 96,031 USD), harvest is controller-only, no caller reward.",
+  "kb": [
+   "attempts:4106"
+  ],
+  "run_id": "a01eafa93b164a1e8843805b8f011174",
+  "at": 1795438924
+ }
+}

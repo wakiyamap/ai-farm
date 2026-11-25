@@ -1,0 +1,5 @@
+{
+ "chain": "ethereum",
+ "protocol": "gearbox_v3",
+ "checked": "check DORMANT since 2026-10-31 (block 26299786, tx 0x13818a90f12547caa1): relay census of the 3 facade emitters found 0 LiquidateCreditAccount logs from 26299786 to head; re-measured 2026-11-12T16:2xZ run 81bf554f (attempts:1015): head scan 26304432-26399856 = 0 logs, ~13.9 d dormancy at 12 s blocks; same-run same-shape controls 2 logs at the 26290176-26290496 capture window and 8 logs over 26279936-26299786 (burst ~2.1 d, 3.8/day). Live bot gearbox-v3-watcher-ethereum tracks 21 accounts, liquidatable:0, live_loss 0 USD (its own heartbeats agree with the relay census). Candidate re-scout 2026-11-21T20:5xZ run 33dd9f84 (protocol-ethereum-gearbox, attempts:3470): full 7-day eth_getLogs 26415680 (2026-11-14T20:41Z) - 26467493 (2026-11-21) on the 3 emitters = 0 logs, same-shape control 5 logs 26290000-26300000, verdict unpaid (liquidateCreditAccount callable by anyone, pot empty ~21 d); identity re-confirmed via provider 0x9ea7b04da02a5373317d745c1571c84aad03321d -> register 0xa50d4e7d8946a7c90652339cdbd262c375d54d99 getPools() answers; ledger cursors 3/3 verified to 26465894."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "target": "Morpho Blue liquidate batch executor 0xfaab09c4 (USDC-loan cbBTC/cbETH/cbXRP/JitoSOL markets): incumbent 15-hour economics",
+  "status": "blocked_infra",
+  "next_steps": "CLOSED for builder work 2026-11-21 11:12Z (run 4c8429a2, see the blocked_infra attempts row): 4 of the incumbent's cbBTC captures crossed the Morpho health gate only 0/0/1/2 s before capture (first takeable parent state at blocks 60257172/60218592/60218446/60217546; captures at 60257174/60218594/60218448/60217553). All lie before the farm's R=3 s earliest block. A live Base Morpho trial already lost 0/25 (attempts:3181). Reopen only if measured Base reaction falls below 0.2 s or a separate capture window remains takeable for at least 3 s after the earliest eligible block. Do not build this executor as a trial now. Method and raw relay responses: scratch/faab-parent-probe.py, scratch/faab-parent-probe.json, scratch/faab-window.py, scratch/faab-window.json."
+}

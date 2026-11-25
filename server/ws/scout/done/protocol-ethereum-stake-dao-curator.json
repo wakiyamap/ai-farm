@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-stake-dao-curator",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 74,
+ "chain": "ethereum",
+ "slug": "stake-dao-curator",
+ "name": "Stake DAO Curator",
+ "category": "Risk Curators",
+ "tvl_usd": 1126090,
+ "url": "https://lending.stakedao.org/earn",
+ "github": null,
+ "listed_days_ago": 74,
+ "run_id": "b1e42536d1e14b0f968423372bdc4392",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Stake DAO Curator = its Morpho vaults 0x8EDCC305E633d29BFB383872e79401c506cE9E6f (VaultV2) + 0x13AA4f80...E4c5 (MetaMorpho v1.1) + 0xB2376cC8...72a3 (frxUSD v1), verified sources. No fn pays the caller: accrueInterest() public (eth_call from fresh addr OK) but fee shares go to curator recipients, rest ERC4626 ops/role-gated. 7d getLogs 26405622-26456022: v2 vault 26 logs (6 AccrueInterest, all inside 3 user/router txs), v1+frxUSD 0 (no-topic scan). Gross/stranger 0. TVL 1.09M USD (api.llama.fi 2026-11-20).",
+  "kb": [
+   "attempts:2889",
+   "protocols:1307"
+  ],
+  "run_id": "b1e42536d1e14b0f968423372bdc4392",
+  "at": 1795174561
+ }
+}

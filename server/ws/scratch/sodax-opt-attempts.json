@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-sodax",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only keeper-like job on the SODAX optimism spoke is bridged-message delivery (SpokeAssetManager.recvMessage -> ConnectionV3.verifyMessage), gated by require(executors[tx.origin]) - an owner-managed allowlist: eth_call of real delivery calldata from a fresh address reverts 'unauthorized executor', from the registered executor it passes. 42/42 deliveries in 7 d came from the single registered executor 0xa4026a97d3bf3caed9489cfac61ac8863d2ddb83, and even through the gate the caller is paid $0 - value goes to the user recipient (trace of 0xbdb2ae65: 0.00228 ETH to 0x79a8b317...), protocol fees leave via withdrawFee() onlyOwner. Same verdict as arbitrum/ethereum/hyperevm spokes.",
+  "numbers": "7d window blocks 159568918-159871542 (ts 1794736613=2026-11-15T09:43Z .. 2026-11-22, blockscout txlist lags ~16 h): 51 txs to AM 0x348BE44F63A458be9C1b13D6fD8e99048F297Bc3 = 42 recvMessage (sel 0x4b2b20e7, 42/42 from 0xa4026a97...ddb83) + 9 user transfer (0xc6b4180b). Getters: hubChainId()=146, connSn()=12451, isExecutor(relayer)=true. Fresh-addr eth_call reverts 'unauthorized executor' (0x08c379a0). Gross to caller $0 (5 sampled receipts, no transfer to executor; debug_traceTransaction confirms ETH to user recipient). Gas 152,643-186,978 gasUsed @ 0.00402-0.00405 gwei eff = $0.0010-0.0013 at ETH $1,710.28 (coins.llama.fi 2026-11-22 10:05 UTC). ConnectionV3 0 ETH; TVL 72.6k USD is custody."
+}

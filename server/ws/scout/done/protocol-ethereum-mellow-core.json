@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-mellow-core",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 294,
+ "chain": "ethereum",
+ "slug": "mellow-core",
+ "name": "Mellow Core",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 201701507,
+ "url": "https://app.mellow.finance/vaults",
+ "github": null,
+ "listed_days_ago": 294,
+ "run_id": "a59ba695f9524532b3d77c8b9511db62",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Mellow Core ethereum (flexible-vaults, 9 core vaults + DVstETH, 50 queues, e.g. strETH 0x277C...CCC5): anyone can call RedeemQueue.handleBatches / DepositQueue.claim / Vault.claimShares (eth_call from fresh addr succeeds) but they transfer 0 to the caller - 7d scan blocks 26407994-26458906: RedeemRequestsHandled 17 (Mellow's own EOA 0xf2374bcb265505002055942d070459a4d2011012 via router 0xe5abcc40...), RedeemRequestClaimed 69 (users self-claim), SharesClaimed 820; handleReport reverts Forbidden() (oracle-only), subvault ops role-gated; no reward/bounty/incentive transfer anywhere in src/.",
+  "kb": [
+   "attempts:2986",
+   "protocols:1387"
+  ],
+  "run_id": "a59ba695f9524532b3d77c8b9511db62",
+  "at": 1795194054
+ }
+}

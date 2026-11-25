@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hyperliquid-earn",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Hyperliquid Earn is HyperCore-native lending ($1.48B TVL). On HyperEVM the protocol is only two read precompiles (0x...0812 reserve state, 0x...080c token info; eth_getCode 0x, eth_call with raw uint64 answers) plus the generic CoreWriter user-action bridge 0x3333..3333 (only function sendRawAction(bytes), lending = Supply/Withdraw). No EVM function anyone can call pays the caller: interest accrues passively (hourly index) to suppliers and liquidations are executed by HyperCore itself, not by callable keeper functions.",
+  "numbers": "TVL $1,481,019,638 (api.llama.fi/protocol/hyperliquid-earn 2026-11-17). USDC reserve token 0: totalSupplied 642.8M, totalBorrowed 397.6M, supply APY 2.78%, utilization 61.85% (api.hyperliquid.xyz/info allBorrowLendReserveStates). CoreWriter 0x3333..3333: 320 sendRawAction logs in blocks 0x3117014-0x3117f14 (~2h, eth_getLogs); ~47k gas per action (docs) = ~$0.0004 at 0.1123 gwei (eth_gasPrice 0x6b14647) and HYPE $70.23 (coins.llama.fi). eth_getCode 0x at 0x812 and 0x80c; eth_call returns 8-word tuple at 0x812."
+}

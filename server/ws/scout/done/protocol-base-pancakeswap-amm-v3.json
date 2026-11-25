@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-pancakeswap-amm-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1323,
+ "chain": "base",
+ "slug": "pancakeswap-amm-v3",
+ "name": "PancakeSwap AMM V3",
+ "category": "Dexs",
+ "tvl_usd": 18507627,
+ "url": "https://pancakeswap.finance/swap",
+ "github": null,
+ "listed_days_ago": 1323,
+ "run_id": "b04cbb1ad0df4f30b8f5e8c7f2d6e49f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniV3 fork on base (TVL 17.5M; factory 0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865, NPM 0x46a15b0b27311cedf172ab29e4f4766fbe7f4364): no anyone-callable function pays the caller - collect/mint/burn pay positions[msg.sender], NPM collect owner-gated, collectProtocol/setLmPool factory/owner-gated, swap/flash caller-pays; only increaseObservationCardinalityNext open (stranger eth_call ok, pays 0). Sample 1174 logs (1119 Swap/38 Collect/17 Mint) on pool 0xb775272e537cc670c65dc852908ad47015244eaf: all Collects pay the LP. Gas 0.006 gwei, 150k collect = $0.0016 @ ETH $1770.63",
+  "kb": [
+   "attempts:2324",
+   "protocols:864"
+  ],
+  "run_id": "b04cbb1ad0df4f30b8f5e8c7f2d6e49f",
+  "at": 1795052724
+ }
+}

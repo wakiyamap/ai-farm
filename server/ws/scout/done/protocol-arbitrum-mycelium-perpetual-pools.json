@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-mycelium-perpetual-pools",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1845,
+ "chain": "arbitrum",
+ "slug": "mycelium-perpetual-pools",
+ "name": "Mycelium Perpetual Pools",
+ "category": "Derivatives",
+ "tvl_usd": 157431,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1845,
+ "run_id": "fcc73e678ede4899803580a228ca5d3b",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "PoolKeeper.performUpkeepSinglePool (v1 0x759e817f, v2 0x051AFD0b) pays msg.sender USDC.e: v1 168 paid upkeeps/7d (pool 0x3a52ad74, 1h interval) = 362 USDC.e, median 0.83/call, 5 keeper addrs incl. EOA 0xbAA9BD75; v2 keeper 21 = 13.05 USDC.e median 0.62; gas 235k gas = 0.01 USD at base 0.02 gwei vs 0.34-0.78 at the 0.8-1.9 gwei current takers bid (ETH 1784 USD on-chain oracle); timing precomputable via intervalPassed(), catch: pays 0 unless pool internal long+short balances > reward.",
+  "kb": [
+   "attempts:2586",
+   "protocols:1072",
+   "leads:304"
+  ],
+  "run_id": "fcc73e678ede4899803580a228ca5d3b",
+  "at": 1795110170
+ }
+}

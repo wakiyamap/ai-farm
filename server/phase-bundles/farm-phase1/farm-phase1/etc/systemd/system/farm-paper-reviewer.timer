@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the paper-reviewer agent periodically
+
+[Timer]
+OnBootSec=15min
+OnUnitInactiveSec=90min
+Unit=agent@paper-reviewer.service
+
+[Install]
+WantedBy=timers.target

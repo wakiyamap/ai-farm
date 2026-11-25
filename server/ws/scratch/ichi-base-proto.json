@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "ichi",
+ "status": "dead_end",
+ "checked": "ICHI on base = ICHIVault liquidity-manager factories only (DefiLlama adapter projects/ichifarm/index.js config.base): 6 factories - Equalizer 0xfBf38920cCbCFF7268Ad714ae5F9Fad6dF607065, Henjin 0x51a0D74e1791399cE02aafD9a21dc4637Fe57959, Hydrex 0x2b52c416F723F16e883E53f3f16435B51300280a, Kim 0x28cF3b462a1ADdE87fe7144d110BcF0D464C97b7, PancakeSwap 0x24430E837efB64EF87bb32be03437fc6005EEF74, Trebleswap 0xbA096706A850caF1cADAEfE7529Db1343a0c187E. 240+ vaults enumerated via allVaults(i) eth_calls (Hydrex capped at 200); 89 scanned. Verified ICHIVault source (explorer blockscout, e.g. 0x5308a901e12995f9ebbd76a82712fd4af97325bf): external fns are deposit/withdraw (user self-service), collectFees() (no role, fresh-addr eth_call OK on 2 vaults), and rebalance(int24,int24,int24,int24,int256) which is external nonReentrant onlyOwner (ICHIVault.sol L296; fresh-addr eth_call reverts). All vaults owner() = same module contract 0x7d11de61c219b70428bb3199f0dd88ba9e76bfee. _distributeFees (L440-470) transfers only to stored ammFeeRecipient, factory feeRecipient and affiliate - never msg.sender. No farvest/claim/harvest/reward fn in vault ABI."
+}

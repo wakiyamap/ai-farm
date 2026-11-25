@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "address": "0xe227f0038994858187dc7bd5f299ad23dc9cfddb",
+ "strategy": "EIP-7702 smart-account trading wallet (delegate singleton 0xe6d46d889a24ce4c1a4618d57d84bb8ef659f2a7, 17.7KB code, own nonce only 4). Driven ~136 tx/day by a fleet of dedicated relayer EOAs that send selector 0x00000000 + signed payload with tiny BNB dust (each call); relayers pay all gas and serve only this wallet. Activity is 2-4 leg cross-pool token swaps (WBNB/USDT/BTCB/ETH + memes: BISON, DBT, PID, ZEC, KAVA...) via PancakeSwap-family pools; gross median USD 53.5 in per tx, wallet-level median net +USD 0.08 on the 82/136 txs with nonzero net (24h sample), 24h net flow sum -USD 17 (inventory moves, not atomic arb). User/owner moving own funds - no protocol bounty or keeper fee paid to the wallet.",
+ "evidence": "24h transfer set via alchemy_getAssetTransfers (349 in / 210 out, 136 unique txs, blocks 0x7fbaf07..0x7fd76a4, 2026-11-17T03:56Z); txs 0x94ca3a950c7a3393b42682de5654377eecdd8d52e84c933144649919d845b4af (BISON two-pool arb, gas 387368), 0xe6fee16a729dd25a79107c1e8e560ca7183c49e9e5f8de4f62c9859769503fc6 (DBT->USDT->WBNB legs, gas 943606), 0x0299ebe1509b0eb0efd9d5195e6d885908817dbad42e78f262e736dc029cf592 (ZEC/USDT/WBNB, gas 410500); relayer 0x5957f9af419fbaf46505d315ea1fc8d794726bb5 made 54/54 txs to this wallet in 24h (54 unique hashes, 1 recipient)",
+ "est_profit_usd_day": 0
+}

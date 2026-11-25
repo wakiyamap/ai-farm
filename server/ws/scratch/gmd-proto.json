@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "gmd_protocol",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/gmd/index.js (candidate adapter path gmd-protocol was 404): vault 0xA7Ce4434A29549864a46fcE8662fD671c06BA49a (verified src 'vault'), vault2 0x8080B5cE6dfb49a6B86370d6982B3e2A86FBBb08 ('GMDvault'), gmdbfr vault 0x56009e94418ddfe8604331eceff38db0738775f8 ('GMDBFRvault'), staking 0x48c81451d1fddeca84b47ff86f91708fa5c32e93 ('GMDstaking'); all four eth_getCode non-empty, Etherscan-verified source read. Vaults: every value-moving keeper function (cycleRewardsETHandEsGMX, cycleRewardsETH = GLP compound; GMDBFR _claim/_claimEsBfr) is onlyOwner; public entry points are only user deposits/withdrawals (enterETH/leaveETH/enter/leave) and updateGLPbackingNeeded (state update, pays nobody). Staking = MasterChef paying WETH+RP to LP stakers via deposit/withdraw (caller-paid), updatePool/massUpdatePools public but pay nothing. Fresh-address eth_call: massUpdatePools, deposit(0,0), withdraw(0,0), updateGLPbackingNeeded all succeed and pay 0 (not role_gated). Protocol dormant: staking WETH pot balance 0, last txs 2026-10-12 (staking) / 2026-10-04 (vault2) / 2026-05-26 (gmdbfr) / 2024-12 (vault1); website dead (DefiLlama deadUrl:true)."
+}

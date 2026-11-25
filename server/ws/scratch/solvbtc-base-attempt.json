@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-solvbtc",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. SolvBTC on base = two dormant Gnosis-Safe deposit wallets (3.46 cbBTC + 0.665 tBTC, $264k, last deposit 2026-03-02) plus one OpenFundMarket for the xSolvBTC-Base-SolvBTC fund whose settlement is gated 'OFM: only pool manager'. All 17 market events in the last 7 days came from Solv's own ops EOA 0x99754c36b29b9a5575fb909ee09d8c36e633f5ba and the settlements paid ~nothing (1 wei tBTC carry, 0 protocol fee); the caller gets no reward and pays its own gas. No anyone-callable paid function.",
+  "numbers": "TVL base $263,878 (api.llama.fi 2026-11-18); market 0xf5a247157656678398B08d3eFa1673358C611A3f 7d events = 17 (blocks 56081909-59105082, 61 eth_getLogs pages of 50k; control 571 cbBTC logs/350 blocks): SetSubscribeNav 9, SetRedeemNav 2, CloseRedeemSlot 2, SettleCarry 2, SettleProtocolFee 2, Subscribe 0, RequestRedeem 0; all 4 sample txs from 0x99754c36b29b9a5575fb909ee09d8c36e633f5ba (tx 0x241f9fc2fef28bc2f867a5f910c1f36f4efe4e7659e4f0a73829143af634ecd5 etc.); SettleCarry amount=1 wei tBTC, SettleProtocolFee amount=0; stranger eth_call closeCurrentRedeemSlot reverts 'OFM: only pool manager'; gas ~130,000 @ 0.006 gwei = 7.8e-7 ETH = $0.0014 (ETH $1791.33 coins.llama.fi)."
+}

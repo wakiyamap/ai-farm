@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-jetswap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. JetSwap polygon is a stock UniV2 factory + PancakeSwap-v1 MasterChef: every anyone-callable function (massUpdatePools, updatePool, deposit, withdraw, enterStaking, leaveStaking, emergencyWithdraw) succeeds from a fresh address but pays the caller 0 - updatePool mints pWINGS to devaddr/burn/boostvaultaddr/syrup, and stakers only harvest their own pending. No keeper bounty, nothing for a stranger. Same shape as bsc jetswap (KB 1195) and dfyn.",
+  "numbers": "factory 0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7 allPairsLength=457; MasterChef 0x4e22399070aD5aD7f7BEb7d3A7b543e8EcBf1d85 poolLength=26 cakePerBlock=1e18 totalAllocPoint=11562 (eth_call block 97639727); boostvaultaddr 0xe8b8cf540e64d4576c77edfae4d08a80eb028e91 eth_getCode=0x; MasterChef Deposit|Withdraw events 7d (blocks 97337327-97639727, topic0 cast keccak Deposit(address,uint256,uint256)=0x90890809.., Withdraw(...)=0xf279e6a1..): 4 events, 1 tx 0xbee57932094587fcceb06cda38436f721079bcb8df5c455dbfe47aedd8f7df4f, caller 0x8f3b596b7052a90d4d95177ef28be4a428840804 pid 2 (self-compound, pays itself); control WPOL Transfer 16 blocks = 155 logs; pWINGS 0x845E76A8691423fbc4ECb8Dd77556Cb61c09eE25 usd: unpriced (coins.llama.fi empty 2026-11-20 09:05 UTC); TVL 154,895 USD (session candidate). Addresses from DefiLlama root registries/uniswapV2.js 'jetswap' polygon entry."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-saturn",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Saturn's only BSC TVL contract is the satUSDT Lista/Moolah vault 0x87e01662febb5145ff648c1fa7b73d81519d9c66 (impl MoolahVault 0x713a7e23cff5016a479b079e48b575818a3fcc95). No externally callable function pays the caller: skim() pays a fixed skimRecipient that is 0x0 so it always reverts, reallocate() is ALLOCATOR/BOT-gated, the rest is ERC4626 user ops; bridged USDat/sUSDat tokens on BNB have no reward functions either.",
+  "numbers": "totalAssets 1,439,139.5 USDT (~$1.44M, matches candidate 1,448,800; rpc bsc eth_call 0x01e1d114, 2026-11-17). skim(USDT) from fresh addr reverts 0xd92e233d ZeroAddress (skimRecipient()=0). reallocate([]) from stranger reverts 'not allocator or bot'. 7d activity sample 4x5000 blocks (132764801-132769801, 133213801-133218801, 133663801-133668801, 134108801-134113801): 2 txs, both EOA users (0x27ca7c3d..., 0x31cc0a54...). Sources: DefiLlama adapter projects/saturn-protocol/index.js; explorer source bsc; docs key-addresses page saturncredit.gitbook.io."
+}

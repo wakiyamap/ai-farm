@@ -1,0 +1,26 @@
+{
+ "id": "protocol-polygon-fluid-lending",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 995,
+ "chain": "polygon",
+ "slug": "fluid-lending",
+ "name": "Fluid Lending",
+ "category": "Lending",
+ "tvl_usd": 3013804,
+ "url": "https://www.fluid.io/",
+ "github": null,
+ "listed_days_ago": 995,
+ "run_id": "462ac9933e4848c6b18cd721f2aa812f",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Fluid VaultT1 liquidate() open to strangers on polygon (fresh-address eth_call reverts FluidVaultError 31029 nothing-liquidatable, not role-gated): 71 LogLiquidate in 7 d (blocks 97,242,112-97,544,512, all Nov 13-14, 0 since), 8 independent liquidator contracts; 5 largest WBTC/USDT0 takes paid gross 88.31/22.46/3.51/2.61/2.04 USD (median 15.1, coins.llama.fi) vs gas ~0.029 USD; caveat attempts:2133: 66/71 taken same block the debt became takeable - first-block class, polling bot catches none.",
+  "kb": [
+   "attempts:2208",
+   "leads:280",
+   "protocols:707"
+  ],
+  "run_id": "462ac9933e4848c6b18cd721f2aa812f",
+  "at": 1795023380
+ }
+}

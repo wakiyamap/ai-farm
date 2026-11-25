@@ -1,0 +1,24 @@
+{
+ "id": "protocol-stellar-phoenix-defi-hub",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 855,
+ "chain": "stellar",
+ "slug": "phoenix-defi-hub",
+ "name": "Phoenix DeFi Hub",
+ "category": "Dexs",
+ "tvl_usd": 48173,
+ "url": "https://www.phoenix-hub.io/",
+ "github": null,
+ "listed_days_ago": 855,
+ "run_id": "720483c4132e4d19aefef9236f9277d0",
+ "result": {
+  "verdict": "no_reward",
+  "line": "7 d (ledger 65494431@2026-11-15T16:00Z -> 65614362@2026-11-22T14:30Z): 4804 events = 601 swaps on 3 of 13 pools (CBHCRSVX 370, CBISULYO 226, CBCZGGNO 5), 11 senders (CA4ICH 310, CD5D72 138), 0 bond/withdraw_rewards/distribute events on all 13 stake contracts; source: swap/bond/unbond require own sender, distribute_rewards manager/owner, withdraw_rewards no-auth but pays the staker not the caller - no function pays a stranger caller; fee 88-95k stroops = ~0.0012 USD at XLM 0.1278 (coins.llama.fi 2026-11-22T14:20Z).",
+  "kb": [
+   "attempts:3756"
+  ],
+  "run_id": "720483c4132e4d19aefef9236f9277d0",
+  "at": 1795359998
+ }
+}

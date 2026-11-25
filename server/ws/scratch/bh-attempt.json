@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-blackhole-amm",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the only anyone-callable keeper action on Blackhole AMM (ve(3,3), Thena-V2/Equilibre-style) is the weekly epoch advance update_period() (0xed29fc11) on the Minter 0xAcc34Ad51457930989fB5050C2Dce6339F06479B. It runs once per week (1 call in the last 7 days) and pays the caller nothing: in 2 of 2 sampled calls no token reached the caller EOA; emissions went to the GaugeManager, 5% team share and the rewards distributor. nudge() (0x9008a642) currently reverts 'NA' (check()=false until Thursday flip).",
+  "numbers": "7d calls: 1 (Nov 12 00:00:58 UTC, block 100064950, tx 0x9821a76ba22ac0e06d00c70c0c6390d408ee48f2f14342cf87fe412e3476d8c5; control: same 100-block scan shape returns logs; prior week tx 0x8a140dcbaed47d2d8d7157897d9b7a965dd2f4266d31a355b7c463713899eac9). Caller both weeks: EOA 0x9740726b1c876ab126f41c7447fd2f3dce0e2fd3. Caller receipt: 0 BLACK, 0 AVAX. Weekly mint 8,628,862 BLACK -> GaugeManager 8,046,736 + team 435,138 + distributor 220,883. Gas 1,053,412 @ 7.5 gwei = 0.0079 AVAX = $0.056 (AVAX $7.09, BLACK $0.00208, coins.llama.fi 2026-11-17). Factory allPairsLength()=67."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-ultrayield-curator",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 387,
+ "chain": "hyperevm",
+ "slug": "ultrayield-curator",
+ "name": "UltraYield Curator",
+ "category": "Risk Curators",
+ "tvl_usd": 6557529,
+ "url": "https://ultrayield.app/",
+ "github": null,
+ "listed_days_ago": 387,
+ "run_id": "836f228f4b924acabd8a0cb21ec4b40f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "HyperEVM contracts = 2 Hyperbeat TokenizedAccount proxies (0xc061d389 UBTC, 0x96c6cbb6 HYPE) + LoopedHYPE boring vault 0x5748ae79; open-callable collectFees/chargeManagementFee/processAllClaimsByDate pay the caller 0 (fees to fixed collector, withdrawals to owners); 7d: processAllClaimsByDate ~7 calls, all by keeper 0xe0b7deab, sample paid receiver ~$1.2 (own funds), gas $0.009 (115,913 gas @1.1 gwei, HYPE $68.14 coins.llama.fi); boring vault/accountant entry points requiresAuth",
+  "kb": [
+   "attempts:1779",
+   "protocols:436"
+  ],
+  "run_id": "836f228f4b924acabd8a0cb21ec4b40f",
+  "at": 1794931376
+ }
+}

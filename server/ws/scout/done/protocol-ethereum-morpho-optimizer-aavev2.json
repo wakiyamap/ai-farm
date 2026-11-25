@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-morpho-optimizer-aavev2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1503,
+ "chain": "ethereum",
+ "slug": "morpho-optimizer-aavev2",
+ "name": "Morpho Optimizer AaveV2",
+ "category": "Lending",
+ "tvl_usd": 114817,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1503,
+ "retries": 1,
+ "run_id": "8728cfff2f77483499db87cf1c3047e7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "deprecated Morpho Aave v2 (proxy 0x777777c9...f3e0): claimRewards is an empty stub returning 0 (rewardsManager=treasuryVault=aaveIncentivesController=0x0), updateIndexes open but pays 0, increaseP2PDeltas/claimToTreasury onlyOwner, 0 liquidations - whole protocol did 1 tx in 7 d (blocks 26415427-26465682; a user withdraw, 929,145 gas = 0.18 USD at 0.1149 gwei), TVL 114,817 USD",
+  "kb": [
+   "attempts:3453",
+   "protocols:1739"
+  ],
+  "run_id": "8728cfff2f77483499db87cf1c3047e7",
+  "at": 1795291528
+ }
+}

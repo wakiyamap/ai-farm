@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-near-intents",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 395,
+ "chain": "base",
+ "slug": "near-intents",
+ "name": "NEAR Intents",
+ "category": "Bridge",
+ "tvl_usd": 2174470,
+ "url": "https://near.com/",
+ "github": null,
+ "listed_days_ago": 395,
+ "run_id": "e740784d1aba45b59f1d4cb089338c70",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Base has one near-intents contract: MetaWallet 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd (Sourcify-verified); withdraw(uint128,address,address,uint128,bytes) is callable by anyone holding a HOT-validator signature but pays only receiver_id (caller keeps nothing; fees()=0 and owner-only), hot_verify is view, rest onlyOwner; 7d: 0 withdraws, 3 dust ETH deposits (0.0082/0.00033/0.00011 ETH); 30d: 12 USDC withdrawals 0.035-90 USDC, callers==receivers (self-redemptions); gas ~0.0016 USD/call (6.15 gwei, ETH 1779.22 llama), reward 0 USD.",
+  "kb": [
+   "attempts:1787",
+   "protocols:444"
+  ],
+  "run_id": "e740784d1aba45b59f1d4cb089338c70",
+  "at": 1794933577
+ }
+}

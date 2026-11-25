@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-odyssey-digital-am",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 61,
+ "chain": "ethereum",
+ "slug": "odyssey-digital-am",
+ "name": "Odyssey Digital AM",
+ "category": "Risk Curators",
+ "tvl_usd": 1597230,
+ "url": "https://www.odysseydigitalam.com/",
+ "github": null,
+ "listed_days_ago": 61,
+ "run_id": "6e790ffa39894fe49697d72a953e72f7",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Odyssey Digital AM = 3 Lagoon v0.5.0 ERC-7540 vaults on ethereum (USDC 0xa00f63e8 885,837 USDC; cbBTC 0x2f945864 8.850; WETH 0x08d7eef3 77.480; ~1.57M USD, api.llama.fi 2026-11-20); no function pays a caller - settleDeposit/settleRedeem/claimSharesOnBehalf onlySafe (Safe 0xffeaa67c calls its own), updateNewTotalAssets onlyValuationManager, deposit/redeem move the depositor's own NAV (whitelist-gated); all 3 paused since 2026-10-11 (Paused block 26154939; eth_call from fresh = EnforcedPause 0xd93c0665); 0 logs last 7d (no-topic scan 26405483-26455883; control same query Oct 8-9 = 76 logs).",
+  "kb": [
+   "attempts:2879",
+   "protocols:1299"
+  ],
+  "run_id": "6e790ffa39894fe49697d72a953e72f7",
+  "at": 1795172918
+ }
+}

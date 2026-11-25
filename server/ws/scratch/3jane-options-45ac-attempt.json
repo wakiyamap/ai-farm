@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-3jane-options",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The permissionless closeRound() sends vault fees to a fixed feeRecipient and $0 to msg.sender; all other round/auction maintenance is keeper-gated. No successful closeRound in the measured seven-day window.",
+  "numbers": "Vault 0xAcD147A5bbCB7166c5BB13A9354ad7a59b99fB4d; asset 0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee, 18 decimals via on-chain vaultParams()/decimals(). Blocks 26430021 (2026-11-16 20:36:11 UTC) through 26480266 (2026-11-23 20:36:23 UTC), 0x1934a45-0x1940e8a: no-topic eth_getLogs yields 8 logs (4 Transfer control, 0 CollectVaultFees, 0 CloseShort, no unknown topic0). Sample of 0 successful closeRound calls; gross 0 WEETH = $0 to caller by verified source, gas estimate 903751 at 131752526 wei/gas = $0.205 at ETH $1724.8568424 from coins.llama.fi coingecko:ethereum timestamp 1795466103. eth_call closeRound from fresh 0x1111...1111 succeeds, commitNextOption/rollToNextOption revert !keeper. Source explorer implementation 0x4c8ce0e024b8f53d5cac310c3046d82834a9944c."
+}

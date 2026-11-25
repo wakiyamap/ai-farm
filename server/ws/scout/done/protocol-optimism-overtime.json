@@ -1,0 +1,26 @@
+{
+ "id": "protocol-optimism-overtime",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "overtime",
+ "name": "Overtime",
+ "category": "Prediction Market",
+ "tvl_usd": 265506,
+ "url": "https://www.overtimemarkets.xyz",
+ "github": [
+  "thales-markets"
+ ],
+ "listed_days_ago": null,
+ "run_id": "53808fedbf0249bda91daf3b9d6cc584",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Keeper fns (prepareRoundClosing, processRoundClosingBatch, closeRound, exerciseTicketsReadyToBeExercisedBatch) on the 5 Overtime/Thales pools on OP are permissionless (eth_call from fresh addr: state reverts only) but source pays only safeBox/LP/defaultLP, never the caller; 7d: 4 RoundClosed + 3 batches + 3 SafeBoxSharePaid, all by protocol EOAs 0xff936b80 and 0xe881267d, gross to caller $0.00, gas $0.0007/call (376,562 gas @ 0.001 gwei, ETH $1747.71 2026-11-20 07:15 UTC).",
+  "kb": [
+   "attempts:2806"
+  ],
+  "run_id": "53808fedbf0249bda91daf3b9d6cc584",
+  "at": 1795159136
+ }
+}

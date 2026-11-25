@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-tulipa-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Tulipa Capital has no own contracts on ethereum: its 33.96M USD TVL sits in Lagoon/Ember/BoringVault/MetaMorpho/Euler vaults it curates. The only keeper-like functions (settleDeposit(uint256), updateNewTotalAssets(uint256) on the Lagoon vaults) revert from a stranger with a custom error naming Tulipa's own operator EOAs (0x4018327d..., 0xaa4e1057...), and they are called only by those two EOAs (10 of 12 vault txs in 7d) with no payment to the caller (value 0). User flows (deposit/mint/redeem) pay the depositor, not a stranger.",
+  "numbers": "TVL ethereum 33,964,326 USD (api.llama.fi 2026-11-20). 9 vaults eth_getCode non-0x, totalAssets() answers all (non-zero return; per-underlying USD not priced - no reward to price, verdict rests on role reverts). 7d window: ts 1789172151..1795216951 (2026-11-13T23:22Z..2026-11-20T23:22Z), latest block 26,460,074. explorer txs sample of 12 of 12 shown for 0xce0b790a: settleDeposit 0xd24ca58a x5 by 0x4018327d5bfee6636509b2a4b5cac2d3e7b641dd, updateNewTotalAssets 0xbcd1bf34 x5 by 0xaa4e1057b503db60639b3b76366c37f6465da938, 2 user txs. Selector IDs via 4byte.directory. Stranger eth_call reverts 0xfde82f1f(addr)/0x14c9222d(addr). Gas 0.139 gwei (eth_gasPrice 0x83b161e) ~ $0.034/150k gas at ETH $1618.20 (coins.llama.fi ts 1795216916). Morpho owner-vault scan: 383+86 CreateMetaMorpho logs, 3 owned by 0x59e608e4842162480591032f3c8b0ae55c98d104."
+}

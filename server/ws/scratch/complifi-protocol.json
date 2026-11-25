@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "complifi",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/complifi/index.js identifies VaultFactoryProxy 0x3269DeB913363eE58E221808661CfDDa9d898127; eth_getCode nonempty and getAllVaults() returns 10 vaults. Explorer verified factory implementation 0x4fdb3b6ff4d2e2a6edb218af105f1df7744186ea: createVault is public but pays no caller; configuration is owner-only. GitHub source https://raw.githubusercontent.com/CompliFi/complifi-protocol/master/contracts/Vault.sol shows public settle(uint256[]) emits state changes but makes no caller transfer; redeem/refund require caller-owned derivative tokens. All 10 vaults have code and state()=2 (Settled) at 2026-11-23 22:43 UTC; a fresh-address eth_call to settle on first vault reverts Incorrect state. No-topic eth_getLogs on all 10 vaults yielded 0 events over blocks 26430648 (2026-11-16 22:41:47 UTC) to 26480890 (2026-11-23 22:41:47 UTC), seven 8000-block pages. Same-shape USDC no-topic control in block 26430648 returned 55 logs. Verdict no_reward."
+}

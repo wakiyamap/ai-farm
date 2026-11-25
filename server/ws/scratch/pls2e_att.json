@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-pls2e",
+  "outcome": "dead_end_recorded",
+  "reason": "skim type (S), unpaid. Pls2e (P2E DEX) on bsc is a plain UniswapV2 fork factory (Sourcify exact match); no keeper/harvest/auction function exists. The only function anyone can call that moves value to the caller is pair skim(address) (eth_call from fresh address succeeds), but skim takes the pool's balance above reserves, i.e. LP money, not a caller reward. 78 pairs, 1968 swaps in 7 d all LP-fee trading, 0 Skim events, 0 PairCreated in 7 d. Nothing pays a stranger.",
+  "numbers": "7d window blocks 133885231 (2026-11-16 07:10 UTC) - 134966536 (2026-11-23 07:10 UTC, from eth_getBlockByNumber timestamps). Factory 0x0944AB692786D9104AE9a29778285c41C33c0415: allPairsLength 78 (eth_call). PairCreated topic0 0x0d3648bd... (cast keccak): 0 logs in 7d; control same shape 6 logs blocks 21000000-22185432 (2022-09-03 to 2022-10-14). Swap topic0 0xd78ad95f...: 1968 logs / 78 pairs (sample of 1941 in 26-pair chunk; top caller 0xb585639f 563). Skim topic0 0xb94331e4...: 0 logs (Swap same-shape control on same addresses returns 1968). Gas 0.05 gwei (eth_gasPrice), BNB $556.75 (coins.llama.fi 2026-11-23 ~07:20 UTC): skim ~46k gas ~ $0.0013. TVL 50,408 USD (DefiLlama candidate row)."
+}

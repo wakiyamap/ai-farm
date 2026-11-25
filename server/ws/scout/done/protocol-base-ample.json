@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-ample",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 257,
+ "chain": "base",
+ "slug": "ample",
+ "name": "Ample",
+ "category": "Yield Lottery",
+ "tvl_usd": 159647,
+ "url": "https://ample.money/",
+ "github": null,
+ "listed_days_ago": 257,
+ "run_id": "03804b7957a14039a49425997b2b5772",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "AmpleEarn base (USDC vault 0x1688aeb3ec7b23a22e2418fdf5bccc67ecf39c0f): anyone-callable claimPayout pays its Merkle leaf user, not the caller; 7d: 188 claims, 134 stranger wallets, 5.54 USDC gross (median 0.0018, max 3.37) vs gas 0.0017-0.0033 USD/tx (0.006 gwei, ETH 1822 coins.llama.fi); weekly VRF round pool 161 USDC on 149.7k TVL ~5.6% APR - farm must deposit and win, no caller fee",
+  "kb": [
+   "attempts:1728",
+   "leads:241",
+   "protocols:393"
+  ],
+  "run_id": "03804b7957a14039a49425997b2b5772",
+  "at": 1794920348
+ }
+}

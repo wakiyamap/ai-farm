@@ -1,0 +1,22 @@
+{
+ "id": "protocol-ethereum-parallel-protocol-v3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 477,
+ "chain": "ethereum",
+ "slug": "parallel-protocol-v3",
+ "name": "Parallel Protocol V3",
+ "category": "CDP",
+ "tvl_usd": 167523,
+ "url": "https://parallel.best/",
+ "github": null,
+ "listed_days_ago": 477,
+ "run_id": "86ce59145939481fb9022c64be6d26a8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ParallelizerUSDp diamond 0x6efeDDF9...62a2: updateOracle ran 18x in 7d (blocks 26408489-26458889), all by one trusted keeper 0x82f603cd...657a which is paid 0 (receipt 0x8900c45c: 121,081 gas, no transfer); stranger eth_calls revert NotTrusted 0xc22a648e (updateOracle, sellRewards) or AccessManagedUnauthorized 0x068ca9d8 (release, processSurplus); gas 0.19 USD/call at 0.955 gwei x ETH 1603 USD.",
+  "kb": [],
+  "run_id": "86ce59145939481fb9022c64be6d26a8",
+  "at": 1795209153
+ }
+}

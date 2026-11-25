@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-privacy-cash",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Privacy Cash (HashCloak) is a Tornado-style zk pool on Base (EtherPool + USDC ERCPool). The only public callable function is transact(Proof,ExtData) - user self-service with a valid zk proof; the protocol pays nothing to the caller (withdrawal goes to the user-set recipient, fee is a user-set 'tip to the relayer' to _extData.feeRecipient). No reward/claim/keeper function, no reward pool; everything else is onlyAdmin. Constraint S excludes privacy pools anyway.",
+  "numbers": "7d window blocks 57838958 (2026-11-15 15:56 UTC) -> 60864479 (2026-11-22 16:01 UTC) from eth_getBlockByNumber timestamps; 324 logs from a no-topic eth_getLogs over both pools = 162 NewCommitment (topic0 0xf3843eddcfcac65d...) + 162 NewNullifier (0x5e58f77bbf94b46d...), topic0s match repo-ABI keccaks, no unknown topic0; EtherPool 132 logs, USDC pool 192; sample of 10 txs (eth_getTransactionByHash): callers EOAs, 7/10 from 0x7eac0a100cde0ee5681fd5cf9e027822d8c36d0b; reward to caller = 0 USD (no such function); USDC pool holds 11,976.25 USDC (balanceOf eth_call, decimals()=6 on chain); EtherPool holds 19.0866 ETH = 32,751 USD (coingecko:ethereum 1,715.92 USD at 2026-11-22 16:00 UTC, coins.llama.fi); pools total ~44.7k USD ~ DefiLlama TVL 44,254."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-woofi-swap",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. WOOFi Swap on hyperevm (SPMM v2 stack, docs addresses) has no function that pays a stranger: the keeper work (WooracleV2_2.postPrice, WooFeeManager.distributeFees) reverts for a fresh EOA ('!Admin' / '!admin'), and the stranger-callable pool.claimFee() sends unclaimedFee to feeAddr (unclaimedFee() = 0 now), WooRebateManager.claimRebate() pays only the caller's own accrued rebate. 7d: pool >=25 direct user swaps from just 2 EOAs, router 0 txs, oracle 0 txs (last oracle tx 2026-05-21) - same dead_end family as arbitrum (attempt 2521) and avalanche (attempt 2522).",
+ "numbers": "eth_call from 0x1111...1111 @block 51685882: claimFee OK, unclaimedFee 0, claimRebate OK, distributeFees revert 'WooFeeManager: !admin', postPrice revert 'WooracleV2_2: !Admin'. 7d txs (explorer txs, blocks 51071061-51685882, 2026-11-12..19): pool >=25 (1 page, 2 callers), router 0 (last 2026-09-23), oracle 0 (last 2026-05-21, keeper 0x9c3ec0e3933727fee86adbf563a5839b6226155b). Gas 0.1 gwei x ~100k = 0.00001 HYPE = 0.0007 USD (HYPE 68.66 USD coins.llama.fi 2026-11-19 13:40:19Z). TVL 526k USD (api.llama.fi 2026-11-19)."
+}

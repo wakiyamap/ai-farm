@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-bridgers",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 883,
+ "chain": "base",
+ "slug": "bridgers",
+ "name": "Bridgers",
+ "category": "Dexs",
+ "tvl_usd": 162865,
+ "url": "https://bridgers.ai/",
+ "github": null,
+ "listed_days_ago": 883,
+ "run_id": "0a54c15cf7f04def92be5b25e30bd432",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BridgersSwap 0xa18968cc31232724f1dbd0d1e8d0b323d89f3501 is the only Base contract (docs + DefiLlama sumTokens registry); public swap/swapEth are user deposits paying the caller nothing (2136 Swap+SwapEth events in 7d, eth_getLogs 56647156-59671156), withdraw/withdrawETH are onlyOwner (operator 0x3bd39453f9c39738acbabe1e703172368b4656f1); holds 2.59 ETH + 33,467 USDC ~ 38k USD (coins.llama.fi 2026-11-19 21:44Z); no keeper/reward function exists",
+  "kb": [
+   "attempts:2656"
+  ],
+  "run_id": "0a54c15cf7f04def92be5b25e30bd432",
+  "at": 1795124915
+ }
+}

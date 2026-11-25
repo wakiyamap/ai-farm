@@ -1,0 +1,8 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-gauntlet",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Gauntlet's BSC presence is 4 Moolah (Morpho V1 fork) ERC4626 vaults sharing one proxy implementation. The vault exposes no permissionless paying function: reallocate() reverts for strangers ('not allocator or bot'), and the Morpho-style keeper fns (accrueInterest/updateAssetPortfolio) do not exist in its ABI; everything else is ERC20/ERC4626 user calls or role-gated setters. The keeper-shaped accrueInterest(marketParams) lives on the Moolah core (0x8f73b65b4caaf64fba2af91cc5d4a2a1318e5d8c), a different protocol's candidate.",
+ "numbers": "4 vaults eth_getCode non-empty @ block 134205355 (eth_getCode 2026-11-17); USD1 vault totalAssets()=138,484,856.6 USD1 via eth_call (latest, research lane); reallocate((address,address,address,address,uint256),uint256)[] selector 0x7299aa31 stranger eth_call revert 'not allocator or bot'; no event/gas measurement taken (no callable reward fn).",
+ "bot_id": null
+}

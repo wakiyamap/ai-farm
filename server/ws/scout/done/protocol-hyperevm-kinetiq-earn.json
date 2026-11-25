@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-kinetiq-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 411,
+ "chain": "hyperevm",
+ "slug": "kinetiq-earn",
+ "name": "Kinetiq Earn",
+ "category": "Yield Aggregator",
+ "tvl_usd": 27673589,
+ "url": "https://kinetiq.xyz/stake-hype#kinetiq-earn",
+ "github": null,
+ "listed_days_ago": 411,
+ "run_id": "38d7b647d0b5405cad7cede1e7a15543",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Kinetiq Earn = stock Veda trio on hyperevm (BoringVault 0x9BA2EDc4...B160, TellerWithMultiAssetSupport 0x29C0C36e...3158, Accountant 0x74392Fa5...Cece2, verified source): every non-view fn is requiresAuth (RolesAuthority 0x345bb6a4...c50f) or a user-pays deposit; claimFees is vault-only (reverts 0x7e3db46f from fresh EOA) and pays payoutAddress not caller; 0 stranger-payable functions, 0 in 3x10k-block Deposit windows over 7d (~15 exits/day per attempt 1286), gas 0.13 gwei ~ bash.0009/call",
+  "kb": [
+   "attempts:1814",
+   "protocols:455"
+  ],
+  "run_id": "38d7b647d0b5405cad7cede1e7a15543",
+  "at": 1794936182
+ }
+}

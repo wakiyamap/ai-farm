@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-stargate-v2",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 870,
+ "chain": "ethereum",
+ "slug": "stargate-v2",
+ "name": "Stargate V2",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 56435106,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 870,
+ "run_id": "bb9b35920c6b4cddb7cefc48d8ae7024",
+ "result": {
+  "verdict": "unpaid",
+  "line": "retryReceiveToken (0xa88835d7) is the only anyone-can-call value-moving fn on the 6 ethereum Stargate V2 pools: pays the stuck message's own receiver, $0 to caller; 0 UnreceivedTokenCached events and 0 retries in 7d (blocks 26,411,551-26,461,806, control OFTSent 948 logs same shape); 3 stuck GUIDs (13.99 USDC ~14 USD) uncollected 8-11 days; gas/retry 60,470 x 1.29 gwei = $0.13; all other fns role-gated or user's own funds",
+  "kb": [
+   "attempts:3225"
+  ],
+  "run_id": "bb9b35920c6b4cddb7cefc48d8ae7024",
+  "at": 1795244845
+ }
+}

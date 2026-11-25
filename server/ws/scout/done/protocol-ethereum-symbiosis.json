@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-symbiosis",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1695,
+ "chain": "ethereum",
+ "slug": "symbiosis",
+ "name": "Symbiosis",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 1734714,
+ "url": "https://symbiosis.finance",
+ "github": [
+  "symbiosis-finance"
+ ],
+ "listed_days_ago": 1695,
+ "run_id": "abdf24c44dc74ff8adb3d6c39ccb2622",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Bridge, no caller reward: 1215 destination completions in 7d (blocks 26415458-26469296, 11-14 to 11-21), all via anyone-callable BridgeV2.receiveRequestV2Signed by one MPC EOA 0x67f9b3e561383493b3f874feae0c53c2cd23851d (15/15 sample); caller paid $0 - the $1146.70/7d of bridging fees (USDC 920.5 + WETH 0.122 + USDT 15 + SIS 279 + APE 20.5 + G 29, avg $0.94/call) accrue to the bridge contract, owner-withdrawable; gas $0.03-0.29/call (149k-1.37M gas @ 0.124 gwei); Portal.unsynthesize/metaUnsynthesize onlyBridge, receiveRequestV2 onlyMPC (fresh-address reverts).",
+  "kb": [
+   "attempts:3454"
+  ],
+  "run_id": "abdf24c44dc74ff8adb3d6c39ccb2622",
+  "at": 1795291695
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-uncx-network-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1229,
+ "chain": "bsc",
+ "slug": "uncx-network-v3",
+ "name": "UNCX Network V3",
+ "category": "Token Locker",
+ "tvl_usd": 3224189,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 1229,
+ "run_id": "b7ffa6985c2747858cbf59a90ca4a2c3",
+ "result": {
+  "verdict": "role_gated",
+  "line": "4 BSC lockers (0x0D29/0xf1f7/0xfe88/0xac03, adapter unicrypt-v3, TVL 3.22M USD): collect/withdraw gated on lock.owner/additionalCollector/UNCX AUTO_COLLECT_ACCOUNT 0xd45dd91df475bfd944335160f538c1a14888dc1c; stranger collect reverts (depth-1 revert, ~23.9k gas, 4/4); lock() charges caller, no keeper bounty; 7d log counts not obtained (scout CU spent 306100/300000, bsc public getLogs rate-limited), no zero count claimed",
+  "kb": [
+   "attempts:2281",
+   "protocols:832"
+  ],
+  "run_id": "b7ffa6985c2747858cbf59a90ca4a2c3",
+  "at": 1795042777
+ }
+}

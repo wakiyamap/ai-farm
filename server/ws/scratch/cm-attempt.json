@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-coinmerce-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Coinmerce Capital's only HyperEVM footprint is one Upshift v2 TokenizedVault (proxy 0xcfe06d2499aE635830D11859941e76354D5717CC, impl 0xe10bc46e4193a7807251214643518104b87f0d50, verified TokenizedVault.sol). Its permissionless functions (chargeManagementFee, collectFees, chargePerformanceFees) run fine from a fresh address but pay only the curator's fixed fee collectors, never the caller; everything else is onlyOwner/whitelist-gated. Nothing pays a stranger.",
+  "numbers": "TVL $1.75M (queue) / $1.73M (DefiLlama 2026-11-17). 7d (blocks 50,900,000-51,722,078): 7x chargeManagementFee + 7x collectFees by one EOA keeper 0xe0b7deab801d864650dec58cbd1b3c441d058c79, 0x WithdrawalProcessed. collectFees gross to collectors ~55.14 USDC/call (5 samples, e.g. 0x02bced645e18 56.19 USDC), pays caller 0. Gas 109,789 (collectFees) / 69,427 (chargeManagementFee) at 0.1 gwei (eth_gasPrice) x HYPE $69.35 (coins.llama.fi) = $0.00076 / $0.00048 per call."
+}

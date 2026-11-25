@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "supernova_amm",
+  "status": "dead_end",
+  "checked": "ve(3,3) DEX (Blackhole fork, Algebra CL pools) launched Feb 2026, TVL ~$110k. Addrs from docs https://docs.supernova.xyz/technical-amm-documentation.md, all confirmed via eth_getCode not 0x. Minter proxy 0xfe29ea1348f0990273db5e19ad521e45acda84a2 (impl 0xa2b9c0f8d866562ce744497c3160749268c32732, verified source): update_period() public but pays caller 0 (emissions -> team/rewards_distributor/gauges, emit Mint(msg.sender,...)). GaugeManager 0x19a410046afc4203aece5fbfc7a6ac1a4f517ae2 (impl 0x120ea99bdc2da6de1b98fbeb84cfaead96a6a9e3, verified source): distribute/distributeFees behind EPOCH_MANAGER/GAUGE_ADMIN roles on PermissionsRegistry 0x344e..., pay caller 0; claimRewards(address[]) public pays msg.sender; claimBribes pays veNFT owner (caller needs isApprovedOrOwner). NOVA token 0x00da8466b296e382e5da2bf20962d0cb87200c78 (symbol/decimals read on chain: NOVA, 18). 66 gauges (GaugeManager.length()). SuperNovaClaims 0x313fdfcc9f19a90748072baec39d786d34961309 season claiming ended (isSeasonClaimingEnded=true)."
+}

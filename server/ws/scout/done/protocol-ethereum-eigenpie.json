@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-eigenpie",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1024,
+ "chain": "ethereum",
+ "slug": "eigenpie",
+ "name": "Eigenpie",
+ "category": "Liquid Restaking",
+ "tvl_usd": 3125633,
+ "url": "https://www.eigenlayer.magpiexyz.io",
+ "github": null,
+ "listed_days_ago": 1024,
+ "run_id": "b42f9a5c51874b5d827c7a43a8666033",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All keeper functions (ND.depositAssetIntoStrategy etc, EWM.queuingWithdraw/fillEthWithdrawBuffer, forwardRewards) are ALLOWED_BOT_ROLE/MANAGER gated (fresh-address eth_call reverts 0xa6158820 CallerNotEigenpieConfigAllowedBot); 7d (blocks 26412692-26462944) only 43 events on config/staking/EWM/3 NDs, 4 keeper txs all from bot 0x6c316728..., GasRefunded x1 paid 0 ETH, gas ~0.04-0.07 USD/tx (ETH 1637.92, coins.llama.fi 1795257909); open user functions pay only the caller's own position.",
+  "kb": [
+   "attempts:3282",
+   "protocols:1606"
+  ],
+  "run_id": "b42f9a5c51874b5d827c7a43a8666033",
+  "at": 1795258046
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-strata-markets",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: Ethena-Corn-style CDO fork with no keeper incentive anywhere. Every state-changing function is onlyCDO/onlyTranche/onlyRole (RESERVE_MANAGER, UPDATER_FEED, COOLDOWN_WORKER, owner); the only stranger-callable function is Cooldown.finalize(token,user), which unlocks the withdrawing user's own funds to that user and pays the caller 0. No reward token (DefiLlama symbol '-'); exit fees accrue to the protocol treasury (feeRetentionBps in Accounting).",
+  "numbers": "7d getLogs (blocks 0x193443a..0x193b8a7 = 50397 blk, both cooldown proxies 0x735eddf5...,0xd6dad17d...): 45 Finalized + 6 TransferRequested (topic0 cast keccak matched live logs, same-shape control returned); ~6.4 finalizes/day, callers are user wallets/EOAs (0x5d4a96d8..., 0x63dc2b53..., 0x1d042c72... x2) finalizing their own withdrawals. Gross to caller = 0 USD. Sample finalize tx 0xa2c6a328... gasUsed 737771 @ effectiveGasPrice 0x86b2ee0 (0.1414 gwei) = 0.000104 ETH = 0.17 USD (ETH 1610.78 USD, coins.llama.fi ts 1795201582). TVL 13.42M USD today (api.llama.fi/protocol/strata-markets, ts 1795199135)."
+}

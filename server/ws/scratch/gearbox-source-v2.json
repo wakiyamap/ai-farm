@@ -1,0 +1,23 @@
+{
+ "id": "gearbox_v3.liquidate_credit_account",
+ "protocol": "gearbox_v3",
+ "kind": "liquidation",
+ "chains": {
+  "ethereum": [
+   "0xe3023b3022ad9564756303e991a6ec1321d1111b",
+   "0x4da50da058ad6cc96bb63edff55b534d2a2cbe92",
+   "0x56fe10ff36318f599cf0cbcecf6d4ed15a3b317b"
+  ]
+ },
+ "event": "LiquidateCreditAccount(address,address,address,uint256)",
+ "topic0": "0x7dfecd8419723a9d3954585a30c2a270165d70aafa146c11c1e1b88ae1439064",
+ "indexed": [
+  "creditAccount",
+  "liquidator"
+ ],
+ "data": [
+  "to",
+  "remainingFunds"
+ ],
+ "actor_field": "liquidator"
+}

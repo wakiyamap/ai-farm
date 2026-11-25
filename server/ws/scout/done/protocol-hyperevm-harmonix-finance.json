@@ -1,0 +1,27 @@
+{
+ "id": "protocol-hyperevm-harmonix-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 861,
+ "chain": "hyperevm",
+ "slug": "harmonix-finance",
+ "name": "Harmonix Finance",
+ "category": "Yield",
+ "tvl_usd": 4396692,
+ "url": "https://app.harmonix.fi",
+ "github": [
+  "harmonixfi"
+ ],
+ "listed_days_ago": 861,
+ "run_id": "79d8b52934ee4445a37f7b1b9dd09a6a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: harvestManagementFee/harvestPerformanceFee/updateNav revert 'INVALID_ROLE' from fresh address on both vaults (0xfde5b062.., 0x1368ee9d..) of factory 0x8085C67f122B7C7c7AB06864ac359536640f5E28 (TVL 4,551,409 USDT, getVaultsTVL 2026-11-18); fees minted as shares to protocol receivers, never the caller; single whitelisted keeper 0xa3e2e81079bf3d4f708be4c6a6897e82749424c6 calls updateNav/harvestPerformanceFee every 1-3 min (6 txs in 8 min, explorer txs sample of 6 of 27 recent)",
+  "kb": [
+   "attempts:2127",
+   "protocols:702"
+  ],
+  "run_id": "79d8b52934ee4445a37f7b1b9dd09a6a",
+  "at": 1795005227
+ }
+}

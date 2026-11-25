@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-pancakeswap-infinity",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: PancakeSwap Infinity on base is a Uniswap-v4-style CL pool manager + vault with no caller-paid reward function (no harvest/claim/keeper fee); swap is open-market arbitrage, modifyLiquidity pays only the calling LP (owner = msg.sender hardcoded), protocol fees collect only by protocolFeeController. The pool manager is active but the activity is a watched arb race, not a stranger-paid pot.",
+ "numbers": "7d eth_getLogs on 0xa0ffb9c1ce1fe56963b0321b32e7a0302114058b, blocks 55841156-58865156 (base 0.2s blocks, 3.02M): Swap topic0 0x04206ad2b7c0f463bff3dd4f33c5735b0f2957a351e4f79763a4fa9e775dd237 = 43,198 events (sum of 7 chunk counts 4870+3740+5251+8261+8994+5571+6511, ~6.2k/day); ModifyLiquidity topic0 0xf208f4912782fd25c7f114ca3723a2d5dd6f3bcc3ac8db5af63baa85f711d5ec = 231 events, all 231 from one address 0x55f4c8aba71a1e923edc303eb4feff14608cc226; top swap senders in a 432k-block chunk: 0xb88bb63113b50ff258138d8349e8521e2bf43654 (3,111), 0x29be31e7ef434a74d69da1cb6b51ad65c83e9a7b (2,249), 0x8f10b468b06c6fd214b65f87778827f7d113f996 (1,034) - professional arbitrage bots. Control: USDC(0x833589fC...) Transfer same query shape last 6800 blocks = 33,472 logs (lane healthy). TVL $199,680 (session context, DefiLlama). Note: event topic0s must come from the interface declarations (Swap has uint16 protocolFee, ModifyLiquidity int256 liquidityDelta); guessed signatures return a false 0."
+}

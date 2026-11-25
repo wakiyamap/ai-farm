@@ -1,0 +1,5 @@
+{
+  "status": "measured",
+  "why": "the decision-2026-11-11 item 3 native payout route is fork-proven: the permissionless reverse leg is the CurveStableSwapNG pool's exchange(0,1,dx,min) 0x3df02124 (NOT remove_liquidity_one_coin, which burns LP shares our caller does not hold), plus WETH.withdraw and owner.call, with a payable receive() so WETH's transfer is accepted",
+  "next_steps": "Nothing to prove left on this lead: proof.py (payoutVariant 0) is green (success 0xdf8aacea... status 1, owner credited 7.96e13 wei native, floor round 1.33e15 >= 2.1e14) and reserve-dutch-ethereum-v2 is re-submitted with it (attempts:833, wiki pitfalls/weth-cashout-to-native.md). What awaits is the natural weETH/ETH+ TradeStarted capture (awaited_events cadence ~1 per 6.8 days, drought since 26348622), not more engineering. If the reviewer wants the 5-arg receiver exchange instead, redeploy with payoutVariant 1 (executor_args third word 1)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-arrakis-modular",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 756,
+ "chain": "ethereum",
+ "slug": "arrakis-modular",
+ "name": "Arrakis Modular",
+ "category": "Liquidity Manager",
+ "tvl_usd": 21406074,
+ "url": "https://arrakis.finance/",
+ "github": null,
+ "listed_days_ago": 756,
+ "run_id": "e0831ae3371d4d6685e616f58e834ef4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "129 vaults (2 public + 127 private, factory 0x820F...3982); 7 d (blocks 26,410,763 2026-11-14 .. 26,461,019 2026-11-21): 1,104 LogRebalance + 612 LogWithdrawManagerBalance + 401 LogPriceConvergence, all sent by one Arrakis keeper EOA 0x2837e93b... to manager contract 0x2e6e8796...; rebalance/priceConvergence are onlyManager (fresh-address eth_call reverts) and the only stranger-callable money function withdrawManagerBalance() pays the manager (returns (0,0), managerBalance0/1 = 0): 0 USD gross to a stranger vs 0.71 USD gas (300k gas at 1.519 gwei, ETH 1,549.47).",
+  "kb": [
+   "attempts:3185",
+   "protocols:1536"
+  ],
+  "run_id": "e0831ae3371d4d6685e616f58e834ef4",
+  "at": 1795235337
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-kernel",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Kernel (KelpDAO BNB restaking, DefiLlama slug kernel) has no function that pays a caller: the whole deployed surface (StakerGateway, AssetRegistry, KernelConfig, 32 KernelVaults) is user stake/unstake plus role-gated admin. Verdict from full repo-v0.6 ABI (deployed bytecode matches it 1:1) plus stranger eth_calls; no claim/reward/harvest/keeper function exists, and referralId is only an event field.",
+  "numbers": "TVL 1,047,880 USD (api.llama.fi 2026-11-18); 32 assets in AssetRegistry 0xd0B91Fc0a323bbb726faAF8867CdB1cA98c44ABB (getAssets() eth_call); 7d gateway events (eth_getLogs, 1,343,000 blocks): 27 = 15 unstakeNative + 12 unstake, 25 distinct EOA senders, 0 keepers, 0 stakes; stranger eth_call deposit() -> UnauthorizedCaller(0xd86ad9cf), setDepositLimit() -> 0xc0fc818a role revert; gas 0.05 gwei x 200k = 0.0001 BNB = 0.06 USD (BNB 592.35 USD, coins.llama.fi)."
+}

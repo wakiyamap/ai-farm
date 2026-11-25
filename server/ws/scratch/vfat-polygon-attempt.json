@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-vfat-io",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The Sickle v1 automation entry points (compoundFor/harvestFor/rebalanceFor/executeFor on 0xf0002b2f97bc4830943cb0fbf875af1c13af0ec0) are behind an admin-managed global automator whitelist with exactly 1 entry - Sickle's own bot 0xb0bada5d45d939a03c6d211d24a61a4418d7cd13 (same on arbitrum/bsc/avalanche) - plus per-sickle consent; executeFor from a fresh address reverts. All 13 keeper txs in the last ~3.7 days came from that bot; nothing on the stack pays a stranger.",
+  "numbers": "TVL 354,552 USD / 208 positions / 110 users on polygon (api.vfat.io/v4/sickle-stats 2026-11-18T14:31Z); approvedAutomatorsLength()=1; eth_call executeFor from 0xf39f.. reverts; last-25 txs to automation contract (blocks 97.32M-97.52M, etherscan): 13 compoundFor/rebalanceFor all from 0xb0bada, 12 setActionConsent from owner-proxy 0xd40e2438, 0 strangers; sample batch gasUsed 1,419,770 @ 240 gwei = 0.341 POL = $0.0277 (POL $0.08118 coins.llama.fi)."
+}

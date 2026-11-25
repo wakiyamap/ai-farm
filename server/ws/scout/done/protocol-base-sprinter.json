@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-sprinter",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 473,
+ "chain": "base",
+ "slug": "sprinter",
+ "name": "Sprinter",
+ "category": "Yield",
+ "tvl_usd": 302779,
+ "url": "https://sprinter.tech/",
+ "github": [
+  "sprintertech"
+ ],
+ "listed_days_ago": 473,
+ "run_id": "fae6cc957cf3481ab34700b819e100e8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Sprinter Base: Hub 0xa593A9bB... totalAssets 302,813.94 USDC (block 58,758,031) = all of TVL; every payout fn role-gated (FULFIL_REDEEM/DEPOSIT_PROFIT/WITHDRAW_PROFIT/REBALANCER/REPAYER/CALLER_ROLE) or needs Sprinter MPC sig - eth_call from fresh addr reverts (fulfilRedeem 0x8b7e6b86, depositProfit 0x33c19ab0, withdrawProfit 0xfa0b7255); 7d: 0 logs from Hub/Pool/Repayer/Rebalancer in 5x50k sampled blocks (control USDC 19,246 logs/2k blk), 1 active tx 0x92b25a80... (block 56,963,524, -4.2d) = depositor Deposit/Withdrawal only; stranger gross 0 USD",
+  "kb": [
+   "protocols:480",
+   "attempts:1840"
+  ],
+  "run_id": "fae6cc957cf3481ab34700b819e100e8",
+  "at": 1794942668
+ }
+}

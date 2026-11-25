@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-tornado-cash",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "tornado-cash",
+ "name": "Tornado Cash",
+ "category": "Privacy",
+ "tvl_usd": 546267261,
+ "url": "https://tornadocash.eth.limo/",
+ "github": [
+  "tornadocash"
+ ],
+ "listed_days_ago": null,
+ "run_id": "1bcb579dbef942a590ee96c72f4795e5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: the 4 ETH pools (0x12d66f.., 0x47ce0c.., 0x910cbd.., 0xa160cd..) expose only deposit/withdraw (operator()=0x0, no reward/claim/harvest fn); 7 d blocks 26418600-26468788 (2026-11-15..11-22): 2018 deposits + 1918 withdrawals, 907 paid 30.62 ETH = 50,771 USD (avg 55.98, median 4.28) to 29 recurring relayers vs 0.07-2.12 USD gas, but recipient/relayer/fee are bound inside the ZK proof so no stranger can take it; pools hold 309,420 ETH = 513M USD at 1657.92; mixer out of scope under S anyway",
+  "kb": [
+   "attempts:3626",
+   "protocols:1862"
+  ],
+  "run_id": "1bcb579dbef942a590ee96c72f4795e5",
+  "at": 1795329798
+ }
+}

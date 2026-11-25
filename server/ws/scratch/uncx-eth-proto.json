@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "uncx_network_v3",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/uncx-network-v3/index.js is 404; slug maps to projects/unicrypt-v3/index.js (raw.githubusercontent.com, 2026-11-21), which lists 4 ethereum reserves: 0x231278edd38b00b07fbd52120cef685b9baebcc1 (UNCX_ProofOfReservesUniV3, 38 locks), 0x7f5c649856f900d15c83741f45ae46f5c6858234 (UNCX_ProofOfReservesV2_UniV3, 257 locks), 0xFD235968e65B0990584585763f837A5b5330e6DE (UNCX_LiquidityLocker_UniV3, 1114 locks), 0x7fccf17620ce18c039eb3485628e5c50d2ae1cec (UNCX_LiquidityLocker_UniV3, 2 locks). All 4 have code (eth_getCode) and getLocksLength() answers. Verified sources via explorer (etherscan). Every value-moving function is gated: collect requires lock.owner || additionalCollector || AUTO_COLLECT_ACCOUNT 0xd45dd91df475bfd944335160f538c1a14888dc1c (UNCX bot, same on all 4); relock/withdraw/migrate/setAdditionalCollector/setCollectAddress use isLockAdmin (owner only); settings onlyOwner; adminRefundEth/ERC20 onlyOwner. eth_call collect(1,0x1111..f17d,0,0) from a stranger on 0xFD23.. reverts 'OWNER'. No reward/bounty/keeper function anywhere in the family."
+}

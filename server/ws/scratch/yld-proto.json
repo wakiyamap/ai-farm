@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "yld",
+ "status": "dead_end",
+ "checked": "Scout run 2026-11-23T19:44-20:10Z. yldfi.co = 3 live Yearn V3 tokenized strategies (DefiLlama registries/erc4626.js 'yld' entry): yscvxCRV 0xCa960E6DF1150100586c51382f619efCCcF72706 (asset cvxCRV, totalAssets 431,844 cvxCRV = $34.5k @ 0.0798), ysCVX 0x1Fd0A85084fC61c397AC619c4F0bA2350eA1cE9e (asset CVX), yscvgCVX 0x8ED5AB1BA2b2E434361858cBD3CA9f374e8b0359 (retired, totalAssets 0), yspxCVX 0xB246DB2A73EEE3ee026153660c74657C123f8E42 (frontend config/vaults.ts). Dutch Auction contracts 0x0cdd3fd3956927d7e7e2aaec95c3b5f61ac64c83 / 0x5fb81419f48feb9c403df43ec1fd6e035a8deb60 / 0xd707088a0766a75c388f78343ca1bbb849c95bea. All eth_getCode non-0x, name()/asset()/totalAssets() answered. Verified source (explorer) = CVXCompounder + periphery AuctionSwapper/Auction. report()/tend() revert '!keeper' from fresh address; kickAuction(address) and Auction.take/settle are permissionless per source but pay the caller nothing. Shared Yearn Keeper 0x52605BbF54845f520a3E94792d019f62407db2f8 is a thin report/tend proxy, pays nothing. Distinct from KB protocol yld_cx (yld.cx, attempts 715)."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-krystal-auto-farm-vault",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 647,
+ "chain": "base",
+ "slug": "krystal-auto-farm-vault",
+ "name": "Krystal Auto-Farm Vault",
+ "category": "AI Agents",
+ "tvl_usd": 163356,
+ "url": "https://krystal.app",
+ "github": null,
+ "listed_days_ago": 647,
+ "run_id": "f32c92acc5ae420d8e5de2b6fd0c246c",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: PrivateVaultFactory 0x99029ddf...1eee + PrivateVault impl 0x34c1b3f2...62e3 + PrivateConfigManager 0x4cb65229...ecba; 2153 vaults on base (19 created last 7d, Base TVL $166,579 api.llama.fi); only entry point multicall is whitelist-gated (stranger eth_call -> Unauthorized 0x82b42900, isWhitelistedCaller=false), sweeps/deposits onlyOwner, no function pays the caller (fees -> configManager.feeRecipient, Krystal); owners EOA-run their vaults; gas ~$0.002/call at 0.006 gwei, ETH $1806.71 (coins.llama.fi)",
+  "kb": [
+   "attempts:2006"
+  ],
+  "run_id": "f32c92acc5ae420d8e5de2b6fd0c246c",
+  "at": 1794979078
+ }
+}

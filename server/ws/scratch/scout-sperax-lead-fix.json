@@ -1,0 +1,5 @@
+{
+  "chain": "arbitrum",
+  "target": "sperax_usds collectInterest",
+  "why": "collectInterest(address) on the 4 Sperax USDs strategies is permissionless and pays msg.sender harvestIncentiveRate = 10 bps (0.10%) of the collected interest (event HarvestIncentiveCollected). In the last 7 d (blocks 523600701-525648991) 27 txs paid 7 independent strangers: EOAs 0xab95b660546c59c790dd0d8c5087c57a360761e5 (5 calls), 0xf62b10b2a9c717f4a1e8a327d4494cf972aaa156 (7), 0x9ec8f4924892ad5af33b66fa4557d87b05d44fad (4), 0xd26af2564c0a9e718f5336d33359d19fa795e387 (2) + 3 contract wallets (0xf5be3abf636c63a60111e23c96d8bf8e7f8a9d6e, 0x5cfd73ee9534d236be910e3beb6b4425561a6b23, 0x06f9cac39c80eb4260ae64676a2e73db60d8023d). Verified single-EOA example: tx 0xbe3f63c1f8b888ae516b4308d4169892b555c0c05e085d7a104def0af298c4c4, EOA 0xf62b10b2... called collectInterest on aave strategy directly, gross 12,082 USDC (0.0121 USD) vs gas 242,533 x 0.02 gwei = 0.0088 USD (net +0.003); tx 0x55c51fbf62a56942d2563a8271e4928e4d6fbdfa01517a914478fa899b9e0d63 batched 3 collects, total 0.0353 USD gross vs 0.0185 USD gas. But the whole protocol pays only 0.369 USD gross vs 0.311 USD gas per 7 d."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-stablejack-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 875,
+ "chain": "avalanche",
+ "slug": "stablejack-v1",
+ "name": "StableJack V1",
+ "category": "Yield",
+ "tvl_usd": 1019201,
+ "url": "https://legacy.stablejack.xyz/",
+ "github": null,
+ "listed_days_ago": 875,
+ "run_id": "f3e67d2af5e64acfa375277369af9dbb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "treasury 0xDC325ad34C762C19FaAB37d439fbf219715f9D58 harvest() is anyone-callable and runs ~every 2 days (EOA 0x884dda6d72667f459c19bd1a8010e0ec5b38c54e; 7d: >=3 pool sweeps seen via point-reads, 2 confirmed Harvest logs: tx 0x72d4cd44 blk 100572499 swept 15.07 wsAVAX, tx 0x8f8e8874 blk 100485596 swept 14.81 wsAVAX), but harvestBountyRatio=0 at all blocks back 40d so the caller is paid 0 (gross bash vs gas 318k gas x 7.5 gwei = bash.017; pending pool 14.24 wsAVAX = 01 @ AVAX .11 coins.llama.fi); no other open paid fn (Market onlyGateway, RebalancePool.liquidate only-liquidator)",
+  "kb": [
+   "attempts:2145",
+   "protocols:718"
+  ],
+  "run_id": "f3e67d2af5e64acfa375277369af9dbb",
+  "at": 1795008497
+ }
+}

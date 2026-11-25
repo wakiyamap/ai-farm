@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-alphaprimer",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 37,
+ "chain": "arbitrum",
+ "slug": "alphaprimer",
+ "name": "AlphaPrimer",
+ "category": "Yield Aggregator",
+ "tvl_usd": 51182,
+ "url": "",
+ "github": [
+  "alphaprimer-research"
+ ],
+ "listed_days_ago": 37,
+ "run_id": "06f34996aeea42dcbfbef5a98c281d30",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all keeper fns (harvest/deployIdle/rebalanceTo) are strategist-or-owner gated (stranger eth_call reverts 'not authorized') and pay msg.sender 0; strategist 0x4d06..633e ran harvest 31x/7d (gas 93,790 = 0.0035 USD/call, ETH 1690 llama), collectFees pays owner() only (accruedFees 47.68 USDC); vault TVL 51,185 USDC, 0 rebalances/7d",
+  "kb": [
+   "attempts:3652",
+   "protocols:1881"
+  ],
+  "run_id": "06f34996aeea42dcbfbef5a98c281d30",
+  "at": 1795336946
+ }
+}

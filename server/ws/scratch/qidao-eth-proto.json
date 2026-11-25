@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "qidao",
+  "status": "dead_end",
+  "checked": "2026-11-22 run 7be09c69 (scout-3). 10 vault contracts from DefiLlama adapter projects/qidao/index.js ethereum list: 0x60d133c666919b54a3254e0d3f14332cb783b733, 0xecbd32bd581e241739be1763dfe7a8ffcc844ae1, 0x98eb27e5f24fb83b7d129d789665b08c258b4ccf, 0x8c45969ad19d297c9b85763e90d0344c6e2ac9d1, 0xcc61ee649a95f2e2f0830838681f839bdb7cb823, 0x82e90eb7034c1df646bd06afb9e67281aab5ed28, 0xca3eb45fb186ed4e75b9b22a514ff1d4abadd123, 0x4ce4c542d96ce1872fea4fa3fbb2e7ae31862bad, 0x5773e8953cf60f495eb3c2db45dd753b5c4b7473, 0x954ac12c339c60eafbb32213b15af3f7c7a0dec2. All 10: eth_getCode non-0x (22.9-23.2 kB) and vaultCount() answers (26/69/220/45/75/34/18/25/16/8 = 536 ids). Verified source Etherscan 'stableQiVault' (MyVaultV3 variant, liquidateVault(uint256 vaultID,uint256 _front), getPaid(), buyRiskDebtVault(uint256), LiquidateVault(uint256,address,address,uint256,uint256,uint256)). Debt token mai() read on chain = 0x8d6cebd76f18e1558d4db88138e2defb3909fad6 (symbol MAI, 18 dec). stabilityPool() = 0x0 on all 10 (public liquidations, not role-gated). 7 d no-topic getLogs scan: 0 logs of any kind; last log of any kind 2026-09-15 (block 25,979,271); 90 d: 15 logs, 0 LiquidateVault. See attempts row."
+}

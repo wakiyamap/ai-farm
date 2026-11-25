@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-vfat-io",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 916,
+ "chain": "arbitrum",
+ "slug": "vfat.io",
+ "name": "vfat.io",
+ "category": "Yield Aggregator",
+ "tvl_usd": 1290168,
+ "url": "https://vfat.io/yield",
+ "github": null,
+ "listed_days_ago": 916,
+ "run_id": "e84c1da8806543d49d76f6f5e27d1f73",
+ "result": {
+  "verdict": "role_gated",
+  "line": "vfat.io = Sickle v1 front-end on arbitrum; only keeper entry point is automationStrategy 0x8e3203f7...compoundFor/harvestFor/rebalanceFor/executeFor, whitelist-gated (isApprovedAutomator(stranger)=false, exactly 1 approved automator 0xb0bada5d45d939a03c6d211d24a61a4418d7cd13 + per-sickle consent): 583 events in 7d (blocks 522928170-525347370), all calls from that one address; sample harvest tx 0x7cb339d4 used 654,939 gas (~0.02 USD at 0.0201 gwei x 1792.7 USD ETH), paid 0.60 USDC to feeCollector and 0 to the caller.",
+  "kb": [
+   "attempts:2163",
+   "protocols:734"
+  ],
+  "run_id": "e84c1da8806543d49d76f6f5e27d1f73",
+  "at": 1795012605
+ }
+}

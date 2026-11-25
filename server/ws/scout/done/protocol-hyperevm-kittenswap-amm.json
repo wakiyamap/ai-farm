@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-kittenswap-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 618,
+ "chain": "hyperevm",
+ "slug": "kittenswap-amm",
+ "name": "Kittenswap AMM",
+ "category": "Dexs",
+ "tvl_usd": 658361,
+ "url": "https://kittenswap.finance",
+ "github": null,
+ "listed_days_ago": 618,
+ "run_id": "79de445445c54fb8bc3974ab7d641436",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Phase-1 legacy UniV2 fork (PairFactory 0xDa12F450580A4cc485C3b501BAB7b0B3cbc3B31B, 70 pools, docs 'Phase 1 Legacy'): no callable function pays anyone - pair rewardRate/periodFinish revert, skim/sync pay 0; 7d KITTEN emissions = 1 weekly Voter->Minter tx (0xa293a14b, block 51021233, 4 transfers ~14.2M KITTEN 5.3k total to treasuries/gauges, caller 0x285ae1fc paid none, MINTER_REWARD() reverts); 7d Swap events sample 8/70 pools = 3 on one pool, 0 on 7 (control WETH 7,158 logs); TVL $658k, gas 0.1 gwei, 150k-gas call ~$0.001 (HYPE $68.54 coins.llama.fi)",
+  "kb": [
+   "attempts:1986",
+   "protocols:587"
+  ],
+  "run_id": "79de445445c54fb8bc3974ab7d641436",
+  "at": 1794975122
+ }
+}

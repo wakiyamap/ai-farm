@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-teahouse-managed",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1213,
+ "chain": "ethereum",
+ "slug": "teahouse-managed",
+ "name": "Teahouse Managed",
+ "category": "Yield Aggregator",
+ "tvl_usd": 110366,
+ "url": "https://vault.teahouse.finance",
+ "github": null,
+ "listed_days_ago": 1213,
+ "run_id": "3c2d60e35e6741418c1c84d406e0629b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only periodic keeper fn enterNextCycle/enterNextCycleETH on 5 active HighTableVaults (TeaETHmax 0x4599E4F3, TEAUSDC 0xF31900, TeaETH 0xE1B3c1, TEAWBTC, StableTEA) needs AUDITOR_ROLE - stranger eth_call reverts 0x96ecaba8. 3 calls in 7d (blocks 26413380-26463632, eth_getLogs EnterNextCycle 0x9218348c, non-zero=control) by auditors 0xbcb12a8f/0x7fa121c0/0x40240668; caller paid 0 (fees 0.01-0.24 USD to protocol fee vaults, not msg.sender); ~142k gas ~0.51 USD/call (ETH 1660). Same HighTableVault family as arbitrum dead_end protocols:828.",
+  "kb": [
+   "attempts:3328",
+   "protocols:1645"
+  ],
+  "run_id": "3c2d60e35e6741418c1c84d406e0629b",
+  "at": 1795266405
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-optimism-aave-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1691,
+ "chain": "optimism",
+ "slug": "aave-v3",
+ "name": "Aave V3",
+ "category": "Lending",
+ "tvl_usd": 36727458,
+ "url": "https://aave.com",
+ "github": null,
+ "listed_days_ago": 1691,
+ "run_id": "598c195f88e54d2d8b2d496843a326a9",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Pool 0x794a...14ad live; liquidationCall public nonReentrant only (impl 0x4d48678D source), fresh-address eth_call reverts HealthFactorNotBelowThreshold 0x930bb771 (not ACL); 314 LiquidationCall in 7 d to block 159744225 (262 in last 2 d, 260 dust by 0xa24b73b8), 10 liquidators; total gross 7,398 USD at 11-19 11:26Z prices, 12 events >10 USD, top 361-2,930 USD/call vs winner-paid gas 36-657 USD; our own cost ~0.002 USD per 1M gas; strangers paid (EOAs 0xd9fffdf0 etc via keepers 0x5ac9bc14/0xf000042d/0xa4523d14); same class as leads:244, trial in paper.",
+  "kb": [
+   "attempts:2497",
+   "protocols:421",
+   "leads:244"
+  ],
+  "run_id": "598c195f88e54d2d8b2d496843a326a9",
+  "at": 1795088259
+ }
+}

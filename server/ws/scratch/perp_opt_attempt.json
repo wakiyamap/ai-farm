@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-perpetual-protocol",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Perpetual Protocol (Curie v2) on OP is wound down: no trading, liquidation or reward claim paid to anyone in the last 7 days. The anyone-callable reward functions exist (ClearingHouse.liquidate, Vault.liquidateCollateral, claimWeeks on OpReward/GasRefund/PerpLiquidityMining - all open modifiers, no role) but there is nothing to pay: no open positions (eth_call from fresh address reverts CH_MNO / V_NL), last LM claim 2025-07-24, last fee distribution 2025-08-27, last ClearingHouse tx 2026-06-14. Vault 0xAD7b...0d60 holds 374,459.8 USDC that users are withdrawing for themselves (withdrawAll 2026-11-17).",
+ "numbers": "0 PositionChanged/PositionLiquidated logs on ClearingHouse 0x82ac2CE43e33683c58BE4cDc40975E73aA50f459 over last 7d (302,400 blocks, and 0 over 90d; control USDC Transfer same shape 4,963 logs/5,000 blocks, block 159,780,185); Vault 0xAD7b4C162707E0B2b5f6fdDbD3f8538A5fbA0d60 USDC 374,459.82 (6-dec, USDC 0x7F5c764cBc14f9669B88837ca1490cCa17c31607) ~= DefiLlama TVL 423,411; liquidate/liquidateCollateral eth_call revert CH_MNO/V_NL; gas op: OP mainnet L2 fees ~<0.01 USD per such tx (no claim paid, so gross 0); addresses from npm @perp/curie-deployments 2024.12.26"
+}

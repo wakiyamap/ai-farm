@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "uncx_network_v2",
+  "status": "dead_end",
+  "checked": "DefiLlama slug uncx-network-v2 maps to adapter projects/unicrypt/ (projects/uncx-network-v2/index.js is 404; config.js avalancheContractData, raw.githubusercontent.com 2026-11-23) listing 3 lockers: 0xa9f6aefa5d56db1205f36c34e6482a6d4979b3bb (TraderJoe), 0xb2b13b648e956b42b1d8c5b2476d87b9cbf48076, 0x07dd74c2df2bc4eb04cf8edb2f695aa79ba590eb. All 3 have code (eth_getCode) and answer getNumLockedTokens() 0x783451e8 = 214 / 3 / 4. Verified source (routescan API, etherscan tool not_on_plan on avalanche) = UniswapV2Locker on all 3 (same family as ethereum/BSC/polygon/base rows 990-992, 1729). Every value-moving function (withdraw, relock, incrementLock, splitLock, transferLockOwnership, migrate) has require(userLock.owner == msg.sender, 'NOT OWNER'); eth_call withdraw(1,1) from fresh 0xdeadbeef reverts NOT OWNER on all 3. lockLPToken is open to anyone but the caller PAYS fees (to devaddr/referral), nothing pays the caller. No reward/bounty/fee-accrual function exists."
+}

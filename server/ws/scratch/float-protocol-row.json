@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "float_protocol",
+  "status": "dead_end",
+  "checked": "Sources: FloatProtocol/float-staking mainnet deployments and verified Etherscan source for AuctionHouse 0x8B114b8f5A7290e6E4f64024DE6714131B4D47CA, MintingCeremony 0x14b6Fb6b83c01a7Cde9AC2c13173695C8D14FcD2, ETHPhase2Pool 0x5Cc2dB43F9c2E2029AEE159bE60A9ddA50b05D4A; FloatProtocol/float-bot-template references npm @floatprotocol/float-contracts 1.0.3 whose mainnet deployment gives AuctionHouse. All three have code and a responding getter (AuctionHouse stage=1; MintingCeremony and ETHPhase2Pool totalSupply). Auction start() is permissionless but fresh-address eth_call reverts Twap/MissingPastObsr; buy/sell require active auction and exchange assets for consideration. Staking getReward() pays only msg.sender's accrued stake, notifyRewardAmount() is distributor-gated. MintingCeremony mint() only releases msg.sender's committed FLOAT. No unrelated-caller reward found; auction, MintingCeremony and ETHPhase2Pool emitted no logs in 2026-11-16T22:58:59Z to 2026-11-23T22:58:59Z, blocks 26430734-26480976. Same-shape no-topic USDC control returned 219 logs in blocks 26480975-26480976."
+}

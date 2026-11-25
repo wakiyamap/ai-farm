@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-sky-money",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 182,
+ "chain": "ethereum",
+ "slug": "sky-money",
+ "name": "Sky Money",
+ "category": "Risk Curators",
+ "tvl_usd": 77470123,
+ "url": "https://app.sky.money/?network=ethereum&widget=vaults",
+ "github": null,
+ "listed_days_ago": 182,
+ "run_id": "703c21d26a724febafff393393597e26",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Sky Money = 6 Morpho Vaults V2 on ethereum (63.9M USD, curator 0x3F32bC09d41eE699844F8296e806417D6bf61Bba): allocate/deallocate isAllocator-gated (stranger eth_call reverts 0x82b42900 Unauthorized); the permissionless calls (accrueInterest 82k gas = 0.14 USD, forceDeallocate, timelock runs) pay the caller 0 and VaultV2 source has no reward/claim function or event; 7d logs blocks 26406563-26456963 over all 6 vaults (485 logs control): Allocate 39, Deallocate 81, ForceDeallocate 4 (penalties 20.65-4268 USDT to the vault, not the caller), AccrueInterest 200, Accept 0.",
+  "kb": [
+   "attempts:2947",
+   "protocols:1355"
+  ],
+  "run_id": "703c21d26a724febafff393393597e26",
+  "at": 1795186268
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-uniswap-v4",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: the only permissionless pay-someone function is V4FeeAdapter.collect (protocolFeeController for the V4 PoolManager); anyone can call it but it pays 0 to the caller - collected protocol fees go to an immutable TokenJar. PoolManager.collectProtocolFees itself is controller-gated, LP fee claims are self-service. No stranger was paid for calling anything in the last 7 days.",
+ "numbers": "7 d (blocks 55,932,600-58,948,920, head 2026-11-18): 709 FeesCollected events / 51 collect txs (7.3/day) on 0xc53dd825dedbe7814562528a1a30e8e5bcbb4b55, 4 distinct EOA callers 0x0a334dd6... (19), 0xa96d088e... (16), 0xee786c45... (10), 0x9815527a... (6). Sample of 5 of 51 txs: one call moves 0.023-0.091 ETH ($42-166) + 98-145 USDC ($98-145) + dust = gross ~$145-310 per call, all to TokenJar 0x9bd25e67...; caller gas 6.17-12.6M @ 0.23-1.71 gwei = $3.3-23.5 (ETH $1810.91, coins.llama.fi 2026-11-18). Accrued pot 0.0092 ETH + 67.5 USDC (protocolFeesAccrued eth_call). Stranger eth_call collectProtocolFees on PoolManager reverts 0x48f5c3ed (InvalidCaller)."
+}

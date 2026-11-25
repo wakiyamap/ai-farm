@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-hashflow",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1733,
+ "chain": "arbitrum",
+ "slug": "hashflow",
+ "name": "Hashflow",
+ "category": "DEX Aggregator",
+ "tvl_usd": 56033,
+ "url": "https://www.hashflow.com",
+ "github": null,
+ "listed_days_ago": 1733,
+ "run_id": "53cd253da21040cd8c25686223e41977",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Same X-protocol as ethereum (dead_end 1745): router 0x55084eE0 (factory()->0xde828f) + 7 EIP-1167 pool clones + SwapFacade 0x3e8Fb048, source has only trade entries (caller pays; tradeRFQT eth_call from fresh addr reverts) + onlyOwner/only-operator admin, zero reward/harvest/claim fns; 0 txs to router/pools/facade in 7d window (last: router 2026-03-13, pools 2026-10-03, facade 2025-07-29; explorer txs control returned rows); TVL confirmed in these pools 38,377 USDT + 15,630 USDC.e (6 dec on-chain) + 1.2451 ETH @ 1721.47 (coins.llama.fi 2026-11-23T10:05Z) = ~56,150 USD.",
+  "kb": [
+   "attempts:4066",
+   "protocols:2193"
+  ],
+  "run_id": "53cd253da21040cd8c25686223e41977",
+  "at": 1795428630
+ }
+}

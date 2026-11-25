@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "singularitydao",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/singularityDAO/index.js (3 ethereum DYNASET_FORGES) + explorer source/abi. Forges (ForgeV1.sol, code confirmed, totalForges()=15 on 0xe125044733366071793Afd1f9CB41521078Dd029): 0xe125044733366071793Afd1f9CB41521078Dd029, 0x5d94F225caBd9010c8206c1036c6352F66C06E57, 0xa5a94Da27E2533ceD5c68D6DFAbDB5FB4269Dd97 - createForge/startForging/forgeFunction/withdrawFee/setX all onlyRole(BLACK_SMITH); eth_call of forgeFunction and withdrawFee from fresh 0x1111..1111 reverts 'AccessControl: missing role 0xda9408af...8169'. SDAO farm 0xfB85B9Ec50560e302Ab106F1E2857d95132120D0 (SDAOTokenStaking.sol, poolLength()=8): addRewards/add/extendPool/massUpdatePools/withdrawETHAndAnyTokens onlyOwner; deposit/withdraw/harvest/withdrawAndHarvest open but pay msg.sender only (user self-claim). DynaSet portfolio contract (AbstractDynaset.sol): joinDynaset/exitDynaset onlyFactory, admin onlyController - no public bounty. Protocol dynaset GraphQL API dead (returns HTML). Verdict role_gated."
+}

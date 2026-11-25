@@ -1,0 +1,44 @@
+{
+ "fork_gen_after_reset": "ethereum\tfork 26287069\tmainnet 26360454\tgen 202\tleased by c751e59dfe4644f6b013243427816eea 898s\thttp://127.0.0.1:9003",
+ "fork_block_after_reset": 26287069,
+ "credit_manager": "0x1293a69e4ad4a93293a06b6303104be35bdd83af",
+ "underlying": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+ "executor": "0x14115b5fdab3afcd72cf03785041c720100edb0e",
+ "cm_page_counts": [
+  32,
+  32,
+  32,
+  32,
+  32,
+  32
+ ],
+ "cm_accounts_sample": [
+  "0x000000000000000000000000000000000000000a",
+  "0x0000000000000000000000000000000000000140",
+  "0x00000000000000000000000000000000000001c0"
+ ],
+ "compressor_has_target": false,
+ "isLiquidatable_target": 1,
+ "target_bal_WMoo": 87699986989201453209,
+ "target_bal_BPT": 1,
+ "morpho_weth": 15822415818099916357443,
+ "router_query_expected_out": {
+  "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2": "eth_call queryRemoveLiquidity(0xC02a) on 0x5c6fb490bdfd3246eb0bb062c168decaf4bd9fdd reverted: execution reverted: custom error 0xddef98d7: 000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+  "0x0bfc9d54fc184518a81162f8fb99c2eaca081202": "eth_call queryRemoveLiquidity(0x0bfc) on 0x5c6fb490bdfd3246eb0bb062c168decaf4bd9fdd reverted: execution reverted: custom error 0x67f84ab2"
+ },
+ "healthy_account": "0x000000000000000000000000000000000000000a",
+ "liquidate_attempts": [
+  {
+   "tokenOut": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+   "status": 0,
+   "hash": "0x738777183cfe646a433b533a8c1d759efc19e846babb32cd41ef1cd1d7712673",
+   "revert": ""
+  },
+  {
+   "tokenOut": "0x0bfc9d54fc184518a81162f8fb99c2eaca081202",
+   "status": 0,
+   "hash": "0x5b04730525aa109470c0c0fbf706f689ba80e230baf77605545fcec2822eb599",
+   "revert": ""
+  }
+ ]
+}

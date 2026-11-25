@@ -1,0 +1,38 @@
+{
+ "id": "reserve_folio.auction_opened",
+ "protocol": "reserve_folio_dtf",
+ "kind": "keeper_rebalance_open",
+ "chains": {
+  "ethereum": [
+   "0x9ac93e97928e98a9e8544c1c58be2fbf28a4a22e",
+   "0x3fe46c4a4817babc3e9db883fbdf3ccfac47d195",
+   "0xcdd9290626ef3296a7e0d32e1d724716b09bdf5d",
+   "0x08ac8276b5844edd42a710c950b41770a6d61468",
+   "0x920527c101ba7b4ab2905be87a6ea6b74d690273",
+   "0xe592f69e4f60e9a78dba0043573b898386c01cb8",
+   "0x33b44bb8ad29e863cf44e77c010de6795cd19bf7",
+   "0x7b7374b163d71a7aa964d06cd3712a5e6942886e",
+   "0x6e39a076966f91e7b726e979578ceaaa1aaf5659",
+   "0x2cf4dafc17e163abd6770e1794e1ad10deb7d32e",
+   "0x9f4535b8eff872ae8f6cad4486ae3f310903c69a",
+   "0x5039ece83dc4e0621ebec391128339bd859a84d0",
+   "0x1ec1d815488936ec8add5cb76ac4563ceef09de3",
+   "0x09a823930fab5b1fda6e519b1ee33e7da9bda0e5",
+   "0x3ce752a0eb838084562c9d7a0e1df24a8ae9542d",
+   "0x9429a7332b5a3bcde2781b65ac1a9ebd9f466e12",
+   "0xb394c76a9404b7eb65841e1551952b97aae7fd5c",
+   "0x9befcdddc831198d5805c1690a2fd3bbd587845e",
+   "0x8fc660a20b55be94e7ded6f47f8e17a2c7813383",
+   "0xe5baa8f8f21e2ceef150be49a7d62ec3f85faf5e"
+  ]
+ },
+ "event": "AuctionOpened(uint256,uint256,address[],(uint256,uint256,uint256)[],(uint256,uint256)[],(uint256,uint256,uint256),uint256,uint256)",
+ "topic0": "0x24c9d9f1ca3e1d57b1fe4445280ced7eb621e75b079f2b23ec634a1072c92e24",
+ "indexed": [
+  "rebalanceNonce",
+  "auctionId"
+ ],
+ "data": [],
+ "actor_field": "tx_from",
+ "note": "AuctionOpened on Reserve Folio DTF rebalance (lead 91): auctions run 1800 s each; census scratch/dtf-census-30d.json: 25 opens over 7 folios in 19 d; all 7 open-capable folios are in the 20-address list (add-source caps chains.ethereum at 20 addresses); indexed = nonce, auctionId; dynamic array/tuple fields omitted per decisions/human/2026-11-09-ledger-dynamic-events.md; the first add was rejected pre-9d for the dynamic address[] (inbox/human/2026-11-09-meta-ledger-dynamic-events.md)"
+}

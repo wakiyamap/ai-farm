@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-fuji-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "fuji-v1",
+ "name": "Fuji V1",
+ "category": "Lending",
+ "tvl_usd": 116888,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "53def7486f9940abaaee67fef0ad7b13",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Fliquidator.batchLiquidate/flashBatchLiquidate open-call (bonusL 5%, FujiAdmin 0x4cb46032...): 17 liquidations in 1 tx by stranger EOA keeper 0x2564580d in last 7d (blocks 26406186-26468207, tx 0x2d7d7d56...2026-11-17); batch gross 4.2048 DAI (4.20 USD) vs gas 2.80 USD (2.33M gas x 0.714 gwei x WETH 1680.64), per-liquidation gross ~0.25 USD, gas 0.16 USD; whole week's protocol activity = this one dust batch (84.10 DAI repaid, 17 users, vault 0x6e16394c...); Fuse F1155 0 logs/7d.",
+  "kb": [
+   "attempts:3537",
+   "leads:380"
+  ],
+  "run_id": "53def7486f9940abaaee67fef0ad7b13",
+  "at": 1795309564
+ }
+}

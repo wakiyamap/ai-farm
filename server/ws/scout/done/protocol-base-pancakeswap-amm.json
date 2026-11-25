@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-pancakeswap-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "pancakeswap-amm",
+ "name": "PancakeSwap AMM",
+ "category": "Dexs",
+ "tvl_usd": 469263,
+ "url": "https://pancakeswap.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "05849071eb584f718e618a04e606c326",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: base Pancake AMM = canonical Uni-V2 fork (factory 0x02a84c1b3BBD7401a5f7fa98a384EBC70bB5749E, 63,903 pairs, verified source; no chef hook - masterChef() reverts, no base staking in adapter); no callable pays the caller (eth_call fresh addr: createPair/skim/sync gross 0, setFeeTo/Setter gated); 7d PairCreated=0 (last createPair tx block 50,082,991 2026-08-17), flagship WETH/USDC pair 0 Swap in 3x10k-block samples (control USDC 45,415 logs/5k blocks; pool 0.1874 WETH + 329.38 USDC, synced 00:01Z today)",
+  "kb": [
+   "attempts:2696",
+   "protocols:1149"
+  ],
+  "run_id": "05849071eb584f718e618a04e606c326",
+  "at": 1795134197
+ }
+}

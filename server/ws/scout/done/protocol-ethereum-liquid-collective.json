@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-liquid-collective",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1190,
+ "chain": "ethereum",
+ "slug": "liquid-collective",
+ "name": "Liquid Collective",
+ "category": "Liquid Staking",
+ "tvl_usd": 509302226,
+ "url": "https://liquidcollective.io",
+ "github": null,
+ "listed_days_ago": 1190,
+ "run_id": "7039bc2e95ac4505be5343bddfa50dd7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Lido-V3 stVault 'RiverV1'/LsETH (Alluvial), TVL 467.6M ETH 282,339 = 467.6M USD: only public fn claimRedeemRequests (no role revert from fresh addr) pays the stored recipient, never the caller; 7d blocks 26413073(11-14)-26463473(11-21): 8 claims / 7 txs all self-claims (0x7794cf7b x5, 0x264bd829, 0x857712ea), stranger pay 0, payouts 0.10-1313.79 ETH principal (largest 1313.79 ETH=2.17M USD to caller itself), gas 121-176k x 0.1535 gwei = 0.031-0.045 USD; oracle 0x895a57ed and keeper 0x08ceb2a3 single-role gated, RedeemDemand=0.",
+  "kb": [
+   "attempts:3316"
+  ],
+  "run_id": "7039bc2e95ac4505be5343bddfa50dd7",
+  "at": 1795264733
+ }
+}

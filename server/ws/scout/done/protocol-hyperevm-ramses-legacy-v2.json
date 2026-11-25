@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-ramses-legacy-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 208,
+ "chain": "hyperevm",
+ "slug": "ramses-legacy-v2",
+ "name": "Ramses Legacy V2",
+ "category": "Dexs",
+ "tvl_usd": 562725,
+ "url": "https://ramses.xyz",
+ "github": null,
+ "listed_days_ago": 208,
+ "run_id": "ef4cec5706cf4484b84f3a1ace56ffc1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Role-free functions exist and answer eth_call from a stranger (Minter.updatePeriodAndRebase, Voter.distribute/distributeAll, Pair.mintFee) but pay the caller 0: 22 distribute calls in 7d, all by one keeper 0x8068e05da1cb8832fc75d263ff3dcda1bd579f0c, weekly 1.5M RAM ($29,169, RAM $0.0194 llama.fi) goes to gauge LPs, gross to caller $0 vs gas $0.026-0.071/call (383-440k gas, HYPE $68.5, sample of 5 of 22).",
+  "kb": [
+   "attempts:1696",
+   "protocols:374"
+  ],
+  "run_id": "ef4cec5706cf4484b84f3a1ace56ffc1",
+  "at": 1794914968
+ }
+}

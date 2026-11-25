@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-spectra-metavaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "spectra-metavaults",
+ "name": "Spectra MetaVaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 3047668,
+ "url": "https://app.spectra.finance/metavaults",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e1cea6f60f0649b6b77281061fdf6af8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Only callable function is MetaVaultWrapper.updateEpochID() (0xb634ea0a): stranger eth_call succeeds, pays 0 (source = cached epochId sync, zero transfers); Amphor AsyncVault open/settle/close are onlyOwner (0x118cdaa7 revert from stranger, owner = each metavault's own manager contract); 7d eth_getLogs over the 7 contracts (base blocks 56,695,357-59,723,533): 39 logs / 8 txs = 2 user deposit/redeem EOAs + 2 owner-operator epoch cycles, 0 updateEpochID calls; TVL 3,047,668 USD, 3 metavaults; epoch-cycle gas 735,870 @ 8 gwei = 10.3 USD (ETH 1,753.25 coins.llama.fi ts 1795135503).",
+  "kb": [
+   "attempts:2705",
+   "protocols:1156"
+  ],
+  "run_id": "e1cea6f60f0649b6b77281061fdf6af8",
+  "at": 1795135835
+ }
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "67035de7b12d4a9a910a70527288dfd4",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Trader Joe LB2022 updateActiveId (poW) class, avalanche (lead 208 measurement request)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1430", "leads:208", "protocols:274"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure lane, source read per the lead: updateActiveId(uint256) (0xa71cf28e) reverts on both live avalanche LB pool generations with same-shape getter controls answering, and neither the function nor 'LB2022' appears in the verified snowtrace source, the LFJ docs (all doc versions), the protocol SDKs or the lfj-gg GitHub org (org renamed from traderjoe-xyz, which broke the earlier raw-path guesses). No callable updater, so EV 0, no cadence, no incumbent - the lead's pays-nothing dead_end branch. Residual: reopen only from an LB2022 pool address in the LFJ app UI; lfj.gg/docs.lfj.gg are Cloudflare-challenged from this host."
+}

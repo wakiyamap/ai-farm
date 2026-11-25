@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "ten_finance",
+  "status": "dead_end",
+  "checked": "TEN Finance (ten.finance, DefiLlama adapter projects/tenfinance/index.js; TVL 185k). MasterChef TENFIFarm 0x264A1b3F6db28De4D3dD4eD23Ab31A468B0C1A96 (eth_getCode ok, poolLength()=105, Sourcify full match TENFIFarm.sol), TENFI token 0xd15c444f1199ae72795eba15e8c1db44e47abf62, 19 pools with allocPoint>0 each with its own Beefy-v2-strategy TENFIStrategy_PCS. earn() is the only compound function: onlyGov=true on all 19 active strategies (eth_call), fresh-address earn() reverts '!gov' (0x21676f76); gov=0x5a50b8eda11de347f5ed9925dae59eacc4504d68. distributeFees() sends the whole 0.8% fee (TENGas_Fee 80/10000) to rewardsAddress 0x393c7c3ebcbff2c1138d123df5827e215458f0c4, msg.sender gets 0 even when it works. lastEarnBlock <= 31,644,058 (2021) vs block 134,639,275 (2026-11-20): not even gov earns anymore. getMultiplier() returns 0 for any args (TENFI emissions over), pendingTENFI=0, pool lastRewardBlock frozen 25-57M. MC user events last 7d (eth_getLogs blocks 133,176,331-latest): 178 Deposit/Withdraw, 3-5 sender wallets (aggregator router 0xbee0679247dd283cf642ca9ab3c63b922a04e69d + smart wallets e.g. 0xb2aae2b1f2c33bc809194ad1de2206fd130cc5a4 doing same-block deposit+withdraw harvest cycles, pending=0 so these pay nothing). No public function that pays the caller exists."
+}

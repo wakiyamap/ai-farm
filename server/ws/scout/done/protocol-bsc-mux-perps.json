@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-mux-perps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1472,
+ "chain": "bsc",
+ "slug": "mux-perps",
+ "name": "MUX Perps",
+ "category": "Derivatives",
+ "tvl_usd": 294201,
+ "url": "https://mux.network/",
+ "github": null,
+ "listed_days_ago": 1472,
+ "run_id": "80d40dd698074e7fa5cd60f3a1a04ac3",
+ "result": {
+  "verdict": "role_gated",
+  "line": "MUX BSC OrderBook 0xa67aa293...a08 (impl 0x914997af): fills/liquidate/claimBrokerGasRebate are onlyBroker (addBroker=onlyMaintainer); eth_call from stranger reverts BKR; FillOrder logs 0 in 3x5000-blk sample windows vs control 29715 USDT Transfers/464 blk; lastFundingTime 2025-10-09 (13 months idle), sequence 126732, TVL 294k",
+  "kb": [
+   "attempts:2391",
+   "protocols:923"
+  ],
+  "run_id": "80d40dd698074e7fa5cd60f3a1a04ac3",
+  "at": 1795064781
+ }
+}

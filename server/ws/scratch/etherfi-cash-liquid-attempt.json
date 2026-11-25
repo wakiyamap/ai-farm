@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-etherfi-cash-liquid",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The protocol's Optimism contracts are 3 BoringVaults + 3 role-gated mint/burn proxy tokens with no on-chain reward function anywhere in their ABIs (no reward/claim/distribute/checkpoint/auction/liquidation). The only keeper-ish entry points (BoringVault enter/exit/manage) revert 'UNAUTHORIZED' from a fresh address; liquidUSD logged 2,319 Enter/Exit events in 7 days and the last 10 sampled txs all came from two keeper EOAs holding the authority role, who pay gas and receive no on-chain payment (rewards accrue off-chain to share value).",
+  "numbers": "7d (head 159674905, 31x10k-block eth_getLogs chunks, Enter|Exit topics on liquidUSD 0x08c6F91e2B681FaF5e17227F2a44C307b3C1364C): Enter=1892, Exit=427; senders 0xb42833d6edd1241474d33ea99906fd4cbe893730, 0xdb8345450b0e4d28514a1c18ee1110c417b5b0a2 (EOAs, sampled 10/2319). Gross per call to caller: 0 (no reward fn). Gas per Enter: 982,414 gas @ 0.00502 gwei eff (tx 0x42f25a9cc9afe147ed9da1ee3c971cf6f902a82f60d1985a3510ae869179fc00) ~ 4.9e-6 ETH ~ $0.009 at ETH $1791.89 (coins.llama.fi 2026-11-17). liquidUSD totalSupply 72.13M (6dp). Control: 10k-block window returns 1,992 logs (single-call 7d zero was the public node's 10k-block getLogs range cap)."
+}

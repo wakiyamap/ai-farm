@@ -1,0 +1,6 @@
+{
+ "chain": "hyperevm",
+ "protocol": "kittenswap_algebra",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/kittenswap-algebra (factory 0x5f95E92c338e6453111Fc55ee66D4AafccE661A7, hyperliquid). Docs docs.kittenswap.finance/tokenomics/deployed-contracts list full stack. Verified sources (explorer): AlgebraFactory 0x5f95E92c338e6453111Fc55ee66D4AafccE661A7 = Algebra Integral 1.2.2 (eth_getCode non-0x, createPool txs decoded); AlgebraEternalFarming 0xf3b57fE4d5D0927C3A5e549CB6aF1866687e2D62 and FarmingCenter 0x211BD8917d433B7cC1F4497AbA906554Ab6ee479 = unifapuns algebra-eternal-farming fork (claimReward eth_call from fresh addr returns 0x...0, no revert). Permissionless reward path = FarmingCenter.claimReward/collectRewards paying accrued KITTEN (0x618275f8efe54c2afa87bfb9f210a52f0ff89364, $0.00106 coins.llama.fi) to LPs; collectRewards gated by NFT isApprovedOrOwner. Minter (dynamic emissions) 0xac36d3671f21A5056Cd1751E201574d702748C7A unverified, not probed. Factory creation activity ended Oct 2025 (last createPool tx 1759539540)."
+}

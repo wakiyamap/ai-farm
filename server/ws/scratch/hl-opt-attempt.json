@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-hyperlane",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - no permissionless function on optimism pays the caller. Mailbox.process (the keeper action: 896 deliveries in 7d, sample of 12 of 896 all from one relayer EOA 0x74cae0ecc47b02ed9b9d32e000fd70b9417970c5) pays nothing on-chain; source shows it only records deliveries[id].processor, relayers are paid off-chain. IGP.claim() / StaticProtocolFee.collectProtocolFees() are permissionless but sweep the whole balance to a fixed Hyperlane ops beneficiary 0xa7ECCDb9BE08178F896C26B7bbd8c3d4E844d9bA (EOA, setBeneficiary onlyOwner); in 7d claim() ran 2x, both by that beneficiary itself. No stranger can earn here.",
+  "numbers": "7d = blocks 159358604-159661004 (eth_getLogs on mailbox 0xd4C1905B...CC80D): ProcessId 896, DispatchId 1273; delivery gas 178,903 @ effGasPrice 200000 wei = $0.065 exec (tx 0x000133de91e36d7f5672941b7c6e9caec6a0d5bd70403d4204d21312c229ce99 receipt); IGP.claim() estimateGas 42,623 = ~$0.016 exec + L1 fee; IGP native balance 0.059249 ETH = $107.89 at ETH $1,821.02 (coins.llama.fi); claim() 7d calls: 2 (0x37985eacc039.., 0x9607a9655a49.., blockscout txlist of IGP 0xD8A76C4D...995C), both from the beneficiary; gross to a stranger caller: $0"
+}

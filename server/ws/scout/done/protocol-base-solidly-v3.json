@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-solidly-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1169,
+ "chain": "base",
+ "slug": "solidly-v3",
+ "name": "Solidly V3",
+ "category": "Dexs",
+ "tvl_usd": 108221,
+ "url": "https://solidly.com",
+ "github": null,
+ "listed_days_ago": 1169,
+ "run_id": "9125a599d57b46eaa84ba0b25ff76802",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "RewardsDistributor 0x777dfb70eb952a081d0d11ff828715f79572cfe4 claimAll (0x5ca89c8e, merkle, callable by anyone): 4 calls in 7d by 3 non-owner EOAs paid themselves 0.08/1.6/4.95/8.4 USD gross (sum ~15 USD: 8.9 USDC + 0.0034 WETH + 863 SOLID) vs 0.001-0.008 USD gas at 0.005 gwei; caller==earner in all samples, no third-party tip; whole Base protocol pays ~15 USD/week on 103k USD TVL; Voter had 0 calls in 7d.",
+  "kb": [
+   "attempts:2258",
+   "leads:283"
+  ],
+  "run_id": "9125a599d57b46eaa84ba0b25ff76802",
+  "at": 1795035973
+ }
+}

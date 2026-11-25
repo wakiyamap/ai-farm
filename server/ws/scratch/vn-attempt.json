@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-verified-network",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Verified Network mainnet is 3 Balancer-v2 SecondaryIssuePool orderbook pools (factory 0x0332299005d0331d6623db3b7afc5478222b5621, verified source). Every value-moving function is gated: pool onSwap onlyVault, Orderbook newOrder/editOrder/cancelOrder onlyOwner (fresh-address eth_call reverts BAL#426 SENDER_NOT_OWNER), revertTrade/orderFilled require balancerManager 0xee261ef7b60d0ebbc682dfaa8d8b87ff65fc955e; factory create() is public but pays nothing. The protocol is also dormant: zero trades in 7 days and effectively none since November 2024, so there is no flow to earn from even for a trader role.",
+ "numbers": "7d events 0 across 3 pools (TradeReport topic0 0xd6a80653... + OrderBook 0x9b85ff67..., blocks 26411248..26461648; same-shape control since pool creation returns 4 events -> query works); last event block 21233899 (~2024-11-21); subgraph last order 2024-11-21 (pool 0xe0c50a16d6...); manager/settlor last tx 2024-12-05 ts 1733415803 (explorer txs); TVL 126,720 USD USDC on ethereum, 0 on Base (api.llama.fi 2026-11-20); pool creation tx 0x85bbc1e69ad4e460d51418fa2a6666cd0956e825e58a18f6816941b0169d872f block 21106133 (2024-11-03); fresh-address cancelOrder(bytes32,address) 0xd61aed7a revert BAL#426; gross 0, gas n/a (no caller-paid reward path)"
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-apeswap-amm",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The polygon apeswap-amm deployment is just the ApeFactory (0xcf083be4164828f00cae704ec15a36d711491284) plus its 1468 standard UniV2 ApePairs: no callable function pays the caller. createPair is open to anyone but pays nothing (costs gas); setFeeTo/setFeeToSetter are feeToSetter-gated; the pairs have no harvest/claim/reward/checkpoint fn. The AMM is also near-dormant (0 PairCreated in 7d).",
+ "numbers": "TVL 224,249 USD (api.llama.fi/protocols chainTvls.Polygon 2026-11-20); allPairsLength 1468 (eth_call 0x574f2ba3); PairCreated events 7d=0 (blocks 0x5cb90f5..0x5d1d26f) and 38d=4, same-shape control 21,001 polygon-USDC Transfer logs over ~1.1k blocks (same run); measured 57,600 blocks/day."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "address": "0x5e91b40467fb8902c46a7b6cb90482363188d645",
+  "strategy": "Arbitrum batch-claim caller EOA (first census 2026-11-11): repeatedly calls hub 0x84be56470d45b7f6629a66a219a38681f6ba6172 with selector 0xf28a9fc9 and a 9668-byte batch input and is itself the USDC receiver of those txs; USDC receive counts from the hub pipeline dominate the head 500-block window; identity of the hub and whether any third party pays this caller pending (lead 142)",
+  "evidence": "eth_getLogs USDC(0xaf88...e5831) Transfer 228 receives over blocks 523263778-523264278 (scratch/arb-census/usdc500.json); eth_getTransactionByHash 0xef1c3b6c6580f38f32da04b2decee34d00bf17a8a66a13feee0c307afa0b6d63: from==this EOA, to==hub, input 9668 bytes; eth_getCode 0 bytes (EOA)"
+}

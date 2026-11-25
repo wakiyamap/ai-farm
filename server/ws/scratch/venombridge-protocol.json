@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "venombridge",
+  "status": "unmeasured",
+  "checked": "DefiLlama adapter projects/venombridge/index.js names Ethereum vault proxy 0x4aB740157721105aE503fbad756a578171512525 and token 0x46f84dc6564cdd93922f7bfb88b03d35308d87c9; eth_getCode nonempty on both, token totalSupply() and proxy governance()/facetAddresses() answered. Verified Etherscan source for proxy implementation 0x0bc8c8212c0c74773671c4badb18999c2b07f3c6 and live Deposit, Fees, PendingWithdrawals, Withdraw, Liquidity, Settings facets. Deposit with pendingWithdrawalIds can credit bounty to a recipient on Everscale, but the Ethereum deposit supplies principal and no Ethereum asset is paid to caller; Fees.skim is onlyGovernanceOrManagement; approval is onlyGovernanceOrWithdrawGuardian. Ethereum proxy address-only eth_getLogs in blocks 26430050-26480292 (2026-11-16 20:41:59 to 2026-11-23 20:41:35 UTC) returned 0 logs; same-shaped USDC control returned 10899 logs in 100 blocks, and historical vault block 26311023 returned 3 logs. Current pending bounty availability and Everscale settlement/payment unverified."
+}

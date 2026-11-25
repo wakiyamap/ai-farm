@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hyperliquid-spot-orderbook",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found: the Hyperliquid spot orderbook (TVL $110.7M per candidate, assets locked in limit orders) is HyperCore-native state, not a HyperEVM contract. The DefiLlama adapter lists no addresses (API + websocket only) and the protocol endpoint returns addresses:null. On EVM the only surfaces are the read-only precompiles (0x...800 range, eth_getCode 0x, pay nothing) and the generic CoreWriter bridge 0x3333...3333 sendRawAction(bytes) where the caller pays ~47k gas and gets nothing. Nothing a stranger can call on hyperevm and be paid.",
+  "numbers": "0 contract addresses (DefiLlama adapter + api.llama.fi/protocol/hyperliquid-spot-orderbook addresses:null, 2026-11-18); CoreWriter 0x3333333333333333333333333333333333333333 eth_getCode non-0x with single selector 0x17938e13 sendRawAction(bytes) (live check 2026-11-18); ~47k gas/call paid by caller, ~$0.0004 at HYPE $70.23 (kb row 294, 2026-11-17); read precompile 0x0000000000000000000000000000000000000800 eth_getCode 0x (precompile)"
+}

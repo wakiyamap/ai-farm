@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-coinbase-wrapped-staked-eth",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1486,
+ "chain": "ethereum",
+ "slug": "coinbase-wrapped-staked-eth",
+ "name": "Coinbase Wrapped Staked ETH",
+ "category": "Liquid Staking",
+ "tvl_usd": 361981470,
+ "url": "https://www.coinbase.com/price/coinbase-wrapped-staked-eth",
+ "github": [
+  "coinbase"
+ ],
+ "listed_days_ago": 1486,
+ "run_id": "23ea3da73f374b35b892b4a94350c2bf",
+ "result": {
+  "verdict": "no_reward",
+  "line": "cbETH 0xBe9895146f7AF43049ca1c1AE358B0541Ea49704 (impl StakedTokenV1, 60-fn ABI, 0 reward/claim fns) + ExchangeRateUpdater 0x9b37180d847b27adc13c2277299045c1237ae281: nothing callable pays the caller; the only keeper job updateExchangeRate ran 7x/7d (blocks 26414479-26464731, 11-14 to 11-21), all by Coinbase's whitelisted keeper 0xa74d6b26e308b140423928f7e71b50e02819cb5c, gross 0.00 USD/call (callTracer: no value to caller; token and updater hold 0 ETH), gas 68,094/call = 0.017-2.41 USD (mean 0.41 at 1680.01 USD/ETH); fresh eth_call reverts 'caller is not whitelisted' / 'not the oracle'",
+  "kb": [
+   "attempts:3395"
+  ],
+  "run_id": "23ea3da73f374b35b892b4a94350c2bf",
+  "at": 1795279875
+ }
+}

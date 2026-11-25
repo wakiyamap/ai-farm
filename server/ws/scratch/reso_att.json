@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-resonate-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the only public payout functions are claimInterest/batchClaimInterest (pay the FNFT holder's own accrued yield, 5% fee to DEV_ADDRESS) and the FNFT-holder gate reverts for a stranger; no keeper/harvest/liquidate function pays an unrelated caller. Deployment is also dormant - zero events in the last 7 days on optimism (last event 2024-09-24), TVL 29.9k USD.",
+  "numbers": "contract 0x80ca847618030bc3e26ad2c444fd007279daf50a (DefiLlama adapter projects/resonatefinance/index.js, verified source 'Resonate' via Blockscout); 7 d window blocks 159599575 (2026-11-16) - 159901975 (2026-11-23), eth_getLogs address-only = 0 logs, 30 d = 0 logs, last log block 125803160 (2024-09-24, InterestClaimed); 29 PoolCreated events since fromBlock 26379632 (topic0 0xfc756033 from the adapter ABI); eth_call claimInterest(1, recipient) from 0x...dEaDBEeF reverts; RESONATE_HELPER()=0xebb1185f41a2347dd77b45e1f5e068f1e84f536a, owner()=0x51e9df2a70da7f838bdce4f97b3d94b28ca0a70d; control: same-shape address-only getLogs on WETH 0x4200...0006 returned logs in the same window; tvl_usd 29873 (candidate)"
+}

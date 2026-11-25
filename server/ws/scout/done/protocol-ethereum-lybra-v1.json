@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-lybra-v1",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1302,
+ "chain": "ethereum",
+ "slug": "lybra-v1",
+ "name": "Lybra V1",
+ "category": "CDP",
+ "tvl_usd": 256262,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1302,
+ "run_id": "13eb8a11b8784a4ab00715ae80983428",
+ "result": {
+  "verdict": "unpaid",
+  "line": "eUSD CDP core 0x97de57eCA371 (verified): liquidation/superLiquidation/excessIncomeDistribution public, role-free (fresh-addr eth_call reverts on eUSD balance/allowance, not role), but 0 reward events in 7d (blocks 26,413,852 2026-11-14 to 26,464,354 2026-11-21; 13 logs all Transfer/Approval); last LiquidationRecord 2026-10-24 paid 0.0007-0.001088 stETH (1.19-1.84 USD at 1690.27, coins.llama.fi) vs gas 0.08-0.33 USD at 0.32 gwei; 80.59 stETH excess + a 64.5%-rate borrower still sit unclaimed 4 weeks (eUSD unpriced/unliquid).",
+  "kb": [
+   "attempts:3355"
+  ],
+  "run_id": "13eb8a11b8784a4ab00715ae80983428",
+  "at": 1795272475
+ }
+}

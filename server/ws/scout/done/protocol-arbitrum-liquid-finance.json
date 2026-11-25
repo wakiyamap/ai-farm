@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-liquid-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1545,
+ "chain": "arbitrum",
+ "slug": "liquid-finance",
+ "name": "Liquid Finance",
+ "category": "Yield",
+ "tvl_usd": 42493,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1545,
+ "run_id": "06cd77db50e0426792888c840ad64cf8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Dead 2022 protocol: getReward()/harvest() anyone-callable (eth_call fresh addr OK, pays 0); staking WETH accrual ended 2024-10-19 (periodFinish 1729440000 < now); 7d window blocks 524686498-526743109: 1 RewardPaid of 0.000787 WETH = 1.35 USD (pre-2024 dust to staker 0x9c709c, gas 0.004 USD), masterchef 0 events 7d+30d (no-topic, control OK), LIQD unpriced, emissions 0.01 LIQD/s pay only own stakers",
+  "kb": [
+   "attempts:4034"
+  ],
+  "run_id": "06cd77db50e0426792888c840ad64cf8",
+  "at": 1795420216
+ }
+}

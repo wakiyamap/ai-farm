@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-mitosis",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: The only candidate flow transferring vault assets to an operator is TheoDepositVault.rollToNextRound, restricted to its configured keeper. Cap, migration, and manager functions also require privileges; public paths only serve the caller's own deposit or shares.",
+  "numbers": "7 Ethereum adapter contracts checked (7/7 nonempty eth_getCode and getter response); 4/4 BasicVault proxies resolve to the same verified implementation. Fresh-address eth_call at latest on 2026-11-23: Theo rollToNextRound(0) -> !keeper; BasicVault manualMigrate([]) -> InvalidManager() selector 0x34e70f7a; Cap addLoad -> revert; ExtensibleVault depositToManager -> Unauthorized. Eligible public reward functions found: none; 7-day call count and USD gross/gas not applicable. Sources: DefiLlama mitosis/index.js; explorer source ethereum for adapter contracts and implementations; rpc.py Ethereum latest eth_getCode/eth_call."
+}

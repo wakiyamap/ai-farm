@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-velodrome-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1628,
+ "chain": "optimism",
+ "slug": "velodrome-v1",
+ "name": "Velodrome V1",
+ "category": "Dexs",
+ "tvl_usd": 255198,
+ "url": "https://velodrome.finance/",
+ "github": null,
+ "listed_days_ago": 1628,
+ "run_id": "b25a30231f544597acccc66743c3f956",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: Minter.update_period (eth_call from fresh addr OK) + Voter.distribute/updateAll are anyone-callable but pay the caller 0 - deployed verified source sends only to team + rewards_distributor + gauges/LPs and Gauge.getReward requires msg.sender==account||voter; 7d full getLogs counts on Minter 0x3460dc71/Voter 0x09236cff: Mint x2 (1,442,420 + 1,427,995 VELO ~ 8.9k + 8.6k to gauges at VELO bash.0200), DistributeReward x717 (712 by keeper 0x353d465d, 5 singletons), strangers paid 0, gas ~bash.001-0.01/tx",
+  "kb": [
+   "attempts:2478",
+   "protocols:988"
+  ],
+  "run_id": "b25a30231f544597acccc66743c3f956",
+  "at": 1795083173
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "id": "actor-hyperevm-0x39e940dd8fdde6f07653c16bd645ad79defc022f",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "hyperevm",
+ "address": "0x39e940dd8fdde6f07653c16bd645ad79defc022f",
+ "run_id": "81c6ad09108546f1920c9dcc54919bd0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "auctioneer2 of Executor 0xf2314753fa7f6cdcc4d27cc6755077a68a6e2fe9 (impl: require msg.sender in {auctioneer..auctioneer4}): 9 txs/7d = 1.3 per day (8 execute(), 5 ok 3 reverted, +1 transfer); receives only the in-tx gas liability (median 0.0056 HYPE = 0.35 USD) while paying 0.0379 HYPE = 2.32 USD gas per call (median 0.42); solver bids (median 0.0237 HYPE = 1.45 USD, max 14.48) go to the oevCollector 0xcf8252e8, never here; net -0.0537 HYPE = -3.30 USD / 7 d = -0.47 USD per day at HYPE 61.37; control: 28 Executed events/7 d, 8 solvers.",
+  "kb": [
+   "attempts:3555",
+   "actors:345"
+  ],
+  "run_id": "81c6ad09108546f1920c9dcc54919bd0",
+  "at": 1795313113
+ }
+}

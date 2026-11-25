@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "actor-arbitrum-0x98313d1a6ddba7b197db5112f7e07108e65fd3a7",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. The actor is a liquidator account on Revert Lend V3Vault (0x74e6afef5705beb126c6d3bf46f8fad8f3e07825, source title confirms Revert Lend); liquidate() is external with no access control and pays msg.sender, and 6 distinct liquidator addresses took 28 liquidations in 7 d, so a fresh address calling the same function is paid. The candidate itself is a pass-through contract owned by EOA 0x7f21763bc20d29325fbe8431a53da0b9fe391c62 whose keeper EOAs route through an unverified wrapper; all profit lands as USDC.e to the owner in the same tx. Consistent with existing lead 57 (measured, trial bot promoted attempts:1510) - no new lead row needed.",
+  "numbers": "7 liquidations in 7 d (ledger revert_lend.liquidate, ts 1794597400-1795202261; sample: 5 largest owner-payout txs above); gross to owner 315.49 USDC.e total = 45.07 USDC/call avg (range 5.21-90.46); USDC.e 0xaf88d065e77c8cc2239327c5edb3a432268e5831 decimals 6 read on-chain; gas 717k-747k gasUsed at effectiveGasPrice ~0.038 Gwei = ~0.000028 ETH = ~0.05 USD/call (ETH 1603 USD, coins.llama.fi ts 1795205109 2026-11-20); fullValue 21798 USDC, liquidatorCost 16904 USDC over the 7 (ledger sums); keeper EOAs pay gas (0x1716d15e, 0xfd10216c, both EOAs per eth_getCode)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-silo-v1",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. The only anyone-callable pays-the-caller function is Silo.flashLiquidate (no modifier in verified v1.1 source; caller implements siloLiquidationCallback, repays borrower debt, keeps collateral minus protocol fee); a stranger EOA took one liquidation in the last 7 days with gross ~0.08 USD > 0.037 USD gas. Cadence is dust: 1 liquidation tx in 7 d, 2 in 30 d across all 48 Arbitrum silos (factory 0x4166487056A922D784b073d4d928a516B074b719, DefiLlama adapter projects/silo). harvestProtocolFees() is callable by anyone but pays siloRepository.owner(), not the caller.",
+  "numbers": "7d Liquidate events = 2-3 in 1 tx (0x05e65899e9ae2fbc48d82a746e2d3f1ab191c28c1919e979f78db81ee56421a1, block 524033995, silo 0xa1cada48eb6be2247e35b3a0f152c255d015f256, caller EOA 0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3 via router 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd); 30d = 5 events / 2 txs (eth_getLogs topic0 0xf3fa0eaee8f258c23b013654df25d1527f98a5c7ccd5e951dd77caca400ef972 over all 48 silos); sample pay = 0.0010052 WETH (1.81 USD) seized vs 1.7338 USDC debt repaid => gross ~0.08 USD; gas 1,022,667 x 0.020142 gwei = 2.06e-5 ETH = 0.037 USD (ETH 1801.54 USD, coins.llama.fi 2026-11-19); TVL 412,117 USD (llama candidate)."
+}

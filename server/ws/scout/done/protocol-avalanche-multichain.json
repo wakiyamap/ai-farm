@@ -1,0 +1,26 @@
+{
+ "id": "protocol-avalanche-multichain",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "multichain",
+ "name": "Multichain",
+ "category": "Bridge",
+ "tvl_usd": 594745,
+ "url": "",
+ "github": [
+  "anyswap"
+ ],
+ "listed_days_ago": null,
+ "run_id": "dab93e35f86243aa881c3f3c9cd729a4",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Bridge is legacy MPC-era: contracts live (anyUSDt 0xeaf8190f... underlying()=USDT.e read on-chain; ANY 0xb44a9b... snowtrace-verified AnyswapV4ERC20: 51 fns, 0 reward/claim/keeper/harvest matches, only owner/minter/vault roles; native depositAddr 0x4E13c3... is an EOA holding 1854 AVAX=12.8k USD) but 0 txs in 7d on anyUSDt (newest 48.6d ago; same-query control WAVAX active at current block), withdrawals are user self-redemptions of the 594,745 USD locked TVL, gas ~0.003 USD, nothing pays a caller",
+  "kb": [
+   "attempts:2663"
+  ],
+  "run_id": "dab93e35f86243aa881c3f3c9cd729a4",
+  "at": 1795127125
+ }
+}

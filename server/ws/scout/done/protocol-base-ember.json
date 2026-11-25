@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-ember",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 424,
+ "chain": "base",
+ "slug": "ember",
+ "name": "Ember",
+ "category": "RWA",
+ "tvl_usd": 13966564,
+ "url": "https://ember.so/",
+ "github": null,
+ "listed_days_ago": 424,
+ "run_id": "6993b27fb8274aefa9ff9ea8de62ac88",
+ "result": {
+  "verdict": "role_gated",
+  "line": "2 ERC4626 vaults (proxies 0x9C2dCDbD..3df3 cbBTC + 0xF93A8e3a..7637 USDC -> impl 0xca795b26 EmberVault) + parkingLot 0x30eca7F3..b84D on Base: every keeper-shaped fn reverts Unauthorized() 0x82b42900 from a fresh addr (collectPlatformFee, processWithdrawalRequests) or onlyRateManager (updateVaultRate); last 7d (Nov 10-17, Blockscout): BTC vault 0 txs, USDC vault 1 updateVaultRate by role 0x291C..f01D, parkingLot 1 user deposit; permissionless fns (deposit/mint/redeemShares/cancel) pay only the caller's own funds, no reward pot.",
+  "kb": [
+   "protocols:465",
+   "attempts:1823"
+  ],
+  "run_id": "6993b27fb8274aefa9ff9ea8de62ac88",
+  "at": 1794938612
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-insurace",
+  "outcome": "lead_recorded",
+  "reason": "unclear: the verified main StakersPoolV2 reward and payout paths are role gated and its reward schedule has expired, but the adapter's second staking proxy has an unverified implementation and the protocol pool list endpoint is unavailable. No stranger-paid function was established; source or ABI for the second proxy and current pool list are needed.",
+  "numbers": "DefiLlama adapter: 2 Ethereum staking proxy addresses, both nonempty code and owner() getter answers (eth_getCode/eth_call 2026-11-23). First proxy 0x136D841d4beCe3Fc0E4dEbb94356D8b6B4b93209: rewardEndBlock 21,705,199; eth_blockNumber 26,480,976 at 2026-11-23T23:00Z; 2 fresh-EOA eth_call probes (harvestRewards, reCalcPoolPT) reverted allowedCaller, so gross to an unprivileged caller is unavailable. Second proxy 0xaFc3A52BF951c3540883e7156EaBA030E444328b implementation 0x8b841a105c9c742390c2dea724233164e6404052 unverified by explorer and Sourcify; explorer tx listing newest call 2026-02-03 redeem(), tx 0x1680b8e61d3d518d8fdedfece10fdf260a493c1f6e32a9e72a67e38cc7df2774. No controlled 7-day call count, gross USD, or gas USD measured because no eligible public reward function confirmed."
+}

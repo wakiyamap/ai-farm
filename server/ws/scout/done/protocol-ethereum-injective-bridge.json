@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-injective-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "injective-bridge",
+ "name": "Injective Bridge",
+ "category": "Bridge",
+ "tvl_usd": 4571683,
+ "url": "https://injective.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "8c59852d77534506b1b11652318c4e98",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Injective Peggy bridge (proxy 0xf955c57f...bad6f3) submitBatch pays msg.sender the batch fees: 7d blocks 26417338->26467651, 24 calls by 7 distinct EOA submitters (14 paid nonzero), fees 2.44 vs gas .17 (net 5.28); best 0x08636eca USDT fee .01 gas bash.19; not role-gated (fresh-address eth_call reverts on nonce, not role), but a keeper race needing validator-signed batches from Injective; updateValset paid 0 in all 3.",
+  "kb": [
+   "attempts:3565",
+   "leads:384"
+  ],
+  "run_id": "8c59852d77534506b1b11652318c4e98",
+  "at": 1795315868
+ }
+}

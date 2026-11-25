@@ -1,0 +1,10 @@
+# Phase 14a: builder on Claude, 8 sessions a day (00:40 JST and every 3 hours).
+[Unit]
+Description=Farm builder on Claude (builder-claude), every 3 hours
+
+[Timer]
+OnCalendar=*-*-* 00/3:40:00 Asia/Tokyo
+Unit=agent@builder-claude.service
+
+[Install]
+WantedBy=timers.target

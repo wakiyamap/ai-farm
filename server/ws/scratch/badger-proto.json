@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "badger_dao",
+  "status": "dead_end",
+  "checked": "Badger DAO (Sett yield aggregator, DefiLlama slug badger-dao). Addresses from Badger-Finance/badger-system repo deploy-final.json (cloned 2026-11-21): Controller 0x63cF44B2548e4493Fd099222A1eC79F3344D9682 (EIP-1967 proxy, eth_getCode non-empty; numTokens() 0x8e499bcf reverts - it is the Set Controller, not a registry). Vaults checked on-chain: 0x6dEf55d2e18486B9dDfaA075bc4e4EE0B28c1545 (Sett renCrv), 0x2B5455aac8d64C14786c3a29858E43b5945819C0 (SettV4 cvxCrv), 0xBE08Ef12e4a553666291E9fFC24fCCFd354F2Dd2 (SettV3 tricrypto). earn() selector 0xd389800f from stranger reverts 'onlyAuthorizedActors' on all three; from keeper 0x711a339c002386f9db409ca55b6a35a604ab6cf6 it succeeds (control). SettV3/SettV4 source (repo contracts/badger-sett): earn() _onlyAuthorizedActors, harvest(address,uint256) _onlyController, strategy harvest()/tend() _onlyAuthorizedActors; no msg.sender reward anywhere - harvest moves tokens to controller/vault. api.badger.com (adapter vault list) is NXDOMAIN; TVL ethereum 9.23M USD per api.llama.fi currentChainTvls 2026-11-21."
+}

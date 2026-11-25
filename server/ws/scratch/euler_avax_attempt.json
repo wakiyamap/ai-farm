@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-euler-v2 no-topic liquidation audit",
+  "outcome": "dead_end_recorded",
+  "reason": "Rechecked the 2026-11-18 zero-Liquidate verdict against the radiant_v1 renamed-event pitfall. Every log from all 251 Euler EVK factory vaults over a timestamp-bounded seven days has one of seven known event topics; none is Liquidate or an unknown candidate. The prior unpaid conclusion holds for this factory, so no bot is justified.",
+  "numbers": "Factory 0xaf4B4c18B17F6a2B32F6c398a3910bdCD7f26181 (DefiLlama adapter, getProxyListLength=251 and proxyList getter confirmed); blocks 100197712-100870847, UTC 2026-11-13 11:12:28 to 2026-11-20 11:12:29. No-topic eth_getLogs, batches of <=32 addresses, pages <=10000 blocks, 0 failed calls, 63 logs: VaultStatus 24, Transfer 19, Withdraw 5, InterestAccrued 5, Repay 5, Approval 4, Deposit 1. Liquidate topic0 from cast keccak = 0x8246cc71ab01533b5bebc672a636df812f10637ad720797319d5741d5ebb3962; count 0. Positive control: real VaultStatus/Transfer/Repay logs from the exact filters, e.g. tx 0xdd2f2769b8e987654cc2d390b4a5d0824aa95de45304452cdf1d97710b3b7576. Raw audit scratch/euler_avax_audit/older_scan.json and full_scan.json; scripts scratch/euler_avax_full_scan.py and euler_avax_older_scan.py."
+}

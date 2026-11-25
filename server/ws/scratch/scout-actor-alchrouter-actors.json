@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "address": "0x3c0546587d27354635a4972390a7b96f962d8bbd",
+  "strategy": "Alchemix V3 AlchemistRouter (verified src/router/AlchemistRouter.sol, ctor _alchemist=0x930750a3510e703535e943e826aba3c364fFC1De = AlchemistV3 TransparentUpgradeableProxy): stateless user-facing proxy, EOAs call depositUnderlying/depositETH/repayUnderlying/withdrawUnderlying/claimRedemption/selfLiquidateToUnderlying to move their own funds (USDC -> MYT vault mixUSDC -> Alchemist legs); caller EOA pays gas, router holds 0 ETH and no token balances (only spam NFTs); no fee/owner/reward logic in source; instrument, not an economic actor",
+  "est_profit_usd_day": 0,
+  "evidence": "7d window 2026-11-10..17 (Blockscout OP tx list, sample of 50 of 50 in window): 29 calls = 16 withdrawUnderlying, 10 depositUnderlying, 1 selfLiquidateToUnderlying, 1 repayUnderlying, 1 claimRedemption; 28 distinct caller EOAs in 50-tx page; e.g. 0x423db233acb04eaec3e6bbf22b82571764bb6c5a2c84a29dd8db7241ab15ce10 (depositUnderlying 11-16), 0xc78104cc35a2974e75f0d6f3d67d19a8b109475c6bdef00720e11d24cd0aef0c (withdraw 9.8k mixUSDC 11-15), 0x026bf76ba83dc4d152fa27931d01faa504e901d234245e290a91f7af2d09027e (withdraw 27.4k 11-15), 0xf5a2b9a9766ab59944fa29857d5b7c173cc7aedfab1a273b555423067415004f (selfLiquidate 11-14), 0x41abf501338f08aaf3aaec1496b7cd63cb429a3a0a979dfb582834614f58e990 (claimRedemption 11-10); all-time tx count 563 (Blockscout counters)"
+}

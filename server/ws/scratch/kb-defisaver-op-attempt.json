@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-defi-saver-asset-management",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. StrategyExecutorL2.executeStrategy (the only keeper-facing write) reverts BotNotApproved for strangers - BotAuth.approvedCallers is a global owner-managed whitelist (addCaller onlyOwner), identical design to arbitrum (protocols:1090, same repo, same contracts). Even whitelisted callers are paid nothing on-chain: the user's gas fee (GasFeeTakerL2) goes to the DFS FeeRecipient contract, not the caller; keepers run DeFi Saver's own 2 EOAs and pay their own (near-zero) gas. A farm bot needs a BotAuth whitelist slot (partner arrangement).",
+  "numbers": "TVL 214,522 USD on optimism (DefiLlama candidate). SubStorageL2 0xb944291E getSubsCount=759. 7-day txs to StrategyExecutorL2 0x11fD849B: 24, all selector 0x072c92fb executeStrategy, callers only 0x16dd89d6e2f81d0528120fb31f6cfe8528e2738e (12) and 0x068e8ad713b54bb390bb32963b83339dc678d238 (12) - Blockscout v1 txlist API, both approvedCallers=1, stranger=0; 81 executor txs over 35.6d fetched = ~2.3/day. Gross to caller 0 USD: no token transfers to keeper in 5 sampled receipts (0x6f36f395, 0x5153bd54, 0xc9df0676, 0x1ae679e4, 0x73bd10b3-failed); GasFeeTakerL2 sends fee to FeeRecipient. Gas per call 1.65M-2.36M gas at effectiveGasPrice 1.1e-5 to 9.2e-4 gwei = ~0.0001-0.005 USD (ETH 1745.77 coins.llama.fi ts 1795157418). Stranger eth_call revert 0x75e5153c BotNotApproved(address,uint256). TxSaverExecutor 0xC9F97fFb: 0 calls in 7d, 1 tx ever (creation)."
+}

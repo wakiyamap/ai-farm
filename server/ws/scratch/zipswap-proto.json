@@ -1,0 +1,6 @@
+{
+ "chain": "optimism",
+ "protocol": "zipswap",
+ "status": "dead_end",
+ "checked": "Plain Uniswap V2 fork on OP, no caller-paid function. DefiLlama adapter projects/zipswap/index.js gives factory 0x8BCeDD62DD46F1A76F8A1633d4f5B76e0CDa521E: eth_getCode nonempty, allPairsLength()=109 answers. Verified source via Blockscout (explorer source): UniswapV2Factory.sol + UniswapV2Pair.sol (standard V2 ABI: mint/burn/swap/skim/sync + views, no reward/bounty/harvest/claim fn) + PoolRegistry 0x8b5d45c105a3eaeece058819feb74074a4706935 (addPool gated by canAddPools mapping, onlyOwner admin; no caller payout). feeTo=0x8602ee2f8aaeb671e409b26d48e36dd8cc3b7ed7 is an EOA (eth_getCode 0x): swap fees accrue to a project EOA, not callers. 108 pairs enumerated via factory PairCreated scan (topic0 0x0d3648bd.., pair in data). skim() exists and is callable by anyone but sends excess balance to the pair (LP money) - skim type (S), pays the caller 0. The 6748 swaps/7d are arbitrage routed through external routers; profit comes from price gaps, not a protocol payout to the caller."
+}

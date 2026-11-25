@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-shimmerbridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1047,
+ "chain": "avalanche",
+ "slug": "shimmerbridge",
+ "name": "ShimmerBridge",
+ "category": "Bridge",
+ "tvl_usd": 56356,
+ "url": "",
+ "github": [
+  "zokyo-sec"
+ ],
+ "listed_days_ago": 1047,
+ "run_id": "dbb72ce01fdc4d5d89417df6e1c4f19e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: escrow OriginalTokenBridge 0x9C6D5a71FdD306329287a835e9B8EDb7F0F17898 (LZ lock to ShimmerEVM, 1,450.98 USDC + 53,030.99 USDT + 304.36 WAVAX = 56,511 USD vs DefiLlama 56,406); the only payout fn withdrawFee is onlyOwner (reverts from a fresh EOA) and its pot is empty (accruedFeeLD = 0 for all 3 tokens); bridge/bridgeNative/retryMessage charge the caller; 0 events in a true 7 d (blocks 100,432,935 2026-11-16 -> 101,115,599 2026-11-23, no-topic scan, 76 chunks, control WAVAX 3,545 logs/5,000 blocks) and no tx of any kind since 2026-07-25; gas 7.5 gwei = 0.003 USD/call.",
+  "kb": [
+   "attempts:3914",
+   "protocols:2072"
+  ],
+  "run_id": "dbb72ce01fdc4d5d89417df6e1c4f19e",
+  "at": 1795394514
+ }
+}

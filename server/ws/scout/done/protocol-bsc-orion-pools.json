@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-orion-pools",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "orion-pools",
+ "name": "Orion Pools",
+ "category": "Dexs",
+ "tvl_usd": 202091,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "86b6b2aeb11743d98213a637d0163212",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Plain Uniswap V2 fork (factory 0xE52cCf7B...E4b4, 281 pairs, last PairCreated 2024-01-09): no-role fns are only mint/burn/swap/skim/sync, priceUpdate/bounty revert; skim pays 0 (balance minus reserve = 0 on the 6 busiest pairs, incl 0x4314...bb396 BTCB/WBNB 4642.8 BTCB + 8.15 WBNB); 7d blocks 133287085-134630726, sample 32/281 pairs: 1716 Swap, 1717 Sync, 0 Mint, 0 Burn, 62 senders (arbs, CoW 0x9008d19f) - no protocol payout; 0.05 gwei, WBNB 567.32 USD so skim gas 0.0013 USD; veORN + StakingRewards farms need a stake, bsc staking TVL 0 USD, protocol TVL 194870 USD",
+  "kb": [
+   "attempts:2762",
+   "protocols:1200"
+  ],
+  "run_id": "86b6b2aeb11743d98213a637d0163212",
+  "at": 1795149578
+ }
+}

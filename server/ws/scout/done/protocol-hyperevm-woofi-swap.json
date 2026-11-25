@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-woofi-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1727,
+ "chain": "hyperevm",
+ "slug": "woofi-swap",
+ "name": "WOOFi Swap",
+ "category": "Dexs",
+ "tvl_usd": 292993,
+ "url": "https://woofi.com",
+ "github": null,
+ "listed_days_ago": 1727,
+ "run_id": "8483cbef78574238a3286884873f1dd0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "SPMM v2 stack, docs addresses confirmed (pool 0x5520385bFcf07Ec87C4c53A7d8d65595Dff69FA4): distributeFees + postPrice revert for fresh EOA ('WooFeeManager: !admin' / 'WooracleV2_2: !Admin'), claimFee callable but unclaimedFee()=0 and pays feeAddr, claimRebate pays own rebate only; 7d (blocks 51071061-51685882): pool >=25 txs all self-service swaps from 2 EOAs, router 0 (last 2026-09-23), oracle 0 (last 2026-05-21); gas 0.1 gwei x 100k = 0.00001 HYPE = 0.0007 USD (HYPE 68.66 USD, coins.llama.fi 2026-11-19 13:40Z); TVL 526k USD.",
+  "kb": [
+   "attempts:2524",
+   "protocols:1024"
+  ],
+  "run_id": "8483cbef78574238a3286884873f1dd0",
+  "at": 1795095938
+ }
+}

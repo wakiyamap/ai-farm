@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-aera-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 501,
+ "chain": "base",
+ "slug": "aera-v3",
+ "name": "Aera V3",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 60712045,
+ "url": "https://www.aera.finance",
+ "github": null,
+ "listed_days_ago": 501,
+ "run_id": "a5a4c9c6f3ba43b48f3e44c6fbf374e8",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Aera V3 provisioners on base: solveRequestsDirect is open-to-anyone but 703 async requests in 7d (23 vaults, eth_getLogs 0x351b356..0x38100b6) all had solverTip=0 (gross bash); all sampled solves by one whitelisted EOA 0xdd998274 via solveRequestsVault (solvingGate); gas ~177k @ 0.0056 gwei = bash.0018 (ETH 793, coins.llama.fi)",
+  "kb": [
+   "attempts:1868",
+   "protocols:497"
+  ],
+  "run_id": "a5a4c9c6f3ba43b48f3e44c6fbf374e8",
+  "at": 1794948926
+ }
+}

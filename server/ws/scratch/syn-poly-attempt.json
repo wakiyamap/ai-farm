@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-synapse-cross-chain-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Bridge 0x8f5bbb2bb8c2ee94639e55d5f41de9b4839c1280 (impl SynapseBridge 0x5b00...005b) keeper ops mint/withdraw revert 'Caller is not a node group' from a fresh address (NODEGROUP_ROLE, getRoleMemberCount=1, sole member 0x5ba000bb06230e0582e111f08e1f2f2f200005ba); all other bridge functions are GOVERNANCE_ROLE admin or user ops that pay no reward; setChainGasAmount hard-reverts 'Gas airdrop is disabled'; the one StableSwap pool is SwapFlashLoan (user ops + onlyOwner). Same dead_end as the ethereum/arbitrum/avalanche/bsc/optimism deployments of this protocol (KB protocols:arbitrum etc.).",
+ "numbers": "7d window blocks 97432530 (ts 1794854264, 2026-11-16) .. 97835730 (ts 1795459064, 2026-11-23) from eth_getBlockByNumber timestamps; no-topic eth_getLogs on bridge = 14 logs, all TokenMint (topic0 0xbf14b9fd from the contract's own logs, signature TokenMint(address,address,uint256,uint256,bytes32) matched via cast keccak), 0 TokenDeposit/Redeem/Withdraw (same no-topic scan); callers: 12 txs from node EOA 0xe93685f3bba03016f02bd1828badd6195988d950 (sel 0xcfc32570 to 0xcd3f213a...3885b), 2 txs from 0xbe9306ddf2c0ddd69227adb2c7e7ef4d0b5697d5 (sel 0xdcfdeb60 to 0xe25741bd...3191) via eth_getTransactionByHash; getRoleMemberCount(NODEGROUP_ROLE)=1 (eth_call 0xca15c873b5c0...); TVL 54,078 USD (candidate)."
+}

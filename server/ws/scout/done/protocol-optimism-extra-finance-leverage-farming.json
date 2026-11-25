@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-extra-finance-leverage-farming",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1282,
+ "chain": "optimism",
+ "slug": "extra-finance-leverage-farming",
+ "name": "Extra Finance Leverage Farming",
+ "category": "Leveraged Farming",
+ "tvl_usd": 461749,
+ "url": "https://app.extrafi.io/",
+ "github": null,
+ "listed_days_ago": 1282,
+ "run_id": "2919c79ae07d42539c740e6dc2a70df0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "VeloPositionManager 0xf9cfb8a6...7055 (OP head 159,724,732): all 3 paid jobs (liquidateVaultPositionPartially/closeOutOfRangePosition/investEarnedFeeToLiquidity) revert '20' NOT_IN_WHITELIST from a fresh address, permissionLess* getters all false; 7d events 0/0/0 (control: 6 PM logs = 4 owner closes + 2 FeePaid); 30d: 29 compounds all by keeper EOA 0x8212eab7...a4d2 (stopped ~29d ago), keeper gas $0.002/call (547,573 gas @ 2.04 gwei, ETH $1,777.76 llama).",
+  "kb": [
+   "attempts:2305"
+  ],
+  "run_id": "2919c79ae07d42539c740e6dc2a70df0",
+  "at": 1795048537
+ }
+}

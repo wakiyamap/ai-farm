@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "arbinyan",
+  "status": "dead_end",
+  "checked": "DefiLlama registries/sumTokens.js \"arbinyan\" (projects/arbinyan adapter 404): staking 0x32e5594F14de658b0d577D6560fA0d9C6F1aa724 + token, pool2 pair 0x70df9dd83be2a9f9fcc58dd7c00d032d007b7859, tvl owner 0x9F7968de728aC7A6769141F63dCA03FD8b03A76F. All four confirmed eth_getCode != 0x with getters answering. 0x32e5 = EIP-1167 minimal proxy -> impl 0x62FF5Be795262999fc1EbaC29277575031d2dA2C \"NyanRewards\" (verified source, etherscan): Synthetix-style StakedTokenWrapper, rewardToken = stakedToken = NYAN 0xeD3fB761414DA74b74F33e5c5a1f78104b188DfC; 0x9F79 = NyanRewards with stakedToken = address(0) (ETH staking). getReward()/exit() public, pay msg.sender; setRewardParams/withdrawReward onlyOwner but owner = address(0) on both, so permanently dead. periodFinish 0x61aff56b = 2021-12-08 (0x32e5) and 0x61427ade = 2021-09-16 (0x9F79): no rewards accrue. NYAN token is plain ERC20 (no reward hooks). 0x70df is a plain SushiSwap-V2 NYAN/WETH pair (skim 0 in 7d, skim-type anyway)."
+}

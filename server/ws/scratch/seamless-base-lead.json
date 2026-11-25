@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "seamless_v2 DutchAuctionRebalanceAdapter take",
+  "status": "measured",
+  "why": "One stranger paid in the last 7 d: adapter Take on 0xa530e6ea09eb118a1549aca73731379ba546dd32 for LT 0xa2fceeae99d2caeee978da27be2d95b0381dbb8c (weETH/WETH) by keeper contract 0xc1a7804726bcf18faa4ee05aed45762a3d992176 (tx sender EOA 0x53e2344028f9ab59a1e9db3cf5146ab515377c22), tx 0x4427e90b5fe3344fac61a61f45434cd9cb6512f5912c94913b0c356b96fd39e3 2026-11-18 15:32 UTC, gross 0.000128 WETH = 0.22 USD (LT equity-loss proxy, ETH 1711.60 coins.llama.fi 2026-11-22 17:35 UTC) vs 0.0108 USD gas. Four distinct stranger takers all-time.",
+  "next_steps": "Contract: adapter 0xa530e6ea09eb118a1549aca73731379ba546dd32 (beacon proxy, no access control on createAuction/take/endAuction; source repo seamless-protocol/leverage-tokens). Function take(uint256 amountOut) after createAuction(). 7 d count (blocks 57866656-60890660, 2026-11-15/22 by timestamp): Take n=1, gross 0.22 USD, gas 0.011 USD per call. All-time: Take n=10 over 17.7 months, whole class ~0.19-0.25 USD/day. Others take it; class is ~10x smaller than the ethereum sibling already dead-ended below the 1 USD/day floor (attempts:3094, lead 338); current LT equity only 1.38 WETH (~2.4k USD), so a single take pays cents. Only worth it if LT equity grows ~100x."
+}

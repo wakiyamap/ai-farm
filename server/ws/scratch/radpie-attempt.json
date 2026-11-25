@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-radpie",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only anyone-callable paying function on Radpie's staking contract is batchHarvestDlpRewards(bool), which sends msg.sender harvestDlpRewardCallerFee/10000 of each claimed reward token, but that fee is currently 0 and the pending pot is ~$0.03 of dust; nothing pays a stranger. Zero transactions to the contract in the last 7 days.",
+  "numbers": "harvestDlpRewardCallerFee=0/10000 (eth_call 0x706faab0, 2026-11-18); claimableDlpRewards = 0.0316 rUSDC + 2.54e-9 RDNT + 7.1e-14 rWETH + 0 GMX + 0 USDC (eth_call 0xa5e1970e on 0xca5d2e02..., pot ~$0.03); lastHarvestTime=1728971847 (2024-10-15); 0 txs to 0x18a192dF... since 2026-11-08 (explorer txs, newest-first control returned rows); eth_estimateGas batchHarvestDlpRewards(false)=12,126,021 gas x gasPrice 20,000,048 wei (eth_gasPrice) = 0.000242 ETH = $0.42 at WETH $1749.21 (coins.llama.fi 2026-11-18)."
+}

@@ -1,0 +1,443 @@
+id: moonwell-maero-base
+author: earner/qwen3.8-flash-next
+chains: [base]
+strategy: >
+  Moonwell core-market (Compound v2 mToken) whale liquidations: LiquidateBorrow
+  events on the 17 emitting markets (the 2 core loan markets mUSDC/mWETH + the
+  15 markets that emitted LiquidateBorrow in the 14-day protocol-wide scan -
+  watchlist extended 2026-11-06 per attempt 235; candidates whose borrow market
+  is outside mUSDC/mWETH are watch-only, the executor repays USDC/WETH debt
+  only) mark repeat-default holders;
+  when comptroller.getAccountLiquidity shows shortfall>0, the bot's executor
+  flashes USDC from Morpho, liquidates the shortfall-derived repay (HALF the
+  shortfall, closeFactor 0.5 semantics; on WETH borrows the flash is SIZED to
+  1.06x the borrowBalanceCurrent/16 repay value from borrowBalanceCurrent -
+  the swap excess of an unsized flash cannot repay Morpho), redeems the newly
+  seized collateral delta and sells it on the
+  measured PancakeV3 pools in the SAME transaction; reverts unless its USDC
+  balance ends higher (NO_PROFIT; liquidate() RETURNS that measured delta -
+  the bot's profit estimate is the simulated executor balance delta).
+  Poll window re-measured honestly with the
+  bot's own shortfall probe at historical tags (scratch/mw-whale/window-bracket.json):
+  every sampled capture was already liquidatable >=16384 blocks (the probe
+  floor; one >=2048 blocks) before its winner = >=4095-32767 s by real block
+  timestamps (the Base block rate changed mid-window, so wall clock, not
+  blocks, is the stable unit) — no latency race.
+copied_from: >
+  the measured whale winner tx
+  0x61e686eea746bb3b4b2bfaabec9a54fab1886b8d6a8aab3cb40b366d34cecdf9 (block
+  53265095, flash -> liquidateBorrow(account,repay,coll) -> redeem -> two-hop
+  PancakeV3 pool sale WADO->WETH->USDC); ledger source
+  moonwell_core.liquidate_borrow (added lead18 session).
+capital_usd: 120
+principal_usdc: 0            # the flash loan sources the repay; USDC balance not needed
+allowed_contracts: []  # human decision 2026-11-11-executor-bots-funds item 1: this bot acts only through its gate-deployed executor; the protocol addresses below were executor-internal call targets, never bot-wallet send targets (listed in executor_note / the archived manifest)
+max_loss_per_tx_usd: 18
+max_loss_guarantee: >
+  The executor reverts unless its USDC balance ends >= start + minProfit + 1
+  (MoonwellWhale.sol liquidate(): require(balAfter >= balBefore + minProfit + 1,
+  "NO_PROFIT"); on success the measured profit delta is transferred to the bot
+  wallet OWNER IN THE SAME transaction (transfer(OWNER, profit) at
+  MoonwellWhale.sol:391, fix round run 65d02323 per review a50ef674 item 2 -
+  the watchdog/gate sweep counts only the bot wallet, profit must not stay in
+  the executor), fork guard tx 0xa10ed3fb... reverted NO_PROFIT with zero USDC
+  delta), so the pool can never take more than the executor measured and the
+  flash loan pulls back exactly the flashed amount (0 premium): worst case is
+  gas only. On Base the enforceable worst case is the bot's native gas wallet:
+  the gate funds it at most gas_wallet_cap_usd = 18 USD and the signer refuses
+  while above; MAX_GAS_LIMIT 2,200,000 x MAX_FEE_CAP_WEI 2 gwei bounds the L2
+  signed cap too: 0.0044 ETH ~ 9.8 USD at the measured ETH/USD 2233 - fits
+  the 18 USD wallet's EIP-1559 upfront check (balance >= gasLimit x
+  maxFeePerGas) with 385x headroom over the measured Base baseFee 0.0052
+  gwei (feeHistory 8-block, relay, 2026-11-06). The old constant
+  25,000,000 wei was 0.025 gwei despite the 25 gwei comment; 25 gwei x
+  2.2M gas = 0.055 ETH exceeds the 18 USD wallet outright.
+expected_value: >
+  Whale-class (repay >= ~20 USD) core liquidations measured ~10 events in the
+  last 7 days of the ledger window (blocks 53247461..53550622; dust-dominated
+  flow excluded), i.e. ~1.4/day. The fork proof captured the measured winner
+  event at its own sizing: +3.916356 USDC before gas (repay 59.62, realized
+  margin 6.57% after slippage). EV ~ 1.4/day x ~2-4 USD gross minus gas
+  (~0.05-0.4 USD at measured Base fees); dust events are filtered by the
+  MIN_PROFIT guard. Numbers: ledger source moonwell_core.liquidate_borrow +
+  fork tx 0x3cdb6b0f...
+executor: "bots/paper/moonwell-maero-base/MoonwellWhale.json"
+executor_args: "0x000000000000000000000000fbb21d0380bee3312b33c4353c8936a0f13ef26c000000000000000000000000bbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000792f465e0434fb1028ea3bfeb05240cb839c4e040000000000000000000000004a7af46bc8abc00048c6c7920a1488daf568366c000000000000000000000000784e539f15ca2d19449a6311c5dab6cf37d8f1ba0000000000000000000000004dbdcb087992404ea9b14fa83cc695b02797f39a000000000000000000000000b90fe999be6869af0afc557dccfbe169ea3403d6000000000000000000000000dfe5f275020def30993f042174fc2d335678b626000000000000000000000000257fcbae4ac6b26a02e4fc5e1a11e4174b5ce395"  # cast abi-encode of the TEN constructor addresses (P5 = mAERO leg1 pool 0xdfe5f275020def30993f042174fc2d335678b626 added 2026-11-10 run 65d02323 per review a50ef674 item 1: a fresh gate deployment then needs NO owner setPoolAllowed send; proof scratch/mw-maero/proof22.json fresh-deploy isPoolAllowed(P5)==true; P6 = UniV3 cbETH/WETH leg1 pool 0x257fcbae4ac6b26a02e4fc5e1a11e4174b5ce395 added 2026-11-11 runs 555959dc/52994a7f for the mcbETH sell route - fresh-deploy isPoolAllowed(P6)==true measured scratch/mw-maero/sweep30.json; pool factory()=0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865c, token0()=cbETH 0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22 measured via relay eth_call 2026-11-11 (NOT the PancakeV3 factory 0x9cb220581b91b0c83223012fe69688b92ad07a76 that P2 reports, so this pool is a Uniswap-V3-style pool on the same 0x128acb08 swap interface); the mcbETH bot route stays WATCH-ONLY: the only measured poll-catchable mcbETH capture 53283757 is cash-starved - bot-exact-calldata legs revert NO_REDEEM tx 0xdbb7654635a2e49570a888620b34912103f21a9070aafd5f5eb2325620ea96d2 at the C-1 reset +6d head with market cash 154486718 raw (cbETH 18-dec, ~0.0002 USD) at the same head - the cash-starved class like mEURC/mcbBTC) in the constructor ABI order (comptroller, morpho, usdc, p0, p1, p2, p3, p4, p5, p6) listed in executor_note below; same order as scratch/mw-whale/proof16.py's deploy args (P4 added 2026-11-09 run d11f8a2c lead 72 mcbXRP route extension; the seven proven scratch/mw-whale/proof15.py deploy args are the prefix, CREATE address unchanged 0x8f7a45eb - it depends on deployer/nonce only)
+executor_note: >
+  Deploy the gate with these constructor args (forge build):
+  [0xfbb21d0380bee3312b33c4353c8936a0f13ef26c
+  (COMPTROLLER), 0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb (MORPHO),
+  0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 (USDC),
+  0x792f465e0434fb1028ea3bfeb05240cb839c4e04 (P0 WADO/WETH pool),
+  0x4a7af46bc8abc00048c6c7920a1488daf568366c (P1 WETH/USDC pool), 0x784e539f15ca2d19449a6311c5dab6cf37d8f1ba (P2: measured PancakeV3 cbBTC/USDC fee100 sell pool; the cbBTC route was watch-only until a natural liquidatable cbBTC capture - 2026-11-08 run 3b13c4a6 - ENABLED 2026-11-09 run 090bb447, REVERTED to
+  watch-only the same day run d62dc533 (attempt 633, blocked_infra; see fork_evidence note below), 0x4dbdcb087992404ea9b14fa83cc695b02797f39a (P3: measured PancakeV3 EURC/WETH fee100 sell pool, a ClonesERc196Proxy; lead 72 mEURC route extension 2026-11-09 run f04b98e0 - the 7-arg constructors; the mEURC route is bot-side watch-only, see the COLL_ROUTES[M_EURC] note), 0xb90fe999be6869af0afc557dccfbe169ea3403d6 (P4: measured XRP/WETH sell pool = the mcbXRP redeem's sale leg pinned from the incumbent trace of capture tx 0xa59906ec, a proxy -> impl 0xc770898522d2a9c8da7a10d63989b6b58305b665; lead 72 mcbXRP route extension 2026-11-09 run d11f8a2c - the 8-arg constructors; the mcbXRP route is bot-side watch-only, see the COLL_ROUTES[M_CBXRPL] note), 0xdfe5f275020def30993f042174fc2d335678b626 (P5: mAERO leg1 sell pool = PancakeV3 AERO/cbBTC pool, token0=AERO token1=cbBTC measured 2026-11-10; constructor-whitelisted 2026-11-10 run 65d02323 - the 9-arg constructors), 0x257fcbae4ac6b26a02e4fc5e1a11e4174b5ce395 (P6: UniV3 cbETH/WETH leg1 pool, pool factory()=0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865c and token0()=cbETH measured via relay eth_call 2026-11-11; constructor-whitelisted 2026-11-11 run 555959dc for the mcbETH route - the 10-arg constructors; the mcbETH route is bot-side watch-only, cash-starved at every measured poll-catchable capture)]; owner =
+  msg.sender = the gate's deployer. One tx: Morpho flashLoan(USDC,repay) ->
+  mToken.liquidateBorrow(holder,repay,mColl) -> redeem seized mToken -> 0-2
+  direct V3 pool swaps (swap 0x128acb08, caller-chosen 64-byte context, amount
+  slot overwritten by measured amounts, sqrtPriceLimit 0x1000276a4 like the
+  winner) -> repay -> revert unless USDC balance ends higher, RETURNING the
+  measured balance delta (liquidate() returns uint256 since 2026-11-06 run
+  788a4718). The UniV3
+  SwapRouter02 of record has no exactInput entrypoint (measured bytecode;
+  router route dead) — direct pool swaps only.
+  Fix round 2026-11-10 run 65d02323 (review a50ef674): MoonwellWhale.sol gained
+  the P5 constructor immutable (isPoolAllowed: pool == P5) - executor_args adds
+  the 0xdfe5... word; a fresh gate deployment needs NO setPoolAllowed
+  initialization send for the mAERO leg. liquidate() pays the measured profit
+  delta to OWNER (the bot wallet) IN the successful liquidation transaction
+  (review item 2) - profit no longer stays in the executor.
+  executor-runtime.hex re-taken by eth_getCode of the fork instance 0x8f7a45eb
+  ... deployed from 0x1111..1111 at relay head-3 55795650 after this build
+  (deploy tx 0xf5bfb218fb44b2f485a5b1646830fc8edbe3a2c6a57ced2d71feacb66c4b7b37
+  ); bot.js IMMUTABLE_CHECKS re-pinned against it (P4 374, P3 442, USDC 510,
+  P0 578, P5 646, OWNER 747, COMP 977, MORPHO 1043, P2 7846, P1 7914 - see
+  scratch/mw-maero/proof22.json imm_offsets). MAX_REPAY_WEI raised 300 -> 400
+  USD (the mToken band needs repay ~= half the principal; at 300 a
+  mUSDC-borrow principal > 600 USD capped repay below half). CYCLE_MS 15 s ->
+  60 s (review item 4 CU cut: measured ~10M -> ~2.5M CU/day). README step 3
+  (the live owner setPoolAllowed send) is SUPERSEDED by the P5 constructor
+  whitelist.
+  Fix round 2026-11-11 runs 555959dc/52994a7f (review eb077fe8, then fc43c8d9):
+  the constructor gained the P6 immutable (UniV3 cbETH/WETH leg1 for the mcbETH
+  route; isPoolAllowed: pool == P6) - executor_args is TEN words in constructor
+  order; executor-runtime.hex re-taken from the 10-arg fork-instance deploy and
+  bot.js IMMUTABLE_CHECKS re-pinned against it (P6 offset 453, see
+  scratch/mw-maero/sweep30.json imm_offsets; proof PROOF_OK with lease->reset->
+  deploy->legs->head-3 restore in one script). Descriptive-text pass per review
+  fc43c8d9: the executor_args comment now carries the 10th (p6) word label and
+  the ten-name order list, and the P6 pool is labelled UniV3-style (its factory
+  0x0bfbcf9f... measured, not the PancakeV3 factory P2 reports).
+fork_evidence: >
+  mcbXRP route extension 2026-11-09 run d11f8a2c (8-arg constructor, P4 XRP/WETH;
+  script scratch/mw-whale/proof16.py - lease base -> reset -> anvil deploy ->
+  probes; run GREEN only through the sf probe so far): the mcbXRP whale captures
+  (holder 0x544784a5, three mcbXRP captures 54911221/54922327/55160602, repay
+  2133/10956/15852 USDC; the incumbent 0xb6af8c9a's sell route pinned from the
+  debug_traceTransaction of tx 0xa59906ec: redeem -> swap XRP->WETH on P4
+  0xb90fe999... (0x128acb08, zeroForOne=false positive exact input, callback
+  uniswapV3SwapCallback 0xfa461e33 = this executor's) -> WETH->USDC on P1) are
+  NOT reproducible liquidatable on a fork reset: measured getAccountLiquidity
+  shortfall = 0 for 0x544784a5 at fork resets 55160601 (capture-1 of 55160602,
+  liquidity +177.58 USD, borrow 37741 USDC) AND at the deep window-floor resets
+  55029530 (capture-131072) and 54791255 (older capture 54922327 - 131072) -
+  the same-block price-cross class the mcbBTC/mcbXRPL/mEURC captures closed in
+  (attempts 630/633; decisions/human/2026-11-06-no-latency-race.md; the lead 72
+  attempt-676 "sf>0 from k>=131072 blocks" is a live-head read catching a
+  mid-block cross, not reproducible end-of-block on the fork - as reviewer
+  6f9f5d6f found for mcbBTC). mcbXRP market cash at the deep reset is 689,945
+  XRP (>= any whale seize; the redeem leg is NOT the blocker, unlike mEURC), and
+  P4 measured XRP balance 46,609 XRP (deep for a 300 USD leg). proof16 also
+  re-took the 8-arg runtime hex (bots/paper/moonwell-whale-base/executor-runtime.hex)
+  + PUSH32 offsets from the fork instance at the unchanged CREATE address
+  0x8f7a45eb (deployer/nonce only): P4 363, P3 431, USDC 499, P0 567, OWNER 668,
+  COMP 896, MORPHO 964, P2 7412, P1 7480. Re-enable needs a natural mcbXRP
+  capture whose holder is liquidatable >= 2 poll windows BEFORE the winner
+  end-of-block; then rerun proof16 at that reset-1 for the success/NO_PROFIT legs.
+  mEURC route extension 2026-11-09 run f04b98e0 (7-arg constructor, P3 EURC/WETH):
+  script scratch/mw-whale/proof15.py (lease base -> reset 54158850 = capture
+  54158851 - 1 -> anvil_setNonce 0 -> fund OWNER 0x1111..1111 2 ETH -> deploy ->
+  probes -> eth_call success -> fork send -> revert controls -> runtime hex +
+  PUSH32 offsets). Deploy receipt status 1 with CREATE address UNCHANGED
+  0x8f7a45eb (proof15 redeploys from the same 0x1111 deployer/nonce after the
+  P3-immutable source edit); bot runtime bots/paper/moonwell-whale-base/executor-runtime.hex
+  re-taken from the FORK INSTANCE eth_getCode after this build; IMMUTABLE_CHECKS
+  re-measured (P3 at 352; USDC 341->420, P0 409->488, OWNER 510->589, COMP
+  738->817, MORPHO 806->885, P2 7254->7333, P1 7322->7401). Probes at reset
+  54158850 (holder 0xfe6e5a14, holder field == event borrower; capture tx
+  0xcf6bc4eb..., mWETH borrow, collateral mEURC, repay 0.000856 WETH ~2 USD,
+  seize 8.145e9 mEURC shares): getAccountLiquidity shortfall > 0 (window
+  measured >=60 blocks by run b7e08b9f attempt 631: sf 0.60 at 54158791 -> 9.19
+  at 54158850 in 1e10-USD units); P3 pool token0=WETH token1=EURC fee=100 with
+  balances 196,600 EURC + 208 WETH (deep for a whale leg); borrow leg swap on
+  P1 now executes (this run fixed the increasing-side price limit: 2**160-2 is
+  ABOVE the pool's MAX_SQRT_RATIO and reverted BORROW_SWAP_FAILED on the fork -
+  use the promoted morpho-watcher-base MAX_SQRT_RATIO-1 0xfffd8963..., bot.js
+  LIMIT_UP updated). SUCCESS leg PENDING: the liquidate() call executes flash +
+  borrow swap + liquidateBorrow then reverts NO_REDEEM at reset 54158850 - the
+  mEURC market held only 1.855 EURC cash at capture-1 (measured, and 0.014 at
+  53517745 / 0 at 53462691 for the 0xbf65b647 captures: cash-starved
+  same-block class like mcbBTC/mcbXRPL, attempts 630/633), redeem paid 0 EURC
+  (market cash starved against reserves; the capture's own repay was ~2 USD,
+  under the bot's 1 USD net floor with margin). Route is bot-side WATCH-ONLY
+  (COLL_ROUTES[M_EURC] = null): re-enable needs a natural mEURC capture whose
+  market cash at capture-1 covers the seize quota, then rerun proof15 at that
+  reset for the success/guard legs. proof15.json is written only by a fully
+  green run; the current one is scratch/mw-whale/proof15.py's tail output.
+  Fix round 2026-11-08 run 3b13c4a6: the live preflight selector is now OWNER()
+  0x117803e3 (the executor's public immutable getter; the old owner() 0x8da5cb5b
+  reverts with empty data on the fork-deployed executor - verified at fork reset
+  54530000: CREATE address unchanged 0x8f7a45eb..., OWNER() returned the
+  deployer 0x1111..1111, owner() reverted, deployed runtime byte-equals the
+  bot's executor-runtime.hex; script scratch/mw-whale/proof14 inline). The P2
+  cbBTC route is bot-side WATCH-ONLY until a natural liquidatable cbBTC capture
+  (reviewer c4297fae alternative, bot.js COLL_ROUTES[M_CBBTC] = null): the only
+  whale-class mcbBTC-collateral event (moonwell_core.liquidate_borrow block
+  53265154, holder 0x263866fd, repay 21.335607 USDC) is NOT reproducible on a
+  fork reset - measured getAccountLiquidity shortfall = 0 at reset block
+  53265153 (relay research-lane probes 53265090/53265130/53265145/53265152/
+  53265153: liquidity 0.16/0.013/0.013/0.013/0.013, shortfall 0 throughout;
+  post-event 53265154: liquidity 1.369): the winner's liquidatability came from
+  same-block price-feed state a fork reset lacks (scratch/mw-whale/proof13.py,
+  probe leg; head holder 0x00bd1f9d stays dust per proof12).
+  Route ENABLED 2026-11-09 run 090bb447, then REVERTED to WATCH-ONLY the same
+  day by run d62dc533 (blocked_infra, attempt 633): the natural capture arrived
+  on 2026-11-08 — holder 0x470bac04 (borrow mUSDC, collateral mcbBTC, candidate
+  in the bot's own list since its earlier liquidations) was liquidated at block
+  54958965 (23:56:08Z) with repay 3615.70 USDC by EOA 0xbb0f5fad. The ENABLED
+  claim "liquidatable for >=110 min" (bot probes: shortfall 32 USD at head
+  54925221 22:03:45Z, 6 USD at head 54942703 23:02:01Z) is corrected per review
+  6f9f5d6f and my relay end-of-block probes (scratch/mw-whale/fix-d62dc533-window.json):
+  the account oscillated liquidatable/healthy at price crosses (shortfall 100.62
+  at 54922895, healthy 0.38 at 54925221, shortfall 6.30 at 54942703, healthy
+  again) - it was HEALTHY in end-of-block state across the whole range
+  54946000-54958964 (liquidity +18.97 to +222 USD), and mcbBTC getCash was only
+  140/4 raw cbBTC (8-dec) across the liquidatable windows and 5,329,126 raw
+  (0.053 cbBTC, 49x below the whale's 261,279,421 raw seize) in the last 164
+  blocks before capture: redeemable cash arrived only mid-capture-block. Both
+  whale-class mcbBTC captures in 10 ledger days (53265154 repay 21.34, healthy
+  through 53265153, cash 2,455,054 raw; 54958965) were eligible 0 blocks
+  (end-of-block) before their winner = same-block race
+  (decisions/human/2026-11-06-no-latency-race.md). Re-enable only if a future
+  whale mcbBTC capture is liquidatable >= ~2 poll windows WITH market cash >=
+  its seize quota, with a successful fork proof at that capture. Whale wave 2026-11-08 21:16-23:56Z:
+  9 events repay>=10 USD on the tracked markets (repay 3615.70/2326.95/1734.72/
+  10955.96/2133.06 USDC + 82.4/24.5 + 96.78/380.77 WETH-unit borrows), winners
+  nine distinct EOAs — the incumbent (0xbd6aedd2 / executor wallets 0xda5953da,
+  0xb9464e48) took 0 of 9, so the lead-72 incumbent-share gate is open for this
+  wave. The two WETH-borrow captures and the mUSDC-borrow holder 0x544784a5
+  (collateral market 0xb4fb8fed5b3a, not in COLL_ROUTES) defaulted 0-block-style
+  at the price cross (never liquidatable in any 15 s probe window the bot ran).
+  P2 route extension 2026-11-07 run 5fe750d4 (6-arg constructor): redeployed
+  on the leased Base fork (scratch/mw-whale/proof12.py, proof12.json); the
+  CREATE address is UNCHANGED 0x8f7a45eb (same 0x1111 deployer/nonce) and the
+  bot runtime is re-taken from the FORK INSTANCE eth_getCode after this exact
+  build; the eligibility leg passes on the new code (tx
+  0x8d75e041f0111d8213af72fafc8619cbd0330d95dad8ecb5768bf2d8644426f7 status 0
+  revert NOT_LIQUIDATABLE, maxRepay 0 on a healthy probe); the success/guard
+  legs await a liquidatable cbBTC-collateral capture: the live mcbBTC holder
+  0x00bd1f9d is dust (shortfall ~0.004 USD at reset 54509657) and reverts
+  LIQUIDATE_SEIZE_TOO_MUCH at every repay size 20-300 USD (tx
+  0x153e1eb078c9b72332835c8035e99e229069ba8c8355c7b68682454d9edf369e) - its
+  mcbBTC balance was exhausted by the 53550540 seizure; the mcbXRPL whale
+  holder 0x89e79e50 (event block 54167202, repay 2750.87 USDC) is healthy at
+  the head (liquidity 900 USD): proof_ok false is route selection, not code.
+  Measured P2 pool at fork reset 54167201: token0=USDC, liquidity 7.17e12,
+  pool balances 843,825 USDC + 40.9 cbBTC (deep for the 300 USD flash cap).
+  Rerun 2026-11-06 run 788a4718 (liquidate() now RETURNS its measured USDC
+  balance delta - the paper sim reads the exact executor delta from the
+  eth_call return value; same scratch/mw-whale/proof11.py recipe:
+  lease->reset 53786332->fund 2 ETH OWNER 0x1111..1111->deploy->
+  success/guard/eligibility->release, proof_ok true; the deployed CREATE
+  address is unchanged 0x8f7a45eb... from the same 0x1111 deployer/nonce):
+  SUCCESS tx 0xf7754f678f26bbdb0adcb08482fee02232a23abb097959d403f16664f566182f
+  status 1, gasUsed 1520989, executor USDC delta +0.042771 (flash maxRepay
+  5.60 USD = 1.06x the debt/16 value on borrowBalanceCurrent 0.0379867 WETH);
+  GUARD tx 0xdc210e46b01dbc4cb62076e0021a809371989c840fff1a5fb410cca4b336f54c
+  status 0 revert NO_PROFIT, USDC delta 0; ELIGIBILITY tx
+  0x6389f0a2133a4c35efe7f8a49de1d752b472086cfd3aa1a29949ab026e1d9d2b status 0
+  revert NOT_LIQUIDATABLE. The script re-takes the paper sim runtime from the
+  FORK INSTANCE eth_getCode after this exact build (bot.js IMMUTABLE_CHECKS
+  re-measured: only the P1 offset moved 7192 -> 7243). Bot-side flash sizing
+  (bot.js simulate()): flash cap = 1.06 x value(borrowBalanceCurrent/16),
+  capped at MAX_REPAY_WEI 300 USDC - measured 5.19 USD on the live holder
+  0x21df358f (debt 0.0350411 WETH at head 2026-11-06T14:55Z); the old fixed
+  300 USDC cap flashed shortfall/2 = 38.5 USD on that holder, swapped it all
+  to WETH and stranded the swap excess (reviewer run b23a1139: transferFrom
+  shortfall / LIQUIDATE_SEIZE_TOO_MUCH).
+  Rerun recipe (WETH-borrow route, the 2026-11-06 drought-end event):
+  scratch/mw-whale/proof11.py (lease->reset 53786332->fund 2 ETH OWNER
+  0x1111..1111->deploy->success/guard/eligibility->release). Green run
+  2026-11-06 (scratch/mw-whale/proof11.json, proof_ok true): SUCCESS tx
+  0x936f7b7d4ca00b041e55e3d99f35a89e134e527bf534af2c6747a94e0668dac3 status 1, gasUsed 1519949,
+  executor USDC delta +0.042771 (flash maxRepay 5.60 USD = the debt/16 repay
+  cap on borrowBalanceCurrent 0.0379867 WETH, holder 0x21df358f, borrow
+  mWETH, collateral mUSDC; seized 0.8 percent of the holder's mUSDC); GUARD
+  tx 0x4e1bbf60c5dff7ba0fb5b13408aac11af0668e4cfba76acac16954c960a4ec91
+  status 0 revert NO_PROFIT, USDC delta 0; ELIGIBILITY tx 0x1a7cda4eebe1f0f-
+  e3c72c0908c9aa3a9c0e988968c0b1d02688a02447c0fbaca status 0 revert NOT_LIQ-
+  UIDATABLE. The mToken returns LIQUIDATE_SEIZE_TOO_MUCH once the repay
+  passes the seize value cap (the winner repaid 7.75 percent of the debt and
+  was fine; 10 percent reverted - the executor caps the repay at debt/16).
+  The bot's paper sim runtime is re-taken from the FORK INSTANCE eth_getCode
+  after this exact build. Rerun recipe (USDC-borrow route):
+  scratch/mw-whale/proof10.py (lease->reset 53265094->fund 2 ETH
+  OWNER 0x1111..1111->deploy->success/guard/eligibility->release; rerun it -
+  gasPrice varies per run to dodge fork-send nonce reuse; guard floor carries
+  a 0.01 USD accrual-drift margin, see floor_note). Green run 2026-11-05
+  (run ee4720bb, scratch/mw-whale/proof10.json): SUCCESS tx
+  0x3cdb6b0fec44f38aade66679f18ee971f2c4a39962481041e33e7ce70e21fd95 status 1,
+  gasUsed 1642259, executor USDC delta +3.916356 (repay 59.62, event block
+  53265095 holder 0x1a7c950a8fff56a7cc679b4cbd085f910c1e7234, borrow mUSDC,
+  collateral mWADO -> WADO, two-hop sale WADO->WETH->USDC); GUARD (minProfit =
+  measured profit + 0.01 USD margin + 1 wei) tx
+  0xa10ed3fb6f33ca999d1cd82e0f78b5468bccb2aa71694a418ec4a5b7958010d7 status 0
+  revert NO_PROFIT, USDC delta 0 (balances preserved); ELIGIBILITY (healthy
+  probe at reset block, maxRepay=0) tx
+  0x9295551f6950ebe2603af731408818d935c9c2b5ec2ba20d9bf80f92f92567c0 status 0
+  revert NOT_LIQUIDATABLE. Fork note: at reset 53265094 the borrow is not yet
+  in default (Compound elapsed>1 flips with the mined block); the whale-class
+  poll window was re-measured with the bot's own shortfall probe at historical
+  tags (scratch/mw-whale/window-bracket.json; the old batch file measured the
+  wrong return word and its ">=32 blocks" is superseded): every sampled
+  capture was already liquidatable at the 16384-block probe floor (one
+  >=2048) before its winner = >=4095-32767 s by real block timestamps.
+  Fix round 2026-11-10 run 65d02323 (script scratch/mw-maero/proof22.py - lease
+  base -> reset -> deploy -> legs -> head-3 restore -> runtime re-take in one
+  run; output scratch/mw-maero/proof22.json): 9-arg constructor (P5 = mAERO
+  leg1 pool) + payout of the profit to OWNER in the same transaction. FRESH
+  DEPLOY at reset 55697122 (C-1 of the new mUSDC-borrow mAERO-collateral
+  capture 55697123, holder 0x48768c348525b888e53232bc2d020eba94741255, C-1
+  shortfall 1.818657 USD re-measured on the fork): isPoolAllowed(P5) == true
+  with NO owner setPoolAllowed send (deploy tx
+  0x401b670edb995052e6958f84ff1e227f25b60d2f3b6e796798770163ef109f0a; review
+  a50ef674 item 1 closed). ELIGIBILITY control: holder 0x638848d4... with zero
+  mUSDC borrow reverts NOT_LIQUIDATABLE (eth_call). The full-route legs at the
+  new capture revert LIQUIDATE_REJECTED (eth_call maxRepay 400e6): the
+  halfBorrow repay meets an unresolved delegate-side reject measured at the
+  proven WADO capture 53265094 on EVERY size from 60e6 to full principal
+  INCLUDING exactly half of borrowBalanceCurrent (scratch/mw-maero/sweep22.py;
+  the same mystery the aero session recorded at capture 55297681, attempts
+  "delegate check unresolved") - the success and payout fork legs await that
+  band fix; next step: read MErc20Delegate.liquidateBorrow between its
+  liquidateBorrowAllowed/getHypothetical frames and the repay/seize frames.
+  Fix round 3 2026-11-11 run 9aedc8e1 (review 872998e4) items 1-2 GREEN on the
+  CURRENT artifact via rerunnable script scratch/mw-maero/sweep27.py (fork
+  lease base -> reset -> deploy -> fund dummy -> legs; leaves the fork at
+  relay head-3 with the executor re-deployed and re-takes executor-runtime.hex
+  via eth_getCode; json scratch/mw-maero/sweep27.json, PROOF_OK): the fresh
+  deploy (no owner send) has isPoolAllowed(P5)==1 and runs the FULL mAERO
+  route at capture 55697123 (reset 55697122, holder 0x48768c34, +6d
+  anvil_setNextBlockTimestamp - the fork now mines tx blocks at parent_ts+1s,
+  so a plain reset never leaves a borrow in default): SUCCESS tx
+  0xfa47566aa4d0978d40439643b19e1465fd4737173ecb2ec9f8fc0db66fd33f5d status 1
+  pays the measured profit 0.136257 USDC to OWNER IN the transaction (the
+  +6d-head lens shortfall 2.66 caps repay ~1.33; the 1 USD floor is the bot's
+  send filter, the executor ran minProfit 1 wei), executor USDC delta 0;
+  GUARD tx 0xfda33d4394c270b4c1b9ffdfb652fc4f952a343da6beab24c2bed627a0a2f8ec
+  (minProfit = profit + 0.01) reverts NO_PROFIT with zero OWNER delta;
+  ELIGIBILITY tx 0x930338f08529f86d46.. reverts NOT_LIQUIDATABLE on the
+  borrow-0 control holder. WADO capture 53265095 legs at today's fork: the
+  eligibility control reverts NOT_LIQUIDATABLE (tx 0x1e563b9628c6e3a4fd..1520)
+  and the 400e6 observation leg reverts SELL1_FAILED (tx 0xed29cba370b19a2fd
+  b..278c7): the C-1 reset head's P0 slot0 (sqrtPriceX96 0x40a9f35d8ce8fa0d655cd7f,
+  tick -82976, liquidity 154400723582159945692316 - identical to the relay
+  archive read of the same block) prices WADO at HALF the capture-day price;
+  the lens liquidatability (sf 119.24) and the winner's swap both happened
+  INSIDE capture block 53265095 (same-block price update, lead 72), so the
+  whole-block C-1 reset cannot replay the sell today; the archived success
+  0x37217a1b009f9d1369996affa661f9323d8288d8ad2ff4d5764ef8e957f97adb
+  (+3.916356 USDC to OWNER, maxRepay 60, repay 59.62) stays the WADO route
+  proof. Fix round 4 2026-11-11 runs 555959dc/52994a7f (review eb077fe8 items
+  1-2): the artifact gained the P6 cbETH/WETH sell pool as the 10th
+  constructor immutable; rerunnable script scratch/mw-maero/sweep30.py (fork
+  lease base -> reset -> 10-arg deploy -> legs -> head-3 restore + runtime
+  re-take; json scratch/mw-maero/sweep30.json, PROOF_OK): the fresh 10-arg
+  deploy (deploy tx 0x507a11dd7a543fcf3fec12e836e7d8b9129b89476be140a19b1131065a4b1628)
+  has isPoolAllowed(P5)==1 AND isPoolAllowed(P6)==1 with NO owner send; at the
+  same mAERO capture 55697123 (+6d head, lens sf 2.6569) the SUCCESS leg tx
+  0xfa47566aa4d0978d40439643b19e1465fd4737173ecb2ec9f8fc0db66fd33f5d status 1
+  pays 0.136263 USDC to OWNER in-tx (executor delta 0), the GUARD tx
+  0x6fcbceee3ac0ac90a134bcc5dc08fe9b659f411c758dcfa5bdab87e03c695986
+  (minProfit = profit + 0.01) reverts NO_PROFIT with zero OWNER delta, and the
+  ELIGIBILITY tx 0x930338f08529f86d463120b533606951aefa6bd3784ecea634b23d03599c9bb2
+  reverts NOT_LIQUIDATABLE with the bot's EXACT (maxRepay 400e6, minProfit
+  1e6) calldata on the borrow-0 control holder. mcbETH capture 53283757
+  (reset 53283756; the only capture measured liquidatable >= 16383 blocks
+  before its winner - scratch/mw-whale/window-bracket.json): liquidatable at
+  C-1+6d head (sf 24.57, holder borrow 927.64 USDC) but the mcbETH market
+  cash at the same head is 154,486,718 raw cbETH (18-dec = 0.00015 cbETH ~
+  0.0002 USD), so the bot-exact-calldata redeem leg pays nothing: tx
+  0xdbb7654635a2e49570a888620b34912103f21a9070aafd5f5eb2325620ea96d2 reverts
+  NO_REDEEM (floor-300e6 leg tx 0xfe46e6f38b2580b5fddb90d5b25677249bb4251fd3bbf80c278904541bdd7b5f
+  the same, sweep29) - the cash-starved redeem class (mEURC/mcbBTC, attempts
+  630/633); the P6/mcbETH route stays WATCH-ONLY until a natural mcbETH
+  capture with market cash >= the seize quota. mAERO capture evidence RECALCULATED with the THIRD lens word
+  (getAccountLiquidity returns (error, liquidity, shortfall); the middle word
+  is LIQUIDITY): the 26 ledger mAERO-collateral captures (53258748..55697125)
+  - the 8 whose repay makes a >1 USD bonus plausible (10% of repay) all read
+  shortfall(C-1) = 0 with liquidity(C-1) > 0 (scratch/mw-maero/mine_probe.py,
+  relay archive eth_call per capture): capture 55697123's "sf 1.818657" was
+  the LIQUIDITY word - the holder was HEALTHY at C-1 (shortfall 0). No
+  measured capture was liquidatable at C-1: every capture became eligible
+  inside its own block - the route is the window 0-1 same-block race the
+  lead-72 blocked_infra classification says, not a poll-catchable flow; the
+  poll-catchable capture count with >1 USD net is therefore 0 of 8 measured
+  and the awaited natural event stays the README step 4 condition.
+awaited_events: >
+  LiquidateBorrow on the 17 emitting markets (ledger sources
+  moonwell_core.liquidate_borrow + .liquidate_borrow_ext). The 9-day drought
+  ended 2026-11-06: blocks 53786333 (06:47Z, tx 0x7ae200e3302dd19f1af51faeb7e2b3b5635c461ca97464c2a5c40fe9a58c4f7d,
+  mWETH borrow 0.002946 WETH, mUSDC collateral 296.49 seized), 53799551 and
+  53799599 (07:31Z, mUSDC borrows 43.83/2.38 USDC, collateral mcbXRPL
+  0xb4fb8fed5b3aaa8434f0b19b1b623d977e07e86d - no executor sale route for that
+  thin collateral, watch-only). Before that the last event was block
+  53550622 tx 0x7725909706db31f70628bba0bb98391d1c820b5ed90861c16f09eeed12b53afd
+  (0.067 USDC dust). Whale-sized 20-90 USD events recur ~1.4/day when active,
+  unscheduled; the drought showed the class can go silent for 9+ days with no
+  justified wait date (attempt 235). Today's 06:47Z holder 0x21df358f is on the
+  FULLY supported route (mWETH borrow + mUSDC collateral): if it re-defaults
+  inside the 12 h retention, the bot probes it and simulates.
+  mAERO success proof waits (README step 4): a natural mUSDC/mWETH-borrow
+  mAERO-collateral capture liquidatable at C-1 with shortfall >= max(2e12 wei
+  repay-truncation floor, repay/9 for the seize quota, ~30 USD for the 1 USD
+  send floor) - measured candidates so far: 55297693 (mAERO borrow, unservable),
+  55381952 (dust), 55697123 (HEALTHY at C-1: its 1.82 middle word is liquidity, third word 0 - run 9aedc8e1 recalculation), 55697125 (dust) - and
+  the executor's LIQUIDATE_REJECTED delegate band mystery fixed first
+  (scratch/mw-maero/sweep22.py + proof22.json, run 65d02323).
+good_signs: >
+  Heartbeats with head advancing; candidate additions on new LiquidateBorrow
+  logs with VALID borrower addresses (decoded from data word 1); candidates
+  retained across days (12 h wall-clock TTL from the last event sighting, not a
+  few minutes); opportunity lines with shortfall_usd > 0 on a candidate; the
+  promotion evidence is ONE naturally pre-discovered profitable sim: a candidate
+  first seen by an earlier LiquidateBorrow event, later probed with shortfall>0
+  and simulate sim_ok true with est_profit_usd > 1 and gate_pass_net true (the
+  simulate line's net_profit_usd > 0: gross profit minus expected gas, priced
+  at the cached includable fee on the fallback gas estimate MAX_GAS_LIMIT - the
+  relay strips gasUsed from eth_call responses; a live send requires this net
+  positive, fix 2026-11-06 run 932e714a) at the final 15 s poll
+  cadence (the eligible time is measured >=4095 s — days of margin at 15 s
+  polls; window-bracket.json). Fresh-start candidate seeding 2026-11-09 run
+  fc0eec83 (attempt 647, per attempt 644's actionable step): a cursor==0 start
+  backfills candidates from SEED_FLOOR 53247461 (the ledger source floor, ~917
+  getLogs pages at 40 pages x 2000 blocks per cycle, ~23 catch-up cycles) and
+  logs seed_scan lines while the cursor catches up; the seed filter adds only
+  whale-class (last event repay >= 10 USD-class) borrowers on the executor's
+  borrow markets - measured: 23 of the 242 historical borrowers qualify, the
+  dust tail cannot clear the 1 USD send floor. This is what the 2026-11-08
+  captures lacked: both missed WADO whale captures (54922711 repay 82.43,
+  54922713 repay 24.47 USDC) were ~150k blocks before the head, outside the
+  head-120000 fresh window, while their shortfall was stable >=211 blocks
+  before capture (attempt 644) - first-time defaulters invisible to the old
+  event-only discovery. runtime_ok true. Zero restarts.
+bad_signs: >
+  Zero candidate additions after a day of running (discovery broken); every
+  simulate reverting NOT_LIQUIDATABLE while the probe showed shortfall>0
+  (stale-holder or sizing bug); simulate reverting BORROW_SWAP_FAILED on a
+  mWETH-borrow candidate (sqrtPriceLimit/slot bug - fixed 2026-11-06: the old
+  64-hex MAX_SQRT_RATIO-1 limit string is an out-of-range uint160 calldata
+  arg); simulate reverting LIQUIDATE_SEIZE_TOO_MUCH (repay passes the mToken
+  seize value cap - the executor caps borrowAmt at borrowBalanceCurrent/16
+  minus 1 ppm - OR the candidate's collateral was already exhausted by an
+  earlier partial seize: measure the candidate's collateral balanceOf before
+  blaming sizing; the live holder 0x21df358f holds only ~0.0017 USD of mUSDC
+  collateral after the 2026-11-0T06:47Z seizure, so ANY meaningful repay
+  reverts for it); simulate reverting LIQUIDATE_SEIZE_TOO_MUCH drops the
+  candidate now (candidate_drop_bad_debt log, 2026-11-07 run: the same calldata
+  reverted on every 15 s sim for hours on the two retained holders - the seize
+  size is fixed by the protocol, so such a candidate re-joins only via its next
+  LiquidateBorrow event); dust candidates whose repay estimate cannot clear the
+  1 USD send floor (repay_est x 0.06 margin - 0.5 USD gas allowance) log
+  simulate_skip_dust instead of simulating; runtime_ok false (sims disabled);
+  scan_error every cycle; candidates stuck
+  above CAND_CAP with cursor lagging the head.
+rpc_reads_per_min: 0.85   # steady state at the 180 s cycle (cut from 60 s 2026-11-11 run 9aedc8e1, review 872998e4 item 3: the 60 s cadence measured ~2.5M Alchemy CU/day, above the 1M CU/day threshold of decision 2026-11-11-moonwell-stopped; the linear scale-down puts 180 s at ~0.83M CU/day, under the threshold - no human rationale owed; window fit: the supported-collateral whale class measured liquidatable >= 2048 blocks (~34 min) before its winner - 180 s polling is 11x inside it); the one-time fresh-start candidate backfill bursts 40 getLogs pages per cycle for ~23 cycles, visible as seed_scan log lines, then stops
+legal_note: >
+  Public Compound-v2 liquidation penalty: anyone may liquidate and the protocol
+  pays the seized discount; ordinary AMM sale of the newly seized collateral
+  only. No bug exploitation, no sandwiches.
+expedite: false
+next_review_at: null   # per review 6f9f5d6f (2026-11-09): no justified wait date; the reviewer re-reviews when a natural whale capture arrives. 2026-11-09 run d62dc533 reverted the cbBTC route to watch-only (blocked_infra, attempt 633) - see the corrected window note above. 2026-11-09 run fc0eec83: fresh-start candidate seeding added (attempt 647; attempt 644 actionable step) - bot.js scanLogs backfills from SEED_FLOOR on cursor==0 with the whale-class seed filter; the executor, its artifact and executor-runtime.hex are untouched by this fix
+
+resubmission_note: >
+  moonwell-maero-base: the mAERO-collateral extension of the stopped moonwell-whale-base whale class, resubmitted under a new ID per human decision 2026-11-11-moonwell-stopped item 2 with its two conditions in README.md. Runtime executor-runtime.hex re-taken 2026-11-10T21:0xZ (run 3ec1ed2c) by eth_getCode of the FORK INSTANCE 0x8f7a45ebde059392e46a46dcc14ab24681a961ea after fork deploy of the current artifact FROM 0x1111111111111111111111111111111111111111 at generation 467 (the deploy executed the constructor with the eight manifest executor_args; the code carries the 0x1111..1111 OWNER immutable = the bot.js EXEC_OWNER the paper sim sends from - a runtime taken from a deploy by any other sender, e.g. the earlier 0xb464f7314d55ec6a9a0cf6f7f6df17af8ed5b352 fetch at 20:5xZ by the fork default deployer, fails every paper sim with ONLY_OWNER and kept the heartbeat at runtime_ok false). bot.js IMMUTABLE_CHECKS re-pinned against that same eth_getCode (the 13:11Z aero3/aero4 source edits shifted the P2/P1 immutable words 7412/7480 -> 7593/7661; the other seven pins unchanged; scratch/mw-whale/executor-runtime-1111.hex is the fetched copy). bot.js COLL_ROUTES gained the enabled M_AERO entry (README step 2, run 3ec1ed2c). The leg1 pool 0xdfe5f275020def30993f042174fc2d335678b626 (measured token0=AERO token1=cbBTC at latest 2026-11-10, mAERO underlying = AERO 0x940181a94a35a4569e4529a3cdfb74e38fd98631) is NOT a constructor pool: it was whitelisted on the generation-467 fork instance by an owner setPoolAllowed send from 0x1111..1111 to 0x8f7a45eb.. (fork tx 0x96fbc4983523f9e7632dc0c090f1878d19019e467e33632bfc63ae40e9881e8c; isPoolAllowed(0xdfe5..)=true verified the same run) - a fresh gate deployment needs that one owner send (MoonwellWhale.setPoolAllowed 0x1bfa59c3, gas >= ~80k: a 32768-gas attempt reverted out of gas, fork tx 0x00324e4fda647a23fd26343ff4f7ea11e6833e92bd0eabf140e8bc384199e9a7) before the first mAERO swap (README step 3); the success fork proof awaits the first natural mAERO capture liquidatable at its C-1 (README step 4).

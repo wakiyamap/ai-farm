@@ -1,0 +1,6 @@
+{
+  "chain": "optimism",
+  "protocol": "spark_savings",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/spark-savings lists one optimism contract: sUSDC 0xCF9326e24EBfFBEF22ce1050007A43A3c0B6DB55 (eth_getCode non-empty, symbol()='Spark USDC Vault' via eth_call). EIP-1967 impl 0x3a1d3a9b0ed182d7b17aa61393d46a4f4ee0cea5 = UsdcVaultL2 (verified, solc 0.8.21, optimism.blockscout.com). Full ABI (48 fns) + source read: user-facing ERC-4626 only (deposit/mint/withdraw/redeem/exit/permit/transfer/approve); admin rely/deny/upgradeToAndCall are wards-auth; psm/rateProvider/usdc/susds are view. No drip/take/compound/harvest/reward function; referral arg only emits an event, no transfer to msg.sender anywhere. Vault routes through PSM3 0xe0f9978b907853f354d79188a3defbd41978af62 (verified): non-view = deposit/withdraw/swapExactIn/swapExactOut (user ops) + owner-only transferOwnership/renounceOwnership/setPocket. eth_call redeem(1,0xdead,0xdead) from stranger reverts 'UsdcVaultL2/insufficient-balance' (functional, not role gate)."
+}

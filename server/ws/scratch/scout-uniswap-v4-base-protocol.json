@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "uniswap_v4",
+ "status": "dead_end",
+ "checked": "2026-11-18 scout run 37fbf3a8: addresses from docs.uniswap.org/contracts/v4/deployments + DefiLlama adapter (projects/uniswap-v4). PoolManager 0x498581ff718922c3f8e6a244956af099b2652b2b (verified source via explorer, getter protocolFeeController() answers 0xc53dd825dedbe7814562528a1a30e8e5bcbb4b55); PositionManager 0x7c5f5a4bbd8fd63184577525326123b519429bdc (23,877 B code; ERC-721 + modifyLiquidities, no reward fn). Fee stack (new UNIfication design): V4FeeAdapter 0xc53dd825dedbe7814562528a1a30e8e5bcbb4b55 (verified source, TOKEN_JAR=0x9bd25e67bf390437c8faf480ac735a27bcf6168c). PoolManager.collectProtocolFees is role_gated: msg.sender must == protocolFeeController (stranger eth_call reverts 0x48f5c3ed InvalidCaller); LP fees are self-service (LP calls own modifyLiquidity/take). V4FeeAdapter.collect((address,uint256)[]) sel 0xe0511234 is permissionless (eth_call from fresh addr returns 0x) but pays the caller 0 - funds go to the immutable TOKEN_JAR. Accrued pot at head: 0.0092 ETH + 67.5 USDC. No caller-paid reward function in the protocol."
+}

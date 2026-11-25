@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-moonwell-lending",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1607,
+ "chain": "base",
+ "slug": "moonwell-lending",
+ "name": "Moonwell Lending",
+ "category": "Lending",
+ "tvl_usd": 5477071,
+ "url": "https://moonwell.fi",
+ "github": null,
+ "listed_days_ago": 1607,
+ "run_id": "f2cfc675c93045239b013eebc016eda9",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "pays_strangers: mToken.liquidateBorrow, no role gate (fresh-address eth_call returns state error 3, not role revert), Moonwell Base (comptroller 0xfbb21d03, mUSDC 0xedc817a2): 489 LiquidateBorrow / 377 txs / 45 liquidators in 7d (ledger moonwell_core.liquidate*); top-5 of 377 repay 43,443/27,469/25,437/16,004/16,004 USDC, gross ~6.7% = 2,911/1,841/1,704/1,072/1,072 USD vs gas 0.15-0.21 USD (1.7-1.8M gas @ 50-64 gwei); mUSDC 405 events / 265,470 USDC = ~17.8k USD gross/7d. Same as KB protocols:11 + leads:18: same-block race (0/8 poll-catches at 15s), trial bot trial-moonwell-base live.",
+  "kb": [
+   "attempts:2465"
+  ],
+  "run_id": "f2cfc675c93045239b013eebc016eda9",
+  "at": 1795080950
+ }
+}

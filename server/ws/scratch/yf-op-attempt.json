@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-yearn-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Yearn on Optimism is 111 V2 vaults (1.44M USD, kong.yearn.fi list) whose only keeper entry point is strategy.harvest() (onlyKeepers: keeper||strategist||governance||guardian||management, yearn-vaults v0.4.6 BaseStrategy); a stranger's eth_call reverts and the caller earns nothing (gain -> vault, perf fee -> rewards address). The function barely fires anyway: 0 StrategyReported events in 7d across all 112 vaults, last reports 2026-10-21 (top 2 Velodrome vaults) and 2026-05-11 (the rest).",
+ "numbers": "112 vaults 1,439,767 USD (kong.yearn.fi/api/rest/list/vaults/10, 2026-11-20); StrategyReported 7d = 0 / 112 vaults (eth_getLogs blocks 159347123-159649523, topics 8-arg 0x2fb611fa.. + 9-arg 0x67f96d28.., control 22 events in 35d on vaults 0xf7d66b/0xd0d2ac, Transfer controls 51/56); keeper EOA 0xc6387e937bcef8de3334f80edc623275d42457ff; last harvest tx 0x6f03aa2d769fd25903a76b7543eecaf9bab8c7cb53644ef624182199ea8a77d5 gasUsed 1,014,256 @ 3271 wei/gas = 0.0033 gwei = 3.32e9 wei = $0.000006 (ETH $1742.64 coins.llama.fi 2026-11-20 07:40Z); stranger harvest() eth_call reverts, keeper EOA harvest() eth_call ok"
+}

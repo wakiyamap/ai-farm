@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-narausd",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 75,
+ "chain": "ethereum",
+ "slug": "narausd",
+ "name": "NaraUSD",
+ "category": "RWA",
+ "tvl_usd": 3341367,
+ "url": "https://www.nara.io",
+ "github": null,
+ "listed_days_ago": 75,
+ "run_id": "052c919302a34227b3e042e8939f950f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "NaraUSD RWA dollar (token 0x5c62..3bb7, NaraUSD+ vault 0x1aa2..94d6): no callable function pays the caller - user flows self-pay, completeRedeem/bulkCompleteRedeem COLLATERAL_MANAGER-gated (fresh-addr eth_call = AccountNotRole), transferInRewards/burnAssets REWARDER-gated; 7d (26.406M-26.457M) 13 txs / 24 logs on 3 contracts (1 RewardsReceived 12,387 NaraUSD by 0x087e45aa.., 3 vault unstakes), RedemptionCompleted 0 since 26.107M (~51d); yield vests into the ERC4626 rate.",
+  "kb": [
+   "attempts:2892",
+   "protocols:1310"
+  ],
+  "run_id": "052c919302a34227b3e042e8939f950f",
+  "at": 1795175685
+ }
+}

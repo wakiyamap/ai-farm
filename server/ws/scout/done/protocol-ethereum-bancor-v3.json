@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-bancor-v3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1553,
+ "chain": "ethereum",
+ "slug": "bancor-v3",
+ "name": "Bancor V3",
+ "category": "Dexs",
+ "tvl_usd": 11004435,
+ "url": "https://app.bancor.network/",
+ "github": null,
+ "listed_days_ago": 1553,
+ "run_id": "de036a999aae4c6bb65a17a4e99fb146",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BancorNetwork.withdrawPOL (0xeEF417e1D5CC832e619ae18D2F140De2999dD4fB) is public and pays the caller 0.2% of pool surplus, but POLWithdrawn fired 0 times in 7d (blocks 26414917-26465172) and 0 in 90d; at block 26465172 only 41/95 whitelisted pools are in surplus and the largest reward is 0.3012 GNO (~26.6 USD, unverified why untaken; others dust <=1.5 ENJ), gas ~0.034 USD (150,241 gas @ 0.1355 gwei, ETH 1680 USD).",
+  "kb": [
+   "attempts:3422",
+   "protocols:1717"
+  ],
+  "run_id": "de036a999aae4c6bb65a17a4e99fb146",
+  "at": 1795285504
+ }
+}

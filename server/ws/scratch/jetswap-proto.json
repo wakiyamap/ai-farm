@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "jetswap",
+ "status": "dead_end",
+ "checked": "JetSwap bsc (DefiLlama registries/uniswapV2.js 'jetswap': factory 0x0eb58E5c8aA63314ff5547289185cC4583DfCBD5, staking 0x63d6EC1cDef04464287e2af710FFef9780B6f9F5 + 0x0487b824c8261462f88940f97053e65bdb498446). All have code (eth_getCode), getters answer: factory allPairsLength=221, feeTo=0xdf68a114...; MasterChef (Sourcify 56 source) poolLength=38, cakePerBlock=5e18 WINGS, syrup=0xd079475f..., owner=0xc9cb0b9f.... Classic PancakeSwap MasterChef: no public reward/claim function for a stranger - deposit/emergencyWithdraw/enterStaking pay only msg.sender's own pending balance; eth_call deposit(1,0) from fresh 0x1111..1111 succeeds, pendingCake(1,fresh)=0; deposit(0,0) reverts 'deposit WINGS by staking'. updatePool(0) callable, pays caller nothing. Reward token WINGS (0x0487b824..., 18 dec read on chain) has no price on coins.llama.fi (usd: unpriced); chef holds 50.77M WINGS but it accrues only to stakers. 7-day chef events: 17 logs (14 Deposit, 3 Withdraw, topics cast keccak-confirmed) over blocks 133284541-134628541 = lower bound: 137 of 269 5000-block getLogs chunks failed 'all providers failed: no provider available' (bsc public nodes). deadUrl=true on DefiLlama. BNB $570.65 coins.llama.fi 2026-11-20T04:11Z."
+}

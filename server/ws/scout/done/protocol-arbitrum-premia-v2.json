@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-premia-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "premia-v2",
+ "name": "Premia V2",
+ "category": "Options",
+ "tvl_usd": 78146,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "bad4321d4f234852a84e287ae8e70352",
+ "result": {
+  "verdict": "unpaid",
+  "line": "claimRewards(bool) on Premia V2 pools (PoolIO facet 0x1e9F88F8 of diamond 0xad74c7c6, 6 pools via ProxyManager 0x89b36ce3) is callable by anyone (eth_call fresh addr OK, no role gate) but pays ~0: 1 claim in 7 d (blocks 524796500-526820539, Nov 16-23) = 0.986 PREM = 0.0029 USD gross (token PREMIA 0x51fc0f66, 18 dec, CoinGecko 0.0029 USD 13:43 UTC) vs 0.0048 USD gas (140,641 gas @ 0.02 gwei, ETH 1723.69 coins.llama.fi); pot 220,588 PREM = 639 USD total, TVL 78k USD - sunset protocol.",
+  "kb": [
+   "attempts:4117",
+   "protocols:2239"
+  ],
+  "run_id": "bad4321d4f234852a84e287ae8e70352",
+  "at": 1795441697
+ }
+}

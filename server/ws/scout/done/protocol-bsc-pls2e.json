@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-pls2e",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1520,
+ "chain": "bsc",
+ "slug": "pls2e",
+ "name": "Pls2e",
+ "category": "Dexs",
+ "tvl_usd": 50408,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1520,
+ "run_id": "dc5fdf6e00e3446e855f3a0da248f279",
+ "result": {
+  "verdict": "unpaid",
+  "line": "skim type (S): plain UniV2 fork (factory 0x0944AB692786D9104AE9a29778285c41C33c0415, Sourcify exact, 78 pairs); only caller-payable fn is pair skim(address) (eth_call from fresh addr ok) but it pays pool surplus = LP money; 7d blocks 133885231-134966536 (2026-11-16 to 11-23): Skim 0, PairCreated 0 (control: 6 in Sep-Oct 2022 same query), Swap 1968 all arb trades for LP fees; skim gas ~0.0013 USD (0.05 gwei, BNB 556.75)",
+  "kb": [
+   "attempts:4027"
+  ],
+  "run_id": "dc5fdf6e00e3446e855f3a0da248f279",
+  "at": 1795418791
+ }
+}

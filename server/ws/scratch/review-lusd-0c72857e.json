@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "Liquity v1 LUSD redemption arbitration at 3000 LUSD farm size",
+  "outcome": "review_fix",
+  "reason": "Review 0c72857ec9ea4819842c1d476839e1c0: fix. bot.js opportunity branch uses undefined GAS_CAP_ETH and PROOF_GROSS_USDT_PER_3000, so it cannot simulate or send when premium opens. README leaves Oct 19 blocks 26227311/26227312 without eligibility times, class, or farm-size net; classified counted captures 26300876/26300990/26300993 all revert at 3000 LUSD. Current measured counted EV is 0 USD/day versus 0.191-0.204 USD/day reads. The only positive farm-size fork case is +48 s, earlier than polling R=252 s. See bots/paper/lusd-redemption-ethereum/review.md.",
+  "numbers": "README 2026-11-14 windows table: 11 events, 3 classified counted reverts, 1 positive +48 s trial, 2 unclassified Oct 19; proof12_out.json success tx 0xe9881aba5ab91c0fd7b881f7a664a4840e87d62bc11fbe46921988c9c0469aec at parent 26300832; 360000 CU/day x $0.53/M = $0.191/day, up to 385000 CU/day = $0.204/day incl hints.",
+  "bot_id": "lusd-redemption-ethereum"
+}

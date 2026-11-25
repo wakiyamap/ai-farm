@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-ddex",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "ddex",
+ "name": "DDEX",
+ "category": "Dexs",
+ "tvl_usd": 234735,
+ "url": "",
+ "github": [
+  "HydroProtocol"
+ ],
+ "listed_days_ago": null,
+ "run_id": "69e826c1ac0649cabbcbddcf3b2400b4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "DDEX Margin proxy 0x241e82c79452f51fbfc89fac6d912e021db1a3b7: liquidateAccount/fillAuctionWithAmount anyone-callable (fresh-addr eth_call reverts ACCOUNT_NOT_LIQUIDABLE / AUCTION_ALREADY_FINISHED, no role), but 0 logs in 7 d (26416459 11-14..26466715 11-21; control same shape = 20 logs, Liquidate+FillAuction topic0 from receipts). 22 Liquidate + 22 FillAuction in 44 d, last fill 26377003 (11-09, 12 d ago): 619-1,245 USDT paid for 0.031-0.037 sBTC per call (market 5: sBTC 18dp/USDT 6dp, sBTC unpriced). Gas 0.065 USD/liquidateAccount. Nothing liquidatable today.",
+  "kb": [
+   "attempts:3516"
+  ],
+  "run_id": "69e826c1ac0649cabbcbddcf3b2400b4",
+  "at": 1795304185
+ }
+}

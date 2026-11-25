@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-spectra-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Retired APWine/Spectra V1 on polygon is a dormant shell: every function that pays (vault deposit/withdraw/exitTerminatedFuture/claimFYT, harvestRewards, redeemVaultRewards) is onlyController/CONTROLLER_ROLE/FYT-only (claimFYT from a fresh address reverts 'FutureVault: ERR_CALLER'), and the only anyone-callable ones pay the caller nothing - AMM.switchPeriod reverts 'AMM: AMM not active' (all 8 pools Paused, state=2) and AMM.withdrawExpiredToken pays _user their own redemption. 0 transactions to any of the 17 protocol addresses (8 vaults + 8 AMM pools + controller) in the last 7 days; latest anywhere was a user self-withdraw at block 75,165,147 (2025-08-13). No keeper/bounty mechanism exists to pay a stranger.",
+  "numbers": "7d txs to protocol addresses: 0 (explorer txs desc-listing; current block 97,596,885; latest: Controller 75,165,147=2025-08-13, AMM pool0 65,513,461=2024-12-15, vault0 24,210,382=2022-01-27). Registry 0x72d15eae2cd729d8f2e41b1328311f3e275612b9 futureVaultCount()=8; all 8 AMM getAMMState()=2 Paused; all 8 vaults isTerminated()=false; deposits disabled. TVL 148,313 USD (api.llama.fi/protocol/spectra-v1, 2026-11-19). Gas 274 gwei x 150k = 0.041 POL = 0.0033 USD at POL 0.0811 USD (coins.llama.fi ts 1795101456). Gross to a stranger per call: 0 USD."
+}

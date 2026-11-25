@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "convex_finance",
+ "status": "dead_end",
+ "checked": "2026-11-20 scout run 9500ad31: Convex on Polygon is Convex's own Booster port at 0xF403C135812408BFbE8713b5A23a04b3D48AAE31 (DefiLlama adapter projects/convex uses the default booster address for polygon; TVL 152,260 USD). Verified source 'Booster.sol' 0.8.10 (convex-eth/sidechain-platform) via explorer source. eth_getCode non-empty; getters answer: poolLength()=0x12 (18 pools, poolInfo decodes 17 active, pid4 shutdown), staker()=0x989aeb4d175e16225e39e87d0d97a3360524ad80, rewardFactory()=0xCF50b810E57Ac33B91dCF525C6ddd9881B139332. Reward contracts (per-pid, from poolInfo) are minimal proxies, unverified on explorer; source ConvexRewardPool.sol from sidechain-platform. No function pays a caller: Booster.claimCrv(pid,gauge) reverts '!auth' from fresh address (only the pool's own reward contract; unlike ethereum Convex there is no earmarkRewards/harvest bonus on this port); addPool/shutdownPool poolManager-gated, all setters owner-gated; ConvexRewardPool.addExtraReward/invalidateReward/setRewardHook gated on rewardManager; getReward(address) is unguarded but pays the account argument's own accrued balance (RewardPaid receiver == user in all 15 claims in the 51d sample; 2-arg getReward requires msg.sender==account). No keeper bounty exists."
+}

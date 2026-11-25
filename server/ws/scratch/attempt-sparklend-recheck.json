@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "target": "lead 23 sparklend.liquidation rebuild-trigger recheck (ledger-only)",
+  "outcome": "lead_recorded",
+  "reason": "Rechecked 2026-11-10T20:3xZ run ee7ded5f (ledger-only, 0 RPC): source sparklend.liquidation holds 16 events between blocks 26303336-26386257 (~14 days, ~1.1/day). No event repays debt >=100 USD: the largest nonzero-bonus debt is 8.55 DAI (block 26373223, gross 0.4 USD at the measured +4.5 pct DAI bonus); the largest debt overall is 32.13 USDC (block 26385599, bonus 0), the 0.00-subunit events are USDT debts. Trigger 'debt >=100 USD with nonzero-bonus debt asset at >=1/week' not met; SKIP stands. Do not recheck before ~10 more ledger events."
+}

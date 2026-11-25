@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "fermiswap",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/fermiswap/index.js: TVL = WETH/USDT/USDC/cbBTC/WBTC in traderVault of SWAPPER 0xb1076fE3AB5e28005C7c323Bac5AC06a680d452e. eth_getCode confirms swapper (10KB, verified FermiSwapper.sol via explorer), traderVault 0x585d44727129b9c69791b10238ca605932938b4f (code, unverified), engine fermi() 0x90f73fea1ee2dc514d4dbac0bff7ff04b933767f (46KB, unverified; source family lambdaclass/propamm-factory PropAMM.sol + PrioUpdateRegistry 0xda7afeed01fe625cf15d187a19f94b45f00b8c5f verified). Getters answer: traderVault()=0x585d..., fermi()=0x90f7..., getPairs()=8 pairs, prioRegistry()=0xda7a..., maxParameterAge()=0. Setters (setSwapper) revert 'NM' (onlyManager). No caller-paid reward function: only swap/quote (user-funded) + onlyManager admin; PrioUpdateRegistry.batchUpdateStateWithSignature is permissionless to relay but pays 0. Dormant: 0 events in 7d on both contracts; last tx 2026-08-23 (all from operator EOA 0xff67d7211d4837607d601e65f27b97622540c47f). listedAt 2026-08-24."
+}

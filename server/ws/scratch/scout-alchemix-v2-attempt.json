@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-alchemix-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: the live AlchemistV2 harvest entrypoints revert unconditionally and TransmuterBuffer maintenance is keeper gated. Transmuter claim is redemption of the caller's own position; no public caller reward found.",
+  "numbers": "2026-11-23 relay eth_getCode/getter checks: 2 Alchemist proxies (14 alUSD yield tokens, 2 alETH underlying tokens), 2 Transmuter proxies, 1 alUSD buffer; all nonempty code and getter responses. Fresh-address eth_call: Alchemist harvest reverted, buffer exchange reverted Unauthorized 0x82b42900. Eligible stranger-paid calls identified: 0 by verified source inspection; 7d count and USD gross/gas not applicable because no eligible function. Sources: official V2 verified deployments https://alchemix-finance.gitbook.io/v2/verifieddeployments.md and explorer source on live proxy implementations 0x0f17d856ecc7c8ce9bd7d5b3e52a47eca5e8955a, 0x0fba3630ddf56457d3ffc2864f260fbe73167f42, 0xAD2A6C1C6025bE8C703930dCd921a2Fa25220298."
+}

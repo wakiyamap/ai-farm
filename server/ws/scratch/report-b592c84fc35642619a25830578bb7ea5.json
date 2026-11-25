@@ -1,0 +1,12 @@
+{
+  "run_id": "b592c84fc35642619a25830578bb7ea5",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane no-target close + NEW actors-queue pass: the whole actors table ordered by est_profit_usd_day with our_bot_id IS NULL (open copying candidates) - every candidate with est > 10 USD/day classifies to a closed class; no target taken",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1356"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure lane, 0 CU / 0 fork / 0 tx. Queue empty (0 unmeasured leads; decisions 2026-11-16 read, both asks already answered or due later). New pass not covered by exhaustion checks #12/#13/1354: walked the actors table's open queue (our_bot_id IS NULL by est_profit) - claim hub 142 agent-gated, Gearbox/compound/Midnight/crvUSD = closed liquidation classes, nest AVR sole-LP dead_end, fee-switch closed at 105/124, blur archived; no un-closed anyone-callable caller-paid class above the 1 USD/day floor. Board waits on researcher measurement requests."
+}

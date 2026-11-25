@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-tanx-fi",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: TanX.fi on ethereum is a StarkEx rollup escrow (proxy 0x1390f521A79BaBE99b69B37154D63D431da27A07 -> verified impl 'StarkExchange' 0xdf2f24751f7e84ccdcd39e7b49904fab0fb0f583, + BrineDepositContract 0xe17F8e501bF5e968e39D8702B30c3A8b955d8f52). No public function pays a caller: state-changing fns are operator/governance (updateState, register*, freezeRequest, main*) or user self-pay (deposit*, withdraw*, escape, fullWithdrawalRequest); the tanX ERC20 is a plain transfer/approve token. Protocol is also nearly dormant: 3 txs touched the proxy in 7 days.",
+  "numbers": "7d window blocks 26413339 (2026-11-14T12:51Z) to 26463592 (2026-11-21T12:51Z) by eth_getBlockByNumber timestamps: proxy 7 logs / 3 txs (topic0 from own receipts, no-topic scan; callers 0x5c264395... direct sel 0x441a3e70, 0xf87f1a3d... via 0x8773a286... sel 0x6c83a890), BrineDepositContract 0 logs, control USDC address-only getLogs last 200 blocks 17,992 logs. Proxy holds 0x2b650375a3 = 186,000.000003 USDC (0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, decimals()=6 read on chain, 2026-11-21); DefiLlama Ethereum chainTvl 243,709 USD (api.llama.fi/protocol/tanx.fi, 2026-11-21). getSequenceNumber()=12651. Gas cost: n/a, no callable reward function. Source of addresses: trade.tanx.fi static/js/main.b89785fb.js (STARK_CONTRACT config) + Blockscout verified names."
+}

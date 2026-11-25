@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-alphagrowth",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. AlphaGrowth curates Euler EVaults on Base; the only permissionless caller-paid function is liquidate(), and 17 liquidations in the last 7 days paid 5 unlabeled keeper contracts (strangers), gross $0.00-23.17 vs gas $0.024-1.43 per call (gross > gas in 4 of 5 samples). Frequency and size are small: ~17 events/7d and roughly $50-100 total discount across all 16 curated vaults; one bot (0x5ac9bc14...) took 11/17.",
+ "numbers": "7d Liquidate events=17 (eth_getLogs topic0 0x8246cc71ab01533b5bebc672a636df812f10637ad720797319d5741d5ebb3962, blocks 55699212-58723212, 16 vault addrs from DefiLlama adapter projects/alpha-growth/index.js); sample of 5 gross USD: +10.20 (0x339de369...), +23.17 (0xc874feef...), +1.34 (0x5311ff95...), +2.05 (0xf1b51626...), 0.00 (0x827ef81c...); gasUsed 715k-1.16M, gas USD 0.024-1.43 at ETH $1784.11, cbBTC $63543, USDC $1.00 (coins.llama.fi 2026-11-17); maxLiquidationDiscount 1000/1e4 (eef5) 1500/1e4 (0a1a,8820,5fe2)."
+}

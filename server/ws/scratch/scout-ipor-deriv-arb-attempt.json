@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-ipor-derivatives",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. IPOR interest-rate-swap router on arbitrum (0x760Fa0aB719c4067D3A8d4727Cf07E8f3Bf118db, ERC1967 proxy; not the Fusion vaults, protocols:677) has public close/claim entries that pay a beneficiary argument, but the swap book is empty: 0 events in 7.16 days across router + flowService + both AmmTreasury contracts, and the earlier run measured 4 logs in 90 days with none Open/CloseSwap. Nothing has paid anyone, stranger or not. Confirms and updates protocols:913 (same verdict class); no leads row.",
+ "numbers": "arb TVL 244,203 USD (api.llama.fi currentChainTvls 2026-11-19); eth_getLogs 0x1f3346c4..525544148 (7.16 d, from-block ts 2026-11-12T03:08Z) 4 addresses = 0 logs; control same shape Base router 0x21d337eBF86E584e614ecC18A2B1144D3C375918 3.1M blocks = 1 log; getters flowService()/getConfiguration() answer via rpc.py at block 525544148; 90 d history 4 logs (run 367e6b43)."
+}

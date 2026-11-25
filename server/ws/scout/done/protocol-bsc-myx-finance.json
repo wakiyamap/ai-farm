@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-myx-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 978,
+ "chain": "bsc",
+ "slug": "myx-finance",
+ "name": "MYX Finance",
+ "category": "Derivatives",
+ "tvl_usd": 38956,
+ "url": "https://app.myx.finance",
+ "github": [
+  "myx-protocol"
+ ],
+ "listed_days_ago": 978,
+ "run_id": "18992cdeeb6a4d95b7b5c1491292fc77",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: StakerV2 (0x36f4b2e8..., impl 0x3984ac3a) distribute/settleRewards are onlyDistributor - stranger eth_call reverts 'Not reward distributor'; HyperVault only deposit/withdraw; Pool only admin set*/user LP fns. 0 events on all 4 bsc contracts over 7 d (blocks 133788731 2026-11-15 to 135132183 2026-11-22; control WBNB same shape 7432 logs) and dormant since block 110143664 ~2026-07-15; TVL 38,956 USD; gross/call 0, gas n/a.",
+  "kb": [
+   "attempts:3904"
+  ],
+  "run_id": "18992cdeeb6a4d95b7b5c1491292fc77",
+  "at": 1795391081
+ }
+}

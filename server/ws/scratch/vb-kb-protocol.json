@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "venombridge",
+  "status": "dead_end",
+  "checked": "Vault 0x4aB740157721105aE503fbad756a578171512525 (TransparentUpgradeableProxy -> EIP-2535 Diamond impl 0x0bc8c8212c0c74773671c4badb18999c2b07f3c6, verified via routescan source; address from DefiLlama adapter projects/venombridge/index.js). eth_getCode non-empty; getters answer: emergencyShutdown()=false, bridge()=0xcb6bfb2e088ab23b1932c3e435583ccd2a1150e8. Facets (facetAddresses() 9): Deposit, Withdraw, PendingWithdrawals, Liquidity, Fees, Settings, Tokens, TokenFactory. Only reward-shaped callable: deposit(d,expectedMinBounty,pendingWithdrawalIds) (fills pending withdrawals, filler keeps bounty, no role) and saveWithdrawNative/saveWithdrawAlien (anyone can relay a signed Everscale payload, pays the recipient not the caller). skim() is onlyGovernanceOrManagement. pendingWithdrawalsTotal(WAVAX)=0 and (0x46f84dc6564cdd93922f7bfb88b03d35308d87c9)=0; getCash(WAVAX)=0. 7d no-topic eth_getLogs on the vault over blocks 100426782 (2026-11-15) to 101108459 (2026-11-22, head 0x606caeb) in 10k chunks: 0 logs; control WAVAX Transfer 1253 logs in 2000 blocks same shape. Routescan txlist newest vault tx 2026-09-28."
+}

@@ -1,0 +1,10 @@
+{
+ "id": "stellar-blend-interest-auction",
+ "kind": "stellar",
+ "tier": 1,
+ "age": 0,
+ "chain": "stellar",
+ "slug": "blend",
+ "name": "Blend V2 backstop interest auctions",
+ "steps": "Read the scout.md section \"Stellar\" first. Reads: curl -s -X POST 'http://127.0.0.1:8545/stellar' -H 'Content-Type: application/json' -d '<json-rpc body>'.\nQuestion: do strangers fill Blend V2 interest auctions (not liquidations), how often, and does a fill pay more than its fee?\n1. Contracts: the Blend V2 backstop and the V2 pools from the Blend docs (docs.blend.capital, deployments / mainnet contracts) or the blend-capital GitHub (a mainnet contracts json); the DefiLlama adapter `projects/blend-pools-v2` lists the pools it counts. Write each C... id with its source.\n2. Mechanism from the docs and the pool source (blend-contracts-v2, pool/src/auctions): interest auctions are created with create_interest_auction / new_auction and filled through submit with a fill request (interest = 8 in the docs). Note what the filler gives (backstop LP tokens, BLND:USDC 80/20 Comet) and gets (the interest lot), and how both move per ledger (0.05 percent per block for 200 blocks, then the bid side for 200 blocks).\n3. Last 7 days, per pool, with getEvents on the pool ids: the auction creation and fill events (names from the source; check the topic shape on one real event first). Count interest auctions created and filled, distinct fillers (G... or C...), ledgers from creation to fill. Sample of at most 10 fills: lot value and bid value in USD at the fill (prices from coins.llama.fi with time), the fee in stroops.\n4. Is there an atomic way: does a filler contract (Script3 auctioneer-bot \"interest filler\") buy the backstop tokens with USDC inside the same transaction? Name the contract id if you see one in the fills.\n5. Verdict: pays_strangers if a stranger filled in 7 days and lot minus bid minus fee is positive; else unpaid / role_gated / unclear. Record also how many liquidation and bad debt auctions you saw (count only)."
+}

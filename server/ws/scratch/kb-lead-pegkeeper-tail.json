@@ -1,0 +1,7 @@
+{
+  "chain": "any",
+  "target": "curve_pegkeeper rebalance class transplant scout to the remaining farm chains: OP Mainnet (10 curve-dex pools) and Avalanche (6) and Base (6) per DefiLlama yields; Polygon leg closed dead_end 2026-11-11",
+  "status": "unmeasured",
+  "why": "Lead 16 (measured, dormant on ethereum: 28 rebalances in ~5 d, reward ~19.98 USDT LP vs 18.56 USD gas, all keepers debt 0). The Polygon transplant leg closed dead_end (attempt 898): zero pegkeeper rebalance events in 100k blocks and the class scale makes cadence x margin too thin outside ethereum-scale TVL.",
+  "next_steps": "Cheap ledger-only screen first: install (or reuse) the curve_pegkeeper Provide/withdraw source specs for op/avalanche/base emitters, or repeat the attempt-898 topic-only topic0 census on one chain (10 reads) and pin debt()/credit() getters on any emitters. Only then think about a bot: expected cadence on <=2.3M USD TVL pools is well under 1/day; close dead_end unless an emitter with debt > 0 is found."
+}

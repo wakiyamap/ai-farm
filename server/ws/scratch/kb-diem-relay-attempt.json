@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-diem-relay",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. All keeper functions on DIEM Relay (RevenueSplitter.distribute, csDIEM.harvest, sDIEM.claimFromVenice/redeployExcess/initiateVeniceUnstake) are callable by anyone (fresh-address eth_call reverts are state errors, not role) but pay the caller exactly 0: distribute() routes 100% of USDC to the platform Safe (20%) and sDIEM stakers (80%), harvest() compounds the USDC into csDIEM share price, Venice keepers only move DIEM inside sDIEM. The protocol runs its own gas-only keeper hot wallet (repo src/keeper-distribute.ts), so nobody is being paid to compete for these calls.",
+  "numbers": "7d window blocks 55574782-58598785 (2026-11-10..17): Distributed x6 (all RevenueSplitter v3 0x213c..3215, gross moved 67.7-261.7 USDC per call, sum 905.87 USDC, e.g. tx 0x3c46480984602686a077078def805cc371819af6143513d4aaa8a447ab58786d), Harvested x1 (0.11 USDC, tx 0xe09984425bd614ff32de0529b002f17e0e37ac071ff4173d0642ccf33e6780df), Venice keeper events x0 (control: 11 since sDIEM v2 deploy 46251126, last block 51341951). All 7 by keeper 0xcc643f8e9965286ce52f185a816af0b2b6fca20c. Caller payout per call: 0 USDC. distribute gas 135540 x 0.006 gwei = 8.13e-7 ETH = $0.0015 (ETH $1796.30, coins.llama.fi 2026-11-17). 23h cooldown, ~1 distribute/day."
+}

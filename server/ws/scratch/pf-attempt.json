@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-planet-farm",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid — the only public keeper functions are Harvest-fork strategy farm()/earn() (confirmed callable from a fresh address: v2 strat 0xa24ce288... reverts '!isAutoComp', a pool-config require, not a role), but they pay the caller 0 USD by design: distributeFees()/buyBack() route every fee to protocol addresses (rewardsAddress etc., V1 repo source; no msg.sender payout exists). TVL $1.49M; the whole protocol is near-dormant: of 152 pools across 4 factories only 2/24 Infinity pools had any lastRewardBlock update in 7 days (blocks 133851322/133851830, ~4.1 d ago, both Pancake v3 Net-LP wants; MasterChef updatePool is called by user deposits, not a paid keeper).",
+  "numbers": "TVL 1494040 USD (queue). Head 134633590; block time 0.45 s (22508 s / 50000 blocks, eth_getBlockByNumber ts diff) -> 7d = ~1.34M blocks. Pools updated in 7d (lastRewardBlock state): v1 0/57 (newest 12840543, ancient), v2 0/63 (newest 132962757 ~= 8.7 d), Infinity 2/24 (pools 2,3 at 133851322/133851830 ~= 4.1 d), v3 0/8 (newest 122602364 ~= 62 d). Gross to caller per earn(): 0 USD (source: distributeFees -> rewardsAddress). Gas: 0.05 gwei (eth_gasPrice 0x2faf080) x ~150k gas x BNB $566.46 (coins.llama.fi ts 1795150674) ~= $0.004. getLogs on bsc: silent [] at 5000-block windows this run (WBNB control 0 there, 10951 logs at 1000 blocks, 32 MiB error at 4500) - do not trust 5000-block bsc windows."
+}

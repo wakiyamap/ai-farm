@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-fluid-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 742,
+ "chain": "base",
+ "slug": "fluid-dex",
+ "name": "Fluid DEX",
+ "category": "Dexs",
+ "tvl_usd": 3093032,
+ "url": "https://www.fluid.io/",
+ "github": null,
+ "listed_days_ago": 742,
+ "run_id": "70463e8013c6455fb4c8150ba426ec05",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: FluidDexT1 pools on base (DexResolver 0xa3B18522827491f10Fc777d00E69B3669Bf8c1f8, 32 dexes, 18 sampled) expose only revert-settled user actions (swapIn/Out, deposit/withdraw/borrow/payback + Perfect), callbacks restricted, adminModule admin-only - no reward/claim/keeper/liquidate fn pays the caller; 7d to block 59003755: 2299 Swap events (~330/d trader volume, control 6162 USDC Transfers/1000 blk), LogArbitrage 5, gross-to-stranger 0; TVL 3.09M USD (DefiLlama).",
+  "kb": [
+   "attempts:2063"
+  ],
+  "run_id": "70463e8013c6455fb4c8150ba426ec05",
+  "at": 1794991399
+ }
+}

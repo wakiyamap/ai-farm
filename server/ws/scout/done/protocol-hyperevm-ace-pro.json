@@ -1,0 +1,27 @@
+{
+ "id": "protocol-hyperevm-ace-pro",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 28,
+ "chain": "hyperevm",
+ "slug": "ace.pro",
+ "name": "Ace.Pro",
+ "category": "Options",
+ "tvl_usd": 180020,
+ "url": "https://ace.pro",
+ "github": [
+  "ace-defi"
+ ],
+ "listed_days_ago": 28,
+ "run_id": "22e3fe99abcc4e2288eaabfaa8f9325c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ace.pro hyperevm (Judge diamond 0xB050...20D0, HYPE+USDC vaults ~185k USD): open pokes lock/settleMarketRound ran 1,818 + 1,817 times in 7d (blocks 50.92M-51.41M, full getLogs; all 10 sampled txs from OPERATOR EOA 0x2971e358...3a47) but pay caller 0 - no msg.sender transfer in public source, revenue -> LP/team/treasury; gas 216.6k/609.3k @0.12 gwei = bash.002/bash.005 at HYPE 0.16 (coins.llama.fi); fresh-addr eth_call: lock/settle revert on state not AccessControl, startMarketRound OPERATOR-gated.",
+  "kb": [
+   "attempts:1590",
+   "protocols:298"
+  ],
+  "run_id": "22e3fe99abcc4e2288eaabfaa8f9325c",
+  "at": 1794892494
+ }
+}

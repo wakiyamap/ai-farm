@@ -1,0 +1,109 @@
+{
+ "note": "relay state reads return empty for every known contract/method on ethereum (and base) since ~17:08-17:14Z 2026-11-08",
+ "chain": "ethereum",
+ "lane": "research (paper and live lanes tested identically empty)",
+ "utc_time_first_test": "2026-11-08T17:14:40Z",
+ "head_block_dec": 26371146,
+ "head_block_hex": "0x192660a",
+ "requests": [
+  {
+   "method": "eth_getCode",
+   "params": [
+    "0x4Ddc2D193948926D06f59591688683E33e05483E",
+    "latest"
+   ],
+   "result": "0x"
+  },
+  {
+   "method": "eth_getCode",
+   "params": [
+    "0xA0b86991c6218a36c00dafe1c55818eB84d739e0",
+    "0x192660a"
+   ],
+   "result": "0x"
+  },
+  {
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xA0b86991c6218a36c00dafe1c55818eB84d739e0",
+     "data": "0x70a08231",
+     "from": "0x4Ddc2D193948926D06f59591688683E33e05483E"
+    },
+    "0x192660a"
+   ],
+   "result": "0x",
+   "expect": ">0 balance of cETH in USDC"
+  },
+  {
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xA0b86991c6218a36c00dafe1c55818eB84d739e0",
+     "data": "0x70a08231"
+    },
+    "0x1925d4a"
+   ],
+   "result": "0x"
+  },
+  {
+   "method": "eth_call",
+   "params": [
+    {
+     "to": "0xA0b86991c6218a36c00dafe1c55818eB84d739e0",
+     "data": "0x70a08231"
+    },
+    "0x1200000"
+   ],
+   "result": "0x"
+  },
+  {
+   "method": "eth_getBalance",
+   "params": [
+    "0x28C6c19cCb972b22Db57fC31af338B6Bdf91344F",
+    "latest"
+   ],
+   "result": "0x0",
+   "expect": "Binance8 whale ~ >0 ETH"
+  },
+  {
+   "method": "eth_getTransactionCount",
+   "params": [
+    "0x28C6c19cCb972b22Db57fC31af338B6Bdf91344F",
+    "latest"
+   ],
+   "result": "0x0",
+   "expect": ">0 nonce"
+  },
+  {
+   "method": "eth_getStorageAt",
+   "params": [
+    "0xA0b86991c6218a36c00dafe1c55818eB84d739e0",
+    "0x3",
+    "latest"
+   ],
+   "result": "0x00000...0000",
+   "expect": "nonzero (USDC implementation slot)"
+  },
+  {
+   "method": "eth_call (local fork 9003, ethereum, fork gen 281)",
+   "params": [
+    {
+     "to": "0xA0b86991c6218a36c00dafe1c55818eB84d739e0",
+     "data": "0x70a08231"
+    },
+    "latest"
+   ],
+   "result": "0x"
+  }
+ ],
+ "positive_controls": {
+  "eth_blockNumber": "0x192660a works on all chains",
+  "eth_getLogs": "ledger sources keep backfilling (ethereum events to 26371551 at 17:17Z, ~47 blocks behind head)",
+  "cast call to same relay URL": "Error: contract 0xa0b86991c6218a36c00dafe1c55818eb84d739e0 does not have any code (cross-check per instructions)",
+  "eth_getBlockByNumber": "block 0x1926633 header real: timestamp 1794158699 (17:24:59Z), gasLimit 0x393868e - the node is synced; only state-family methods are empty",
+  "alchemy_getAssetTransfers": "returns a valid structured response ({transfers: []}) at 17:25:34Z"
+ },
+ "incident_window": "first observed 2026-11-08T17:14:40Z; still down at 17:25:34Z (paper lane 17:0xZ restart healthy; last known-good state measurements ~15:49-17:08Z runs 918ff617/38ad2623)",
+ "note_fresh_probe_revert": "the paper bot's 17:24:50Z fresh_probe eth_call reverted NoProfit because the executor's pinned code is supplied as a state override and its guard fires on empty state - it is NOT evidence of state recovery; getCode stayed 0x on every lane through 17:25:23Z"
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-communityv3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 29,
+ "chain": "ethereum",
+ "slug": "communityv3",
+ "name": "CommunityV3",
+ "category": "Dexs",
+ "tvl_usd": 19707535,
+ "url": "",
+ "github": [
+  "communityV3"
+ ],
+ "listed_days_ago": 29,
+ "run_id": "855e3fa2a6ab47108b45c6fac9afd082",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Unmodified Uniswap V3 deployment (factory 0x00a38533c68327aBE0Cc265436e036066E2D6B38, explorer source = standard UniV3Factory/Pool v0.7.6, owner()=0x0 burned): no function pays a stranger caller (collect pays the LP's own accrued fees, eth_call from fresh addr returns (0,0); collectProtocol reverts, onlyOwner); TVL 26.4M USD (api.llama.fi 2026-11-20), 420 pools since 2026-09-03 (33 in 7d), 1333 swaps/7d on a 32-pool sample (14 active) \u2014 all value is LP swap fees, no keeper bounty.",
+  "kb": [
+   "attempts:2865",
+   "protocols:1283"
+  ],
+  "run_id": "855e3fa2a6ab47108b45c6fac9afd082",
+  "at": 1795170266
+ }
+}

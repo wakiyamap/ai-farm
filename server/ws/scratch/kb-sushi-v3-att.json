@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-sushiswap-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: SushiSwap V3 on polygon is a pure UniswapV3 fork (SwapType); factory + pool ABIs (verified source of 0x917933899c6a5F8E37F31E19f92CdBFF7e8FF0e2 and UniswapV3Pool.sol) contain no function anyone can call for a payment to the caller - everything is LP-driven (mint/collect/burn/swap/flash/skim) and fee/owner functions are onlyOwner/onlyFactoryOwner. The protocol is also near-dormant on polygon: top-2 pools (90% of the 847k USD TVL) had zero Swap/Collect/Transfer events in the last 7 days.",
+  "numbers": "TVL 847,183 USD (candidate); 7 PoolCreated events in 7d, blocks 97261675-97564075 (eth_getLogs on factory, control same-run returned 7); pool 0x1b0585...960c balance 149,890 USDC.e + 102.2 WETH (~331k USD at ETH 1775.68, coins.llama.fi); pool 0xf1a1...2a32 balance 1,008,393 WPOL + 25.7 WETH (~128k USD at POL 0.0813, coins.llama.fi); both: 0 Swap, 0 Collect, 0 Transfer events in the same 7d range (zero counts valid against the factory control above)."
+}

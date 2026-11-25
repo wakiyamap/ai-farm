@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "address": "0xfaab09c4e7dd30e6bd98a4c9d215bc52bb8ff2ae",
+  "strategy": "Morpho Blue liquidation batch executor (unverified contract, one keeper EOA 0x0c91e1bbe28fd745ec52d95015cfa928e349e731): entry 0x1dbf95fe (also 0x2e22a2a8) loops self-calls 0xa7b8b534, each one Morpho Blue 0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb liquidate 0xd8eabcb8 on a USDC-loan market (cbBTC/cbETH/cbXRP/JitoSOL collateral), collateral flash-sold straight back to USDC in the same transaction (venue pays USDC first, takes the collateral), leftover USDC swept to the EOA; also takes Compound v3 BuyCollateral liquidation auctions (6 in window)",
+  "evidence": "0x7985c0f1c327e012d96387f1ca7d21ee45d8d2ea43e1185e8be93fcce48251e4 (1 liq, repaid 9,368.08 USDC, swap venue paid 9,458.46 USDC, 90.384791 USDC swept to 0x0c91e1bb); 0xfe3e9a7aee3548fd891be17ac149efc26af0f3569967af02170576e30d635028 (10 liq); 0x2d4b4066a03f9a8f19e8effa5b46f3131a5f4e228b9aec1a96ef2f8a13f256c7 (10 liq); 0x556b7e32894a4b66e1d42a60a1e8d3e602fbf737b450abb0752f8245af39049f; USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 Transfer logs from 0xfaab09c4, blocks 59980000-60257400",
+  "est_profit_usd_day": 365
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-strato-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 65,
+ "chain": "hyperevm",
+ "slug": "strato-bridge",
+ "name": "STRATO Bridge",
+ "category": "Bridge",
+ "tvl_usd": 456344,
+ "url": "https://strato.nexus/",
+ "github": null,
+ "listed_days_ago": 65,
+ "run_id": "16835b3a6888434197bc8f9adb01dfc7",
+ "result": {
+  "verdict": "no_reward",
+  "line": "hyperevm strato-bridge = DepositRouter 0x3735e752...8b74 (verified) + Safe custody 0x8c458f86...f5d5: user-only deposit flows (Permit2->Safe), all else onlyOwner, no function pays the caller; 7d: 2 DepositRouted (~0.79 wHYPE total ~5, caller pays; gas bash.0008), 0 WithAction, 0 RepresentationMinted chain-wide in 30d (control 3); TVL 481k USD",
+  "kb": [
+   "attempts:1607"
+  ],
+  "run_id": "16835b3a6888434197bc8f9adb01dfc7",
+  "at": 1794895679
+ }
+}

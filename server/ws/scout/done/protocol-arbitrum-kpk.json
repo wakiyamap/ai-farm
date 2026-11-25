@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-kpk",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 396,
+ "chain": "arbitrum",
+ "slug": "kpk",
+ "name": "KPK",
+ "category": "Risk Curators",
+ "tvl_usd": 1872380,
+ "url": "https://kpk.io/",
+ "github": [
+  "karpatkey"
+ ],
+ "listed_days_ago": 396,
+ "run_id": "37b01d469a864541885c8ec5bdf27374",
+ "result": {
+  "verdict": "no_reward",
+  "line": "KPK on Arbitrum = 3 Morpho curator vaults only (0x2C60.., 0x5837.., 0x7bfd..; whole chain TVL $1,871,413 per llama; totalAssets 13.6k + 2.5k USDC + 1.54M EURe); 7d: 403 share Transfers (0/9/394, blocks 522670017-525090017), all user deposits/withdrawals and curator EOAs; no callable fn pays the caller - public accrueInterest() mints fee shares to KPK recipients, reallocate/submit are allocator/curator-gated, skim pays skimRecipient; gas 142,761 x 0.02 gwei = $0.005 (ETH $1,776.87, coins.llama.fi).",
+  "kb": [
+   "attempts:1791",
+   "protocols:448"
+  ],
+  "run_id": "37b01d469a864541885c8ec5bdf27374",
+  "at": 1794934317
+ }
+}

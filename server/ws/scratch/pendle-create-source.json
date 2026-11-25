@@ -1,0 +1,17 @@
+{
+ "id": "pendle_v2.create_yield_contract",
+ "protocol": "pendle_v2",
+ "kind": "cohort_creation",
+ "chains": {
+  "ethereum": [
+   "0x273b4bfa3bb30fe8f32c467b5f0046834557f072",
+   "0x35a338522a435d46f77be32c70e215b813d0e3ac",
+   "0x3e6eba46abc5ab18ed95f6667d8b2fd4020e4637"
+  ]
+ },
+ "event": "CreateYieldContract(address,uint256,address,address)",
+ "topic0": "0xaa79d8f17776adeaa316c5411b72e8b0057d064974fa8748f32492ecaa22ecd1",
+ "indexed": ["SY", "expiry"],
+ "data": ["PT", "YT"],
+ "actor_field": "tx_from"
+}

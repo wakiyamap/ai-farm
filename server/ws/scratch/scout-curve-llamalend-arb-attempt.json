@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-curve-llamalend",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. LlamaLend v1 factory 0xcaec110c784c9df37240a8ce096d352a75922dea on arbitrum, market_count()=25, verified source. Permissionless controller.liquidate(address,uint256) (eth_call from fresh addr reverts with state reason not role) pays the msg.sender the liquidation discount. 2 Liquidate events in last 7d across all 25 controllers, both dust-sized (<=~5 USD), one taken by pro cross-chain bot 0x5ac9bc14. Vault has no claim function.",
+ "numbers": "7d Liquidate count=2 (blocks 523330166-525374422, 35x60k chunks, relay scout lane); tx1 0x9a4113c2 4.7963 USDC out gas 775501@0.02016gwei=0.027 USD; tx2 0x33b7fc9e 20 wei collateral gas 1518327=0.053 USD; ETH 1736.40 (DefiLlama coins.llama.fi 2026-11-18); TVL 777110 USD (candidate)."
+}

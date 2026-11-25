@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-re7-labs",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Re7 Labs on base is not its own protocol: it is the curator of one live Morpho Vault V2 'Re7 USDC' (0x618495ccc4e751178c4914b1e939c0fe0fb07b9b) plus an empty 'Test2' vault (0xf09aa7a80bab76cc3be1714b79bc703f7afe43b1). The only permissionless function is accrueInterest() (a poke: callable by a stranger via eth_call, no role revert) and it pays the caller nothing - interest fees are minted to Re7's own fee recipients. Nothing pays a stranger; no reward/bounty/keeper-fee function exists.",
+  "numbers": "7d window, queried block 55786595->58836068 (2026-11-10..17): AccrueInterest events on the vault = 1 (full sample, not a subsample; control same-shape Deposit query = 0 events, factory scans same window returned 120+396 events so log queries work). The 1 accrual: tx 0xeaccfe633c17c635381d3b3c04b235d08967c1ff0544c6d224ac3ce3d6d5822a block 55909591, called by 0x93db2e90f8b2b073010b425f9350202330bd923e through router 0x2b08a911f48de25a7e305d910afb5597abe8ea7b, gasUsed 310,367 @ 0.00857 gwei = 2.66e-6 ETH ~= $0.005 (ETH $1823.28, coins.llama.fi coingecko:ethereum). Gross to caller $0. Vault TVL: totalAssets 1,250,928 USDC at latest (0x123411de91b). Sources: rpc.py eth_getLogs/eth_call on base, registries/curators.js + helper/curators/configs.js (DefiLlama-Adapters main), explorer source base 0x6184... (Morpho vault-v2)."
+}

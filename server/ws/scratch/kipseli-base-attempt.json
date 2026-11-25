@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-kipseli",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward - Kipseli on Base is a Titan/LambdaClass PropAMM (RFQ/PMM) market-maker venue, not a reward-paying protocol. The only functions anyone can call are swap (taker pays the spread and needs an off-chain EIP-712 signed quote from the Kipseli API) and views (quote/isActive/quoteFillable); every keeper-ish function in the canonical implementation (pause, addPair, setPairVault, setOracle, addUpdater, removeUpdater, withdrawERC20) is onlyOwner, and price updates are published by the maker's own updater to the Titan builder feed, not rewarded on-chain. Vault activity is real (aggregator takers: Settler, CoW-style settlement) but no stranger is ever paid - the takers pay. Hub contract unverified on Basescout so its surface was recovered from bytecode selectors + 4byte.directory: quote, maxPriorityFee, setWallet, doAnything, Ownable - no claim/collect/harvest.",
+  "numbers": "tvl_usd 664,782 (DefiLlama candidate row, chain Base); listed tokens 4 + USDC quote (getListedTokens/getQuoteToken eth_call 2026-11-17); vault 0xbee3211a..da000: 50 ERC20 transfers in ~38 min (Basescout token-transfers page, 2026-11-17 06:16-06:54 UTC); hub quote(WETH 0.1 -> USDC) = 1,830.4 USDC (eth_call 0xad18ad0c, 2026-11-17); sample swap txs 0x9ab391dbf4e05d8f, 0x77b221c760d2ebdc, 0x9de7d1f8c7375204; typical swap tx fee 4e12-1.7e13 wei (~0.01-0.04 USD); gross reward per call to a stranger: 0."
+}

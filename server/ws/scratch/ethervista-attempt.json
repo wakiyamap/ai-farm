@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-ethervista",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Verified factory, pair and router source offers no permissionless action paying a stranger. claimShare() pays only the caller's own LP-fee entitlement; skim() is excluded as skim type (S).",
+  "numbers": "Factory 0x9a27cb5ae0B2cEe0bb71f9A85C0D60f3920757B4 allPairsLength=1087 (eth_call latest 2026-11-23T20:27Z); sample of 2 of 1087 pairs, both 17932-byte code and correct factory getter. Fresh 0x1234567890123456789012345678901234567890: Providers=(0,0), viewShare=0 wei ETH on first pair; latest pair viewShare=0 wei ETH (eth_call). Eligible stranger-paid function count/gross/gas N/A by source inspection, not a measured zero calls. 7-day bounds block 0x1934a18 2026-11-16T20:27:11Z through 0x1940e5c 2026-11-23T20:27:11Z (eth_getBlockByNumber). Etherscan pair 0 direct txs: claimShare tx 0xa7ee150bc03387c88e38ac87109caf99760a0591f09f4121873a37050a4eefad at block 26392280, 2026-11-11, outside window; no global claim count inferred."
+}

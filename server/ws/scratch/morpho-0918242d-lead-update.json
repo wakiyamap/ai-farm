@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "target": "Morpho Blue liquidate via Morpho-flashLoan batch executor (incumbent 0x0918242d; WETH / cbDOGE collaterals)",
+  "status": "dead_end",
+  "next_steps": "CLOSED 2026-11-21, builder-codex run 7e3cccd28d8f4d19a0baf5e262e1a7c6, attempts row from this run. Of the actor's 19 earning transactions, one representative borrower per transaction was checked at capture-1: 18 still healthy, one eligible but healthy at capture-15 (3 seconds before capture). scratch/morpho-0918242d-parent.py and .json hold the exact market/position/oracle getter results; lead 157 independently classified the wider class as a same-block race. Existing Base Morpho trials already cover the mechanism, and a flash batch does not alter eligibility. Reopen only on a new, independently measured capture eligible >=3 seconds before its incumbent take, with transaction gross above gas; repeat the parent-state check for every borrower in the proposed batch."
+}

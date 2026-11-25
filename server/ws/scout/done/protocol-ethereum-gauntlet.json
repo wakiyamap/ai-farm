@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-gauntlet",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "gauntlet",
+ "name": "Gauntlet",
+ "category": "Risk Curators",
+ "tvl_usd": 316550535,
+ "url": "https://www.gauntlet.xyz",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "fdb66758ea25427c8bf7bf252121696b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Morpho reallocate() is onlyAllocatorRole (eth_call from stranger reverts NotAllocatorRole 0xf7137c0f); 1,004 reallocates in 7d (blocks 26,409,062-26,459,374) all by 11 Gauntlet allocator EOAs paying the caller $0 (sample gas $0.09 @0.267 gwei); Aera solverTips all $0 in 7d (row 1443); symbiotic/mellow share-class vaults have no caller-paid fn; Cove USD fulfill pays no tip - gross to strangers $0",
+  "kb": [
+   "attempts:3085",
+   "protocols:1463"
+  ],
+  "run_id": "fdb66758ea25427c8bf7bf252121696b",
+  "at": 1795214988
+ }
+}

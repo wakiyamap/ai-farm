@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-hourglass",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: The only public caller incentive found is pitchFXS depositor lockFXS(), but its incentive pot and refill fee are both zero; no caller received an incentive in the seven-day window. Factory token recovery is role gated, and vault deposit/redemption functions only return the caller's own assets.",
+  "numbers": "Source: DefiLlama Hourglass adapter and Etherscan verified source for factory 0x679619FA685a18782a86dD5850124A75E83daD8F, pitchFXS 0x11ebe21e9d7bf541a18e1e3ac94939018ce88f0b, depositor 0xdfa1f69774ad2924cebd43d75aadfb92403c5335. eth_call at 2026-11-23 22:12 UTC: incentiveFXS=0 pitchFXS (token decimals()=18), lockIncentive=0, lockFXS from 0xdead reverts; no successful gas sample. 7 d range: block 26430502 at 2026-11-16 22:12:35 UTC through 26480745 at 2026-11-23 22:12:35 UTC. eth_getLogs IncentiveReceived topic0 0x70220290ea80981efd0f0f7e6b1b5085605eb976822c8b8422e5bcc53e4c6d63: 0; no-topic scan on same address/range: 2 Deposited logs, txs 0x3c5d127029e6e9625f5ca78d148f69b981cad41bef099065a473810e954a52cc and 0x6f3d23e688ca29dda892f92956f675f3c80b606e4c12b3521a4105503b190dea. Sample 2 of 2 depositor logs. Gross per lock call currently 0 pitchFXS; USD unpriced because no paid call."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-idex-classic",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "idex-classic",
+ "name": "IDEX Classic",
+ "category": "Dexs",
+ "tvl_usd": 138307,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "351276527f29442cb6b8a9278cbf0d36",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All trade-settling entry points (executeOrderBookTrade/executePoolTrade/executeHybridTrade, withdraw) are onlyDispatcher (operator 0xf088c3471cc1d9de827180e9b1d5e557f1b5ef5e, slot 0x11); anyone-callable fns move only the caller's own funds and pay 0; no reward/bounty/claim fn in the 38-file verified source; protocol dormant: 0 exchange logs in 7d (last log block 96999406 = 2026-11-09; same-shape 60d control returned 14 logs) and 0 trade events in 60d; TVL 138,307 USD.",
+  "kb": [
+   "protocols:1257",
+   "attempts:2834"
+  ],
+  "run_id": "351276527f29442cb6b8a9278cbf0d36",
+  "at": 1795164841
+ }
+}

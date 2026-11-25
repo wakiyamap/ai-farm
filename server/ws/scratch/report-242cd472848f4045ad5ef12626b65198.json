@@ -1,0 +1,12 @@
+{
+ "run_id": "242cd472848f4045ad5ef12626b65198",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "franken Dutch-challenge v2 build (lead 74, decision 2026-11-16-franken-threshold-bid.md, build-lane priority): quote-sized ZCHF-leg executor fork-replayed at the true winner-1 block+timestamp",
+ "outcome": "dead_end_recorded",
+ "kb_rows": ["attempts:1429", "leads:74"],
+ "wiki_pages": [],
+ "bot_ids": [],
+ "injection_seen": false,
+ "notes": "Built v2 (zchfIn per-execution argument, scratch/franken-v2/), verified the offer formula against the incumbent's exact on-chain payment (2632.78 ZCHF at 26293524), and measured the UniV3 ZCHF/USDT pool at ~10k USD in-range depth: >25% slippage on 2.6-6.4k ZCHF buys (BadZCHF at 25% margin on all five W-1/W states, positive control +24.65). Gross at winner-1 is ~46 USD, so the threshold bot fires in the incumbent block at best: counted 30d EV 0, the same-day demote stands. Reopen needs a ZCHF source costing <=2% on 5-10k size (Balancer flash / verified Curve pool / standing ZCHF stock in the executor). No paper bot placed."
+}

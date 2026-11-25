@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-fstswap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. FstSwap is a plain UniswapV2-fork AMM on BSC (factory 0x9A272d734c5a0d7d84E0a892e891a553e8066dce, 4878 pairs, feeTo 0x0). No public function pays the caller: factory only has createPair/setFeeTo(-setter); pairs expose only skim(address) as a recipient-paid function and the surplus above reserves was 0 on 6/6 sampled pools; the org's MasterChef (Farm.slo) pays only its own stakers. Protocol is alive but very quiet (16 swaps in 5000 blocks on the largest sampled pool).",
+  "numbers": "TVL 11,772,604 USD (api.llama.fi 2026-11-19); factory allPairsLength 4878 (eth_call 0x574f2ba3); skim surplus 0/6 sampled pools (balanceOf vs getReserves); 16 Swap logs on 0xb4ec801aed8c92f2e69589518aaa127afb37d8c9 in blocks head-4999..head 2026-11-19, control 13771 USDT Transfers in 200 blocks same shape (topic d78ad95f...159d822 custom-tail Swap event)"
+}

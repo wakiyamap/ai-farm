@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-august-digital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 76,
+ "chain": "ethereum",
+ "slug": "august-digital",
+ "name": "August Digital",
+ "category": "Risk Curators",
+ "tvl_usd": 242804,
+ "url": "https://augustdigital.io/",
+ "github": null,
+ "listed_days_ago": 76,
+ "run_id": "7635ea5156fe49b391c39701a144c319",
+ "result": {
+  "verdict": "unpaid",
+  "line": "August Digital on ethereum = 2 Morpho VaultV2 vaults (USDC 242,882 @~1.00 USD block 26456095, AUSD 17.86 dust); only stranger-callable keeper fn is accrueInterest() (fresh-addr eth_call ok) paying caller bash - fee shares mint to August recipient 0xa57d...2af0; true 7d (block 26405791-26456095): 2 AccrueInterest logs, both side effects of user deposits via routers, 0 standalone keeper calls; Transfer control 7 logs; forceDeallocate penalty stays in vault",
+  "kb": [
+   "attempts:2895",
+   "protocols:1313"
+  ],
+  "run_id": "7635ea5156fe49b391c39701a144c319",
+  "at": 1795175973
+ }
+}

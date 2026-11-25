@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "spark_savings",
+  "status": "dead_end",
+  "checked": "Scouted 2026-11-17 run 42f8d172 (candidate protocol-avalanche-spark-savings, TVL $126k). DefiLlama adapter projects/spark-savings lists one avax contract: spUSDC vault proxy 0x28B3a8fb53B741A8Fd78c0fb9A6B2393d896a43d (eth_getCode non-empty, ERC-1967 proxy; symbol()=spUSDC; totalSupply()=121,974.2 shares ~= $122k; asset()=USDC 0xB97EF9Ef8734C71904D8002F8B6Bc66D9C4886Fc). Impl 0xc2c0582d1cce30449cf561c7b9c4d6d527547f12 verified on Routescan as SparkVault (same class as arbitrum spUSDT, attempts 1821). Source read in full: only anyone-can-call mutating fn is drip() (public, no role, no revert from stranger eth_call) and it transfers NOTHING to the caller (accrues chi/rho, emits Drip(nChi,diff) for holders). take(uint256)=TAKER_ROLE pays msg.sender; setVsr=SETTER_ROLE; setDepositCap/setVsrBounds/upgradeToAndCall=DEFAULT_ADMIN; deposit/mint/redeem/withdraw/permit are user self-pay. Verdict unpaid."
+}

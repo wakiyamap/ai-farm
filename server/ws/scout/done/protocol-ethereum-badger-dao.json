@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-badger-dao",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "badger-dao",
+ "name": "Badger DAO",
+ "category": "Yield Aggregator",
+ "tvl_usd": 9547476,
+ "url": "https://badger.com/",
+ "github": [
+  "Badger-Finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "0ff1269001c647209cece85fdf8ea0cf",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Badger Sett earn()/strategy harvest() behind _onlyAuthorizedActors/_onlyController (revert 'onlyAuthorizedActors' from stranger, ok from keeper 0x711a339c.., 3 vaults); nothing pays a caller; 0 keeper calls in 7d window blocks 26,377,313-26,402,967 (2026-11-14..21), last vault tx 2026-11-04 (user withdraw), last strategy tx 2021-08-03; TVL 9.23M USD ethereum (api.llama.fi 2026-11-21)",
+  "kb": [
+   "attempts:3500",
+   "protocols:1770"
+  ],
+  "run_id": "0ff1269001c647209cece85fdf8ea0cf",
+  "at": 1795300603
+ }
+}

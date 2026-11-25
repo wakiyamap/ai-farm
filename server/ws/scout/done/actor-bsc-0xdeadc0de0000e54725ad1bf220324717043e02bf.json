@@ -1,0 +1,19 @@
+{
+ "id": "actor-bsc-0xdeadc0de0000e54725ad1bf220324717043e02bf",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "bsc",
+ "address": "0xdeadc0de0000e54725ad1bf220324717043e02bf",
+ "run_id": "a0864a730f3845699fe8a99ae6bcb54b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "UniswapX V3 Dutch RFQ-fill desk on its own 4337 beacon-proxy smart account (gas EOA 0x64ddc043) calling V3DutchOrderReactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 executeWithCallback 0x0d335884, sourcing in-reactor via PancakeV3 router 0x7f3d12bb; 5.9 fills/day (41 fills/41 txs 11-10..15), gross per call median +0.05 / max +0.66 USDC (sample 8/41 from receipt deltas), gas 0.4-1.1M gas = $0.02-0.12/call (BNB 590 USD llama), net ~$0.3-0.5/day; fills cosigned RFQ orders naming itself exclusiveFiller, runs own ~178 USDC balance - market-maker moving own funds, closed class per lead 166.",
+  "kb": [
+   "actors:200",
+   "attempts:1533"
+  ],
+  "run_id": "a0864a730f3845699fe8a99ae6bcb54b",
+  "at": 1794878938
+ }
+}

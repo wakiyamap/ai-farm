@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "target": "Liquity V2 BOLD redemption arbitrage (CollateralRegistry.redeemCollateral via flash loan, 6 TroveManagers)",
+ "status": "measured",
+ "next_steps": "Paper bot bold-redeem-tail-ethereum resubmitted 2026-11-15 (attempts:1325): all three review blockers fixed (wallet payout proven on-fork, pending-burst detector replayed over 30 d, counted EV table windows30d.md = 110 tail occurrences/30 d, 40 USD/day rate-only). Reviewer: re-run scratch/bold-redeem-tail/proofD.sh (lease 15 min) and check paper logs for burst lines + sim_ok/sim_revert mix; if sim_ok is 0% while bursts fire, the fork at :9003 was parked or reset — check the start line's fork block. Single fork gross-rate measurement is the remaining soft spot; paper sim_ok deltas over a few burst days close it."
+}

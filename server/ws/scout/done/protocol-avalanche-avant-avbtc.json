@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-avant-avbtc",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 516,
+ "chain": "avalanche",
+ "slug": "avant-avbtc",
+ "name": "Avant avBTC",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 4597806,
+ "url": "https://app.avantprotocol.com/products",
+ "github": null,
+ "listed_days_ago": 516,
+ "run_id": "7e8a301cb14048e8b8943e8607f63dfc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "savBTC 0x649342c6...Ba84: only reward fn transferInRewards is REWARDER_ROLE-gated (MissingRole from fresh addr) and pays INTO the vault; 7d census: 14 txs = 7x transferInRewards by keeper EOA 0xccd5df8b (~0.0035 avBTC/day ~$225 to stakers), 3x unstake + 3x cooldownShares by stakers themselves, 1x approve; gross to any caller 0, gas $0.004-0.007 (7.5 gwei x AVAX $7.19).",
+  "kb": [
+   "protocols:507",
+   "attempts:1880"
+  ],
+  "run_id": "7e8a301cb14048e8b8943e8607f63dfc",
+  "at": 1794951097
+ }
+}

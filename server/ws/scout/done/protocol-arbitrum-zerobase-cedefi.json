@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-zerobase-cedefi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 530,
+ "chain": "arbitrum",
+ "slug": "zerobase-cedefi",
+ "name": "ZEROBASE CeDeFi",
+ "category": "Basis Trading",
+ "tvl_usd": 8399106,
+ "url": "https://app.zerobase.pro/",
+ "github": null,
+ "listed_days_ago": 530,
+ "run_id": "59d0b926dc3e48a69d26dc87c6a1d1f4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "vault 0xCc5Df5...228E4 (adapter projects/ZEROBASE), getTVL(USDT)=7,616,593 USDT; claim_41202704/cancelClaim require claimItem.user==msg.sender (fresh-address eth_call reverts), transferToCeffu BOT_ROLE, sendLpTokens needs airdropAddr, cancelClaim flag off; 7d = 7 txs (3 requestClaim, 2 stake, 2 claim) by 6 EOAs, each paying itself (sample claim 0x4a1ba551 paid caller 282.55 USDT gross, gas 287,639 @0.020334 gwei = $0.011, ETH $1,806.35 coins.llama.fi) - a stranger calling is paid 0",
+  "kb": [
+   "attempts:1884",
+   "protocols:511"
+  ],
+  "run_id": "59d0b926dc3e48a69d26dc87c6a1d1f4",
+  "at": 1794952238
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-ramses-legacy",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1347,
+ "chain": "arbitrum",
+ "slug": "ramses-legacy",
+ "name": "Ramses Legacy",
+ "category": "Dexs",
+ "tvl_usd": 70957,
+ "url": "https://www.ramses.xyz/",
+ "github": null,
+ "listed_days_ago": 1347,
+ "run_id": "142002dc6d3d48a2b0b68c8bf943643d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: anyone-callable skim/sync/checkpoint pay 0 (dust 0/0 on 3 of 3 sampled pairs incl. WETH/RAM 0x1e50482e), claimFees() gauge-gated (reverts from fresh addr), factory only role-gated setters + createPair; keeper path = shared Ramses Voter 0xaaa256.../Minter pays msg.sender $0 (attempts:2289); 34 Swap events/7d on 3 sampled pairs, protocol volume $3.3k/7d, TVL $72k pools + $141k xRAM staking, skim gas ~$0.002 (0.02 gwei, WETH $1725)",
+  "kb": [
+   "attempts:3982"
+  ],
+  "run_id": "142002dc6d3d48a2b0b68c8bf943643d",
+  "at": 1795409391
+ }
+}

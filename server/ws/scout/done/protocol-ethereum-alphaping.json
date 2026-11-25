@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-alphaping",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "alphaping",
+ "name": "AlphaPing",
+ "category": "Risk Curators",
+ "tvl_usd": 1624021,
+ "url": "https://alphaping.ch/",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "3c5051cf277941b8977a7ffa6454e8ea",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Morpho vault curator, 28 vaults on ethereum (VaultV2 0x153Bd1.. + MetaMorphoV1_1); only anyone-callable fn is accrueInterest (30 events/7d, blocks 26408984-26459253), pays caller 0 USD (fee shares to owner-set recipients), gas 0.06 USD (119,837 gas x 0.309 gwei, ETH 1620 USD); forceDeallocate 6 calls/7d - callers PAY a penalty, get nothing; allocate/deallocate allocator-gated",
+  "kb": [
+   "attempts:3080"
+  ],
+  "run_id": "3c5051cf277941b8977a7ffa6454e8ea",
+  "at": 1795214006
+ }
+}

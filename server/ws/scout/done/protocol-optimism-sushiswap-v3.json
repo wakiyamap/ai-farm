@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-sushiswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1326,
+ "chain": "optimism",
+ "slug": "sushiswap-v3",
+ "name": "SushiSwap V3",
+ "category": "Dexs",
+ "tvl_usd": 93415,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": 1326,
+ "run_id": "278e482696b64238a0c9b7d347a7d186",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Plain Uniswap V3 fork (factory 0x9c6522117e2ed1fE5bdb72bb0eD5E3f2bdE7DBe0, 451 pools ever; ABI from Blockscout has no collectProtocol, pool's collectProtocol is onlyFactoryOwner - eth_call from a fresh addr reverts) and collect() pays only the caller's own position fees, so nothing pays a stranger: 7 d (blocks 159601679 2026-11-16 04:08 -> 159904079 2026-11-23 04:08 UTC) 26,421 Swap logs over 51 of 451 active pools, 112 senders, 164 Collect, 0 gross USD per call, gas 0.00018 USD/100k (1.04e-3 gwei, ETH 1729.18 coins.llama.fi 04:10 UTC).",
+  "kb": [
+   "attempts:3975",
+   "protocols:2114"
+  ],
+  "run_id": "278e482696b64238a0c9b7d347a7d186",
+  "at": 1795407569
+ }
+}

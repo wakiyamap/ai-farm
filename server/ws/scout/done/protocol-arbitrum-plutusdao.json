@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-plutusdao",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1490,
+ "chain": "arbitrum",
+ "slug": "plutusdao",
+ "name": "PlutusDAO",
+ "category": "Yield",
+ "tvl_usd": 331732,
+ "url": "https://plutusdao.io",
+ "github": null,
+ "listed_days_ago": 1490,
+ "run_id": "a2fb1b32033240dc8d176890a7cf1661",
+ "result": {
+  "verdict": "unpaid",
+  "line": "DividendsV2 0x5422AA06 harvestAllDividends/harvestDividends open-callable (eth_call from fresh addr, no role revert) but pay only caller's own accrual: stranger gets 0 (pendingDividends=0); 20 self-claim txs / 110 DividendsCollected in 7d, gross $0.13-1.33/call (GRAIL $16.78, coins.llama.fi) vs gas $0.018 (507,865 gas x 0.02 gwei, ETH $1801.62); PLS epoch-staking advanceEpoch onlyOwnerOrOperator, 0 AdvanceEpoch/ClaimedRewards/Claim events 7d on the other 4 staking contracts (control: same shape returned 110 logs)",
+  "kb": [
+   "attempts:2417",
+   "protocols:947"
+  ],
+  "run_id": "a2fb1b32033240dc8d176890a7cf1661",
+  "at": 1795070853
+ }
+}

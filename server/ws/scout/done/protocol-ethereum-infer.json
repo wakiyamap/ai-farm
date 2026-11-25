@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-infer",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 28,
+ "chain": "ethereum",
+ "slug": "infer",
+ "name": "INFER",
+ "category": "CDP",
+ "tvl_usd": 291979,
+ "url": "",
+ "github": [
+  "imdusd"
+ ],
+ "listed_days_ago": 28,
+ "run_id": "88e5f3a98ac6420e9690619260f1d777",
+ "result": {
+  "verdict": "unpaid",
+  "line": "INFER/imdUSD vault 0x0b69F8DA: bark/bite permissionless, 20% liq bonus (liq ~16%, marker 2%, treasury 2%) but 0 Bites/Barks in last 7d (last Bite blk 26,379,671 10.5d ago; control 19 vault logs same scan: Lock5 Draw4 Wipe4 Free5 Cash1); 7 Bites since 2026-10-11 launch, liquidator gross +$2.4-32.02 vs gas 296-350k = $0.10-1.22 (0.18-2.14 gwei x ETH $1744.51 coins.llama.fi ts 1795170030); takers: repeat keepers e085327c/1395f53b/aa90befc + team operator 5167d014, marker 0xf4a51bc9 6/7; totalDebt 65k imdUSD, nothing underwater",
+  "kb": [
+   "attempts:2864",
+   "protocols:1282"
+  ],
+  "run_id": "88e5f3a98ac6420e9690619260f1d777",
+  "at": 1795170205
+ }
+}

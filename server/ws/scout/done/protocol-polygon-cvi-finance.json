@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-cvi-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "cvi-finance",
+ "name": "CVI Finance",
+ "category": "Synthetics",
+ "tvl_usd": 50188,
+ "url": "",
+ "github": [
+  "govi-dao"
+ ],
+ "listed_days_ago": null,
+ "run_id": "1505a047fede4e39b35e744f7807a75b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidatePositions(address[]) on platforms 0x88D0/0x3863 is open-callable (fresh-addr eth_call reverts 'No liquidatable position', no role gate) but paid 0 in 7d (0 logs on both platforms, 97430503-97833703, control ok) and 0 in 90d; last pay 2026-05-22 tx 0x0688d0e9: finder 0x01767c33 got 1.60 USDC for 12 positions, gas 0.158 POL = $0.012; 0x88D0 has 0 open positions, 0x3863 holds legacy units but the call reverts outright",
+  "kb": [
+   "attempts:4178",
+   "protocols:2296"
+  ],
+  "run_id": "1505a047fede4e39b35e744f7807a75b",
+  "at": 1795456706
+ }
+}

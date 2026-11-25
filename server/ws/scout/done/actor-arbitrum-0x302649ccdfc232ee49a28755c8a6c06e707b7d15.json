@@ -1,0 +1,19 @@
+{
+ "id": "actor-arbitrum-0x302649ccdfc232ee49a28755c8a6c06e707b7d15",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0x302649ccdfc232ee49a28755c8a6c06e707b7d15",
+ "run_id": "f6181ec3631a44a5a78e99ea7cbbe2d3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "beacon proxy, not an earner: creator EOA 0x1f561254 calls it ~31x/day (214 calls/7d, eth_getLogs) to swap EOA 0x824c's own USDT stash to USDC via Aave V3 aTokens (sample 1d: 81,511 USDT in -> 79,923 USDC out, ratio ~0.9992 = aToken-rate drift), chunks $10-10k (mean ~$2.3k), gas ~$0.026/call (~688-750k gas @ 0.02 gwei, ~$0.9/day) paid by the EOA itself; pass-through, zero balance, no protocol reward in-tx",
+  "kb": [
+   "attempts:1495",
+   "actors:172"
+  ],
+  "run_id": "f6181ec3631a44a5a78e99ea7cbbe2d3",
+  "at": 1794868616
+ }
+}

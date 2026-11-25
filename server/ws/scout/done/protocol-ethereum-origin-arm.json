@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-origin-arm",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 754,
+ "chain": "ethereum",
+ "slug": "origin-arm",
+ "name": "Origin ARM",
+ "category": "Yield",
+ "tvl_usd": 9895149,
+ "url": "https://www.originprotocol.com/arm",
+ "github": null,
+ "listed_days_ago": 754,
+ "run_id": "6838afa31e2c42a8b4d2c529c32a4a15",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: 6 ARMs (Lido/OETH/EtherFi/Ethena/WETH/USDC, code + arm-oeth repo read), no function pays a stranger - open calls (swap*, collectFees, allocate) pay 0, fees go to a fixed feeCollector; 7d blocks 26410748-26461020 (1405 logs, all events): 1198 operator setPrices + 137 allocate + 15 collectFees by 0x739212d5bafe6aac8be49a60b7d003bd41dbf38b, fees 0.36 WETH ($566) + 90 USDe + 78 USDC to Origin feeCollectors, strangers = 2 LP self-claims only (58.6 WETH own principal); gas $0.20/tx at 2.84 gwei.",
+  "kb": [
+   "attempts:3184",
+   "protocols:1535"
+  ],
+  "run_id": "6838afa31e2c42a8b4d2c529c32a4a15",
+  "at": 1795235045
+ }
+}

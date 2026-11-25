@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-stellar-defi-hub",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 99,
+ "chain": "stellar",
+ "slug": "stellar-defi-hub",
+ "name": "Stellar DeFi Hub",
+ "category": "Farm",
+ "tvl_usd": 46269305,
+ "url": "https://stellardefihub.com/",
+ "github": null,
+ "listed_days_ago": 99,
+ "run_id": "71c3dbfcc2cd4b97810ca57c07095171",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only depositors get paid - vault deposit/withdraw and escrow claim require_auth the depositor (StellarVaults contract.rs:85, escrow contract.rs:175), all else admin-gated; 7 d (ledger 65493128 11-15 -> 65613156 11-22): 24 events / 24 txs / 17 callers, 7 reward claims = 788.23 XLM = 101.4 USD total (largest 559.97 XLM = 72.03 USD, tx 958f6017...), fees 9,968-283,552 stroops = 0.00013-0.0037 USD at XLM 0.12866 (llama 13:01 UTC); campaign vaults ended 11-09/11-19, the 46.3M USD TVL is one active upshift USDC share vault CALFCZ, 1 redeem in 7 d",
+  "kb": [
+   "attempts:3726",
+   "protocols:1940"
+  ],
+  "run_id": "71c3dbfcc2cd4b97810ca57c07095171",
+  "at": 1795353212
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-layerzero-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. LayerZero V2 on optimism is bridge infrastructure like arbitrum/avalanche/base/bsc/hyperevm: endpointV2 exposes no function paying msg.sender, and the only external payout is UlnV3.withdrawFee on sendUln302, which pays fees[msg.sender] - a fresh address has fees=0 and its eth_call reverts LZ_MessageLib_InvalidAmount(1,0). The 26 withdrawals in the last 7 days were all LayerZero's own credited workers sweeping their accrued fees; no stranger was paid. withdrawLzTokenFee is treasury-only.",
+ "numbers": "7d (blocks 159477137-159779537): 26 NativeFeeWithdrawn on sendUln302 0x1322871e4ab09bc7f5717189434f97bbd9546e95, total 3.8779 ETH = 6778 USD (ETH 1747.94 USD coins.llama.fi 2026-11-20T07:00:32Z); takers: worker 0x2d2ea0697bdbede3f01553d2ae4b8d0c486b666e 13 calls 2.0063 ETH, 0x5b6735c66d97479ccd18294fc96b3084ecb2fa3f 12 calls 1.7887 ETH, 0x6a02d83e8d433304bba74ef1c427913958187142 1 call 0.083 ETH; avg gross 0.149 ETH = 261 USD, gas 44219 @ 0.0012 gwei = 0.0001 USD (receipt 0xaa97225ec6dffcbef5261ddf6f0328198bc98622d18d68793f8c42c8a1b033a8); stranger eth_call withdrawFee reverts 0x34084fb8 (fees[caller]=0). endpointV2 0x1a44076050125825900e736c501f859c50fe728c eid()=30111. Sources: eth_getLogs/eth_call via relay, ABIs via blockscout, addresses metadata.layerzero-api.com/v1/metadata."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-clearpool-tpool",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Clearpool TPOOL on ethereum is just the USDX (Hex Trust USD) LayerZero OFT token contract, not a vault: no function anyone can call that pays the caller (mint/burn are MINTER_ROLE-gated, lzReceive is endpoint-only, send() makes the caller pay LayerZero fees). Contract had zero events in the last 7 days and no transaction since 2024-11-26. The actual T-POOL vault is on Flare.",
+ "numbers": "1 contract on ethereum per DefiLlama module clearpool-rwa/index.js: 0x7a486f809c952a6f8dec8cb0ff68173f2b8ed56c (UUPS proxy, impl 0xffa1f1ec3f6ee0d68bab21d79cef4292f56e7e26, verified; name Hex Trust USD, symbol USDX, 6 decimals, totalSupply 150,000 USDX = the 148,551 USD llama chainTvls Ethereum). eth_call mint from 0x..dead reverts AccessControlUnauthorizedAccount(MINTER_ROLE). 7d window blocks 26411444 (2026-11-14 06:31:35) .. 26461701 (2026-11-21 06:31:47) from eth_getBlockByNumber timestamps: topicless eth_getLogs on the contract = 0 logs; control USDC same shape = 10,696 logs in 100 blocks. Last tx to contract: block 21270799, ts 1732610543 (2024-11-26), explorer txs. Gas/reward n/a (no callable payout function). Sources: api.llama.fi/protocol/clearpool-tpool, raw.githubusercontent DefiLlama-Adapters projects/clearpool-rwa, explorer abi/txs, rpc.py eth_call/eth_getLogs."
+}

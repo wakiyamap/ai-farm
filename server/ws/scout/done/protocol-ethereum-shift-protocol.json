@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-shift-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 391,
+ "chain": "ethereum",
+ "slug": "shift-protocol",
+ "name": "Shift Protocol",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 198172,
+ "url": "https://shiftprotocol.xyz",
+ "github": null,
+ "listed_days_ago": 391,
+ "run_id": "b450845ff54c4592b38f8e973a6ee2cf",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Custodian ERC-7540 SyVaults: risexUSDC 0x5F70E536...74CD (197,902 USDC) + dormant shiftEUR (0 logs 7d); only keeper ops epochSettle/settleRedeemBatch are role-gated (stranger reverts SyVault__NotKeeper 0xa80020f3) and pay caller $0 (fees -> feeRecipient); 37 settlements/7d all by keeper 0x64d072c9...4b2f, gas ~$0.29/call (174.5k gas @ 1.027 gwei x ETH $1,635.74)",
+  "kb": [
+   "attempts:3013",
+   "protocols:1407"
+  ],
+  "run_id": "b450845ff54c4592b38f8e973a6ee2cf",
+  "at": 1795200517
+ }
+}

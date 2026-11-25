@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "actor-base-0x302649ccdfc232ee49a28755c8a6c06e707b7d15",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. It is a UniswapX v2 fill desk (proxy -> impl 0x8d0d9b7a) called only by EOA 0x1f561254; each call does reactor executeWithCallback (0x0d335884) on 0x000000008a8330b5d1f43a62bf4c673a49f27ba0 and covers the other leg at venue 0xe5ec0065 inside reactorCallback. Two reasons a fresh address would not be paid: UniswapX orders name an exclusive filler assigned off-chain (same cosigned RFQ-desk shape as attempts 1106/1251), and the address itself books no margin - in 7/7 sampled fills its token deltas net to exactly 0, so all it earns is the gas bill. It also stopped: last recorded fill 2026-11-15 ~12:00Z, none in the following 44 h.",
+  "numbers": "counts: 285 fills in ledger source window 2026-11-12 08:38 - 11-15 12:04Z (101/day; full days 97 on 11-13, 117 on 11-14, base reactor, ledger actor_daily). sample of 7 of 285: gross in = gross out to the wei (spread $0.0000, 7/7), notional per fill $572 - $18,522 (median $953, mean $4,266). gas per call 633,480 - 730,612 gas at 0.0051-0.006 gwei = $0.0066-$0.0078, i.e. ~$0.75/day at 107 fills/day (plus the OP-stack L1 data fee, not in gasUsed). prices 2026-11-16 23:40Z coins.llama.fi: ETH $1818.48, cbBTC $65109.95, USDC $0.99991. control for the 0-fill claim: same query shape without the filler topic returns 126 Fill logs (20+ fillers) in blocks 58294784-latest."
+}

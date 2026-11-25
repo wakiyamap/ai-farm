@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "Reserve Folio DTF Dutch rebalance auction bot",
+  "outcome": "review_fix",
+  "reason": "V6 source/artifact guard and 900000 gas cap pass independent mock-venue fork reproduction (scratch/dtf95-proof/proof8.json, reset 26306742), but the pinned real Swapper route still reverts, and no successful taker-bound quote/fill exists. Live bot requires state/fusion_key.json although decisions/human/2026-11-09-relay-1inch-paperctl.md withholds the key and requires any future proxy outside the workspace. Manifest executor is explanatory prose, not a valid artifact path. Paper has no natural profitable capture (39 historical bidEvent rows; no new AuctionOpened in blocks 26358475-26374445, positive control at 26358474). Decision fix; no promotion.",
+  "numbers": "Fresh proof8: mock success tx 0x4f8e9aadd86ca1bd5cea622ffa08b2d677f0689aa744484a2df5246b3ebfc6f4 status 1, gas 858244, owner USDC +5490.942422; USDC guard 0x8fe28ac5... status 0; inventory guard 0x3d3f90b8... status 0 with inventory guard reason; real pinned venue tx 0xec6e32a3f7efb1e59db2be8292aa1699f1d688e9fa196f99f8838f51b692e7a7 status 0. Relay paper-lane eth_getLogs scan 26358475-26374445 found 0 AuctionOpened, control block 26358474 found 1.",
+  "bot_id": "reserve-folio-dtf-ethereum"
+}

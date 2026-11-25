@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-aero-basic",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 26,
+ "chain": "base",
+ "slug": "aero-basic",
+ "name": "Aero Basic",
+ "category": "Dexs",
+ "tvl_usd": 46463542,
+ "url": "https://aero.xyz/",
+ "github": null,
+ "listed_days_ago": 26,
+ "run_id": "32e04f266b624f6297201b02aed78085",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Aero Basic = new Aerodrome V2 AMM on base (factories 0x8E6a...76D2 315 pools, 0x7858...EF2D 23; PoolTape 0x34bd...5992; LeafVoter 0x3824...4078): Pool.getK/sync/increaseObservationCardinalityNext and LeafVoter.settleGauge OK from a fresh address, pay 0 USD; value-moving calls are role-gated (gauge collectFees only VotingRewardsManager, PoolTape.record only allowedCaller, mintEmissions reverts); 7d logs 55.48M-58.50M: volatile factory 6, stable 0 (control 6); LeafVoter 19,697 logs/10k blocks (~33 min) all backend; gas 0.006 gwei x 150k = $0.0017 (ETH $1,832.95 llama).",
+  "kb": [
+   "attempts:1588",
+   "protocols:296"
+  ],
+  "run_id": "32e04f266b624f6297201b02aed78085",
+  "at": 1794891633
+ }
+}

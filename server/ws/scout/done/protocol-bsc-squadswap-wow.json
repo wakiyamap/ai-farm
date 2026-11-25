@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-squadswap-wow",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 606,
+ "chain": "bsc",
+ "slug": "squadswap-wow",
+ "name": "SquadSwap WOW",
+ "category": "Dexs",
+ "tvl_usd": 134550,
+ "url": "https://squadswap.com/",
+ "github": null,
+ "listed_days_ago": 606,
+ "run_id": "4cb9635f3af340e78175aabc65c606f1",
+ "result": {
+  "verdict": "no_reward",
+  "line": "PancakeSwap V3 fork ('Changeable V3'): factory 0x10d8612D...BC07B (code 4,314 B; feeManager/owner/getPool getters answer), PoolManager/NPM/FeeManager per docs.squadswap.com; only standard V3 user functions - no callable pays a stranger (collectProtocol->owner, PoolManager setters owner-gated); TVL $135,430; sample of 98 Swap logs in 14x5k blocks of 1,296,741 (true 7 d, 0.466 s/block) across 5 top pools (SQUAD/WBNB x3, USDC/WBNB x2) ~1-2k swaps/wk, 2 swaps in last 205k blocks; control NPM Transfer 10/chunk (rpc research lane).",
+  "kb": [
+   "attempts:1975",
+   "protocols:579"
+  ],
+  "run_id": "4cb9635f3af340e78175aabc65c606f1",
+  "at": 1794972841
+ }
+}

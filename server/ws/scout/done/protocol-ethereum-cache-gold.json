@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-cache-gold",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1550,
+ "chain": "ethereum",
+ "slug": "cache.gold",
+ "name": "CACHE.Gold",
+ "category": "RWA",
+ "tvl_usd": 472683,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1550,
+ "run_id": "c7d90798cfca4bacb589fc6c4ab43964",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Gold-backed ERC20 that charges holders storage fees; no fn pays a caller (payStorageFee() eth_call from fresh addr returns true, pays 0; forcePayFees onlyEnforcer pays feeAddress; redeemAddress is an EOA = off-chain redemption); token dormant: 0 logs in 7d (blocks 26,414,840 2026-11-14 -> 26,465,136 2026-11-21, no-topic scan, control 804 USDC logs), 13 Transfer/Approval logs in 86d; TVL 472,683 USD, supply 100,771 g.",
+  "kb": [
+   "attempts:3419",
+   "protocols:1715"
+  ],
+  "run_id": "c7d90798cfca4bacb589fc6c4ab43964",
+  "at": 1795284622
+ }
+}

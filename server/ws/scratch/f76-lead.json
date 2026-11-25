@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "felix_cdp redeemCollateral actor 0xf76ead30ee64192e30ec26f7c39a4b069b9c1ccf",
+  "status": "measured",
+  "why": "The actor's executor 0x1b8e94763019968d1a3b8d586c5ef96d8ac3a9f6 took four permissionless Felix CDP redemption arbitrages on 2026-11-24, sending 0.0194024 WHYPE ($1.2331 gross) to beneficiary 0xa9dd620fc1b6316ce75c8059aaed1f5fa5e0cefb. Actor paid $0.4841 HYPE gas; group net about $0.7490. The public Felix protocol call is open to strangers, although this unverified executor need not be.",
+  "next_steps": "Felix CollateralRegistry 0x9de1e57049c475736289cb006212f3e1dce4711b, redeemCollateral(uint256,uint256,uint256), selector from cast sig 0xab6d53bd. Trace in tx 0xe8b482043b3d3ed01fb3914120fc81e635c458d0bc02fa09e81711203f69796e. Timestamp-based 7d window blocks 51475729 (2026-11-17 04:13:41 UTC) to 52090549 (2026-11-24 04:13:41 UTC): actor 4 redemption tx/8 events; all Felix actors 249 tx. Four sampled successful calls average $0.3083 gross and $0.1210 gas, $0.1872 net. Sample of 19 of at least 200 recent explorer listings; other selector 0x05060708/0x0b0c0d0e calls were not fully classified. Existing class lead 149 is dead_end; its reopen thresholds are >250k feUSD redeemed/7d or median net >$1 per tx. These four calls do not meet the per-tx bar. Do not build from this lead until a class-level recheck satisfies that rule."
+}

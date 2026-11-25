@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-stella",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1243,
+ "chain": "arbitrum",
+ "slug": "stella",
+ "name": "Stella",
+ "category": "Leveraged Farming",
+ "tvl_usd": 469794,
+ "url": "https://app.stellaxyz.io/",
+ "github": [
+  "stellaxyz"
+ ],
+ "listed_days_ago": 1243,
+ "run_id": "fb81047e0f044752b90f916528f4912d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "RewardVault 0xa67CF61b...distributeReward(address[]) (0x8449c1b7) is the only permissionless keeper fn; ALPHA pot = 0 (eth_call balanceOf), 0 calls in last 7d (explorer txs: last tx 2025-02-20 by keeper 0xc3fcefdd...00d, daily cadence before that), reward rate 0.03 ALPHA/day, gas ~0.02 gwei (~0.003 USD/call) - pays nothing; relay eth_getLogs unusable this run (public fallback, USDC control 0)",
+  "kb": [
+   "attempts:2291",
+   "protocols:839"
+  ],
+  "run_id": "fb81047e0f044752b90f916528f4912d",
+  "at": 1795044730
+ }
+}

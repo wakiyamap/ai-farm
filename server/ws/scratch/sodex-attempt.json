@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-sodex-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "not_found: the SoDEX bridge holds BSC funds in two EOA custody addresses (0x72b2f19f...ba287, 0x00b7aF08...11f5) from the DefiLlama sumTokens registry; eth_getCode is 0x for both, so there is no contract on bsc, no callable function and no keeper/reward role for a stranger. The bridge is an EOA-signer custodial design (ValueChain DEX bridge); withdrawals are sent from the EOAs themselves.",
+ "numbers": "Binance-chain TVL $528,963 (api.llama.fi/protocol/sodex-bridge currentChainTvls, 2026-11-17). Holdings at block 134132977: EOA1 26.903 BNB + 252,009.4 USDC, nonce 19322; EOA2 3.40 BNB + 19,241.1 USDC, nonce 304; BNB $591.93, USDC $0.9996 (coins.llama.fi) -> 30.30 BNB = $17.9K, 271,250 USDC = $271K. eth_getCode 0x on both (rpc.py bsc). Candidate tvl_usd 527,399 matches Binance chainTvls."
+}

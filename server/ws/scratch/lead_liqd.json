@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "Morpho Blue liquidate (batched LIQD, cbBTC/USDC market 0x9103c3b4) - incumbent bot 0x1da8f081",
+  "status": "measured",
+  "why": "Actor 0x1da8f0817311f4e4c8a9d3fd756c8757d566e5fd (live since 2026-11-20 ~15:17Z) captured 125 Liquidate events repaying 490.9 USDC and seizing 0.008826 cbBTC (value +5.1% over repaid at today's px) across 8 txs in ~3.3 h = ~25 USD gross, 0.20 USD gross/liquidation; owner sweeps USDC profits (0.8ac7d690). Same market as lead 21 (measured: ~4.8% gross, 59 competing callers) and the farm-band class of lead 157 (dead_end: latency race, 221 incumbents).",
+  "next_steps": "Contract 0x1da8f081..., fn LIQD 0x4c495144 (also LIQA 0x4c495141), entry gated to whitelisted keeper EOAs but the underlying Morpho.liquidate pays anyone. 7d window scanned (blocks 56.97M-60.07M): 132 liqs / 11 txs, all in last ~3-5 h (contract is hours old). Per liquidation-tx: ~15 liquidations, gross ~3.1 USD, gas 490k-1.56M gas @ 0.09-0.97 gwei = 0.14-2.2 USD (avg 0.64 USD at ETH 1603.71, coins.llama.fi 1795205189). Failed LIQDs in sample = same-block competition; class already dead_end as a latency race in lead 157 - do not rebuild without a new route."
+}

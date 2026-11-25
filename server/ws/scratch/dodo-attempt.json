@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-dodo-amm",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated / no stranger-payable reward function. DODO AMM pools on arbitrum have no function that pays the caller: v1 DVM/DPP pool ABIs contain no claim/reward/maintain function at all (fees accrue inside pool reserves to LP token value); the only claim-style functions are GSP withdrawMtFeeTotal (maintainer role - reverts ACCESS_DENIED from a fresh address) and v2 DODOPool claimAssets (only after finalSettlement - reverts DODO_NOT_CLOSED on all 3 v2 pools, all open). The protocol is also near-dormant on arbitrum: 1 DODOSwap event in 30 days across 24 sampled pools.",
+  "numbers": "factories confirmed by eth_getCode: dvm 0xDa4c4411c55B0785e501332354A036c04833B72b, dpp 0xDdB13e6dd168E1a68DC2285Cb212078ae10394A9, dsp 0xC8fE2440744dcd733246a4dB14093664DEFD5A53, gsp 0x46E55A974c5995675b025f7F607C3278B36f0c29, dodoBirth 0xbcc3401e16c25eaf4d3fed632ce3288503883b1f (source: DefiLlama projects/dodo/index.js). v2 pools via getDODOs(): 3; GSP pools via NewGSP logs: 13; DVM sampled: 7, DPP sampled: 1. claimAssets() eth_call fresh addr: revert 'DODO_NOT_CLOSED' on 3/3 (2026-11-19). withdrawMtFeeTotal() fresh addr: revert 'ACCESS_DENIED'. DODOSwap getLogs 24 addresses, 0x1eadbf18..0x1f5597d8 (~30d, ~11M blocks): 1 event, tx 0x04365ff73d9ab9a205e1120c8c7f3a4d4ec939992507f728a2cb11dc34d2005f at 2026-11-12 (same query shape returned non-zero, so the zero-ish count is real). TVL 1,418,206 USD (DefiLlama candidate row).",
+  "bot_id": null
+}

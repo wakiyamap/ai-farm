@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "brickken",
+  "status": "dead_end",
+  "checked": "STOFactoryProxy 0x278D7bdc2451B0Fa4087A68ce084a86cB91D4d83 (ERC1967 impl 0x816e88407c5edaa8b471b78f72bc3ec695984607, idSTOs()=54 answers, has code) + its 54 STO escrows from stoEscrows(1..54) (STOEscrowManagedUpgradeable, e.g. 0x54adea827de10e0bd054c10b67d3911a95efb4b3). Verified source read (explorer/blockscout): only public user functions are buyToken (caller pays into escrow) and getTokens (redeem/refund of the caller's own position); newOffering/finalizeIssuance/offchainReporting/partialWithdraw/withdraw are onlyRole(issuer/admin); factory newTokenization charges a fee to treasury. 0 occurrences of reward|bounty|incentive|keeper in contracts/. eth_call from fresh address 0x1111..11: buyToken and getTokens both revert UserIsNotWhitelisted (0xaafefe9b) - KYC whitelist on the STO token. Sources: DefiLlama adapter projects/brickken/index.js (factory per chain), Blockscout API v2 tx list + logs for all 54 escrows + factory."
+}

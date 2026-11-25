@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-ultrasolid-v3",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers: UniswapV3Pool.collectReward is public (no role) and paid 187 nonzero US claims totalling 153,793 US ($226.8) to 30 distinct strangers over the last 7 days; median claim $0.24 vs gas $0.002-0.012. Caveat: claim-only for staked LP position owners (needs capital); the whole V3 leg pays ~$32/day in US ($0.00147 token), Emission pot only $994. No keeper-style function that pays an arbitrary caller; elector collectUndistributed is factory-owner gated.",
+ "numbers": "7d window blocks 50,912,112-51,526,871 (eth_getLogs, paper lane): 195 CollectReward events / 187 nonzero / 29 pools / 30 recipients; 153,793 US gross; median nonzero 162.9 US; top 5 US: 12936/11879/9877/9140/7664 (tx 0x9a98cc4f..., 0x0d92861e..., 0x43700051..., 0x4ef1d728..., 0xfbf3ea7a...). Prices: US $0.0014744, HYPE $67.59 (coins.llama.fi 2026-11-17). Gas: receipts show 0.1-0.36 gwei, gasUsed 5e5-2e6 on batch txs; ~$0.002-0.012 per claim. Emission 0xC977... holds 673,942 US ($994). Factory 0xD883a0B7889475d362CEA8fDf588266a3da554A1 confirmed via pool.factory()."
+}

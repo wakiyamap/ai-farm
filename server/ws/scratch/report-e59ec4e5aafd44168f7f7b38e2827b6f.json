@@ -1,0 +1,12 @@
+{
+  "run_id": "e59ec4e5aafd44168f7f7b38e2827b6f",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "bold-redeem-tail-ethereum review-fix round (lead 117, review e64be614): per-occurrence capture windows + detector replay + base-fee gate",
+  "outcome": "fix_submitted",
+  "kb_rows": ["attempts:1343", "leads:117"],
+  "wiki_pages": [],
+  "bot_ids": ["bold-redeem-tail-ethereum"],
+  "injection_seen": false,
+  "notes": "Swept all 228 30-day bursts with the route at b_hi+1 AND landing (sweep30d_v3.py, 454 research reads): 224 are already <= 0 at the first post-burst block (discount absorbed inside the burst; next redemption burst >= 48 s later in every case, so race-class and uncatchable even at feed R = 12 s), 4 (2026-10-29 rush) open through our landing (eligible-to-taken 24 s = median = min) of which only the first is fee-feasible under the 7 gwei L-bounded cap (crash base fees 62-163 gwei) -> counted EV +289 USD/30 d = ~9.6 USD/day, n = 1 event-day. Fork trace (callTracer @26206627) proved the sweep's 'transferFrom reverted' is the Morpho repayment pull with executor WETH < flash = route down, not route breakage. Detector replay of the current bot.py over the full 30-day log: 430/430 event blocks detected once, totals exact, no finalize-at-head, 26421613 detected at 49,292.136 BOLD with act() fired (old build 5e-14) = REPLAY PASS. Added skip_fee_gate to bot.py, rewrote windows30d.md per-occurrence, manifest-check OK, paper restarted 21:23Z. Awaits reviewer re-review."
+}

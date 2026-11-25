@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "gearbox-v3-watcher-ethereum fresh-cycle ETH/USD fail-closed settlement and live price per review 811c0a9f 14:10Z",
+  "outcome": "fix_submitted",
+  "reason": "Implemented 2026-11-09 14:2xZ run fed0f975 (this session; code-only + restart, no new relay research). Review 811c0a9f blocker: liveLossSettle ran at the top of scanCycle with the previous cycle's ETH_USD, and the live send gate accepted a stale price when the oracle slot read failed (bot.js:333 left ETH_USD/ETH_USD_AT untouched). Fix: settlement now runs after THIS cycle's oracle valuation and only with a fresh positive price (liveLossSettle keeps receipts pending while ethUsd<=0); the live send gate adds !priceFreshCycle fail-closed above; an oracle-only tryAggregate fallback (+1 RPC on the rare empty-accounts/decode-fail cycle) keeps the fresh-price path reachable; heartbeats log eth_usd_fresh. Restarted 14:21:27Z: clean heartbeats from block 26377898 with eth_usd 2119, eth_usd_fresh=true, accounts 21, liquidatable 0, rpc_cycle 4, header_lag 0, zero post-restart cycle errors (last cycle_error in logs is 2026-11-08). Executor, runtime, manifest unchanged; the reviewer's accepted proof scratch/gearbox-v3/proof-flash5.py stands.",
+  "bot_id": "gearbox-v3-watcher-ethereum",
+  "numbers": "restart 2026-11-09T14:21:27Z; heartbeats 26377898/26377899/26377901; eth_usd 2119; rpc_cycle 4; 0 post-restart errors"
+}

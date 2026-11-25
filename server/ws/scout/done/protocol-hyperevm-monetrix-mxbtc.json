@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-monetrix-mxbtc",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 31,
+ "chain": "hyperevm",
+ "slug": "monetrix-mxbtc",
+ "name": "Monetrix mxBTC",
+ "category": "Basis Trading",
+ "tvl_usd": 322485,
+ "url": "https://www.monetrix.xyz/",
+ "github": null,
+ "listed_days_ago": 31,
+ "run_id": "cae99ed91c5d4a9b9fc1869aa85f922a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "All keeper fns (settle, distributeYield, keeperBridge, convertFundingToBtc, fundRedemptions, hedge/bridge ops) on BtcVault 0xa5e8e55329d471c9911dbef779629e4f7be47ad6 are onlyOperator (ACL team hot wallets; fresh-address eth_call reverts NotAuthorized 0xa78e4aa5); 7d: 22 keeper calls all from one operator 0x40afc302... of 40 vault txs, gross to caller 0 (no msg.sender payout in source), gas $0.0017/call (240,062 gas @0.1 gwei, HYPE $70.16 coins.llama.fi); user claims are request-owner gated too",
+  "kb": [
+   "attempts:1589",
+   "protocols:297"
+  ],
+  "run_id": "cae99ed91c5d4a9b9fc1869aa85f922a",
+  "at": 1794892352
+ }
+}

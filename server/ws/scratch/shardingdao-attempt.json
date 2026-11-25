@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-shardingdao",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: The verified Ethereum staking contract has no permissionless function paying a stranger for maintenance; pool updates only adjust accounting, while withdrawals return each user's own funds and accrued rewards.",
+  "numbers": "DefiLlama registry contract 0x0feCcB11C5B61B3922C511d0f002c0b72D770dCE; getPoolLength()=12 via eth_call. No-topic scan: 0 emitted logs in 7 d, sample of 0 of 0, block 26429949 (2026-11-16 20:21:47 UTC) to block 26480195 (2026-11-23 20:22:11 UTC), relay eth_getLogs; no-topic control WETH 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2 returned 788 logs in 14 recent blocks. Fresh-address eth_call to updatePoolDividend(0), massUpdatePools(), withdraw(0,0) returned 0x (void). SHD address from SHARD() getter: 0x5845cd0205b5d43af695412a79cf7c1aeddb060f; totalAvailableDividend()=65864 raw units, no USD price applied. Etherscan tx listing newest tx 0x181e9c455cba1b0616e18f5de0aac33a54c226bf8fd95d8f7dea9f6c6e7a0b39 on 2026-10-26. Gross reward to unrelated updater: 0 SHD by verified source; gas not estimated because no paid action exists."
+}

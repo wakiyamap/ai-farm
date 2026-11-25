@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-suzaku",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 777,
+ "chain": "avalanche",
+ "slug": "suzaku",
+ "name": "Suzaku",
+ "category": "Restaking",
+ "tvl_usd": 740528,
+ "url": "https://www.suzaku.network/",
+ "github": [
+  "suzaku-network"
+ ],
+ "listed_days_ago": 777,
+ "run_id": "6fa80ebfe0bd4d9ea9a65b369180760d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Avalanche C-Chain: factory 0xE5296638Aa86BD4175d802A210E158688e41A93c (12 entities) + 12 DefaultCollateral vaults have no caller-paying function (deposit/withdraw/issueDebt move the caller's own funds; increaseLimit reverts NotLimitIncreaser 0x01c90f3b, limitIncreaser=team Safe); last 7d: 9 txs, all user withdraws, 0 reward calls; vaults 1:1 backed (2,137.81 sAVAX = shares, no pot); gross 0 USD vs gas 0.0036-0.0048 USD (67.7k-89.8k gas @ 7.5 gwei, AVAX 7.14 coins.llama.fi); distributor distributeRewards is onlyRole(REWARDS_DISTRIBUTOR_ROLE).",
+  "kb": [
+   "attempts:2085",
+   "protocols:671"
+  ],
+  "run_id": "6fa80ebfe0bd4d9ea9a65b369180760d",
+  "at": 1794996275
+ }
+}

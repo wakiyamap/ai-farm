@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-pancakeswap-amm",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "pancakeswap-amm",
+ "name": "PancakeSwap AMM",
+ "category": "Dexs",
+ "tvl_usd": 1408277,
+ "url": "https://pancakeswap.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "98ed3bf0a26a49c4803a77a06855b2e6",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Uniswap-V2 fork (factory 0x1097053F, 8131 pairs): no harvest/collect; only permissionless payer is pair skim(to), pot empty - excess 0 on 32 token/pair combos (16 of 8131 pairs: 4 largest by TVL + 12 random); skim gas 70,509 = 0.12-0.24 USD (ETH 1663.47, coins.llama.fi 2026-11-22T04:15Z); createPair pays 0 (9 txs, 9 EOAs in 7d); 8 SyrupPool farms have no harvest() and their reward windows ended 2023 (recoverToken/emergencyRewardWithdraw revert 'Ownable: caller is not the owner'). Window blocks 26417903..26468159 = 2026-11-15..2026-11-22; control 2169 Swap on USDC-WETH 0x2e8135be.",
+  "kb": [
+   "attempts:3585",
+   "protocols:1830"
+  ],
+  "run_id": "98ed3bf0a26a49c4803a77a06855b2e6",
+  "at": 1795321366
+ }
+}

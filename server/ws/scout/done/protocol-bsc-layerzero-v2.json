@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-layerzero-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "layerzero-v2",
+ "name": "LayerZero V2",
+ "category": "Bridge",
+ "tvl_usd": 24183354,
+ "url": "https://layerzero.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "41974f774ed0457caf23e8c9c73bd153",
+ "result": {
+  "verdict": "role_gated",
+  "line": "UlnV3.withdrawFee pays only fees[msg.sender] (fresh-addr eth_call reverts 0x34084fb8); 7d (blocks 133.28M-134.63M, 269 getLogs pages): 29 NativeFeeWithdrawn = 18.607 BNB ~10,611 USD (BNB 570.25 coins.llama.fi) all to the 2 LayerZero fee receivers themselves (0xe93685f3 10.38, 0xb8ff877e 8.23), each calling its own withdrawal; gas ~49k @ 0.06 gwei = 0.0017 USD; 392 OFT escrows (TVL 24.33M USD) have no stranger payout (withdrawPlannerFee reverts from fresh addr).",
+  "kb": [
+   "attempts:2756"
+  ],
+  "run_id": "41974f774ed0457caf23e8c9c73bd153",
+  "at": 1795147954
+ }
+}

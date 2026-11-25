@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-orderly-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The Orderly L2 vault on arbitrum pays no caller: the money-out functions (withdraw, withdraw2Contract, rebalanceMint/Burn) are onlyCrossChainManager (0xa0a07a78c7d31e6f8698f48fc9219f9a3030f38c) and delegateSwap is onlySwapOperator; the any-call functions (deposit, depositTo, delegateSigner) are user actions that cost the caller instead of paying it. Users self-execute withdraws via a router and even pay a 1 USDC fee each.",
+  "numbers": "TVL $319,541 (candidate) / currentChainTvls.Arbitrum $308,693 (api.llama.fi). Proxy 0x816f722424b49cf1275cc86da9840fbd5a6167e9, impl Vault 0x79cded637178443344c30f6972698c58aa369dc6. 7d activity: 659 vault events (315 AccountDepositTo + 344 AccountWithdraw), blocks 0x1f2dd64e-0x1f52c04e, eth_getLogs. Sample of 15 withdraws: fee 1,000,000 units each (1.00 USDC, 6-dec token 0xaf88d065e77c8cc2239327c5edb3a432268e5831 resolved via allowedToken(); USDT 0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9 also seen), sender==receiver, gross $1-473. withdraw from fresh address reverts OnlyCrossChainManagerCanCall() 0x833d33e7 (eth_call)."
+}

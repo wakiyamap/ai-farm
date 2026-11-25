@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-hlp0",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 510,
+ "chain": "arbitrum",
+ "slug": "hlp0",
+ "name": "HLP0",
+ "category": "Yield",
+ "tvl_usd": 387876,
+ "url": "https://www.hlp0.to/",
+ "github": null,
+ "listed_days_ago": 510,
+ "run_id": "b058f59d756d48d0927a2ff4fbdfc7e1",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Proxy 0x3D75F2BB8aBcDBd1e27443cB5CBCE8A668046C81: processRequest(sBatch), rebase/debase, amoRedeem, AMO.increaseBacking all behind one team EOA 0xd73e844755b3d09db80a277adca00f9b4b2833e5 (processor=oracle); no fn pays the caller; 7d proxy events=0 (last proxy tx Nov 8 2026 approve); last batch Apr 4 2026 paid 989.96 USDC gross to redeemer, 94k gas (~$0.003, ETH $1796 llama); oracle stale since Apr 5 2026 (7d) so vault frozen; pendingDebt 0, 361 reqs ever, TVL $388k",
+  "kb": [
+   "attempts:1876",
+   "protocols:503"
+  ],
+  "run_id": "b058f59d756d48d0927a2ff4fbdfc7e1",
+  "at": 1794950239
+ }
+}

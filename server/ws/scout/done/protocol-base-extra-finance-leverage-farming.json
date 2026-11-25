@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-extra-finance-leverage-farming",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1282,
+ "chain": "base",
+ "slug": "extra-finance-leverage-farming",
+ "name": "Extra Finance Leverage Farming",
+ "category": "Leveraged Farming",
+ "tvl_usd": 6685529,
+ "url": "https://app.extrafi.io/",
+ "github": null,
+ "listed_days_ago": 1282,
+ "run_id": "3b57a2ecae074252808b3d0bc2c6511e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "VeloPositionManager 0xf9cfb8a62f50e10adde5aa888b44cf01c5957055: all 3 paid jobs (investEarnedFeeToLiquidity, liquidateVaultPositionPartially, closeOutOfRangePosition) are whitelist-only; permissionLess{Liquidation,Compound,RangeStop}Enabled all still false at head 59285494, fresh-address eth_call reverts error 20 VL_LIQUIDATOR_NOT_IN_WHITELIST; last 7d = 39 PM logs (22 user closes + 17 FeePaid), 0 keeper jobs; since 2026-06-01 all 9217 compounds were one whitelisted bot 0x8212eab7 (sub-$1-$1 fee/event) and 298 of 300 liquidations one bot 0x4f9bf74a, both idle since 2026-10-30 (block 53303650).",
+  "kb": [
+   "attempts:2304",
+   "protocols:664"
+  ],
+  "run_id": "3b57a2ecae074252808b3d0bc2c6511e",
+  "at": 1795048138
+ }
+}

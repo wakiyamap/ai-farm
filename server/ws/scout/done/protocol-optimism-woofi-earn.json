@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-woofi-earn",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1462,
+ "chain": "optimism",
+ "slug": "woofi-earn",
+ "name": "WOOFi Earn",
+ "category": "Yield",
+ "tvl_usd": 483511,
+ "url": "https://woofi.com/en/trade/",
+ "github": null,
+ "listed_days_ago": 1462,
+ "run_id": "44035e4173884aa4adbcc3e07e28a4a1",
+ "result": {
+  "verdict": "role_gated",
+  "line": "4 SuperCharger vaults ~483k USD on OP (ETH 0xB54e1d90, OP 0xcA7184eA, USDC.e 0x4bEa23fc, USDC-v2 0x18aa88bb): startWeeklySettle/endWeeklySettle onlyAdmin (fresh-address eth_call reverts 'WooSuperChargerVault: !ADMIN' on all 4), 6 settle events in 7d (blocks 159.43M-159.73M; control Transfer 16) all by one WOOFi admin 0x3668ba88a32332269483a0eb2406a7f8149b486d, 30d 18 events/3 weekly batches same wallet; only stranger-callable fn WooLendingManager.accureInterest() succeeds from fresh address but transfers 0; gas ~40k x 0.001 gwei ~ 0.00007 USD (ETH 1794.6, coins.llama.fi)",
+  "kb": [
+   "attempts:2375",
+   "protocols:908"
+  ],
+  "run_id": "44035e4173884aa4adbcc3e07e28a4a1",
+  "at": 1795062235
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-lunarbase",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 235,
+ "chain": "base",
+ "slug": "lunarbase",
+ "name": "Lunarbase",
+ "category": "Dexs",
+ "tvl_usd": 43925,
+ "url": "https://lunarbase.gg/",
+ "github": [
+  "Lunarbase-Lab"
+ ],
+ "listed_days_ago": 235,
+ "run_id": "5455e62566724e6d8155c7a09cf18580",
+ "result": {
+  "verdict": "role_gated",
+  "line": "upd() (pricing epoch) is the only keeper-like fn and is operator-gated (fresh addr reverts UnauthorisedAccess 0x73c9f7e4, operator1 0x45483e..282e returns ok); swaps open to anyone but pay 0 to the caller (pool takes 0.0000-0.005 USDC fee/swap); 7d (blocks 57,748,812 2026-11-15 to 60,772,814 2026-11-22): 2,657 SwapExecuted in 12x10k-block slices (~4%, est ~67k/7d, trades .5-57), PartnerFeeTaken 119/119 to one owner-set whitelisted partner 0x8f10b4..f996; swap gas ~0.0015 USD (0.006 gwei, ETH ~1705 from pool quote)",
+  "kb": [
+   "attempts:3696"
+  ],
+  "run_id": "5455e62566724e6d8155c7a09cf18580",
+  "at": 1795345493
+ }
+}

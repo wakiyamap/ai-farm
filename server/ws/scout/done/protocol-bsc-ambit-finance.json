@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-ambit-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1012,
+ "chain": "bsc",
+ "slug": "ambit-finance",
+ "name": "Ambit Finance",
+ "category": "Lending",
+ "tvl_usd": 53499,
+ "url": "https://ambit.finance",
+ "github": null,
+ "listed_days_ago": 1012,
+ "run_id": "b39b3f1c46234111add239b27c3adcb9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "liquidate pays the liquidation discount but is role-gated: fresh-EOA eth_call reverts Authorization_NotAuthorized(caller), getAuthorized()=[0xeA83BF408Ce75E149714eF68FB9B9BAeF01e615a]; protocol dormant, 0 logs (no-topic scan) on MarketLiquidation 0x8e452EF and Market 0x6A8F71e over 7 d (blocks 0x7fa06b2 2026-11-16 to 135171726 2026-11-23, same-shape USDT control non-empty); TVL 53,499 USD",
+  "kb": [
+   "attempts:3909",
+   "protocols:2068"
+  ],
+  "run_id": "b39b3f1c46234111add239b27c3adcb9",
+  "at": 1795392776
+ }
+}

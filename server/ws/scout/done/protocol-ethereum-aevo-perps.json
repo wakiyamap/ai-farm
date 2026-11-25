@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-aevo-perps",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1319,
+ "chain": "ethereum",
+ "slug": "aevo-perps",
+ "name": "Aevo Perps",
+ "category": "Derivatives",
+ "tvl_usd": 13422269,
+ "url": "https://app.aevo.xyz/r/defillama",
+ "github": null,
+ "listed_days_ago": 1319,
+ "run_id": "d6cac5adf46d45809c647fb64a71fdce",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Aevo on ethereum is only the OP-stack bridge (L1StandardBridge 0x4082C9... holding 10.59M USDC + L1SwapVault 0x426d1F... holding 18.3k USDC, DefiLlama sumTokens 'aevo-xyz'); swap() onlyKeeper (0 logs, 7d blocks 26414011-26464001), 17 finalizeBridgeERC20/7d all via relayer 0xe31448... which pays ~992k gas (~4.90 USD) and receives 0; 63 user deposits/7d pay no one.",
+  "kb": [
+   "attempts:3366",
+   "protocols:1675"
+  ],
+  "run_id": "d6cac5adf46d45809c647fb64a71fdce",
+  "at": 1795274064
+ }
+}

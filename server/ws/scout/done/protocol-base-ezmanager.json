@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-ezmanager",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 256,
+ "chain": "base",
+ "slug": "ezmanager",
+ "name": "EZManager",
+ "category": "Liquidity Manager",
+ "tvl_usd": 104547,
+ "url": "https://ezmanager.finance",
+ "github": [
+  "EZManagerCL"
+ ],
+ "listed_days_ago": 256,
+ "run_id": "54d1f26869eb4e5e876845a772ab114b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "collect/compound/exit/changeRange pay only position owner or whitelisted bots (CLCore.allowedBots, addBot onlyOwner); 7d: 98 BotFeePaid all to one bot 0x1b18cb97 = $35.28 USDC (median $0.087, max $9.13) vs ~2M gas/call ~= $20 gas (0.005 gwei, ETH $1,820 coins.llama.fi); 511 logs / 150 txs on CLManager 0x52dcc445, TVL $103k",
+  "kb": [
+   "attempts:1724",
+   "protocols:391"
+  ],
+  "run_id": "54d1f26869eb4e5e876845a772ab114b",
+  "at": 1794919899
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "address": "0xd3e8b276455ee1481d83d0d0cac2753de276f6a9",
+ "strategy": "UniswapX dutch-order fill conduit: an operator-owned contract (EOA signers 0xa67dc50de1993061b4df140019f85c722a860022 / 0xb421cfe6e70459fd63340e40139063559b11c894) that fills Dutch orders on the UniswapX reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 by swapping the order's input via Pancake pools in the same tx; token in == out exactly on the contract (pure pass-through), the spread is skimmed as a fee (0.2-1.9% of order size) to the operator's own ERC-4337 wallet 0x500368ecf9046e546219a13ec421354cc99c8fda in all 10 fills; no protocol reward accrues to the caller itself",
+ "evidence": "ledger actor_daily bsc uniswapx.fill: 10 fills 2026-11-06..11-12 (1/3/4/2 on Nov 6/9/10/12); eth_getLogs Fill(bytes32,address,address,uint256) on reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 blocks 133733425-134027074: 0 fills by this filler (control: same-shape query returns other fillers, e.g. tx 0x45031d211e52 by 0x0c71466754). Sample fill receipts: 0x1036364ae2b70ac4b3ae77c28c3a1397386e67c190d605cef71e68662ea1430b, 0xf9280126116d310ceb07127db4a20d0a655a36bb9df8c78b3a5f4804d1b54863, 0xf556044b8bffeebe76085f703bbcda8c37d17f986ded9d6cd8dc4ba51cd957d3 (all show equal token in/out via 0xd3e8 and a fee transfer to 0x500368ec...)",
+ "est_profit_usd_day": 15
+}

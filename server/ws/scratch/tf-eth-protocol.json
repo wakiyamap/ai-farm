@@ -1,0 +1,5 @@
+{
+  "chain": "ethereum",
+  "protocol": "team_finance",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/team-finance/config.js ethereum entries: v3 proxy 0xe2fe530c047f2d85298b07d9333c05737f1435fb (EIP-1967 impl 0x6dd27f2b82f78dd8a802a9228f340518280359f1, verified LockToken.sol via explorer source; same impl as base/avax rows) and 2 v2 lockers 0xdbf72370021babafbceb05ab10f99ad275c6220a (verified lockToken.sol 0.4.25) and 0xc77aab3c6d7dab46248f3cc3033c856171878bd5. All three: eth_getCode != 0x and a getter answers (v3 depositId() 0x9852099c = 24571; v2 getDepositDetails(1) 0x890db72f returns data on both). Verified source: every user function (withdrawTokens, extendLockDuration, transferLocks, splitLock, collectUniswapV3LPFees, mintNFTforLock) requires _msgSender() == the deposit's withdrawalAddress (or lock-NFT owner); setters onlyOwner. Withdrawals pay the withdrawalAddress itself, fees flow user -> companyWallet/referrer at lock time. Same conclusion as base/polygon/bsc/avax dead_ends."}

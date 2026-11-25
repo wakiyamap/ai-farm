@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "vesper_v1",
+  "status": "dead_end",
+  "checked": "2026-11-22 scout run 6865ff9b9ec842d5837a4e38a7d90068: 14 prod pools from DefiLlama adapter projects/vesper + api.vesper.finance/pools?stages=prod (orbit stage empty); TVL sum 68.3M USD (candidate said 61.1M). Pools are proxies, impls 0x91f92f75e547db066c39dea4d4a8b45f4b8ede4a / 0xd948ba1b50c474199db204ef128ba413c49fd9b8 (VPool 5.x ABI: deposit/withdraw/depositAndClaim/withdrawAndClaim user fns; reportEarning/reportLoss/migrateStrategy/pause/update* role-gated). PoolRewards.claimReward(address) is the only permissionless paying function (eth_call from fresh 0x0000..dead succeeds) and pays the recipient argument's own accrued VSP. Keeper-class fns on the Morpho/Cap/StakeDAO/Sommelier strategies (claimAndSwapRewards, swapToCollateral, processWithdrawals, updateReward) revert from a fresh address (0x82b42900 / caller-is-not-a-keeper). 7d: 0 RewardPaid on all 13 rewards contracts. Same class-level result as base (attempt 2706 role_gated) and optimism (2811 unpaid)."
+}

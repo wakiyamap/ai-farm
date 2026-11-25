@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "autofinance",
+  "status": "dead_end",
+  "checked": "2026-11-21 run e717bfe3 scout: AUTOfinance = rebranded Tokemak (DefiLlama id 438, module tokemak/index.js). AutoPilot system on ethereum = 12 AutoPool vaults from SystemRegistry 0x2218F90A98b0C070676f249EF44834686dAa4285 -> autoPoolRegistry() 0x7e5828a3a6ae75426d739e798140513a2e2964e4 -> listVaults() (12). All 12 confirmed eth_getCode non-0x with asset()/totalAssets()/name() answering: autoETH 0x0a2b94f6...4e56 (7511 WETH), balETH, autoLRT, dineroETH (45-byte clones of impl 0xf90bb2ba...7281), autoUSD 0xa7569a44...0d35 (8.14M USDC 0xa0b8..eb48 6dec), autoDOLA 0x79eb84b5..a54d (38.1M DOLA), siloUSD/siloETH/infinifiUSD/anchrgUSD/gpuUSD/morphoTenUSDC (5 share impl 0xb0a44f62...428a). All impls verified-named AutopoolETH on Etherscan. Keeper-ish external fns: updateDebtReporting(uint256) [AUTO_POOL_REPORTING_EXECUTOR] and flashRebalance [SOLVER]; both revert AccessDenied() 0x4ca88867 from fresh 0x8888..8888 (12/12, 5/5 eth_call). Source shows no msg.sender payment (fees -> fee shares, claimed rewards -> vault). Same role_gated pattern as base (attempt 2688) and arbitrum (2607). Legacy Tokemak Manager cycle rollover closed earlier (protocols:149, attempt 613)."
+}

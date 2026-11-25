@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "reservoir_protocol",
+  "status": "dead_end",
+  "checked": "2026-11-20 run 9a8b08bf: local PSM round-trip target closed. Official https://docs.reservoir.xyz/security-and-compliance/smart-contract-addresses.md says all core contracts including USDC/USDT/USD1 PSM on Ethereum; BNB table lists rUSD 0x09D4214C03D01F49544C0448DBE3A27f768F2b34 and wsrUSD 0x4809010926aec940b550D34a46A52739f996D75D only. At BSC head 134613592 both have code and name() answers Reservoir Stablecoin / Wrapped Savings rUSD; rUSD bytecode dispatch lacks redeem(uint256) 0xdb006a75 (cast sig; PSM source), eth_call from fresh address reverts 0x twice. No verified local PSM; no same-chain atomic mint/redeem route. This does not classify independent Reservoir asset-adapter opportunities. Raw reads in scratch/reservoir-*-bsc-*.json."
+}

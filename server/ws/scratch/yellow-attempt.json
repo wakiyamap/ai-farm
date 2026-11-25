@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-yellow",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The only Yellow contract on polygon (DefiLlama's tracked vault 0xb5F3a9dD92270f55e55B7Ac7247639953538A261) exposes deposit/withdraw/balances only - no reward, claim or keeper function anyone can call for pay; withdraw/unbonding pay the caller's own funds and revert from a stranger. The protocol is dormant: 0 vault calls and 0 token transfers in the last 7 days, and its authorizer contract has never been called since its 2025-03-25 deployment.",
+  "numbers": "7d window 2026-11-15 20:04 -> 2026-11-22 20:04 UTC (latest block 97,781,605, ts 1795377877): vault txs 0 (full history 8 txs via explorer txs/etherscan, last 2026-10-03 failed 1-wei); vault ERC-20 in/out 0 (blockscout token-transfers, last outflow 2026-11-01); authorizer 0x3e7ba2e09055ca0ad697018069e0388a46388ce0 txs ever = 1 (deploy 2025-03-25). eth_call from fresh address: withdraw(USDC,1e6) reverts 0xdb42144d, completeUnbondingRequests([vault]) reverts 0x05e7fb13. Holdings ~26,130 USD (api.llama.fi currentChainTvls Polygon 2026-11-22): USDT0 9,633.19, USDC 3,975.80 (on-chain balanceOf 0xecd9dc3c, 6 dec), wstETH 2.380357, USDC.e 1,137.91, WETH 0.645753, WBTC 0.001927 (blockscout token-balances). Gas irrelevant: no reward-paying function."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-concrete",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 647,
+ "chain": "arbitrum",
+ "slug": "concrete",
+ "name": "Concrete",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 13041197,
+ "url": "https://app.concrete.xyz",
+ "github": null,
+ "listed_days_ago": 647,
+ "run_id": "d2e48783769a453e8c53500d10c4f42e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Concrete V2 vaults Arbitrum $13.0M (0xc9ff325c $8.70M + 0x5865f90c $4.23M, impl 0xbcf719a5 AsyncVault): keeper fns closeEpoch/processEpoch/claimUsersBatch/allocate all role-gated (stranger eth_call reverts AccessControl 0xe2517d3f); only accrueYield() permissionless, pays $0 (1,424 calls 7d by automation EOA 0xf0d208b3..., gas ~$0.003); epoch idle latestEpochID()=1, EpochProcessed/QueuedWithdrawal/RequestClaimed 0 in 7d vs control 1,868 Transfers (blocks 30,401,959-32,821,159).",
+  "kb": [
+   "attempts:2005"
+  ],
+  "run_id": "d2e48783769a453e8c53500d10c4f42e",
+  "at": 1794978781
+ }
+}

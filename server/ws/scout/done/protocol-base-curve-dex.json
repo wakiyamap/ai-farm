@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-curve-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "curve-dex",
+ "name": "Curve DEX",
+ "category": "Dexs",
+ "tvl_usd": 4279431,
+ "url": "https://curve.finance",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "86ccb9ee2e004a91ab59fc9c38e680a1",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Curve pools on base (756 stable-ng + 276 twocrypto-ng + 95 tricrypto-ng; 5 factories with code, head 59700073): only permissionless fee fns are withdraw_admin_fees/claim_admin_fees (stranger eth_call returns 0x, no revert) and both pay factory fee_receiver 0xe8269B33E47761f552E1a3070119560d5fa8bBD6, caller paid 0 USD gross vs gas; no caller/recipient-paid function -> no_reward",
+  "kb": [
+   "attempts:2678"
+  ],
+  "run_id": "86ccb9ee2e004a91ab59fc9c38e680a1",
+  "at": 1795130859
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-ledgity-yield",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 208,
+ "chain": "base",
+ "slug": "ledgity-yield",
+ "name": "Ledgity Yield",
+ "category": "Yield",
+ "tvl_usd": 2079939,
+ "url": "https://ledgity.finance/",
+ "github": [
+  "LedgityLabs"
+ ],
+ "listed_days_ago": 208,
+ "run_id": "f67fa2baa3934fed894db9a518fd0605",
+ "result": {
+  "verdict": "unpaid",
+  "line": "harvestFees() is callable by anyone on lyUSD/lyEUR vaults (0x916f179D.., 0xFaA1e372..; eth_call from fresh address ok, estimateGas 68,793 = ~bash.001 at 0.006 gwei, ETH 792.75 coins.llama.fi) but fee shares mint to protocol feeRecipient 0x22f74606..f692, so stranger gross = $0; last 7d: 2 vault Transfer logs total, 0 fee mints to feeRecipient, 0 WithdrawalRequested, LUSDC/LEURC 0 (0 in 30d too; shape control = 1 on vaults); rest is onlyOwner/onlyLiquidityManager/onlyWithdrawer or user-driven",
+  "kb": [
+   "attempts:1694",
+   "protocols:372"
+  ],
+  "run_id": "f67fa2baa3934fed894db9a518fd0605",
+  "at": 1794914067
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-gro",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "gro",
+ "name": "Gro",
+ "category": "Yield",
+ "tvl_usd": 25539,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "080c53b12eb84d979db3e9ce1c46cab5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Gro avalanche = 6 VaultAdaptorMK2 labs vaults (TVL 25,548 USD: 103+22,248 USDC, 15.8+233 DAI, 2,875+85 USDT; coins.llama.fi 2026-11-23T13:59Z); only keeper fn strategyHarvest 0x7a73964c is onlyWhitelist (eth_call from fresh addr reverts) and pays msg.sender 0 anyway; 0 events from all 6 in 7d (blocks 100481537-101170475 = 2026-11-16..23, no-topic scan, control 87 USDC logs); lastReport 2022-03/06, dormant.",
+  "kb": [
+   "attempts:4121",
+   "protocols:2243"
+  ],
+  "run_id": "080c53b12eb84d979db3e9ce1c46cab5",
+  "at": 1795442527
+ }
+}

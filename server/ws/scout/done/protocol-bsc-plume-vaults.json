@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-plume-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 751,
+ "chain": "bsc",
+ "slug": "plume-vaults",
+ "name": "Plume Vaults",
+ "category": "RWA",
+ "tvl_usd": 27874534,
+ "url": "https://app.plume.org/vaults",
+ "github": null,
+ "listed_days_ago": 751,
+ "run_id": "ad524c1953c8431a8217b14e029b2a4f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Plume Vaults = Nest BoringVault stack, 10 active BSC vaults (Binance TVL 26.4M, api.llama.fi 2026-11-18); all state-changing fns (manage/enter/exit/deposit/bulkDeposit/updateExchangeRate) solmate requiresAuth \u2014 eth_call updateExchangeRate from stranger reverts UNAUTHORIZED, claimFees is BoringVault-only; no permissionless fn pays a caller, 0 stranger payments to measure; contracts nALPHA 0x593ccca4..db, accountant 0xe0cf451d..e1, source via same-address Ethereum verification (bsc explorer keyless broken).",
+  "kb": [
+   "attempts:2068",
+   "protocols:655"
+  ],
+  "run_id": "ad524c1953c8431a8217b14e029b2a4f",
+  "at": 1794992168
+ }
+}

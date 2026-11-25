@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-snuggle",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 281,
+ "chain": "arbitrum",
+ "slug": "snuggle",
+ "name": "Snuggle",
+ "category": "Liquidity Manager",
+ "tvl_usd": 38004,
+ "url": "https://snuggle.fi/",
+ "github": null,
+ "listed_days_ago": 281,
+ "run_id": "508518d454944e348ccfc843dd505b32",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Same architecture as Base (dead_end): vault 0x413Ca9...30F6 gates automation on authorizedKeepers (executeKeeperAction + KeepersHelper.performUpkeep revert 0xea8e4eb5 from fresh addr) and user fns on position ownership (harvest -> 0x70d645e3); 7d (blocks 524447885..526505415): 285 vault logs, 91 SnuggleRebalanced all auto by single team keeper 0xd3f91d...C6eC5C (paid bash on-chain, fees go to posOwner/treasury/referrer), keeper batch tx 1,022,531 gas = bash.035 @ ETH 1705.33 (coins.llama.fi 2026-11-22 11:45) \u2014 gross bash, no stranger payment.",
+  "kb": [
+   "attempts:3709",
+   "protocols:1927"
+  ],
+  "run_id": "508518d454944e348ccfc843dd505b32",
+  "at": 1795348258
+ }
+}

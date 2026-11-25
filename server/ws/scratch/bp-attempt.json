@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-blue-planet",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward — Blue Planet is a plain UniV2 fork (factory 0xa053582601214FEb3778031a002135cbBB7DBa18, from the deleted DefiLlama adapter planet-blue). Its whole function set is standard UniV2 factory + INIT_CODE_PAIR_HASH: nothing anyone can call pays the caller (createPair pays nothing, setFeeTo/setFeeToSetter are setter-gated); pairs have no keeper hooks. Protocol is also near-dormant (TVL $133k, 46 pairs unchanged over 7 days, 0 swaps on the AQUA/WBNB pair in two sampled 5000-block windows), so there is no fee flow to farm either.",
+ "numbers": "factory 0xa053582601214FEb3778031a002135cbBB7DBa18: allPairsLength 46 now and 46 at block 0x7f75f16 (7 d back); PairCreated last 5000 blocks (0x803998e..latest, block 0x803ad16) = 0, control Pancake factory same range = many logs; AQUA/WBNB pair 0x03028d2f8b275695a1c6afb69a4765e3666e36d9 Swap = 0 in 2x5000-block samples; TVL $133,329 (api.llama.fi/protocol/blue-planet 2026-11-19); feeTo 0xdde59e961a998599876301ee44c9e44d35e78ae6. No reward function, so gross/gas per call = n/a."
+}

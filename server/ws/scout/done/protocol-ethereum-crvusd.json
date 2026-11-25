@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-crvusd",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1295,
+ "chain": "ethereum",
+ "slug": "crvusd",
+ "name": "crvUSD",
+ "category": "CDP",
+ "tvl_usd": 73053961,
+ "url": "https://www.curve.finance/crvusd/ethereum/markets/",
+ "github": null,
+ "listed_days_ago": 1295,
+ "run_id": "9e1d8d206f1c4e6f91b7ecf96f374a57",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "crvUSD CDP (factory 0xC9332fdC, 9 markets, total_debt 38.15M crvUSD): liquidate/liquidate_extended is role-free; 8 Liquidate events in 7 d (blocks 26413780-26464005, ts 1794665541-1795270451, control 1176 logs same shape), 4 self-liqs; sample of 4: gross 114.58 / 0.26 / 0.00048 / 0 crvUSD, gas 0.11-4.96 USD (avg 1.50, ETH 1693.91 llama 14:22Z) - one stranger (EOA 0xd9fffdf0) took 114.58 USD gross for 0.67 USD gas in tx 0xa2f56007...; collect_fees() 126 calls/7 d pays the fee_receiver 0 to caller; 4 PegKeepers 0 logs/7 d (60 d control 206, last 26323373 ~Nov 1).",
+  "kb": [
+   "attempts:3353",
+   "leads:364",
+   "protocols:1665"
+  ],
+  "run_id": "9e1d8d206f1c4e6f91b7ecf96f374a57",
+  "at": 1795271596
+ }
+}

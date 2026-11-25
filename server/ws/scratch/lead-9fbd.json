@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "aave_v3 liquidationCall (Arbitrum) competitor 0x9fbd5e5f take-home",
+  "status": "measured",
+  "why": "Aave v3 Pool 0x794a6135 liquidationCall pays the liquidation bonus in-tx to any caller. Competitor module 0x9fbd5e5fa2a0f8076cb19ec813d3abc6ebee3f8d (driven by EOA 0x9d8a4c00 through Fastlane Atlas executor 0x8ad1ae9d, Morpho 0x6c247b1f flash loans, UniV3 exit) took 14 liquidations over 2026-11-05..11-14 and swept ~$19.13 to owner EOA 0x799dc363 (sum of in-tx sweeps; WETH $1,830.98 DefiLlama 2026-11-16); gas 0.038-0.176 gwei -> ~$0.11/liquidation. txs 0xab4fef678a... (4 liq), 0xd2b538b1..., 0xcafb662a..., 0x816fcd9c...",
+  "next_steps": "No new bot needed: this pond is already covered by live bot trial-aave-arbitrum (gate status 2026-11-16) and measured leads 9/12/15. This row only calibrates the prize: cadence 1.4 liq/day (14 in 10 d; days 11-15/16 zero), gross ~$1.37/liquidation after flash repayment and (for this competitor) Atlas OEV fees, gas ~$0.11/liquidation, net ~$1.8/day for one competitor. A farm catch of a similar size is only worth ~1 USD net, so volume/catch-rate, not size, is the lever."
+}

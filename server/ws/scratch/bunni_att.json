@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-bunni-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward — post-hack Bunni V2 is a Uniswap v4 DEX with no callable function that pays the caller: withdraw is self-service, claimProtocolFees pays a fixed (unset) hookFeeRecipient, curatorClaimFees is onlyCurator, the rest are hook- or owner-gated. The protocol is also dormant on ethereum: zero swaps and zero user ops on all 108 pools in the last 7 days.",
+  "numbers": "TVL 217,443 USD ethereum (api.llama.fi/protocol/bunni-v2, 2026-11-21 01:12 UTC). 7d window = blocks 26409859..26460114 (timestamps 1794618803 = 2026-11-14 .. 1795223615 = 2026-11-21, head checked via eth_getBlockByNumber). Logs (no-topic scan) on both hubs in window: 0 and 0; 90d control with the same query shape returns 3 logs (newest direct hub txs 0x5dc86424a00c6462... block 26182696 ts 1791883991 = 2026-10-13, 0x06cfab13a4014a23... block 26292289 FAILED on the older hub) => last user op ~24-39 d ago. v4 Swap events (topic0 0x40e9cecb9f5f1f1c... from v4-core IPoolManager Swap(bytes32,address,int128,int128,uint160,uint128,int24,uint24), control: 22,861 PoolManager Swap logs in last 1000 blocks) across all 108 poolIds (68 + 40, poolIdOfBunniToken per vault): 0. eth_call claimProtocolFees([]) from 0x1111..1111 reverts 0x261bdb72 (BunniHook__HookFeeRecipientNotSet); curatorClaimFees reverts (onlyCurator). Gas: not priced - no function to call."
+}

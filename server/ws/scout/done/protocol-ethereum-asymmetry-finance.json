@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-asymmetry-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1283,
+ "chain": "ethereum",
+ "slug": "asymmetry-finance",
+ "name": "Asymmetry Finance",
+ "category": "Indexes",
+ "tvl_usd": 940272,
+ "url": "https://www.asymmetry.finance",
+ "github": null,
+ "listed_days_ago": 1283,
+ "run_id": "7983d365a23342b28bef7fc6fe94cdd0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "afCVX harvest/distribute + afETH depositRewardsAndRebalance are owner/operator/rewarder-only (fresh-address eth_call reverts Unauthorized 0x82b42900) and pay the vault + protocolFeeCollector, never the caller; 7 d window blocks 0x1930400 (2026-11-14) to 0x193cece (2026-11-21): 13 events total on 9 contracts, the only 2 keeper ops both from team EOA 0x7a37e9ea via its router 0xa927c81c (= afETH rewarder() and afCVX operator()); veASF and 6 safETH vaults 0 events, safETH impls have no reward fn.",
+  "kb": [
+   "attempts:3346",
+   "protocols:1660"
+  ],
+  "run_id": "7983d365a23342b28bef7fc6fe94cdd0",
+  "at": 1795270227
+ }
+}

@@ -1,0 +1,80 @@
+id: gmx-liquidation-arbitrum
+author: earner/qwen3.8-flash-next
+chains: [arbitrum]
+strategy: GMX v2 position liquidations; watch EventEmitter OrderCreated orderType==2 captures (fee-bearing liquidation step), live path = own permissionless wrapper deployment (keeper fee follows wrapper-configured recipient)
+copied_from: keeper wrappers 0x5503b99308db6923758f9a22d118207d633c4e87 et al (6 permissionless, attempt 256); capture tx 0xb70b29cf00b6a83fdb3da99a75ed15aacdda02ad39b843837ed40c3931e602b5 block 521666037
+capital_usd: 300
+principal_usdc: 0
+allowed_contracts:
+  - 0xC8ee91A54287DB53897056e12D9819156D3822Fb   # EventEmitter (OrderCreated detection)
+  - 0xa5d2d45228ee2e3a18ab122b2ce84997d008f4eb   # live LiquidationHandler
+  - 0x5503b99308db6923758f9a22d118207d633c4e87   # busiest incumbent wrapper (probe template)
+  - 0xfd70de6b91282d8017aa4e741e9ae325cab992d8   # DataStore (fee factors)
+max_loss_per_tx_usd: 20
+max_loss_guarantee: >
+  executor guard contract GmxLiquidationAdapter.executeLiquidation reverts
+  AdapterFailed (any adapter/handler revert, incl. an already-liquidated
+  replay) and reverts NoMinProfit unless the farm recipient's wMATIC delta
+  ends >= minProfit (src/GmxLiquidationAdapter.sol:36-45); the fee transfer
+  runs inside the adapter call, so a failed run leaves the recipient whole
+  and the worst case is gas: measured capture gasUsed 0x216c43-0xe7a9f at
+  0.196 gwei = 0.0004-0.0005 ETH < 1 USD (attempt 265). Signed gas ceiling
+  4e6 x maxFeePerGas bounds it in the transaction itself.
+expected_value: >
+  median capture ~4 USD, p95 ~38 USD (fee = 0.2-0.315 pct of median 4358 USD
+  size x 37 pct receiver factor, attempt 246); captures on tracked order
+  events; gas < 1 USD; window >= 165 blocks on 29/32 samples (attempt 256) =
+  poll-compatible, no latency race.
+executor: >
+  scratch/gmx-exec/contracts/out/GmxLiquidationAdapter.sol/GmxLiquidationAdapter.json
+  (forge build 2026-11-06, solc 0.8.20). Constructor args (entry, recipient,
+  feeToken): entry = the farm's wrapper deployment (proof template = incumbent
+  batch adapter 0xde433ff3cac13ef06637c0d2f0d7d05596b67109), recipient = farm
+  wallet, feeToken = wMATIC 0x82af4944d3737c675258ad75173cc70629489378. Live
+  entry needs the farm's own wrapper instance with recipient = farm (incumbent
+  wrappers pay their own configured recipients; LIQUIDATION_KEEPER membership
+  admin = RoleManager timelock - attempts 257/265).
+fork_evidence: >
+  FORK PROOF PENDING (lane): every 2026-11-06 reset arbitrum to a capture-parent
+  block failed upstream state availability (run eb1e9821: resets 521670369 and
+  521700079 = depth 12.9k-45k, "missing trie node .../historical state ... is not
+  available"; same blocker as run 9f56cce8 at 521665800/521666036/521668721).
+  Rerun recipe (lease the fork, then one script): scratch/gmx-exec/proof.sh -
+  reset 521670369 (parent of capture tx
+  0x1305b4ef7fbc4608e241149bea24a676c6434868c0fc92ca785f52a0141f50d6, block
+  521670370, entry wrapper 0xde433ff3..., captured keeper EOA 0x9c83b4a8b1dfdb04e0992cf30074a825ce6949a6, fee
+  recipient 0x09f94b5fc68e227c323a6fbae3bd98c97fd8c849), deploy
+  GmxLiquidationAdapter bytecode + ctor args (entry 0xde433ff3..., recipient
+  0x09f94b5f..., wMATIC), fork fund the keeper EOA, send executeLiquidation with
+  the captured batch calldata (scratch/gmx-exec/adapter-calldata.txt) and
+  minProfit: expect the success tx with a POSITIVE recipient wMATIC delta (fee
+  transfers measured in relay traces scratch/gmx-exec/cand1-trace.json: batch
+  recipient 0x09f94b5f... receives wMATIC; dust reference trace
+  scratch/gmx-liq-arb/trace.json tx 0xb70b29cf: Vault repay 31ef83a5 first,
+  fee 5.69e13 wMATIC to recipient 0xda1b841a21fef1ad1fcd5e19c1a9d682fb675258)
+  and the second identical call REVERTS AdapterFailed (batch positions already
+  liquidated). Handler-replay note from run 9f56cce8: raw handler replay of the
+  captured calldata at parent reverts in module 0x2b19a6ab35 (probe-out6.json) -
+  the proof path is the wrapper entry, not raw handler replay. Full keeper
+  calldata templates: scratch/gmx-liq-arb/trace.json.
+awaited_events: >
+  OrderCreated orderType==2 captures on EventEmitter 0xC8ee...: the bot's own
+  cold-start replay (blocks 521604322-521709455) logged 128+ capture records,
+  e.g. tx 0xd1ac82bf7d2c9f0a8a6dd359cbf98c799c74d607313e6dcba26a35c9fd0059da
+  at block 521657743 (logs/bot.jsonl, 2026-11-06, attempts 260); cadence about
+  101 captures/day measured over 78000 blocks (2155 orders/day over ~13
+  incumbent keepers; liquidation sell-orders are the orderType==2 subset);
+  next occurrence: within minutes to hours of the next price move (no
+  schedule).
+good_signs: >
+  capture records (orderType==2) with the raw packed data words w0-w7 (size
+  and fee decode are downstream work, not this round); heartbeat cursor
+  advancing with head; universe count grows from orderType 0/1 opens (account
+  from the third topic; capped 5000, implemented 2026-11-06); zero error
+  lines; capture rate consistent with the ~101/day measurement.
+bad_signs: >
+  zero captures for > 2 days with head advancing (topic/decoder wrong);
+  universe pinned at cap with eviction churn; getLogs paging errors every cycle.
+rpc_reads_per_min: 4
+legal_note: "liquidation keeper reward paid by the protocol to anyone who liquidates (S: keeper rewards)"
+expedite: false

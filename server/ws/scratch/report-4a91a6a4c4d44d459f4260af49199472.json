@@ -1,0 +1,12 @@
+{
+  "run_id": "4a91a6a4c4d44d459f4260af49199472",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-base-gami-labs",
+  "outcome": "scouted",
+  "kb_rows": ["protocols:358", "attempts:1674"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Base has 1 Gami contract: ERC-7540 MetaVaultWrapper proxy 0x776f95321a0285f8bcde149e3264d16dc08da69a (impl 0x82b7eea41638fc59eda9a3c12e11419079b8ecd1, Amphor infra vault 0xc62734aecb095d2cb74b3ccebfdf973ec23fbaa1), 2.54M gamisUSDC. Only permissionless fn is updateEpochID() 0xb634ea0a: eth_call from fresh EOA ok, 44,059 gas = $0.0005 (0.006 gwei, ETH $1809.64); it only copies Amphor epochId (127) to storage - no transfer, no event, gross $0. 0 txs to it in last 7d (Blockscout api/v2 head 2026-11-01T13:29Z), 0/50 recent calls. migrate() onlyOwner + empty body; deposit/redeem need controller==msg.sender or approved operator. Verdict unpaid."
+}

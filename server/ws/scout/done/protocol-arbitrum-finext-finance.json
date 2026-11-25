@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-finext-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1348,
+ "chain": "arbitrum",
+ "slug": "finext-finance",
+ "name": "Finext Finance",
+ "category": "Algo-Stables",
+ "tvl_usd": 60425,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1348,
+ "run_id": "d329827ba18c41c1af22bf60896d8f28",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Treasury.allocateSeigniorage() (0x5e2d8951..aba98) is open to anyone (fresh-address eth_call ok, modifiers are state checks) and mints 1 FINX to caller = 0.00046 USD (pool 32182 FINX vs 0.00856 WETH, ETH 1723 USD llama 1795409418) vs gas 2.07M x 0.02 gwei = 0.071 USD: gross < gas; 0 FundingAdded in 7d (blocks 524649261-526708130, topic0 from receipt, control 9 logs in 2023 window), last call 2025-03-09 by 0x0000...a130 (2.31M gas); dead 2023 seigniorage fork, website dead.",
+  "kb": [
+   "attempts:3984"
+  ],
+  "run_id": "d329827ba18c41c1af22bf60896d8f28",
+  "at": 1795409783
+ }
+}

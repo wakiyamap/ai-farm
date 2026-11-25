@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-hunnyswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1604,
+ "chain": "avalanche",
+ "slug": "hunnyswap",
+ "name": "HunnySwap",
+ "category": "Dexs",
+ "tvl_usd": 55628,
+ "url": "",
+ "github": [
+  "HunnyFinance"
+ ],
+ "listed_days_ago": 1604,
+ "run_id": "6c229a4e114b4225a6956f5f4a0269df",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MasterChef 0xdd18d187...deca is the only callable target (deposit/withdraw/massUpdatePools pay the caller's own pending XOXO; fresh-addr eth_call ok, not role_gated); 4 Deposit + 0 Withdraw events in 120k of 726k blocks (7d capped by 10k-block getLogs, control = same-shape Deposit query), all callers the owner EOA 0xfa1f780a...ed7c; one call pays 378.9 XOXO = 0.84 USD gross (XOXO unpriced on llama, pair-derived 0.0022 USD at AVAX 6.722), gas 0.025 USD; a caller without LP is paid 0; pair liquidity 2,546 USD, TVL 55,628 USD",
+  "kb": [
+   "attempts:4050",
+   "protocols:2176"
+  ],
+  "run_id": "6c229a4e114b4225a6956f5f4a0269df",
+  "at": 1795424068
+ }
+}

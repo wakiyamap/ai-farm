@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "deBridge DLN fill/claim inventory route (last unmapped top-10 ethereum ledger actor)",
+ "why": "debridge_dln.claimed_unlock is the 3rd-most-active ethereum ledger source over 7 d (1,835 events; 1,739 by 0x555ce236c0220695b68341bc48c68d52210cc35b): a cross-chain intent filler collects the source-chain unlock after paying the destination chain. Give-side flow 312.85 ETH (~1.03M USD) / 7 d is principal, not profit; the retained per-fill fee is not visible from the claim events.",
+ "next_steps": "CLOSED 2026-11-16 (run dd11572f): not farm-buildable today for mechanism, not numbers - the route needs USDC inventory on every destination chain and the fill->claim lag leaves capital outside one transaction, so L cannot be enforced per tx; the gate has no moving-funds mechanism and the human twice ruled bridge-transit capital out of bot scope (decisions 2026-11-15-cross-chain-gap-relay.md, 2026-11-16-bridge-vs-bridge-quotes.md: funds in bridge transit are not recoverable by the gate, no bot). Same C ruling as the Across relayers census card (infra/bot-census/across-relayers.md, census next-step 3). Reopen only when the gate can manage moving funds; first measurement then = retained margin per claim (destination-side payout + claim gas), not the give-side flow.",
+ "status": "dead_end"
+}

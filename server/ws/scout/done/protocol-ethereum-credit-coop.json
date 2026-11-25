@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-credit-coop",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 390,
+ "chain": "ethereum",
+ "slug": "credit-coop",
+ "name": "Credit Coop",
+ "category": "Uncollateralized Lending",
+ "tvl_usd": 273973,
+ "url": "https://www.creditcoop.xyz/",
+ "github": null,
+ "listed_days_ago": 390,
+ "run_id": "aa3961e9a5dc4618a2d660b4e8814947",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all 5 ethereum Credit Coop LendingVaults (Centrifuge LOC-v2 ERC-7540, USDT/USDC, totalAssets ~7.6M USD incl. drawn credit) gate every keeper fn behind _onlyOperator/_onlyVaultManager (eth_call processDepositRequest 0xd1389414 from fresh addr reverts OnlyOperator 0x27e1f1e5) and none pays the caller (fees mint as shares to manager 0xa0243448a1 + treasury); 7d no-topic eth_getLogs 0/11/0/0/2 logs across vaults, all 13 from users + manager router (control 1757 USDT logs/18 blocks); stranger gross 0.",
+  "kb": [
+   "attempts:3011",
+   "protocols:1405"
+  ],
+  "run_id": "aa3961e9a5dc4618a2d660b4e8814947",
+  "at": 1795200183
+ }
+}

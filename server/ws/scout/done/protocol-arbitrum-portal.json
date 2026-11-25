@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-portal",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1710,
+ "chain": "arbitrum",
+ "slug": "portal",
+ "name": "Portal",
+ "category": "Bridge",
+ "tvl_usd": 579899,
+ "url": "https://portalbridge.com",
+ "github": [
+  "wormhole-foundation"
+ ],
+ "listed_days_ago": 1710,
+ "run_id": "2a55d0906f12457d810544a9d2ce8249",
+ "result": {
+  "verdict": "unclear",
+  "line": "Wormhole/Portal bridge 0x0b2402144Bb366A632D14B83F244D2e0e21bD39c (chainId()=23): completeTransfer(bytes) pays the VAA fee to msg.sender (no role gate), 380 TransferRedeemed txs/7d (topic0 0xcaf280c8.., blocks 0x1f2f611e-0x1f544b1e); sample of 15: 10 via routers (0x1293a54e.. x7), 5 direct calls all self-redemptions paying fee 0 (single mint to caller in receipt); gas 271-309k gas @ 0.02-0.52 gwei (~0.0000056-0.000146 ETH); missing: per-VAA fee decode to prove a stranger ever took fee>gas",
+  "kb": [
+   "attempts:2514",
+   "protocols:1015"
+  ],
+  "run_id": "2a55d0906f12457d810544a9d2ce8249",
+  "at": 1795092925
+ }
+}

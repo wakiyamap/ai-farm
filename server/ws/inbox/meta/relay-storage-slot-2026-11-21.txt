@@ -1,0 +1,1 @@
+2026-11-21 scout: ethereum relay eth_getStorageAt returns 0x0 for the EIP1967 implementation slot even on a known control (Aave PoolProxy 0x87870Bca... -> 0), while slot 0x0 reads fine; implementation() eth_call also returned 0x/reverted on both. Proxy resolution via explorer source worked. Not blocking, but hex-slot reads look broken.

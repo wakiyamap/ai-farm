@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-penpie",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1257,
+ "chain": "arbitrum",
+ "slug": "penpie",
+ "name": "Penpie",
+ "category": "Yield",
+ "tvl_usd": 3307280,
+ "url": "https://www.pendle.magpiexyz.io/stake",
+ "github": null,
+ "listed_days_ago": 1257,
+ "run_id": "b2367441113a4f7abbf0b0fdf9f0f318",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MasterPenpie arbitrum 0x0776C06907CE6Ff3d9Dbf84bA9B3422d7225942D: open claim fns (multiclaim*) only pay the caller's own accrued rewards, fresh stranger gets 0 (eth_call); penpiePerSec=0, ARBPerSec(mPENDLE)=0, PNP unpriced; 7d: 4 self-claims by 4 distinct stakers (control USDC 3760 logs/1000 blk), largest paid 36.02 PENDLE = 52.77 USD to the staker (0xfd42d677), gas 252k-619k = 0.009-0.022 USD (0.02 gwei, ETH 1777.31 coins.llama.fi); multiclaimOnBehalf onlyCompounder; Pendle-side harvest already dead-ended (attempts:2100).",
+  "kb": [
+   "attempts:2294",
+   "protocols:841"
+  ],
+  "run_id": "b2367441113a4f7abbf0b0fdf9f0f318",
+  "at": 1795045734
+ }
+}

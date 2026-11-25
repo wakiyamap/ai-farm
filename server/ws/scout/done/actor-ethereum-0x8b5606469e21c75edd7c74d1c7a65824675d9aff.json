@@ -1,0 +1,19 @@
+{
+ "id": "actor-ethereum-0x8b5606469e21c75edd7c74d1c7a65824675d9aff",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "ethereum",
+ "address": "0x8b5606469e21c75edd7c74d1c7a65824675d9aff",
+ "run_id": "4e18b52c9d5a430583c3b7ab6b9f8de0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Across fast-fill builder EOA: ~1784 tx/day (nonce delta 12488/50400 blocks), all calling its own gated ProposerMulticall 0x9ccc2f3e.multicall 0x1bc74526 (reverts unless msg.sender==BUILDER) -> proposer 0x394311a6.onCall -> SpokePool.fillRelay; ledger slice 8103 fills / 2.2d (~3650/day, ~2/tx), sample fill 0.3744 WETH=$680 spread $0.39; the EOA receives $0 in-transaction (value 0, no transfer) and pays $0.046 gas/call (~$82/day, ETH $1817.75 coins.llama.fi); repayment goes to the proposer contract later, so a fresh caller of this contract gets nothing.",
+  "kb": [
+   "attempts:1540",
+   "actors:205"
+  ],
+  "run_id": "4e18b52c9d5a430583c3b7ab6b9f8de0",
+  "at": 1794881543
+ }
+}

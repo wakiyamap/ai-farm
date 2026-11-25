@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-ethena-usdtb",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The protocol is a single contract (per DefiLlama adapter): the USDtb ERC-20 token, a role-managed AccessControl token (proxy 0xc139190f447e929f090edeb554d95abb8b18ac1c -> impl 0x9d6d77a21702b9afcf924983fbfb84aaaae79589). No callable function pays the caller (no claim/harvest/poke/settle/auction/epoch); yield accrues via off-chain redemption rate, so there is nothing for a keeper/stranger to earn on-chain.",
+  "numbers": "Adapter lists 1 address (raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters main, 2026-11-21). totalSupply 314,888,117.30618256 USDtb (18 decimals, decimals()=0x12, eth_call latest 2026-11-21) ~= candidate TVL 314.9M USD. Full impl ABI from etherscan: 0 reward-type functions; mint from fresh addr 0x1111..1111 reverts 'AccessControl: account ... missing role 0xcfd53186...' (MINTER_BURNER_ROLE)."
+}

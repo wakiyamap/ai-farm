@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+# Run one agent session for an instance. Started by agent@<instance>.service.
+# The fixed prompt was assembled by assemble-prompt (as root) just before this.
+set -euo pipefail
+
+INSTANCE="${1:?usage: run-role <instance>}"
+: "${FARM_WS:?FARM_WS not set}" "${CLAUDE_BIN:?}" "${CODEX_BIN:?}" "${DSH_CMD:?}"
+
+ROLE="" HARNESS="" MODEL=""
+read -r ROLE HARNESS MODEL < <(awk -v i="$INSTANCE" '$1 == i { print $2, $3, $4 }' /etc/farm/roles.conf) || true
+if [[ -z "$ROLE" ]]; then
+  echo "run-role: unknown instance: $INSTANCE" >&2
+  exit 2
+fi
+
+# Services don't get a login shell's PATH, and each user has its own node.
+# /opt/farm/bin comes first so 'kb' and 'wiki' resolve to the farm tools.
+if [[ "$HARNESS" == dsh ]]; then
+  export PATH="/opt/farm/bin:${EARNER_PATH:?EARNER_PATH not set}"
+else
+  export PATH="/opt/farm/bin:${HARNESS_PATH:?HARNESS_PATH not set}"
+fi
+
+# Read by kb / wiki to label writes. run_id is the systemd invocation id,
+# the same value record-run stores as runs.run_id.
+export FARM_ROLE="$ROLE" FARM_MODEL="$MODEL" FARM_RUN_ID="${INVOCATION_ID:-manual}"
+
+RUNNER_DIR="/srv/farm/runners/$INSTANCE"
+PROMPT_FILE="$RUNNER_DIR/prompt.md"
+
+# Everything that changes per run goes last, so the fixed prefix stays cacheable.
+context() {
+  echo "## Session context"
+  echo
+  echo "- UTC time: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  echo "- run_id: $FARM_RUN_ID"
+  echo "- role: $ROLE (instance: $INSTANCE)"
+  echo "- model: $MODEL"
+  if [[ -x "/opt/farm/context/$ROLE" ]]; then
+    "/opt/farm/context/$ROLE" "$INSTANCE" || echo "- (context generator failed)"
+  fi
+  if [[ -f /etc/farm/smoke ]]; then
+    echo
+    cat /etc/farm/smoke
+  else
+    echo
+    echo "Start your session now, following your role instructions."
+  fi
+}
+
+# Claude Code permission rules. A leading '//' marks an absolute path.
+# Anything not listed here is denied (--permission-mode dontAsk).
+claude_tools() {
+  local ws="//srv/farm/ws"
+  local common="Read,Grep,Glob,Bash(kb *),Bash(wiki *),Bash(ledger *),Bash(curl *),Edit($ws/scratch/**)"
+  case "$ROLE" in
+    meta)
+      echo "$common,Edit($ws/**),Edit(//srv/farm/prompts/roles/**)" ;;
+    live-operator)
+      echo "$common,Edit($ws/inbox/**),Edit($ws/logs/**),Edit($ws/bots/paper/**)" ;;
+    *)
+      echo "$common" ;;
+  esac
+}
+
+CONTEXT="$(context)"
+
+case "$HARNESS" in
+  claude)
+    # Start from a root-owned, empty directory so no project settings, hooks
+    # or CLAUDE.md written by another agent get loaded.
+    cd "$RUNNER_DIR"
+    exec "$CLAUDE_BIN" -p "$CONTEXT" \
+      --model "$MODEL" \
+      --append-system-prompt-file "$PROMPT_FILE" \
+      --settings /etc/farm/claude-settings.json \
+      --add-dir "$FARM_WS" \
+      --permission-mode dontAsk \
+      --allowedTools "$(claude_tools)" \
+      --output-format stream-json --verbose
+    ;;
+  codex)
+    # Codex's own sandbox blocks network and sudo, which these roles need.
+    # The boundary is the OS user (harness), not the codex sandbox.
+    cd "$FARM_WS"
+    exec "$CODEX_BIN" exec --skip-git-repo-check --sandbox danger-full-access \
+      -m "$MODEL" "$(cat "$PROMPT_FILE")
+
+$CONTEXT"
+    ;;
+  dsh)
+    # Instructions reach dsh through ~/.dsh/AGENTS.md, a read-only bind mount
+    # of the assembled prompt (see the agent@earner-local drop-in).
+    cd "$FARM_WS"
+    read -ra dsh_cmd <<< "$DSH_CMD"
+    exec "${dsh_cmd[@]}" "$CONTEXT"
+    ;;
+  *)
+    echo "run-role: unknown harness: $HARNESS" >&2
+    exit 2
+    ;;
+esac

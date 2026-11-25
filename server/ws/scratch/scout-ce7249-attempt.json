@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0xce7249ae6b984529a3217d6a03513d3645c93f8f",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: self-funded micro HYPE leverage-loop bot, a user moving its own funds, not a protocol-paid public job. EOA is 28 h old (first tx 2026-11-16 17:34 UTC, funded 0.3 HYPE by 0xc9ec02c2b6ff833ca113d86e5813dc8ad42bbe12); it loops WHYPE collateral on Morpho Blue and HyperLend against USDC borrows through three executor contracts it deployed itself (0x7967a56d, 0xe291804f, 0xf013612d), with DEX swaps. Zero incoming ERC-20 in whole history, no liquidate/claim calls, nothing pays it per call; profit is yield spread on its own ~$35 position, not observable as payments.",
+  "numbers": "txs: 200 in 17.5 h recent window (~270/day, explorer txs cap 200, full history ~300 in 28 h); failures 35/200 (17%, all sel 0x80183bf0 on own contract 0xf013612d); tick calls 0x0ec1bfbe 75/17.5h, 27122 gas, no logs (tx 0xaff87ab1...4234); gross per call: USDC leg avg 4.61 USD (4 transfers, 18.45 total), WHYPE to Morpho 10 transfers total 0.225 HYPE (avg 0.0225 HYPE = 1.56 USD); gas per tx 27k-274k gas, cost 3e-5..1e-4 HYPE = 0.002-0.007 USD at gasprice 0.2-2.5 gwei and HYPE 69.18 USD (coins.llama.fi coingecko:hyperliquid, 2026-11-17 11:51 UTC); gas/day ~1-2 USD; native balance left 0.208 HYPE; est_profit ~0 USD/day (sources: explorer txs hyperevm, alchemy_getAssetTransfers fromBlock 0x3104958, eth_getTransactionReceipt samples)"
+}

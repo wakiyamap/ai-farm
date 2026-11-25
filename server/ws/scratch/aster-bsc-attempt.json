@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-aster-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Aster Bridge BSC vault 0x128463A60784c4D3f46c23Af3f65Ed859Ba87974 (TVL 288-306M USD) is the AstherusVault shuttle-bridge contract; its only payout path (withdraw 0x0cd4b1fe, cancelWithdraw) reverts AccessControlUnauthorizedAccount(OPERATE_ROLE) from a stranger address, withdrawFee is ADMIN-only and exactly 6 addresses hold OPERATE_ROLE (getRoleMemberCount=6, identities not pulled). Open-to-anyone functions (deposit, depositNative, depositFor) pay nothing. No reward/harvest/claim function exists.",
+ "numbers": "paused()=false (getter live); withdraw+cancelWithdraw eth_call from 0x1111..11 revert 0xe2517d3f AccessControlUnauthorizedAccount role 0x26dad9af..=keccak(OPERATE_ROLE); getRoleMemberCount(OPERATE_ROLE)=6; 57 dispatcher selectors on impl 0x9a183b1e8939d7a7bd49c47ab0ad540f8aa07360 (ERC1967 slot) matched to verified AstherusVault source from Arbitrum impl 0x896a3630..7d1a; same-family Arbitrum row protocols:703 measured flat fee 0.51 USDT/withdrawal kept in vault (ADMIN recover), relayer pays gas 208k gas @0.02gwei; 7d event count pending: scout-lane Alchemy 300,376/300,000 CU spent + bsc public 'all providers failed: public: limit exceeded' on eth_getLogs (relay /health 2026-11-18 12:5xZ); BNB $587.90 coins.llama.fi"
+}

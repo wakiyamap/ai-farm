@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "address": "0x8defac3f807375bc078748f0c2d18d580e333b89",
+ "strategy": "Hobbyist EOA managing its own kHYPE (Kinetic) staking (approve, queueWithdrawal(kHYPEAmount) to 0x393d0b87, WHYPE->kHYPE swaps via 1inch 0x111111a1) and running a self-deployed Morpho Blue HyperEVM liquidator/position wrapper 0x29281e35 (deployed by it at block 38689310) via its function cf1f5981; not a paid keeper - no protocol pays the EOA, Morpho liquidation bonus stays in the wrapper and is dust-sized",
+ "est_profit_usd_day": 0,
+ "evidence": "0xb7996043d20557ef8620264d51218d21a6b41c1a177d526714dc5ace55717bed (successful cf1f5981 -> Morpho Liquidate of 0xe8ce0e49, repaid 0.0099 WHYPE dust, seized kHYPE swapped in-tx via Uni v3 pool 0xbe352daf); 0x5d8ed5cb433964695a638c0530c2a430e722439ef1f7e937d5f97d84dbe8c925 (queueWithdrawal kHYPE); 0x3687f98a9818de42e47dcfc4454d1896d948ef6cd919a14a86b927d469c97bc6 (EOA deployed 0x29281e); explorer txs -n 200: 148 txs 2026-05-20..11-14, last burst 16 tx 11-14; ledger actor_daily morpho_blue liquidation 5 on 11-14, 1 on 11-05"
+}

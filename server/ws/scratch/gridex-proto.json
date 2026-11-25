@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "gridex",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/gridex/index.js: factory GridFactory 0x32d1F0Dce675902f89D72251DB4AB1d728efa19c (verified on etherscan, getter priceOracle()->0x9da10a86f57e810a8a1d72f4a874419eb69bf16a answers), staking 0x035E9062286FD19460B3E22970ebB5691EED2C25 (xToken-style GDX stake/unstake/redeem, last tx 2026-08-02 block 490624700 explorer txs), GDX 0x2F27118E3D2332aFb7d165140Cf1bB127eA6975d. Verified Grid source (Grid.sol) at 0xda57aaf912619bf10e8e585e932e20d941269733: only functions are initialize/swap/placeMakerOrder*/settleMakerOrder*/flash/collect; NO reward/keeper/claim function that pays a stranger: settleMakerOrder requires order.owner==msg.sender (Grid.sol 'G_COO', reverts from fresh address), collect pays out msg.sender's OWN tokensOweds (0 for a stranger: eth_call from fresh addr returns (0,0)), swap/flash make the CALLER pay fees to makers. PriceOracle.update has no reward. Protocol nearly dead: 0 Swap events on all 47 grids in 7d; 1 user tx total in 7d (batch settle). TVL 50,958 USD."
+}

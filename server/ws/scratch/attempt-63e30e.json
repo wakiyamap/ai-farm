@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "actor-optimism-0x63e30e9145a344fe4386cef0fe165099ef6dee58",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. 0x63e30e is a HAI OracleJob keeper executor / reward wallet of operator EOA 0xd4a2f192. Its earning calls hit HAI OracleJob 0xF4F18205...F9FC22 workUpdateCollateralPrice(bytes32)[0x4e6669ed] and workUpdateRate()[0xdbbb74d5], which the protocol pays 0.05 HAI per update to ANY caller -> a fresh address taking the same call is paid. cashout(uint256) realizes accrued internal HAI to WETH (own-funds movement). This is the known HAI job (protocol hai measured; leads 211/212/213), run by an incumbent in a first-block speed race; the farm already has cheap-chain trial bots on both functions.",
+  "numbers": "Tx volume ~200 txs over 2026-11-07..13 (~6.1 d) ~ 33 tx/day (Blockscout). Method mix: 0xcccba5fb collateral-probe 128 (mostly revert, ~29k gas), 0x09cd29b3 batch-work 63 (~665k gas ok / ~32k revert), cashout(0xa9e732bb) 9. Reward = 0.05 HAI/update (OracleJob.rewardAmount; KB hai), ~$0.062/update at HAI 1.234 USD. Realized 2026-11-10..13 (~3 d): HAI IN 5.4 / OUT 5.4, WETH IN 0.003356 / OUT 0.003356 (net 0, pass-through to owner) = ~$6.6 gross realized ~ $2/day gross. Gas/call from receipts: batch work 0x07d57a07 = 665804 gas x 0.1738 gwei + L1 = 1.157e-4 ETH ~ $0.21; cashout ~1.08e9 wei ~ $0.002; probe ~2.6e11 wei ~ $0.0005. Prices ETH 1830.20 USD (DefiLlama coins.llama.fi, 2026-11-17). Race: KB hai = all rewards taken in first eligible block, priority 15-65 pct of reward."
+}

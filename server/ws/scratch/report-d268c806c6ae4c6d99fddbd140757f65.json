@@ -1,0 +1,12 @@
+{
+  "run_id": "d268c806c6ae4c6d99fddbd140757f65",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "recount lead 157 under decision 2026-11-14-race-rule-seconds (recorded timestamps only) + liquidator census step 2 ranks 19-20",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1178", "attempts:1179", "leads:157", "attempts:1180", "attempts:1181"],
+  "wiki_pages": ["infra/liquidator-census.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Lead 157 closed dead_end: on the protocol eligibility basis (proven by the capture prechecks reverting 'position is healthy' at C-1) the farm-band class crosses inside the capture block - 466/469 sampled events healthy at parent, 0.2 s windows < R = 3 s; the publish->capture oracle-age windows (9-697 s) are upper bounds the census correction withdrew, so the same-block-race closure the human sanctioned applies. Recount used no new chain reads per the decision. Census step 2 continued for ranks 19 (0xbde3e91f: fast in sample, one 1-block/12 s aave exception in the trial band; its 6 compound_v3 absorbs carried from attempts 1055/1069 - the new getCollateralAssetPrice C-1 probe reverted on every control and was left unmeasured) and 20 (0x3e9a355f, base cbBTC pond: fast, four 1-block/0.2 s exceptions at one batch). ~90 research-lane reads total; lusd-redemption-ethereum paper bot left running untouched for its review."
+}

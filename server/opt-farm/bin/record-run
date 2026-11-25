@@ -1,0 +1,263 @@
+#!/usr/bin/env python3
+"""Record one agent run into /var/lib/farm/ops.db.
+
+Started as root from ExecStopPost=+ in agent@.service, so the agent user
+cannot alter the record. The full transcript stays in journald; this only
+extracts the session id, tokens and cost.
+"""
+import datetime as dt
+import json
+import os
+import re
+import sqlite3
+import subprocess
+import sys
+
+DB_PATH = "/var/lib/farm/ops.db"
+ROLES_CONF = "/etc/farm/roles.conf"
+SESSIONS_DIR = "/srv/farm/ws/logs/sessions"
+HISTORY = "/srv/farm/ws/history"                 # git: snapshots of prompts/roles and ws/tools, one commit per run
+SNAPSHOT = {"prompts/roles": "/srv/farm/prompts/roles", "tools": "/srv/farm/ws/tools",
+            "prompts/common.md": "/srv/farm/prompts/common.md"}
+
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS runs (
+    run_id         TEXT PRIMARY KEY,  -- systemd invocation id
+    instance       TEXT NOT NULL,
+    role           TEXT NOT NULL,
+    harness        TEXT NOT NULL,
+    model          TEXT,
+    started_at     TEXT,              -- UTC, ISO 8601
+    ended_at       TEXT NOT NULL,     -- UTC, ISO 8601
+    exit_status    TEXT,              -- exit code or signal name
+    service_result TEXT,              -- success, exit-code, timeout, signal, ...
+    tokens         INTEGER,
+    cost_usd       REAL,
+    session_id     TEXT,
+    transcript     TEXT               -- command that prints the full output
+);
+CREATE INDEX IF NOT EXISTS runs_role_started ON runs (role, started_at);
+"""
+
+
+def role_info(instance):
+    with open(ROLES_CONF, encoding="utf-8") as f:
+        for line in f:
+            parts = line.split()
+            if len(parts) >= 4 and parts[0] == instance:
+                return parts[1], parts[2], parts[3]
+    return "unknown", "unknown", None
+
+
+def started_at(instance):
+    out = subprocess.run(
+        ["systemctl", "show", "--timestamp=utc", "-P", "ExecMainStartTimestamp",
+         f"agent@{instance}.service"],
+        capture_output=True, text=True, check=False).stdout.strip()
+    try:
+        ts = dt.datetime.strptime(out, "%a %Y-%m-%d %H:%M:%S %Z")
+    except ValueError:
+        return None
+    return ts.replace(tzinfo=dt.timezone.utc).isoformat(timespec="seconds")
+
+
+def journal_messages(invocation_id):
+    subprocess.run(["journalctl", "--sync"], capture_output=True, check=False)
+    out = subprocess.run(
+        ["journalctl", f"_SYSTEMD_INVOCATION_ID={invocation_id}",
+         "-o", "json", "--no-pager"],
+        capture_output=True, text=True, check=False).stdout
+    messages = []
+    for line in out.splitlines():
+        try:
+            entry = json.loads(line)
+        except ValueError:
+            continue
+        msg = entry.get("MESSAGE")
+        if isinstance(msg, list):  # non-UTF-8 payloads come as byte arrays
+            msg = bytes(msg).decode("utf-8", "replace")
+        if isinstance(msg, str):
+            messages.append(msg)
+    return messages
+
+
+def parse_claude(messages):
+    """stream-json: every line is an event; the last 'result' event has totals."""
+    session_id = tokens = cost = None
+    for msg in messages:
+        if not msg.startswith("{"):
+            continue
+        try:
+            obj = json.loads(msg)
+        except ValueError:
+            continue
+        if obj.get("type") != "result":
+            continue
+        session_id = obj.get("session_id")
+        cost = obj.get("total_cost_usd")
+        usage = obj.get("usage") or {}
+        tokens = sum(int(usage.get(k) or 0) for k in (
+            "input_tokens", "output_tokens",
+            "cache_creation_input_tokens", "cache_read_input_tokens"))
+    return session_id, tokens, cost
+
+
+def parse_codex(messages):
+    """Plain output: 'session id: <id>' in the header, 'tokens used' then a number at the end."""
+    session_id = tokens = None
+    for i, msg in enumerate(messages):
+        if session_id is None:
+            m = re.match(r"\s*session id:\s*(\S+)", msg)
+            if m:
+                session_id = m.group(1)
+        if msg.strip() == "tokens used" and i + 1 < len(messages):
+            digits = re.sub(r"\D", "", messages[i + 1])
+            if digits:
+                tokens = int(digits)
+    return session_id, tokens, None
+
+
+def last_errors(messages, n=3, width=160):
+    """The last few journal lines that look like a failure reason, for the no_report note."""
+    keys = ("error", "exception", "traceback", "timeout", "timed out", "killed", "oom", "econnrefused",
+            "rate limit", "429", "flagged", "not authenticated", "exit", "fatal", "panic")
+    hits = [m.strip() for m in messages if any(k in m.lower() for k in keys)]
+    tail = hits[-n:] if hits else [m.strip() for m in messages if m.strip()][-n:]
+    return " | ".join(t[:width] for t in tail)
+
+
+def ensure_report(run_id, role, model, result, exit_status, messages=()):
+    """The agent is supposed to append one JSON line per session. When it did not
+    (cut off, crashed, or it rewrote the file instead of appending), record a
+    placeholder so coverage is measurable, then keep the day's file append-only
+    (chattr +a: O_APPEND writes still work, whole-file rewrites fail)."""
+    if not run_id:
+        return
+    if result == "exec-condition":  # phase16g: skipped at ExecCondition (the agent never started)
+        return
+    now = dt.datetime.now(dt.timezone.utc)
+    draft_path = f"/srv/farm/ws/scratch/report-{run_id}.json"
+    days = [(now - dt.timedelta(days=1)).strftime("%Y-%m-%d"), now.strftime("%Y-%m-%d")]
+    for day in days:
+        try:
+            with open(f"{SESSIONS_DIR}/{day}.jsonl", encoding="utf-8", errors="replace") as f:
+                if any(run_id in line for line in f):
+                    return
+        except OSError:
+            pass
+    # The agent's own draft (earner.md asks for scratch/report-<run_id>.json before work starts):
+    # append it, marked as harness-recovered, instead of a bare no_report line.
+    try:
+        with open(draft_path, encoding="utf-8") as f:
+            draft = json.load(f)
+        if isinstance(draft, dict) and draft.get("outcome"):
+            draft["run_id"] = run_id
+            draft["role"] = role
+            draft["model"] = model
+            draft["notes"] = (str(draft.get("notes", "")) + f" [harness: appended from the session's draft; "
+                              f"service result {result}, exit {exit_status}]").strip()
+            path = f"{SESSIONS_DIR}/{days[-1]}.jsonl"
+            fd = os.open(path, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o664)
+            try:
+                os.write(fd, (json.dumps(draft, ensure_ascii=False) + "\n").encode())
+            finally:
+                os.close(fd)
+            return
+    except (OSError, ValueError):
+        pass
+    line = json.dumps({
+        "run_id": run_id, "role": role, "model": model, "target": "",
+        "outcome": "no_report", "kb_rows": [], "wiki_pages": [], "bot_ids": [],
+        "injection_seen": None,
+        "notes": f"(harness) the agent wrote no session report; service result {result}, exit {exit_status}; "
+                 f"last log: {last_errors(messages) or 'n/a'}",
+    })
+    path = f"{SESSIONS_DIR}/{days[-1]}.jsonl"
+    fd = os.open(path, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o664)
+    try:
+        os.write(fd, (line + "\n").encode())
+    finally:
+        os.close(fd)
+
+
+def lock_reports():
+    """Append-only flag on every session file (root only; idempotent)."""
+    try:
+        files = [f"{SESSIONS_DIR}/{n}" for n in os.listdir(SESSIONS_DIR) if n.endswith(".jsonl")]
+    except OSError:
+        return
+    if files:
+        subprocess.run(["chattr", "+a"] + files, capture_output=True, check=False)
+
+
+def snapshot_history(run_id, role, model, result):
+    """Commit the current prompts and tools so meta can review what changed, run by run.
+    Runs as root; the repo is group-readable (farm) and nobody else writes to it."""
+    if not os.path.isdir(f"{HISTORY}/.git"):
+        return
+    for rel, src in SNAPSHOT.items():
+        dst = f"{HISTORY}/{rel}"
+        if os.path.isdir(src):
+            subprocess.run(["rsync", "-a", "--delete", "--exclude", "__pycache__", "--exclude", ".git",
+                            src + "/", dst + "/"], capture_output=True, check=False)
+        elif os.path.isfile(src):
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            subprocess.run(["cp", "-p", src, dst], capture_output=True, check=False)
+    git = ["git", "-C", HISTORY, "-c", "user.name=farm-harness", "-c", "user.email=farm@localhost"]
+    subprocess.run(git + ["add", "-A"], capture_output=True, check=False)
+    if subprocess.run(git + ["diff", "--cached", "--quiet"], check=False).returncode == 0:
+        return
+    subprocess.run(git + ["commit", "-q", "-m", f"after {role} run {run_id} ({result}; model {model})"],
+                   capture_output=True, check=False)
+    subprocess.run(["chmod", "-R", "g+rX", HISTORY], capture_output=True, check=False)
+
+
+def main():
+    instance = sys.argv[1]
+    invocation_id = os.environ.get("INVOCATION_ID", "")
+    role, harness, model = role_info(instance)
+
+    messages = journal_messages(invocation_id) if invocation_id else []
+    if harness == "claude":
+        session_id, tokens, cost = parse_claude(messages)
+    elif harness == "codex":
+        session_id, tokens, cost = parse_codex(messages)
+    else:
+        session_id, tokens, cost = None, None, None
+
+    row = (
+        invocation_id or f"unknown-{dt.datetime.now(dt.timezone.utc).timestamp()}",
+        instance, role, harness, model,
+        started_at(instance),
+        dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        os.environ.get("EXIT_STATUS"),
+        os.environ.get("SERVICE_RESULT"),
+        tokens, cost, session_id,
+        f"journalctl _SYSTEMD_INVOCATION_ID={invocation_id} -o cat",
+    )
+
+    con = sqlite3.connect(DB_PATH, timeout=30)
+    try:
+        con.execute("PRAGMA journal_mode=WAL")
+        con.executescript(SCHEMA)
+        with con:
+            con.execute("INSERT OR REPLACE INTO runs VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", row)
+    finally:
+        con.close()
+
+    try:
+        ensure_report(invocation_id, role, model, os.environ.get("SERVICE_RESULT"), os.environ.get("EXIT_STATUS"), messages)
+    except Exception as exc:
+        print(f"record-run: session report fallback failed: {exc}", file=sys.stderr)
+    lock_reports()
+    try:
+        snapshot_history(invocation_id, role, model, os.environ.get("SERVICE_RESULT"))
+    except Exception as exc:
+        print(f"record-run: history snapshot failed: {exc}", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as exc:  # bookkeeping must never take the agent unit down
+        print(f"record-run: {exc}", file=sys.stderr)

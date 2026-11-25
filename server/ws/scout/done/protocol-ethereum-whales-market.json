@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-whales-market",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 918,
+ "chain": "ethereum",
+ "slug": "whales-market",
+ "name": "Whales Market",
+ "category": "OTC Marketplace",
+ "tvl_usd": 290868,
+ "url": "https://whales.market/",
+ "github": null,
+ "listed_days_ago": 918,
+ "run_id": "d04b32c6d13946109b42b117c4a1235e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "whales_market ethereum = 1 OTC marketplace proxy 0x1eCdB32e...c6603 (impl 0x623620b3 unverified; ABI matched via community SDK, 43/56 selectors): all calls are party trade actions (newOffer/fillOffer/cancel/settle), platform charges caller fees (0.5% cancel observed), no function pays the caller; 0 txs and 0 logs in last 7d (blocks 26410629-26463441, control shape returned 1); last activity 2026-10-12: user cancel refunded own 980.85 USDT + 4.93 USDT fee to platform, gas 146184.",
+  "kb": [
+   "attempts:3240",
+   "protocols:1571"
+  ],
+  "run_id": "d04b32c6d13946109b42b117c4a1235e",
+  "at": 1795248804
+ }
+}

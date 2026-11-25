@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-eth-strategy",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 377,
+ "chain": "ethereum",
+ "slug": "eth-strategy",
+ "name": "ETH Strategy",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 3877917,
+ "url": "https://www.ethstrat.xyz/",
+ "github": null,
+ "listed_days_ago": 377,
+ "run_id": "0d4e8a00f1574abea22a55d987e0d2b0",
+ "result": {
+  "verdict": "no_reward",
+  "line": "ESPN vault 0xb250C9E0F7bE4cfF13F94374C993aC445A1385fE (USDS, totalAssets 3,878,657 USDS at block 26,458,283) exposes only ERC4626 deposit/mint/withdraw/redeem + burn + increaseAssetsPerShare, where the caller DONATES USDS to the manager Safe (reverts 'Usds/insufficient-balance' from a fresh address); no claim/keeper fn on vault, STRAT 0x14cF922.. or ETHSR 0x900cb2..; 0 vault logs in last 7d (7 no-topic getLogs slices 26,407,883-26,458,283, USDS Transfer control hits); last vault tx 2026-09-29 approve (block 26,081,139); gross 0 USDS/call vs ethereum gas - nothing pays a stranger.",
+  "kb": [
+   "attempts:3007",
+   "protocols:1401"
+  ],
+  "run_id": "0d4e8a00f1574abea22a55d987e0d2b0",
+  "at": 1795198881
+ }
+}

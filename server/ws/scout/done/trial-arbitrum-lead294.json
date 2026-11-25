@@ -1,0 +1,20 @@
+{
+ "id": "trial-arbitrum-lead294",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "arbitrum",
+ "lead_id": 294,
+ "target": "gmx_v2 FeeHandler buyback (public fee buyback, 1.5 WETH for USDC at oracle price plus 0.4 pct, flash-funded)",
+ "run_id": "3d931fa6930c47bbbb5da630ee6c12c4",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d: 27 USDC->WETH takes, 6 takers / 7 executor EOAs; sample of 20 of 27: median taken $2,806, median gross $11.2 (0.3984 pct cap; realized $9.6 traced) vs median winner gas $0.69 (clean farm take 12.7M gas = $0.47), median priority fee ~0.001 gwei; blocks takeable->taken 0 in 20/20 (pot median $170 short at parent) - same-block race, a polling bot never sends (attempts:2408).",
+  "kb": [
+   "attempts:2440",
+   "leads:294"
+  ],
+  "run_id": "3d931fa6930c47bbbb5da630ee6c12c4",
+  "at": 1795075186
+ }
+}

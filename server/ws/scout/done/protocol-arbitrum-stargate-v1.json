@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-stargate-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1700,
+ "chain": "arbitrum",
+ "slug": "stargate-v1",
+ "name": "Stargate V1",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 1297943,
+ "url": "https://stargate.finance/",
+ "github": null,
+ "listed_days_ago": 1700,
+ "run_id": "1394c69f9162416ebba832ad9c763ef4",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Stargate V1 Router 0x53Bf833A5d6c4ddA888F69c22C88C9f356a41614 (Factory 0x55bdb416..., 7 pools): no caller-reward function - anyone-can-call entries (instantRedeemLocal, retryRevert, clearCachedSwap, callDelta, swap/redeem*) pay the user's own funds or a _to recipient, $0 to caller (source: Pool onlyRouter, remote fns onlyBridge, fee withdrawals mintFee/protocolFeeOwner); 7d (Blockscout tx pages): 129 instantRedeemLocal by 119 users + 4 swap + 0 retryRevert + 0 clearCachedSwap + 0 callDelta; gas ~$0.005/call (0.02 gwei, ETH $1802.40) - no stranger paid in 7 days.",
+  "kb": [
+   "attempts:2505"
+  ],
+  "run_id": "1394c69f9162416ebba832ad9c763ef4",
+  "at": 1795090467
+ }
+}

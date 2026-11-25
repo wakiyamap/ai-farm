@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "deeplock",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/deeplock/index.js: lockers 0x10dD7FD1Bf3753235068ea757f2018dFef94B257 (v1, depositId=14) and 0x3f4D6bf08CB7A003488Ef082102C2e6418a4551e (v2, depositId=63993), pool2 staking 0x27F33DE201679A05A1a3ff7cB40a33b4aA28758e + 0x03dab688d32507B53Cc91265FA47760b13941250 (DEEPLOCK LPs) - all four have code (eth_getCode). docs.deeplock.io is now a parked 'domain for sale' page; explorer source failed on bsc (etherscan not_on_plan, blockscout 404), so the function surface came from bytecode selectors + 4byte.directory: lockTokens(address,uint256,uint256,bool), withdrawTokens(uint256), withdrawFees(address), tokensFees(address), remainingBnbFees/totalBnbFees, setBnbFee, setLpFee, getDeposit*/getDeposits* getters. Stranger eth_calls: withdrawTokens(1) reverts 'Tokens already withdrawn' (public, pays the deposit's withdrawalAddress, caller keeps 0); withdrawFees(address) reverts 'Ownable: caller is not the owner' (owner 0xfaaef3baefbe893960c5364f7f7ca5da482f6792). remainingBnbFees()=88.18 BNB (~$52.1k, WBNB $591.32 coins.llama.fi ts 1795098514) is owner-only fee income. Verdict unpaid: no function pays a stranger."
+}

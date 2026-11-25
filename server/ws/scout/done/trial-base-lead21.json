@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead21",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 21,
+ "target": "Morpho Blue cbBTC/USDC market 0x9103c3b4... liquidations: the base liquidation pond our narrow-market watcher does not watch",
+ "run_id": "03ec2756e5014a0f9843200e3228c8f9",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d on base: 4,222 Liquidate events in market 0x9103c3b4 (cbBTC/USDC), 84 distinct takers; sample 16/4,222 all paid, gross = uniform 4.384% of repaid, median repaid 5,400 USD / median gross 237 USD, top-5 gross 69k-163k USD (largest 0xebc1ce84 162,944); winner priority fee median 15.0 gwei; oracle price unchanged >=4,000 blocks (>=800 s) before all 16 takes (4 checks to 40,000 blocks) = stale-price pond, not update race; attempt ~300k gas = 0.05 USD at base fee / 8.16 USD at 15 gwei tip (ETH 1,813 USD DefiLlama); gross >> gas, trial bot can try it.",
+  "kb": [
+   "attempts:1472",
+   "leads:21"
+  ],
+  "run_id": "03ec2756e5014a0f9843200e3228c8f9",
+  "at": 1794862675
+ }
+}

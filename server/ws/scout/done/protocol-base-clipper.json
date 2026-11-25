@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-clipper",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "clipper",
+ "name": "Clipper",
+ "category": "Dexs",
+ "tvl_usd": 90402,
+ "url": "",
+ "github": [
+  "shipyard-software"
+ ],
+ "listed_days_ago": null,
+ "run_id": "4c14c80e69ea4f94bf7da99df26f3f83",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No caller-paid function on any base Clipper contract (verified ABIs of 0xb32D856c.../0x663fA873.../register: swaps pay trader, deposits/withdraws move LP's own money, takeFees onlyOwner, stop/resumeTrade triageRole); 0 txs in 7 d on all 4 contracts (blocks 58247467..61271467 ts 1794839869..1795444669, no-topic eth_getLogs, control USDC 400 blocks = 7,339 logs; last tx 2026-10-01), TVL 90,402 USD idle as 40,002 USDC + 20,074 DAI + 18.03 WETH.",
+  "kb": [
+   "attempts:4130"
+  ],
+  "run_id": "4c14c80e69ea4f94bf7da99df26f3f83",
+  "at": 1795444933
+ }
+}

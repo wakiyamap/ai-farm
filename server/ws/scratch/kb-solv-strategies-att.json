@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-solv-strategies",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Solv Strategies BSC (33.6M USD) = 4 beacon-proxy share tokens (SolvBTC.BNB/BERA/STRK/XLM) + shared navOracle 0x9c491539aec346aafeb0bee9a1e9d9c02ab50889, settling on OpenFundMarket proxy 0xaE050694c137aD777611286C316E5FDda58242F3 (same market as Solv Basis Trading, attempts:1411). Stranger eth_call of the settlement fn closeCurrentRedeemSlot(strategy poolId) reverts 'OFM: only pool manager'; NAV setters role-gated and claims user-only self-paid (attempts:1411 on-chain verification of this same market this week); nothing in the open-fund flow pays msg.sender. Strategy book itself is near-dormant: 0 events on the 4 strategy poolIds in a 5000-block sample (the 2 oracle/market events in window belong to Basis Trading pools). Not a build candidate.",
+  "numbers": "eth_gasPrice 0x2faf080 = 0.05 gwei x 21000 gas x BNB 595.16 USD (coins.llama.fi coingecko:binancecoin) = 0.00063 USD/transfer; window 0x7fff41b..0x80007a3 (head 134219427, ~62 min): market 2 logs, navOracle 2 logs, strategy-poolId events 0; CAKE Transfer control same range 665 logs; caller gross 0 USD, gas 0 USD (no call to make)"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-orai-quant-terminal",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 193,
+ "chain": "arbitrum",
+ "slug": "orai-quant-terminal",
+ "name": "Orai Quant Terminal",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 779058,
+ "url": "https://quant.orai.io/vault",
+ "github": null,
+ "listed_days_ago": 193,
+ "run_id": "a08211490ca940748d3a8b515e71151e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Managed ERC-4626 USDC vaults ($779k TVL, 10 proxies, main 0x54242936 $609k); all reward-like fns (fulfillRedeem, withdrawPendingFee, operator*, v3 epoch) revert from a fresh address; 7d: 1 RequestFulfilled (43.20 USDC to redeemer, tx 0xe86be1d8..., gas 143431 ~$0.005), 0 FeeCollected/FeeWithdrawn, only 2 Orai ops EOAs call anything; gross to strangers $0.",
+  "kb": [
+   "attempts:1686"
+  ],
+  "run_id": "a08211490ca940748d3a8b515e71151e",
+  "at": 1794912713
+ }
+}

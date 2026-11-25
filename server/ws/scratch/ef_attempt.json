@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-etherflip",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: no function anyone can call that pays the caller. EtherFlip (0xE5a04D98538231b0fAb9ABa60cd73cE4fF3039DF, 753 ETH = the whole 1.23M USD TVL) is a 2018 Oraclize coin-flip game: entry is a payable fallback bet (0.1424-50 ETH) paid back only via __callback which is oraclize-gated (reverts from a fresh address); every other function is ownerAction. The game is also dead: last tx 2025-05-22, last oracle callback 2022-08-01, 0 logs in the last 7 days on all 5 contracts in the family.",
+ "numbers": "TVL 1229067 USD = 753.108 ETH @ 1633.95 USD (coins.llama.fi 2026-11-21T09:16Z, token native ETH held at 0xE5a04D...39DF, read via rpc.py eth_getBalance). 7d window blocks 26412294 (2026-11-14T09:22Z) -> 26462551 (2026-11-21T09:22Z): 0 eth_getLogs on all 5 etherflip contracts (no-topic scan; own event topic0s from receipts 0x415dd7d8..., 0x427b72fc...); control same shape: WETH 31792 logs / 400 blocks. Last tx to main contract: block 22539631 = 2025-05-22 (explorer txs, descending list). Last __callback: block 15258747 = 2022-08-01. Getters live: maxBet()=50e18, minBet()=1.4238e17 wei, owner()=0x165c74e3954817d007a2038bac8eaaed87c982fa. Gas cost of the only stranger-callable path (fallback bet) is irrelevant: no payout inside the tx. No address pays a stranger: 0 USD/7d."
+}

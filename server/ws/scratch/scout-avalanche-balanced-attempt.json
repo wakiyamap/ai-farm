@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-balanced-exchange",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Balanced/Sodax's DEX is on ICON (hub now Sonic); on Avalanche the protocol is only a bridge spoke: AssetManager 0x5bDD1E1C5173F4c912cC919742FB94A55ECfaf86 (deposit/depositNative where the user pays in, handleCallMessage require(msg.sender==xCall), rest onlyOwner per balanced-solidity-contracts), RateLimit 0xc3F44F5CBCE27E19F02e66D0584B24767Bc6c8BE, bnUSD 0x6958a4CBFe11406E2a1c1d3a71A1971aD8B3b92F (getter symbol()='bnUSD'), Intent Filler 0xd891190A2382c75e3091Bbff3a119e4C578E8ebb idle (0 logs in 10k-block probe, control 9,128). No function anyone can call and be paid. Gap noted: Intent Filler source not on explorer (etherscan not_on_plan, blockscout 404); its 7d scan follows the bsc same-contract precedent (protocols:326, 0 events 7d, callers paid 0).",
+  "numbers": "tvl_usd 1,697,765 (api.llama.fi 2026-11-19, ICON-side deposits); filler logs 0 in blocks 0x6020244-0x602293e (~5.6h, 2026-11-19, control 9,128 USDC Transfers same range); contracts from docs/developers/deployments/mainnet.md (icon-project/sodax-sdks)"
+}

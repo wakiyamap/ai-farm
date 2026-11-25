@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-qom-x",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 95,
+ "chain": "bsc",
+ "slug": "qom-x",
+ "name": "Qom X",
+ "category": "Dexs",
+ "tvl_usd": 40603,
+ "url": "https://qomx.io/",
+ "github": null,
+ "listed_days_ago": 95,
+ "run_id": "2e4b1102277849589a1116cba0398705",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: every caller-paid fn (registry claim/claimAll, booster claim, farm harvest) pays only the caller's own accrued QOMX - fresh-address eth_call pays 0; 7d (blocks 133722648-134793319): 47 claims by 8 users = 76,065 QOMX = 103.9 USD (largest 6,833 QOMX = 9.33 USD), 7 farm Harvested, gas 0.027-0.044 USD/call; emissions 13.7 USD/day, pools 250,350+126,318 QOMX (coins.llama.fi 11-22)",
+  "kb": [
+   "attempts:3677",
+   "protocols:1900"
+  ],
+  "run_id": "2e4b1102277849589a1116cba0398705",
+  "at": 1795341695
+ }
+}

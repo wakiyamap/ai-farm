@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-stake-dao-yield",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only public reward function is Accountant.harvest(address[],bytes[],address) at 0x93b4B9bd266fFA8AF68e39EDFa8cFe2A62011Ce0 (no access modifier; eth_call from a fresh address succeeds), but its harvester fee is 0: getHarvestFeePercent() = 0 on chain and harvesterFee = 0 in all 9 Harvest events of the last 7 days (and all 233 back to 2026-08-08). The callers are vault users claiming their own CRV, not keepers earning a fee; a stranger harvest pays 0 against ~$0.015 gas. Same product as ethereum protocols:237 where the fee was 0.025% and still too thin.",
+  "numbers": "TVL 727,772 USD (DefiLlama 2026-11-19). 9 Harvest events last 7d (eth_getLogs topic0 0xeaedd126..., fromBlock 0x1d55e11b to 0x1f55e11b); 7d harvested 2,768.15 CRV ~ 536 USD at 0.19369 USD/CRV (stakedao api price 2026-11-19, CRV 0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978 decimals 18 read on chain); largest single harvest 2,590.5 CRV ~ 502 USD (tx 0x56ecd1284ae1a7f5766f047a27ba22dbd61a099ea5bcb1cc478d4a87c0d0e700), harvesterFee 0. Gas for that tx: 411,467 gas x 20,012,000 wei = 0.00000823 ETH ~ 0.0145 USD at 1762.9 USD/ETH (WETH 0x82aF49447D8a07e3bd95BD0d56f35241523fBab1 price, stakedao api 2026-11-19). Callers seen: 0xef80c44d996ebac95aa62589986fb3fcdfe3f7d9, 0x37a1caf0330e1f72a3c4dbe65dc3b46961d4c299, 0x1c5e5389ccaec969634dacd40759312d4316f594.",
+  "bot_id": null
+}

@@ -1,0 +1,13 @@
+{
+  "id": "exactly.liquidate",
+  "protocol": "exactly",
+  "kind": "liquidation",
+  "chains": {
+    "base": ["0x61EDAcB54aA8a689013682529df8914C87692E4b","0x52eE5238e5676598551c8d2bBcCB62c72FC3A0c4","0x8C2F35c8076bCb5D4b696bAE11AcA0ac0Dd873e4","0x1Dcf89Dfa88363ef33d49dD591b1eE5e84DD0F75","0x85c21fA8AeE39891E115E2b28c3dB2dE5B0AaF4f"]
+  },
+  "event": "Liquidate(address,address,uint256,uint256,address,uint256)",
+  "topic0": "0x67bb48f97d82192848c24158abf58ec614777328e19655e0a219652b773fd1db",
+  "indexed": ["receiver","borrower","seizeMarket"],
+  "data": ["assets","lendersAssets","seizedAssets"],
+  "actor_field": "tx_from"
+}

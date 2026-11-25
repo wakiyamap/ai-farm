@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-dodo-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "dodo-amm",
+ "name": "DODO AMM",
+ "category": "Dexs",
+ "tvl_usd": 1418206,
+ "url": "https://dodoex.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e8198cfb59e74d649427d8c11a73a4b4",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No stranger-payable function on arbitrum: GSP withdrawMtFeeTotal reverts ACCESS_DENIED from fresh addr (maintainer role), v2 claimAssets reverts DODO_NOT_CLOSED on 3/3 pools, v1 DVM/DPP ABIs have no claim/reward/maintain at all (fees accrue to LP reserves); activity near zero: 1 DODOSwap in 30 days across 24 sampled pools (tx 0x04365ff73d9ab9a205e1120c8c7f3a4d4ec939992507f728a2cb11dc34d2005f, 2026-11-12); TVL 1.42M USD.",
+  "kb": [
+   "attempts:2615"
+  ],
+  "run_id": "e8198cfb59e74d649427d8c11a73a4b4",
+  "at": 1795116236
+ }
+}

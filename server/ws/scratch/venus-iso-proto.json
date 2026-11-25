@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "venus_isolated_pools",
+ "status": "dead_end",
+ "checked": "Venus Isolated Pools on Arbitrum = ONE pool, 'Liquid Staked ETH' (api.venus.io/pools?chainId=42161 2026-11-23: total 2 pools, the other is Core, a separate candidate/attempt 2642). Comptroller BeaconProxy 0x52bAB1aF7Ff770551BD05b9FC2329a0Bf5E23F16 (impl 0x4b256a7836415e09daba40541ee78602bc6b24bf, verified @venusprotocol Comptroller on etherscan); 3 vTokens: vweETH 0x246a35E79a3a0618535A469aDaF5091cAA9f7E88, vWETH 0x39D6d13Ea59548637104E40e729E4aABE27FE106, vwstETH 0x9df6B5132135f14719696bBAe3C54BAb272fDb16; RewardsDistributor 0x6204Bae72dE568384Ca4dA91735dc343a0C7bD6D (XVS 0xc1Eb7689147C81aC840d4FF0D298489fc7986d52). All eth_getCode non-empty; totalBorrows() answers. Stranger-callable per verified source (@custom:access Not restricted): vToken.liquidateBorrow(address,uint256,address) and Comptroller.liquidateAccount(borrower,orders) - eth_call from 0x...dEaD reverts MinimalCollateralViolated(100e18,0) (0xdcc3760a), a liquidation-eligibility check, not a role gate. claimRewardToken pays holders, not callers (same as BSC attempt 2280). XVS emission OFF (supplySpeed=borrowSpeed=0 on all 3 markets). Dead pool: on-chain totalBorrows ~$1.75 (0.00103 WETH + dust weETH/wstETH), ~$55k supplied. 0 LiquidateBorrow in 7d."
+}

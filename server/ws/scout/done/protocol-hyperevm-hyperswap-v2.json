@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperswap-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 630,
+ "chain": "hyperevm",
+ "slug": "hyperswap-v2",
+ "name": "HyperSwap V2",
+ "category": "Dexs",
+ "tvl_usd": 5131837,
+ "url": "https://app.hyperswap.exchange/#/swap?referral=defillama",
+ "github": null,
+ "listed_days_ago": 630,
+ "run_id": "a810a9f4c93d43fb91422c87cfd01349",
+ "result": {
+  "verdict": "role_gated",
+  "line": "UniV2-fork on hyperevm (factory 0x724412C00059bf7d6ee7d4a1d0D5cd4de3ea1C48, 3342 pairs, TVL 5.13M); only fee-claim forceClaimFees() reverts 'only factory's owner' (eth_call fresh addr, 3 pairs) and pays fixed feeTo 0xdfc8be0a; open skim/sync pay 0; 7d (head 51563662): 3 PairCreated, 0 Swap/Skim/Sync on 8 sampled pairs (control: 20 Swap/Sync since blk 45M; SWAP token 1873 Transfers/7d); gas 0.1 gwei x ~150k = ~bash.001 (HYPE $68.63 coins.llama.fi)",
+  "kb": [
+   "attempts:1990",
+   "protocols:589"
+  ],
+  "run_id": "a810a9f4c93d43fb91422c87cfd01349",
+  "at": 1794975759
+ }
+}

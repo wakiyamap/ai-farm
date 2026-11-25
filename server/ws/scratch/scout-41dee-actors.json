@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "address": "0x41dee1855293e4450cd67459047f372d4d818143",
+  "strategy": "UniswapX V3DutchOrderReactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 filler desk: EIP-1967 proxy smart account (impl 0xc97c266bdd1316fe9fd40d9b7ac343d9c4ebde37) holding inventory, called via multicall(bytes[]) 0x91d9e40d by gas EOA 0x5002302a570f516500757102f1bae141f4d46dee (nonce 74 on Nov 11, single operator), which calls reactor execute 0x0d335884; the proxy keeps the in-tx spread (fills seen: USDC<->AAPLx xStock 0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a through DEX 0x5f7a4c11/0x788d911a; USDC->USDT 0x55d398326f99059ff775485246999027b3197955->vault token 0xe42cfb20e00912409b77a602b5bdcff3c7acc5f4 minted at ~11.4 USDT/share). 3 fills in the ledger's Nov 6-15 coverage (0.29/day) - the smallest of the stranger desks recorded in this class (lead 166; cf actors:191 ~$1.7/d, :196 ~$0.36/d, :202 ~$5.7/d).",
+  "evidence": "0x024e883b929b9763f24089c23d9e28e049e75dca155cdc69009a4d5d03160a84, 0x08fb13a973aefaff309de5f8ba59cad687979fe56df5fe5c2650e1a4935ef0c2, 0xa6436932d90a3ba068e0ff8bbfd5af5cc6556c30aaf0bcfa6cb65298cefbb98b (ledger source uniswapx.fill rows, cursor 133733424 ~ Nov 15; eth_getLogs Fill scan blocks 134216612-134227132 on 2026-11-18: 0 by this desk vs control 14 by 5 other desks)",
+  "est_profit_usd_day": 0.05
+}

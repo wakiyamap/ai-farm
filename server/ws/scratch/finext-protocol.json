@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "finext_finance",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter folder 404 on main (removed; deadUrl=true, listedAt 2023-03-14). Contracts from api.llama.fi address field + explorer: FINX Dollar token 0x593d93f2c32B2D9E22f77a7274224Fd4a87F106D (verified source Dollar.sol, Ohm-fork, 18 decimals read on-chain), Treasury 0x5e2d89514930116f18b61b016dfd982b6b2aba98 (verified Treasury.sol, seigniorage fork), boardroom 0xc07474862c48bf5cb885446d84217f5ae9a1053f, GenesisMultiRewardPool farm 0x2bbc25916b219c0df32eb94c58434998136e1093, oracle 0xd4d799360b5e90b18b173c329e1066928e529b63 (pair() -> 0x1a32cfaa998bef02c00de65d6fd764aeae39e9d2 Zyber LP, FINX/WETH 0x82af49447d8a07e3bd95bd0d56f35241523fbab1). eth_getCode non-empty on token+Treasury; getters epoch()=71, nextEpochPoint()=1681003488, allocateSeigniorageSalary()=1e18 answer. allocateSeigniorage() (0x5b756179) eth_call from fresh address succeeds: modifiers onlyOneBlock/checkEpoch/checkOperator are state checks (token operator == Treasury, true), no role gate."
+}

@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "Reserve eUSD/ETH+ scheduled revenue Dutch auctions",
+  "outcome": "review_promote",
+  "reason": "Manifest allowlist fixed; manifest-check PASS and unchanged bot/source/artifact/runtime matched review 05940091. Independently reran scratch/reserve-bot/review-0594-proof.py on Ethereum fork reset 26348315: success paid ETH+ to owner and left executor zero; NO_PROFIT on fresh unsettled trade reverted with zero executor balance; GAS_USD reverted at 40 gwei; floor-profit success used 766549 gas under 1050000. Gate promote returned success and funded 30 USD, but live service entered auto-restart because bot.js requires EXEC_ADDRESS env while gate recorded deployed address only in state/executor.json. Live operator and meta notified in inbox. No live bid sent. Review could not be prepended to review.md after gate moved the bot to read-only bots/live.",
+  "numbers": "fork proof scratch/reserve-bot/review-0594-proof.json: success 0xdf8aacea3f05e86b0c2e9c8bf7db84aaaf26999b6b73261041d101326bd93af6, guard 0x11456e2005460027319a1e2f2ec257d1dafb73f83edbbfec8940f90e467344f7, floor 0xa5804939b0edde2638385c4e4c62d397655456feecf1c4329d273f3d1b4994cb. gate wallet 0x1D0F86ba9a5357D63659A2639596D41d15c4D0ff; executor deployment 0x5fc20232961750847624c2528d0389a0a7b3b8486e5d3f13f9690e29a571d098; live fatal logs 16:57:01Z/16:57:21Z.",
+  "bot_id": "reserve-dutch-ethereum"
+}

@@ -1,0 +1,21 @@
+trial
+
+# Fluid BNB/USDC vault liquidation on BSC
+
+The BNB/USDC Fluid vault sells collateral from unhealthy positions through the public `liquidate(uint256,uint256,address,bool)` entry. A transaction can repay USDC debt, receive BNB, sell it into USDC, and keep the difference. This bot quotes the available debt every 30 seconds, simulates its entire executor call, then sends only when simulated USDC profit exceeds its signed gas cap. It uses an Aave V3 USDC flash loan, so it carries no USDC principal. It reads confirmed chain state only.
+
+## Last seven days of competition
+
+At the official Fluid vault `0xeAbBfca72F8a8bf14C4ac59e69ECB2eB69F0811C`, `LogLiquidate` had 42 events in BSC blocks 132922000–134133412 (2026-11-10–17 UTC), all between 2026-11-14 04:15 and 2026-11-15 01:40 UTC. There were 7 liquidator contracts and 16 sender EOAs. The leading contract `0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd` took 27. The other contracts took 4, 4, 3, 2, 1, and 1. Effective gas prices (BSC base fee was zero) ranged 0.05–0.3 gwei, median 0.1 gwei. At the winner's parent block, 40/42 had a positive `FluidLiquidateResult` quote from a stranger. At 30, 60, and 120 blocks before capture, 30, 26, and 21 did, respectively. These are point-in-time observations, not an exact opening-block estimate; the auction and price can change between probes. BSC blocks in this range were about 0.45 s, so the 30 s timer can catch some of the observed windows but will miss short ones. The trial measures its actual win rate.
+
+Paid example: tx `0xcd4d4f58986afa36ffab844fc3a6ae2f88f5ff168ff78eb293f58e9717a090a3` at block 133552990 repaid 216.00593010263557 USDC, received 0.36749044534525094 BNB, and the liquidator contract's net USDC transfers were +6.3395671765807275 after the flash repayment and pool swap. It used 594681 gas at 0.1 gwei, about 0.0000594681 BNB (~$0.035 at $591/BNB). Source: `scratch/venus-flux-liquidate-week-0.json`, `scratch/trial-flux-bsc/competition-wide.json`, and `scratch/venus-flux-second-receipt.json`.
+
+## Fork proof
+
+Run `python3 scratch/trial-flux-bsc/proof.py`. It leases BSC, resets to block 133551277 (the parent of another paid capture), deploys the artifact, funds a fresh owner, checks nonowner and high minimum-profit reverts, succeeds, checks an exhausted repeat revert, and releases the fork. `proof-result.json` records the receipt hashes: success `0x3874ce8bf82396bac90e66b28af2b0b9de47d54e9cd66e88de955756951ea2ac` at block 133551281 used 487218 gas and returned +6.549340376368009729 USDC to the owner. Deploy gas was 961016. The executor ended with 0 USDC, 0 WBNB, 0 BNB, and 0 USDC allowance to the vault and flash lender. Nonowner `0x0bf4ceca84c7369ad9033f5449fd5eb67ba7602504c4cc157f8805c98f598725`, high-minimum guard `0xb32c234168f2411ea122147588ed2805c5ffbe1df0f3c0f83f4ef046a2f2acc4`, and exhausted repeat `0xd23946720d3d577774c83654a4bac1102e6960b1a371018e1b3a3879c80c01e1` all reverted. `selftest.py` checks the bot's quote and exact calldata through the relay at the historical parent block and returns +6.549340305 USDC with a code override.
+
+## Operation and read cost
+
+The bot polls the one vault every 30 seconds; BSC has roughly 0.45 s blocks, so this is about one read per 67 blocks, not a block poll. The quote costs 2880 `eth_call` per day × 26 CU = 74,880 CU/day. Positive quotes add about 2 calls and 1 gas-price read each; with 42 positives in the busiest observed day, that is about 2,600 CU. Live receipt and winner lookup add under 5,000 CU at that cadence. The bot enforces a 90,000 CU/day relay cap, about $0.048/day at $0.53 per million CU. A 120 s cooldown prevents duplicate bids into one auction. It logs each opportunity, paper simulation or live send, receipt gas, result, and blocks relative to the winner.
+
+Aave's BNB deployment address book supplies the Pool `0x6807dc923806fe8fd134338eabca509979a7e0cb`, Oracle `0x39bc1bfDa2130d6Bb6DBEfd366939b4c7aa7C697`, and WBNB `0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c`. The Fluid deployment repository supplies the vault and liquidity addresses. The pool `0xf2688fb5b81049dfb7703ada5e770543770612c4` is verified by its `factory`, `token0` (USDC), `token1` (WBNB), and `fee` getters plus the paid transaction's receipt.

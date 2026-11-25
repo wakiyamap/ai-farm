@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-blackhole-clmm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 490,
+ "chain": "avalanche",
+ "slug": "blackhole-clmm",
+ "name": "Blackhole CLMM",
+ "category": "Dexs",
+ "tvl_usd": 1586914,
+ "url": "https://blackhole.xyz/",
+ "github": null,
+ "listed_days_ago": 490,
+ "run_id": "086ad03b160242b1b39ffb46a2ef2494",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Algebra Integral CLMM fork (factory 0x512eb749...9E5F, 67 pools): only permissionless pay-fn is FarmingCenter.claimReward/collectRewards (0xcecc6421...5541) \u2014 fresh-address eth_call returns 0, pays only the caller's own accrued BLACK LP rewards; 198 calls/7d by 30 EOA LP callers, sample of 6 claims gross bash.00-1.80 (median ~.9, BLACK bash.002076 coins.llama.fi) vs gas bash.008-0.014 (AVAX .078); collect/enter/exit are NFT-owner gated, plugin collectPluginFee role-gated \u2014 a stranger without LP capital earns 0.",
+  "kb": [
+   "attempts:1857",
+   "protocols:490"
+  ],
+  "run_id": "086ad03b160242b1b39ffb46a2ef2494",
+  "at": 1794946341
+ }
+}

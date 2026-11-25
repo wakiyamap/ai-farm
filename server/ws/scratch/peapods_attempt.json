@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-peapods-finance",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers: the open mechanism is liquidate(uint128,uint256,address) on the 24 LVF FraxlendPair lending pairs (no role modifier; fresh-address eth_call reverts BorrowerSolvent 0x75e595fa, not role-gated). 218 liquidations in the last 7 days on 2 of 24 pairs, taken by 4 distinct stranger callers (3 EOAs + 1 bot contract). Reward is the 9% dirty / 10% clean liquidation bonus (minus a ~1% protocol fee), repaid in kind as collateral (aspPEAS / aspKUDAI) against WETH or USDC debt. Caveat: 208 of the 218 liquidations were repeated partial liquidations of a single borrower, so the per-call opportunity is lumpy; gas is trivial on Base.",
+ "numbers": "218 Liquidate events / 7d (blocks 56188714-59166223; full 3.02M-block scan, 183 chunks of 49999, 0 errors); pairs 0x23574154842bc86cf5bbc5f99376cfa1e2f82497 (10) and 0x2e5109aa82a4ebcc776e89abeb68f5d0b91ccea1 (208); callers 0x76b60dcf71da2294f8aa034432d925d1eed8cf68 141, 0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3 71, 0x00000000001fc3937c130c1408bfec31b5b6c669 5, 0x6669c47bbf09f61a7fddea3b6a9180d7fc0f8ac0 1; gross per call 5-sample range $4.4-$8.5 (fWETH pair, repays 0.0277-0.0536 WETH at $1766.77) and $11 (USDC pair, repay $121.63) - bonus = 9-10% of repay minus ~1% protocol fee; gas median 1.78-2.34M gas @ 0.007 gwei = $0.02-0.03 (218 tx total $5.71). Prices coins.llama.fi 2026-11-18; source Blockscout FraxlendPairCore.sol (dirtyLiquidationFee 9000, cleanLiquidationFee 10000, LIQ_PRECISION 1e5)"
+}

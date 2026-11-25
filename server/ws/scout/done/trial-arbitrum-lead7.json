@@ -1,0 +1,20 @@
+{
+ "id": "trial-arbitrum-lead7",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "arbitrum",
+ "lead_id": 7,
+ "target": "aave-watcher-arbitrum: same executor rewiring as aave-watcher-base (lead 2 pattern)",
+ "run_id": "35cbb884f08640eabb5db8e6b7673c4e",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Aave v3 arb 7d: 331 liquidations / 188 txs / 27 strangers; gross/event median $2.42 (total $48,841, 180 >= $1, max $21,158 tx 0x1c76f7f4) vs one attempt 1.07M gas @ 0.02 gwei base = $0.04-0.06 (observed single-tx fee median $0.096); winner priority fees median $0.054 (15/188 ~0, max $49.07); 26/30 sampled taken 0 blocks after HF<1, every >=1-block-late capture <= $0.04 dust",
+  "kb": [
+   "attempts:1458",
+   "leads:7"
+  ],
+  "run_id": "35cbb884f08640eabb5db8e6b7673c4e",
+  "at": 1794858917
+ }
+}

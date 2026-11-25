@@ -1,0 +1,19 @@
+{
+ "id": "actor-arbitrum-0x98313d1a6ddba7b197db5112f7e07108e65fd3a7",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0x98313d1a6ddba7b197db5112f7e07108e65fd3a7",
+ "run_id": "15c64916447c4bcdbf3b581f35d46344",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Revert Lend V3Vault (0x74e6afef) liquidator account: keeper EOAs -> router 0x10d1b4a5 -> this contract -> V3Vault.liquidate (external, no ACL); 7 liquidations/7 d, net spread paid in-tx as USDC.e to owner EOA 0x7f21763b: 315.49 USDC total, 45.07/call avg (5.2-90.5), gas 717-747k @ ~0.038 Gwei = ~0.05 USD/call (ETH 1603 USD, coins.llama.fi 1795205109); 6 distinct liquidator addresses took 28 liq/7 d -> a fresh address is paid (lead 57 measured, trial bot promoted attempts:1510)",
+  "kb": [
+   "actors:299",
+   "attempts:3037"
+  ],
+  "run_id": "15c64916447c4bcdbf3b581f35d46344",
+  "at": 1795205790
+ }
+}

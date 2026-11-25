@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-9summits",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The 4 9Summits Lagoon ERC7540 vaults on ethereum pay no caller reward: the only recurring keeper functions (settleDeposit, expireTotalAssets) are onlySafe and updateNewTotalAssets is onlyValuationManager, called once/day each by fixed curator-side signers; source (LagoonVault v0.6.0) has no keeper/bounty/reward mechanism and fees go to feeReceiver, not the caller.",
+  "numbers": "4 vaults, eth_getCode non-empty, names read via name(): USDC 0x03d1ec0d..14bfc, ETH 0x07ed467a..0d9b, cbBTC 0xb09f761c..4f98, EURC 0xd0c4c938..ddc9; impl 0x6c77c47fb8168e22976c3b0338cb1769c952249f LagoonVault v0.6.0 (verified source). eth_call from 0x1111..1111: settleDeposit(1) reverts OnlySafe(0xfde82f1f, safes b64bfcd2/547090eb/c868bfb2/b65b8cf3 per vault), updateNewTotalAssets(1) reverts OnlyValuationManager(0x14c9222d) pointing at 0x9dcbfe1be475f3e3dd1204108b4f5d80ff1e9ddb, expireTotalAssets reverts OnlySafe. Activity: sample of ~25 recent txs per vault via explorer txs spanning back ~10 days (to ts 1794236207; latest 1795162079) shows 3 keeper txs per vault per day (settleDeposit+expireTotalAssets by the safe, updateNewTotalAssets by the valuation manager) plus user requestDeposit/redeem/claim txs; gross paid to any caller: 0 USD (no transfer to caller in source). DefiLlama 9summits currentChainTvls Ethereum 14,196,647 USD. Same pattern as prior dead_end attempt 686 (Lagoon vaults, lead 109)."
+}

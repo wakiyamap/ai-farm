@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-probable",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 295,
+ "chain": "bsc",
+ "slug": "probable",
+ "name": "Probable",
+ "category": "Prediction Market",
+ "tvl_usd": 196905,
+ "url": "https://probable.markets",
+ "github": null,
+ "listed_days_ago": 295,
+ "run_id": "0daa890875c34063a6137c1e0bac2029",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Polymarket-clone CLOB on BSC (Exchange 0xF99F..c86, CTF 0x364d..cA83, collateral USDT 18dec); matchOrders/fillOrder are onlyOperator - eth_call from fresh addr reverts NotOperator() [0x7c214f04], isOperator(fresh)=false; CTF redeemPositions pays only the holder, no rewards contract; exchange emitted 0 events in 5x3000-blk windows over ~7d and holds 0 USDT; gross to a stranger caller = $0, gas n/a (BNB $591.55).",
+  "kb": [
+   "protocols:409",
+   "attempts:1746"
+  ],
+  "run_id": "0daa890875c34063a6137c1e0bac2029",
+  "at": 1794924063
+ }
+}

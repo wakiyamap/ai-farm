@@ -1,0 +1,14 @@
+Block-explorer lookups for agents, through the local farm-explorer service (it holds the
+Etherscan API key; you never need one). For an address you already know. There is no search
+by name: pin the address from docs, a repo or an on-chain getter first.
+
+  explorer chains                               which chains this key can use
+  explorer source <chain> <address> [--out DIR] [--cat] [--json]
+                                                verified source: name, compiler, proxy target, files.
+                                                --out DIR writes the files there, --cat prints them
+  explorer abi <chain> <address> [--json]       function and event signatures (--json: the raw ABI)
+  explorer creation <chain> <address>           creator and creation transaction
+  explorer txs <chain> <address> [-n N] [--asc] [--internal | --token]
+                                                latest transactions (N <= 200, newest first)
+
+"not on this API key's plan" for a chain is final: use that chain's own explorer or Routescan.

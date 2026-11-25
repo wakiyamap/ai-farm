@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "protocol-base-bakerfi",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. BakerFi's only keeper-style function on the 3 base vaults is rebalance((uint256,bytes)[]), gated by VAULT_MANAGER_ROLE (eth_call from stranger 0x1111..1111 reverts 'AccessControl: missing role 0xd1473398bb66596de5d1ea1fc8e303ff2ac23265adc9144b1b52065dc4f0934b'); it pays msg.sender nothing anyway (performance fee accrues to feeReceiver 0x5b9d9e25a00a88290f35ee726490852e4df083e3). The whole protocol is also dormant: zero logs of any kind on the three vaults in 7 days, last event 2026-11-01. Nothing here pays a stranger.",
+  "numbers": "3 vaults (DefiLlama adapter bakerfi/index.js): 0x37327c99.. (base-mfbrETH, asset WETH 0x4200..0006, totalAssets 28.75), 0x892022FE.. (base-stbrETH, 0.11), 0x4BA3f77a.. (seUSD, 2e-13); impls Sourcify exact_match = baker-fi/bakerfi-contracts core/Vault.sol, MultiStrategyVault.sol. 7 d window blocks 57982072 (2026-11-15, ts 1794786790) to 61006073 (2026-11-22, ts 1795391590): 0 logs (no-topic scan, all 3 addresses). Control same shape from block 0x2d20000 (2026-06-06): 24 logs, last 2026-11-01 (Withdraw 0xfbde797d.. on 0x8920..). rebalance selector 0xe9a54a5a (cast sig). withdrawalFee 0, performanceFee 1e8. Candidate tvl_usd 47881.",
+  "bot_id": null
+}

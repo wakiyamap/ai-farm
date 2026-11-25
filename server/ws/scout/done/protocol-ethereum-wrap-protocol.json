@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-wrap-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "wrap-protocol",
+ "name": "Wrap Protocol",
+ "category": "Synthetics",
+ "tvl_usd": 450393,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "5b2ead2dd62e42218b9702ba5412d81e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "WrapMultisig vault 0x5Dc76fD1...1D82 (Tezos wTokens bridge escrow, verified source): no function pays the caller - wrapERC20 deposits (caller pays), execTransaction pays the recipient not the submitter (3 Wrap-owner sigs); 0 txs / 0 logs in 7 d (blocks 26417952 2026-11-14 to 26469029 2026-11-22, control returned 1 ERC20WrapAsked at 2026-04-26 tx); last activity 2026-04-26, execTransactions stopped 2025-08-22; TVL 440k USD static escrow (api.llama.fi 2026-11-22)",
+  "kb": [
+   "attempts:3632"
+  ],
+  "run_id": "5b2ead2dd62e42218b9702ba5412d81e",
+  "at": 1795331382
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-stablehodl",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 511,
+ "chain": "bsc",
+ "slug": "stablehodl",
+ "name": "StableHodl",
+ "category": "Yield",
+ "tvl_usd": 231341,
+ "url": "https://stablehodl.com/",
+ "github": null,
+ "listed_days_ago": 511,
+ "run_id": "dcc4084c279c41df8f741319012fa68c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BSC pool proxy 0x528d46B5780879E28Cf410C0b86D991A38Fe64Aa (impl 0xc34df695167aa2f9571976ffd5e3e0e95a53e470) is a custodial funding-arb vault: poolAmount()=231,430 (=TVL $231k, USDT 20,176 + USDC 211,254) but actual token holdings 0; full ABI surface (bytecode dispatch + OpenChain, no verified source) has deposit/emergencyWithdraw/roles/views only, no reward/claim/harvest function payable to a stranger; pool events 0 in 6 sampled 30-min windows over the last 7 days (~1.9% of 1.61M weekly blocks, control USDT 5,838 logs/100 blocks).",
+  "kb": [
+   "attempts:1878",
+   "protocols:505"
+  ],
+  "run_id": "dcc4084c279c41df8f741319012fa68c",
+  "at": 1794950797
+ }
+}

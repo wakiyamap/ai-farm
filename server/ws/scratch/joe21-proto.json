@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "joe_v2_1",
+  "status": "dead_end",
+  "checked": "Joe V2.1 (LFJ Liquidity Book / DLMM) on Arbitrum. DefiLlama registry (DefiLlama-Adapters registries/traderJoeV2.js, traderjoe-lb-v2-1.arbitrum) gives LBFactory 0x8e42f2F4101563bF679975178e880FD87d3eFd4e (eth_getCode non-empty; getLBPairImplementation -> impl 0x3e30fdae04c08fc20fa2fe0cf55c95d99a9c2d8f; getNumberOfLBPairs = 533, verified LBPair.sol source via explorer). Open pool functions are swap/flashLoan/mint/burn/increaseOracleLength: user actions, none pays the caller; collectProtocolFees is role-gated (onlyProtocolFeeRecipient = factory getFeeRecipient -> FeeBank 0x60233142befce7d4ed73e7793ead2d6190fccaab; eth_call from fresh 0x1111... reverts with custom error 0x3e24df14), forceDecay onlyFactory, setStaticFeeParameters onlyFactory. Staking appendages: 0x43646A8e839B2f2766392C1BF8f60F6e587B6960 = VeJoeStaking TransparentUpgradeableProxy (impl 0x21d9320b80a819c66f339929f84a85381a5c7db1; deposit/withdraw/claim pay only msg.sender staker, updateRewardVars public pays 0); 0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07 = JOE LayerZero OFT token. Same ABI family as avalanche joe_v2_2 (attempts 2146, no_reward)."
+}

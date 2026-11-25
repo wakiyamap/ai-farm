@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-hub-capital",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 53,
+ "chain": "ethereum",
+ "slug": "hub-capital",
+ "name": "Hub Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 1006808,
+ "url": "https://app.lagoon.finance/vault/1/0xca790385506b790554571cbc9da73f0130cdcfd5",
+ "github": null,
+ "listed_days_ago": 53,
+ "run_id": "044700e1ebc74c8f8368b76b53da46bd",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Lagoon ERC7540 vault 0xca790385506b790554571cbc9da73f0130cdcfd5 (impl 0xe50554ec): settleDeposit/settleRedeem/expireTotalAssets/claimSharesOnBehalf all revert OnlySafe(safe=0x774a9d67..f888) from fresh address, updateNewTotalAssets gated to valuation mgr 0x2949c8b8..0cc0; 0 calls/0 events in 7d (blocks 26405400-26455787, no-topic scan; control vault 16 logs), last tx 2026-11-07; totalAssets 1.007e12 units (~1.007M USD, TVL 1,006,808); gross to stranger 0",
+  "kb": [
+   "attempts:2872",
+   "protocols:1291"
+  ],
+  "run_id": "044700e1ebc74c8f8368b76b53da46bd",
+  "at": 1795171801
+ }
+}

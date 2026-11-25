@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-frigg-eco",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1498,
+ "chain": "ethereum",
+ "slug": "frigg.eco",
+ "name": "Frigg.eco",
+ "category": "RWA",
+ "tvl_usd": 182532,
+ "url": "https://www.frigg.eco/",
+ "github": null,
+ "listed_days_ago": 1498,
+ "run_id": "fa08d3897dbb461c91a5f9edb9914417",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: ATT RWA (1825.32 ATT = 182532 USD @ 100 USD) with only primaryRouter buy/sell user ops (sell pays caller itself 181.81 USDC/ATT at expiry, expiryPrice 5.5e9 read on chain, USDC 6dp); both eth_call-revert from a fresh address (routerGater=0x0, seeBondExpiryStatus=false); last 7d (blocks 0x1930d00 2026-11-14 16:11 -> 0x193d233 2026-11-21 17:00 UTC) 0 tx / 0 logs on router 0x96418df8b474e90e49183cc23fa41e4ad8b0ddbe and token 0x90D53b872ce6421122B41a290aCdD22a5eD931bd (no-topic scan, USDC control 5169 logs); dormant since Jan-Feb 2023.",
+  "kb": [
+   "attempts:3402",
+   "protocols:1704"
+  ],
+  "run_id": "fa08d3897dbb461c91a5f9edb9914417",
+  "at": 1795280613
+ }
+}

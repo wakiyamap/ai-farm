@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-api3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1752,
+ "chain": "ethereum",
+ "slug": "api3",
+ "name": "Api3",
+ "category": "Risk Curators",
+ "tvl_usd": 9514688,
+ "url": "https://api3.org/",
+ "github": [
+  "api3dao"
+ ],
+ "listed_days_ago": 1752,
+ "run_id": "9aebc16ee0274aa5ba382d22fa0c28ba",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only permissionless fns are VaultV2 accrueInterest on the 4 API3 USDC vaults (851 calls/7d, blocks 0x193121a-0x193d65e, keeper EOAs 0x97818201/0x935c5559/0x108cce61, caller paid 0 USD, standalone 119,334 gas ~0.05-0.15 USD) and Api3Pool mintReward (pays 0, mint disabled getMinterStatus=false, 0 MintedReward/7d); oracle fns are registries or role-gated; TVL 8.52M vaults + 10.41M staking",
+  "kb": [
+   "attempts:3467",
+   "protocols:1747"
+  ],
+  "run_id": "9aebc16ee0274aa5ba382d22fa0c28ba",
+  "at": 1795293779
+ }
+}

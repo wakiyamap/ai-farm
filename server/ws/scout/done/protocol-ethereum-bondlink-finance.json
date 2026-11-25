@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-bondlink-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 657,
+ "chain": "ethereum",
+ "slug": "bondlink-finance",
+ "name": "Bondlink Finance",
+ "category": "RWA",
+ "tvl_usd": 151992,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 657,
+ "run_id": "7b0741ba1e5c4394ae86e5d0a5935749",
+ "result": {
+  "verdict": "no_reward",
+  "line": "USDb OFT 0x1623A55e...B5c5 + SPCTPool 0xb4c10af7...5f8a (both verified): no function pays a caller - deposit/depositBySPCT/redeemBackSPCT move the caller's own principal (fees paid BY caller), cdRedeem/redeem need the off-chain KYC signer signature, SPCTPool is onlyUSDb/POOL_MANAGER_ROLE; 0 logs on both in 7d (blocks 26409879-26460170, 2026-11-14 to 11-21; control USDC 654 logs same shape), last USDb tx 2025-10-24 (392 d ago), website dead; TVL 151,991 USD flat, USDb holds 217 USDC, pool totalPooledUSD 141,991 USDC.",
+  "kb": [
+   "attempts:3130",
+   "protocols:1500"
+  ],
+  "run_id": "7b0741ba1e5c4394ae86e5d0a5935749",
+  "at": 1795224739
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-jones-dao",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1732,
+ "chain": "arbitrum",
+ "slug": "jones-dao",
+ "name": "Jones DAO",
+ "category": "Yield Aggregator",
+ "tvl_usd": 912394,
+ "url": "https://jonesdao.io",
+ "github": null,
+ "listed_days_ago": 1732,
+ "run_id": "9e1ca4c425b64637a8698bca87bc6eb2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only keeper fns (LPVault MetaVault startEpoch/endEpoch/autoCompound 0x7AA1..., GLP strategy rebalance 0x64EC...) are KEEPER/OPERATOR role-gated and pay the caller nothing (fees -> feeReceiver); 7d activity = 6 user self-claims on Milliner V3 0x8127FFC... (4 withdraw, 2 harvest; sample harvest 0x31bcfcff: 12.17 JONES = bash.31 gross to the staker, gas 88,079 = bash.003; JONES bash.0252, ETH 812 coins.llama.fi 11-19 14:08Z); minichef/metavaults/optvaults/router last txs Aug 2025/Oct 2025/Feb 2025/Apr 2024",
+  "kb": [
+   "attempts:2531"
+  ],
+  "run_id": "9e1ca4c425b64637a8698bca87bc6eb2",
+  "at": 1795097503
+ }
+}

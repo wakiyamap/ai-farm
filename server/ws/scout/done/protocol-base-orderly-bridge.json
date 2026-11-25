@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-orderly-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1467,
+ "chain": "base",
+ "slug": "orderly-bridge",
+ "name": "Orderly Bridge",
+ "category": "Bridge",
+ "tvl_usd": 118777,
+ "url": "https://orderly.network",
+ "github": null,
+ "listed_days_ago": 1467,
+ "run_id": "4fbe2b112fcc41b9843bbe4defec1209",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Base bridge = Vault 0x816f..67e9 + CCM 0xa0a0..f38c + CrossChainRelayV2 0x461c..69b0 (LayerZero); 7d (blocks 56,340,000-59,363,239): 39 deposits + 21 withdrawals, all withdrawals delivered by 6 LayerZero executor EOAs (5x 0x7ddb0773..) paying 524,183 gas/call (~$0.006 at 0.006 gwei, ETH $1798.93 coins.llama.fi) and receiving $0 gross from the vault (withdraw pays data.receiver); withdraw() from fresh address reverts 0x833d33e7 OnlyCrossChainManagerCanCall, delegateSwap reverts 'Only swap operator can call', adapter deposits onlyOperator",
+  "kb": [
+   "protocols:917",
+   "attempts:2384"
+  ],
+  "run_id": "4fbe2b112fcc41b9843bbe4defec1209",
+  "at": 1795063817
+ }
+}

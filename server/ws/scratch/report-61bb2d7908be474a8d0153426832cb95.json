@@ -1,0 +1,12 @@
+{
+  "run_id": "61bb2d7908be474a8d0153426832cb95",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-ethereum-bob-fusion",
+  "outcome": "scouted",
+  "kb_rows": ["protocols:1589", "attempts:3260", "attempts:3261"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "unpaid: BOB Fusion = one contract, FusionLock 0x61dc14b28d4dbcd6cf887e9b72018b9da1ce6ff7 (BOB's 2024 L1 deposit lock; holdings 65.10 ETH + wstETH/WBTC/USDT/STONE = 280,627 USD TVL), withdrawal-only since 2024-05-02, deposits permanently closed. 7 d (blocks 26,412,305-26,462,550, no-topic scan, USDC control): 1 event, WithdrawToL1 tx 0x6b028c7a paying 0.03 ETH = 49.05 USD of the caller's own deposit, gas 41,767 = 0.15 USD. 30 d: 12 withdrawals by 12 users (8 EOAs, 4 minimal-proxy wallets), 1,572.80 USD gross. No reward fn exists; eth_call from a fresh address: withdrawDepositsToL1([]) ok (no role gate), ([ETH]) reverts 'Withdrawal completed or token never deposited' -> stranger earns 0. attempts:3261 supersedes 3260 (attempts is append-only; the first said EOAs for all 12 callers)."
+}

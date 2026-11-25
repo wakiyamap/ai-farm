@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "xo_bridge",
+  "status": "dead_end",
+  "checked": "XO Bridge = Hyperlane HypERC20Collateral warp route. Proxy 0x54716A535c3B5616e3f0d4D5005Fc4bB660cDF5F (TransparentUpgradeableProxy, impl 0x5b3f32417d651d47ebaeb079e8cf28b479b0926a, verified via blockscout) holds base USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (token() read on chain, 6 decimals on chain): 724,799 USDC; Hyperlane mailbox() 0xfdd96DF1B2d4354DBb1070815819DB47469ca470. Address from DefiLlama registry registries/sumTokens/data2.js line 1073 (adapter has no github). No caller-paying function: rebalance(uint32,uint256,address) reverts 'MCR: Only Rebalancer' from fresh addr and allowedRebalancers() is empty; handle is onlyMailbox (Router.sol source) and feeHook()=0x0, feeRecipient()=0x0 so the delivery caller collects nothing from the bridge; ERC4626 deposit/redeem are 1:1 and unused (totalSupply()=0); no claim/harvest/distribute/checkpoint in the ABI. Sources: blockscout verified source of impl, DefiLlama api.llama.fi/protocol/xo-bridge (TVL 694,828 USD, 2026-11-20)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-joe-v2-2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 879,
+ "chain": "avalanche",
+ "slug": "joe-v2.2",
+ "name": "Joe V2.2",
+ "category": "Dexs",
+ "tvl_usd": 1727453,
+ "url": "https://lfj.gg/arbitrum/trade",
+ "github": null,
+ "listed_days_ago": 879,
+ "run_id": "f0ddf9b6a548475c847cb3f268d046c0",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Joe V2.2 on avalanche: factory 0xb43120c4745967fa9b93E79C149E66B0f2D6Fe0c + LBPair impl 0x7a5b4e301fc2b148cefe57257a236eb845082797 (verified, 46,344 pairs); no open function pays the caller (open fns = swap/mint/burn/flashLoan/increaseOracleLength; collectProtocolFees onlyProtocolFeeRecipient -> FeeBank 0x60233142..., forceDecay onlyOwner); sample of last 80 txs to WAVAX/USDC pool 0x864d4e5e... (Jul 05-Nov 13 2026): 61 approveForAll + 14 swap, no keeper calls; TVL 2.0M USD",
+  "kb": [
+   "attempts:2146",
+   "protocols:719"
+  ],
+  "run_id": "f0ddf9b6a548475c847cb3f268d046c0",
+  "at": 1795009086
+ }
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "immutablex",
+ "status": "measured",
+ "checked": "DefiLlama adapter immutablex/index.js removed from adapters main (404); api.llama.fi/protocol/immutablex address 0xf57e7e7c23978c3caec3c3548e3d615c346e79ff = IMXToken ERC-20 (explorer). Live contracts from github.com/immutable/imx-migration-contracts README + docs/finalise-pending-withdrawals.md: ImmutableX bridge proxy 0x5FDCCA53617f4d2b9134B29090C87D01058e27e9. eth_getCode non-zero; VERSION() answers 'StarkEx-IMX-Migration-1.0.0'; implementation() -> 0x273b65a7231321d4ee47a4c47408ef43517455ec, verified ABI (etherscan): only public money-moving fn is withdraw(uint256,uint256) (callable by anyone, pays pending withdrawal to strictGetEthKey(ownerKey)); migrateHoldings/migrateVaultRoot are onlyMigrationManager (role); registerSender/registerEthAddress pay nothing. Context: ImmutableX rollup sunset 2026-02-11, automated migration to zkEVM done 2026-03-05..09; L1 flow is residual pending-withdrawal finalisation."
+}

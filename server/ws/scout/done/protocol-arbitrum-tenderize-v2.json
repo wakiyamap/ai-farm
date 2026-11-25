@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-tenderize-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1025,
+ "chain": "arbitrum",
+ "slug": "tenderize-v2",
+ "name": "Tenderize V2",
+ "category": "Liquid Staking",
+ "tvl_usd": 87512,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1025,
+ "run_id": "4d83c50d61e94c3b9a9ca208553b0659",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Tenderize V2 arbitrum: 83 tenderizer proxies (factory 0xa7cA8732Be369CaEaE8C230537Fc8EF82a3387EE, LINK+DAI, 89,848 USD TVL); only anyone-callable fn rebase() (0xaf14052c) - eth_call from a fresh address succeeds (not role_gated) but pays the caller 0 (fee minted to registry.treasury(), Tenderizer.sol L148-156); 7 d (blocks 524592000-526649741, 2026-11-15 23:35 to 11-22 23:59 UTC): 42 logs (19 Withdraw, 11 Deposit, 12 Rebase, 1 Unlock), all 12 Rebase inside 2 user/router txs, 0 standalone rebase() calls, sum of rebase reward delta exactly 0 LINK, gas 148,227 = 0.005 USD.",
+  "kb": [
+   "attempts:3910",
+   "protocols:2069"
+  ],
+  "run_id": "4d83c50d61e94c3b9a9ca208553b0659",
+  "at": 1795392978
+ }
+}

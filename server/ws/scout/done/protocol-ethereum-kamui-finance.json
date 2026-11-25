@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-kamui-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 64,
+ "chain": "ethereum",
+ "slug": "kamui-finance",
+ "name": "Kamui Finance",
+ "category": "RWA",
+ "tvl_usd": 3949931,
+ "url": "https://kamui.finance",
+ "github": null,
+ "listed_days_ago": 64,
+ "run_id": "cba42997522b41a3ad34288e44898688",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 4 Kamui vaults are Lagoon v0.6.0 USDC vaults (impl 0x6c77c47fb8168e22976c3b0338cb1769c952249f, .236M = sum of totalAssets 2.46M/1.256M/0.44M/0.08M); settleDeposit reverts OnlySafe(0xc2c7e7...ab16), updateNewTotalAssets reverts OnlyValuationManager(0x415f78...7019) from a fresh address; 7-day no-topic getLogs 4 vaults = 122 logs, all NAV/settle by Kamui's own AA wallets + user requests, gross to stranger caller bash, settle gas bash.08 (310,376 gas @0.138 gwei x WETH 752)",
+  "kb": [
+   "attempts:2883",
+   "protocols:1301"
+  ],
+  "run_id": "cba42997522b41a3ad34288e44898688",
+  "at": 1795173728
+ }
+}

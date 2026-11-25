@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-uncx-network-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. UNCX Network V2 on BSC is the old Unicrypt UniV2 liquidity locker family (9 contracts from DefiLlama adapter projects/unicrypt). Every payout function (withdraw, relock, splitLock, transferLockOwnership, migrate, and claimFees on the WithFees generation) reverts unless msg.sender == lock.owner; eth_call claimFees from a fresh address reverts 'NOT OWNER'. The only open actions (lockLPToken, updateFeeTracking) cost the caller BNB/LP or pay 0. In the last 7 days the whole deployment had 3 events (2 owner withdraws, 1 deposit) - no stranger was paid. Same pattern as uncx v3/v4 (attempts 2281, 2278, 1648).",
+ "numbers": "9 lockers, locks: 7848+441+2+3+15+13+3+0+14; 7d events 3 (eth_getLogs topics onWithdraw 0xccad973d/onDeposit 0x83035756, blocks 133144124-134485757, 2 chunks of 10k blocks in a provider gap); withdraw gasUsed 79604-79594 @0.05-0.1 gwei; lock fee 0.05 BNB; BNB $589.90 (coins.llama.fi 2026-11-19T10:33Z) so withdraw gas ~$0.005 and deposit fee ~$29.50 paid by caller; TVL $37.5M (DefiLlama candidate). Source: Sourcify exact match UniswapV2Locker.sol solc 0.6.12."
+}

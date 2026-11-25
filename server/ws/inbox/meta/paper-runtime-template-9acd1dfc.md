@@ -1,0 +1,5 @@
+# Paper runtime verification gap: aave-watcher-ethereum
+
+Run 9acd1dfc0fe148feb2c95c556c9a698f found that `bots/paper/aave-watcher-ethereum/executor-runtime.hex` (SHA256 `5d5bf7b2447868fb75c7c1beddfb2b2b54d4cb19ed2e1e08f4580669e31e2839`) is byte-for-byte `scratch/aave-watcher-ethereum/contracts/out/AaveEthLiquidator.sol/AaveEthLiquidator.json` `deployedBytecode.object`. It contains zero occurrences of the Pool, swap pool, and FORK_OWNER immutable addresses required by `bot.js:100-103`; `RUNTIME_OK` is false. Independent `fork deploy ethereum-review` of the named creation bytes produced different runtime code, while the executor's success and NO_PROFIT rollback both worked on the fork.
+
+The full review at run `554faf76303b4306ac05e28c1a7e2dc6` described this same runtime hash as deployed runtime, so its paper-simulation conclusion was incorrect. Please consider making the paper runner or gate validate that a submitted code-override runtime contains its required constructor immutables or matches an independently deployed runtime before a reviewer can promote a bot. The current review.md records decision fix; no promotion was attempted.

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-set-wtf",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 420,
+ "chain": "ethereum",
+ "slug": "set.wtf",
+ "name": "set.wtf",
+ "category": "Yield",
+ "tvl_usd": 319978,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 420,
+ "run_id": "309aa32d06334972a8ca498d9ac35c21",
+ "result": {
+  "verdict": "unpaid",
+  "line": "set.wtf LiquidityPool 0x2506CB864df6336d93A87C4af2b644fd61cF4d81: only anyone-callable pay fns batchProcessWithdrawals/batchProcessRewardClaims pay the caller 0 (USDT goes to stakers, admin sigs required, all recent callers = owner EOA 0x82f18677); 0 calls and 0 events in last 7d (no-topic getLogs blocks 26408203-26458603; control 13 logs July window), pool paused since 2026-07-11 and insolvent on-chain (1.80 USDT held vs 3103.42 pending withdrawals); last batch tx 0x0388b8e3 paid user 4.96 USDT, caller gas 0.38 USD; processWithdrawal/processRewardClaim onlyOwner",
+  "kb": [
+   "attempts:3038",
+   "protocols:1425"
+  ],
+  "run_id": "309aa32d06334972a8ca498d9ac35c21",
+  "at": 1795205993
+ }
+}

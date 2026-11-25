@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "sushiswap",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/sushiswap/api.js 'avax: {tvl}' = getUniTVL factory 0xc35DADB65012eC5796536bD9864eD8773aBc74C4 (the whole $45,519 candidate TVL is LP reserves). eth_getCode non-empty; getters answer on-chain: feeTo()=0x1d2af2b99e253b68d72c76484dd88ffb0ace158c, allPairsLength()=555. routescan getsourcecode (curl) verified name UniswapV2Factory (Sushi v2 fork bundle incl. UniswapV2Pair). External functions: factory createPair(address,address) + setFeeTo/setFeeToSetter/setMigrator (feeToSetter-gated) + views; pair mint(address)/burn(address)/swap/skim(address)/sync/initialize/uniswapV2Call + ERC20. None pays the caller: mint/burn move the caller's own liquidity, skim(address) pays balance-minus-reserve (LP money, skim type out per S) and emits no event in this fork. Same deployment and same verdict as base (2320/2702), arbitrum (2638), bsc (2777), polygon sushiswap rows."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-alpaca-perpetual-futures-exchange",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1352,
+ "chain": "bsc",
+ "slug": "alpaca-perpetual-futures-exchange",
+ "name": "Alpaca Perpetual Futures Exchange",
+ "category": "Derivatives",
+ "tvl_usd": 40900,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1352,
+ "run_id": "52209575484240c4a05321e8a23b1abb",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Alperp PoolDiamond 0x18A15bF2...FdC4e (bsc, TVL 40.9k USD): liquidate() pays 5 USD bounty (liquidationFeeUsd()=5e30) to recipient arg but isAllowAllLiquidators()=0 and fresh-address eth_call reverts PerpTradeFacet_BadLiquidator (0xefc2aa14); market-order execution isPositionKeeper, farm() is FARM_KEEPER; updateFundingRate open but pays 0; LiquidatePosition events 0/7d (blocks 0x7faa6da->0x80f28da) and 0/90d, no events of any kind on the diamond in 7d (control: USDC 5519 logs/1000 blocks same run); gas ~0.03 USD.",
+  "kb": [
+   "attempts:3988"
+  ],
+  "run_id": "52209575484240c4a05321e8a23b1abb",
+  "at": 1795410349
+ }
+}

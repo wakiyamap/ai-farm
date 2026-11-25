@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-smardex-usdn",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 540,
+ "chain": "ethereum",
+ "slug": "smardex-usdn",
+ "name": "SMARDEX USDN",
+ "category": "Basis Trading",
+ "tvl_usd": 1029099,
+ "url": "https://smardex.io",
+ "github": null,
+ "listed_days_ago": 540,
+ "run_id": "d46c7e877e524f14a63d43766c2ccf4b",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "liquidate(bytes) on USDN proxy 0x656cB8...f01a is public (no role, whenNotPaused only) and pays caller wstETH: 9 calls/7d (LiquidatorRewarded logs, blocks 0x192FE6C-0x193bc0c), all by keeper 0x4b732061 (EOA 0x7cb812e8); sample 3/9 gross $4.30/$15.09/$5.37 wstETH (avg $7.33, wstETH $2018 llama 11-20 22:03Z) vs gas $2.06/$10.91/$2.97 (ETH $1613, 3-9.4 gwei) - gross>gas all 3 but thin (~1.3/day, ~$66 total/7d); validateActionablePendingActions (0.015 ETH deposit) 0 calls/7d, keeper 0xb06bb612 self-validates",
+  "kb": [
+   "attempts:3075",
+   "leads:339",
+   "protocols:1453"
+  ],
+  "run_id": "d46c7e877e524f14a63d43766c2ccf4b",
+  "at": 1795212744
+ }
+}

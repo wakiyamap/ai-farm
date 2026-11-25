@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-ditto-earn",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 38,
+ "chain": "ethereum",
+ "slug": "ditto-earn",
+ "name": "Ditto Earn",
+ "category": "Yield Aggregator",
+ "tvl_usd": 99277,
+ "url": "https://dittonetwork.io",
+ "github": null,
+ "listed_days_ago": 38,
+ "run_id": "1edfac0aa6be4b8f931bcc44fa9128d2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only keeper ops exist on ethereum (receiver execute 0xe1178c04, vault rebalance: KEEPER_ROLE/verifier, revert from fresh address); sole caller Ditto EOA 0x8ae18c68, ~1 call/6-13 d, last 2026-11-15 block 26419870, gas 0.14 USD, pays caller 0; 0 logs on vault+2 receivers over 7d (blocks 26429572-26479815, control 94 USDC transfers/2000 blk); vault totalAssets 46.12 USDC, TVL ~99k; MUSD claims are on Mezo.",
+  "kb": [
+   "attempts:4194",
+   "protocols:2312"
+  ],
+  "run_id": "1edfac0aa6be4b8f931bcc44fa9128d2",
+  "at": 1795461360
+ }
+}

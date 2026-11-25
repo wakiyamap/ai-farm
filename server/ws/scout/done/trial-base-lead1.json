@@ -1,0 +1,21 @@
+{
+ "id": "trial-base-lead1",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 1,
+ "target": "morpho_blue liquidation watcher",
+ "retries": 1,
+ "run_id": "65a054ab4baa40589b127a9a50eec8e5",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d base morpho_blue Liquidate: 7,874 events / 2,131 txs / 181 distinct takers (ledger); sample of 20 (top-5 gross + 15 others incl. 10 random): 20/20 paid, top-5 gross median $99,223 ($69k-163k), 15-others median $346, random-10 median $1.97 vs one attempt $0.08-0.11 (287-412k gas @ 0.11-0.20 gwei eff, ETH $1,830.90 coins.llama.fi); winner tips median 15 gwei (14/20 bid exactly 15), baseFee 0.005; windows takeable->taken 17/20 = 0 blocks, 1 at 2, 1 at 4, 1 at >=11 - pays_strangers but same-block 15-gwei bid race",
+  "kb": [
+   "attempts:1490",
+   "leads:1"
+  ],
+  "run_id": "65a054ab4baa40589b127a9a50eec8e5",
+  "at": 1794867036
+ }
+}

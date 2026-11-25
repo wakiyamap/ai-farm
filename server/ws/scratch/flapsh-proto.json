@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "flap_sh",
+  "status": "dead_end",
+  "checked": "flap.sh launchpad (DefiLlama slug flap-sh, module flapdotsh, deadUrl, no github). Addresses from DefiLlama registries/sumTokens.js (bsc owner 0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0) and Neverwin1337/flap_sniper_bot README (0x5c952063c7fc8610FFDB798152D69F0B9550762b). Both proxies have code (eth_getCode); EIP1967 impls 0x52b97e707311589a473bc79c6072cef2f59ce274 (version()='v5.27.2', nonce()=3735261) and 0xef1e8d3fe13ab8497516b5a117969bd2a86d6cff. No verified source on bsc (etherscan not_on_plan, blockscout none); ABI from bytecode+4byte. Keeper-ish fns: addLiquidity(address) reverts 'BasicAccessControl: account ... missing role ROLE_OPERATOR'; collectFees(uint256,address,uint128,uint128) reverts 0x; claim(address) reverts custom 0xac5f6092 for a fresh addr; recoverStuckTaxToken reverts 0x50f69a4e. Activity 2026-11-18: 37169 logs (TVL proxy) / 585 logs (MAIN) in last 3000 blocks; direct callers are trader EOAs calling buy/sell (0xef7ec2e7, 0x8cb5772c) with BNB value, fees go to protocol fee recipient. No anyone-call function that pays the caller found."
+}

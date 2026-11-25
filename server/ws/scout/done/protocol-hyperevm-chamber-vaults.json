@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-chamber-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "hyperevm",
+ "slug": "chamber-vaults",
+ "name": "Chamber Vaults",
+ "category": "Indexes",
+ "tvl_usd": 1771699,
+ "url": "https://chamberfi.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "e6d53661e8e34df1bcc722c12909dcc9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Chamber Vaults (ex-dHEDGE, same code as arbitrum/base dead ends) on hyperevm: factory 0x615037C2Df6FA97634c5aD2d8144708b9dd3B176, 31 vaults, TVL 1.77M USD (96% in one vault); only stranger-callable fn is mintManagerFee (eth_call from fresh addr succeeds, 522k gas est) and it pays the caller 0: 8 calls in 7d, only 1 minted anything (504.74 shares -> DAO 50.47 + manager 454.27, caller 0), gas 0.004-0.024 USD/call at HYPE 65.56; deposits/withdrawals PAY fees, execTransaction role-gated.",
+  "kb": [
+   "attempts:2793",
+   "protocols:1223"
+  ],
+  "run_id": "e6d53661e8e34df1bcc722c12909dcc9",
+  "at": 1795156126
+ }
+}

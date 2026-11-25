@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "seamless_v2 DutchAuctionRebalanceAdapter take",
+  "status": "dead_end",
+  "why": "Closed under the three-session stop rule: attempts:1395, 3068 and this run did not produce a fork-proven positive balance delta or a new positive scale number. The 7-day 2.28 USD/day is whole-class net across all incumbents, before our lower threshold and hedge costs. At head 26459505 main LT equity remains 108.200706 WETH-equivalent and 10 pct discount LT equity 0.111972 WETH-equivalent; neither adapter has a live auction.",
+  "next_steps": "Only reopen on a measured scale change: main LT 0x98c4e43e equity >1000 ETH-equivalent, discount LT 0xce937010 equity >5 ETH-equivalent, or a new LT with min multiplier <=0.99 and equity >=50 ETH-equivalent. Source: attempts:1395 and head eth_call getLeverageTokenState(address), block 26459505 (2026-11-20 23:10 UTC). Then recompute per-occurrence net after swap and gas and require our share >1 USD/day before a fork build."
+}

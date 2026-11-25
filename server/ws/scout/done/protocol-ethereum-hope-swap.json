@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-hope-swap",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1226,
+ "chain": "ethereum",
+ "slug": "hope-swap",
+ "name": "HOPE Swap",
+ "category": "Dexs",
+ "tvl_usd": 149869,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1226,
+ "run_id": "6fef77efd35b487a8f32eecae2b61c9c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Univ2 fork (factory 0x26F53f..., 4 pairs): only anyone-callable fns pair.claimLightReward()/mintFee() pay the gauge/feeTo, not the caller; 31 claims ever all by 0xcf50cdb4..., last 2024-05-09, 0 events on all 4 pairs + HOPE token in 7d (0x193095a-0x193cda6, control returned Swap+Sync at 0x19288f8); pot 609M LIGHT (~339 USD) unclaimed, gas 0.19-0.60 USD/call.",
+  "kb": [
+   "attempts:3330",
+   "protocols:1647"
+  ],
+  "run_id": "6fef77efd35b487a8f32eecae2b61c9c",
+  "at": 1795267259
+ }
+}

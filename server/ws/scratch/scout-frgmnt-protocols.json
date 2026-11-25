@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "frgmnt",
+  "status": "measured",
+  "checked": "Frgmnt fUSD (collateral-backed stablecoin vault, repo github.com/frgmnt-dao/Frgmnt_fUSD branch audit). Contracts from DefiLlama adapter + repo .openzeppelin/base.json, confirmed on-chain: PoolLogic (sfUSD vault) proxy 0x704c56974e0CA4BF8ff8fe8acc51FBF1E053878E (eth_getCode non-empty; getFundSummary() 0x1c5918d2 answers: 'Staked Frgmnt USD', 118,740 shares, $120,806 fund value, NAV 1.0174, manager 0x18f84ea9d3351081780d817e5edd554112cf81ab 'Governance', perf fee 2000/10000, created 2026-03-27); TokenLogic fUSD UUPS proxy 0xeB82611A2B2dC9FBEAF5903d5decDf801765B759 (symbol()='fUSD'); 4 more proxies (PoolManagerLogic/Governance/Timelock/AssetHandler) at 0x387174F4B3676c7F6e06da9c6c855375B5b10AAB, 0x9530E699E519D7BCF621BA7CA17e119B6865b5C7, 0xD7a0D1e9888976D7dEB9509845Af59B2b912999c, 0x84F46CD368f0CB7290c47738B53b7B7FEC5aFF49. Read all 6 sources (PoolLogic.sol 1255 lines etc.). Only external function that pays the caller: harvest() (mints fUSD to msg.sender, their accrued yield). Role-gated: mintManagerFee (only poolManagerLogic), finalizeCashWithdraw / execTransaction / setImmediateWithdrawEnabled (onlyManager), TokenLogic admin (onlyRole). eth_call harvest() from a fresh address reverts 0x3f29331a NothingToHarvest (not role-gated): it pays 0 without a staked position."
+}

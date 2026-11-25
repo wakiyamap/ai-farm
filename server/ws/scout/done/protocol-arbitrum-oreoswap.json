@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-oreoswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1429,
+ "chain": "arbitrum",
+ "slug": "oreoswap",
+ "name": "OreoSwap",
+ "category": "Dexs",
+ "tvl_usd": 47794,
+ "url": "https://oreoswap.finance/",
+ "github": null,
+ "listed_days_ago": 1429,
+ "run_id": "67a3bd8676874f109c1f20ed9c22ee9a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "OreoSwap arbitrum = dead Polyroll farm: only permissionless fns massUpdatePools()/updatePool(addr) (eth_call from fresh addr ok) pay caller 0, oreoPerBlock=0 on both masterchefs; harvest pays a recipient but reverts '_harvest: only funder' from a stranger; 0 events in 7d (blocks 524662397 [2026-11-16] -> 526720273 [2026-11-23], no-topic scan; control WETH 4881 logs/5k blocks) on MC 0xa48138...bbec and old MC 0xeb66b6...cc45; last factory tx 2023-03-23; TVL 47.8k USD is LP dust.",
+  "kb": [
+   "attempts:4002",
+   "protocols:2137"
+  ],
+  "run_id": "67a3bd8676874f109c1f20ed9c22ee9a",
+  "at": 1795413186
+ }
+}

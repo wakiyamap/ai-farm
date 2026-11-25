@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "gauntlet",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/gauntlet/index.js bsc.erc4626 lists 4 Moolah vaults (Morpho V1 fork) curated by Gauntlet: 0xfa27f172e0b6ebcef9c51abf817e2cb142fbe627 (Lista USD1), 0x57134a64b7cd9f9eb72f8255a671f5bf2fe3e2d0 (BNB), 0x9a17fd5cb8efc25d11567e713ae795a89775a759 (U), 0x6d6783c146f2b0b2774c1725297f1845dc502525 (USDT). All 4 have code and are EIP-1967 proxies sharing impl 0x713a7e23cff5016a479b079e48b575818a3fcc95 (Sourcify chain 56 full match id 46846501; repo.sourcify.dev down, so ABI recovered from bytecode selector scan + OpenChain signature DB). Getters answer: asset()=0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d (USD1, 18 dec), totalAssets()=138.5M on the USD1 vault. No permissionless reward function: accrueInterest() and updateAssetPortfolio(address) reverts (selector absent from the 171-selector bytecode set); the only allocation fn reallocate((MarketParams,uint256)[]) eth_calls from a stranger revert 'not allocator or bot'; settings go through AccessControl roles BOT/ALLOCATOR/CURATOR/MANAGER (MOOLAH()=0x8f73b65b4caaf64fba2af91cc5d4a2a1318e5d8c is the Morpho-Blue-fork core where market-level accrueInterest keepers live - Moolah protocol, not Gauntlet). farm explorer has no bsc source (etherscan not_on_plan, blockscout 404)."
+}

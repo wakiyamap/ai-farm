@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-frax-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1515,
+ "chain": "polygon",
+ "slug": "frax-swap",
+ "name": "Frax Swap",
+ "category": "Dexs",
+ "tvl_usd": 112960,
+ "url": "https://frax.com/swap",
+ "github": null,
+ "listed_days_ago": 1515,
+ "run_id": "a41de2059f8e444d99a9b05bd23284b1",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Uniswap-V2-fork AMM, no stranger-paid function: feeTo()=0x0 on both factories (V2 0x54F454D7.. allPairsLength()=154, V1 0xc2544A32.. =3), TWAMM executeVirtualOrders anyone-callable but pays 0, order claims require order.owner==msg.sender; 0 Swap events across all 157 pairs in 7d and 30d (control: 26,155 USDC Transfer logs/2000 blocks same shape); gas ~bash.001/call (243 gwei x POL bash.0821, coins.llama.fi); TVL 12,960",
+  "kb": [
+   "attempts:2429",
+   "protocols:956"
+  ],
+  "run_id": "a41de2059f8e444d99a9b05bd23284b1",
+  "at": 1795072617
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-k3-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. K3 Capital owns no contracts on optimism - the DefiLlama adapter counts its $9.29M TVL entirely as a Midas 'Liquid Euro' (weEUR) ERC-20 holding, 0xcC476B1a49bcDf5192561e87b6Fb8ea78aa28C13. That token's only non-view functions are mint/burn/pause/unpause/setMetadata, all AccessControl role-gated (mint from a fresh address reverts 'WMAC: hasnt role'), plus plain ERC-20 transfers; no reward, harvest, claim or advance-style function anyone can call, so there is nothing to pay a stranger. Yield is passive in the underlying eEUR exchange rate.",
+  "numbers": "Adapter projects/k3/index.js: optimism = midasTokens [0xcC476B1a49bcDf5192561e87b6Fb8ea78aa28C13]. Proxy impl 0x3f5cb831d550228719567498dd08bebc4b42a6a0 = weEUR (blockscout verified source). name()='Liquid Euro' (0x06fdde03), decimals()=18, totalSupply()=8,274,695.56e18 (latest block, eth_call research lane 2026-11-18). mint(address,uint256) 0x40c10f19 from fresh addr: revert 'WMAC: hasnt role'. No eth_getLogs needed: no reward function to count. 4 research-lane reads, 0 fork."
+}

@@ -1,0 +1,191 @@
+#!/usr/bin/env python3
+"""Block-explorer lookups for agents, through the local farm-explorer service (it holds the
+Etherscan API key; you never need one). For an address you already know. There is no search
+by name: pin the address from docs, a repo or an on-chain getter first.
+
+  explorer chains                               which chains this key can use
+  explorer source <chain> <address> [--out DIR] [--cat] [--json]
+                                                verified source: name, compiler, proxy target, files.
+                                                --out DIR writes the files there, --cat prints them
+  explorer abi <chain> <address> [--json]       function and event signatures (--json: the raw ABI)
+  explorer creation <chain> <address>           creator and creation transaction
+  explorer txs <chain> <address> [-n N] [--asc] [--internal | --token]
+                                                latest transactions (N <= 200, newest first)
+
+"not on this API key's plan" for a chain is final: use that chain's own explorer or Routescan.
+"""
+import json
+import os
+import sys
+import urllib.error
+import urllib.parse
+import urllib.request
+
+BASE = os.environ.get("EXPLORER_URL", "http://127.0.0.1:29484")
+
+
+def get(path, **params):
+    url = f"{BASE}{path}" + ("?" + urllib.parse.urlencode(params) if params else "")
+    try:
+        with urllib.request.urlopen(url, timeout=120) as r:
+            return json.loads(r.read())
+    except urllib.error.HTTPError as exc:
+        try:
+            why = json.loads(exc.read()).get("error")
+        except Exception:                                         # noqa: BLE001
+            why = None
+        sys.exit(f"explorer: {why or exc}")
+    except Exception as exc:                                      # noqa: BLE001 - service down, timeout
+        sys.exit(f"explorer: {BASE} failed: {exc}")
+
+
+def source_files(entry):
+    """Etherscan's SourceCode is one of: plain text (one file), a JSON object of files, or
+    standard-json input wrapped in one extra pair of braces. -> {path: text}"""
+    src = entry.get("SourceCode") or ""
+    name = entry.get("ContractName") or "Contract"
+    text = src.strip()
+    for candidate in ((text[1:-1], text) if text.startswith("{{") and text.endswith("}}") else (text,)):
+        if not candidate.startswith("{"):
+            continue
+        try:
+            obj = json.loads(candidate)
+        except ValueError:
+            continue
+        files = obj.get("sources", obj) if isinstance(obj, dict) else None
+        if isinstance(files, dict) and files and all(isinstance(v, dict) and "content" in v for v in files.values()):
+            return {p: v["content"] for p, v in files.items()}
+    ext = ".vy" if "vyper" in (entry.get("CompilerVersion") or "").lower() else ".sol"
+    return {name + ext: src}
+
+
+def safe_path(root, rel):
+    """A path under root for an explorer-supplied file name (no absolute paths, no ..)."""
+    parts = [p for p in rel.replace("\\", "/").split("/") if p not in ("", ".", "..")]
+    return os.path.join(root, *parts) if parts else os.path.join(root, "unnamed.sol")
+
+
+def cmd_source(chain, address, flags, out_dir):
+    data = get(f"/q/{chain}/source", address=address)
+    if "--json" in flags:
+        print(json.dumps(data["result"], indent=1))
+        return 0
+    entries = data["result"] if isinstance(data["result"], list) else []
+    if not entries or not (entries[0].get("SourceCode") or entries[0].get("ABI", "").startswith("[")):
+        sys.exit(f"explorer: no verified source for {address} on {chain}")
+    e = entries[0]
+    print(f"name: {e.get('ContractName')}")
+    print(f"compiler: {e.get('CompilerVersion')}  optimizer: {e.get('OptimizationUsed')} runs {e.get('Runs')}"
+          f"  evm: {e.get('EVMVersion')}  license: {e.get('LicenseType')}")
+    if str(e.get("Proxy")) == "1" and e.get("Implementation"):
+        print(f"proxy: yes, implementation {e['Implementation']} (read that address for the logic)")
+    if e.get("ConstructorArguments"):
+        print(f"constructor args: 0x{e['ConstructorArguments'][:200]}" + ("..." if len(e["ConstructorArguments"]) > 200 else ""))
+    files = source_files(e)
+    print(f"files: {len(files)}, {sum(len(t) for t in files.values())} chars")
+    for path, text in files.items():
+        print(f"  {path}  ({len(text)} chars)")
+    if out_dir:
+        for path, text in files.items():
+            dest = safe_path(out_dir, path)
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
+            with open(dest, "w", encoding="utf-8") as f:
+                f.write(text)
+        print(f"written under {out_dir}")
+    elif "--cat" in flags:
+        for path, text in files.items():
+            print(f"\n// ---- {path}\n{text}")
+    else:
+        print("(--out DIR writes the files, --cat prints them)")
+    return 0
+
+
+def signature(item):
+    def typ(p):
+        if p.get("type", "").startswith("tuple"):
+            return "(" + ",".join(typ(c) for c in p.get("components", [])) + ")" + p["type"][5:]
+        return p.get("type", "?")
+    ins = ",".join(typ(p) for p in item.get("inputs", []))
+    if item.get("type") == "event":
+        return f"event {item.get('name')}({ins})"
+    outs = ",".join(typ(p) for p in item.get("outputs", []))
+    mut = item.get("stateMutability", "")
+    return f"{item.get('name')}({ins})" + (f" {mut}" if mut and mut != "nonpayable" else "") + (f" -> ({outs})" if outs else "")
+
+
+def cmd_abi(chain, address, flags):
+    data = get(f"/q/{chain}/abi", address=address)
+    try:
+        abi = json.loads(data["result"])
+    except (TypeError, ValueError):
+        sys.exit(f"explorer: no ABI for {address} on {chain}: {str(data.get('result'))[:200]}")
+    if "--json" in flags:
+        print(json.dumps(abi))
+        return 0
+    for kind in ("constructor", "function", "event", "error"):
+        for item in abi:
+            if item.get("type") == kind:
+                print(("constructor" if kind == "constructor" else "") + signature(item)
+                      if kind != "error" else f"error {signature(item)}")
+    return 0
+
+
+def cmd_creation(chain, address):
+    data = get(f"/q/{chain}/creation", address=address)
+    for row in data["result"] or []:
+        print(f"contract: {row.get('contractAddress')}\ncreator: {row.get('contractCreator')}\ntx: {row.get('txHash')}"
+              + (f"\nblock: {row.get('blockNumber')}" if row.get("blockNumber") else ""))
+    return 0
+
+
+def cmd_txs(chain, address, flags, n):
+    op = "internal" if "--internal" in flags else "tokentx" if "--token" in flags else "txs"
+    data = get(f"/q/{chain}/{op}", address=address, offset=str(n), sort="asc" if "--asc" in flags else "desc")
+    rows = data["result"] or []
+    if "--json" in flags:
+        print(json.dumps(rows, indent=1))
+        return 0
+    for r in rows:
+        extra = (f" {r.get('tokenSymbol')} {r.get('value')}" if op == "tokentx"
+                 else f" value {r.get('value')} {(r.get('functionName') or r.get('methodId') or '')[:60]}")
+        print(f"{r.get('blockNumber')} {r.get('timeStamp')} {r.get('hash')} {r.get('from')} -> "
+              f"{r.get('to') or r.get('contractAddress')}{extra}" + (" FAILED" if r.get("isError") == "1" else ""))
+    if not rows:
+        print("(no transactions)")
+    return 0
+
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help", "help"):
+        print(__doc__.strip())
+        return 0
+    flags = [a for a in argv if a.startswith("--")]
+    pos, out_dir, n = [], None, 25
+    it = iter(argv)
+    for a in it:
+        if a == "--out":
+            out_dir = next(it, None)
+        elif a == "-n":
+            n = int(next(it, "25"))
+        elif not a.startswith("--"):
+            pos.append(a)
+    cmd = pos[0]
+    if cmd == "chains":
+        for chain, v in get("/chains")["chains"].items():
+            print(f"{chain}: {v['status']} (chain id {v['chain_id']})")
+        return 0
+    if cmd not in ("source", "abi", "creation", "txs") or len(pos) != 3:
+        print(__doc__.strip(), file=sys.stderr)
+        return 2
+    chain, address = pos[1], pos[2]
+    if cmd == "source":
+        return cmd_source(chain, address, flags, out_dir)
+    if cmd == "abi":
+        return cmd_abi(chain, address, flags)
+    if cmd == "creation":
+        return cmd_creation(chain, address)
+    return cmd_txs(chain, address, flags, max(1, min(n, 200)))
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

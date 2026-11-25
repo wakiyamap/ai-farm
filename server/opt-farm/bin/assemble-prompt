@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+# Assemble the fixed part of an instance's prompt: common.md + role file + TOOLS.md.
+# Started as root from ExecStartPre=+ so the agent user cannot alter the result.
+set -euo pipefail
+
+INSTANCE="${1:?usage: assemble-prompt <instance>}"
+PROMPTS=/srv/farm/prompts
+MAX_BYTES=60000   # dsh loads at most 64 KiB of instructions
+WARN_BYTES=56000  # 10k: above this, leave a note for meta before the next edit breaks the instance
+NOTE_DIR=/srv/farm/ws/inbox/meta
+
+# One note per instance, rewritten only when the size changes, removed when the prompt is back
+# under WARN_BYTES. Written as harness: inbox/ is harness-writable, and root must not write
+# through a symlink planted there. A failure here never stops the session.
+size_note() {   # $1 = headline, $2 = what it means
+  local note="$NOTE_DIR/prompt-size-$INSTANCE.md"
+  if runuser -u harness -- grep -qsx "size: $size" "$note"; then
+    return 0
+  fi
+  printf '%s\n' "# $1" "" "size: $size" "warn above: $WARN_BYTES" "limit: $MAX_BYTES" "" \
+    "$2" "" \
+    "Parts: common.md $(stat -c %s "$PROMPTS/common.md" 2>/dev/null || echo '?') bytes (human-owned), roles/$ROLE.md and roles/TOOLS.md the rest." \
+    "Move detail to wiki pages and keep one line with the page name; run tools/prompt-size.py after every edit." \
+    "(Written by assemble-prompt at $(date -u +%Y-%m-%dT%H:%MZ); it removes this note once the prompt is at or under $WARN_BYTES bytes.)" \
+    | runuser -u harness -- tee "$note" > /dev/null || true
+}
+
+ROLE="$(awk -v i="$INSTANCE" '$1 == i { print $2 }' /etc/farm/roles.conf)"
+if [[ -z "$ROLE" ]]; then
+  echo "assemble-prompt: unknown instance: $INSTANCE" >&2
+  exit 1
+fi
+
+OUT_DIR="/srv/farm/runners/$INSTANCE"
+install -d -o root -g root -m 755 "$OUT_DIR"
+tmp="$(mktemp "$OUT_DIR/.prompt.XXXXXX")"
+trap 'rm -f "$tmp"' EXIT
+
+{
+  cat "$PROMPTS/common.md"
+  printf '\n\n'
+  # roles/ is writable by harness. Read it as harness, so a symlink planted
+  # there can't make root copy a file harness itself can't read.
+  runuser -u harness -- cat "$PROMPTS/roles/$ROLE.md"
+  printf '\n\n'
+  runuser -u harness -- cat "$PROMPTS/roles/TOOLS.md"
+} > "$tmp"
+
+size="$(stat -c %s "$tmp")"
+if (( size > MAX_BYTES )); then
+  echo "assemble-prompt: prompt for $INSTANCE is $size bytes (max $MAX_BYTES)" >&2
+  size_note "$INSTANCE cannot start: its prompt is over the size limit" \
+    "Every session of $INSTANCE fails at once until the assembled prompt (common.md + roles/$ROLE.md + roles/TOOLS.md) is at or under $MAX_BYTES bytes. Fix this before anything else."
+  exit 1
+fi
+if (( size > WARN_BYTES )); then
+  size_note "$INSTANCE prompt is close to its size limit" \
+    "$INSTANCE still starts, but $(( MAX_BYTES - size )) more bytes in common.md, roles/$ROLE.md or roles/TOOLS.md will stop it."
+else
+  runuser -u harness -- rm -f "$NOTE_DIR/prompt-size-$INSTANCE.md" 2>/dev/null || true
+fi
+
+chmod 644 "$tmp"
+mv -f "$tmp" "$OUT_DIR/prompt.md"
+trap - EXIT

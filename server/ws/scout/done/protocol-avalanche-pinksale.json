@@ -1,0 +1,22 @@
+{
+ "id": "protocol-avalanche-pinksale",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1629,
+ "chain": "avalanche",
+ "slug": "pinksale",
+ "name": "PinkSale",
+ "category": "Launchpad",
+ "tvl_usd": 42645,
+ "url": "https://www.pinksale.finance",
+ "github": null,
+ "listed_days_ago": 1629,
+ "run_id": "928096198deb491d80528070acde9f9e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only contracts on avalanche are 2 token lockers (PinkLock 0x4Dff..9322, PinkLock02 0x9479..0D30); unlock(uint256) pays msg.sender behind require(lock.owner==msg.sender) (fresh-address eth_call reverts 'not the owner' on both); 7d no-topic scan (100462775-101149183) = 17 logs, 7 unlocks all by owner EOA 0xf377..c31d paying itself its own 0.8-7.0 WAVAX (5.4-47.0 USD @6.72), gas 0.011-0.020 USD; no stranger reward.",
+  "kb": [],
+  "run_id": "928096198deb491d80528070acde9f9e",
+  "at": 1795423909
+ }
+}

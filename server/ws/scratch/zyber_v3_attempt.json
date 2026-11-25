@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-zyberswap-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Algebra-fork CLMM DEX ($32.8k TVL). Checked factory, LiquidityManager, AlgebraRouter and pool ABIs: no public function pays a caller. LP fees and farming rewards are self-collected by position owners (collect pays the recipient arg = the LP; claimReward pays the claimer's own accrued reward). 832 swaps/7.3d across 49 pools, mostly via aggregators (1inch, 0x). Nothing a bot could call for a stranger reward.",
+ "numbers": "TVL 32,791 USD (DefiLlama candidate 2026-11-23); factory 0x9c2abd632771b433e5e7507bcaa41ca3b25d8544 (DefiLlama registries/uniswapV3.js); 49 pools total (factory Pool events, last at block 299432331); 7d window blocks 0x1f49125c (ts 1794771527, 2026-11-15) -> 0x1f650255 (ts 1795410789, 2026-11-23 05:13Z) = 7.3d; 832 Swap events (no-topic-scan-confirmed topic0; control chunk returned 823); sample of 5 swap txs -> router 0x09f94b5fc68e227c323a6fbae3bd98c97fd8c849 and aggregators 0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae, 0x9008d19f58aabd9ed0d60971565aa8510560ab41; ETH $1723.01 (coins.llama.fi 2026-11-23 05:18:57Z) -> Arbitrum tx gas well under $0.05."
+}

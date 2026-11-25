@@ -1,0 +1,8 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-blur-bids",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid - the Blur Bids TVL is the bidding vault 0x0000000000A39bb272e79075ade125fd351887Ac (verified BlurPool impl 0x01a656024de4B89e2D0198BF4D468E8fd2358b17): an ERC20 1:1 ETH balance book with no reward, fee or emissions function. The only anyone-callable paying function is withdraw(uint256), which pays the caller's own deposited principal (fresh-address eth_call pays 0; withdraw(1e18) reverts 'Insufficient funds', not a role revert); deposit(address)/withdrawFrom are gated to Blend/ExchangeV2, transferFrom to the four counterparties. A stranger can earn nothing here; yield (bid spread, BLUR emissions) accrues only to bidders via signed claims elsewhere.",
+ "numbers": "7d blocks 26414291 (2026-11-14 16:02 UTC) - 26464544 (2026-11-21 16:02 UTC, block-timestamp chosen): 235 Transfer logs (topic0 0xddf252ad from same-contract no-topic scan), 189 withdrawals to=0, 22 deposits; control WETH same shape 18932 logs/500 blk. Sample 5 largest withdrawals (of 189): 18.55/8.07/7.69/6.15/4.82 ETH, e.g. tx 0x87cd29abdbfc82b90dcacbf1ee06d5d62c28a160704e5e4c2c781956fa96c754 by 0x8bd097df5ae353adc890ff704d360d8916220cee, gasUsed 35,611 - all own-principal redemptions, gross premium to caller 0. ETH 1677.97 USD (coins.llama.fi ts 1795277114, decimals 18 read on chain); gasPrice 0.188 gwei (eth_gasPrice) -> 35.6k gas = 0.011 USD/call. Pool balance 4932.27 ETH = 8.28M USD, matches DefiLlama currentChainTvls Ethereum 8,323,510.",
+ "bot_id": null
+}

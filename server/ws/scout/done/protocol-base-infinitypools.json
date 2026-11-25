@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-infinitypools",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 661,
+ "chain": "base",
+ "slug": "infinitypools",
+ "name": "InfinityPools",
+ "category": "Derivatives",
+ "tvl_usd": 112848,
+ "url": "https://infinitypools.finance/",
+ "github": null,
+ "listed_days_ago": 661,
+ "run_id": "5356676a58fc4a85a61f29723a94c940",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no anyone-callable function pays the caller on base (JumpyPool-style sUSDe DEX, 3 pools): collect/drain/unwind revert OnlyOwnerAllowed (0x717bf7f8) and collectNetted only the factory owner (0xe411b778); public advance()/tap() return void and pay 0 (advance gas 893,807 = 0.0097 USD at 0.006 gwei, ETH 1811.64 USD); 0 logs from all 5 contracts in the last 7 days (blocks 0x3545604-0x383a364; control same shape 60 logs), last periphery tx 2026-10-08; TVL 112,848 USD.",
+  "kb": [
+   "attempts:2026",
+   "protocols:618"
+  ],
+  "run_id": "5356676a58fc4a85a61f29723a94c940",
+  "at": 1794982768
+ }
+}

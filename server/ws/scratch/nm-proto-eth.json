@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "nullmask",
+ "status": "dead_end",
+ "checked": "UUPS proxy 0xd64EF1417EB047ed0b54736a5a41F01178C391c6 (TVL owner per DefiLlama registries/sumTokens.js; eth_getCode non-0x; guard()/treasury()/noteTreeSize() answer, noteTreeSize 43355) -> implementation Nullmask 0x8b5e7c7399a1b4c15d2ae9ee3cfff40a2468797b (verified source via explorer; github org nullmask-services 404s, eldardzh/nullmask is docs-only). Roles read on chain: guard 0x0558e584846d1c913205c33588575cf5a20bf856, treasury 0xdd85f4afde114dc7c480b012feaa83152a0c0d09. Caller-paid reward path: shieldedWithdrawal/shieldedTransfer/shieldedSwap pay msg.sender params.fee (ETH) but only if allowedRelayers[msg.sender] (admin-managed whitelist, _requireRelayer reverts NotRelayer for fee>0, fee=0 pays nothing); approveDeposit/rejectDeposit/pullDeposit are guard-only; withdrawPendingDeposit pays only the depositor's own refund; sweepProtocolFees(address) callable by anyone but pays the treasury, not the caller."
+}

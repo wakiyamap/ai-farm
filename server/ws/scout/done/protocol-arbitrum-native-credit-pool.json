@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-native-credit-pool",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 907,
+ "chain": "arbitrum",
+ "slug": "native-credit-pool",
+ "name": "Native Credit Pool",
+ "category": "Lending",
+ "tvl_usd": 424498,
+ "url": "https://native.org",
+ "github": null,
+ "listed_days_ago": 907,
+ "run_id": "d52e88bb4e914a119afe311c71ccf81d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "CreditVault 0xbA1cf8A63227b46575AF823BEB4d83D1025eff09 (adapter native-lend, only Arbitrum contract, source verified): every payout fn role-gated and reverts from a fresh address (epochUpdate=OnlyEpochUpdater 0x4bed8de4...; settle/repay/removeCollateral=trader/settler; liquidate=whitelisted liquidators; withdrawReserve->0xdcdd32f1; pay->0x918aa47f OnlyLpToken); only permissionless fn addCollateral pays 0; 0 top-level txs to vault in last 7d (explorer txs, blocks 522920588-525339788), last successful business call settle 2026-06-08; TVL 423k / borrowed 14k USD (api.llama.fi)",
+  "kb": [
+   "protocols:727",
+   "attempts:2155"
+  ],
+  "run_id": "d52e88bb4e914a119afe311c71ccf81d",
+  "at": 1795010726
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "fstswap",
+  "status": "dead_end",
+  "checked": "UniV2-fork AMM on BSC (DefiLlama TVL 11.7M USD 2026-11-19, api.llama.fi). Factory 0x9A272d734c5a0d7d84E0a892e891a553e8066dce (from archived DefiLlama adapter projects/fstswap @48abc51, confirmed eth_getCode; feeTo()=0x0, allPairsLength()=4878). Router 0x1B6C9c20693afDE803B27F8782156c0f892ABC2d (fstswap.com app bundle). Factory dispatch (bytecode+cast): createPair/getPair/allPairs/allPairsLength/feeTo/feeToSetter/setFeeTo/setFeeToSetter + bytes32 codehash view - no reward fn, createPair pays nobody. Pairs (e.g. 0xb4ec801aed8c92f2e69589518aaa127afb37d8c9) are UniV2+permit AMM pairs; only payable-by-stranger fn is skim(address) - surplus over reserves = 0 on 6/6 sampled pools (0,1000,3000,4500,4877 + WBNB/FIST pool). Org repo FstSwapDex/contract_farm has one file Farm.slo (MasterChef fork, reward FRT to stakers only, no caller-paid fn); deployed farm address not pinned (etherscan not_on_plan, blockscout 503). Activity: USDT/FIST pool 0xb4ec..d8c9 emitted 16 swaps in last 5000 blocks 2026-11-19 (control: 13771 USDT Transfers same shape). No liquidation/auction/keeper mechanism anywhere."
+}

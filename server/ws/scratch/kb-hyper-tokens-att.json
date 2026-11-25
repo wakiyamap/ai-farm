@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-hyper-tokens",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Hyper Tokens = Ensemble VOL/iVOL leveraged-BTC ERC-4626 vaults on HyperEVM (iVOL 0x59A72A4b...43D9, VOL 0xEb22eC1b...62CC). Keeper entrypoints (rebalance, confirmRebalance, confirmBridge, deployCapital, withdrawCapital, checkpoint, payBuilderFee, ...) are permissionless — from a fresh EOA every revert is a state error, never a role error — but they pay the caller $0: keeperReward config = 0 and keeperRewardRecipient = 0x0, 0 KeeperRewarded events in 7 days, and payBuilderFee returns 0 (liability drained). All 152 maintenance txs in 7 days came from one protocol keeper EOA 0xa4181b07...007d that received 0 USDC from the vaults in the window. collectFees is treasury-gated.",
+ "numbers": "7d blocks 50860803-51475803 (eth_getLogs): 0 KeeperRewarded (control: same query 6790 iVOL + 10640 VOL logs); 152 distinct keeper txs, 5/5 sampled from 0xa4181b0725013ec6697001458e97af0a64ae007d; 29 BuilderFeePaid events = $1,557.78 USDC all to fixed builder 0xecbe3f98cccb24f34c8a578e7573fd06d005eb8a; 0 USDC Transfers to keeper address in 7d; gross to a stranger caller $0 vs gas $0.03-0.16/call (rebalance 770k gas x 2.1 gwei = $0.11, HYPE $70.10 coins.llama.fi 2026-11-17); totalAssets iVOL $10,228 + VOL $130,911 (source: eth_call + verified source at impls 0x376187ec / 0xf6b0087d)"
+}

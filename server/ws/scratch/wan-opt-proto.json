@@ -1,0 +1,6 @@
+{
+  "chain": "optimism",
+  "protocol": "wan_bridge",
+  "status": "dead_end",
+  "checked": "CrossProxy 0xC6Ae1Db6C66d909F7bFEeEb24F9adb8620bf9dbf (impl CrossDelegateV7 0xee91925aacca9b96a77a977ab1dd1688f596858e, unverified, name+revert strings from bytecode; proxy verified on blockscout). Address from bridge.wanchain.org JS bundle config (walletChainId 10), not memory; no DefiLlama adapter (404). eth_getCode nonzero; getters implementation()/owner()/halted()/getPartners() answer. smgRelease is role-gated: eth_call from fresh addr reverts 'CrossDelegateV7: caller is not authorized', from the operator EOA 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7 it passes the role check (reverts 'Rapidity tx exists'). smgWithdrawHistoryFee is callable by anyone (eth_call [] succeeds) but pays the storeman-group fee receiver, not the caller; 0 such events in 7d. 7d activity (blocks 159418248-159720648): 12 SmgReleaseLogger + 4 UserLockLogger events, all releases by the one operator. Same shape as Arbitrum (protocols:962, role_gated)."
+}

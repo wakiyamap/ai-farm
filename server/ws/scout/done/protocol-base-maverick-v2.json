@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-maverick-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 888,
+ "chain": "base",
+ "slug": "maverick-v2",
+ "name": "Maverick V2",
+ "category": "Dexs",
+ "tvl_usd": 194465,
+ "url": "https://www.mav.xyz",
+ "github": null,
+ "listed_days_ago": 888,
+ "run_id": "20253cd03cf5435984bd78d16b64a8b5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Maverick V2 Base (factory 0x0A7e848A..c1e, matcher 0xc84bDDC0..D112): only public reward-type fn is matcher distribute(reward,epoch) (14d epochs) and it pays the reward contract, not the caller; 0 Distribute and 0 matcher events of any type in last 7 days (blocks 56069266-59093266, 62x49k getLogs, control USDC >20k logs same shape); gas <$0.01 at 0.005 gwei; TVL 194,465 USD",
+  "kb": [
+   "attempts:2149"
+  ],
+  "run_id": "20253cd03cf5435984bd78d16b64a8b5",
+  "at": 1795009797
+ }
+}

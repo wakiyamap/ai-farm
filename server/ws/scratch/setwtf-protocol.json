@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "set_wtf",
+  "status": "dead_end",
+  "checked": "DefiLlama slug set.wtf (adapter projects/set-wtf/index.js, tvlCodePath github; api.llama.fi/protocol/set.wtf: deadUrl=true, methodology = sum(Deposited)-sum(WithdrawalProcessed) events). Single contract 0x2506CB864df6336d93A87C4af2b644fd61cF4d81, Etherscan-verified 'LiquidityPool' (Solidity 0.8.19, OZ Ownable+ReentrancyGuard+Pausable, USDT 6-dec read on chain, deploy block 22926962). Getters answered: usdt()=0xdAC17F958D2ee523a2206206994597C13d831ec7, owner()=0x82f18677b93c526f02129c34edba7066dd8d9cae, secondOwner()=0xd8424ee7cc2520f7dae828f84f99f53ac0dd6734, paused()=1. Anyone-callable pay-a-recipient fns: batchProcessWithdrawals(address[],bytes,bytes) 0xc4d256bb and batchProcessRewardClaims 0xca1b6cc4 - eth_call from fresh addr reverts 'ECDSA: invalid signature length' (anyone-callable, needs owner+secondOwner off-chain sigs over users+batchNonce), USDT goes to the users, msg.sender paid 0. processWithdrawal/processRewardClaim are onlyOwner (fresh-addr eth_call reverts 'Ownable: caller is not the owner'). State 2026-11-20: paused since owner pause() 2026-07-11 (tx 0x38938bdd...), pool holds 1.797 USDT vs totalPendingWithdrawals 3103.42 USDT (on-chain insolvent), totalPoolBalance 1.7546 USDT; zero txs and zero events since block 25511131 (4 months)."
+}

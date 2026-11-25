@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-ring-few",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Ring Few is a plain ERC20 wrapper (FewWrappedToken: wrap/unwrap 1:1 to the underlying, mint/burn gated by Core permissions) with no reward-bearing public function. Verified source of FewFactory 0x6B65ed73...0b86 and the 5 few tokens (Etherscan); mint from a fresh address reverts 'CoreRef: Caller is not a minter'; wrap() from a fresh address only fails on transferFrom (no balance) and pays nothing. Zero external calls to any of the 5 tokens or the factory in the last 7 days (explorer txs: newest call ts 1794183354, 9.7 d before latest block ts 1795021576 at block 51742749).",
+  "numbers": "TVL 3,534,537 USD (candidate); 5 few tokens; gas ref: eth_gasPrice 1e8 wei = 0.1 gwei, HYPE $65.90 (coins.llama.fi coingecko:hyperliquid) so a ~60k-gas wrap ~ 0.0004 USD; last activity: fwUSDC transfer block 50758621 ts 1794183354, factory createToken ts 1758784032; latest block 51742749 ts 1795021576 (source: explorer txs + rpc.py hyperevm)"
+}

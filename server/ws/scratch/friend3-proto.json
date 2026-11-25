@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "friend3",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter: projects/friend3 not in main adapters repo (404); found in project fork github.com/Friend3-Group/DefiLlama-Adapters projects/friend3/index.js -> single contract 0x1e70972EC6c8a3FAe3aC34C9F3818eC46Eb3BD5D on bsc, tvl = its BNB balance (eth_getBalance 91.2 BNB = 0x4efda7b54bfb6bee0 wei; BNB 557.56 USD coins.llama.fi ts 1795397414 -> ~50.9k USD, matches llama tvl 49k). Contract verified: Sourcify v2 exact_match 56/0x1e70...BD5D, compilationTarget contracts/Friend3V1.sol (github.com/Friend3-Group/Friend3-Smart-Contract-V1). ABI from Sourcify metadata: 18 functions = buyTickets(address,uint256) payable / sellTickets(address,uint256) payable (friend.tech-style bonding curve user trades, caller pays, no reward) + onlyOwner setters (setFeeDestination, setProtocolFeePercent, setSubjectFeePercent) + views + Ownable; NO claim/distribute/keeper-style public function exists. Getters answer on-chain: owner()=0x9a45c5d40eb4faa9e1973563e2d51c298d75f79e, protocolFeePercent()=5e16 (5%), subjectFeePercent()=5e16 (5%). F3 token 0x9e57e83ad79ac5312ba82940ba037ed30600e167 symbol()=F3 (plain BEP-20, llama address field). Docs: docs.friend3.group links only this contract; GitHub org has only V1 repo."
+}

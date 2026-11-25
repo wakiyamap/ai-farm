@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-base-dollar",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 87,
+ "chain": "base",
+ "slug": "base-dollar",
+ "name": "Base Dollar",
+ "category": "CDP",
+ "tvl_usd": 100219,
+ "url": "https://basedollar.org",
+ "github": null,
+ "listed_days_ago": 87,
+ "run_id": "88a8187058274c268c88805f39c8b3fd",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Liquity-V1 fork on Base (registry 0x7551ebfc..., 5 TMs): public batchLiquidateTroves/redeemCollateral, but 7d: 0 Liquidation + 0 Redemption on all 5 TMs (20 raw logs, same-shape control returns) => nobody paid; 30d: 0 liquidations, 275 redemption txs ended 2026-11-06 (~77k BOLD/tx, last 0xb2c6ce03..., gas ~$0.1/tx at 0.006 gwei); fresh-address call reverts NothingToLiquidate (not role-gated).",
+  "kb": [
+   "attempts:1638",
+   "protocols:333"
+  ],
+  "run_id": "88a8187058274c268c88805f39c8b3fd",
+  "at": 1794902079
+ }
+}

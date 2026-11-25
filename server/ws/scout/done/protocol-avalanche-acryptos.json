@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-acryptos",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "acryptos",
+ "name": "ACryptoS",
+ "category": "Liquidity Manager",
+ "tvl_usd": 116091,
+ "url": "https://www.acryptos.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "3086ef0152de465ea192a2196e29d057",
+ "result": {
+  "verdict": "unpaid",
+  "line": "harvest() 0x4641257d on vault 0xe29a236d38f609fa7891851a0828c8b9dd197f6e (sAVAX/Benqi, $115.7k of $116k chain TVL) callable by anyone (fresh-addr eth_call ok, paused=false) but pays caller 0: trace shows no transfer/log to msg.sender, no fee getter, docs: legacy vaults auto-compound, no harvester fee (0.3% fee is v3-ACLM, performUpkeep reverts); 0 logs on all 19 avalanche vaults in 7 days (60x10k chunks to 0x6023a3b 2026-11-19, 1.04 s/blk; control WAVAX 11,534); gas 1.1M x 7.5 gwei = $0.06 (AVAX $6.94 llama 21:15Z); unrekt marks all 19 'deprecated'.",
+  "kb": [
+   "attempts:2647",
+   "protocols:1117"
+  ],
+  "run_id": "3086ef0152de465ea192a2196e29d057",
+  "at": 1795123381
+ }
+}

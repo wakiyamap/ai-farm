@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-lendflare",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1686,
+ "chain": "ethereum",
+ "slug": "lendflare",
+ "name": "LendFlare",
+ "category": "Lending",
+ "tvl_usd": 988489,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1686,
+ "run_id": "e32aee400aee4f249a9416393041abc9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: claimRewardToken/claimAllRewardToken (booster 0x4C3c78...B69f) + claimTreasuryFunds/getRewards callable by anyone (eth_call from fresh addr succeeds) but forward CRV/CVX/interest to stakers, pay caller 0; only LendingMarketV2.liquidate pays msg.sender (sponsor ETH fee) with 0 Liquidate events/365 d; 7 d window blocks 26415300-26465661 = 0 logs on both core proxies (control: 1 LFT-token log same shape; proxies last active block 26200299 2026-09-13); TVL 0.99M USD, deadUrl.",
+  "kb": [
+   "attempts:3448",
+   "protocols:1737"
+  ],
+  "run_id": "e32aee400aee4f249a9416393041abc9",
+  "at": 1795290770
+ }
+}

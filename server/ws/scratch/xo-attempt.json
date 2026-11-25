@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "protocol-base-xo-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: XO Bridge on base is a plain Hyperlane HypERC20Collateral warp route locking USDC; it has no function anyone can call for a reward. rebalance is onlyRebalancer (set empty, eth_call revert 'MCR: Only Rebalancer' from fresh addr), handle is onlyMailbox and feeHook=0x0 so the relayer gets $0 from the bridge, ERC4626 deposit/redeem are 1:1 with totalSupply 0. All traffic is XO's own forwarder EOA and their Hyperlane relayer.",
+  "numbers": "7d (blocks 56689469-59728285, 2026-11-13..20, eth_getLogs on proxy): SentTransferRemote 137 = 64,484 USDC gross (median 17, max 30,000); ReceivedTransferRemote 117 = 14,177 USDC (median 11, max 3,000). Callers (eth_getTransactionByHash samples): XO EOA 0xa646f9cc3ef9930c82e6599746cf2c8d76060ac1 via unverified wrapper 0x5d1d6fa733bfba0ec7b143de0d7e8a4afa9f9ba9 (sends), Hyperlane relayer EOA 0x46298c8cb228ee0add89253bdde8dca08dccf43d -> mailbox 0xfdd96DF1B2d4354DBb1070815819DB47469ca470 (receives). Bridge collateral 724,799 USDC (balanceOf). Gas: 688,831 gas x 0.006 gwei (eth_gasPrice) ~= 0.0000041 ETH ~= $0.01 per send tx. USDC priced $1 peg. Per-call gross to a stranger: $0 (feeHook 0x0).",
+  "bot_id": null
+}

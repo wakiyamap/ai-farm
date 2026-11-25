@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "layerzero_v2",
+ "status": "dead_end",
+ "checked": "LayerZero V2 core on base from LayerZero metadata API (metadata.layerzero-api.com/v1/metadata, chainKey base, eid 30184): endpointV2 0x1a44076050125825900e736c501f859c50fe728c (live: eid()=0x75e8=30184), executor 0x2cca08ae69e0c44b18a57ab2a87644234daebae4, sendUln302 (UlnV3) 0xb5320b0b3a13cc860893e2bd79fcd7e13484dda2, receiveUln302 0xc70ab6f32772f59fbfc23889caf4ba3376c84baf; eth_getCode non-0x on all four. ABIs via blockscout (explorer abi base). endpointV2 ABI (104 lines): no function paying msg.sender (only ownership + send/lzReceive/set*/burn/nilify). UlnV3 payout: withdrawFee(address,uint256) pays fees[msg.sender] only: eth_call withdrawFee(0x1111..,1) from fresh address reverts 0x34084fb8 LZ_MessageLib_InvalidAmount(1,0); fees(0x1111..)=0 and fees of the two live holders also 0 (they sweep fully). withdrawLzTokenFee treasury-side (same as arbitrum protocols:1100). Same contracts and same verdict as arbitrum (protocols:1100, attempts:2628) and avalanche (protocols:1124, attempts:2661). TVL $55.6M (api.llama.fi/protocol/layerzero-v2 currentChainTvls.Base 2026-11-20; adapter projects/layerzero-v2 404) is escrowed OFT adapter balances, no stranger-payout function on them (prior chains: withdrawPlannerFee/TreasuryFee revert invalid caller from fresh address)."
+}

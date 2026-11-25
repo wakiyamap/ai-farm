@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-jpeg-trading",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 71,
+ "chain": "base",
+ "slug": "jpeg-trading",
+ "name": "JPEG Trading",
+ "category": "Risk Curators",
+ "tvl_usd": 28018,
+ "url": "https://www.jpeg-trading.com/",
+ "github": null,
+ "listed_days_ago": 71,
+ "run_id": "6e9ae2f277d3466294e89b110c824dac",
+ "result": {
+  "verdict": "unpaid",
+  "line": "base jpeg-trading = one Euler EVK vault 0xcc639251bd612A0930990162c15227D1Ba996354 (JPEG Trading x Yieldpoint, 28,000 USDC supplied / 26,536 borrowed): anyone-callable touch()/convertFees() pay the sender 0 by design and the fee pot is empty (accumulatedFees=0, feeReceiver=0x0); 7d window blocks 57720337->60744337 (2026-11-15->11-22): 12 logs in 2 user txs, no stranger paid; ConvertFees and Liquidate 0 in full history (49 logs, no-topic scan); gas 0.001-0.005 USD/call (0.006 gwei, ETH 1686.65 USD).",
+  "kb": [
+   "attempts:3668",
+   "protocols:1893"
+  ],
+  "run_id": "6e9ae2f277d3466294e89b110c824dac",
+  "at": 1795339873
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-etherfi-cash-liquid",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 503,
+ "chain": "optimism",
+ "slug": "etherfi-cash-liquid",
+ "name": "EtherFi Cash Liquid",
+ "category": "Crypto Card Issuer",
+ "tvl_usd": 221079674,
+ "url": "https://www.ether.fi",
+ "github": null,
+ "listed_days_ago": 503,
+ "run_id": "2578eea46093478f95822c376824868f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "3 BoringVaults + 3 role-gated mint/burn proxy tokens on OP (adapter etherfi-cash-liquid); no reward/claim/distribute fn in any ABI; enter/exit/manage revert UNAUTHORIZED from a fresh address (Solady authority); liquidUSD 7d Enter=1892 Exit=427 (31x10k getLogs chunks, head 159674905), sampled 10/2319 txs all from 2 keeper EOAs 0xb42833d6.. and 0xdb834545.., gross to caller 0, gas ~bash.009/call (982,414 gas @ 0.00502 gwei, ETH $1791.89 coins.llama.fi).",
+  "kb": [
+   "attempts:1870",
+   "protocols:499"
+  ],
+  "run_id": "2578eea46093478f95822c376824868f",
+  "at": 1794949130
+ }
+}

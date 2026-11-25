@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-stargate-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the Stargate V1 Router 0xB0D502E938ed5f4df2E681fE6E419ff29631d62b on Optimism has no caller-reward function. The permissionless entry points (retryRevert 0x60a3b95c, clearCachedSwap 0x403a9f7a, revertRedeemLocal, callDelta 0xfba6e280, instantRedeemLocal) pay the original user / _to recipient their own funds and $0 to msg.sender; from a fresh address callDelta(1,true) succeeds while retryRevert/clearCachedSwap revert on state ('no retry revert', 'cache already cleared'), not roles - and there were 0 Revert/CachedSwapSaved/RedeemLocalCallback events in 7 days, so nothing was pending to retry. Same design as arbitrum stargate_v1 (attempt 2505) and all four stargate_v2 chains.",
+  "numbers": "reward per call $0 (verified source Router.sol/Pool.sol, blockscout); 7d retry-related Router events = 0 over blocks 159444094-159746494 (32x9.5k getLogs windows, 0 errors; control 51 pool logs on 0xdecc0c09 in 4 windows); callDelta(1,true) estimateGas 258487 -> 2.585e-7 ETH x gasPrice 0.001 gwei (eth_gasPrice 0xf454c) = $0.0005 execution (coins.llama.fi ETH $1796.31 2026-11-19 12:33Z) + OP L1 fee; router 7d traffic all instantRedeemLocal user LP redemptions (explorer txs)"
+}

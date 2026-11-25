@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-autorange",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 118,
+ "chain": "ethereum",
+ "slug": "autorange",
+ "name": "AutoRange",
+ "category": "Dexs",
+ "tvl_usd": 114966,
+ "url": "https://autorange.xyz/",
+ "github": null,
+ "listed_days_ago": 118,
+ "run_id": "98ed45232ce94b8eba72dafad774728b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Ethereum factory 0x1d563053... vaultCount 179, impl AutoRangeVaultEthereumV1 0xcc8364c9...: all keeper entrypoints onlyOperator (harvestFees from fresh addr -> NotOperator 0x7c214f04). 7d chain-wide: 381 KeeperGasReimbursed from 54 vaults + 218 Rebalanced (blocks 26406083-26456483, topic0 from receipts); 11/12 sample calls by platform keeper 0xae39218... (same as Arbitrum). Pay goes to operator(), not caller: median 0.2818 USDT (6d on-chain) vs gas ~0.15-0.75 USD (median 777,307 gas @ 0.15-0.5 gwei, ETH 1738.67 coins.llama.fi 2026-11-20) = zero premium.",
+  "kb": [
+   "attempts:2916",
+   "protocols:1331"
+  ],
+  "run_id": "98ed45232ce94b8eba72dafad774728b",
+  "at": 1795180245
+ }
+}

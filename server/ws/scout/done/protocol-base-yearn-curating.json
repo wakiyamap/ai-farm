@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-yearn-curating",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 536,
+ "chain": "base",
+ "slug": "yearn-curating",
+ "name": "Yearn Curating",
+ "category": "Risk Curators",
+ "tvl_usd": 3491780,
+ "url": "https://yearn.fi/",
+ "github": null,
+ "listed_days_ago": 536,
+ "run_id": "337e0e460f3d496e9c1dfa4eb2ac942b",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Yearn Curating = DefiLlama curator label for 10 Morpho Vault V2 on base (factory 0x4501125508079A99ebBebCE205DeC9593C2b5857, owner 0x75a1253432356f90611546a487b5350CEF08780D); 3 funded (1,071,924 + 401,398 USDC + 1.7612 WETH = 1.48M USD); no function pays the caller - only accrueInterest() 0xa6afed95 is permissionless (fresh-address eth_call returns 0x, pays 0), rest allocator/owner/timelock gated or user principal; 7d logs 584 (AccrueInterest 148, Deallocate 80, Withdraw 78, Deposit 34, Allocate 26); 100k gas 0.0011 USD.",
+  "kb": [
+   "attempts:1894",
+   "protocols:519"
+  ],
+  "run_id": "337e0e460f3d496e9c1dfa4eb2ac942b",
+  "at": 1794954621
+ }
+}

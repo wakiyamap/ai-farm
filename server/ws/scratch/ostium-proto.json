@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "ostium",
+  "status": "dead_end",
+  "checked": "Ostium V2 perp DEX (Gains-v5 fork), TVL ~$2.2M. Addresses from ostium-python-sdk config.py (github 0xOstium) + registry lookups on-chain: registry 0x799a139ae56e11f0476ace2f6118cfcaed9608d2, trading proxy 0x6D0bA1f9996DBD8885827e1b2e8f6593e7702411 (impl 0x8cbb5bd2b46f993078407cea26704af0a901515a, verified OstiumTrading), tradingStorage 0xccd5891083a8acd2074690f65d3024e7d13d66e7, vault 0x20d419a8e12c45f88fda7c5760bb6923cee27f98 (totalAssets 3,385,888 USDC), callbacks 0x7720fc8c8680bf4a1af99d44c6c265a74e9742a9, tradesUpKeep 0x959da1452238f71f17f7da5dba2e9c04fef57324, chainlinkPriceUpkeep 0x52b2a78e12b09b66c6c8ce291d653d40bab77f0c. eth_getCode ok on all, vault totalAssets() getter answers. Source: 0xOstium/smart-contracts-public (matches deployed impl line-for-line). No function pays a stranger: upkeep functions are forwarder-whitelist gated; vault tryNewSettlement/tryResetDailyAccPnlDelta callable by anyone but transfer nothing to caller; timeouts pay the trader itself; oracle fees accumulate in TradingStorage (claimFees onlyGov); Chainlink verify reward goes to constant FEE_ADDRESS."
+}

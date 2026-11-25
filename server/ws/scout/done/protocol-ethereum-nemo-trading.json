@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-nemo-trading",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 60,
+ "chain": "ethereum",
+ "slug": "nemo-trading",
+ "name": "NEMO Trading",
+ "category": "Risk Curators",
+ "tvl_usd": 19947779,
+ "url": "https://nemo.trading/",
+ "github": null,
+ "listed_days_ago": 60,
+ "run_id": "6660c81552694659876076562c166b8c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: TokenizedVault vaults (USDC Prime 0x9552..8522, ETH Prime 0xA422..c91b) expose anyone-callable chargeManagementFee/collectFees/chargePerformanceFees/claim but pay msg.sender 0 - in 7d (blocks 26405460-26455860) 6,804 USDC + 0.7286 ETH (~1,279 USD) fees went to protocol feeCollectors, all 21 fee calls by operator 0xe0b7..8c79, 19 WithdrawalProcessed paid the withdrawing whitelisted holders, gas 69,516/call ~ $0.016",
+  "kb": [
+   "attempts:2877",
+   "protocols:1297"
+  ],
+  "run_id": "6660c81552694659876076562c166b8c",
+  "at": 1795172651
+ }
+}

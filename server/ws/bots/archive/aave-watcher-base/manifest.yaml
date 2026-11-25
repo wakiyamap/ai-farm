@@ -1,0 +1,207 @@
+id: aave-watcher-base
+author: earner/glm-5.3-flash
+chains: [base]
+strategy: >
+  Watch Aave v3 (base Pool 0xa238dd80c259a72e81d7e4664a9801593f98d1c5) borrowers via
+  Multicall3 getUserAccountData over a rolling candidate universe discovered from
+  named Pool events (LiquidationCall / Borrow / Repay / Supply / Withdraw indexed
+  topics only), and when a position becomes protocol-ineligible (HF < 1 at the
+  Aave oracle price), simulate — and when live, send — the bot-deployed v4
+  AaveLiquidator executor: one tx = Morpho flashLoan(debt, cover) -> pool.
+  liquidationCall (repays cover, seizes NEW collateral to the executor) -> sell
+  ONLY the newly seized delta on the constructor-baked SwapRouter02 route
+  (measured UniswapV3 0.01% WETH/USDC pool; skipped entirely for same-asset
+  liquidations, the newest observed class) -> Morpho pulls the flash back ->
+  revert "NO_PROFIT" unless the executor's debt-asset balance rose by minProfit.
+  Retained executor inventory cancels out in the before/after guard and is never
+  swapped. Pairs without a measured swap pool are watch-only.
+copied_from: >
+  Ledger Aave v3 liquidators on base (89 liquidations / 84 borrowers in the 7d to
+  2026-11-03 06:17Z; newer captures: block 53438141 tx
+  0xaf3a3bd7574807bd4ce442a1c76e19043898df8da116c0eb53224e77a30cf476 — USDC
+  collateral / WETH debt, and block 53465304 tx 0xded83b288a6334fbfea9a2fa19fab89
+  0534bbe634876ceec15cbc1b401724636 — same-asset USDC/USDC, 2026-11-03T15:32:35Z).
+  The 53438141 liquidationCall ABI (selector 0x00a718a9,
+  (collateral,debt,user,debtToCover,receiveAToken)) is the verified deployment ABI
+  used by the executor's pool call.
+capital_usd: 400
+allowed_contracts:
+  - 0xa238dd80c259a72e81d7e4664a9801593f98d1c5   # Aave v3 Pool (reads; executor's liquidationCall target)
+  - 0xca11bde05977b3631167028862be2a173976ca11   # Multicall3 (batched reads)
+  - 0xe20fcbdbffc4dd138ce8b2e6fbb6cb49777ad64d   # PoolAddressesProvider (provider read)
+  - 0x2cc0fc26ed4563a5ce5e8bdcfe1a2878676ae156   # Aave price oracle (asset prices)
+  - 0x420000000000000000000000000000000000000f   # Base GasPriceOracle predeploy (l1BaseFee/blobBaseFee for the enforced L1 fee bound)
+  - 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913   # USDC (reserve/loan side, decimals, executor flash asset)
+  - 0x4200000000000000000000000000000000000006   # WETH (reserve/debt side, native gas price proxy)
+  - 0x4e65fe4dba92790696d040ac24aa414708f5c0ab   # aUSDC (collateral balance read)
+  - 0xd4a0e0b9149bcee3c920d2e00b5de09138fd8bb7   # aWETH (collateral balance read)
+  - 0xaed3b56fea82e809665f02acbcdec0816c75f4d9   # shared stable-debt read (measured getReserveData word9)
+  - 0x59dca05b6c26dbd64b5381374aaac5cd05644c28   # variableDebtUSDC (debt balance read)
+  - 0x24e6e0795b3c7c71d965fcc4f371803d1c1dca1e   # variableDebtWETH (debt balance read)
+  - 0x2626664c2603336e57b271c5c0b26f421741e481   # SwapRouter02 — the executor's ONLY route (constructor-baked)
+  - 0xb4cb800910b228ed3d0834cf79d697127bbb00e5   # UniswapV3 WETH/USDC 0.01% pool (router's internal target)
+  - 0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb   # Morpho Blue (0-fee flashLoan for the executor)
+  - 0x14115b5fdab3afcd72cf03785041c720100edb0e   # executor sim target; the gate deploys the real AaveLiquidator at promotion and allows that address
+max_loss_per_tx_usd: 20
+max_loss_guarantee: >
+  The whole action runs in ONE transaction through the bot-deployed v4
+  AaveLiquidator (src at scratch/aave-executor-base/contracts/src/AaveLiquidator.sol,
+  forge build OK solc 0.8.24). Its OWNER-ONLY liquidate() (AaveLiquidator.sol:87)
+  ends with require(balAfter >= balBefore + minProfit + 1, "NO_PROFIT") on the
+  executor's debt-asset balance (AaveLiquidator.sol:100) — measured BEFORE the
+  flash loan and after settlement, so retained inventory cannot mask a loss — and
+  reverts otherwise, so any shortfall (pool pull-back, failed swap, flash
+  repayment) rolls the whole tx back: worst case is gas only. Fork proof of the
+  guard: tx 0xf53b1458a2aa6b522db88a28332e5ce8174bec78a0a53b48bd054c89859f1c6c
+  (status 0, gasUsed 647,490) reverts at the guard with minProfit 1e15; tx
+  0x3f1b737a8a434f6887a69c1c9e0652652ebf7d6f81aaf3d71e8e69079efb804a (status 0)
+  reverts on Pool eligibility for a healthy address. Gas is bounded in bot.js
+  with TWO separately enforced components: (1) L2 gas is enforced BY THE TX ITSELF
+  — the signer send carries gas = MAX_GAS_LIMIT 1.2M and maxFeePerGas =
+  MAX_GAS_PRICE_WEI 0.2 gwei, so the L2 charge cannot exceed 0.00024 ETH; plus
+  2 x APPROVE_GAS 80k txs at the same cap; (2) the L1 data fee, which OP-stack
+  bills separately of maxFeePerGas, is bounded by l1FeeBoundWei() (bot.js):
+  FRESH l1BaseFee()+blobBaseFee() read from the Base GasPriceOracle predeploy at
+  every send, x the MEASURED per-l1-gas coefficient (real receipts:
+  0xaf3a3bd7... l1Fee 4.951e9 wei / l1GasUsed 23797 / l1BaseFee 3.623e7 /
+  blob 1.907e6; 0xded83b28... l1Fee 3.396e9 / 1821 / 2.971e8 / 1.804e7 ->
+  fee/l1GasUsed ~= 0.0055-0.0059 x (l1BaseFee+blobBaseFee), coefficient 0.006
+  used), x L1_GAS_USED_MAX 25000 (receipt l1GasUsed range 1,821-23,797), x a
+  20x spike margin (L1 base fee moves <=12% per L1 block), required < the hard
+  cap L1_DATA_FEE_WEI 0.002 ETH (~400,000x the measured 3.4-4.95e9 wei
+  typical); ANY read failure or bound >= cap fails the send closed. Total bound
+  valued at the FRESH full oracle ETH price refreshed every cycle AND again at
+  send (staleness fails closed) = ~0.00024 ETH + measured L1 bound ~= 0.6 USD
+  at ~2300 USD/ETH << 20 USD; liveLiquidate() refuses to send above
+  MAX_LOSS_PER_TX_USD=20. Seize size is capital-capped in bot.js sizing:
+  cover <= MAX_COVER_USD 250 (of capital 400). Signer rejections are final
+  (no retry loop). The $1 MIN_PROFIT_USD gate applies to the AFTER-FEE profit
+  estimate (profit_usd_after_fees in simulate records); the on-chain minProfit
+  argument is the separate hard revert floor on principal.
+executor: >
+  scratch/aave-executor-base/contracts/out/AaveLiquidator.sol/AaveLiquidator.json
+  (v4, forge build 2026-11-04, solc 0.8.24; constructor args:
+  [0xa238dd80c259a72e81d7e4664a9801593f98d1c5 pool,
+  0xbbbbbbbbbb9cc5e90e3b3af64bdaf62c37eeffcb morpho,
+  0x2626664c2603336e57b271c5c0b26f421741e481 router]; OWNER = deployer = the
+  bot's gate wallet). liquidate(user, collateral, debt, cover, minProfit, fee)
+  selector 0x9153f799, OWNER-ONLY: flashLoan(debt, cover) -> onMorphoFlashLoan
+  (approve Pool, liquidationCall receiveAToken=false, sell ONLY the newly seized
+  delta — balance measured in liquidate() before the flash — via the
+  constructor-baked SwapRouter02 route, allowances cleared, callback bound to the
+  inFlight operation, same-asset skips the swap) -> require(balance >= before +
+  minProfit + 1). Live sends go to the executor the gate deploys (bot.js EXEC =
+  $EXECUTOR_ADDR || sim target) after verifying deployed code and
+  owner() == signer wallet (fail closed), never directly to the Pool. Paper
+  runtime bots/paper/aave-watcher-base/executor-runtime.hex (sha256
+  12511f0abfe782ca2ef74b5ba69d1d4c93e934fefbabe0b02e220f909ab2fe46) is the
+  DEPLOYED fork code with real constructor immutables (POOL/MORPHO/ROUTER/OWNER
+  validated at startup, bot.js RUNTIME_OK); missing/invalid runtime fails closed
+  with no plain eth_call fallback.
+fork_evidence: >
+  Base fork reset to 53438140 (parent of the real liquidation block), executor
+  deployed on fork at 0x14115b5fdab3afcd72cf03785041c720100edb0e FROM THE FORGE
+  ARTIFACT (deploy tx 0x2ffe533de080f339efea276b3a30d31066d30f5348f9620806a709f709b3b399;
+  deterministic CREATE address; runtime 4290 bytes with immutables
+  POOL/MORPHO/ROUTER/OWNER all verified present). Synthetic capital-capped
+  position built by the same driver (fork txs supply 1 WETH, borrow ~79% LTV
+  USDC, withdraw to HF ~1.0000001, then REAL variable-debt interest accrual
+  (240-day fork time jumps + reserve touch) bled it to HF 0.9696). The executor
+  held RETAINED INVENTORY (5 USDC + 0.005 WETH) throughout. All txs recorded in
+  scratch/aave-executor-base/out/fork_evidence.txt and summary.json: (0) non-
+  owner eth_call reverts ONLY_OWNER; (a) deliberate END-BALANCE-GUARD revert
+  0xf53b1458a2aa6b522db88a28332e5ce8174bec78a0a53b48bd054c89859f1c6c status 0,
+  gasUsed 647,490: same liquidation with minProfit 1e15 -> reverts "NO_PROFIT";
+  (b) SUCCESS 0xff0b2e2bebf1df2033de1313ba2f4c5a11ed9d89a069e10b945ce602b45cf6ab
+  status 1, gasUsed 562,764 from the OWNER: liquidated the underwater borrower
+  with capital-capped cover 250 USDC (flash-loaned from Morpho, swapped on the
+  measured pool): executor USDC 5,000,000 -> 16,132,621, i.e. profit over
+  retained inventory +11,132,621 units = +9.86 USD POST-GAS (gas 5.647e14 wei =
+  1.27 USD at the fork WETH price), and executor WETH stayed EXACTLY 5e15 wei —
+  the callback sold only the newly seized delta, never retained inventory;
+  (c) eligibility revert 0x3f1b737a8a434f6887a69c1c9e0652652ebf7d6f81aaf3d71e8e6
+  9079efb804a status 0, gasUsed 384,368: healthy no-position address -> Pool
+  eligibility check reverts. Driver: scratch/aave-executor-base/runall.sh
+  (fork reset -> artifact deploy -> evidence; self-contained, no /tmp) and
+  forktest.js; outputs stay in scratch/aave-executor-base/out/. Re-run
+  2026-11-04T04:45Z (this session): same reset + deploy, all four branches
+  reproduced, and the LIVE PATH demonstrated on the deployed executor with no
+  code override and no send: bot.js --selftest-live (logs/bot.jsonl
+  selftest_live / selftest_live_owner / simulate records) verified the
+  corrected OWNER() selector 0x117803e3 returns the deploying wallet
+  (owner_matches_wallet=true), then simulated the EXACT live executor calldata
+  FROM that wallet (sim_from 0xc0ffee...0001, sim_ok=true, cover capped at
+  250.098136 USDC, profit_usd_after_fees +4.87 USD, gas_usd_bound 5.13 USD) and
+  suppressed the signer send (LIVE_SIM_ONLY). This is the same check sequence
+  the live branch runs before every real send.
+expected_value: >
+  Ledger: 89 Aave v3 liquidations on base in the 7d to 2026-11-03 06:17Z (84
+  borrowers) — opportunistic, not scheduled. The liquidator's edge is the
+  liquidation bonus (measured USDC reserve config: bonus 10500 bps = +5%
+  collateral vs debt repaid) minus swap cost on the 0.01% pool: fork success tx
+  realized +9.86 USD post-gas on a 250 USDC cover (4.45% on cover) including all
+  fees. MEASURED WINDOW (scratch/aave-executor-base/out/window-measurement.json,
+  binary search of HF at historical blocks): both newest captures crossed HF<1
+  INSIDE the capture block via an oracle update (53438141: HF 1.00107 at parent,
+  healthy until the winner's block; 53465304: HF 1.0000001 at parent) — a
+  ~1-block (2 s) latency race our 8 s polling cannot reliably win. CLASS SPLIT
+  MEASURED 2026-11-04T04:40Z (scratch/aave-base-catchable/out/
+  parent-hf-exec-routes.json + probe-parent-hf.py, 20 relay eth_calls): ALL 20
+  real-sized (cover >= 5 USD) executable-route (WETH<->USDC, USDC/USDC) events
+  in the ingested ledger were HEALTHY at their parent block (min parent HF
+  1.000078, block 53261668 USDC->WETH 12,366 USDC) — i.e. every real-sized
+  executable capture was an oracle-update race won inside one block. The
+  parent-underwater (catchable) class is real but DUST on executable routes:
+  the 17 catchable events of the 30-event study (attempt 58,
+  scratch/aave-base-catchable/out/catchable-class.json) have covers of
+  0.0001-0.013 USDC (verified on-chain at block 53265201: user 0xd195b357...
+  totalDebt 13,998 USDC-wei = 0.014 USDC, swept 14-at-once by batch liquidator
+  0xe9674a87...), far below the $1 MIN_PROFIT_USD gate; catchable events with
+  real size exist only on exotic pairs outside our swap inventory (e.g.
+  0x04c0599...). So the bot's realistic earnings on base Aave v3 are: (a)
+  real-sized events where every faster competitor skips (cover below their
+  constraints, or a route their router lacks — the 53465304 same-asset 8.23
+  USDC class), and (b) the dust class only if a batch executor is later added.
+  Same-asset (USDC/USDC) liquidations are executable with no swap. Pairs outside
+  the measured swap inventory are logged watch-only.
+awaited_events: >
+  Waits for any tracked borrower's getUserAccountData HF < 1 at the Aave oracle
+  price (round-robin scan of the whole candidate universe, 200/cycle every 8 s).
+  Executable coverage: WETH<->USDC both directions on the measured 0.01% pool
+  and same-asset USDC/USDC; every other pair is watch-only. Last observed base
+  aave_v3 liquidations: block 53465304 (2026-11-03T15:32:35Z, same-asset
+  USDC/USDC, tx 0xded83b288a6334fbfea9a2fa19fab890534bbe634876ceec15cbc1b40172463
+  6) and block 53438141 (2026-11-03T00:27:09Z, WETH/USDC, tx 0xaf3a3bd7...).
+  The replay pipeline (bot.js --replay) re-discovers the 53438141 victim from
+  strictly pre-event logs (REPLAY_BLOCKS 50000, to block-1; measured
+  victim_discovered=true, 2300 candidates) and classifies the capture (parent
+  HF 1.00107, capture class oracle_update_in_block); the interest-bleed class —
+  the one block-level polling catches — is proven end-to-end with post-gas
+  profit in the fork driver above (synthetic position) and is currently dust on
+  executable routes (see expected_value). The bot therefore mostly WAITS: a
+  real-sized executable opportunity requires a competitor-skip, which is rare
+  but zero-cost to watch; the paper run doubles as the collector for that class.
+good_signs: >
+  heartbeat lines with scanned > 0, debtors > 0 and min_hf between 1.0 and 2.0;
+  opportunity lines at hf < 1.05; simulate lines with sim_ok=true on the
+  executor calldata (paper: state-override sim of the exact live bytes at the
+  DEPLOYED runtime called from its fork OWNER; live: called from OUR signer
+  wallet against the gate-deployed executor after owner() verification) and
+  profit_usd_est > 0; opportunity_watch_only lines for unmeasured pairs (no
+  unpriced sends).
+bad_signs: >
+  error lines; simulate lines with sim_ok=false on the executor calldata (would
+  mean a regression vs the fork txs above); sim_result "skip: executor runtime
+  missing/invalid" lines (fail-closed fallback firing); heartbeat with
+  debtors=0 for hours; opportunity lines never appearing while ledger logs new
+  base aave_v3 liquidations; allowed_violation lines.
+rpc_reads_per_min: ~10 (one scan = 1-2 Multicall3 eth_calls every 8 s carrying up to
+  200 getUserAccountData inner calls, 1 oracle price call/cycle, plus 1 eth_getLogs
+  per 5 min refresh; executor sims are one extra eth_call per underwater detection, rare)
+legal_note: >
+  Aave liquidation is a public protocol incentive: anyone may repay a borrower's
+  debt and seize the corresponding collateral at the oracle price with the
+  protocol's bonus. No frontrunning of pending txs, no price manipulation: we act
+  only when the protocol's own oracle marks the position ineligible, and sell the
+  seized collateral on the pool's public AMM.
+expedite: false

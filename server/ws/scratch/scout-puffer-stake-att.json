@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-puffer-stake",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The protocol is the pufETH vault 0xD9A442856C234a39a81a089C06451EBAa4306a72 (PufferVaultV5 impl 0x3b2fdfdefe919dbcce0bc5ac426097d5523b8afa). Its only keeper-style functions (initiateETHWithdrawalsFromLido, claimWithdrawalsFromLido, mintRewards, depositRewards, revertMintRewards) are AccessManager-restricted (Operations Multisig / rewards depositor) and revert AccessManagedUnauthorized from a fresh address; the rest are user-facing ERC4626 ops. None of them pays the caller anything, so even with the role the take is 0 USD.",
+ "numbers": "totalAssets() 9849.58 ETH at block 26462856 (2026-11-21), DefiLlama TVL 17.7M USD. eth_call from 0x1111...1111: initiate/claimWithdrawalsFromLido, mintRewards, depositRewards all revert 0x068ca9d8 AccessManagedUnauthorized. 7.7 d scan (blocks 26403552 = ts 1794542927 2026-11-13 to 26462856 = ts 1795256591 2026-11-21) via no-topic control scans: 620 logs on the vault, topic0s only Transfer, Approval, ERC4626 Deposit, 0xfbde797d-withdraw + 2 singletons; RequestedWithdrawals/ClaimedWithdrawals = 0 in 7 d (topics cast keccak of source sigs, no unknown topic0 in scan). Gross per keeper call 0 USD (no caller payment in source), gas n/a."
+}

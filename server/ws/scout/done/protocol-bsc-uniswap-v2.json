@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-uniswap-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "bsc",
+ "slug": "uniswap-v2",
+ "name": "Uniswap V2",
+ "category": "Dexs",
+ "tvl_usd": 2725964,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "2ae30922a0e04707a97dc23aae1931ed",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: canonical UniV2 core (factory 0x8909Dc15e40173Ff4699343b6eB8132c65e18eC6, 9,413 pairs, TVL $2.73M); only open pay-a-recipient fn pair.skim(address) (executes from fresh address, no role) pays 0 - pot (balance-reserve) 0 on 6/6 sampled pairs both tokens and 0 Skim events in 7x5000-block windows spread over 7 d (same-shape control: 4 Swap logs in one window); gas/call ~$0.0016 (54,089 gas x 0.05 gwei x BNB $587); mint/burn = LP's own capital; feeTo = tokenJar 0xc6Ae...f70A (protocol:184)",
+  "kb": [
+   "protocols:939",
+   "attempts:2409"
+  ],
+  "run_id": "2ae30922a0e04707a97dc23aae1931ed",
+  "at": 1795068925
+ }
+}

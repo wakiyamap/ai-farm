@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "nuva",
+ "status": "dead_end",
+ "checked": "NUVA = RWA vault platform (nvYLDS on Provenance, nvPRIME on ethereum, USDC), per DefiLlama adapter projects/nuva + api.llama.fi/protocol/nuva. Ethereum contracts (adapter + ERC1967 impl slots; eth_getCode non-0x on all, getter nuvaVault() answers 0xc360...): Router proxy 0x50AE1e4A612A4623b747aEeFb30aFBA82804e12c (impl DedicatedVaultRouter 0x027207e16e2bb920dc89aa9fef7826e23091588a, verified source via explorer); nuvaVault proxy 0xc360e625f19a7ea47e47810b13e386221d5187d1 (impl 0x7abb7b7ca500bceb4f1936820bf34d7481b9a652, plain OZ ERC4626, no keeper fns); StakingVault proxy 0x19ebb35279a16207ec4ba82799cc64715065f7f6 (impl 0x881fe0e5e91c54fabbf0198a1bb2fc6e5747d4c5, Pyth-NAV vault with distributeRewards); RedemptionProxy impl 0x4f8f50ef2706e62c3b52aaa2d7174ca5b06ba157. Router source (contracts/prime/DedicatedVaultRouter.sol): acceptRedeemRequests/rejectRedeemRequests/sweepRedemptions onlyRole(KEEPER_ROLE); reclaimExpiredShares requires msg.sender==requesting user; _do* self-only. StakingVault: distributeRewards onlyRole(REWARDS_ADMIN_ROLE) pays stakers pro-rata. Grep of router+staking source: no reward/bounty/incentive payment to msg.sender anywhere. Verdict role_gated: no callable function pays a stranger."
+}

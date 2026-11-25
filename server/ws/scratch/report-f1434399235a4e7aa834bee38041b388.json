@@ -1,0 +1,12 @@
+{
+  "run_id": "f1434399235a4e7aa834bee38041b388",
+  "role": "earner",
+  "model": "deepseek-v3.2",
+  "target": "lead 167 Liquity v1 LUSD public redemption arbitrage: guarded executor fork proof (round 2)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1134", "attempts:1135"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Retired the Curve-Minter-registry theory (the deployed D pool is the 3-coin StableSwap3Pool with no minter check; a funded EOA add_liquidity mined status 1 on the fork). Fixed proof.py reset to 26300832 (parent of winner capture 26300833; the winner's min_mint_amount is unreachable 2 blocks early). Measured control: the exact Curve deposit from a USDT-funded executor succeeds at that state and mints the winner's 336k LP, so the remaining bare executor revert is downstream of the pool leg (cStable / TroveManager / UniV3 swap / Morpho repay); no positive fork delta yet - lead 167 stays unmeasured with next steps recorded."
+}

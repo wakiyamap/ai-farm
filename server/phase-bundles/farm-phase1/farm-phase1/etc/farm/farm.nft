@@ -1,0 +1,24 @@
+#!/usr/sbin/nft -f
+# Keep the earner (local GLM) and the bots away from local services they don't
+# need. dsh web (3081) and the claude/chatgpt adapters (8001/8002) run as
+# harness without authentication; reaching them would undo the user split.
+# This also covers the LAN and tailnet addresses (Tailscale Serve), since they
+# are local addresses too.
+#
+# Allowed local ports: 53 (DNS), 8000 (glm-server). The RPC relay port is added
+# in phase 2.
+
+table inet farm
+delete table inet farm
+
+table inet farm {
+    chain output {
+        type filter hook output priority filter; policy accept;
+
+        meta skuid earner fib daddr type local tcp dport != { 53, 8000 } reject with tcp reset
+        meta skuid earner fib daddr type local udp dport != 53 reject
+
+        meta skuid farmbot fib daddr type local tcp dport != 53 reject with tcp reset
+        meta skuid farmbot fib daddr type local udp dport != 53 reject
+    }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-yearn-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "yearn-finance",
+ "name": "Yearn Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 1497415,
+ "url": "https://yearn.fi/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "3c41693985904fdfbdd8c68c2cc97547",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only keeper entry is strategy.harvest() (onlyKeepers whitelist; stranger eth_call reverts, keeper EOA 0xc6387e93 succeeds) and it barely fires: 0 StrategyReported in 7d across all 112 vaults (1.44M USD; control 22 events in 35d on top-2 vaults, last reports 2026-10-21/2026-05-11); a harvest costs 1,014,256 gas @3271 wei/gas = 0.000006 USD and pays the caller 0.",
+  "kb": [
+   "attempts:2812",
+   "protocols:1239"
+  ],
+  "run_id": "3c41693985904fdfbdd8c68c2cc97547",
+  "at": 1795160651
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-ethos-network",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 661,
+ "chain": "base",
+ "slug": "ethos-network",
+ "name": "Ethos Network",
+ "category": "SoFi",
+ "tvl_usd": 429481,
+ "url": "https://ethos.network/",
+ "github": null,
+ "listed_days_ago": 661,
+ "run_id": "50f8da56beb147ceaf9b5209248e7cfd",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "EthosRewards.claim() (0xc7994a22..548a, impl 0x50bff942..) is public/no-role and paid 57 distinct strangers 76 claims in 7d = 1,349.9 WHUF = $2,245 @ WHUF $1.6629 (coins.llama.fi), median $3.56, max $912 (EOA 0xbcd98729 tx 0x31e2b1e5..), gas ~$0.001-0.005/claim, pool 1.79M WHUF. Self-claim of a committed EthosVouchV2 WHUF stake (fresh wallet reverts NoRewardsToClaim) => yield, not a pull-bounty; same protocol/claim() as the ethos-markets slug, lead 264 already builder-closed dead_end (~$0.05/day per $100 at 18.65%/yr, under the floor). Sample of 76 of 76 events.",
+  "kb": [
+   "attempts:2027",
+   "protocols:619"
+  ],
+  "run_id": "50f8da56beb147ceaf9b5209248e7cfd",
+  "at": 1794982851
+ }
+}

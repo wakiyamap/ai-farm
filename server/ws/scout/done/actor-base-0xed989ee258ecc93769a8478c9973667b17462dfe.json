@@ -1,0 +1,20 @@
+{
+ "id": "actor-base-0xed989ee258ecc93769a8478c9973667b17462dfe",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "base",
+ "address": "0xed989ee258ecc93769a8478c9973667b17462dfe",
+ "run_id": "234d4fd91fad4a7ca46f2b84274431df",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Morpho Blue liquidation executor on base (job pays any caller): calls Morpho 0xbbbb..ffcb liquidate 0xd8eabcb8 only via the Atlas OEV auction (router 0x583dcfef metacall -> atlasSolverCall 0x024181a6); 465 liquidations in 43 txs in 7d = 66 calls/day, 1.03M USD debt repaid/day, gross 3.72% of repaid = 578 USD/avg call (1,531 USD in the 7 large batches sampled, 67% of volume), gas 249,308 gas at 15.006 gwei = 6.80 USD/call (~450 USD/day) -> ~37,900 USD/day net; funded by one zero-fee Morpho flashLoan per batch, collateral forwarded to desk 0xd1d42cbc, contract holds 0 USDC/0 WETH at head.",
+  "kb": [
+   "attempts:1519",
+   "leads:222",
+   "actors:190"
+  ],
+  "run_id": "234d4fd91fad4a7ca46f2b84274431df",
+  "at": 1794875455
+ }
+}

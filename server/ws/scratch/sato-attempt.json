@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-sato",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: no function anyone can call pays the caller. SatoHook's only state-mutating entrypoints are Uniswap v4 PoolManager callbacks (eth_call beforeSwap from a fresh address reverts NotPoolManager 0xae18210a); the token is a vanilla ERC20. The fee pot feesAccrued = 101.16 ETH ($175k) has no claim/withdraw function in the verified source - it only increments, locked in the immutable hook by design. Curve swaps (buy/sell) are trades at curve price, not protocol-paid rewards.",
+  "numbers": "7d curve txs: 6 (sample 6 of 6, all sells, 6 distinct wallets) via PoolManager 0x000000000004444c5dc75cb358380d2e3de08a90 pool f11e374fcd9300b0f8729e2b96506a6a7030200ce3fc858ec6ea7d5adaf8a259; proceeds 2.00 ETH = $3,469 (ETH $1,732.16, coins.llama.fi 2026-11-20 13:26 UTC); gas ~285k-1.33M gas/tx at 0.305 gwei (eth_gasPrice) = $0.15-0.70. Hook 0x0000f07d2B5F1Ddf3244b8780F972f306EFd2888 balance 988.976 ETH = curveReserveEth 887.82 + feesAccrued 101.16 (eth_call getters, matches eth_getBalance). Pool event topic0 0x40e9cecb9f5f1f1c5b9c97dec2917b7ee92e57ba5563708daca94dd84ad7112f from receipts; control: same-shape no-topic scan of genesis window returned 2999 logs. Eth_getLogs full-history count failed Alchemy range cap (1.44M blocks), 7d window used as specified."
+}

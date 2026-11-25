@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-bitfi-basis",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 642,
+ "chain": "ethereum",
+ "slug": "bitfi-basis",
+ "name": "BitFi Basis",
+ "category": "Basis Trading",
+ "tvl_usd": 62138600,
+ "url": "https://www.bitfi.one",
+ "github": null,
+ "listed_days_ago": 642,
+ "run_id": "a4e47c433d344cd28ecd931ccf13e805",
+ "result": {
+  "verdict": "role_gated",
+  "line": "bfBTC CeDeFi OFT wrapper (proxy 0xCdFb58...fb15, impl Bfbtc.sol 0x4ca67a...69f0): no stranger-payable function; updateEpoch/nativeWithdraw revert NotMultiSig 0xcfa65c8d from fresh addr, claim([]) pays 0 (msg.sender==user); 7d blocks 26,409,772-26,460,007 (ts-verified): no-topic scan = 3 logs total, all EpochUpdated by multisig EOA 0x4cb5d17b via Safe 0x1eb14ec5, gas 118,563 = bash.02 at 0.111 gwei x ETH ,622; gross to callers bash (yield accrues off-chain in epoch ratio); supply 880.775 bfBTC ~ 2.0M at BTC 9,010",
+  "kb": [
+   "attempts:3122"
+  ],
+  "run_id": "a4e47c433d344cd28ecd931ccf13e805",
+  "at": 1795222811
+ }
+}

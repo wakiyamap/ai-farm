@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "Legacy Venus v1 (WePiggy/Cream) mToken liquidation class on Polygon: LiquidateBorrow on the 11 legacy mToken markets (WETH/DAI/USDC/USDT/WBTC/LINK/dQUICK + Cream USD Coin/WETH/wBTC/ibBTC)",
+  "why": "Found incidentally while scouting the moonwell transplant 2026-11-10 (run e8f1add9, attempt 829): the same LiquidateBorrow topic0 fires on polygon at ~4.3 events/day (100 events over 951841 blocks 95184199-97084199) across 11 emitters. Repay amounts look dust-dominated (1e-4 WETH-scale on the WETH market; DAI-market repay 0.05-0.78 DAI) with repeat liquidators 0x00ae0df5.../0x594913bf...; legacy Venus on Polygon is a low-TVL relic. Registry-list lead: per 2026-11-08 beyond-liquidations, liquidation work on the new chains needs a pre-11-08 lead or a concrete ledger capture, so this stays a census only.",
+  "status": "unmeasured",
+  "next_steps": "If built: census incumbents (ledger query for tx_from counts on a liquidate source for polygon - no source installed yet; install one with ledger add-source copying moonwell_core.liquidate_borrow.json with the 11 polygon mToken addresses), measure per-event gross in USD at the 10 pct Venus penalty and the poll window; EV under 1 USD/day gets one session max per the lead-114 rule."
+}

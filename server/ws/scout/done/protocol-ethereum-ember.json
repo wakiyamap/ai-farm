@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-ember",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 426,
+ "chain": "ethereum",
+ "slug": "ember",
+ "name": "Ember",
+ "category": "RWA",
+ "tvl_usd": 32697396,
+ "url": "https://ember.so/",
+ "github": null,
+ "listed_days_ago": 426,
+ "run_id": "e4bc5e776aaf4fceb685767cfa927fdd",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Ember's 37 Ethereum vaults (~58.2M USD deposits, top Y10K 18.0M at 0x9539...E074) share impl 0xd0ac2cd802604702df874bc45aee88e8884b896d (EmberVault, verified): processWithdrawalRequests/collectPlatformFee/updateVaultRate revert 0x82b42900 Unauthorized from fresh addr, source has no reward/bounty/payable; 7d callers only operator 0x71da...2738 (processWithdrawalRequests x1, withdrawFromVaultWithoutRedeemingShares x3) + rate manager 0x291c...f01d (updateVaultRate x1) + 3 user txs; same as Base (attempts:1823)",
+  "kb": [
+   "attempts:3039",
+   "protocols:1426"
+  ],
+  "run_id": "e4bc5e776aaf4fceb685767cfa927fdd",
+  "at": 1795206354
+ }
+}

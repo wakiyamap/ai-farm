@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "pls2e",
+  "status": "dead_end",
+  "checked": "Factory 0x0944AB692786D9104AE9a29778285c41C33c0415 (from DefiLlama dexs registry registries/uniswapV2.js:1611; no dedicated adapter, projects/pls2e/index.js 404). eth_getCode 11,311 bytes; Sourcify v2 exact_match on chain 56; allPairsLength()=78, feeTo()=0x958fe6ca56a83d5f35c9c4eed493bcbb04008e15, feeToSetter()=0xd5db8c152c557666626db4079a164555c1463273;Standard UniswapV2 fork: selectors via cast sig match createPair/getPair/allPairs/feeTo/setFeeTo/setFeeToSetter; pair = standard UniV2 pair (swap 022c0d9f, mint 6a627842, burn 89afcb44, skim bc25cf77, sync fff6cae9) + expectPairFor(address,address) 68942ce4. Only caller-reward candidate is pair skim(address): eth_call from fresh 0x1111...1 succeeds (callable), but skim pays the pool's balance-above-reserves = LP money (skim type S). Skim events 0 across all 78 pairs in last 7 d. PairCreated 0 in 7 d (control: same query shape + topic0 returns 6 logs Sep 3 - Oct 14 2022, blocks 21000000-22185432). Swaps 1968/7 d (sample of 1941 from 26-pair chunk; top caller 0xb585639ff3d61de1187d960cc18924d033f2768f 563x) = arbitrage trading paying LP fees, no caller reward. Protocol URL dead (deadUrl true)."
+}

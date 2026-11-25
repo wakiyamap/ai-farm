@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "lusd_chickenbonds",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/lusd-chickenbonds/index.js names one contract: ChickenBondManager 0x57619FE9C539f890b19c61812226F9703ce37137 (eth_getCode non-empty 2026-11-21; getTreasury() answers: 69,836 pending + 441,674 acquired + 980,548 permanent LUSD = 1.49M, matches candidate TVL 1,489,817; LUSD 0x5f98805A4E8be255a32880FDeC7F6728C6568bA0 from adapter coreAssets, decimals 18 read on chain). Verified source (single ChickenBondManager.sol, v0.8.15) from explorer. Callable-by-anyone functions: createBond (needs caller LUSD+allowance), chickenIn/chickenOut (behind _requireCallerOwnsBond NFT), redeem (needs caller bLUSD balance), shiftLUSDFromSPToCurve/shiftLUSDFromCurveToSP (public, window-gated, no caller pay), startShifterCountdown (public, pays nothing). activateMigration/sendFeeShare = Yearn governance only. No payable functions and no transfer to msg.sender anywhere in the source: yield deltas go to the protocol buckets, chicken-out/redemption fees go to the bLUSD staking contract. No reward/bounty/claim function exists."
+}

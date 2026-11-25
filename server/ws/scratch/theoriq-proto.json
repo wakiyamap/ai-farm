@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "theoriq_gold_vault",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/theoriq-gold-vault/index.js: vault proxy 0x0F54097295E97cE61736bb9a0a1066cDf3e31C8F (TransparentUpgradeableProxy -> TokenizedVault impl 0xee95a5ab0752cfd0a251126685707fbc6ef148b9, verified source via explorer). Reference asset XAUt 0x68749665ff8d2d112fa859aa293f07a622782f38 (symbol/name/decimals=6 read on chain); LP token TGQOLD 0x9dac3d8ac9b84f329f5756daab6767ea0157bfe5; operator 0xcbf2325cb61d0d5c565d61e9eb3bdeb68810255f; fee collector 0xc5478015b94d9bfdd172418bd1077b69a2fee63f (100%), performance recipient 0x94c3a29f59fd34833b42dfda1d90813275016f94 (100%); sendersWhitelistAddress=0 (no whitelist); adapter SUB_ACCOUNTS all EOAs (eth_getCode 0x). Anyone-callable fns (collectFees 0xc8796572, chargeManagementFee 0xd3a8d718, chargePerformanceFees 0x5486679d, processAllClaimsByDate 0xf3cbf47c, claim 0xb3c9e83d) verified via eth_call from fresh 0x1111... - none pays the caller; fees go to fixed collector wallets, claims to redeemers."
+}

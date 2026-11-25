@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-yellow",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 795,
+ "chain": "polygon",
+ "slug": "yellow",
+ "name": "Yellow",
+ "category": "Dexs",
+ "tvl_usd": 25849,
+ "url": "https://www.yellow.org",
+ "github": null,
+ "listed_days_ago": 795,
+ "run_id": "1e8db6ffa9244278b25a738a36602031",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Polygon Yellow = vault 0xb5F3a9dD92270f55e55B7Ac7247639953538A261 (DefiLlama adapter, code 3,423 B, owner()/authorizer() answer): ABI is deposit/withdraw/balances only, no reward/claim fn; 0 vault txs and 0 token transfers in 7d (2026-11-15->11-22, block 97,781,605; last tx 2026-10-03 failed 1-wei, full history 8 txs); authorizer 0x3e7ba2e0...8ce0 never called since 2025-03-25 deploy; withdraw/completeUnbondingRequests revert from a stranger (0xdb42144d, 0x05e7fb13); ~26,130 USD sits in vault (USDT0 9,633.19, USDC 3,975.80, wstETH 2.38, USDC.e 1,137.91, WETH 0.646, WBTC 0.0019).",
+  "kb": [
+   "attempts:3843"
+  ],
+  "run_id": "1e8db6ffa9244278b25a738a36602031",
+  "at": 1795378473
+ }
+}

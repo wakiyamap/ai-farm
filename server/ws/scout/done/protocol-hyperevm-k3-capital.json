@@ -1,0 +1,24 @@
+{
+ "id": "protocol-hyperevm-k3-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "hyperevm",
+ "slug": "k3-capital",
+ "name": "K3 Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 828353,
+ "url": "https://k3.capital",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "474ba86a38e54dd1bfaa56de5018b165",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Euler Earn VaultV2 0x589a57196c16d0CfAB3Ed229Fcfa959f65cA00bf (K3 USDC, TVL $828,420). Only public role-free state fn accrueInterest() is callable by anyone (eth_call fresh addr -> 0x) but pays caller $0: 0.5% perf fee shares go to K3 recipient 0x9ce1c527..3d9c. 46 accrue events / 35 txs over 7d, all deposit/withdraw-triggered, no keeper paid; gas $0.00088/call.",
+  "kb": [
+   "attempts:1919"
+  ],
+  "run_id": "474ba86a38e54dd1bfaa56de5018b165",
+  "at": 1794960513
+ }
+}

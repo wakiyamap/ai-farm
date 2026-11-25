@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-pendle-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "avalanche",
+ "slug": "pendle-v2",
+ "name": "Pendle V2",
+ "category": "Yield",
+ "tvl_usd": 44768,
+ "url": "https://pendle.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "43df28f8ff9542e1b5d3c924190859af",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Avalanche V2 set (deployments/43114-core.json) is PendleSwap aggregator 0xd4F480965D, CrossChainSwapHub 0xd41c9976, depositBoxFactory, oftPtSwapper, fixedPricePTAMM - all eth_getCode non-0x at head 101172146, router 0x8888..F946 is 0x; no gaugeController/marketFactory/expiredRedeemer so no anyone-call fn pays the caller; footprint dormant (last txs 2026-10-05/09-14/03-13/never, 0 in 7d, txlist control latest 2026-11-11); TVL 44.7k = static legacy V1-era tokens, 0 yields pools; siblings: arb 2631 no_reward, base 2697/bsc 2766/hyperevm 2796 unpaid",
+  "kb": [
+   "attempts:4128",
+   "protocols:2247"
+  ],
+  "run_id": "43df28f8ff9542e1b5d3c924190859af",
+  "at": 1795444447
+ }
+}

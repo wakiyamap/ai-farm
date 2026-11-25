@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-baseline-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 989,
+ "chain": "ethereum",
+ "slug": "baseline-protocol",
+ "name": "Baseline Protocol",
+ "category": "Liquidity Manager",
+ "tvl_usd": 995493,
+ "url": "https://www.baseline.markets/",
+ "github": [
+  "0xBaseline"
+ ],
+ "listed_days_ago": 989,
+ "run_id": "c6dcba4e31994ad1ad52f065a278622c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid - claimPoolFees callable by anyone (eth_call fresh addr ok, 133,275 gas = $0.031) but pays the caller 0: 13.14 WETH ($21,482 at $1,634.29 WETH, coins.llama.fi 11-21 10:12 UTC) unclaimed across the 6 WETH pools (B pool 11.02 WETH = $18,015) and a stranger caller still gets $0; FeesClaimed 0 calls in 7d and 0 all-time on ethereum (topic0 verified - same query returns 6 logs on the base relay, bytecode identical); 7d relay activity = 15 logs from 7 txs (5 user swaps, 3 staking self-claims 0.0034 WETH = $5.58 to 0xbc965428, 1 borrow, 6 internal accrual ticks)",
+  "kb": [
+   "attempts:3272"
+  ],
+  "run_id": "c6dcba4e31994ad1ad52f065a278622c",
+  "at": 1795256106
+ }
+}

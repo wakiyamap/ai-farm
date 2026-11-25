@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "bitwise",
+ "status": "dead_end",
+ "checked": "Morpho risk curator 'Bitwise' (app.morpho.org/curator/bitwise; no DefiLlama adapter, projects/bitwise 404). Morpho GraphQL curator addresses 0x510F3b6621D9eA392d4F7632d02aBCf8ba92Bd6F and 0xB5933F4E9F29e9E92dBA92b643B37a270204dE82 are EOAs (eth_getCode 0x). Its ethereum contracts are 2 Morpho VaultV2 vaults: PAPY 'Bitwise Premium RWA AUSD' 0xB344e331A3cDa61D329fb3Cca2Be5942da87c418 ($1.97M, asset AUSD 0x00000000efe302beaa2b3e6e1b18d08d69a9012a, 6 decimals read on chain) and rwaAUSD 0xD83c5f2ACB1824a870AA0DE429f7435Ad8cf120E ($2, 0 events in 7 d = dead). Verified source via etherscan: standard morpho-org vault-v2 VaultV2.sol + MorphoMarketV1AdapterV2 (adapter 0x347546cc0c53b9b20b179ab19e1ba3d67f64a8a9, skimRecipient 0x0, forceDeallocatePenalty 1%, vault mgmt fee 0.0124%/yr, perf fee 0). Role-free state functions: accrueInterest (eth_call from fresh addr succeeds, pays 0), forceDeallocate (no msg.sender check in source; fresh-address eth_call reverts on onBehalf balance/allowance arithmetic, not a role revert), multicall, plain ERC4626 deposit/mint/withdraw/redeem. allocate is allocator-gated, deallocate allocator|sentinel-gated, submit/revoke curator-gated, skim skimRecipient-gated. No reward/bounty/claim function pays the caller anywhere in the stack."
+}

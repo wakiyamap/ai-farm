@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-radiant-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1575,
+ "chain": "arbitrum",
+ "slug": "radiant-v1",
+ "name": "Radiant V1",
+ "category": "Lending",
+ "tvl_usd": 207763,
+ "url": "https://radiant.capital/#/markets",
+ "github": null,
+ "listed_days_ago": 1575,
+ "run_id": "641b3cedde054bac8ff97f49c02bcfda",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Aave v2 fork: provider 0xe21b295ed46528efd5f3ef66e18bc6ad1c87f003 -> LendingPool 0x2032b9a8e9f7e76768ca9271003d3e43e1616b1f (impl 0xab843bec..); only caller-paid fn is liquidationCall (no role gate, eth_call reverts health-factor '42', paused=false), pays only if a position is unhealthy: 0 LiquidationCall in 7d and 30d (topic0 0xe413a321..; controls: 128 pool Withdraw 7d, 799 USDC.e Transfer 30k blocks); pool alive but shrinking (7d 128 Withdraw, 0 Deposit); TVL 207,763 USD (llama 2026-11-19); gross/gas n/a (0 samples)",
+  "kb": [
+   "attempts:2452",
+   "protocols:970"
+  ],
+  "run_id": "641b3cedde054bac8ff97f49c02bcfda",
+  "at": 1795077848
+ }
+}

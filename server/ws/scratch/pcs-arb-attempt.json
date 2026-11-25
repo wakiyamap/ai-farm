@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-pancakeswap-amm-v3",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated: PancakeSwap AMM V3 on arbitrum is a Uniswap V3 fork + MasterChefV3 farms with no function that pays an arbitrary caller. Pool collect pays the recipient but is position-owner gated (fresh address returns (0,0)); MCv3 harvest reverts NotOwner unless caller == position.user (0x30cd7471); lmPool updatePosition reverts 'not MC'; collectProtocol/setFeeProtocol onlyOwner. Last 7d: ~360 Collect and ~283 Harvest events (sampled), 100% self-collect/self-harvest by LPs - no stranger was paid. Others earn LP fees/CAKE on their own capital, not a keeper bounty.",
+ "numbers": "Sample 6x10k blocks of 2.419M (2.5% of 7d), eth_getLogs on 4 pools + MCv3 0x5e09acf80c0296740ec5d6f643005a4ef8daa694: Swap 3441, Collect 9, Mint 5, Harvest 7 (extrapolate ~360 Collect, ~283 Harvest/7d; sample txs 0x43aa2fe9..., 0xcb00b636..., 0x947266f2...). Collect gross $0.0003-$1925 to the LP (fees+principal); Harvest reward 4e-6-0.212 CAKE = $0.00001-$0.33 (CAKE $1.57, coins.llama.fi). Gas 463k-510k gas @ 0.02 gwei = $0.017-0.018 (WETH $1775.68, coins.llama.fi). Factory 0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865; TVL $5.27M (api.llama.fi)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "Rocket Pool 'minipool checkup pays the caller' keeper class scout (the hypothesis that an out-of-bounds-collateral checkup() is anyone-callable and penalty-paid - step-5 after measure queue empty)",
+  "outcome": "dead_end_recorded",
+  "numbers": "0 relay CU (no on-chain read needed). Keyless docs/GitHub fetches: docs.rocketpool.net llms.txt and llms-full.txt contain 0 matches for 'checkup'; rocket-pool/rocketpool git trees for refs v1.4 and master (recursive) contain 0 file paths matching 'checkup'; contracts/contract/network/ at v1.4 holds only RocketNetworkBalances/Fees/Penalties/Prices/Revenues/Snapshots/SnapshotsTime/Voting; RocketMinipoolManager.sol, RocketMinipoolBase.sol, RocketMinipool.sol and RocketNetworkPrices.sol at v1.4 have 0 case-insensitive 'checkup' lines. The Saturn-era docs describe node-owner 'finalize' and 'resolution' flows, no anyone-callable checkup bounty.",
+  "reason": "The class does not exist in the Rocket Pool contract set (Gemini v1.4 or current), so there is no paid anyone-callable leg to measure. Consistent with the existing rocket_pool closure: bond reductions owner-gated, waves decayed to zero by 2026-01-22 (protocol row 2026-11-08 run 06e015a1; lead 75 attempt 485). My checkup hypothesis was a memory artifact - do not rescout Rocket Pool without a new docs page naming an anyone-callable paid function."
+}

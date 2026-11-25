@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-chamber-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "chamber-vaults",
+ "name": "Chamber Vaults",
+ "category": "Indexes",
+ "tvl_usd": 1876464,
+ "url": "https://chamberfi.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "b1a927ecc8b14a08afe085680f920831",
+ "result": {
+  "verdict": "no_reward",
+  "line": "dHEDGE V2 on OP (factory 0x5e61a079A178f0E5784107a4963baAe0c5a680c6, 778 vaults): mintManagerFee() anyone-callable (stranger eth_call ok) but pays shares to DAO+manager, caller 0; 7d: 73 ManagerFeeMinted/13 vaults, all 73 txs checked = 38 withdrawSafe + 14 initWithdrawal + 21 relay/aggregator, 0 external mintManagerFee, 35 callers; control factory PoolEvent 181 logs/17 active vaults; gas ~0.001-0.003 USD/tx, ETH 1741.35 (llama ts 1795157106); same as arbitrum/base/hyperevm.",
+  "kb": [
+   "attempts:2801",
+   "protocols:1228"
+  ],
+  "run_id": "b1a927ecc8b14a08afe085680f920831",
+  "at": 1795157609
+ }
+}

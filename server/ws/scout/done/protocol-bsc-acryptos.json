@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-acryptos",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "acryptos",
+ "name": "ACryptoS",
+ "category": "Liquidity Manager",
+ "tvl_usd": 9419555,
+ "url": "https://www.acryptos.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "5ce60f5e29e94a7e9e0f12c9524efcc7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: harvest() 0x4641257d on BSC ACryptoS vaults is callable by anyone (eth_call from fresh 0x...f17e returns 0, paused()=true post-2026-11-08 exploit) but paid no stranger in 7 days: 0 harvester mints (Transfer from 0x0) across all 27 ACLM vaults (31 logs total, 19 Transfer/12 Approval, last log 2026-11-16) and 0 across the top-32 legacy vaults holding 8.9M of the 9.43M TVL, blocks 133,262,096..134,605,797 (2026-11-13..11-20); gross 0 USD vs gas 0.0115 USD/call (396,231 gas x 0.05 gwei x BNB 578.95); TVL source api.unrekt.net last=2025-07-02.",
+  "kb": [
+   "attempts:2713",
+   "protocols:1163"
+  ],
+  "run_id": "5ce60f5e29e94a7e9e0f12c9524efcc7",
+  "at": 1795138310
+ }
+}

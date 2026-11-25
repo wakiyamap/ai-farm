@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-atomic-green",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only function that could pay a stranger is liquidate(uint256) on the manager engines; eth_call from a fresh address reverts 'AccessManager: NA' (role revert). Protocol is also fully dormant: 0 events in 7 d across all 5 proxies, last tx anywhere 2026-09-17, borrows are dust, so even if opened up there is nothing to liquidate. User functions (supply/withdraw/claimReward) pay only the caller's own accrued yield.",
+ "numbers": "getLogs 7d blocks 524688419 (2026-11-16) to 526688419 (2026-11-23) = 0 logs on 0x56192002, 0xBAE99752, 0xc1b67703, 0x51ff48f2, 0x8b7610ed; control same-shape 493279000-496610000 = 33 logs. totalBorrowed: USDC pool 0, WETH pool 0.011 WETH (18 dec, token() 0x82af...fbab1), WBTC pool 0.000405 WBTC (8 dec) = dust; USDC pool totalSupplied 82,989.3 USDC matches DefiLlama TVL 83.8k. USDC pool totalReward 12,386.97 USDC (accrued depositor yield, not keeper pay). Last liquidate ever: 2022-11-10 tx 0x0639494154e71c48e5b525a43969fc45bcb8af0f46040c305d6b4663774647ac (gasUsed 1,054,091, caller EOA 0x075bfea814b2095bb4e964a89a0bd76ed7e7a322). liquidate(1) eth_call revert 'AccessManager: NA' from 0x1111...1111."
+}

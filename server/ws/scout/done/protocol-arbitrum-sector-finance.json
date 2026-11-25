@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-sector-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1356,
+ "chain": "arbitrum",
+ "slug": "sector-finance",
+ "name": "Sector Finance",
+ "category": "Yield",
+ "tvl_usd": 50856,
+ "url": "https://sector.finance",
+ "github": null,
+ "listed_days_ago": 1356,
+ "run_id": "bf840df5504e4745965260978e119afd",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Sector Finance arbitrum dormant: 0 events in 7d (blocks 524654111->526710637) on all 16 vaults + 12 strategies + registry (control USDC same shape 3109 logs); anyone-callable rebalance(uint256)/rebalanceLoan() on HLPCore strategies transfer 0 to msg.sender (source sector-fi/sector-contracts), last rebalance 2024-05-23 by keeper EOA 0x8ab0800dc1c5dbc0fdaf12d660f1846baf635050 (902290 gas = 0.03 USD at 0.02 gwei, ETH 1722.56); rest onlyOwner/onlyRole(MANAGER/GUARDIAN)/onlyVault; TVL 50856 USD.",
+  "kb": [
+   "attempts:3992"
+  ],
+  "run_id": "bf840df5504e4745965260978e119afd",
+  "at": 1795410882
+ }
+}

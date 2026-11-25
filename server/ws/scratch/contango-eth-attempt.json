@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-contango-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Post-sunset build: no function on the Contango core pays a stranger. claimRewards(bytes32,address) reverts Unauthorised(0xae10e1de) from a fresh address (position-owner only, pays owner-chosen `to`); the only keeper reward (OrderManager execute -> keeperReward = gas refund to msg.sender) is onlyRole(BOT_ROLE) (hasRole false for a fresh address); Liquidations contract is not deployed on mainnet (networks.json entry has no address). The order book is idle anyway (0 OrderManager events in 7d); all 7d activity was self-paid user/strategy trades.",
+ "numbers": "7d blocks 26413054 (2026-11-14) to 26463309 (2026-11-21), window by timestamp: ContangoProxy 0x6Cae28b3...C24E no-topic scan = 11 PositionUpserted (topic0 0xe389f9a6 from receipt, identified via cast keccak) in 11 txs, tradedBy MaestroProxy 0xa6a147946... x7 + 0xe1217185... x4, 0 RewardsClaimed; OrderManager 0xA64f0dbB...3Cb3 = 0 logs (same-shape control returned 11 on core); eth_call claimRewards from 0x...0123 reverts 0xae10e1de; hasRole(BOT_ROLE=keccak256('BOT'), fresh) = false. Sample trade tx 0x003976d7b5c5f5ea8dfad05be149265c42157c7e956837724fcbfaef8705823c gas limit 4,147,525 @ 2.18 gwei (~0.002-0.009 ETH ~ 3-15 USD, self-paid by the user, no payout). ETH 1648.61 USD coins.llama.fi 2026-11-21 11:59 UTC. TVL 3,880,852 USD."
+}

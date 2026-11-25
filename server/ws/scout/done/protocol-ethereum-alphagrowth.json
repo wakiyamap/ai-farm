@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-alphagrowth",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 411,
+ "chain": "ethereum",
+ "slug": "alphagrowth",
+ "name": "alphagrowth",
+ "category": "Risk Curators",
+ "tvl_usd": 1304270,
+ "url": "https://app.euler.finance/governor/alphagrowth?network=unichain",
+ "github": null,
+ "listed_days_ago": 411,
+ "run_id": "975e7736132444f4a677e13485af4040",
+ "result": {
+  "verdict": "unpaid",
+  "line": "AlphaGrowth = Euler EVaults on ethereum (20 proxies, adapter projects/alpha-growth); only caller-paid permissionless fn is liquidate() (15% max discount, Falcon USDC/USDf 0x3573a84b/0x412d0e31); 0 Liquidate in 7d blocks 26407957-26458357 (cast topic0; no-topic control: 32 logs all known EVK events; 60d same query = 29); samples repay 0.58-9.95 USD -> gross 0.09-1.49 vs gas 610k-882k = 0.03-0.07 USD (ETH 1600.93 llama 11-20); 22/29 by one keeper 0x00acd5...5565; strangers need 1 permissionless evc.enableController tx",
+  "kb": [
+   "attempts:3028",
+   "protocols:1421"
+  ],
+  "run_id": "975e7736132444f4a677e13485af4040",
+  "at": 1795203802
+ }
+}

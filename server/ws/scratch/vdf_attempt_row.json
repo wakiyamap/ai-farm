@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-valuedefi",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: ValueDefi on BSC is just two AMM factories (hydraswap-style weighted factory 0x1b8e12f839bd4e73a47addf76cf7f0097d74c14c with 439 pairs, stableswap proxy 0xc6e111637440d1fe9c1ee45d5a1239771b267122 with 14 pools). Pool/factory entry points are user-driven swap/addLiquidity/removeLiquidity; the only fee functions (getCollectedFees, setProtocolFee) revert from a stranger address (role_gated, fees go to treasury). No public function pays the caller.",
+  "numbers": "TVL $415,232 (api.llama.fi 2026-11-20); 7d activity (eth_getLogs blocks 133297499-134641499 over 32 contracts, control USDC 706 logs): 593 logs / 450 unique txs / 93 Swap events, callers are EOA users via routers (0x854f6276e266c1e4b0e54ea1a0474a7e1dc3c1d7); sample swap gas 913,324 at 0.05 gwei (eth_gasPrice) = 0.0000457 BNB = $0.026 at BNB $570.68 (coins.llama.fi 2026-11-20 05:54 UTC). getCollectedFees()/setProtocolFee() eth_call from fresh address 0xf39Fd6...2266: both revert (role_gated)."
+}

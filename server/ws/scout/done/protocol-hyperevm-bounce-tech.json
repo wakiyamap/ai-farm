@@ -1,0 +1,27 @@
+{
+ "id": "protocol-hyperevm-bounce-tech",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 210,
+ "chain": "hyperevm",
+ "slug": "bounce.tech",
+ "name": "Bounce.Tech",
+ "category": "Derivatives",
+ "tvl_usd": 234615,
+ "url": "https://bounce.tech/",
+ "github": [
+  "bounce-tech"
+ ],
+ "listed_days_ago": 210,
+ "run_id": "3412ff58de75494184c0047fb9c6afc9",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Bounce.Tech hyperevm: only permissionless money-out is Referrals V2 (0x6B7E9353...ee7B) claimRebates(address) - 5 claims in 7d (blocks 50,858,909-51,502,437) paid 5 EOA users 267.14 USDC (0.19-199.93, largest tx 0x4a4a098a... 199.93) at 72,534 gas = 0.0005 USD (0.1005 gwei x HYPE 68.96), so gross >> gas, but it pays the user_ argument not the caller (all 5 self-claims; pots now 14.85/11.25) and the real keeper fns checkpoint/bridgeToCore/bridgeToEvm (onlyAgents) and executeRedemptions (onlyExecutors) pay the caller nothing.",
+  "kb": [
+   "attempts:1700",
+   "leads:238"
+  ],
+  "run_id": "3412ff58de75494184c0047fb9c6afc9",
+  "at": 1794915983
+ }
+}

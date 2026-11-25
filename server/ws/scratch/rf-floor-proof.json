@@ -1,0 +1,17 @@
+{
+ "gas_cap_gas": 1050000,
+ "mainnet_gas_price_wei": 382467017,
+ "reset_block": 26348315,
+ "guard_tx": "0xd70ab58a0e2b790fe83db6f3ebd8d15692e6881511ac9e775accfc4e6aad2ae2",
+ "guard_status": "0x0",
+ "guard_floor_mainnet_wei": 803180735700000,
+ "guard_balance_after": 0,
+ "guard_executor": "0xeb3f35a12c8360fc6f65d880123dbd8eb558fa41",
+ "success_tx": "0x8688fe58226ffef49e87e1619525e1f198577fb137e0a836f447b3ba34292ef4",
+ "success_status": "0x1",
+ "success_gas_used": "0xb9b6f",
+ "floor_0p1gwei_wei": 210000000000000,
+ "ethp_delta": 261129837655695,
+ "success_executor": "0x332e6e0849c28755730c9796275e2687be3e0381",
+ "note": "Order: guard revert BEFORE the trade settles (NO_PROFIT at the 2026-11-09 mainnet signing floor 2x1050000x0.38gwei), then success at the 0.1 gwei signing floor 2x1050000x0.1gwei=2.1e14 with an includable fork fee (maxFee 1.1 gwei, zero tip -> effective = base fee). 900000-gas cap measured to revert EMPTY on this path (swapX router headroom; 950000 reverts, 1000000 completes), so the bot raised GAS_BUDGET_GAS to 1050000."
+}

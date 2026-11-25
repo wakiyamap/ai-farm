@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-pinksale",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1627,
+ "chain": "ethereum",
+ "slug": "pinksale",
+ "name": "PinkSale",
+ "category": "Launchpad",
+ "tvl_usd": 8794485,
+ "url": "https://www.pinksale.finance",
+ "github": null,
+ "listed_days_ago": 1627,
+ "run_id": "8b2fe7952e9d4c5ea465925cdddb475e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only ethereum contracts (DefiLlama adapter) are two token lockers (PinkLock 0x33d4cC87..., 286 locks; PinkLock02 0x71B5759d..., 21495 locks); unlock(uint256) requires lock.owner==msg.sender (reverts 'You are not the owner of this lock' from a fresh address) and pays the owner themselves: 7d scan blocks 26415148-26465402 gave 11 logs on v2 (LockVested 5, LockRemoved 3, LockAdded 2, LockUpdated 1, topic0 from source keccaks) + 0 on v1 (same-shape control), all 8 payouts self-claims by the tx sender, gross to a stranger 0 USD.",
+  "kb": [
+   "attempts:3434",
+   "protocols:1725"
+  ],
+  "run_id": "8b2fe7952e9d4c5ea465925cdddb475e",
+  "at": 1795287602
+ }
+}

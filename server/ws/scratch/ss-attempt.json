@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-shibaswap-v1",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. The only public pay-the-caller functions are BoneChefIncentives ('TopDog' 0x94235659cf8b805b2c658f9ea2d6d6ddbb17c8d7) deposit/withdraw, but the BONE farm is switched off since ~Oct 2023 (bonePerBlock=0, totalAllocPoint=0): a stranger earned nothing in the last 7 days (0 Deposit, 0 Withdraw, 0 BONE paid out by chef; only 10 EmergencyWithdraw exits). deposit(0,0) even reverts (allocPoint=0 division). No per-block minter on ethereum (BONE owner = the chef itself).",
+ "numbers": "7d window blocks 26,418,310 (2026-11-15 05:28 UTC) -> 26,468,562 (2026-11-22 05:28 UTC) from eth_getBlockByNumber timestamps. Chef 0x9423..: 0 Deposits, 0 Withdraws, 10 EmergencyWithdraws (topic0 cast keccak EmergencyWithdraw(address,uint256,uint256)=0xbb757047..; no-topic scan shows only these 10 = query control). BONE Transfers from chef 7d = 0; control 2,992 BONE Transfers same window. Prior 98d (blocks 25,768,562-26,418,310): 0 Deposits. Getters: bonePerBlock()=0, totalAllocPoint()=0, poolLength()=52, allocPoint=0 pids 0-2, lastRewardBlock 18,208,988-18,221,041 (~Oct 2023), last RewardPerBlock event block 18,207,708. Factory 0x115934131916c8b277dd010ee02de363c09d037c allPairsLength()=1063. Chef BONE pot 4,293,458 BONE (decimals 18 on-chain) = ~164,091 USD at 0.0382 USD (coins.llama.fi, 2026-11-22 05:22 UTC). Gas irrelevant (no claimable gross). eth_call deposit(0,0) fresh addr: revert 'SafeMath: division by zero'."
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-yieldfi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 684,
+ "chain": "bsc",
+ "slug": "yieldfi",
+ "name": "YieldFi",
+ "category": "Yield Aggregator",
+ "tvl_usd": 26433,
+ "url": "https://yield.fi/",
+ "github": [
+  "YieldFiLabs"
+ ],
+ "listed_days_ago": 684,
+ "run_id": "8a49d4bebaf94269824038ec92a60733",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Manager.executeOrder (only fn paying its caller, gas reimbursed in yToken) reverts '!minter' from a fresh address; 0 logs on all 5 bsc contracts (yUSD, vyUSD, yPRISM + 2 Managers) in 7d (blocks 133,332,545->134,675,971, ts-anchored), 25 logs over 30d all from keeper EOA 0xb049f08e9887f9c162d9b35351a554ef64c342cb (no caller-paid events; AssetAndShareManaged onlyOperator); gross to strangers 0 USD, would-be gas ~0.007 USD (BNB 556.28, 0.05 gwei); same dead_end as arbitrum/base/ethereum.",
+  "kb": [
+   "attempts:3826"
+  ],
+  "run_id": "8a49d4bebaf94269824038ec92a60733",
+  "at": 1795376032
+ }
+}

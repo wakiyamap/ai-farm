@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-sommelier",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1508,
+ "chain": "arbitrum",
+ "slug": "sommelier",
+ "name": "Sommelier",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 119073,
+ "url": "https://somm.finance/",
+ "github": null,
+ "listed_days_ago": 1508,
+ "run_id": "472fd391beac461ebfe6f6a775db11e3",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Sommelier arbitrum = 2 Cellar v2.5 vaults (0x392B...e5A8, 0xC47b...FA4C); the only keeper-style fn callOnAdaptor (rebalance) is _onlyOwner (owner 0xee75ba2c...) and reverts from a stranger, no reward-to-caller logic anywhere (no payable, no 'reward' in src/base); 0 AdaptorCalled events in 7d (blocks 522944148-525544148, same-shape control Transfer=4 logs); TVL 21,262 USDC + 53.83 ETH ~= 118k USD at 1,801.33 USD/ETH (coins.llama.fi 2026-11-19).",
+  "kb": [
+   "attempts:2422"
+  ],
+  "run_id": "472fd391beac461ebfe6f6a775db11e3",
+  "at": 1795071724
+ }
+}

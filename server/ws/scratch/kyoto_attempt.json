@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-kyotoswap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: KyotoSwap is a plain UniswapV2-fork AMM on bsc (DefiLlama forkedFrom U2; factory 0x1c3e50dbbcd05831c3a695d45d2b5bcd691ad8d8, plain U2 factory ABI; pairs are U2+ControllerFee variant). No function anyone can call pays the caller: swap/mint/burn are user actions, skim is out of scope per skim type (S), fees go to feeTo 0xbad1d1181c0a7c3189d504453aae6819b73aed09 and LPs. Website dead; no adapter dir on adapters main (404).",
+  "numbers": "factory allPairsLength()=37 (eth_call 0x574f2ba3); 97 Swap events 7d on the 2 pairs that moved KSWAP (KSWAP/WBNB 0xe3c6bbec...eaff: 56, KSWAP/BUSD 0x8379e36f...b5b5: 41), blocks 133875800-135219281 = 2026-11-16 to 2026-11-23 (relay eth_getLogs, topic0 d78ad95f from cast keccak); 132 KSWAP Transfers same window (non-zero, control not needed); TVL 26,987 USD (api.llama.fi 2026-11-23). ABIs: Sourcify v2 exact_match for factory, impl and pairs; Blockscout bsc 404, etherscan not_on_plan."
+}

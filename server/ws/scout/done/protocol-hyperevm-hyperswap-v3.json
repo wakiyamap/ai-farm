@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyperswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 630,
+ "chain": "hyperevm",
+ "slug": "hyperswap-v3",
+ "name": "HyperSwap V3",
+ "category": "Dexs",
+ "tvl_usd": 9496424,
+ "url": "https://app.hyperswap.exchange/#/swap?referral=defillama",
+ "github": null,
+ "listed_days_ago": 630,
+ "run_id": "637d04c01c81448d985b9d02a6aed390",
+ "result": {
+  "verdict": "role_gated",
+  "line": "UniV3 fork (factory 0xb1c0fa0b...02e3, verified source): only payout fn collectProtocol is onlyFactoryOwner (fresh-address eth_call reverts, owner EOA 0xbc7e493f succeeds); 5 CollectProtocol events in 7d on top pool WHYPE/uBTC 0x3a36b04b.. (1/day, owner -> treasury 0x32412625..), gross 424-1450 USD/call avg ~805 (5 samples; HYPE $68.58, uBTC $64360 llama 2026-11-18), gas 95949 = $0.0007 at 0.1 gwei; collect() pays only msg.sender's own LP fees, so no stranger payout",
+  "kb": [
+   "attempts:1991",
+   "protocols:590"
+  ],
+  "run_id": "637d04c01c81448d985b9d02a6aed390",
+  "at": 1794975827
+ }
+}

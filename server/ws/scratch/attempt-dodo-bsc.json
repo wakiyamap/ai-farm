@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-dodo-amm",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward - DODO AMM v1.5 pools on bsc (DVM/DPP/DSP/GSP) have no function anyone can call that pays the caller or a recipient argument. The external surface (DODOEX/contractV2, tied to chain by version()='DVM 1.0.2') is swaps, flashLoan (caller pays mtFee to LP), LP share mint/redeem, and free sync()/correctRState() that pays nothing; fee-adjacent functions are onlyOwner/onlyMaintainer. maintain/orderWithdraw/claimDip are not even present on the deployed pools (revert identical to a garbage selector). BSC's live DODO money is the flashLoan arb route on private DPP pools (lead 307), already a separate measured candidate.",
+ "numbers": "block 134620549. Factories eth_getCode non-0x (dvm 0x790B4A80...33fB, gsp 0x78d43a88...8d55). getDODOPool(WBNB,USDT) on dvm factory returned 74 pool addresses; sampled 0x426808dd448d10eb7e4ae4b5dd4578aabbc30cd5 (0xdeadbeef, maintain 0x6469c348, orderWithdraw 0xd857db33, claimDip 0x5e8b7d9b from fresh EOA 0x1111: all revert 'execution reverted: 0x' = absent; sync() 0xfff6cae9 succeeds, returns nothing, pays 0). Activity control blocks 134615549-latest (~1 h): Lim DPP pool 0x4976ae418f7de1674acd01a8029805fc55bbc455 emitted 499 logs, sampled WBNB/USDT DVM pools 0 (sample of 2 of 74; DVM pools mostly idle, 7d flash traffic 522 events per attempts:2660). No reward function to count, so 7d count/gross/gas for a keeper payout = n/a. Matches no_reward on arbitrum (attempts:2615), avalanche (2657), base (2681)."
+}

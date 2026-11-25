@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-poppie",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Poppie is an Euler v2 (EVK) curator product on BSC: 39 standard Euler vaults + a custom price oracle. The only keeper-style function is PoppieEulerOracle.keeperPushPrices (onlyKeeper modifier, source-confirmed), pushed continuously by one keeper bot 0xea2b72ed98470dd7403e2f3da375ad2a77b1c00a (70 PriceUpdated events in one 5000-block getLogs window, 2026-11-17). Nothing pays on-chain: the oracle source has no payable/transfer and no reward pot, and the permissionless vault convertFees() (eth_call from a fresh address returns empty, no revert) pays the caller 0 (EVK mints fees to the curator). No stranger was paid by Poppie contracts in the sample.",
+  "numbers": "TVL 222,148 USD (api.llama.fi 2026-11-17); 39 vaults (euler-labels 56/products.json poppie-ondo-bsc); oracle 0xAE83F1A1Ea8a4e7CbcaC3551B88E22Baea25f26D keeper()=0xea2b72ed98470dd7403e2f3da375ad2a77b1c00a admin()=0xd2e0d0bf42f0f0bd094a587bb1fa7e03ff224e6d; 70 PriceUpdated logs in blocks 0x7fda0c9-0x7fdcac9 all from keeper (tx 0x435f2b215a94c3c194d098a747e952d3c4225048664000a2a2b19c21cfbefc33); vault 0xf4940CdE23c164f8CA8D536f3567337349b3208F: 0 logs in same window (control: oracle same-shape query returned 70); convertFees 0x2b5335c3 eth_call fresh-address ok, pays 0; BNB 592.86 USD (coingecko); BSC gasPrice 0.05 gwei (eth_gasPrice 2026-11-17) so a ~200k-gas keeper push costs ~0.006 USD, unreimbursed on-chain"
+}

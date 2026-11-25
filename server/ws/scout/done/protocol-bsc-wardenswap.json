@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-wardenswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "wardenswap",
+ "name": "WardenSwap",
+ "category": "Dexs",
+ "tvl_usd": 252892,
+ "url": "https://www.wardenswap.com",
+ "github": [
+  "Wardenswap"
+ ],
+ "listed_days_ago": null,
+ "run_id": "50126ee86ac6449d986e7c98f3a5e6ae",
+ "result": {
+  "verdict": "unpaid",
+  "line": "UniV2-fork MasterChef 0xde866dD77b6DF6772e320dC92BFF0eDDC626C674 (BSC): updatePool/massUpdatePools public (eth_call OK from fresh addr) but pay caller 0 (mints go to devaddr+Tempest); 7d: 0 Deposit/Withdraw/EmergencyWithdraw events (control: same-shape query returns events, last action block 132239004 = 2026-11-07, 0.00 dust); pot 1,323,720 WAD = $4,918 (WAD $0.003715, coins.llama.fi 2026-11-20 05:49 UTC), pendingWarden(last staker)=0",
+  "kb": [
+   "attempts:2789"
+  ],
+  "run_id": "50126ee86ac6449d986e7c98f3a5e6ae",
+  "at": 1795154294
+ }
+}

@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "moneyfi_v2",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/moneyfi-v2/index.js lists 3 BSC vault proxies: 0xC45f0c6a22dd5bA2fa75b803bBabc67CC212838c, 0xBC96E51AE3A3D0A32091396339a0c2B68DF97e2A, 0xf3400439439c911952E9949B6A522Ed78504A253 (all EIP-1967 proxies, impl 0x442631a64c3094db923888be412971dd65bfa7cc 22KB, eth_getCode non-0x, asset()/grossManagedAssets() getters answer). No GitHub; impl unverified on Sourcify v2 (match null); explorer abi failed (etherscan not_on_plan, blockscout 402/404), selectors reconstructed from bytecode PUSH4 + OpenChain signature DB. Shared router proxy 0x1a813b6de87170e004c19c13a9e03e6bd80a6c70 -> impl 0x6ca090bc9b1ea8adc2ef84eec8f86bbfd2cede3a; router.controller()=0x3b46e8e9533545fd751365386ca298e64598c5df. asset()=0x55d398326f99059fF775485246999027B3197955 = BSC USDT, decimals()=18 read on chain. Vault3 0xf3400439... holds all TVL (grossManagedAssets 84,529.62 USDT = listed 84,529); vaults 1-2 totalAssets=0 and 0 logs in 7d (control: same no-topic getLogs returned 51 logs from vault3+router). ERC-4626-like epoch vaults: requestDeposit/requestRedeem/claimRedeem/claimDeposit/updateNav/updateFees; all 7d txs (19) go through the router."
+}

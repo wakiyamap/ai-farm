@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the meta agent every 6 hours (first weeks; 12 h once the process settles)
+
+[Timer]
+OnBootSec=1h
+OnUnitInactiveSec=6h
+Unit=agent@meta.service
+
+[Install]
+WantedBy=timers.target

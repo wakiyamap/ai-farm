@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-pooltogether-v4",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Open V4 draw, distribute, and claim paths do not pay an unrelated caller; flush is manager/owner gated. No stranger bounty route was found in the deployed Ethereum V4 core.",
+  "numbers": "6 deployed V4 contracts inspected (ATokenYieldSource, DrawBeacon, PrizeFlush, PrizeSplitStrategy, PrizeDistributor, YieldSourcePrizePool), plus TwabRewards source; 0 caller-reward paths in the inspected source. Ethereum mainnet verified Etherscan source and official v4-mainnet deployment JSON, checked 2026-11-23 21:00 UTC. Relay eth_call: getNextDrawId=862, getToken=USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48; fresh-address flush() reverted Manageable/caller-not-manager-or-owner. No 7-day activity or USD revenue is claimed because no qualifying stranger-payable function was identified."
+}

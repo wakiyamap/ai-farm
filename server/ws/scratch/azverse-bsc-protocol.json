@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "azverse_perps",
+ "status": "dead_end",
+ "checked": "2026-11-17 run a274de08 (scout, verdict not_found): DefiLlama adapter projects/azverse/index.js tracks BSC only via 3 qualified-custodian EOAs 0x03a7e58745874d49b3acc770c40261a3ce206608, 0xc2a290eceac480f057b6e7b45a7a949535e478ce, 0xdc379823a9a3a2ca9d77c33299551ecdbabf7a41 (plus Arbitrum-only assetVault 0x91ba525861c16aa8cd4d6974e4058cc846f42ebe). eth_getCode = 0x for all four on bsc (relay research lane). balanceOf: 0x03a7 holds 91,985 USDT + 18,799 USDC, 0xdc37 holds 598,077 USDT + 189,633 USDC (~898.5k USD, matches chainTvls.Binance 942,546 with BNB); nonces 694 and 1 -> operational EOAs, not contracts. GitHub org AZverse has no contracts repo (az-bft, azx-cli, adapters only); azx-docs gitbook: margined perpetuals on off-chain AZX engine settling on AZ L1, 'position is closed by the system', no liquidator/keeper role, no contracts page, deposit networks doc says Arbitrum. Same conclusion as attempts 389-391 on arbitrum (dead_end). Nothing callable on bsc."
+}

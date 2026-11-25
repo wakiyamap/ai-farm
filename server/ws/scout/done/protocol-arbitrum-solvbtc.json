@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-solvbtc",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 919,
+ "chain": "arbitrum",
+ "slug": "solvbtc",
+ "name": "SolvBTC",
+ "category": "Bridge",
+ "tvl_usd": 30129,
+ "url": "https://app.solv.finance/solvbtc",
+ "github": null,
+ "listed_days_ago": 919,
+ "run_id": "c6755ffbaf1b49c398709d0e99d69a9f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Whole arbitrum footprint = one Gnosis Safe v1.3.0 deposit wallet 0x032470aBBb896b1255299d5165c1a5e9ef26bcD2 (5 owners/threshold 3, nonce 101) holding 0.508375 tBTC = 31,010 USD (61,001.07 USD/tBTC, coins.llama.fi ts 1795381017): no reward/claim/harvest/settle fn in the ABI, execTransaction from a fresh address reverts GS020 (owner sigs), gross 0 vs 0.0059 USD gas; 0 logs in 7d (blocks 524563000 2026-11-15T21:00:52Z - 526617638 2026-11-22T21:07:14Z, same-shape control 4 logs); last activity 2026-08-31 owner execTransaction.",
+  "kb": [
+   "attempts:3863",
+   "protocols:2035"
+  ],
+  "run_id": "c6755ffbaf1b49c398709d0e99d69a9f",
+  "at": 1795382471
+ }
+}

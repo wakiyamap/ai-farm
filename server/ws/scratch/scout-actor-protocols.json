@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "uniswapx",
+  "status": "dead_end",
+  "checked": "2026-11-16 run 8eb07811 (scout, actor 0x302649ccdfc232ee49a28755c8a6c06e707b7d15): the two reactors the ledger source uniswapx.fill tracks on base (0x000000008a8330b5d1f43a62bf4c673a49f27ba0, 0x000000001ec5656dcdb24d90dfa42742738de729) emit Fill(bytes32,address,address,uint256) topic0 0x78ad7ec0e9f89e74012afa58738b6b661c024cb0fd185ee2f616c0a28924bd66 (confirmed in receipt of 0xd9c971cb..., block 57767562). Filler entry point is reactor executeWithCallback((bytes,bytes),bytes) selector 0x0d335884; the reactor calls the filler back at reactorCallback(...) 0x585da628 where the filler does its covering swap - UniswapX v2 (universal reactor) shape. 4 h control (blocks 58294784-latest, 17:25-23:27Z 2026-11-16): 126 Fill logs from 20+ distinct fillers, so filling is open to many desks but each order names its exclusive filler off-chain. This repeats attempts 1106 (bsc/arbitrum) and 1251 (base): cosigned RFQ-desk flow, fills 2.6-4.6 s before decayStartBlock, exclusiveFiller == the filler in 39/46 decodes, uniform 25 bps override -> role_gated, not a public keeper job."
+}

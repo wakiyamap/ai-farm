@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-aerodrome-ignition",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 377,
+ "chain": "base",
+ "slug": "aerodrome-ignition",
+ "name": "Aerodrome Ignition",
+ "category": "Launchpad",
+ "tvl_usd": 19212765,
+ "url": "https://aerodrome.finance/",
+ "github": null,
+ "listed_days_ago": 377,
+ "run_id": "85f7a7d3a0464ff39e843540e5cc0505",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Ignition = Slipstream Gauge-Caps set (PoolFactory 0xaDe65c38, 2318 pools; GaugeFactory 0xB630227a pays AERO; Redistributor 0x11a53f31): redistribute both overloads revert 'NA' from a fresh address (onlyUpkeepOrKeeper, keeper=0x7766eb40, upkeepMgr 0x4b364c2b, isUpkeep(fresh)=false) and pay msg.sender nothing; gauge notifyRewardAmount voter-only ('NV'), getReward pays msg.sender (user claim); Redistributor 0 logs in 7d and 13M blocks (control: 3,409 AERO Transfers in 20k blocks); gross 0, gas ~bash.006/500k at 0.0063 gwei, ETH 1788 USD",
+  "kb": [
+   "protocols:431",
+   "attempts:1773"
+  ],
+  "run_id": "85f7a7d3a0464ff39e843540e5cc0505",
+  "at": 1794930225
+ }
+}

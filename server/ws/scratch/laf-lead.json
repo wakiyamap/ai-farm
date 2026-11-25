@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "llama_airforce vault harvest",
+ "status": "measured",
+ "why": "7d (blocks 26415655-26469495, 2026-11-14 to 2026-11-21): 18 public harvest() calls paid msg.sender a callIncentive: uFXS1 0xf964b0e3 12 calls/6 strangers (e.g. 0xff837b43 paid keeper 0x0000c94a3aadb903f436bb1000521c0023516000 3.1751 FXS=$0.60, solo gas $0.55; EOA callers 0x953c1ba7029c92741a1739dcd18a8a462109b618, 0x682ea8aa9b23250e0e240580e8ae55205f612979), uCRV3 0xde2bef0a 5 calls by 0xa88e98bbd2af6ddd642407cb5455f956f0c553f0 (0xd7dc404b 2.39 cvxCRV=$0.17, gas $0.32), uCRV2 0x4ebad8db 1 call 0x7379b047 (5.24 cvxCRV=$0.38 vs gas $0.23). Prices coins.llama.fi 2026-11-21 20:47 UTC ETH $1683 / FXS $0.1898 / cvxCRV $0.0728.",
+ "next_steps": "Contracts: uFXS1 0xf964b0e3ffdea659c44a5a52bc0b82a24b89ce0e (strategy 0xf761c0098967d756c9673f2798dbf23342badff8, pays 100 bps of harvested FXS to caller), uCRV2 0x4ebad8dbd4edbd74db0278714fbd67ebc76b89b7 (strategy 0x8d2aee9a7d581f3ed29e961a05c54f2be90eb7f3, 100 bps cvxCRV), uCRV3 0xde2bef0a01845257b4aef2a2eaa48f6eaeafa8b7 (5 bps cvxCRV). eth_call harvest() from a fresh address succeeds on uFXS1/uCRV3 (uBAL reverts 'permissioned harvest', uCRV2 reverted 'Slippage' at latest, not role). 7d count 18, gross $0.17-0.60/call, solo gas $0.2-0.6 at 0.11-0.15 gwei: net per call is cents; all 18 calls together ~$6 gross. Multiple independent keepers already take it same-block-ish (uFXS1 ~1.7/day); no blocked_infra row. Only viable as a bundle with other work, not a standalone bot at current gas."
+}

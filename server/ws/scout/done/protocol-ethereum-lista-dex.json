@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-lista-dex",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 232,
+ "chain": "ethereum",
+ "slug": "lista-dex",
+ "name": "Lista DEX",
+ "category": "Dexs",
+ "tvl_usd": 731818,
+ "url": "https://lista.org/swap",
+ "github": null,
+ "listed_days_ago": 232,
+ "run_id": "6c6ee24a71dd4d3aa4a9058860ae765f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Lista DEX ethereum = Moolah collateral pools only (7 StableSwapPool proxies + 3 ListaV3Pool UniV3 forks); v3 pools active (8363 Swap events 7d on USDC/USDT etc) but no caller-fee, PublicLiquidator 0x29ff57f7 flashLiquidate external & pays msg.sender yet 0 calls 7d and 0 in 27d (isLiquidatable needs market whitelisted), gas ~$3.3/swap at 9.9 gwei; same as bsc unpaid + eth lista_lending gate",
+  "kb": [
+   "attempts:2957",
+   "protocols:1366"
+  ],
+  "run_id": "6c6ee24a71dd4d3aa4a9058860ae765f",
+  "at": 1795188734
+ }
+}

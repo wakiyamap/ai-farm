@@ -1,0 +1,26 @@
+{
+ "id": "protocol-avalanche-oddz",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1819,
+ "chain": "avalanche",
+ "slug": "oddz",
+ "name": "Oddz",
+ "category": "Options",
+ "tvl_usd": 59158,
+ "url": "",
+ "github": [
+  "oddz-finance"
+ ],
+ "listed_days_ago": 1819,
+ "run_id": "ee491620b7a448a9ae41f912b45c5e6f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: manager 0x6a165b's only caller-paid fns withdrawProfits/withdrawAllProfits pay msg.sender's own LP premium (fresh-address eth_call reverts 'LP Error: No premium allocated'); 7d blocks 100466688-101161773: LP 0x9e7ca97e self-withdrew 2x8,412.35=16,824.69 USDC.e (gas 49.6k/66.7k @7.52gwei = bash.003), 0 logs on manager+pair+2 new pools (control USDC.e same shape: 102 logs); exercise() holder-gated, unlock() anyone-callable pays nobody",
+  "kb": [
+   "attempts:4090"
+  ],
+  "run_id": "ee491620b7a448a9ae41f912b45c5e6f",
+  "at": 1795435022
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-extra-finance-xlend",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. XLend Base is an Aave V3 fork; the only stranger-payable keeper function is liquidationCall (rebalanceStableBorrowRate commented out in the fork's IPool, no public mintToTreasury). 7 LiquidationCall events in 7 days, all taken by third-party router 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd driven by >=6 EOAs with same-block FAILED competitors; best call gross $5.37 vs gas $2.23, but 4 of 5 events are <$0.3 gross dust. Total 7d gross $6.29 vs gas $2.76. Cadence ~1/day and first-block contested: trial-class, not a build-now lead.",
+ "numbers": "Pool 0x09b11746DFD1b5a8325e30943f8b3D5000922e03 (32 reserves); provider 0x1566DA4640b6a0b32fF309b07b8df6Ade40fd98D -> APP 0x1e35e657d469f134ea9cfe52e28949586f1a9c29 -> getPool(); Base TVL $1.008M / borrowed $451k (llama). eth_getLogs blocks 55877219-latest (7d), topic0 LiquidationCall/CallV2/Rebalance: 7 events, rebalance 0 (control: same shape returned 7). Sample gross/gas USD per tx: 0x918c2395 +0.29/0.16, 0xac759210 +0.56/0.20, 0x2258017c +0.03/0.16, 0xf5956fb6 +5.37/2.23, 0x925dfcf4 +0.04/0.02 (collateral-debt at coins.llama.fi today ETH 1809.93, cbBTC 64580, EURC 1.0974, AERO 0.44; gas from receipts gasUsed x effGasPrice). 7d total gross $6.29, gas $2.76."
+}

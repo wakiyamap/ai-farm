@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "nftx",
+  "status": "measured",
+  "checked": "DefiLlama adapter (projects/nftx/index.js) gives VaultFactory 0xBE86f647b167567525cCAAfcd6f881F1Ee558216 (fromBlock 12675821, counts NFTs in vaults = the 1.46M USD TVL). v2.1 repo (NFTX-project/nftx-protocol-v2.1 deployments/mainnet): LP staking 0x688c3E4658B5367da06fd629E41879beaB538E37, inventory staking 0x3E135c3E981fAe3383A5aE0d323860a34CfAB893, MultiProxyController 0x35fb4026dcF19f8cA37dcca4D2D68A549548750C. v3 repo deployments/mainnet: NFTXFeeDistributorV3 0x6845fF5f102bEF9D785468F0bEb535b4687406E7, NFTXRouter 0x70A741A12262d4b5Ff45C0179c783a380EebE42a. All five: eth_getCode non-empty at block 26467992. Activity (explorer txs, etherscan): v3 router dead (last tx block 24856897 = 2026-04-11, FAILED); v3 fee distributor 0 logs in 7d window blocks 26417737..26467992 (no-topic scan); v2.1 LP staking alive: 1x claimRewards + 2x exit in 7d."
+}

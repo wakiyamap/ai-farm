@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "hashflow",
+  "status": "dead_end",
+  "checked": "RFQ DEX. Contracts from repo hashflownetwork/x-protocol (evm/deployed-contracts/*.json, ethereum keys): Router 0x55084eE0fEf03f14a305cd24286359A35D735151 (eth_getCode ok, factory() 0xc45a0155 returns 0xde828fdc3F497F16416D1bB645261C7C6a62DAb5 = factory, matches repo); Factory 0xdE828fdc3F497F16416D1bB645261C7C6a62DAb5 (code ok); SwapFacade (Hashflow X) 0xDa158B39D630c008308A5C4B0C5ecD980aAB5a6e (code ok); 19 pool proxies from DefiLlama adapter projects/hashflow/dataCache.json (e.g. 0xc312f7fca5bf9f7a6ef539febb28a6061d6bf9c1, ERC1967 proxy, code ok). Etherscan+Blockscout show no verified source; source from GitHub evm/contracts/HashflowRouter.sol, pools/HashflowPool.sol. Function inventory: only trade entries tradeRFQT/WithPermit, tradeRFQM..., tradeXChain..., fillXChain (xChain-caller-gated), admin onlyOwner, pool removeLiquidity (MM); grep for reward|bounty|incentive|harvest|poke|compound|rebalance|settle|checkpoint|distribute|epoch|round|auction|claim|redemption on router+pool sources = 0 hits; governance-evm has no contracts (audits only), hashverse is an NFT game. API api.hashflow.com blocked by Cloudflare (adapter marked broken). TVL 109,894 USD (DefiLlama candidate row)."
+}

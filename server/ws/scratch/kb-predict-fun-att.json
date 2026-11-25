@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-predict-fun",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Predict.fun (BSC, TVL ~10.2M USD) is a Polymarket fork: CTF + operator-run CLOB exchange + merkle RewardDistributors. The only anyone-callable reward function is RewardDistributor.claim(uint256,bytes32[]) and it pays 0 to a stranger: eth_call from fresh 0x1111...1111 reverts (InvalidProof - not in the merkle tree); claims only pay the merkle-listed user (msg.sender), not whoever calls. Everything else is role-gated: exchange fillOrder/fillOrders/matchOrders onlyOperator, CTFAutoRedemptionHelper.redeemPositions onlyRole(OPERATOR_ROLE), YieldBearingConditionalTokens.claimYield onlyRole(YIELD_MANAGER_ROLE). No keeper bounty found on bsc.",
+  "numbers": "RewardDistributor 0x14e3cB02...36Ae round 347, canClaimUntil 1796516060 (2026-12-06), totalClaimed 60,246 USDT; YIELD distributor 0x54870aa3...7a3c round 39, canClaimUntil 1802188800, totalClaimed 196,730 USDT; REWARD_TOKEN = USDT 0x55d398326f99059fF775485246999027B3197955 (18 dec). Sample: eth_getLogs topic0 RewardClaimed 0xf01da326... (4 windows x 5000 blocks = last ~2.5 h, block 134296116 head; full 7 d = 1.34M blocks at 0.45 s/block so not fully scanned) found 1 claim: 8.03 USDT, tx 0x5ce02448fcc2d1307643e74156738b63f52bd77fc4b75050f3e2c9eda2ba0f2e routed via router 0x0000000071727de22e5e9d8baf0edac6f37da032, gasUsed 188061 x 0.05 gwei = 9.4e-6 BNB = 0.0055 USD (BNB 588.07 USD, coins.llama.fi 2026-11-18). Gas/call ~0.005 USD; caller reward to a stranger 0."
+}

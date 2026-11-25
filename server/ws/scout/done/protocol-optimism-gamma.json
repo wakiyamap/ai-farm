@@ -1,0 +1,27 @@
+{
+ "id": "protocol-optimism-gamma",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "gamma",
+ "name": "Gamma",
+ "category": "Liquidity Manager",
+ "tvl_usd": 44958,
+ "url": "https://www.gamma.xyz",
+ "github": [
+  "GammaStrategies"
+ ],
+ "listed_days_ago": null,
+ "run_id": "930e1aa367d34784beded61a84573487",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 80 vaults (Uniswap registry 0xF5BFA20F... counter()=76, sushi 3, velo 1); only keeper action is rebalance via RebalanceProxy 0xd582226b, onlyRebalancer per vault (fresh eth_call reverts 'only rebalancer'); 7 d (blocks 159625058->~159927000, 11-16->11-23): 735 rebalances by 2 Gamma keeper EOAs (sample of 7 txs), fee 0.0012-0.069 WETH (2.0-121.7 USD @ 1764.75 coins.llama.fi 11-23 17:17 UTC) + <=3647 USDT0 units to Gamma fee wallet 0x77105d62 chosen by rebalancer, never the caller; gas 494k-626k gas = 0.0011-0.0014 USD/tx.",
+  "kb": [
+   "attempts:4169",
+   "protocols:2287"
+  ],
+  "run_id": "930e1aa367d34784beded61a84573487",
+  "at": 1795454459
+ }
+}

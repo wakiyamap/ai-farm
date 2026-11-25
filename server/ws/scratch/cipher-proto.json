@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "cipher.rip",
+  "status": "dead_end",
+  "checked": "DefiLlama registry friend-tech.js (adapter 404; api.llama.fi/protocol/cipher.rip deadUrl:true, no url/github, TVL = gas token in one address). Contract 0x2544a6412bc5aec279ea0f8d017fb4a9b6673dca (Cipher, verified on Etherscan, OZ Ownable, FriendTech clone): eth_getCode non-empty, owner() = 0x42000653f3255b3ed78b3208fcee04c96e41277f. Public mutables only buyCores/sellCores (user trades; caller pays, fees go to protocolFeeDestination + coresSubject); setFeeDestination/setProtocolFeePercent/setSubjectFeePercent onlyOwner. No claim/reward/harvest/keeper fn. sellCores eth_call from fresh address reverts 'Cannot sell the last core' (no stranger payout). No free-reward function on the single contract; 19.86 ETH in contract is trade liquidity, not claimable pot."
+}

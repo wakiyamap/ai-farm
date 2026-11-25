@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Files created with an explicit 0600 (dsh does this) get an ACL mask of --- even under a
+# default ACL, so group farm cannot read them. Open the group bits on shared directories.
+# Runs every 5 minutes (farm-acl-fix.timer); safe to run by hand.
+set -uo pipefail
+WS=/srv/farm/ws
+n=0
+for dir in scratch bots/paper inbox claims logs; do
+  [[ -d "$WS/$dir" ]] || continue
+  while IFS= read -r -d '' f; do
+    chmod g+rX "$f" && n=$((n+1))
+  done < <(find "$WS/$dir" \( -type f ! -perm -g+r \) -o \( -type d ! -perm -g+rx \) -print0 2>/dev/null)
+done
+(( n > 0 )) && echo "farm-acl-fix: opened group read on $n paths"
+exit 0

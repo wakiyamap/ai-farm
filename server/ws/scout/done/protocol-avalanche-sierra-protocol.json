@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-sierra-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 286,
+ "chain": "avalanche",
+ "slug": "sierra-protocol",
+ "name": "Sierra Protocol",
+ "category": "Yield",
+ "tvl_usd": 6201947,
+ "url": "https://sierra.money/",
+ "github": null,
+ "listed_days_ago": 286,
+ "run_id": "9089e2b5fbf34e309b458523a02e420d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "SIERRA vault proxy 0x6E6080e1...78f7 (verified LYTPool impl 0x51c3f2ce...3dfd) on avalanche: every state-writing fn role-gated - deposit/requestRedeem revert NotMarketMaker, processRedemptions/openClaims NotIssuer, controller setExchangeRateDynamic MissingRole from a stranger; 7d (blocks 99944938-100564938, snowtrace txlist, control 6 txs on 0x6bCB49...): 8 approve() txs to pool + 55 exchange-rate pushes from one keeper EOA 0xc1849678... paying 400k gas = $0.022 (AVAX $7.23 coins.llama.fi) for $0 gross - no stranger ever paid.",
+  "kb": [
+   "attempts:1742",
+   "protocols:406"
+  ],
+  "run_id": "9089e2b5fbf34e309b458523a02e420d",
+  "at": 1794923232
+ }
+}

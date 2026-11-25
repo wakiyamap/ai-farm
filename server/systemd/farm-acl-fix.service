@@ -1,0 +1,6 @@
+[Unit]
+Description=Farm: open group read on agent files created 0600
+
+[Service]
+Type=oneshot
+ExecStart=/opt/farm/bin/farm-acl-fix

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-paimon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 272,
+ "chain": "bsc",
+ "slug": "paimon",
+ "name": "Paimon",
+ "category": "RWA",
+ "tvl_usd": 14122334,
+ "url": "https://paimon.finance/",
+ "github": [
+  "Paimon-R-D"
+ ],
+ "listed_days_ago": 272,
+ "run_id": "f8b804b492004e37b9070866f57fdc0a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PPT vault 0x8505c32631034A7cE8800239c08547e0434EdaD9 (USDT, totalAssets 14,132,389 USD): settleRedemption/settleWithVoucher/refreshCache callable by anyone (stranger eth_call reverts are state-only, 0xe5230ee1/0x6761442b, no role) but pay the caller 0 - payout goes to the redeemer; 7d: 0 RedemptionSettled, 2 RedemptionRequested (full scans 1,344,000 blocks, control USDT 300 blk=22,064 logs); gas ~200k @0.05 gwei = bash.006 (BNB 92.23 llama). No keeper reward exists (PAIMON token unissued).",
+  "kb": [
+   "attempts:1738",
+   "protocols:403"
+  ],
+  "run_id": "f8b804b492004e37b9070866f57fdc0a",
+  "at": 1794922564
+ }
+}

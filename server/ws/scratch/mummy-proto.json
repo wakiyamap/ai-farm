@@ -1,0 +1,6 @@
+{
+ "chain": "optimism",
+ "protocol": "mummy_finance",
+ "status": "dead_end",
+ "checked": "GMX v1 fork. Vault 0xA6D7D0e650aa40FFa42d845A354c12c2bc0aB15f (verified 'Vault' 0.6.12, Blockscout source; adapter projects/mummy/index.js). Staking RewardTracker 0x04f23404553fcc388Ec73110A0206Dd2E76a6d95 (verified). Only caller-paid fn is Vault.liquidatePosition paying 5.00 USD liquidationFeeUsd to _feeReceiver arg, but inPrivateLiquidationMode=true gates it to isLiquidator registry (setLiquidator by gov); fresh-address eth_call reverts 'Vault: invalid liquidator' -> role_gated. 0 LiquidatePosition + 0 IncreasePosition in 365d (from block 144,143,965 2025-11-23; 7d blocks 159,604,784 2026-11-16 -> 159,907,184 2026-11-23); no-topic scan 0 logs; last tx 2026-08-28 all admin (setGov/setManager/upgradeVault). DefiLlama TVL 40.5k USD; vault holds WETH 3.59, USDC 1065, USDT 1979, OP 14988, LINK 1730, SNX 3121, FXS 6.06, WBTC 0.259. Staking claim/claimForAccount self-service (handler role). gov EOA 0x30b12942912cee5a719edec2dd147224fcc373a0. Control USDC Transfer same getLogs shape 2k blocks = 25815 logs. See attempts row."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-pangolins",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Pangolins on base is a single standard Morpho MetaMorpho v1.1 vault (Pangolins USDC, 0x1401d127...); the full verified ABI has no public function that pays the caller - it is an ERC-4626 vault where depositors pay the curator. skim() is permissionless but pays skimRecipient and currently reverts with ZeroAddress (skimRecipient=0).",
+  "numbers": "TVL $6.83M (totalAssets 0x637ae328750 USDC = whole DefiLlama base TVL, single vault); 7d getLogs blocks 55,506,867-58,530,869: 1352 logs = 99 Deposit + 94 Withdraw + 193 AccrueInterest (=99+94, zero reallocate) + 0 Skim; eth_call from 0x1111..1111: multicall OK, skim reverts ZeroAddress, reallocate reverts NotAllocatorRole (0xf7137c0f); sample deposit tx 0x87af21be... 264,681 gas x 0.006 gwei = $0.0029 (ETH $1,828 coins.llama.fi 2026-11-17); gross to caller $0; top callers (300-tx/25d sample) 0x4D12...aff1E 150x, 0xAa92...ab5f8 133x (EOA depositors)"
+}

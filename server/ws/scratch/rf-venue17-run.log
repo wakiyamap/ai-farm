@@ -1,0 +1,43 @@
+OWNER 0x000000000000000000000000000000000000f007 42
+arbitrum	fork 522766864	mainnet 522821420	gen 5	free	http://127.0.0.1:9002
+base	fork 55308841	mainnet 55388296	gen 388	free	http://127.0.0.1:9001
+ethereum	fork 26306791	mainnet 26380719	gen 359	free	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+ok leased ethereum for 15 min (run 717ab8a0a8e44a3e97841f3b0960b6ea); generation 359
+ok reset ethereum at block 26306742 generation 360
+arbitrum	fork 522766864	mainnet 522821425	gen 5	free	http://127.0.0.1:9002
+base	fork 55308841	mainnet 55388306	gen 388	free	http://127.0.0.1:9001
+ethereum	fork 26306742	mainnet 26380719	gen 360	leased by 717ab8a0a8e44a3e97841f3b0960b6ea 898s	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+PAYFULL 9398683583154130380
+grant 0x06050552 0x1
+grant 0x06050552 0x1
+grant 0xf404e5f8 0x1
+grant 0xf404e5f8 0x1
+grant 0xA043FDc5 0x1
+grant 0xA043FDc5 0x1
+grant 0x2b772707 0x1
+grant 0x2b772707 0x1
+grant 0xebbcb2ce 0x0
+grant 0xebbcb2ce 0x0
+probeA: {"code": "3", "message": "execution reverted: funding swap failed", "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000"}
+TRACE errors:
+   {'from': '0x000000000000000000000000000000000000f007', 'to': '0xd98d34008d1bbb29013592c637f8e9fca4179fa0', 'fn': '0x7cda801a', 'err': 'execution reverted', 'type': 'CALL'}
+   {'from': '0xd98d34008d1bbb29013592c637f8e9fca4179fa0', 'to': '0x6131b5fae19ea4f9d964eac0408e4408b66337b5', 'fn': '0xe21fd0e9', 'err': 'execution reverted', 'type': 'CALL'}
+   {'from': '0x6131b5fae19ea4f9d964eac0408e4408b66337b5', 'to': '0x8f10b468b06c6fd214b65f87778827f7d113f996', 'fn': '0xd9c45357', 'err': 'execution reverted', 'type': 'CALL'}
+   {'from': '0x8f10b468b06c6fd214b65f87778827f7d113f996', 'to': '0xd7a5c6b52756e795f680b0f7e0c2f21281dde6ef', 'fn': '0xd9c45357', 'err': 'execution reverted', 'type': 'DELEGATECALL'}
+   {'from': '0x8f10b468b06c6fd214b65f87778827f7d113f996', 'to': '0xd6f277b4bed66243469fa1ec5024029233485cb7', 'fn': '0x8bc041a8', 'err': 'execution reverted', 'type': 'DELEGATECALL'}
+   {'from': '0x8f10b468b06c6fd214b65f87778827f7d113f996', 'to': '0xa88cd6b934c64ea830b78967b2f8a0de91577edc', 'fn': '0x3155ea38', 'err': 'execution reverted', 'type': 'CALL'}
+   {'from': '0xa88cd6b934c64ea830b78967b2f8a0de91577edc', 'to': '0xf570f63bb31d8530cd5a24306a8672c333925ba7', 'fn': '0x3155ea38', 'err': 'execution reverted', 'type': 'DELEGATECALL'}
+   {'from': '0xa88cd6b934c64ea830b78967b2f8a0de91577edc', 'to': '0xbfebc5ecac789643a61fadf15048a37dc9612dcf', 'fn': '0xf05bb6c4', 'err': 'execution reverted', 'type': 'CALL'}
+   {'from': '0xbfebc5ecac789643a61fadf15048a37dc9612dcf', 'to': '0xf036cfa5e0e796195cfb8cf7f1a89b4aaca6883b', 'fn': '0xf05bb6c4', 'err': 'execution reverted', 'type': 'DELEGATECALL'}
+prelude done u0 b0 s0 o0: 20000000000 8000000000000000000 57582275034043643305 543454680
+ts_head 1793377466 past-reset 75
+patched expiry x4 -> 6ae4c5e6 1793377766
+probeP: {"code": "3", "message": "execution reverted: funding swap failed", "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001366"}
+TRACE patched errors:
+   {'from': '0x000000000000000000000000000000000000f007', 'to': '0xd98d34008d1bbb29013592c637f8e9fca4179fa0', 'fn': '0x7cda801a', 'err': 'execution reverted', 'type': 'CALL'}
+   {'from': '0xd98d34008d1bbb29013592c637f8e9fca4179fa0', 'to': '0x6131b5fae19ea4f9d964eac0408e4408b66337b5', 'fn': '0xe21fd0e9', 'err': 'execution reverted', 'type': 'CALL'}
+   {'from': '0x6131b5fae19ea4f9d964eac0408e4408b66337b5', 'to': '0x8f10b468b06c6fd214b65f87778827f7d113f996', 'fn': '0xd9c45357', 'err': 'execution reverted', 'type': 'CALL'}
+   {'from': '0x8f10b468b06c6fd214b65f87778827f7d113f996', 'to': '0xd7a5c6b52756e795f680b0f7e0c2f21281dde6ef', 'fn': '0xd9c45357', 'err': 'execution reverted', 'type': 'DELEGATECALL'}
+venue17 done ok= False settled= None

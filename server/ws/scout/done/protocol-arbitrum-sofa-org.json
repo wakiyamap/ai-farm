@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-sofa-org",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 883,
+ "chain": "arbitrum",
+ "slug": "sofa.org",
+ "name": "SOFA.org",
+ "category": "Options",
+ "tvl_usd": 375270,
+ "url": "https://www.sofa.org",
+ "github": [
+  "sofa-org"
+ ],
+ "listed_days_ago": 883,
+ "run_id": "a177467bd15d4accaff6e164c60eb22c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "35 vault/oracle/automator contracts confirmed on arbitrum (docs.sofa.org contracts page; impl 0x4140ab4a verified); only caller-open action is harvest() 0x4641257d (eth_call from fresh addr OK) which sends the whole fee to feeCollector 0x4bd6..032f and pays the caller $0; sample vault 0x7ECD..BE2B0 last tx 2026-06-06, harvest by 0xcc19..22bd ~quarterly (3 txs in 11 mo), 0 in last 7d on the sampled vault (full-set getLogs blocked: public fallback 10-addr cap, Blockscout 403); gas <$0.01/call, TVL $375k.",
+  "kb": [],
+  "run_id": "a177467bd15d4accaff6e164c60eb22c",
+  "at": 1795009206
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-pika",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1817,
+ "chain": "optimism",
+ "slug": "pika",
+ "name": "Pika",
+ "category": "Derivatives",
+ "tvl_usd": 297693,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1817,
+ "run_id": "a839fb39460948cdb78e016bf9e8594d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PikaPerpV2 0x2FaE8C7E + PikaPerpV3 0xD5A8f233 (full in KB) hold 297,790 USDC: liquidatePositions(uint256[]) reverts '!liquidator' from a fresh address (owner whitelist, allowPublicLiquidator false); distribute{Protocol,Pika,Vault}Reward pay fixed distributors ('!dist'/'!distributor'), pots V3 25,715.35 USDC to EOA 0xbcb15f57 + V2 1,285.66, pika/vault 0; full 7-day log scan (31x10k blocks 159450286-159752686) = 39 V3 + 1 V2 logs, all Redeemed, 0 PositionLiquidated (last ever 2024-03-10 blk 117229150, 2.85 USDC bounty); gas 0.001 gwei x 300k = ~$0.0005 at ETH $1,772.84 (llama ts 1795103582).",
+  "kb": [
+   "attempts:2565",
+   "protocols:1055"
+  ],
+  "run_id": "a839fb39460948cdb78e016bf9e8594d",
+  "at": 1795104874
+ }
+}

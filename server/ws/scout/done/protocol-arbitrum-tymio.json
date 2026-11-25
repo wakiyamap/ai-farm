@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-tymio",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 896,
+ "chain": "arbitrum",
+ "slug": "tymio",
+ "name": "TYMIO",
+ "category": "Options",
+ "tvl_usd": 154168,
+ "url": "https://tymio.com/",
+ "github": null,
+ "listed_days_ago": 896,
+ "run_id": "345691cca3584e8ea0259c6b51e6db91",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PayerV3 0xB67D...aaD6 (only tymio contract on arbitrum): executeOrders is onlyOwnerOrService (stranger eth_call reverts NotAllowedAddress 0x1a06d0fe; sole caller service EOA 0x6bd19dd6...56690, 1 call/7d, 376,946 gas = $0.014 @ 0.02 gwei, ETH $1790.58 llama.fi); claimOrder public but pays order.user, caller $0; 7d logs: 12 FullWithdrawal + 2 ClaimOrder + 0 NewOrder (TVL $154k, winding down)",
+  "kb": [
+   "protocols:723",
+   "attempts:2150"
+  ],
+  "run_id": "345691cca3584e8ea0259c6b51e6db91",
+  "at": 1795009949
+ }
+}

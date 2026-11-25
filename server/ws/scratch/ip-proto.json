@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "interest_protocol",
+ "status": "dead_end",
+ "checked": "DefiLlama slug interest-protocol (CDP, borrow USDI against collateral). Adapter lives at projects/ip/index.js (the projects/interest-protocol dir is a different Sui DEX): VaultController proxy 0x4aaE9823Fb4C70490F1d802fC697F3ffF8D5CbE3 (impl 0xffc8c49C5B38BC9BaFD0bB0F5F189EEcD35e35E2, unverified; 69 dispatcher selectors resolved via bytecode scan + OpenChain), USDI proxy 0x2A54bA2964C8Cd459Dc568853F79813a60761B58 (impl 0x57d0E13F353d630ab5218aC841C88985AB31A066). Both eth_getCode non-0x; vaultsMinted() (0xce0a2564) returns 121. Function surface: liquidateVault(uint96,address,uint256), borrowUsdi/borrowUSDIto/borrowUSDCto, repayUSDi, mintVault, calculateInterest, pause/unpause, register* (owner), changeProtocolFee - the only stranger-payable reward path is liquidateVault (liquidation incentive to caller). Protocol is in wind-down: 0 VaultController events in 7d (blocks 26415172-26465417, 2026-11-14 18:59 to 2026-11-21 18:57 UTC, no-topic scan; control USDC 19516 logs on 297 blocks, USDI 7 logs same window). Last VC tx block 25584501 (2026-07-21) - one EOA 0x3cb68a6762041aa05e762814a8791ca9d98e79a0 withdrawing vault collateral. TVL is one static MKR vault (~957 MKR) + 13.5 aOptUSDC; USDC reserve fell from ~1300 to 0.0001 USDC around 2026-05-24."
+}

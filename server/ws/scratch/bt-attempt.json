@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-button-tranche",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Button Tranche (Buttonwood tranche bonds, weekly AMPL bonds) has no publicly callable function that pays the caller: BondController (impl 0x8c624d6a336ede5da3bda01574cf091a938ea906, verified source) exposes only user-driven deposit/redeem/redeemMature and mature(), whose fee proceeds go to the owner (feeBps = 0 today); the protocol's own EOA calls mature() for the old bond in the same tx that creates the next weekly bond. Nothing to earn without being a depositor.",
+  "numbers": "TVL 158,946 USD (DefiLlama currentChainTvls 2026-11-21); AMPL 0.916 USD (coins.llama.fi ts 1795260170, decimals 9 read on chain); live bonds 0xb13c73fc/0x61896f79/0xd9582255 hold 48,989 + 50,791 + 20,492 = 120,272 AMPL (~110.2k USD) eth_call balanceOf; 7d window blocks 26412905 (2026-11-14) to 26463417 (2026-11-21): 1 BondCreated on factory 0x17550f48 (tx 0x19809320c4a6cd760265abe7de431b2507a53546013246ce7dac66a4f0e3d565, signer 0xba887c8e396f24e0817be13839850de454ac7e45) + on matured bond 0xc199609e: 1 Mature + 3 RedeemMature (4 logs total, control for the zero on other contracts); mature() from fresh address reverts 'Already mature' / 'Invalid call to mature' (eth_call latest); feeBps 0, owner 0x5613fc36a431c9c2746763b80c1dd89e03593871; older 4 factories last BondCreated block 18,924,474 (2024-04) or older (eth_getLogs topic0 0x535735cd... BondCreated(address,address), 151 bonds on newest factory all-time)."
+}

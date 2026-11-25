@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-extra-finance-xlend",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the only permissionless paid function is Aave-fork liquidationCall (5% bonus to the receiver; fresh-address eth_call reverts business error '45', no role gate). 2 liquidations in 7 days by 2 different strangers, but both dust: gross bonus per call $0.004-$1.12 vs gas $0.26-$1.47, so nobody is earning. No custom keeper/reward functions in the fork (Pool.sol/L2Pool.sol checked). Pool is tiny (TVL $138.5k, borrowed $51.8k).",
+  "numbers": "7d LiquidationCall events = 2, 30d = 6 (eth_getLogs topic0 0xe413a321 on pool 0x345d2827f36621b02b783f7d5004b4a2fec00186, blocks 159390633..159693033). Sample 1 of 2: tx 0x69380d43 (block 159470649), tx.origin 0xd9fffdf0c4b18fb7e225da15b2af9f88e55676c3, receiver 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd, repaid 22.476 DAI -> 5% bonus ~ $1.12 gross, gas 891,517 x 910 wei = 0.000811 ETH = $1.47. Sample 2 of 2: tx 0x4aee9054 (block 159546046), tx.origin 0xfe836081738af7cc0b7c7e5edc5127a3f62602e1, receiver 0x27ead5003b2a041c78ae174ccf5910774739ae42, repaid 0.0873 DAI -> bonus ~$0.004 gross, gas 826,590 x 172,707 wei = 0.000143 ETH = $0.26. Prices 2026-11-18 coins.llama.fi: ETH $1810.14, WBTC $64,594, DAI $1.00. TVL 138,542 / borrowed 51,790 (DefiLlama api.llama.fi/protocols)."
+}

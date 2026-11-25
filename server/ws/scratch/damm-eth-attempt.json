@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-damm-capital",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Both Ethereum contracts are Lagoon ERC-7540 vaults (DAMMeth 0x3c63f3ce75dc83735745cf4e86b63414d95ee355 impl v0.5.0 0xe50554ec.., DAMMbtc 0x7ededf832b5c9d8afa8f7365936100581a6db756 impl v0.6.0 0x6c77c47f..). Every keeper-shaped settlement function is onlySafe/onlyValuationManager and pays msg.sender nothing; same pattern as the Arbitrum dead_end (attempt 1611). No stranger was paid in the last 7 days.",
+ "numbers": "eth_call from fresh 0x1111..1111: settleDeposit/settleRedeem/expireTotalAssets/claimSharesOnBehalf revert 0xfde82f1f OnlySafe(e39cd9b36b9a86a8227ec3f5159b610bf2a30e69 / f9be6c20aef39379a1ac1291e3bc98a562b40e3c); updateNewTotalAssets reverts 0x14c9222d OnlyValuationManager. 7d = blocks 26405556-26455956 no-topic eth_getLogs on both vaults: 17 logs, SettleDeposit 0, SettleRedeem 0, DepositRequest 4 (topic0 0xbb58420b.. from source), Deposit 2, Transfer 6 control (topic0 from receipt). Senders: 0x5822b262edda82d2c6a436b598ff96fa9ab894c4, 0xc89fb16ba5a93e02ce0674186dfb5d9d9c14236a (txs 0x09b6aa92.., 0x46547910.., 0x93a8231b.., 0xc9dc3fcc.., 0xdd067b6b..). Sources: DefiLlama registries/curators.js, etherscan verified source, rpc.py 2026-11-20."
+}

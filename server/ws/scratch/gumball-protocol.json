@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "gumball_protocol",
+  "status": "measured",
+  "checked": "DefiLlama adapter projects/gumball/index.js gives factory 0xf5cfBaF55036264B902D9ae55A114d9A22c42750 (GumBallFactory, code on-chain, totalDeployed()=33, 8 pools allowed). Blockscout verified source: GBT (AMM token, 0xfb1f...ae32 etc), XGBT (Synthetix-style staking), GNFT. BASE_TOKEN = WETH 0x82aF49447D8a07e3bd95BD0d56f35241523fBab1. Key keeper fn GBT.treasurySkim() (0xe44f9216): external, no role check, pays msg.sender 0.1% of accumulated treasuryBASE fee pot, 40% to XGBT stakers via notifyRewardAmount, 40% artist, 20% treasury; emits Skim(msg.sender). eth_call from fresh addr 0x...0099 on GBT22 0x9e133b5458559011ecbd41d7bf6d34a7c9fc76e9 succeeds. Current treasuryBASE per allowed pool (eth_call 0x5ea68a14, 2026-11-19): GBT22 48.0658 WETH, all 7 others 0.000-0.0024 WETH. Protocol mostly dormant: 2 Sell events across 8 allowed GBTs in 7d; 1 getReward claim in 7d (15 in 30d). Dead project URL, listed 1399d, TVL 261k."
+}

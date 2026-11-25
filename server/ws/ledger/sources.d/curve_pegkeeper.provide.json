@@ -1,0 +1,20 @@
+{
+  "id": "curve_pegkeeper.provide",
+  "protocol": "curve_pegkeeper",
+  "kind": "keeper_rebalance",
+  "chains": {
+    "ethereum": [
+      "0x9201da0d97caaaff53f01b2fb56767c7072de340",
+      "0xfb726f57d251ab5c731e5c64ed4f5f94351ef9f3",
+      "0x3fa20eaa107de08b38a8734063d605d5842fe09c",
+      "0x338cb2d827112d989a861cde87cd9ffd913a1f9d"
+    ]
+  },
+  "event": "Provide(uint256)",
+  "topic0": "0x8d685bd3f45d861c759ed7a46ea3d30eb5cc6ce9fe06c526931f94c963bca7d2",
+  "indexed": [],
+  "data": [
+    "amount"
+  ],
+  "actor_field": "tx_from"
+}

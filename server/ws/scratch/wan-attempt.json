@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-wan-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Wan Bridge Arbitrum lock 0xf7ba155556e2cd4dfe3fe26e506a14d2f4b97613 (CrossProxy -> CrossDelegateV7 impl 0xe9534be7...8635). The only keeper-like actions are smgRelease/smgMint by the storeman group: eth_call from a stranger reverts CrossDelegateV7: caller is not authorized, same calldata from relayer 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7 succeeds. Nothing in the 68-selector surface pays a stranger; smgWithdrawHistoryFee is stranger-callable but pays the group fee receiver and the pot getStoremanFee(Aries_072)=0. userLock/userBurn are user actions (caller pays gas, no payout).",
+  "numbers": "7d (blocks 1f2fb828-1f535668, eth_getLogs on proxy): 46 smgRelease events (topic 74a78f7a..), 44 userLock events (topic 43eb196c..); all sampled callers (5/46 random txs + 25/25 explorer listing) = 0xd1eb8e69a9f1504c52d5523d4b447b9b9ad77da7. Gross to caller 0 USD (release moves value to recipient; SMG fee pot getStoremanFee(bytes32 Aries_072)=0). Gas/release 237,096 @ 0.0201 gwei = 0.00000477 ETH = 0.009 USD; userLock 146,579 gas @ 0.0203 gwei = 0.005 USD (ETH $1,800.76 coins.llama.fi 2026-11-19 07:50Z). TVL arbitrum 456k USD (api.llama.fi)."
+}

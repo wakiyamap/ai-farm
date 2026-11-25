@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "zethr",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter: projects/zethr/index.js is 404; TVL comes from registries/sumTokens.js (owners holding native ETH): 0xBbdfcCff3E72D672695ba0ca635B243dD7273c47, 0x6E379098588ee5b8b8e709dfd66daB1772A38038, 0x7430984e1D05d5F447c747123dd26845f6f17544, 0xD48B633045af65fF636F3c6edd744748351E020D (all 4 have code). Verified via Blockscout: 0xD48B6330... = Zethr (FOMO3D-era dividend token: 'interactive, variable-dividend rate contract', devs Etherguy/klob/Norsefire), 0x7430984e... = ZethrBankroll (multisig 'house' wallet); the other 2 have no verified source and emitted no logs in 7d. Getters live: totalEthereumBalance()=275.94 ETH, regularPhase()=true. Reward functions all holder-gated: withdraw(address) 0x51cff8d9 has modifier dividendHolder() (require myDividends(true)>0) - eth_call from fresh address reverts; exit/sell/reinvest need token balance; Bankroll buyTokens() is isAnOwner. No keeper/claim function pays a stranger: dividends accrue to ZTH holders from buy/sell fees only. Activity: 1 tx in 7d blocks 26418892-26469145 (2026-11-15 to 2026-11-22, both timestamps read from eth_getBlockByNumber), 9 logs in blocks 26272754-26469145 (2026-10-25 to 2026-11-22: 5 onWithdraw + 4 onTokenSell, 0 purchases) - zombie, holders exiting, no volume so no dividends."
+}

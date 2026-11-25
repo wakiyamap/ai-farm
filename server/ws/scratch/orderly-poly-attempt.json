@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-orderly-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The Orderly escrow on polygon is the same Vault as the other chains (proxy 0x816f722424b49cf1275cc86da9840fbd5a6167e9 -> impl 0x4f8c0f4f794dc5b6d4f1c0883e3fab402867f083, verified 'Vault', OrderlyNetwork evm-cross-chain): every money-out function is gated (withdraw, withdraw2Contract, rebalanceMint, rebalanceBurn = onlyCrossChainManager 0xa0a07a78c7d31e6f8698f48fc9219f9a3030f38c; delegateSwap* = onlySwapOperator = address 0). The any-call functions (deposit, depositTo, delegateSigner) pull funds in and pay the caller nothing; eth_call withdraw from a fresh address reverts.",
+  "numbers": "7d eth_getLogs on the vault (blocks 97,269,800-97,572,200, ~302k blocks): 47 events, all AccountWithdraw(bytes32,uint64,bytes32,address,address,bytes32,uint128,uint128) topic0 0x732a6fe7...aa27 (sample of all 47, not a subsample). Sum 1,514.90 USDC withdrawn to receivers, 47.00 USDC fees (1 USDC each) KEPT by the vault (withdraw() transfers tokenAmount - fee to data.receiver; no claim-fee function). 0 paid to any caller/stranger. Polygon gas ~$0.01-0.02 per tx, moot since the gating reverts strangers. Source: DefiLlama adapter + explorer source polygon + eth_call/eth_getLogs via relay."
+}

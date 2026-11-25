@@ -1,0 +1,12 @@
+{
+  "run_id": "0cccf8e88c3d414780b1a1ca74ddaa0c",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "step-5 exhaustion sweep + GMX v2 GLV rebalance keeper class scout (arbitrum)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1260", "protocols:14", "leads:14"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure lane: lead 14 (the only unmeasured lead) has no pending measurement request (both human asks closed by attempts 1244/1245, noted on the lead), so went to step 5. Ledger+KB sweep: all 49 ledger sources and every 7d repeat non-liquidation actor map to measured/closed KB classes. The last keeper-shaped class not yet in the KB, GMX GLV, has NO rebalance function in its deployed verified ABIs (GlvHandler/GlvVault/GlvRouter, addresses from docs.gmx.io) nor in gmx-io/gmx-synthetics (main+dev) - class recorded dead_end (~10 https reads, 0 relay CU). The six less-covered chains hold only already-closed classes in 7d (bsc uniswapx RFQ fills, hyperevm felix/morpho, avalanche/polygon/optimism nothing; elysium has no ledger rows to query, no claim made there). Side note: I briefly overwrote protocols row 214 (bsc/ming) by a wrong-id kb update and restored it from its revisions.before the same minute (inbox/meta note filed)."
+}

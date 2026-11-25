@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-lunarbase",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only public state-advance function upd(uint160,uint24,uint24,uint256) on pool 0x00007904...1b99 reverts from a fresh address with custom error 0x73c9f7e4(caller): it sits behind an operator1..5 registry (operator1 0x45483e7754f0f9505ae9e2c6513b6e46f28f282e made 3/3 sampled upd calls). LP paths (claimFees, executeDeposit, executeWithdrawal, withdrawPartnerFees) pay position owners only and had 0 events in 7d; pool2 is dead (0 events). 92k swaps/7d are aggregator/router arbitrage with capital, not a function paying a stranger.",
+ "numbers": "7d window blocks 133723245..135066693 (2026-11-15..22, from eth_getBlockByNumber timestamps); 106/135 x 10k-block chunks scanned (29 chunks relay size errors, skipped and scaled x1.27): upd/StateUpdated 159,639 est (125,346 in scanned), SwapExecuted 92,355 est (72,516 in scanned), LP events 0 (control: same query shape returned 125k+ on same contract). partnerFees()=0; treasuryFees()=8.83 BNB + 2,163 USDT (owner-withdrawn). upd gasUsed 35,357 @ effective 0.055-0.11 gwei = 0.0011-0.002 USD/call; swap gas ~200-700k = 0.01-0.04 USD (BNB 551.37 USD, coins.llama.fi ts 1795345224). Pool1 USDT address read from Y() on chain 0x55d398326f99059fF775485246999027B3197955. Sources: DefiLlama adapter, Lunarbase-Lab/LunarBaseIntegrations abi/Pool.abi.json, eth_call/eth_getLogs via rpc.py bsc."
+}

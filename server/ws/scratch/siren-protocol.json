@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "siren",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/siren/index.js (ethereum: factory 0xb8623477ea6f39b63598ceac4559728dca81af63, vault 0x7b63ecbc78402553a2d7f01ea3d10079c3aaa469; adapter topic 0xa128ec36... = AmmCreated, so the 'pools' are AMMs). Both addresses are proxies (impl at slot 0xc5f16f0fcc63...): MarketsRegistry impl 0x58dd75e6560f4636130bba5c9a03af3a21def4e1, Market impl 0xa0919572e872abc038226ffd13823f6418833bac, MinterAmm impl 0x45341d48d32645d4d5c22f96cb178cf4ecde0a4e (Opyn-Simplified fork, source via etherscan). 12 MinterAmm proxies from AmmCreated logs (blocks 11.27M-12.83M, all 2021). Confirmed: eth_getCode non-0x on both proxies; vault collateralToken()=USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48, state()=2 (CLOSED; vault USDC balance 2002 raw = 0.002 USDC dust). No function pays a stranger: Market.mintOptions/exerciseOption/claimCollateral/closePosition only pay msg.sender for his own position; exercise/close/claim fees go to the market owner; MinterAmm.claimAllExpiredTokens/claimExpiredTokens are anyone-callable but transfer value to the AMM (its LPs), caller keeps 0 (eth_call from 0x...dEaD succeeds, no role revert); settlement reads Chainlink latestRoundData directly, so no oracle keeper either."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-detrade",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 52,
+ "chain": "base",
+ "slug": "detrade",
+ "name": "DeTrade",
+ "category": "Risk Curators",
+ "tvl_usd": 734364,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 52,
+ "run_id": "a885ece00ee04fd39370ab6d5db9e429",
+ "result": {
+  "verdict": "role_gated",
+  "line": "DeTrade = 4 Lagoon v0.5 ERC-7540 vaults on base (impl 0xe50554ec, version()='v0.5.0'); settleDeposit/settleRedeem onlySafe, updateNewTotalAssets onlyValuationManager - all revert from fresh EOA (OnlySafe 0xfde82f1f(0xc68353..), OnlyValuationManager 0x14c9222d); 7d (blocks 55.49M-58.52M) only 9 txs / 27 logs across the 4 vaults (applefarm 0, control OK), callers are the curator EOA 0x5904bfe5 + its Safes and 2 depositing users; caller reward $0 vs gas $0.002-0.004/tx (6-7.86 gwei, ETH $1835.98 coins.llama.fi)",
+  "kb": [
+   "attempts:1600",
+   "protocols:306"
+  ],
+  "run_id": "a885ece00ee04fd39370ab6d5db9e429",
+  "at": 1794894317
+ }
+}

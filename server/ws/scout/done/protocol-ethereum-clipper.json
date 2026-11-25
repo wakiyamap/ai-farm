@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-clipper",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "clipper",
+ "name": "Clipper",
+ "category": "Dexs",
+ "tvl_usd": 453074,
+ "url": "",
+ "github": [
+  "shipyard-software"
+ ],
+ "listed_days_ago": null,
+ "run_id": "bec90c84e6734e61b0ef2cc11b024ec5",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no one-callable pays-the-caller function: ClipperPool 0xe829 + Exchange 0x2e9c verified source (nTokens()=4), public externals are only swaps and MM self-withdraw, everything else onlyOwner/deposit/exchange-gated; 0 txs on both in last 7 d (last exchange tx 2024-07-25), pool holds ~81.2k USD stables of 242k ETH TVL, api.clipper.exchange NXDOMAIN, deadUrl true",
+  "kb": [
+   "attempts:3508",
+   "protocols:1776"
+  ],
+  "run_id": "bec90c84e6734e61b0ef2cc11b024ec5",
+  "at": 1795302136
+ }
+}

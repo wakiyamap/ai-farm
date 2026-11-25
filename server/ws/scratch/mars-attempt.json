@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-mars-ecosystem",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. MasterChef-style farms (LiquidityMiningMaster 0xc7B8285a9E099e8c21CA5516D23348D8dBADdE4a, MarsFarmV2 0xb7881F5142245531C3fB938a37b5D2489EFd2C01) on a UniV2 DEX: deposit(pid,0)/updatePool/massUpdatePools are callable by anyone (eth_call from fresh address, no role revert) but a harvest pays the caller only his own accrued stake rewards - a stranger with no stake is paid 0. Zero events from both farms over 80k/40k blocks sampled across 7 days (control WBNB 6938 logs in 500 blk): protocol is dormant, nothing was paid to anyone in the last 7 days.",
+  "numbers": "poolLength=11; XMS (0x7859b01bbf675d67da8cd128a50d155cd881b576, 18 dec, $0.0002052 llama) pots 28.30M (~$5.8k) LMM + 5.55M (~$1.1k) FarmV2; deposit(0,0) estimateGas 44,891 @0.05 gwei x $586.90 BNB = $0.0013; events LMM 0/16x5000blk, FarmV2 0/8x5000blk of 1.34M blk/7d (head 134550582, 0.45 s blocks); TVL $214k llama. eth_getCode/eth_call/eth_getLogs via relay scout lane bsc 2026-11-19."
+}

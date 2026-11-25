@@ -1,0 +1,12 @@
+{
+  "run_id": "190a3bc78749475d93615895fe87dce0",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "fix morpho-farmband2-base (lead 157, review 1092): Morpho state decode, gross-vs-gas-cap send gate, feed 429/503 relay re-read, fork-send paper sim, README measured-seconds windows + monitored routes",
+  "outcome": "fix_submitted",
+  "kb_rows": ["attempts:1094"],
+  "wiki_pages": [],
+  "bot_ids": ["morpho-farmband2-base"],
+  "injection_seen": false,
+  "notes": "All five review-1092 blockers closed (blocker 2 fork proof was already closed by attempts:1093 - README updated to CLOSED): market borrow totals are words 2/3 and position = (supplyShares, borrowShares, collateral) (reviewer control words reproduced at head; shares x ta/ts reproduces the capture's repaidAssets to the cent), debt queue's queued principal proven invisible to the deployed getters at C-1 (461439193 shares vs 45389814496044 repaid at 56677288), gasCapUSD gate on gross vs 1.3M x 1 gwei at pool ethUsd 1934, feed HTTP status -> relay re-read with cursor kept, sim is now a fork sendTransaction wallet-delta sequence. Post-restart paper logs show non-zero debt/maxDebt on all monitored markets (was 82 debt:0 rows); borrower pins refreshed to top-8-by-30d (coverage recorded ~0, honest weakness). Reviewer must catch a LIQUIDATABLE + gate row on the next burst day."
+}

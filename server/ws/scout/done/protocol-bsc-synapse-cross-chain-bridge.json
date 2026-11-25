@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-synapse-cross-chain-bridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "synapse-cross-chain-bridge",
+ "name": "Synapse Cross Chain Bridge",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 90799,
+ "url": "https://synapseprotocol.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "6db22961d4ca4364834ea0e21b048030",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bridge 0xd123...749f (impl SynapseBridge 0x5b00..005b): mint/withdraw/mintAndSwap/withdrawAndRemove need NODEGROUP_ROLE (fresh-address eth_call reverts 'Caller is not a node group', member count 1 = 0x5ba0..05ba); setChainGasAmount hardcoded revert, fees->governance; 7 d (blocks 133957960 2026-11-16 .. 135453584 2026-11-23) = 7 TokenMints only, all by Synapse node EOAs (0x7ddb0773 x3, 0xd0dcacd0 x2, +2) via MetaRouter 0x3ebd570e...; 0 USD gross to a stranger; pool 0x28ec..4D13 is user swaps (1435 txs/7 d), owner-only withdrawAdminFees.",
+  "kb": [
+   "attempts:4156",
+   "protocols:2274"
+  ],
+  "run_id": "6db22961d4ca4364834ea0e21b048030",
+  "at": 1795451191
+ }
+}

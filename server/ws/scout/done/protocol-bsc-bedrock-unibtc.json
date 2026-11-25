@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-bedrock-unibtc",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 748,
+ "chain": "bsc",
+ "slug": "bedrock-unibtc",
+ "name": "Bedrock uniBTC",
+ "category": "Anchor BTC",
+ "tvl_usd": 16025077,
+ "url": "https://app.bedrock.technology/",
+ "github": null,
+ "listed_days_ago": 748,
+ "run_id": "701a9d6ebd304c62947f6d972aabe66a",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Bedrock uniBTC bsc: wrapper, not a reward machine. vault 0x84E5C854A7fF9F49c888d69DECa578D406C26800 + uniBTC 0x6B2a01A5f79dEb4c2f3c0eDa7b01DF456FbD726a (source = Bedrock-Technology/uniBTC, selectors match); anyone-callable mint/burn/batchTransfer pay the caller $0 (user pays BTC at peg); execute OPERATOR_ROLE, withdraw DEFAULT_ADMIN_ROLE; 7d scan (245x5000 eth_getLogs, lower bound): 156 transfers, 16 mints (all via vault), 2 burns (CCT pool), 0 strangers paid; sample mint 0.0001 BTC = $6.51 gross vs $0.019 gas (BTC $64,583, BNB $590.67, coins.llama.fi); control BTCB same shape 5757 logs.",
+  "kb": [
+   "attempts:2071",
+   "protocols:656"
+  ],
+  "run_id": "701a9d6ebd304c62947f6d972aabe66a",
+  "at": 1794992474
+ }
+}

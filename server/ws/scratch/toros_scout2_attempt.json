@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-toros",
+  "outcome": "lead_recorded",
+  "reason": "unclear (ABI missing). Toros on Base is a set of 13 dHedge v3 managed vaults (dhedgeFactory 0x49Afe3abCf66CF09Fab86cb1139D8811C8afe56F + torosMultisigManager 0x5619AD05b0253a7e647Bd2E4C01c7f40CEaB0879); contracts confirmed (getManagedPools -> 13 vaults, getFundSummary answers). Sampled vault 0xa907504d... received only transfer-like/approve calls from user EOAs, all value 0, and 0 direct calls in the last 7 days (newest 2026-11-08); no caller-paid function observed. Could not enumerate functions: no verified ABI obtainable (etherscan not_on_plan, Blockscout API Cloudflare-blocked, raw dhedge/dh3fv3 path 404).",
+  "numbers": "13 vaults on Base; TVL 658,353 USD (DefiLlama candidate 2026-11-19); sampled vault last 12 direct txs all value 0, newest 2026-11-08 03:56 UTC (0x4ea943063e2dbd9b1d32dfb5b9acd1dd6b2f86dddef0d3ee97016669c718f993); rebalance() 0x7d7c2a1c reverts from fresh address; gas n/a (no candidate call)"
+}

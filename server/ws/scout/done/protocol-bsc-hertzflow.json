@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-hertzflow",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 77,
+ "chain": "bsc",
+ "slug": "hertzflow",
+ "name": "HertzFlow",
+ "category": "Derivatives",
+ "tvl_usd": 6945304,
+ "url": "https://www.hertzflow.xyz/",
+ "github": null,
+ "listed_days_ago": 77,
+ "run_id": "378e98b7dff84ea6af53cc56eb1e8676",
+ "result": {
+  "verdict": "role_gated",
+  "line": "GMX-V2 perp DEX on BSC: all keeper-exec functions (executeOrder @OrderHandler 0x7e953baa, executeHlvWithdrawal @0xba3a1f76) gated by ORDER/LIQUIDATION/ADL_KEEPER on RoleStore 0x616ee07a (8 admin-granted EOAs, no self-register); fresh eth_call reverts Unauthorized 0xa35b150b; 1063 KeeperExecutionFee events in 7d (blocks 0x7ecf3d4..0x7fdc914) paying 0.2014 BNB = $119 total, median 0.000195 BNB = $0.115/call vs gas $0.089 (BNB $591.06 coins.llama.fi) - pure gas refund to the whitelist",
+  "kb": [
+   "attempts:1624",
+   "protocols:320"
+  ],
+  "run_id": "378e98b7dff84ea6af53cc56eb1e8676",
+  "at": 1794898666
+ }
+}

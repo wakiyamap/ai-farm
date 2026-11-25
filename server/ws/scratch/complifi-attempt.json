@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-complifi",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Public settle only advances vault state and pays no caller; redeem/refund return the caller's own collateral after burning derivative tokens. All 10 factory-listed vaults are already settled, with no emitted events in the last seven days.",
+  "numbers": "10/10 vaults: eth_getCode nonempty and state()=2 at 2026-11-23 22:43 UTC. 7 d window: Ethereum block 26430648 at 2026-11-16 22:41:47 UTC through 26480890 at 2026-11-23 22:41:47 UTC, timestamps via eth_getBlockByNumber. No-topic scan of the 10 addresses across seven pages: 0 logs; same-shape control at USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 in block 26430648: 55 logs. settle(uint256[]) fresh-address eth_call on 0xd4c10158e9b7832e0dd7c121ce9eae0856e7f6d9 reverts Incorrect state. Gross caller reward: 0 USDC, source: CompliFi Vault.sol settle body; gas USD: not applicable because no eligible call."
+}

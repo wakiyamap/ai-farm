@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "9summits",
+  "status": "dead_end",
+  "checked": "Risk curator (DefiLlama 'Risk Curators', $14.2M ETH TVL) running 4 Lagoon ERC7540 vaults on ethereum: 0x03d1ec0d01b659b89a87eabb56e4af5cb6e14bfc (9Summits flagship USDC), 0x07ed467acd4ffd13023046968b0859781cb90d9b (flagship ETH), 0xb09f761cb13baca8ec087ac476647361b6314f98 (Flagship cbBTC), 0xd0c4c9386f7509c44987f43136be7d4349ccddc9 (Flagship EURC). Addresses from 9summits.io homepage links (app.lagoon.finance/vault/1/<addr>); names read on chain via name(); all 4 eth_getCode non-empty; impl LagoonVault v0.6.0 0x6c77c47fb8168e22976c3b0338cb1769c952249f (verified source via explorer, also in repo at src/v0.6.0 and src/v0.2.0). Daily keeper fns settleDeposit(uint256) 0xd24ca58a and expireTotalAssets() 0x927b15df revert from fresh address with OnlySafe(address) 0xfde82f1f (safes: b64bfcd2.. per-vault EURC, 547090eb.. USDC, c868bfb2.. ETH, b65b8cf3.. cbBTC); updateNewTotalAssets(uint256) 0xbcd1bf34 reverts OnlyValuationManager 0x14c9222d (0x9dcbfe1be475f3e3dd1204108b4f5d80ff1e9ddb on all vaults). Fees go to feeReceiver/protocolFeeReceiver, not the caller. No keeper/bounty/reward mechanism in v0.6.0 source. Remaining public fns are ERC7540 user flows (requestDeposit/requestRedeem/claimSharesAndRequestRedeem/redeem/deposit) paying the user, not the caller."
+}

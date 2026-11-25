@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-steakbank-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: every state-changing external function on the staking contract is hard-disabled with require(false, '') in the Sourcify-verified source (impl 0x06f424f8bca18421db31ed9a1eec2c88f8be7180); the rest are onlyAdmin (claimVault, mintLBNB, pause). 0 proxy events in the last 7 days and at 90/180/365/540-day probes; reward and unstake vaults hold 0 BNB. Nothing for a keeper to call, nothing pays.",
+  "numbers": "lbnbMarketCapacityCountByBNB 424.62 BNB (240.8k USD @ BNB 567.10, coins.llama.fi ts 1795151743); 7d proxy logs 0 of 270 x 5000-block windows (133,286,864-134,636,864), BUSD same-shape control 667-3675 logs/window; rebaseLBNBToBNB + batchClaimPendingUnstake(5) eth_call revert empty string from fresh addr; claimVault revert 'only admin is allowed'; stakingRewardVault 0 BNB, unstakeVault 0 BNB"
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "f1f7735b21b447cc9f553566629dc1d6",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-base-722-capital",
+  "outcome": "scouted",
+  "kb_rows": ["protocols:311", "attempts:1612"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Two Lagoon v0.5.x vaults on Base (722Capital-ETH 0xFCE2064B4221C54651B21c868064a23695E78f09, 722Capital-USDC 0xB09F761Cb13baCa8eC087Ac476647361b6314F98, impl 0x45b69691..96d50): settleDeposit/settleRedeem onlySafe, updateNewTotalAssets onlyValuationManager, all revert from a fresh address; no reward function in the 75-function ABI, fees mint to the curator feeReceiver; 7d = 17 logs / 4 txs (blocks 55.50M->58.52M), callers only user 0xe812c091.. and curator EOAs via routers, gross to caller $0; USDC vault totalAssets 21,843 USDC. Same role-gate conclusion as the ethereum lagoon dead_end."
+}

@@ -1,0 +1,317 @@
+#!/usr/bin/env python3
+"""Watchdog: acts without waiting for any LLM. Runs as farmgate.
+
+Every interval:
+  - for every live bot and chain: read balance and nonce
+  - nonce advanced but no matching 'sent' record in signer.log  -> key compromise:
+    halt + stop --all, wake the live-operator
+  - native + USDC balance dropped by more than L since last check -> stop that bot, wake
+  - loss since promotion (pnl.json baselines minus wallet value) > max_live_loss_usd (30)
+                                                                  -> stop that bot, wake (10c)
+    A bot whose manifest sets holding_usd (12d) may keep that much in another asset inside its
+    executor: its lines are L + holding_usd and max_live_loss_usd + holding_usd.
+  - daily realized loss > n                                     -> freeze (gate reads pnl), wake
+  - a bot@ service in failed state                               -> wake
+Wake = `systemctl start agent@live-operator` with the reason written to
+/srv/farm/ws/inbox/live/<ts>-watchdog.md.
+"""
+import datetime as dt
+import json
+import os
+import subprocess
+import sys
+import time
+import urllib.request
+
+sys.path[:0] = ["/opt/farm/pylib", "/opt/farm/lib"]
+import farmkeys  # noqa: E402
+
+CONF = "/etc/farm/gate.json"
+STATE = "/var/lib/farmgate"
+LIVE = "/srv/farm/ws/bots/live"
+INBOX = "/srv/farm/ws/inbox/live"
+# chain ids, native/USD feeds, USDC decimals: /opt/farm/lib/farmchains.py (10b)
+from farmchains import CHAIN_IDS, ETH_USD_FEED, usdc_scale, price_ok  # noqa: E402
+from farmchains import feed_chain  # noqa: E402  (10g: elysium is priced with the feed on hyperevm)
+
+
+def manifest_block(text, key):
+    """Lines of a top-level manifest key (same rules as gate-ctl since 9e): inline lists, block
+    lists and lists of mappings; comments stripped."""
+    out, inside = [], False
+    for raw in text.splitlines():
+        line = raw.split(" #", 1)[0].rstrip() if not raw.lstrip().startswith("#") else ""
+        if not line.strip():
+            continue
+        if not line[0].isspace() and not line.startswith("-"):
+            inside = line.split(":", 1)[0].strip() == key
+            if inside:
+                out.append(line.split(":", 1)[1] if ":" in line else "")
+            continue
+        if inside:
+            out.append(line)
+    return out
+
+
+def manifest_chains(text):
+    vals = []
+    for line in manifest_block(text, "chains"):
+        s = line.strip()
+        if s.startswith("["):
+            vals += [v.strip().strip("'\"") for v in s.strip("[]").split(",") if v.strip()]
+        elif s.startswith("- "):
+            vals.append(s[2:].strip().strip("'\""))
+        elif s and not vals and "," not in s:
+            vals.append(s.strip("'\""))
+    return [c for c in vals if c in CHAIN_IDS]
+
+
+def manifest_holding(text, cap):
+    """`holding_usd` of a live manifest (12d): USD the bot may keep in another asset, inside its
+    executor. Never above `cap` (gate.json max_holding_usd_per_bot; 0 when that key is absent, so
+    without the frame every bot keeps the plain lines). Absent or unreadable = 0."""
+    for raw in text.splitlines():
+        if raw.startswith("holding_usd:"):
+            try:
+                v = float(raw.split(":", 1)[1].split("#", 1)[0].strip().strip("'\""))
+                cap = float(cap)
+            except (ValueError, TypeError):
+                return 0.0
+            return min(v, cap) if v > 0 and cap > 0 else 0.0
+    return 0.0
+
+
+UNREADABLE = set()   # live bots whose manifest names no known chain (reported once)
+READ_FAILED = set()  # (bot, chain) whose reads failed; reported once until they read again (10b)
+LOSS_STOPPED = set()  # bots the live-loss stop has stopped (10c)
+NO_BASELINE = set()   # live bots without a pnl.json baseline: live-loss stop impossible (reported once)
+LOSS_RETRY = {}       # bot -> (tries, monotonic time of the next try) while a live-loss stop is unfinished (10e)
+LOSS_RETRY_S = 600
+
+
+def live_loss_usd(pnl, bot, vals):
+    """Loss since promotion in USD (10c): what the gate funded - pnl.json `baseline` (native wei)
+    and `baseline_usdc` (raw units) per chain, which include later `gate fund` and sweep gas
+    top-ups - minus what the bot wallet holds now, valued at the current native/USD price.
+    `vals` = {chain: (native_wei, usdc_raw, price)}. None when the bot has no baseline. Value the
+    bot keeps outside its wallet (an executor, a vault) counts as lost: conservative on purpose."""
+    base = (pnl.get("baseline") or {}).get(bot)
+    if base is None:
+        return None
+    ubase = (pnl.get("baseline_usdc") or {}).get(bot) or {}
+    loss = 0.0
+    for chain, (bal, usdc, price) in vals.items():
+        loss += (base.get(chain, 0) - bal) / 1e18 * price
+        loss += (ubase.get(chain, 0) - usdc) / usdc_scale(chain)
+    return loss
+
+
+def rpc(url, chain, method, params):
+    body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
+    req = urllib.request.Request(f"{url}/{chain}?lane=live", data=body, headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        out = json.loads(r.read())
+    if "error" in out:
+        raise RuntimeError(out["error"].get("message"))
+    return out["result"]
+
+
+def wake(reason, detail):
+    os.makedirs(INBOX, exist_ok=True)
+    ts = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    with open(f"{INBOX}/{ts}-watchdog.md", "w", encoding="utf-8") as f:
+        f.write(f"# Watchdog: {reason}\n\n{detail}\n")
+    subprocess.run(["sudo", "-n", "/usr/bin/systemctl", "start", "agent@live-operator.service"], check=False)
+    print(f"watchdog: wake live-operator: {reason}", file=sys.stderr)
+
+
+def sent_nonces(bot):
+    seen = set()
+    try:
+        with open(f"{STATE}/signer.log", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                # broadcast_failed: the relay answered with an error or not at all, but the
+                # transaction may have reached the chain; it is still ours, not a stolen key (10e)
+                if r.get("bot") == bot and r.get("decision") in ("sent", "broadcast_failed"):
+                    seen.add((r.get("chain"), r.get("nonce")))
+        with open(f"{STATE}/gate.log", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue
+                # exit_sent / exit / exit_failed: the gate's exitAll() call for a holding bot (12d)
+                if r.get("bot") == bot and r.get("op") in ("sweep", "sweep_usdc", "sweep_usdc_sent", "cancel", "deploy_executor_sent", "deploy_executor", "sweep_failed", "cancel_failed", "exit_sent", "exit", "exit_failed") and r.get("nonce") is not None:
+                    seen.add((r.get("chain"), r.get("nonce")))
+    except OSError:
+        pass
+    return seen
+
+
+def main():
+    with open(CONF, encoding="utf-8") as f:
+        cfg = json.load(f)
+    url, interval = cfg["relay_url"], cfg["watchdog_interval_s"]
+    # 10i: the nonce is read every round; balance, USDC and price every bal_every rounds. With four
+    # live bots the watchdog alone used about 2.1M Alchemy CU a day reading all four every 15 s.
+    bal_every = max(1, round(float(cfg.get("watchdog_balance_interval_s", interval)) / interval))
+    round_no = -1
+    master = farmkeys.load_master()
+    last = {}   # (bot, chain) -> (balance, nonce)
+    woke_for_freeze = False
+    while True:
+        round_no += 1
+        prices = {}                                # (feed chain, feed) -> price, for this round (10i)
+        try:
+            bots = sorted(d for d in os.listdir(LIVE) if os.path.isdir(f"{LIVE}/{d}")) if os.path.isdir(LIVE) else []
+            halted = os.path.exists(f"{STATE}/halt")
+            # LOSS_STOPPED used to keep an id for the life of the process, so a bot promoted again
+            # under the same id was never judged by the live-loss stop (10e)
+            LOSS_STOPPED.intersection_update(bots)
+            for gone in [b for b in LOSS_RETRY if b not in bots]:
+                LOSS_RETRY.pop(gone, None)
+            try:                                   # baselines for the live-loss stop (10c)
+                with open(f"{STATE}/pnl.json", encoding="utf-8") as f:
+                    pnl_now = json.load(f)
+            except (OSError, ValueError):
+                pnl_now = None
+            max_live_loss = float(cfg.get("max_live_loss_usd", 30))
+            for bot in bots:
+                try:
+                    addr = farmkeys.address_of(farmkeys.derive_private_key(master, f"bot:{bot}"))
+                except KeyError:
+                    continue
+                try:
+                    with open(f"{LIVE}/{bot}/manifest.yaml", encoding="utf-8") as f:
+                        mtext = f.read()
+                    chains = manifest_chains(mtext)          # every YAML list style, like the gate (9i)
+                    # 12d: up to holding_usd of this bot's USDC may sit in its executor as another
+                    # asset. Both lines below move up by that much; the asset's price is not watched.
+                    holding = manifest_holding(mtext, cfg.get("max_holding_usd_per_bot", 0))
+                except OSError as exc:
+                    # this used to raise out of the loop: every bot sorted after this directory, and
+                    # the daily-loss check, were skipped on every round (10e)
+                    if bot not in UNREADABLE:
+                        UNREADABLE.add(bot)
+                        print(f"watchdog: {bot}: manifest.yaml unreadable ({exc!r}); this directory is NOT monitored",
+                              file=sys.stderr)
+                    continue
+                if not chains and bot not in UNREADABLE:
+                    UNREADABLE.add(bot)
+                    print(f"watchdog: {bot}: manifest.yaml names no known chain; this bot is NOT monitored", file=sys.stderr)
+                st = subprocess.run(["systemctl", "is-failed", f"bot@{bot}.service"], capture_output=True, text=True, check=False).stdout.strip()
+                if st == "failed":
+                    wake("bot service failed", f"bot: {bot}\n\nSee `paper logs`-style: journalctl -u bot@{bot}")
+                    subprocess.run(["sudo", "-n", "/usr/bin/systemctl", "reset-failed", f"bot@{bot}.service"], check=False)
+                seen_vals, all_read = {}, True      # for the live-loss stop (10c)
+                if bot in LOSS_RETRY and LOSS_RETRY[bot][1] <= time.monotonic():
+                    LOSS_STOPPED.discard(bot)               # the stop did not finish: due again (10e)
+                for chain in chains:
+                    try:
+                        nonce = int(rpc(url, chain, "eth_getTransactionCount", [addr, "latest"]), 16)
+                        prev = last.get((bot, chain))
+                        # A wallet's native balance cannot fall without a transaction of its own, so a
+                        # moved nonce triggers a full read at once; USDC can also be pulled by an
+                        # approved spender, which the periodic read catches (10i).
+                        full = (prev is None or round_no % bal_every == 0 or nonce > prev[1]
+                                or (bot, chain) in READ_FAILED)
+                        if full:
+                            bal = int(rpc(url, chain, "eth_getBalance", [addr, "latest"]), 16)
+                            fkey = (feed_chain(chain), ETH_USD_FEED[chain])
+                            if fkey not in prices:
+                                prices[fkey] = int(rpc(url, fkey[0], "eth_call", [{"to": fkey[1], "data": farmkeys.selector("latestAnswer()")}, "latest"]), 16) / 1e8
+                            price = prices[fkey]
+                            if not price_ok(chain, price):
+                                raise RuntimeError(f"implausible native/USD price {price}")
+                            token = (cfg.get("usdc") or {}).get(chain)
+                            usdc = 0
+                            if token:
+                                r = rpc(url, chain, "eth_call", [{"to": token, "data": farmkeys.encode_call("balanceOf(address)", addr)}, "latest"])
+                                usdc = int(r, 16) if r and r != "0x" else 0
+                        else:
+                            bal, usdc, price = prev[0], prev[2], None
+                    except Exception as exc:              # noqa: BLE001 - keep watching the other chains (10b)
+                        all_read = False
+                        if (bot, chain) not in READ_FAILED:
+                            READ_FAILED.add((bot, chain))
+                            print(f"watchdog: {bot}@{chain}: read failed ({exc!r}); skipping this chain until it reads again",
+                                  file=sys.stderr)
+                        continue
+                    if (bot, chain) in READ_FAILED:
+                        READ_FAILED.discard((bot, chain))
+                        print(f"watchdog: {bot}@{chain}: reading again", file=sys.stderr)
+                    # prev was read above, before the RPC calls (10i)
+                    if prev:
+                        pbal, pnonce, pusdc = prev
+                        if nonce > pnonce and not halted:
+                            known = sent_nonces(bot)
+                            unknown = [n for n in range(pnonce, nonce) if (chain, n) not in known]
+                            if unknown:
+                                subprocess.run(["/opt/farm/bin/gate-ctl", "stop", "--all"], check=False)
+                                wake("UNEXPECTED TRANSACTION: possible key compromise, halted everything",
+                                     f"bot: {bot}\nchain: {chain}\naddress: {addr}\nnonces not signed by the signer: {unknown}")
+                                halted = True
+                        # native + USDC together: principal leaving as USDC and coming back as ETH (or vice
+                        # versa) inside one interval nets out; a real loss shows in the sum
+                        drop_usd = ((pbal - bal) / 1e18 * price + (pusdc - usdc) / usdc_scale(chain)) if full else 0.0
+                        if drop_usd > cfg["max_loss_per_tx_usd"] + holding and not halted:
+                            subprocess.run(["/opt/farm/bin/gate-ctl", "stop", bot], check=False)
+                            wake("bot lost more than L between two balance reads, stopped it",
+                                 f"bot: {bot}\nchain: {chain}\ndrop: {drop_usd:.2f} USD (native + USDC) since the last "
+                                 f"balance read (every {bal_every * interval}s, and whenever the nonce moves)"
+                                 + (f"\nline: L + holding_usd {holding:g}" if holding else ""))
+                    last[(bot, chain)] = (bal, nonce, usdc)
+                    if full:
+                        seen_vals[chain] = (bal, usdc, price)
+                # live-loss stop (10c): the whole loss since promotion, not one interval's drop
+                if chains and all_read and len(seen_vals) == len(chains) and pnl_now is not None and not halted and bot not in LOSS_STOPPED \
+                        and os.path.isdir(f"{LIVE}/{bot}"):
+                    loss = live_loss_usd(pnl_now, bot, seen_vals)
+                    if loss is None:
+                        if bot not in NO_BASELINE:
+                            NO_BASELINE.add(bot)
+                            print(f"watchdog: {bot}: no baseline in pnl.json; the live-loss stop cannot judge it",
+                                  file=sys.stderr)
+                    elif loss > max_live_loss + holding:
+                        LOSS_STOPPED.add(bot)
+                        subprocess.run(["/opt/farm/bin/gate-ctl", "stop", bot], check=False)
+                        # gate stop archives the bot only once its funds are back; while the directory
+                        # is still here the stop is unfinished (service stopped, sweep incomplete) and
+                        # is tried again every LOSS_RETRY_S. It used to be tried exactly once (10e).
+                        done = not os.path.isdir(f"{LIVE}/{bot}")
+                        tries = LOSS_RETRY.get(bot, (0, 0))[0] + 1
+                        if done:
+                            LOSS_RETRY.pop(bot, None)
+                        else:
+                            LOSS_RETRY[bot] = (tries, time.monotonic() + LOSS_RETRY_S)
+                        if done or tries == 1 or tries % 6 == 0:
+                            wake("bot's loss since promotion passed the live-loss stop, "
+                                 + ("stopped it" if done else "its service is stopped but the sweep is NOT finished"),
+                                 f"bot: {bot}\nloss since promotion: {loss:.2f} USD (limit {max_live_loss + holding:.0f} USD"
+                                 + (f" = {max_live_loss:.0f} + holding_usd {holding:g}" if holding else "") + "; "
+                                 f"funded native + USDC minus wallet now, current prices)\nchains: {', '.join(chains)}"
+                                 + ("" if done else f"\n\n`gate stop {bot}` did not finish (try {tries}); the watchdog repeats it "
+                                    f"every {LOSS_RETRY_S // 60} min. See the sweep_failed / stop_incomplete records in gate.log."))
+            # daily loss
+            try:
+                with open(f"{STATE}/pnl.json", encoding="utf-8") as f:
+                    p = json.load(f)
+                loss = -sum(v for v in p.get("realized_usd", {}).values() if v < 0)
+            except (OSError, ValueError):
+                loss = 0.0
+            if loss > cfg["max_daily_loss_usd"] and not woke_for_freeze:
+                wake("daily loss limit reached; promotions frozen", f"realized loss today: {loss:.2f} USD")
+                woke_for_freeze = True
+            if loss <= cfg["max_daily_loss_usd"]:
+                woke_for_freeze = False
+        except Exception as exc:  # keep watching whatever happens
+            print(f"watchdog: {exc!r}", file=sys.stderr)
+        time.sleep(interval)
+
+
+if __name__ == "__main__":
+    main()

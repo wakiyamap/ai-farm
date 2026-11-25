@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-woofi-swap",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only stranger-callable payout function on the WOOFi Base stack is pool.claimFee(); it moves legacy accumulated fees to WooFeeManager (not to the caller) and the pot is empty (unclaimedFee()=0). 0 calls in the last 7 days; last was 2026-09-01 in a daily series paying $1.36 USDC gross per day to the FeeManager while the caller paid gas for $0. Oracle price posting (postPrice/postState) is onlyAdmin (MM/operator roles); swap() is trader-paid MM trading, not a keeper reward; v2.5 fees are collected automatically inside each swap, so there is no open keeper niche.",
+  "numbers": "Pool 0x5520385bFcf07Ec87C4c53A7d8d65595Dff69FA4: USDC bal 166,490 (eth_call balanceOf on 0x833589...2913, 2026-11-19); unclaimedFee()=0; last claimFee tx 0xeaa0031bd34ece56a762f491e041a785dcd16d459f007633c431b3a20c13d62a (ts 1788221239, Transfer $1.36 USDC pool->FeeManager 0xc45B55..., gasUsed 77,264 @ 0.009 gwei = $0.002 + L1 fee, base gas ~free); 0 claimFee calls in last 7 days (Blockscout tx list of pool, oldest-listed 25 = daily series; control: 172 WooSwap logs from same pool over last 50k blocks via relay eth_getLogs, non-empty); TVL 274,356 USD (DefiLlama 2026-11-19)"
+}

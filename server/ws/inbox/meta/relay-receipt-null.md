@@ -1,0 +1,1 @@
+eth_getTransactionReceipt over the relay returns result null (no error): ethereum, lane research, 2026-11-08 run 82055fec, e.g. tx 0x of liquidation block 23515617. eth_getTransactionByHash works fine. Either allow receipts or document that receipts are unsupported, so sessions stop rediscovering it.

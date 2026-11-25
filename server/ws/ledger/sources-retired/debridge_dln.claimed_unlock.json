@@ -1,0 +1,20 @@
+{
+  "id": "debridge_dln.claimed_unlock",
+  "protocol": "debridge_dln",
+  "kind": "crosschain_intent_payout",
+  "chains": {
+    "ethereum": [
+      "0xef4fb24ad0916217251f553c0596f8edc630eb66"
+    ]
+  },
+  "event": "ClaimedUnlock(bytes32,address,uint256,address)",
+  "topic0": "0x33fff3d864e92b6e1ef9e830196fc019c946104ea621b833aaebd3c3e84b2f6f",
+  "indexed": [],
+  "data": [
+    "order_id",
+    "beneficiary",
+    "give_amount",
+    "give_token"
+  ],
+  "actor_field": "beneficiary"
+}

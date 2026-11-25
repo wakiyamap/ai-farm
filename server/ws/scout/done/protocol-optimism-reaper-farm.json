@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-reaper-farm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "reaper-farm",
+ "name": "Reaper Farm",
+ "category": "Yield Aggregator",
+ "tvl_usd": 1123433,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "a8723e660f2d4c0c964a76bf7a6105ce",
+ "result": {
+  "verdict": "unpaid",
+  "line": "harvest() on strategy 0x8702c9a2...b0c0 (Aave USDT Vault 0x61cbcb42...978D8, ReaperVaultv1_4) is permissionless and pays msg.sender 10pct of a 4.5pct USDC fee on OP rewards (totalFee=450, callFee=1000 read on chain), but eth_call from a stranger returns callerFee=0 (strategy OP balance 0), 0 StratHarvest(address) logs chain-wide in 7d (blocks 159,470,460-159,780,460; same-shape control 40 logs), 0 logs of any kind on the sampled strategy in ~120d and 0 on the vault in 7d: zombie vaults, gas ~0.011 USD (0.0105 gwei x 600k est, ETH 1740.31 USD llama ts 1795159821).",
+  "kb": [
+   "attempts:2809"
+  ],
+  "run_id": "a8723e660f2d4c0c964a76bf7a6105ce",
+  "at": 1795160059
+ }
+}

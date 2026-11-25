@@ -1,0 +1,8 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-jaypeggers",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The only jaypeggers contract on ethereum is the JAY bond-curve ERC20 0xda7c0810ce6f8329786160bb3d1734cf6661ca6e; its only non-owner functions (buy(address), sell(uint256), deposit) are trades the caller pays into, not rewards the protocol pays out: callers pay a 10% curve fee plus 3.03% of input to the team FEE_ADDRESS. No claim/reward/harvest/poke/auction function exists; nothing pays a stranger.",
+ "numbers": "TVL = contract ETH balance 76.2975 ETH x $1632.53 (coins.llama.fi ethereum 2026-11-21T09:11Z) = $124.6k vs llama $127.7k. 7d window blocks 26411956 (2026-11-14T08:14Z) to 26462483 (2026-11-21T09:08Z), no-topic eth_getLogs on the contract: 47 logs = 31 Transfer + 16 Price (topic0 0x4afcb4a87cdbd9974efdb92ee48bc8d7cd0ae4bf217004db3d080cbaee652ca7, confirmed against the contract's own logs). Sample of 5 of 16 txs: all EOA traders routed via Blast proxy 0xaa700e1ea7dadb5d426fab0b70f88013c2cd13bc; trade sizes 0.023-0.166 ETH ($38-271); reward to caller $0 (fees are collected, not paid). buy() eth_call from fresh address 0x1111...1111 with 0.01 ETH succeeds (not role-gated). Owner 0xd5d1ee6cb2d70264ffc5307ca456a2bed796782b EOA, last tx block 24180489 (2026-01-07). Source: contracts/JayERC20.sol via explorer source (etherscan). DefiLlama adapter folder absent from main and llamafdas branches.",
+ "bot_id": null
+}

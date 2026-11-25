@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-alpaca-leveraged-yield-farming",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "alpaca-leveraged-yield-farming",
+ "name": "Alpaca Leveraged Yield Farming",
+ "category": "Leveraged Farming",
+ "tvl_usd": 13408969,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "5492fbe55f424c5f977f9cc0014a4e87",
+ "result": {
+  "verdict": "role_gated",
+  "line": "kill(id) on the 9 LYF vaults (ibWBNB 0xd7D0...0063) pays msg.sender killBps=100 (1%) of seized collateral but onlyWhitelistedLiqudators (onlyOwner setter); eth_call kill(0) from a fresh address reverts '!whitelisted liquidator'; 0 Kill events in last 7d and 7-14d (41 getLogs chunks/blocks 134,407,400-134,609,000, control Transfer same shape = 204 logs); TVL 3.2M (10.5M WBNB + 2.6M USDT, api.llama.fi 2026-11-19), BNB 79 implied.",
+  "kb": [
+   "attempts:2714"
+  ],
+  "run_id": "5492fbe55f424c5f977f9cc0014a4e87",
+  "at": 1795138327
+ }
+}

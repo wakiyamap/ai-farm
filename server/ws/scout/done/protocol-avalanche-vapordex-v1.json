@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-vapordex-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1439,
+ "chain": "avalanche",
+ "slug": "vapordex-v1",
+ "name": "VaporDex V1",
+ "category": "Dexs",
+ "tvl_usd": 229689,
+ "url": "https://app.vapordex.io/swap",
+ "github": null,
+ "listed_days_ago": 1439,
+ "run_id": "05fcec660fa6456eb025c90dae57a1b2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "UniV2 fork (Factory 0xC009a670E2B02e21E7e75AE98e254F467f7ae257) + UniV3 fork (Factory 0x62B672E531f8c11391019F6fba0b8B6143504169), TVL 229,689 USD: no pay-the-caller function in the DEX cores; only keeper fns are on the LiquidMiningDiamond 0xAe950fdd0CC79DDE64d3Fffd40fabec3f7ba368B (automatedClaimBatch 0x59dff494, collectBoostFees, collectUnlockFees) - eth_call from fresh address reverts 0x2c52e074 = LAuthorizable__OnlyAuthorized and they pay season users, not the caller; diamond live (2 logs in blocks 0x600BD30-0x600E43F); gas not priced, nothing free-callable",
+  "kb": [
+   "attempts:2361"
+  ],
+  "run_id": "05fcec660fa6456eb025c90dae57a1b2",
+  "at": 1795059938
+ }
+}

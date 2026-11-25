@@ -1,0 +1,6 @@
+{
+ "chain": "optimism",
+ "protocol": "overtime",
+ "status": "dead_end",
+ "checked": "Overtime (Thales) on OP Mainnet. Addresses from DefiLlama adapter projects/thales/constants.js (slug overtime -> module thales). All 5 liquidity pools + 2 SpeedMarkets + 2 managers + staking eth_getCode != 0x: sports USDC 0x0fe1044Fc8C05482102Db14368fE88791E9B8698, WETH 0x4f2822D4e60af7f9F70E7e45BC1941fe3461231e, THALES 0xE59206b08cC96Da0818522C75eE3Fd4EBB7c0A47, OVERTIME 0x59a7A8Ae9d58D69a69b6A24770EC771110647226, digital USDC 0x47Da40be6B617d0199ADF1Ec3550f3875b246124 (impl 0x4107ce78d22c45a408d0993e02b209f075ff1547 = SportsAMMV2LiquidityPool, 0x95e8c849fa22012d88f40180a1524ef31be11a14 = ThalesAMMLiquidityPool via ERC1967 slot). Keeper fns (prepareRoundClosing, processRoundClosingBatch, closeRound, exerciseTicketsReadyToBeExercisedBatch) are permissionless (eth_call from 0x1111..1111 gives state reverts CantCloseRound 0x047766a6 / RoundClosingNotPrepared 0x534d214d; exercise batch returns success) but verified source shows every transfer goes to safeBox, LP users or defaultLiquidityProvider, never msg.sender. Same verdict as arbitrum/base overtime rows. SpeedMarkets expose no keeper fn (resolveMarketWithPrice is oracle-driven)."
+}

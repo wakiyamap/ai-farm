@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "alephium_bridge",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter (projects/alephium-bridge/index.js): TokenBridge proxy 0x579a3bde631c3d8068cbfe3dc45b0f14ec18dd43, implementation 0x0f843945075df4ea9c8a21f0e0ccfd5eb073eeab (BridgeImplementation, Wormhole token-bridge fork, Etherscan-verified). eth_getCode not 0x; chainId() getter = 2. Reward path: public completeTransfer(bytes)/completeTransferAndUnwrapETH(bytes), feeRecipient = msg.sender, pays arbiterFee in the transferred token (USDT 0xdac17f95, USDC 0xa0b86991, bridged ALPH 0x590f820444fa3638e022776752c5eef34e2f89a6; decimals per chain). 7d blocks 26412949 (2026-11-14 11:33) -> 26463205 (2026-11-21 11:33 UTC, Blockscout API method list + receipts): 20 completeTransfer, 0 third-party fee payouts (all 20 single-Transfer receipts = recipient == caller self-claims, fee forced to 0 by code). Dead end: callable by anyone but pays nobody."
+}

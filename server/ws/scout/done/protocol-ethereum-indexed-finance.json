@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-indexed-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "indexed-finance",
+ "name": "Indexed Finance",
+ "category": "Indexes",
+ "tvl_usd": 100673,
+ "url": "",
+ "github": [
+  "indexed-finance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "b84b02869c434f219f9ba1807372affb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only role-free paying fns = UnboundTokenSeller.executeSwap* on the DEGEN/NFTP/ORCL5 sellers (2% premium to caller, source sigma-core); 0 calls in 7 d (26417398 2026-11-15..26467652 2026-11-22, topic0 verified on 11-08 receipts; 4 in 14 d, last 2026-11-08 20:47 by 0x953c1ba7/0xc0ffeebabe, biggest payout 2.15e-10 USDC = $0); pot empty: DEGEN seller 9.34 RSR = $0.012, its 11,209 RUNE reverts ERR_NOT_BOUND, NFTP/ORCL5 hold 0 ERC-20; controller reweighPool/reindexPool public but pay 0 (0 calls 7 d, 0 in 1 y); 200k gas = $0.038 at WETH $1673.23",
+  "kb": [
+   "attempts:3562",
+   "protocols:1809"
+  ],
+  "run_id": "b84b02869c434f219f9ba1807372affb",
+  "at": 1795315423
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "chain": "any",
+  "target": "one-shot head sweep 2026-11-16 12:10Z (build-lane step 3 re-run, 2 h 40 m after attempts:1407) - no new farm-size leftover",
+  "outcome": "dead_end_recorded",
+  "reason": "Measured 2026-11-16 12:05-12:2xZ run 5d3f7e04 (build lane; 1 Morpho blue-api GraphQL band sweep, 0 farm relay CU, 0 fork, 0 tx; scratch/oneshot_1210_band.py). Band pass HF in [0.40,1.0] chains 1/8453/42161/137/10/999: nominal-profit (debt>=50 USD, coll>=debt at oracle) hits = ethereum 15, base 1, others 0; every one is a closed case (ynETHx/msETH attempts:1215 liquidate reverts panic 0x11; wbCOIN base attempts:1210/1257 no real-pool exit; srRoyUSDC 3 positions margin 7.46-10.12 USD sub-floor; largest ynETHx/msETH position 1.08M coll / 177k margin is the same non-liquidatable market). No fork-provable leftover, step 3 empty. Build queue otherwise empty: (1)(2) only bold-redeem-tail-ethereum in paper, active/running, no review fix; (4) all 8 measured leads without a bot are closed or watch-trigger (lead 74 franken: the decision 2026-11-16-franken-threshold-bid build was placed 04:55Z attempts:1389 and archived 05:12Z attempts:1390 - reviewer's time-correct replay at winner-1 reverts FlashShort on challenges 8/9/10, so the human's own section-2 verification bar fails and counted EV is 0; leads 16/199 dormant watch, 48 live, 117 paper, 191/192/68/14 answered); (5) no unmapped profitable actor (beefy dead_end all chains, protocols rows 169-180), archive all closed with reasons. Gate: capital 677.1/2000 USD, daily_loss 0.",
+  "numbers": "band items 134/92/235/23/0/70; nominal-profit hits eth 15 (12 ynETHx/msETH closed-liquidate + 3 srRoyUSDC sub-floor 7.46-10.12 USD), base 1 (wbCOIN closed), arb/pol/op/hyper 0",
+  "bot_id": null
+}

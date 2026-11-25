@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-quickswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1479,
+ "chain": "polygon",
+ "slug": "quickswap-v3",
+ "name": "Quickswap V3",
+ "category": "Dexs",
+ "tvl_usd": 2749381,
+ "url": "https://quickswap.exchange/",
+ "github": null,
+ "listed_days_ago": 1479,
+ "run_id": "0ddfd5e8964044b5ac48a67769f06223",
+ "result": {
+  "verdict": "unpaid",
+  "line": "QuickSwap V3 (Algebra) Polygon TVL $2.75M: factory 0x411b0fAcC3489691f28ad58c47006AF5E3Ab3A28, NPM 'Algebra Positions NFT-V1' 0x8eF88E4c7CfbbaC1C163f7eddd4B578792201de6, FarmingCenter 0x7F281A8cdF66eF5e9db8434Ec6D97acc1bc01E78; claimReward is permissionless but pays the caller's OWN accrued farm balance \u2014 eth_call from fresh address = 0; collectRewards gated by NFT owner/approved; last ~20 FarmingCenter txs (explorer, Oct 19\u2013Nov 19): only position owners claiming own rewards (mostly 0xd285cb63), no stranger paid; gas ~$0.0005 (284.8 gwei, POL $0.0826 llama).",
+  "kb": [
+   "attempts:2399"
+  ],
+  "run_id": "0ddfd5e8964044b5ac48a67769f06223",
+  "at": 1795066424
+ }
+}

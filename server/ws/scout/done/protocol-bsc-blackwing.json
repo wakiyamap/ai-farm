@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-blackwing",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 960,
+ "chain": "bsc",
+ "slug": "blackwing",
+ "name": "Blackwing",
+ "category": "Farm",
+ "tvl_usd": 205807,
+ "url": "https://blackwing.fi/",
+ "github": null,
+ "listed_days_ago": 960,
+ "run_id": "f2afd4abed664bf6ba131874fafd2e43",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BSC = one bridge/launch vault: proxy 0xD00789260984160a64DcF19A03896DfF73BF4514 -> logic 0xc6aDE8A6...dD09 (bytecode identical to verified BlackwingVault 0xa922 on arbitrum, source launch_vault/vault.sol). Of ~14 external fns only deposit/withdraw are stranger-callable and move only the caller's own funds (pay 0); all yield/admin fns OWNER_ROLE; no reward/bounty/claim fn exists. Legacy Binance-Peg USDT/WBNB now 0-code on bsc, vault assets unregistered (eth_call revert '3'). 7d event count unmeasured: bsc eth_getLogs failed all lanes today.",
+  "kb": [
+   "attempts:2189"
+  ],
+  "run_id": "f2afd4abed664bf6ba131874fafd2e43",
+  "at": 1795019307
+ }
+}

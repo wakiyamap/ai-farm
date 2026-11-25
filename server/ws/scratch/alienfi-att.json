@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-alienfi",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: UniV2-fork DEX + MasterChefV2 farm on Arbitrum whose only permissionless functions (updatePool, massUpdatePools, deposit/withdraw) pay a stranger 0: updatePool mints ALIEN to devaddr+contract only, deposit/withdraw settle only the caller's own accrued rewards. 0 MasterChef events in the last 7 days (nobody even harvests); website dead, last farm interaction months ago. Same pattern as AlienBase V2/V3.",
+  "numbers": "Window 7d: blocks 524654372 (2026-11-16) to 526710899 (2026-11-23). MasterChef 0xCf8D01c1a20dabcC025368607020473cCb119F5C eth_getLogs no-topic filter = 0 logs; control same shape on LP 0xE145A5710Be68C3C9C50c5288909E813c5e92F4e = 28 logs (14 Swap+14 Sync). eth_call from 0x1111..1111: updatePool(0)/massUpdatePools()/deposit(0,0)/withdraw(0,0) all succeed (not role-gated on regular pools); pendingAlien(0,fresh)=0. poolLength()=26; sampled 11 poolInfo: lastRewardBlock 431,835,061 or 492,217,648 (months old). alienPerBlock(true)=0x04462fbc7c836280=0.31 ALIEN/block; ALIEN (18 decimals, read on chain) $0.00301217 CoinGecko 2026-11-23. Gross to caller per call: 0 USD. Gas measured: eth_estimateGas updatePool(1)=0x15553=87,379 gas x eth_gasPrice 0x1312d00=0.02 gwei x ETH $1722.56 (coins.llama.fi coingecko:ethereum, 2026-11-23T04:56Z) = ~$0.003/call; gross 0 < gas."
+}

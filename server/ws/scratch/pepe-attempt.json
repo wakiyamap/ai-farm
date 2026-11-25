@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-pepeteam-bridge",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers. PepeTeam Bridge (portal-bridge style): ExecutorV3.execute() is public and bridge releaseTokens() pays gaslessReward to tx.origin; 9 distinct submitters claimed 38 releases in 7d, stranger 0x953c1ba7 netted +3.88 USD on one bundled tx. Pool is tiny: ~1.06 USD/day total, official relayer 0xa0443132 takes 26/38, and solo stranger calls usually gross below gas - only multi-release bundles clear gas. Signature comes from the bridge operator, so claims arrive only when users bridge.",
+ "numbers": "7d blocks 26414080 (2026-11-14) to 26464324 (2026-11-21), eth_getLogs topic0 from source confirmed by no-topic scan: 43 Executed, 38 ReleaseTokens (32 ERC20 0x0de7b091.. + 6 coin 0x88226032..), 18 LockTokens. All 38 releases had gaslessReward>0; 31 caller!=recipient. 7d pool 3.316 USDT + 0.002442 ETH = 7.42 USD (ETH 1682.263, USDT 0.9983, coins.llama.fi 2026-11-21T15:25Z). Sample of 5 calls: 0x5586af55 (0x953c1ba7, 3 releases via Multicall3) gross 3.95 gas 0.07 net +3.88; 0xbbb9e623 (relayer) 0.498/0.408; 0x306e96e4 (relayer) 0.349/0.286; 0xc7b9bc00 (0x03d1ecc0) 0.031/0.117; 0xbe43df33 (0xe335ac8a) 0.015/0.037 (gas = gasUsed x effGasPrice x ETH price, receipts). Bridges: 0x882260324AD5A87bF5007904B4A8EF87023c856A, 0x0de7b091A21BD439bdB2DfbB63146D9cEa21Ea83, executor 0xa106a0e6bdd7aad579c55b7a64956fe274d649db (eth_getCode non-0x, getters answered). transferFee() callable by anyone but pays feeRecipient, not caller."
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-mitosis",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Mitosis on BSC is two ERC4626 EOL vaults (USDT 117,224 USDT, WBNB 1,410.78 WBNB, ~0.95M USD total) sharing impl 0xbede309b2b9f650becb8d295ddcc2e5e2de1e9f2, plus a redeem queue 0xa267fd137c5d9b5445d58be6c91447613b05ef33 (3-day reclaim period, 888 pending withdrawals per queueInfo). Full selector survey of both implementations (56 + 35 selectors, resolved via 4byte) shows only user-initiated principal moves (deposit/mint/withdraw/redeem/request/claim/sync) and role-managed admin: no reward, bounty, keeper, harvest or epoch function that pays a stranger. eth_call claim(stranger,USDT) reverts with an asset-level custom error (no pending request), not a role gate, but claim delivers the requesting user's own withdrawal and pays the caller nothing. Yield accrues in share price.",
+ "numbers": "USDT vault totalAssets 117,224.67 (eth_call 0x01e1d114 @ block 134,329,807); WBNB vault 1,410.78; queue queueInfo(USDT vault) = enabled, reclaimPeriod 259200 s, counters 49098/49101, pending 888; 7-day event counts unavailable: scout lane CU 304,994/300,000 and bsc public nodes refuse eth_getLogs (all providers failed: public: limit exceeded); bscscan etherscan not_on_plan"
+}

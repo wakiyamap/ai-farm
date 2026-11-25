@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-saturn",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Saturn's ethereum contracts (USDat, sUSDat, WithdrawalQueue, STRConModule) pay yield/fees to fixed protocol addresses, never to the caller. The one claim path USDat.claimYield() mints to a fixed yieldRecipient and reverts AccessControlUnauthorizedAccount(YIELD_RECIPIENT_MANAGER_ROLE) from a stranger; sUSDat.sweep() is anyone-callable but transfers nothing (accounting tick, 0 events in 7d); claimMYield() always reverts AssetNotAllowed(M) post PYUSDx migration. No stranger was paid in the last 7 days.",
+  "numbers": "claimYield 1 successful call in 7d: tx 0xd5dc2c93909c2203b11f66f9dcebe6712146a97601fca7b67e34c2196c7a14f7 (block 26453355, from keeper 0x09d6e34ce24d54890ff0bc6a090b5f880f8c729f) paid 61,678.48 USDat (0xe5c52f32f, 6dec read on USDat) = $61,590 (coins.llama.fi USDat $0.9986, ts 1795186378) to yieldRecipient 0x3dc0aa75..., gas 91,193 = $1.16 (eth_gasPrice 7.585 gwei 15:22Z, ETH $1679 coins.llama.fi); caller paid that gas and received 0. sUSDat 7d no-topic log scan blocks 26406749-26457405: 1999 logs (cap), SurplusSwept(uint256) topic0 0x130c3c70... = 0; only user ops (28 ERC7540-style Deposits, 1 AssetSold rotation). Sample 1 of 1 claim event; counts from single eth_getLogs queries."
+}

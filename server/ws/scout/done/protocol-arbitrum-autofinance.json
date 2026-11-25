@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-autofinance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "autofinance",
+ "name": "AUTOfinance",
+ "category": "Yield",
+ "tvl_usd": 515121,
+ "url": "https://www.auto.finance",
+ "github": [
+  "Tokemak"
+ ],
+ "listed_days_ago": null,
+ "run_id": "120c15b8823246ab9fdee374e01c3aaa",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Tokemak AutoPilot, 1 vault 0xf63b7f49b4f5dc5d0e7e583cfd79dc64e646320c (USDC, TVL 515k USD): updateDebtReporting (role AUTO_POOL_UPDATE_DEBT_REPORTING_ROLE) called 8x/7d by whitelisted EOA 0x1a65e4844a3af0f1733ee9e1a474dc7db3c396a3, pays caller 0 USD (rewards claimed to vault), gas ~960k/call ~0.034 USD (0.02 gwei, ETH 1781.77 llama ts 1795113913); flashRebalance (SOLVER) 0 calls/7d; fresh-addr eth_call reverts AccessDenied 0x4ca88867",
+  "kb": [
+   "attempts:2607",
+   "protocols:1084"
+  ],
+  "run_id": "120c15b8823246ab9fdee374e01c3aaa",
+  "at": 1795114179
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hyperliquid-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found: Hyperliquid Bridge ($5.62B per candidate) has no contract on hyperevm. Its only contract is Bridge2 0x2Df1c51E09aECF9cacB7bc98cB1742757f163dF7 on ARBITRUM (DefiLlama bridges-server adapter, arbitrum-only; eth_getCode 0x on hyperevm, non-0x on arbitrum same run). Bridging between HyperCore and HyperEVM is native (system address 0x20..token_index EOA-like, 0x2222..2 bare receive() for HYPE, CoreWriter 0x3333..3333 sendRawAction(bytes)) and validator-executed: no function anyone can call for a reward; the $1 external-withdrawal fee is collected by the protocol and paid out on the HyperCore side, not as an EVM bounty. Same pattern as hyperliquid_hlp / hyperliquid_spot_orderbook / hyperliquid_earn (HyperCore-native mechanism behind the farm's hyperevm chain key).",
+  "numbers": "TVL 2026-11-18 api.llama.fi/protocol/hyperliquid-bridge: Hyperliquid L1 $5,586,994,458 + Arbitrum $80,262,769. hyperevm eth_getCode: 0x2Df1...3dF7 = 0x; 0x2222...2 = non-0x (receive-only); 0x2000...0001 = 0x; 0x3333...3333 = non-0x single selector 0x17938e13 sendRawAction(bytes). No callable reward function => no 7-day counts applicable."
+}

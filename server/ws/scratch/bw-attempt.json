@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-blackwing",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Blackwing's Arbitrum footprint is one deposit vault (proxy 0xc6aDE8A68026d582AB37B879D188caF7e405dD09) whose only permissionless functions are deposit/withdraw of the caller's own assets; everything else is OWNER_ROLE/VAULT_ROLE gated and the pools' deployer is BlackwingNoopDeployer (deploy/remove revert, totalDeployedAmount=0). The protocol pays no on-chain reward to callers - yield/airdrop (BXP) is off-chain and pending mainnet.",
+  "numbers": "7d blocks 523021095-525441095: 161 BalanceChange events on the vault, 0 deposits (eth_getLogs, topic0 0xd34c461d783a9885b01b2fa71160857f48963a0ed4514e902adbda302ea80100). Sample withdraw 0x873c9c06...: gasUsed 115458, effGasPrice 0.02185 gwei = $0.0045 gas at ETH $1767.77 (coins.llama.fi, 2026-11-18); reward paid to caller $0. TVL $355,808 (DefiLlama candidate record)."
+}

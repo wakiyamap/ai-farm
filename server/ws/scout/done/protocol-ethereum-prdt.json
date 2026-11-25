@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-prdt",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1491,
+ "chain": "ethereum",
+ "slug": "prdt",
+ "name": "PRDT",
+ "category": "Prediction Market",
+ "tvl_usd": 251265,
+ "url": "https://prdt.finance",
+ "github": null,
+ "listed_days_ago": 1491,
+ "run_id": "38fdbe66d3ee4a07881840a936b31170",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: PRDT ethereum = 2 custodial ProBalance vaults + Safe (0x792b18ec, 0x062EB983, 0xd9632d09); all payouts onlyOperator/onlyOwner, both PRDT EOAs (fresh-address eth_call: sendBalance reverts 'op', sendBalanceAmount OwnableUnauthorizedAccount); open fns are deposits paying 0; 7d (blocks 26414515->2026-11-21): 7 deposit events on 0x792b (no-topic scan), 8 operator sendBalance payouts (last-20 txs sample), 0x062E dormant 0 logs (control 7); balances 133.12 ETH Safe + 2.29 ETH + 10,285 USDT/USDC ~ 238k USD (llama ETH 1682.59 @1795279799).",
+  "kb": [
+   "attempts:3398"
+  ],
+  "run_id": "38fdbe66d3ee4a07881840a936b31170",
+  "at": 1795280030
+ }
+}

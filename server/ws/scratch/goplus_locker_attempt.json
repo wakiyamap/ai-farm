@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-goplus-locker-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only value-moving claim function is unlock(lockId), gated by the validLockOwner modifier: eth_call from a fresh address reverts 'Not lock owner'. It transfers the owner's own locked deposit to the owner (last OnUnlock tx.from == recipient owner 0xdb90a3b8...31b5a), so a stranger/bot is never paid. lock* fns are user deposits that pay a fee to a fixed feeReceiver (0x521faa...2fd6), not to the caller. No keeper-bounty/reward function exists.",
+  "numbers": "0 locker events in last 7d (getLogs fromBlock 55,889,935 = latest 58,913,935 - 3,024,000 @ 0.2s/block; control = 103 lifetime logs: 55 OnLock, 38 OnUnlock, 3 OnLockVested, so query shape valid). Last OnUnlock block 50,998,104 (~7.9M blocks / >7d before latest). unlock gas ~132,668 x gasPrice 0x5b8d80=0.006 gwei x ETH $1804.92 (coins.llama.fi) = ~$0.0014/call; gross to a stranger = $0 (owner self-claim). Source: eth_getLogs / eth_call / eth_getTransactionReceipt on 0xF17A08A7d41F53B24AD07Eb322CBBdA2ebdeC04b."
+}

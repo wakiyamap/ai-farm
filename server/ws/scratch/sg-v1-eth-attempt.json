@@ -1,0 +1,8 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-stargate-v1",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: the Stargate V1 Router 0x8731d54E9D02c286767d56ac03e8037C07e01e98 on ethereum has byte-identical code to the audited Arbitrum router (protocols:1005): every value-moving fn is onlyBridge/onlyRouter/fee-owner, and the anyone-can-call entry points (swap, redeemRemote, redeemLocal, instantRedeemLocal, sendCredits, retryRevert, clearCachedSwap, callDelta) pay the user or a _to recipient argument their own funds, $0 to msg.sender. The router is also idle: 0 events in the last 7 days, so no stranger was paid either.",
+ "numbers": "7d window blocks 26415525 (2026-11-14T20:10Z) -> 26465780 (2026-11-21T20:10Z) found from eth_getBlockByNumber timestamps: router no-topic eth_getLogs = 0 logs (gross to caller 0 USD, nothing to gas). Control same shape 35d (0x18d5d3a->0x193d5f4) = 39 logs; topic0 from those receipts: RedeemLocalCallback 0xc7379a02e530fbd0.. x22, RevertRedeemLocal 0x6ace246fa15cf1d5.. x17. Last router event block 26287845 = 2026-10-31T02:55Z. factory() -> Factory 0x06d538690af257da524f25d0cd52fd85b1c2173e, allPoolsLength()=13 (all 13 pool token() read). eth_call callDelta(0,true) from fresh 0x1111..1111 reverts empty 0x (Pool._delta state, Router fn unmodified). Router runtime bytecode identical to arbitrum 0x53Bf833A5d6c4ddA888F69c22C88C9f356a41614 (41824 chars, eth_getCode both chains). Ethereum TVL 1,721,677 USD (api.llama.fi/protocol/stargate-v1 currentChainTvls, 2026-11-21 ~20:05Z).",
+ "bot_id": null
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-hunny-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "hunny-finance",
+ "name": "Hunny Finance",
+ "category": "Yield",
+ "tvl_usd": 60416,
+ "url": "",
+ "github": [
+  "HunnyFinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "9738d1165cfa4a39a296fec53398c33b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: getReward() callable by anyone pays msg.sender's own earned (0 for a stranger); harvest() reverts 'owner or keeper' on most vaults, pays 0 where callable; 0 logs on 16 vault contracts in 7d (blocks 133,942,456-135,687,818, no-topic scan; control same shape 22 logs/16mo, last 2026-11-02); TVL 62,296 USD, gas 0.007 USD/call",
+  "kb": [
+   "attempts:4143",
+   "protocols:2264"
+  ],
+  "run_id": "9738d1165cfa4a39a296fec53398c33b",
+  "at": 1795448128
+ }
+}

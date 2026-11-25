@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-pendle-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: gaugeController.redeemMarketReward() is callable by anyone (eth_call from a fresh address returns 0x, no role revert) but the source pays accumulatedPendle[msg.sender], so a stranger gets 0; the gauge path is live but all 39 claims in 7 days were stakers' own pool yield routed through their own staking calls. Merkle distributor claims are self-claims (3 in 7 d). Same code map as arbitrum/base/bsc pendle_v2 dead ends - no keeper/bounty function in the 999 deployment.",
+  "numbers": "39 MarketClaimReward / 7 d (blocks 51114722-51747661, single eth_getLogs); 98.376 PENDLE = 132.37 USD total, avg 3.39 USD/call gross (PENDLE 1.34549 USD, coins.llama.fi ts 1795156024); 3 PLP markets (limUSD-26NOV2026 25, kHYPE-25MAR2027 9, stHYPE-28JAN2027 5); 5 sample callers = 5 distinct EOAs via router 0x8888...; ERD: 3 Claimed /7 d all user==receiver, 31.55 USD0 total (0xb8ce59fc, 6 dec); gas 0.1 gwei (eth_gasPrice 0x5f5e100), HYPE 65.63 USD: staking tx 370,124 gas @0.3987 gwei = 0.0097 USD, bare redeemMarketReward < 0.001 USD; TVL 7,997,726 USD (api.llama.fi 2026-11-20)"
+}

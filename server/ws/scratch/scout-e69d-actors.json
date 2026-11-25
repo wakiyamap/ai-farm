@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "address": "0x0000000000be226afde21672a5e4adc45692e69d",
+ "strategy": "UniswapX dutch-order filler run as an EIP-7702 vanity smart wallet (delegation 0x99110bf715f2f05d0e6df037c06e9cff0b6a20a1, caller-whitelisted): relayer EOA 0x00000000005a07151ea1d4421aa1bd87946f4bb6 calls the wallet directly, wallet does approve -> reactor 0x00000000a55e50c71b70db3c8b58749cd1e18eb2 0x0d335884 executeWithCallback -> 0x585da628 swap callback via helper 7702 wallet 0x00000000008b28947753a8e8aea9933d2298eda6 (V3 pool 0x238a358808379702088667322f80ac48bad5e6c4) -> WBNB withdraw -> pays 0.0016-0.0044 BNB to fee EOAs; inventory-holding desk, not own-funds user. Same RFQ-desk class as lead 166 data points 1-3.",
+ "est_profit_usd_day": 0.1,
+ "evidence": "0xfeae756114eae981111e29adfe65ac10004994f809552808ccac91b2c6cd9169 (133375091, gasUsed 2066979 @ 0.05 gwei = $0.061, debug_traceTransaction callTracer), 0xb31a17698121e0b847a1776f21c3a5ad2f96c00b456298f7f978f33bb7d524fd (133341676, 446656 gas = $0.013); ledger uniswapx.fill coverage 2026-11-06..15 (cursor verified at head): 2 fills, both 2026-11-13 (0.2/day); chain head 134229247, BNB $591.43 coins.llama.fi 2026-11-18. Context: 2 fills/10 covered days vs ~1600 fills by 20 desks in the same window (top 536/10d); per-fill margin not decoded (Fill data word ambiguous), 0.1 USD/day est = 0.2 fills/day x ~$0.7 gross at the class skim of 28-40 bps (lead 166 dp2) on ~$2-3k notionals, gas ~$0.007/day; lifetime EOA nonce 404540 (mostly pre-delegation history), balance 0 BNB."
+}

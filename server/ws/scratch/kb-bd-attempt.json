@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "protocol-base-base-dollar",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Base Dollar is a Liquity-V1-style CDP fork on Base (TVL ~$100k). The two public reward paths are registry.redeemCollateral (redeemer captures the BOLD-collateral discount) and TroveManager.batchLiquidateTroves (caller gets WETH gas compensation per trove); both callable by anyone (fresh-address eth_call reverts NothingToLiquidate, not a role), but in the last 7 days there were 0 liquidations and 0 redemptions, so no stranger was paid. Redemptions were active through 2026-11-06 (275 txs in the prior 30d window, ~$77k redeemed per sampled tx) and then stopped; liquidations: 0 in 30d.",
+  "numbers": "7d window blocks 55531681..58555681 (ts 2026-11-10 07:45 .. 2026-11-17 07:45, eth_getLogs on 5 TMs+registry): Liquidation 0, Redemption 0, 20 raw logs total (control same query shape, so 0 is real). 30d from block 50440097: Liquidation 0; Redemption 1004 events / 275 txs, last 2026-11-06 15:46 UTC block 53947956 tx 0xb2c6ce0309f5087b1e8b1dc7227a68b7adedda11d88e23cd9ec316a5d63be908 (from 0xf98d325c...f873 to router 0x0723b9d0f3c450217cd89fcf4535d66af9d10933), events in that tx ~75,233 + 2,216 BOLD across two branches. Gas on Base negligible: last redemption tx gasPrice 0.006 gwei; ETH $1826.5 (coins.llama.fi 2026-11-17) => ~$0.1-0.15 per redemption tx at ~1M gas. No BOLD price quote on coins.llama.fi, so per-call gross margin (the discount) not measured.",
+  "bot_id": null
+}

@@ -1,0 +1,19 @@
+{
+ "id": "actor-arbitrum-0xf697c9ed033f434f061e43d41adfb03035de9e5a",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0xf697c9ed033f434f061e43d41adfb03035de9e5a",
+ "run_id": "4a78f21662df4e0cb33a72332a2dd350",
+ "result": {
+  "verdict": "no_reward",
+  "line": "owner-run executor: EOA 0x16f09eaaca9514c59c85e3798088fbff835dfe99 calls its bf6d6312() 12x/7d (1.7/day), each tx flash-borrows 10 WETH from Morpho Blue (repaid same tx, 0 fee) and rebalances a ~17-token basket from 0x95e337c5 via Uniswap v3/v4; executor nets exactly 0 (all ERC20 in=out, ETH 0 before/after), EOA pays gas ~9.7M gas = 0.00034 ETH = ~bash.62 (ETH 823.99 coins.llama.fi); own funds, not a paid job",
+  "kb": [
+   "actors:180",
+   "attempts:1506"
+  ],
+  "run_id": "4a78f21662df4e0cb33a72332a2dd350",
+  "at": 1794871832
+ }
+}

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Agent-facing wrapper: runs gate-ctl as farmgate via sudo (sudoers allows only this).
+set -euo pipefail
+exec sudo -n -u farmgate FARM_ROLE="${FARM_ROLE:-?}" FARM_RUN_ID="${FARM_RUN_ID:-?}" /opt/farm/bin/gate-ctl "$@"

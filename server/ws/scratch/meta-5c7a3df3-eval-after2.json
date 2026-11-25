@@ -1,0 +1,599 @@
+[
+ {
+  "q": "relay getLogs response too large dense logs base",
+  "page": "infra/base-relay-dense-logs.md",
+  "rank": 1,
+  "got": [
+   "infra/base-relay-dense-logs.md",
+   "pitfalls/getlogs-startup-crashloop.md",
+   "infra/reserve-revenue-auctions.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "mechanisms/compound-v3-absorb-ethereum.md"
+  ]
+ },
+ {
+  "q": "cbBTC morpho discovery truncated logs",
+  "page": "infra/base-relay-dense-logs.md",
+  "rank": 1,
+  "got": [
+   "infra/base-relay-dense-logs.md",
+   "pitfalls/getlogs-startup-crashloop.md",
+   "mechanisms/moonwell-base-core-liquidations.md"
+  ]
+ },
+ {
+  "q": "curve pegkeeper reward keeper",
+  "page": "infra/curve-pegkeeper-rewards.md",
+  "rank": 1,
+  "got": [
+   "infra/curve-pegkeeper-rewards.md"
+  ]
+ },
+ {
+  "q": "crvUSD peg keeper update profit",
+  "page": "infra/curve-pegkeeper-rewards.md",
+  "rank": 1,
+  "got": [
+   "infra/curve-pegkeeper-rewards.md"
+  ]
+ },
+ {
+  "q": "base contract addresses selectors",
+  "page": "infra/farm-base-contracts.md",
+  "rank": 1,
+  "got": [
+   "infra/farm-base-contracts.md",
+   "infra/reserve-revenue-auctions.md",
+   "mechanisms/aave-v3-base-measured-abi.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/aave-v3-arbitrum-measured-abi.md"
+  ]
+ },
+ {
+  "q": "which selectors work on base pool oracle",
+  "page": "infra/farm-base-contracts.md",
+  "rank": 1,
+  "got": [
+   "infra/farm-base-contracts.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "methods/aave-v3-catchable-window-probe.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/morpho-oracle-vs-pool-spot-sizing.md"
+  ]
+ },
+ {
+  "q": "catchable window interest bleed oracle update",
+  "page": "methods/aave-v3-catchable-window-probe.md",
+  "rank": 1,
+  "got": [
+   "methods/aave-v3-catchable-window-probe.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "pitfalls/aave-executor-fork-gotchas.md",
+   "pitfalls/aave-activity-window-coverage.md"
+  ]
+ },
+ {
+  "q": "liquidatable at parent block probe",
+  "page": "methods/aave-v3-catchable-window-probe.md",
+  "rank": 1,
+  "got": [
+   "methods/aave-v3-catchable-window-probe.md",
+   "pitfalls/base-blocks-not-seconds-log-data-offset.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/watcher-pretrigger-sim-cooldown.md"
+  ]
+ },
+ {
+  "q": "uniswap v3 amountSpecified sign exact input",
+  "page": "pitfalls/univ3-direct-pool-swap.md",
+  "rank": 2,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/univ3-direct-pool-swap.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/univ3-swaprouter-base-no-exactinput.md",
+   "mechanisms/compound-v3-absorb-ethereum.md"
+  ]
+ },
+ {
+  "q": "pancake swap fork revert transferFrom flash loan allowance",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "infra/reserve-revenue-auctions.md",
+   "pitfalls/univ3-swaprouter-base-no-exactinput.md",
+   "pitfalls/univ3-direct-pool-swap.md",
+   "pitfalls/aave-executor-fork-gotchas.md"
+  ]
+ },
+ {
+  "q": "abi bytes offset calldata too short",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/base-blocks-not-seconds-log-data-offset.md",
+   "infra/farm-base-contracts.md",
+   "pitfalls/paper-review-blockers.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "morpho oracle price scale decimals divisor",
+  "page": "pitfalls/morpho-price-scale-per-market.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/morpho-price-scale-per-market.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "infra/farm-base-contracts.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "mechanisms/aave-v3-base-measured-abi.md"
+  ]
+ },
+ {
+  "q": "WBTC USDC morpho 1e36 price",
+  "page": "pitfalls/morpho-price-scale-per-market.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/morpho-price-scale-per-market.md",
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/moonwell-base-core-liquidations.md"
+  ]
+ },
+ {
+  "q": "bot crash loop startup getLogs max results",
+  "page": "pitfalls/getlogs-startup-crashloop.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/getlogs-startup-crashloop.md",
+   "pitfall/getlogs-startup-crashloop.md",
+   "pitfalls/shared-fork-concurrency.md"
+  ]
+ },
+ {
+  "q": "cursor commit after successful scan backoff heartbeat",
+  "page": "pitfalls/getlogs-startup-crashloop.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/getlogs-startup-crashloop.md",
+   "infra/base-relay-dense-logs.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "fork reset by another session",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "infra/reserve-revenue-auctions.md",
+   "pitfalls/aave-liquidation-cover-dust.md",
+   "pitfalls/executor-fork-gotchas.md"
+  ]
+ },
+ {
+  "q": "fork deploy timeout ethereum anvil",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/univ3-direct-pool-swap.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "fork getStorageAt returns zero no code old block",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "aave executor fork test base gotchas",
+  "page": "pitfalls/aave-executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/aave-executor-fork-gotchas.md",
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/compound-v3-absorb-ethereum.md"
+  ]
+ },
+ {
+  "q": "dormant borrower missed liquidation activity window",
+  "page": "pitfalls/aave-activity-window-coverage.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/aave-activity-window-coverage.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "methods/aave-v3-catchable-window-probe.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "candidate universe eviction cap dormant",
+  "page": "pitfalls/aave-activity-window-coverage.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/aave-activity-window-coverage.md",
+   "methods/aave-v3-catchable-window-probe.md",
+   "pitfalls/base-blocks-not-seconds-log-data-offset.md"
+  ]
+ },
+ {
+  "q": "why paper bot gets fix review blockers",
+  "page": "pitfalls/paper-review-blockers.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "infra/base-relay-dense-logs.md",
+   "mechanisms/compound-v3-absorb-ethereum.md"
+  ]
+ },
+ {
+  "q": "checklist before submitting paper bot",
+  "page": "pitfalls/paper-review-blockers.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "infra/base-relay-dense-logs.md"
+  ]
+ },
+ {
+  "q": "paper mode executor simulation state override immutables",
+  "page": "pitfalls/executor-paper-sim-override.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/shared-fork-concurrency.md",
+   "pitfalls/watcher-pretrigger-sim-cooldown.md"
+  ]
+ },
+ {
+  "q": "compound v3 absorb arbitrum",
+  "page": "mechanisms/compound-v3-absorb-arbitrum.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-arbitrum.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "compound-v3-absorb-arbitrum.md",
+   "pitfalls/univ3-direct-pool-swap.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "compound absorb ethereum buyCollateral",
+  "page": "mechanisms/compound-v3-absorb-ethereum.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "mechanisms/compound-v3-absorb-arbitrum.md",
+   "pitfalls/univ3-direct-pool-swap.md",
+   "pitfalls/ethereum-deprecated-v2-pools.md"
+  ]
+ },
+ {
+  "q": "comet buyCollateral quoteCollateral discount ethereum",
+  "page": "mechanisms/compound-v3-absorb-ethereum.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "mechanisms/compound-v3-absorb-arbitrum.md"
+  ]
+ },
+ {
+  "q": "aave v3 base liquidationCall ABI",
+  "page": "mechanisms/aave-v3-base-measured-abi.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/aave-v3-base-measured-abi.md",
+   "mechanisms/aave-v3-arbitrum-measured-abi.md",
+   "infra/farm-base-contracts.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/aave-liquidation-cover-dust.md"
+  ]
+ },
+ {
+  "q": "aave arbitrum stable debt gas liquidation",
+  "page": "mechanisms/aave-v3-arbitrum-measured-abi.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/aave-v3-arbitrum-measured-abi.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/aave-v3-base-measured-abi.md",
+   "pitfalls/aave-threshold-crossing-arbitrum.md",
+   "pitfalls/aave-executor-fork-gotchas.md"
+  ]
+ },
+ {
+  "q": "L1 data fee operator fee base loss bound",
+  "page": "mechanisms/base-opstack-fee-anatomy.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/aave-v3-base-measured-abi.md",
+   "mechanisms/aave-v3-arbitrum-measured-abi.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "getL1Fee gas price oracle isthmus",
+  "page": "mechanisms/base-opstack-fee-anatomy.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "mechanisms/aave-v3-base-measured-abi.md"
+  ]
+ },
+ {
+  "q": "morpho blue liquidate seizedAssets incentive factor",
+  "page": "mechanisms/morpho-blue-liquidate-math.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "pitfalls/morpho-price-scale-per-market.md",
+   "infra/farm-base-contracts.md",
+   "pitfalls/paper-review-blockers.md",
+   "wiki/morpho-blue-liquidate-math.md"
+  ]
+ },
+ {
+  "q": "morpho liquidation incentive math base",
+  "page": "mechanisms/morpho-blue-liquidate-math.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/morpho-blue-liquidate-math.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/morpho-price-scale-per-market.md",
+   "mechanisms/moonwell-base-core-liquidations.md",
+   "infra/farm-base-contracts.md"
+  ]
+ },
+ {
+  "q": "EIP-1559 RLP encoding long list prefix",
+  "page": "mechanisms/base-opstack-fee-anatomy.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "infra/farm-base-contracts.md"
+  ]
+ },
+ {
+  "q": "zeroForOne direction selling collateral token0",
+  "page": "pitfalls/univ3-direct-pool-swap.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/univ3-direct-pool-swap.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "pitfalls/aave-executor-fork-gotchas.md"
+  ]
+ },
+ {
+  "q": "sqrtPriceLimitX96 SPL revert MIN_SQRT_RATIO",
+  "page": "pitfalls/univ3-direct-pool-swap.md",
+  "rank": 2,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/univ3-direct-pool-swap.md",
+   "pitfalls/watcher-pretrigger-sim-cooldown.md"
+  ]
+ },
+ {
+  "q": "uniswapV3SwapCallback pay pool positive delta",
+  "page": "pitfalls/univ3-direct-pool-swap.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/univ3-direct-pool-swap.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+   "mechanisms/compound-v3-absorb-ethereum.md"
+  ]
+ },
+ {
+  "q": "fork deploy file name too long bytecode",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "infra/reserve-revenue-auctions.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "fork lease generation number measurement invalid",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum.md"
+  ]
+ },
+ {
+  "q": "reset refused leased by another run reviewer cannot reproduce",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "fork send creation no to address no code deployed",
+  "page": "pitfalls/shared-fork-concurrency.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "infra/reserve-revenue-auctions.md"
+  ]
+ },
+ {
+  "q": "aave liquidationCall MustNotLeaveDust revert cover amount",
+  "page": "pitfalls/aave-liquidation-cover-dust.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/aave-liquidation-cover-dust.md",
+   "mechanisms/aave-v3-base-measured-abi.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/aave-activity-window-coverage.md",
+   "pitfalls/aave-threshold-crossing-arbitrum.md"
+  ]
+ },
+ {
+  "q": "ethereum base fee dropped gwei era cliff own-era floor",
+  "page": "infra/ethereum-fee-era-cliff.md",
+  "rank": 1,
+  "got": [
+   "infra/ethereum-fee-era-cliff.md",
+   "infra/reserve-revenue-auctions.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "morpho stale oracle vs uniswap pool spot realized profit sizing",
+  "page": "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/morpho-oracle-vs-pool-spot-sizing.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/executor-fork-gotchas.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/compound-v3-absorb-ethereum.md"
+  ]
+ },
+ {
+  "q": "cast abi-encode missing function selector tx reverts 26k gas",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "infra/reserve-revenue-auctions.md",
+   "mechanisms/base-opstack-fee-anatomy.md",
+   "pitfalls/univ3-swaprouter-base-no-exactinput.md",
+   "pitfalls/executor-paper-sim-override.md"
+  ]
+ },
+ {
+  "q": "USDT approve no return data empty revert executor",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "pitfalls/paper-review-blockers.md",
+   "infra/curve-pegkeeper-rewards.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "bare revert no subcalls low gas fallback dispatch calldata",
+  "page": "pitfalls/executor-fork-gotchas.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-fork-gotchas.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "infra/reserve-revenue-auctions.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/base-opstack-fee-anatomy.md"
+  ]
+ },
+ {
+  "q": "compound v3 absorber buys whole reserve same block residue late buyer",
+  "page": "mechanisms/compound-v3-absorb-ethereum.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "mechanisms/compound-v3-absorb-arbitrum.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/aave-v3-base-measured-abi.md"
+  ]
+ },
+ {
+  "q": "Cv3Sniper fork proof success NO_PROFIT reviewer correction",
+  "page": "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum.md",
+   "pitfalls/executor-fork-gotchas.md"
+  ]
+ },
+ {
+  "q": "moonwell mToken liquidateBorrow seize holder cashless market",
+  "page": "mechanisms/moonwell-base-core-liquidations.md",
+  "rank": 1,
+  "got": [
+   "mechanisms/moonwell-base-core-liquidations.md"
+  ]
+ },
+ {
+  "q": "executor-runtime.hex zero immutable addresses runtime_ok false",
+  "page": "pitfalls/executor-paper-sim-override.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md"
+  ]
+ },
+ {
+  "q": "forge deployedBytecode placeholder immutables paper simulation code override",
+  "page": "pitfalls/executor-paper-sim-override.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ },
+ {
+  "q": "submitted runtime mismatches changed executor source stale",
+  "page": "pitfalls/executor-paper-sim-override.md",
+  "rank": 1,
+  "got": [
+   "pitfalls/executor-paper-sim-override.md",
+   "pitfalls/paper-review-blockers.md",
+   "pitfalls/shared-fork-concurrency.md",
+   "mechanisms/compound-v3-absorb-ethereum-review-log.md"
+  ]
+ }
+]

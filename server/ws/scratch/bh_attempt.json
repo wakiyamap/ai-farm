@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-birch-hill",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only protocol contract on Base is one Morpho Vault V2 (Euler vault-v2 VaultV2) 0xb038cf3e233b78225f6d350ac8319bec8457db4a with a Morpho V1 market adapter; the permissionless callable poke accrueInterest() pays the caller $0 (fee shares go to Birch Hill's own fee wallet) and had 0 calls in the last 7 days. No keeper/bounty function exists; adapter skim() is role-gated (and skimRecipient is 0).",
+  "numbers": "7d eth_getLogs on vault (AccrueInterest/Deposit/Withdraw/ForceDeallocate, fromBlock 0x34e62d4): 0 logs; control same-shape over vault lifetime (from 0x2de99c1): 77 logs = 53 AccrueInterest + 17 Deposit + 6 Withdraw + 1 ForceDeallocate; last event block 53,574,560 ~Nov 4 (lastUpdate 1793809955), i.e. ~12.6 days idle. Sample of 5 most recent accrue txs: callers 0xc8fdeb93601ae568ba8c018e97c57493a42478e4 (EOA keeper, 2 of 5) and 0x1ee99221348030f70b73ccbe3e08dbb1b6be8f3f (old adapter); gross to caller per call $0; fee shares minted per accrue to 0x01ba9955127ef4b010663396eddd2340ecd83786 were ~0.07-2.59 shares (~$0.07-2.59 at share ~1.00 USDC). Gas per accrue tx 295k-362k (receipts) @ gasPrice 0.006 gwei (eth_gasPrice) x ETH $1826.51 (coins.llama.fi coingecko:ethereum 2026-11-17) = ~$0.003-0.007. Vault TVL $341,758 (totalAssets 0x4f7fb0451b/1e6 USDC) vs DefiLlama $341,376."
+}

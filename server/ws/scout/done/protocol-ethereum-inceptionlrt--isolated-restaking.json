@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-inceptionlrt--isolated-restaking",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1023,
+ "chain": "ethereum",
+ "slug": "inceptionlrt-(isolated-restaking)",
+ "name": "InceptionLRT (Isolated Restaking)",
+ "category": "Liquid Restaking",
+ "tvl_usd": 5025654,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1023,
+ "run_id": "4fb56af74160407cbb18c8283e7e3c95",
+ "result": {
+  "verdict": "unpaid",
+  "line": "updateEpoch/claimCompletedWithdrawals callable by anyone (eth_call ok from fresh addr) but source shows they pay the caller 0; inwstETHs impl gates them OnlyOperatorAllowed; 7d (blocks 26412595-26462876): 3 logs total across 17 vaults (all amphrLRT user redeem/approve), 0 Deposit/WithdrawalClaimed/ClaimRedeem; 15 EigenLayer vaults hold ~18.3 ETH (~30k USD) of the 5.03M USD TVL; gas ~0.022 USD/100k (0.1337 gwei x ETH 1634.72).",
+  "kb": [
+   "attempts:3279"
+  ],
+  "run_id": "4fb56af74160407cbb18c8283e7e3c95",
+  "at": 1795257616
+ }
+}

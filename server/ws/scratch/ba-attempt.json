@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-block-analitica",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Block Analitica is a risk curator (Morpho + Summer vaults), not a protocol that pays a stranger caller. Its Base action functions rebalance (onlyKeeper) and reallocate (onlyAllocatorRole) revert for a fresh address; the only public fn tip() mints shares to the tipJar (curator), not the caller, at tipRate 0. No keeper reward to strangers on base.",
+  "numbers": "4 MetaMorpho vaults + HarborCommand 0x09eb323dBFECB43fd746c607A9321dACdfB0140F + 3 FleetCommanders (0x98c49e13..., 0x64db8f51..., 0x2bb9ad69...). rebalance([]) fresh addr -> revert CallerIsNotKeeper 0xa41a3a04; reallocate([]) fresh addr -> revert NotAllocatorRole 0xf7137c0f; tip() fresh addr -> returns 0 (tipRate=0). tipJar=0xad30bc7e40f13d88eda608a5729d28151fcaa374, curator=0x08edebffae68970dcf751baa826182b3a4acfc05. 7d (0x35392b1-0x381b731): 0 Rebalanced, 0 Reallocate; control 460 vault logs/3d, 5 FC logs/3d. Sources: DefiLlama adapter, explorer source (FleetCommander.sol, MetaMorpho.sol), eth_getLogs/eth_call base."
+}

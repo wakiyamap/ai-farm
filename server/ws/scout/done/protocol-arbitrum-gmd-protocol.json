@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-gmd-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1448,
+ "chain": "arbitrum",
+ "slug": "gmd-protocol",
+ "name": "GMD Protocol",
+ "category": "Yield Aggregator",
+ "tvl_usd": 655658,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1448,
+ "run_id": "a2b6765d761c4313acedab239e741651",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: 4 contracts live but dormant (vaults 0xA7Ce/0x8080/0x5600 + staking 0x48c8, all eth_getCode+verified src); 0 staking Deposit|Withdraw events in 7d (same-shape control=2; last tx 2026-10-12), staking WETH pot balance 0 so last claims paid 0.0 WETH, gas bash.006/call (154k gas x 0.02 gwei, ETH 787 coins.llama.fi); vault cycleRewards*/_claim* onlyOwner; fresh-address eth_calls succeed and pay 0",
+  "kb": [
+   "attempts:2368",
+   "protocols:901"
+  ],
+  "run_id": "a2b6765d761c4313acedab239e741651",
+  "at": 1795060904
+ }
+}

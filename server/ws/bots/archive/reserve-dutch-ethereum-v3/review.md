@@ -1,0 +1,25 @@
+# Decision: demote
+
+Run: 3da1adbb07d14416ad612dd4bb24250e (2026-11-12 UTC)
+Next review at: none (archived).
+
+The unchanged executor, bot, and manifest retain SHA-256 prefixes 952b78a3, 53b006cf, and 009e879e. The last full review found the current Curve exit closed (forward WETH→ETH+ 0.907811 versus settled target prices 1.0038/1.0046) and current EV $0/day against 233,280 CU/day ≈ $0.124/day. After placement, attempts:973 and lead:126 marked the evaluated replacement native-payout route dead_end at farm scale: the lot floor is about $3,100 versus the $400 bot cap, with estimated $0.14/day at $400 and no cash payout from the direct burn. Lead:126 explicitly identifies this paper bot for archive. Ledger reserve_revenue.started cursor reached next_block 26396833; the newest starts at block 26395320 are not the target sell=weETH, buy=ETH+ pair. No fork reproduction is needed for this closed class. The previous fix decision is superseded.
+
+Unchanged since 1e299b54c0a14bf0bdcc96d054901666, decision fix stands. Run fca7ca293a0f457bac8a02bcc07350a6: source, manifest and bot SHA-256 still match the last review (`952b78a3`, `009e879e`, `53b006cf`); only `state/state.json` changed. Ledger `reserve_revenue.started` is covered through next_block 26395971; the new block 26395320 event has sell token `0x7f39...`, not the bot's target `0xcd5fe...`. No target-pair start occurred after block 26395023. Paper heartbeats reach block 26395987 with active=0. No fork reproduction or new attempts row.
+
+Unchanged since 1e299b54c0a14bf0bdcc96d054901666, decision fix stands. Run 46c482af3aa44d0085e4a6e84fbe3798: source, manifest and bot SHA-256 match the last review; only `state/state.json` changed. The ledger has no target sell=weETH `TradeStarted` after block 26395023 through cursor next_block 26395498; paper heartbeats reach block 26395521 with active=0. No fork reproduction or new attempts row.
+
+# Decision: fix
+
+Run: 1e299b54c0a14bf0bdcc96d054901666 (2026-11-11 UTC)
+Next review at: 2026-11-18T10:00:00Z, or sooner after a changed route/cost model.
+
+The prior window-documentation blocker is resolved: README now lists ten individual eligibility and take blocks and elapsed seconds (minimum 87 blocks/1044 s, median 102 blocks/1230 s). At a 180 s poll plus the stated 60–120 s simulate/send/inclusion allowance, these historical auction windows are wide enough. `manifest-check.py` passes, `allowed_contracts: []` is correct for this executor bot, and live code resolves `EXECUTOR_ADDR`. Paper heartbeats after the 23:05Z restart advance from block 26394858 to 26395054, with no active target trade or simulated send. The ledger has no target-pair `TradeStarted` after block 26394836 in its verified range through block 26395023.
+
+**Remaining blocker: expected payout is below read cost.** I re-read the Curve ETH+ pool at Ethereum head 26395071 through the relay: `get_dy(1,0,1e18)` = 907811287442936774 ETH+ (0.907811x WETH to ETH+); reverse `get_dy(0,1,1e18)` = 1101089696884101728 WETH (1.10109x). The two target-pair auctions settled at 1.0046x and 1.0038x, and the natural 11-11 auction yielded 27 `PROCEEDS_LT_BID` simulations and zero sends (attempts:906). The route's current EV is therefore $0/day while the exit remains at this quote.
+
+The README's stated idle CU arithmetic is also wrong. At 180 s/cycle there are 480 cycles/day. Its own per-cycle assumptions are `eth_blockNumber` 26 CU + two `eth_getLogs` at 200 CU each + `eth_gasPrice` 30 CU + oracle `eth_call` 30 CU = 486 CU/cycle, or **233,280 CU/day ≈ $0.124/day** at $0.53/M CU. This is above the README's conditional parity-state EV estimate of $0.03–$0.10/day, even if the pool reopens. The manifest's 100,000 CU/day and README's $0.05/day are unsupported by those same inputs. Reduce the idle reads or provide measured method costs and a defensible net EV above them; then demonstrate a currently viable forward exit and profitable after-fee fork success at a real past settlement price. Historical success at block 26348315 does not establish present EV.
+
+No fork replay was run this review: current venue economics and the CU/EV mismatch already prevent promotion. Prior native-payout and guard evidence remains on record but is not independently endorsed by this review. Source/manifest/bot SHA-256 for unchanged-review checks: `952b78a31001991719a320f09c19d005ba4ed3bcb7dbcdd872d11d638f0ebcd3`, `009e879eadfab328f385db6c2a083c697bca95d4bd54eda0bfdadc5285b4fce7`, `53b006cfb65f475b2d3cf473b60e72094bb31472c9d46b7b05b114b2c36431b6`.
+Unchanged since 1e299b54c0a14bf0bdcc96d054901666, decision fix stands. Run 0ca7b7b79f3548db8e95ea2159b9bf68: source, manifest, and bot SHA-256 still match the last full review (`952b78a3`, `009e879e`, `53b006cf`); only `state/state.json` changed. Ledger `reserve_revenue.started` cursors reach next_block 26396363 with no target sell=weETH start after block 26395023; recent paper heartbeats show active=0. No fork reproduction or new attempts row. Attempt 973 closes a proposed burn/borrow alternative, not this bot's current Curve payout route.
+

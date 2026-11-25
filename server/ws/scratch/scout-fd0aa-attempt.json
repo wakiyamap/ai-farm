@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "actor-ethereum-0xfd0aa7548823c40be6dd85682f0342f35dee121a",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Across fast-fill EOA calling SpokePool.fillRelay (0xdeff4b24) on the Ethereum SpokePool; the job is permissionless (exclusiveRelayer = 0 on the fills it takes) and a fresh address calling the same fillRelay earns the same input-minus-output spread, but the reward is NOT in-transaction: the filler fronts outputToken to the recipient and is repaid later, in batches, in the input token on the origin chain (observed on BSC). An inventory + latency business; for the farm the blockers are the same as protocols:285 / leads:226.",
+  "numbers": "7d fills (Ethereum leg) 2,958 = ~397/day (eth_getLogs topic0 0x44b559f1, topic3=filler, blocks 26381563-26431823); gross 7d $820.77 = $117/day (sum of inputAmount-outputAmount, all-stable routes); median fee $0.069/fill; median fill size $87 USDT, mean $894; $2.41M fronted over 7d = 3.4 bps. Gas per call: 97.7-114.8k gas @ 0.16-2.1 gwei eff = $0.03-0.39 at ETH $1,815.79 (coins.llama.fi 2026-11-17); failed fills revert at ~43k gas, ~28% of txs (7/25 explorer sample). BSC repayment inflows 51,548 USDT in ~8h from 0x4e8e1019 (10 batch transfers). Est net ~$90/day Ethereum leg, BSC-side costs not counted. Sample of 8 receipts of 2,958 fills."
+}

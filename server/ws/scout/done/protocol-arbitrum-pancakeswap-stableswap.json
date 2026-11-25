@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-pancakeswap-stableswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1372,
+ "chain": "arbitrum",
+ "slug": "pancakeswap-stableswap",
+ "name": "PancakeSwap StableSwap",
+ "category": "Dexs",
+ "tvl_usd": 328883,
+ "url": "https://pancakeswap.finance/swap",
+ "github": null,
+ "listed_days_ago": 1372,
+ "run_id": "c19d58897b904c4986157d52a31d5c6a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "5 Curve-fork 2-coin pools behind factory 0x5D5fBB19572c4A89846198c3DBEdB2B6eF58a77a (TVL 328,883 USD): only reward-shaped fns withdraw_admin_fees/donate_admin_fees are onlyOwner (eth_call from fresh addr reverts), LP is plain ERC20; 7d protocol-wide events = 2 (both TokenExchange, blocks 525421765/525494027) vs control 87 PENDLE Transfers/5k blocks; stranger gross 0 USD",
+  "kb": [
+   "protocols:884",
+   "attempts:2345"
+  ],
+  "run_id": "c19d58897b904c4986157d52a31d5c6a",
+  "at": 1795055880
+ }
+}

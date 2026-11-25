@@ -1,0 +1,6 @@
+{
+ "chain": "any",
+ "protocol": "scopuly",
+ "status": "dead_end",
+ "checked": "Scout 2026-11-22. DefiLlama adapter (DefiLlama-Adapters projects/scopuly/index.js) has NO contract addresses: it only calls https://api.scopuly.com/api/liquidity_pools_tvl. GitHub github.com/Scopuly (user, 28 repos) has no Rust/Soroban source at all (main repo Scopuly/scopuly is README-only; no Cargo.toml/contracts dir in any repo; x402-stellar-guard is TypeScript tooling). API /api/get_liquidity_pools returns 100 pools keyed by 64-hex pool_id with fee_bp/trustlines/shares fields = classic Stellar constant-product liquidity pool schema. Confirmed on-chain via relay getLedgerEntries (LedgerKey type 5 + pool_id): pool ff0bccad785601cd2e0e20b87814b9d9e4f56e872b2ce0cb392d37d1ed19de56 (XLM/LSP) is a live liquidity_pool entry, fee 30 bps, 532 pool-share trustlines, reserves 113,605.6781409 XLM + 146,780,650.3691913 LSP, lastModifiedLedgerSeq 65614520. No C-strkey contract found anywhere (adapter, docs/skills repo, app bundles scopuly.com main.c248ee68.js / 25.af3842c3.js contain no C[0-9A-Z]{55} strkey); no reward/staking/farm API endpoints (get_rewards, rewards, get_staking, farms all 404)."
+}

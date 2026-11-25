@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "ellipsis_finance LPStaking.claim + FeeDistributor.claim",
+  "status": "dead_end",
+  "why": "Closed 2026-11-20 (attempts of run f848c035796a49da830975b1158e8620): claim functions are public but pay only the staker or claimReceiver; caller fee is zero. Locker route exceeds the 7-day holding frame, and LP staking has no demonstrated positive USD profit for a <=$100 holding position. Prior 7-day scan found 0 new FeesReceived and current-week sampled pool votes 0.",
+  "next_steps": "Reopen only after a protocol change creates an explicit caller reward, or a new LP incentive has a verified liquid USD price, positive net yield for <=$100 within 7 days, and an atomic USDC exit. Require a fresh 7-day event scan and fork proof before building."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "vesper_v1",
+  "status": "dead_end",
+  "checked": "2026-11-20 scout run f7fcce8790bb42f4bdde862fbe0375ff: 5 VPool proxies from DefiLlama adapter projects/vesper (api-base.vesper.finance/pools): vacbETH 0x3899a6090c5C178dB8A1800DA39daD0D06EeEFBE, vaETH 0x82562507429876486B60AF4F32390ef0947b3d13, vamsETH 0x913Ece180df83A2B81A4976F83cA88543a0C51b8, vaUSDC 0x1e41238aCd3A9fF90b0DCB9ea96Cf45F104e09Ef, vawstETH 0x46fb68Eb2b1Fc43654AbaE5691D39D18D933E4b4. All have code (eth_getCode) and answer token()/totalValue getters. Impls verified source on blockscout: VPool 0x67006c2e8d2f28468f77a962cf26bcc792afac0f (4 pools), VETH 0x097f419ac9f704742164de4a3e0f1136de43dec1 (vaETH). Source read: no function pays an outside caller - deposit/withdraw are user functions; claimAndSwapRewards/swapToCollateral/approveToken/sweep onlyKeeper (fresh-address eth_call reverts, error 0x82b42900); reportEarning/reportLoss called only by pool/strategy; keepers() = single 0x3ed788455ec4cd272c578f7218bc5c5a8db3b9b6; poolRewards()=0 on all 5 pools (no reward distributor attached). Verdict role_gated (see attempts:2706)."
+}

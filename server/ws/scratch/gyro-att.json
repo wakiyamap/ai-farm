@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-gyroscope-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward — Gyroscope on optimism is just Gyro E-CLP pools (24 Balancer-v2-era + 12 Balancer-v3 pools from the two factories in the DefiLlama adapter); no function anyone can call pays the caller: v2 pool mutators are ERC20 or owner/pauseManager-gated, v3 pool is view/onlyVault, factory create() pays no bounty. Also dormant: only 4 pool-token Transfer events across 28 sampled pools in 7 days; TVL 46.3k USD.",
+  "numbers": "Factories 0x9b683ca24b0e013512e2566b68704dbe9677413c (eth_getCode non-empty, 24 PoolCreated logs from 0x5cae07f) and 0x22625eEDd92c81a219A83e1dc48f88d54786B017 (getPools() -> 12 pools). 7d window blocks 159603834 (2026-11-16 ~05:20 UTC, ts 1794806445) to 159906595 (2026-11-23 05:32 UTC): Transfer(topic0 ddf252ad..., cast) on 28 of 36 pools = 4 logs (0x8bb826af x2, 0x9ff36e48 x2); control same shape on WETH 0x4200...0006 over 2000 blocks = 7208 logs. Gas 0xfd481 wei (eth_gasPrice, 2026-11-23 05:39 UTC) x 100k = 0.0001 ETH = 0.0002 USD at ETH 1726.70 USD (coins.llama.fi, ts 1795412112). TVL 46,300 USD (candidate, DefiLlama)."
+}

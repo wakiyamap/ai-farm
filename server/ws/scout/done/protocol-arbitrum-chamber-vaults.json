@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-chamber-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "chamber-vaults",
+ "name": "Chamber Vaults",
+ "category": "Indexes",
+ "tvl_usd": 1895445,
+ "url": "https://chamberfi.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "4bb8ac720ae043b79db985f7e746c905",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Chamber=ex-dHEDGE: factory 0xffFb5fB14606EB3a548C113026355020dDF27535 on arbitrum, 511 vaults (444 Chamber-only, sum totalFundValue 2,025,389 USD vs llama 1,895,445); no function anyone can call pays the caller - mintManagerFee() permissionless but pays manager+DAO (caller 0, 0 external calls in 10d), execTransaction role-gated (dh24, manager/trader/owner), deposit/withdraw are user actions paying fees out; biggest Chamber vault 0xe48f2282 (698k USD): 1 manager execTransaction in 7d (sample of 25 txs, explorer); gas 0.02 gwei = ~0.004 USD per mintManagerFee (ETH 1775.69, coins.llama.fi 19:00Z)",
+  "kb": [
+   "attempts:2611",
+   "protocols:1087"
+  ],
+  "run_id": "4bb8ac720ae043b79db985f7e746c905",
+  "at": 1795115194
+ }
+}

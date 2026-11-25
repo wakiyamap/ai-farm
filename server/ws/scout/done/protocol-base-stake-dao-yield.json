@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-stake-dao-yield",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "stake-dao-yield",
+ "name": "Stake DAO Yield",
+ "category": "Yield",
+ "tvl_usd": 1294482,
+ "url": "https://stakedao.org/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "9808018bbbc94f78a89df45992c1a9c1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Accountant 0x8f872ce0 harvest(address[],bytes[],address) has no modifier (fresh-address eth_call succeeds) but pays 0: getHarvestFeePercent()=0 raw on chain and harvesterFee=0 CRV in all 11 Harvest events of the last 7 days (blocks 56699119..59723119; amounts 39.4-114.8 CRV = 7.5-21.9 USD @ 0.191 coins.llama.fi; callers 0x03d9964f.. and 3 more, users claiming own CRV via frontend router); gas 0.02 USD (receipt 536,212 gas @ 0.0224 gwei, ETH 1753.44); protocol fee 17% to treasury; 10 v2 RewardVaults, 1.29M USD TVL; same dead end as arbitrum protocols:1110 / ethereum protocols:237.",
+  "kb": [
+   "attempts:2704",
+   "protocols:1155"
+  ],
+  "run_id": "9808018bbbc94f78a89df45992c1a9c1",
+  "at": 1795135677
+ }
+}

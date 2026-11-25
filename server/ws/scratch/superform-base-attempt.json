@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-superform",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. SuperVaults v2 (aggregator 0x10AC0b33e1C4501CF3ec1cB1AE51ebfdbd2d4698, 66 vaults) keeper functions fulfillRedeemRequests / fulfillCancelRedeemRequests / executeHooks / skimPerformanceFee are all _isManager-gated (mainManager adds secondaries, not permissionless) and pay the caller 0 - fulfill moves the user's own assets to escrow, upkeep flows strategy->SuperBank, i.e. the protocol charges the operator instead of paying them. v1 factory 0xD85ec15A9F814D6173bF1a89273bFB3964aAdaEC (271 forms) exposes only createSuperform / addFormImplementation / stateSyncBroadcast (broadcast-registry gated). No liquidation or bounty surface. Note: this is a different codebase from the arbitrum superform row (CoreStateRegistry/EmergencyQueue) - same conclusion.",
+ "numbers": "Sampled active pair vault 0x11820afe50ea96851ee2bdbae329d97771e41ec6 / strategy 0x5be8c059a8e101d24b107afb5a013fef505280b9, 7d getLogs over 1.05M blocks (50k chunks, control non-zero): 31 RedeemRequestPlaced / 27 RedeemRequestsFulfilled / 31 RedeemRequestClaimed. 5/5 sampled fulfill txs from ops EOA 0x3a4b6f0cef9774e1ee5b2d7409e9f10a8a837376, gasUsed ~161,025 @ ~0.01 gwei = ~0.0000016 ETH = ~$0.003 (ETH $1,765.14, coins.llama.fi 2026-11-18); gross paid to caller per call $0. eth_call fulfillRedeemRequests from fresh EOA reverts (source: _isManager -> MANAGER_NOT_AUTHORIZED). TVL $5.97M (session candidate)."
+}

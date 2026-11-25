@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "protocol": "privacy_boost",
+  "status": "dead_end",
+  "checked": "PrivacyBoost ZK shielded pool on Base. Proxy 0x71A0fD3C76E3E937d8275A3cb6a467b70123bD40 (TransparentUpgradeableProxy, impl 0xde12ddbac342aaa4494ab65304b3d7717c411935 'PrivacyBoost', verified source via explorer), tokenRegistry 0x3a0bea3a715881793cfd698ddebcf03784f0be03 (nextId=49). DefiLlama adapter projects/privacy-boost lists this pool (start 2026-09-02). Epoch entrypoints submitEpoch/submitDepositEpoch/submitPortalDepositEpoch/submitGiftClaimEpoch are onlyRelay (allowedRelays mapping); operator 0x420a8a682892bae85cba7fb0e5cd806807c5bf95, treasury 0x04484b6065a43fa286e05e9c28a6c4db77d917f8. Only permissionless pay-the-caller path = portal sweep: requestPortalDeposit(portal,tokenId) 'any caller may sweep (a keeper for the fee)', fee = portalSweepFeeBps = 0 (measured eth_call 2026-11-17). withdrawFeeBps=40 to treasury. Source: explorer source base + verified src/lib/LibPortal.sol."
+}

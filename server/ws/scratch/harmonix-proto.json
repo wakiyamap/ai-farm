@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "harmonix_finance",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/harmonix/index.js: factory 0x3363A85c31cf13a96802e2935724232767420135 (code ok, getVaultsTVL()=439185e6 USDT at 2026-11-18). vaultList(uint256) gives 9 vault proxies (all ERC1967, impls unverified on etherscan/blockscout; blockscout API 403 from this host). Repo harmonixfi/core-smart-contract maps the families. Only 1 vault active in last 7 days: 0xf12f8753c25f8005311a24bbba1f7209249b00e3 (PendleHedgeVault family, TVL 410232e6 = ~$410k): keeper 0x562b8f8e9558acee600a68f7f1e1f4e8bbfc844d calls syncBalance(uint256) ~every 2h (5 txs in 7d) plus ~6 user initiate/completeWithdrawal txs; vault 0x4a10c31b642866d3a3df2268cecd2c5b14600523 (~$17.7k) had 1 user initiateWithdrawal; other 7 vaults dormant (last txs months ago). eth_call syncBalance(0) from fresh address reverts ROCK_ONYX_OPTIONS_TRADER_ROLE_ERROR (PendleHedgeVault.sol:571 _auth). closeRound/acquireWithdrawalFunds/acquireManagementFee/claimFee/settleCoveredCalls/Puts all _auth(ROCK_ONYX_ADMIN_ROLE) (RockOnyxUSDTVault.sol). Public functions (deposit/initiateWithdrawal/completeWithdrawal) pay msg.sender their own principal+yield, not a caller reward. No function pays a stranger."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-keyring",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 415,
+ "chain": "avalanche",
+ "slug": "keyring",
+ "name": "Keyring",
+ "category": "Risk Curators",
+ "tvl_usd": 73607,
+ "url": "https://app.euler.finance/governor/keyring?network=avalanche",
+ "github": null,
+ "listed_days_ago": 415,
+ "run_id": "b72c313f50e64bfb8e821dab469d46a6",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Keyring avax = 119 EVK vaults created by EOA 0x0B50..754a (creator() over 251-vault factory 0xaf4B..6181; no on-chain governor, governorAdmin=same EOA); only caller-paid fn is EVault.liquidate (0xc1342574, no role, 15% max discount) but a no-topic 7d scan of all 119 vaults (blocks 100,401,416-101,117,059 = 2026-11-15 15:30 to 2026-11-22 15:41 UTC, 336 calls, 0 fails) found 0 logs of any kind - nothing paid; book: 3/119 vaults with borrows (6,150 USDC + 4,796 WAVAX, healthy); gas 7.5 gwei x 6.661 USD/AVAX = ~0.02 USD/liquidation; control USDC Transfer same shape returned logs",
+  "kb": [
+   "attempts:3766",
+   "protocols:1966"
+  ],
+  "run_id": "b72c313f50e64bfb8e821dab469d46a6",
+  "at": 1795362816
+ }
+}

@@ -1,0 +1,57 @@
+id: grad-flatmoney-arbitrum
+author: builder/gpt-6-sol
+chains:
+- arbitrum
+strategy: 'Flat Money delayed-order keeper on Arbitrum: execute a public order with a fresh Pyth update, sell its fixed WBTC keeper
+  fee to ETH atomically, and return the ETH to the bot wallet.'
+copied_from: trial-flatmoney-arbitrum live record (13 won of 13 sends, 2026-11-17 through 2026-11-20); original incumbent EOA 0x45d83e658e2f70ba83e4e519f792f065c4a01d7d;
+  winner tx 0xd5e1af2d9a6be6ff7d95fb77daeeae373a3ef274bc8399a142d5503a2cfd87f2.
+capital_usd: 10
+allowed_contracts: []
+send_route: public
+max_loss_per_tx_usd: 1
+max_loss_guarantee: 'FlatOrderKeeper.run requires endNative >= startNative + msg.value + minProfit and sends the entire native balance
+  to the owner (scratch/trial-flatmoney/contracts/src/FlatOrderKeeper.sol:91-96); a failed attempt loses gas only. In bot.py SEND_CAP_USD=0.95,
+  eth_estimateGas x 1.30 sets the gas limit, and gasLimit x maxFeePerGas is capped at 90% of simulated gross, with minProfit equal to
+  that gas cap. The priority bid remains capped at 20% of gross, unchanged from the trial: its 13 won sends spent 12.2%-13.3% of gross
+  as priority fee, while the historical incumbent used zero. No fee increase is justified by 13/13 wins. Signer enforces <=1 USD at
+  signing time; manifest cap 1 USD.'
+expected_value: 'Trial live 126.9 h at 2026-11-23 11:11 UTC, 13/13 sends won; logs/bot.jsonl sum gross 0.001132496901265182 ETH, gas
+  0.000361711167210385 ETH, net 0.000770785734054797 ETH. grad-candidates.py gave funded 9.56 USD, wallet 10.85 USD, net +1.29 USD since
+  promote, about 0.244 USD/day over 5.29 days at the current wallet valuation. The original 7-day incumbent census: 45 takes, 199-262
+  sat WBTC each, blocks 522693627-525113627 (attempts:1835). Fixed reward: increasing capital does not increase gross; keep 10 USD.
+  This grad replaces the trial once promoted; the trial remains live until the human stops it.'
+executor: scratch/trial-flatmoney/contracts/out/FlatOrderKeeper.sol/FlatOrderKeeper.json
+executor_args: '{bot}'
+executor_note: 'constructor(address owner) only. run(module, account, bytes[] update, feeToken, pool, weth, minProfit) is owner-only:
+  module, fee token, UniV3 pool and WETH are call arguments, nothing is stored between calls. The pool must hold exactly {feeToken,
+  weth} (BadPool otherwise); the swap callback accepts only the pool set for this call and is cleared after it; no approvals are given
+  (the callback transfers the exact amount owed). The whole fee received in this call is sold, the WETH unwrapped and the full native
+  balance paid to the bot wallet. No principal, no flash loan. Owner-only sweep(token) for strays. Reused unchanged trial artifact;
+  reward is fixed per order, so no capital increase or 2x/5x size claim. Local Hermes proxy depends on a trial key expiring about 2026-12-02.'
+fork_evidence: 'Reran scratch/trial-flatmoney/proof.py 2026-11-23 UTC with unchanged artifact; scratch/trial-flatmoney/proof.py
+  (lease; reset arbitrum 525070833 = parent of the incumbent take 0xd5e1af2d..., clock set to its timestamp 1794928829; deploy, non-owner,
+  guard, success, nothing-left; release), output scratch/trial-flatmoney/proof.out. Deploy 0xc33b1b70fecb16d0af617fc534b4e93b189acd87969f04726b24843bf231fc98
+  (836,089 gas). Success 0x24d245c1933d37e8639dbdc42498313ae5f563db6923373dfd98c2d087fe278e (fork block 525070837, gas 876,668): 231
+  sat WBTC fee received and sold, owner native +82,602,606,487,086 wei before gas (= the eth_call simulation), executor left with 0
+  WBTC / 0 WETH / 0 native. Reverts: nothing to take (order already executed) 0x7ca92f6ce719516d76a413a14ec9c4f1fa897a2078e4889264c392b0e233407a
+  OrderInvalid 0x1bed8430 (gas 400,077); minProfit above gain 0x2a357efa79237ef3703020d9881ed127734656c7d7c3ee34ce97145b9e33b3b2 NoProfit
+  0x31708d59 (owner delta + gas = 0); non-owner 0x2c0fe9ad8dfbbcf456b156b32e32e80ec83bc0f52d7b56400e1770e810e8d52a. The Pyth blob in
+  the proof is the incumbent''s real signed update. Paper override = eth_getCode of that deployment (executor-runtime.hex). scratch/trial-flatmoney/selftest.py
+  runs the bot''s own handle() paper path on the same fork state: opportunity + paper_sim success, gain 82,602,606,487,086 wei, gas
+  limit 1,315,603 from eth_estimateGas x 1.30; then a real Hermes read (publish lag 1.2 s, 631-byte update) and a reread at the relay
+  head (selftest.out).'
+awaited_events: OrderAnnounced at 0x2326bb21b769d81e134c9b305ca156f989249fe7; the live trial observed 15 since promotion and last sent
+  on 2026-11-20 (log ts 1795167632.86). Next announcement is not scheduled; safety poll 600 s.
+good_signs: send_result won; 13/13 trial sends won. Receipt status 1 and owner wallet gain. Paper opportunities should simulate with
+  a fresh Hermes update and report positive native gain.
+bad_signs: 'Hermes HTTP 401 after its trial key ends about 2026-12-02: no fresh Pyth update, so the keeper cannot send for most orders.
+  Two trial announcements were not takeable after 12 attempts, with no winner; do not count them as lost sends. Any lost send, price
+  feed lag, or read-budget event needs review.'
+rpc_reads_per_min: 'about 0.2: eth_blockNumber + eth_getLogs every 600 s, and about 6-10 reads per announced order (7/day)'
+alchemy_cu_per_day: 'about 20,000 (0.011 USD): feed about 6,000 (7 logs x 35 CU + 4 CU/min) + relay about 14,000 (safety poll 144 x
+  85 = 12.2k, orders 7 x 250 = 1.8k); relay reads hard-capped at 60,000 in code'
+legal_note: 'The keeper fee is a public payout of the protocol to any caller of executeOrder (no role gate; stranger eth_call succeeds,
+  scratch/trial-flatmoney/open_check.json). No mempool watching: the bot reacts to mined OrderAnnounced logs and the protocol''s own
+  5 s delay. Pyth data comes through the farm''s Hermes proxy.'
+expedite: false

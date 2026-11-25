@@ -1,0 +1,28 @@
+{
+ "id": "protocol-optimism-exactly",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1423,
+ "chain": "optimism",
+ "slug": "exactly",
+ "name": "Exactly",
+ "category": "Lending",
+ "tvl_usd": 2425742,
+ "url": "https://exact.ly",
+ "github": [
+  "exactly"
+ ],
+ "listed_days_ago": 1423,
+ "run_id": "f4a039a4349f411499cb8ef08ed29945",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Open Market.liquidate on 6 OP markets (no firewall; fresh-address call reverts Auditor.InsufficientShortfall, not a role gate): 117 liquidations / 13,216 USDC repaid in 7 d (blocks 159,427,790-159,730,190), keeper gross 5 pct = 660.8 USD to 6 stranger keeper contracts (top 0x092aa488 24 takes +400 USD net, 0x5ac9bc14 +126), gross>gas in 116/117 (gas p50 0.0001 USD, max 42.59 at 20 gwei on the 345-USD take tx 0xaa54e1d5); flow dust-heavy (76/117 < 1 USDC), recheck of leads:242, trial bot placed 2026-11-17.",
+  "kb": [
+   "attempts:2364",
+   "leads:242",
+   "protocols:394"
+  ],
+  "run_id": "f4a039a4349f411499cb8ef08ed29945",
+  "at": 1795060217
+ }
+}

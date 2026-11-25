@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "target": "curve_pegkeeper lead 16 dormancy recheck (cheap ledger-only monitoring round)",
+  "outcome": "lead_recorded",
+  "reason": "Measured 2026-11-11 run c78105da (this session; ledger-only recheck + 1 head read, no fork, no sends): trigger un-fired - 0 events on any curve_pegkeeper.* source since block 26301741 (the last capture, 2026-10-29); ethereum head 26393313 = 91572 blocks (~10.6 days) without a pegkeeper event; previous recheck attempts:810 (2026-11-10). Keep zero-budget ledger monitoring; do not build on the dormant class (lead 16 next_steps recipe unchanged: on ANY new curve_pegkeeper.* ledger event measure update() LP reward at the live head + a clean-fork executor claim before building)."
+}

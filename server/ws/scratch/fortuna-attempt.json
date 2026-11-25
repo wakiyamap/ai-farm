@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-fortunafi",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the only public (non-owner) value-moving functions processDeposit/batchProcessDeposit mint fund shares to the depositor recipient and never pay msg.sender (no reward transfer in verified source OffchainFund.sol); nothing was called anyway - zero events from all 10 ethereum contracts in the last 7 days and since block ~22.97M (last event 2025-07-04), and the deposit queue is empty. Whitelisted RWA fund, all lifecycle (drain/update/processRedeem) is onlyOwner.",
+  "numbers": "7d window blocks 26412826 (2026-11-14 11:08 UTC) to 26463082 (2026-11-21 11:08 UTC): 0 logs from the 10 contracts (no-topic scan; control: same shape on USDT 0xdac17f958d2ee523a2206206994597c13d831ec7 over 0x193c9a0-0x193c9b0 returned 3547 logs). Full-range chunk scan from creation block 18965763: 1103 logs total, last event block 22847183 (2025-07-04, ifBill). eth_call processDeposit(0xdead) from fresh address on fBill reverts 'account has no mint order' (state revert, not role). currentDepositCount=0 on fBill/ifBill/fCOIN; epochs fBill 3, ifBill 167, fCOIN 31. Active-period ProcessDeposit (topic0 keccak from source 0x6e83ae79..., 18 logs in 19965763-21965762) called by 0xdcbe775adc0158661e326bfc827212c9bca8cc00 x8, 0x145cfa60d77f519a2ba1052d82339826d0111810 x7, 3 singles. Gross to caller 0 USD (no payment path); TVL 144,322 USD (candidate/DefiLlama). Sources: DefiLlama adapter github raw, etherscan verified source, rpc.py eth_getLogs/eth_call."
+}

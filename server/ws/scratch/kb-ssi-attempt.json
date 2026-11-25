@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-sosovalue-basis",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. SoSoValue Basis (USSI, 0x3a46ed8FCeb6eF1ADA2E4600A522AE7e24D2Ed18) has no function that pays a stranger: applyMint/applyRedeem are PARTICIPANT_ROLE whitelist (a fresh address gets AccessControlMissingRole 0xe2517d3f) and the caller deposits funds rather than earning; confirm/reject and the factory AssetToken (MAG7.ssi) operations are onlyOwner/role gated. The on-chain mint/redeem queue is dormant (0 events in 21+ days) and the basis itself is harvested off-chain in Ceffu custody; TVL activity is users approving USSI to Binance.",
+  "numbers": "0 ApplyMint/ApplyRedeem/ConfirmMint/ConfirmRedeem events on the USSI proxy in blocks 55,836,233-58,936,233 (last 7 d, eth_getLogs, 500k-block chunks; control: same address+range with no topics = 40 logs) and 0 in the further ~10.5 days back. Gross reward per call $0 (no reward function). Gas reference on base: eth_gasPrice 0x5b8d80 = 0.006 gwei, ~150k gas = 9e-7 ETH = $0.002 at ETH $1,802.98 (coins.llama.fi coingecko:ethereum, 2026-11-18). TVL $2,930,177 (DefiLlama candidate). Source: DefiLlama adapter projects/ssi-basis-trading + blockscout source of USSI 0xa62307106f891135154b0d63eaef8bd40f2ca91b."
+}

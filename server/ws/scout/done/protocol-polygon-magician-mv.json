@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-magician-mv",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1223,
+ "chain": "polygon",
+ "slug": "magician-mv",
+ "name": "Magician MV",
+ "category": "Dexs",
+ "tvl_usd": 26383,
+ "url": "https://magicianmv.com/#/swap",
+ "github": [
+  "MagicBallSwap"
+ ],
+ "listed_days_ago": 1223,
+ "run_id": "1e2e461c5bd944729bf04694ea080895",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MasterChef-style DEX (LiquidityPool 0x7a9185, 17 pools; TradingPool 0xc7497f, 15 pools): harvestAll/massUpdatePools callable by anyone but pay a stranger 0 (fresh-address eth_call void; rewards mint to the contract and pay only stakers' own pending MBT); 0 calls to the 5 protocol contracts in 7d (eth_getLogs blocks 97,283,520=2026-11-14 to 97,797,334=2026-11-23; control: 162 MBT Transfers in same calls); emissions only 0.00244/0.00342 MBT per block (MBT unpriced on coins.llama.fi); frontend SwapFactory 0xf08ae17c selfdestructed (eth_getCode 0x).",
+  "kb": [
+   "attempts:3948",
+   "protocols:2094"
+  ],
+  "run_id": "1e2e461c5bd944729bf04694ea080895",
+  "at": 1795402136
+ }
+}

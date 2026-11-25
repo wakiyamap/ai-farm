@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-sunx-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. SunX bridge on BSC is one USDT lock vault (SunperpVault proxy 0x4d1Be6c39Fe3fB1362ff602a6c0CBB5B3BF64eC7, impl 0x9ac0c8bade28dfe1f44ae4fd75465e3cce6f0152 verified on ethereum, identical bytecode on bsc) plus a Safe 0xa9c99a9f... and MPC EOA 0xabc02c4f... The only money-out functions withdraw/withdrawWhitelist pay action.receiver (the bridging user, not the caller) and are onlyRole(OPERATE_ROLE) (holders 0x84d9090c124094209564123302987f2f02a04f4a, 0x3e5092e35f4b7b3804211a33ffbd19b2b1e3c8ee); a fresh-address eth_call reverts while paused()=stopped()=false. All other functions are ADMIN/BUSINESS/PAUSE/STOP-role or onlyUpgrader; deposit is public but user-funded. No fee or bounty accrues to the caller, so even the operator is paid 0 by the contract.",
+  "numbers": "7d to block 134162688 (eth_getLogs, paper lane, 41 ranges x 5000 blocks, address-filtered so shape-safe; Deposit hits are the control): 4 Withdraw (all from 0x84d9090c124094209564123302987f2f02a04f4a) + 2 Deposit. Sample withdraws 16.46 / 44.48 / 49.90 / 102.06 USDT (18 decimals), paid to 0xbf6006b590042577db687047c69e9177101a38c0 and 0xc97af5ec101e74c4e30cedbcf2257155d6d547bf; gross to caller 0.00 USD, gas 151,224 @ 0.08 gwei effective = 0.007 USD (BNB 586.96 USD, coins.llama.fi 2026-11-17). Vault USDT balance 374,745.8 (eth_call balance()), hourly withdrawal limit 2,000,000. DefiLlama TVL bsc 1,363,814 USD."
+}

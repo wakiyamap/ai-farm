@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-aera-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 501,
+ "chain": "arbitrum",
+ "slug": "aera-v3",
+ "name": "Aera V3",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 125572,
+ "url": "https://www.aera.finance",
+ "github": null,
+ "listed_days_ago": 501,
+ "run_id": "6cf81d5479cb4794a6977dde22c9992c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Aera V3 arbitrum: no reward/keeper fn in core (github v3/src); vault submit() guardian-gated (stranger eth_call reverts 0xc6248746); only stranger path = ProvisionerV2.solveRequestsDirect solverTip, but 0 requests/0 solves in last 7d on the sole active provisioner (gtFHE vault 0xca91dd04 created 2026-11-12, provisioner 0x8d73ffcf: 4 logs, all setup; 43 blocks scanned window 522.3M-525.1M), gross $0 vs gas <$0.01, TVL $125,572.",
+  "kb": [
+   "attempts:1866",
+   "protocols:496"
+  ],
+  "run_id": "6cf81d5479cb4794a6977dde22c9992c",
+  "at": 1794948424
+ }
+}

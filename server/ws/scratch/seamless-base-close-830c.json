@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "seamless_v2 DutchAuctionRebalanceAdapter take",
+  "outcome": "dead_end_recorded",
+  "reason": "The measured 7-day class has one take paying only about $0.219 gross and $0.208 net after the recorded $0.0108 execution gas, or $0.030/day even if the farm won every take. The auction is closed at the current head and LT equity is unchanged at 1.3774 WETH. This fails the $1/day floor before contract work. Prior Base measurement in lead 410 and scratch/seamless-base-attempt.json; no fork build warranted.",
+  "numbers": "Head 0x3a1dd07 (60939527), 2026-11-22 20:11 UTC: relay eth_call LeverageManager.getLeverageTokenState(0xa2fceeae99d2caeee978da27be2d95b0381dbb8c) returned collateral 23.3955886805, debt 22.0181799832, equity 1.3774086973 WETH; scratch/seamless-base-head-state.json. Adapter isAuctionValid() returned false; scratch/seamless-base-auction-valid.json. Adapter eth_getCode nonempty; scratch/seamless-base-adapter-code.json. Historical tx 0x4427e90b5fe3344fac61a61f45434cd9cb6512f5912c94913b0c356b96fd39e3 in 7d blocks 57866656-60890660: 0.00012792 WETH gross=$0.219, gas=$0.0108, net=$0.208 (lead 410 measurement)."
+}

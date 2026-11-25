@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-zarban",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. The Aave-fork LendingPool's liquidationCall paid an unrelated liquidator $2.58 gross in the last 7 days (1 call); gas $0.045. The Maker-style SCS bark/redo incentives (tip 30-50 ZAR to a free kpr arg) had zero activity in 7d and 0 active auctions now.",
+  "numbers": "7d window blocks 524541908 (2026-11-15T19:10Z) - 526595576 (2026-11-22T19:10Z), from eth_getBlockByNumber timestamps. LM LiquidationCall 1/7d (topic0 keccak of LiquidationCall(address,address,address,uint256,uint256,address,bool) from repo ILendingPool.sol; control: 17 any-logs same pool+range). Gross/call $2.58 = 0.167304 AAVE x $98.67 - 13.9296 DAI (prices coins.llama.fi 2026-11-22T19:14Z; token addresses read from the log: collateral 0xba5ddd...196 = AAVE, debt 0xDA10...da1 = DAI). Gas 1,319,703 x 0.020 gwei (receipt effectiveGasPrice) = 0.0000264 ETH = $0.045 (ETH $1712.33 coins.llama.fi 2026-11-22T19:20Z). SCS: dog Bark 0/7d (control same dog+shape 1y = 791 Bark); clip Kick 791 / Take 864 / Redo 3 over 1y, latest 2026-09-27 (block 509244415); count()=0 active auctions all 14 clips now; tip() = 50 ZAR (ETH/WSTETH/WBTC/LINK/ARB/AAVE ilks) or 30 ZAR (DAI ilks), chip() = 0.001, ZAR $0.00446 coins.llama.fi 1795374247. TVL $29,663 (candidate). Older subgraph pool 0x381D5e078b8ce96489517E326377eF6BEE815D5c: 0 LiquidationCall/7d."
+}

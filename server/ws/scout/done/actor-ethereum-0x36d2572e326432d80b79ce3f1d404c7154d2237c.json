@@ -1,0 +1,19 @@
+{
+ "id": "actor-ethereum-0x36d2572e326432d80b79ce3f1d404c7154d2237c",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "ethereum",
+ "address": "0x36d2572e326432d80b79ce3f1d404c7154d2237c",
+ "run_id": "d6bbdfe3178b4fbcb65cda3eafad7e73",
+ "result": {
+  "verdict": "no_reward",
+  "line": "unverified vault contract (created 11-14 blk 26411533) moves its own funds across Morpho/Gearbox/Balancer/Aave via 13 whitelisted executor EOAs: 50 incoming txs/6.5d (35 setup 11-14, 7 on 11-15, 8 job calls 11-20); largest call 0xa32a0f6d pulled 1.03M USDT + 255k USDC + 29k DAI = $1.31M stables + 289 WETH from Morpho into itself; ETH-in forwarded 1:1 to Paraswap; no token or value paid to callers (2/8 traced); gas 0.56-9.47M/call (avg 2.97M) paid by executors = $1.1-18.4 (1.21 gwei, ETH $1606 Blockscout 11-20); vault ETH bal 0 -> $0 gas/reward for the vault",
+  "kb": [
+   "actors:300",
+   "attempts:3042"
+  ],
+  "run_id": "d6bbdfe3178b4fbcb65cda3eafad7e73",
+  "at": 1795206881
+ }
+}

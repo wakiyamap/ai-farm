@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-creth2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward - the whole protocol on ethereum is one contract, the CRETH2 token 0x49d72e3973900a195a155a46441f0c08179fdb64, verified source a bare OpenZeppelin ERC20Burnable (14 standard functions, no custom/reward/poke/swap function, not payable, ETH balance 0). There is nothing anyone can call for pay; the 1.23M USD TVL is residual tokens held by old Cream stakers (Cream wound down after 2021-22). No further measurement warranted.",
+  "numbers": "adapter projects/crETH2/index.js (module crETH2, single token, totalSupply as gas token). eth_call latest 2026-11-21: totalSupply()=681.2576547210808 CRETH2 (decimals()=18 read on chain), symbol CRETH2; candidate tvl_usd 1231345 (DefiLlama). Contract ETH balance 0x0. 7d window blocks 26413728 (2026-11-14 14:09 UTC) .. 26463981 (2026-11-21 14:09 UTC), no-topic eth_getLogs (control: same scan returned the 1 log): 1 log total = 1 Transfer, 23 wei, tx 0x5d85acd0a4b3504e538d6828957a15e6d65e6f845cbdeca25c14b11f6ef73165 eoa->eoa. Prior inbound tx: approve 2026-09-21 (Blockscout). Created block 13631289, creator 0x197939c1ca20c2b506d6811d8b6cdb3394471074 (explorer creation). Source: explorer source etherscan, CreamEth2.sol + OZ ERC20Burnable."
+}

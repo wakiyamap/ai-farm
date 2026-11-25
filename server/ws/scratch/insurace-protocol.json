@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "insurace",
+  "status": "unmeasured",
+  "checked": "InsurAce DefiLlama adapter https://raw.githubusercontent.com/DefiLlama/DefiLlama-Adapters/main/projects/insurace/index.js names staking proxies 0x136D841d4beCe3Fc0E4dEbb94356D8b6B4b93209 and 0xaFc3A52BF951c3540883e7156EaBA030E444328b. Both have nonempty eth_getCode; owner() answered on both, and first proxy getRewardToken() returned INSUR 0x544c42fBB96B39B21DF61cf322b5EDC285EE7429. Etherscan verified first proxy implementation 0xa03d480cd2e10ad36ed098898357dbe4c349fb02 as StakersPoolV2. Its harvestRewards, reCalcPoolPT, settlePendingRewards, withdrawTokens, claimPayout and rebalancePools require SecurityMatrix allowedCaller or owner; setRewardInfo and setPoolWeight are onlyOwner. Fresh EOA eth_call to harvestRewards and reCalcPoolPT both reverted 'allowedCaller'. rewardEndBlock() = 21705199 versus current block 26480976. Second proxy currently points to 0x8b841a105c9c742390c2dea724233164e6404052; explorer and Sourcify have no verified implementation source. Explorer tx listing last showed a redeem() call on 2026-02-03; not a controlled 7-day zero. The adapter's ethPools.json endpoint fails DNS, and the stated GitHub account returns 404. Thus no complete review of second proxy or other pools; no stranger reward established."
+}

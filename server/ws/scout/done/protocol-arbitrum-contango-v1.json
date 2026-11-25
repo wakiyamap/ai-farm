@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-contango-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1427,
+ "chain": "arbitrum",
+ "slug": "contango-v1",
+ "name": "Contango V1",
+ "category": "Derivatives",
+ "tvl_usd": 229542,
+ "url": "https://contango.xyz/",
+ "github": null,
+ "listed_days_ago": 1427,
+ "run_id": "59a33f92d42d4b4995a3f4a3269d35c2",
+ "result": {
+  "verdict": "no_reward",
+  "line": "vault-v2 stack (Ladle 0x93343c08e2055b7793a3336d659be348fc1b08f9, Cauldron 0x44386ddb4c44e7cb8981f97af89e928ddd4258dd): no callable fn pays the caller (slurp auth'd Ladle-only; pour/close/repay/roll/redeem pay the vault owner or user-chosen to; accrual returns 1.0 and mature reverts 'Already matured', both pay 0); deployment dormant: 0 events in 7d on Ladle/Cauldron/Join (control WETH 7428 logs/10k blocks), 75.11 WETH (~229.5k USD TVL) idle in Join 0xaf93a04d5d8d85f69af65ed66a9717db0796fb10.",
+  "kb": [
+   "attempts:2362",
+   "protocols:898"
+  ],
+  "run_id": "59a33f92d42d4b4995a3f4a3269d35c2",
+  "at": 1795060073
+ }
+}

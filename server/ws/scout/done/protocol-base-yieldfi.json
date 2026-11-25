@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-yieldfi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 679,
+ "chain": "base",
+ "slug": "yieldfi",
+ "name": "YieldFi",
+ "category": "Yield Aggregator",
+ "tvl_usd": 204962,
+ "url": "https://yield.fi/",
+ "github": [
+  "YieldFiLabs"
+ ],
+ "listed_days_ago": 679,
+ "run_id": "836391f2a0f84c57bc1cabe697fc2947",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Manager 0x03ACc35286bAAE6D73d99a9f14Ef13752208C8dC on Base - only executeOrder pays its caller (mints gasFeeShares) and eth_call from a fresh address reverts '!minter'; 0 executeOrder in 7d (blocks 55,921,680-58,964,434: 7 logs = 5 yUSD Transfers + 1 Approval + 1 AssetAndShareManaged; 30d control 1,146 logs), last one block 43,775,223 (2026-03-23) paid 2.9e-6 yUSD (~$0.000003) vs ~$0.0016 gas (0.006 gwei x 150k, ETH $1,809 coins.llama.fi); permissionless deposit/redeem make the caller pay fees; TVL $204,962 api.llama.fi.",
+  "kb": [
+   "attempts:2030",
+   "protocols:622"
+  ],
+  "run_id": "836391f2a0f84c57bc1cabe697fc2947",
+  "at": 1794983895
+ }
+}

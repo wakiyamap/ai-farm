@@ -1,0 +1,20 @@
+{
+ "id": "actor-base-0xe3da43da9386a557e2c446836e38d1cab88338c1",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "base",
+ "address": "0xe3da43da9386a557e2c446836e38d1cab88338c1",
+ "run_id": "4ed8df3d019741dbb77295eab2dc848d",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Morpho Blue batch liquidator on Base (contract, not EOA; keeper 0x999919d1 pays gas; flash-loan -> liquidate 1-8/tx -> sell collateral to USDC in-tx): 110 liquidations in 27 txs, one 12.1 h burst 2026-11-20T16:04Z-11-21T04:08Z, nothing before or since. Gross 2.695 USD/call (median 0.955; +65.164 USDC +7.614 eUSD = 72.76 USD), gas 1.345 USD/call (548k gas x 1.31 gwei), net 1.35 USD/call = 5.21 USD/day over 7 d. Strangers paid (121 liquidators / 4,921 events same window) but attempts:3292/3348 measured this class as a 0-2 s race (our live trial 0/25) -> lead:383 blocked_infra",
+  "kb": [
+   "attempts:3559",
+   "leads:383",
+   "actors:347"
+  ],
+  "run_id": "4ed8df3d019741dbb77295eab2dc848d",
+  "at": 1795313980
+ }
+}

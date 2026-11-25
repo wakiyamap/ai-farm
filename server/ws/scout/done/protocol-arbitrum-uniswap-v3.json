@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-uniswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "arbitrum",
+ "slug": "uniswap-v3",
+ "name": "Uniswap V3",
+ "category": "Dexs",
+ "tvl_usd": 98536103,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "4bd46442fb8e4eab8ec428b0e7a663ef",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Uniswap V3 Arbitrum (factory 0x1f98431c8ad98523631ae4a59f267346ea31f984, owner 0xff7ad5da): only claim fn UniswapV3Pool.collectProtocol is onlyFactoryOwner (fresh eth_call reverts); all 7 CollectProtocol in 7d on top WETH/USDC pool 0xC6962004(fee500) were called BY the factory owner paying recipient=TokenJar 0x95E337C5 (sample 0xc33d6594 blk524222579: 1.1688 WETH + 2044.8 USDC), not a stranger; swap/mint/burn/collect/router pay the user's own position. No stranger-payable reward fn; the stranger-paid Firepit+TokenJar release is the separate uniswap_protocol_fees protocol (already dead_end).",
+  "kb": [
+   "attempts:2403"
+  ],
+  "run_id": "4bd46442fb8e4eab8ec428b0e7a663ef",
+  "at": 1795067926
+ }
+}

@@ -1,0 +1,6 @@
+# web_search through You.com (plugin @youdotcom-oss/dsh-plugin, keyless: 100 searches/day).
+# The web row replaces dsh's whole default row, so fetchProvider is restated.
+- id: web
+  config:
+    searchProvider: youcom
+    fetchProvider: http

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-shell-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. The Shell Ocean aggregator has only user-operation functions (doInteraction / doMultipleInteractions, open but the caller is a swapper who PAYS gas + unwrap fee, not paid) and owner-only fee changes (changeUnwrapFee, breakPermitFuse). Proteus pool swap/deposit/withdraw are callable only by ocean(). Grep over the full verified source finds no reward/bounty/harvest/claim/rebalance/liquidation function that pays a caller. Legacy Ocean still gets ~18 user txs/7d (swaps+approvals) but nobody is paid.",
+  "numbers": "Legacy Ocean 0xC32eB36f886F638fffD836DF44C124074cFe3584 = DefiLlama TVL owner (registries/sumTokens.js); current Ocean 0x96B4f4E401cCD70Ec850C1CF8b405Ad58FD5fB7a (docs contract-addresses) last tx 1789464013 (>60d old). Current Arbitrum TVL $105,991 (llama timestamp 1795111139). Legacy Ocean explorer txs: 18 txs in last 7d (2 doInteraction, 6 doMultipleInteractions, 10 setApprovalForAll), all user ops, 0 paid. Gross per call = N/A (no paying function). owner() of legacy Ocean -> 0x7f076e66782918c0110e34ee7610b0d4ee02794."
+}

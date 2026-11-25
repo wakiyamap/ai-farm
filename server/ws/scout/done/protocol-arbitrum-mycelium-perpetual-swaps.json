@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-mycelium-perpetual-swaps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1556,
+ "chain": "arbitrum",
+ "slug": "mycelium-perpetual-swaps",
+ "name": "Mycelium Perpetual Swaps",
+ "category": "Derivatives",
+ "tvl_usd": 84962,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1556,
+ "run_id": "3113559eeb45459ca1dfcf1a815faf62",
+ "result": {
+  "verdict": "role_gated",
+  "line": "GMX v1-fork perps (vault 0xDfbA8AD57d2c62F61F0a60B2C508bCdeb182f855): only paid entry liquidatePosition pays _feeReceiver 0.30 USD (liquidationFeeUsd 3e29, 30-digit USD), but inPrivateLiquidationMode=true and stranger eth_call reverts 'Vault: invalid liquidator'; 0 Vault logs in last 7 d (blocks 524703489-526746196, 2026-11-16..23; control WETH 8627 Transfer), last successful Vault tx 2022-11-24 (block 40711863); staking RewardTracker claim (tx 0xb18a5e9f, 2026-11-20) pays msg.sender's own rewards only.",
+  "kb": [
+   "attempts:4036",
+   "protocols:2165"
+  ],
+  "run_id": "3113559eeb45459ca1dfcf1a815faf62",
+  "at": 1795421131
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-kyberswap-classic",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward - KyberSwap Classic (KyberDMM) on Polygon is a Uniswap-V2-style AMM (factory 0x5F1fe642060B5B9658C15721Ea22E982643c095c, 751 pools): pool/factory source has no reward/keeper/claim function; swap fees accrue to LPs and the only caller-paid fn is skim(), which is open to anyone but pays $0 excess today. 7d volume is arbitrager-initiated (they pay the pools), not protocol payments.",
+ "numbers": "751 pools (allPoolsLength, block ~97.50M); 7d Swap events = 2,687 across 27 active pools, 18 distinct senders, top caller 0x111116056ad60f0f4fb52d60852f9acd2fafca11 951 (eth_getLogs topic0 0x606ecd02..., blocks 97,201,077-97,503,477); skim() excess = 0 USDC/0 WETH on the 2 busiest pools (0xaa5ee78cf79c0ed939fcaaf7edf94ced176a2f2b, 0x95d708e9ee04b0136b98579141624d19c89b9d68), skim estimateGas 112,844 x 279.5 gwei x $0.0785 POL = $0.0025 (coins.llama.fi 2026-11-20 09:16Z)"
+}

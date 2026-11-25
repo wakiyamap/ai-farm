@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-near-intents",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 395,
+ "chain": "avalanche",
+ "slug": "near-intents",
+ "name": "NEAR Intents",
+ "category": "Bridge",
+ "tvl_usd": 113123,
+ "url": "https://near.com/",
+ "github": null,
+ "listed_days_ago": 395,
+ "run_id": "5274e57b4e0a4ccdbbd40344545df319",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Avalanche side = HOT-bridge MetaWallet 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd only (2 owners are EOAs); anyone-callable withdraw() is validator-signature gated, pays the receiver argument (user funds, 4,111 USD in 4 calls over 7d) and caller 0; 7d callers: 4 calls, 100% one relayer 0xcf495cea699b8beca4073279eda66882ccfa273c; gas 0.006-0.011 USD/call (115.6k-151k gas @ 7.5-10.4 gwei, AVAX 7.13 USD coins.llama.fi); fees()=0, withdrawFees onlyOwner; fill rewards live on NEAR.",
+  "kb": [
+   "attempts:1785",
+   "protocols:442"
+  ],
+  "run_id": "5274e57b4e0a4ccdbbd40344545df319",
+  "at": 1794932708
+ }
+}

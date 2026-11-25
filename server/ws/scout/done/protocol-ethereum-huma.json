@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-huma",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 175,
+ "chain": "ethereum",
+ "slug": "huma",
+ "name": "Huma",
+ "category": "RWA",
+ "tvl_usd": 115040045,
+ "url": "https://app.huma.finance",
+ "github": [
+  "00labs"
+ ],
+ "listed_days_ago": 175,
+ "run_id": "1d83f74c045a4b82b38ce936395f1b06",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Huma ethereum = 3-of-4 Safe 0xbf87D924 holding 25M in Morpho V2 vault shares + 51 Obligate eNotes; only permissionless paying fn is eNote claimPayment(uint256) (impl 0x86e4875c) which pays the caller's own note balance; last 7d: 2 ClaimPayment logs (topic0 from cast keccak, no-topic control 9+68 logs), both Safe execTransaction by owner 0xefa9c131 paying the Safe itself 5000 raw units each (usd: unpriced, decimals()=0), 0 stranger calls, no bounty",
+  "kb": [
+   "attempts:2942",
+   "protocols:1352"
+  ],
+  "run_id": "1d83f74c045a4b82b38ce936395f1b06",
+  "at": 1795185270
+ }
+}

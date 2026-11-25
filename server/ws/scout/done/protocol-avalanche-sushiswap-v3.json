@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-sushiswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1326,
+ "chain": "avalanche",
+ "slug": "sushiswap-v3",
+ "name": "SushiSwap V3",
+ "category": "Dexs",
+ "tvl_usd": 60179,
+ "url": "https://sushi.com/",
+ "github": null,
+ "listed_days_ago": 1326,
+ "run_id": "23dbbc51cd93465fb7e0c7b946b4ed7e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Plain Uniswap V3 fork: factory 0x3e603c14... 7 fns + UniswapV3Pool 26 fns, no function pays a stranger (collect/collectProtocol eth_call from fresh addr revert); sample WAVAX/USDC pool 7 d LP fees = 3.3e-6 WAVAX = 0.00002 USD (feeGrowthGlobal delta x liquidity, blocks 100,444,820-101,129,247), pool TVL ,090, protocol 0,179; same as base/polygon/arbitrum/ethereum sushiswap_v3 dead_end",
+  "kb": [
+   "attempts:3970"
+  ],
+  "run_id": "23dbbc51cd93465fb7e0c7b946b4ed7e",
+  "at": 1795406240
+ }
+}

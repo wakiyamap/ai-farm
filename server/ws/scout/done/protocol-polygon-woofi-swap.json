@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-woofi-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1727,
+ "chain": "polygon",
+ "slug": "woofi-swap",
+ "name": "WOOFi Swap",
+ "category": "Dexs",
+ "tvl_usd": 395120,
+ "url": "https://woofi.com",
+ "github": null,
+ "listed_days_ago": 1727,
+ "run_id": "e554a88401724d4ebb4590c9ecce32af",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: SPMM v2 stack (docs addresses, all eth_getCode-confirmed, router wooPool()=0x5520385b..); claimFee stranger-callable but pays WooFeeManager and unclaimedFee()=0, distributeFees+postPrice revert from stranger ('WooracleV2_2: !Admin'), claimRebate pays only own accrued; 7d: 0 claimFee calls (last 2026-08-31 by keeper 0xb08dc5.., 110k gas = $0.0005 at POL $0.08175), 0 claimRebate (last 2026-08-18); TVL 395,941 USD, pool holds 183,724 USDC.e; dormant since 2026-10-18",
+  "kb": [
+   "attempts:2530"
+  ],
+  "run_id": "e554a88401724d4ebb4590c9ecce32af",
+  "at": 1795097029
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "id": "actor-arbitrum-0x9431160b4e9ee79138e622cf05f3218e94c1e8c7",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0x9431160b4e9ee79138e622cf05f3218e94c1e8c7",
+ "run_id": "75e92578e67649ffbcefb083bae9595f",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Aave V3 liquidator executor (unverified contract, open fallback, 2 EOA bots): 11 liquidationCall in 7 d of 718 on arbitrum (71% taken by 2 leaders), gross 0.10-0.45 USD/liq (avg 0.27, debt 5-19 USD, bonus sent to owner 0xe4969... in-tx), funded by 0-fee Balancer flashBalance; gas 1.14 USD/ok + 0.25 USD/failed at 1.0 gwei, 118/129 calls failed -> gross 0.43 USD/day vs gas 6 USD/day, net-negative latency race (sample of 11 of 11).",
+  "kb": [
+   "attempts:3236",
+   "leads:355",
+   "actors:323"
+  ],
+  "run_id": "75e92578e67649ffbcefb083bae9595f",
+  "at": 1795248063
+ }
+}

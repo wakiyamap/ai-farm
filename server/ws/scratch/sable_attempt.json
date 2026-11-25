@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-sable-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Liquity V1 fork CDP with permissionless liquidate(address,bytes[]) / batchLiquidateTroves / claimCollateral, but nothing pays a stranger now: one active trove (845.32 BNB vs 71,064 USDS, ICR ~686% at BNB $576.54) is far from liquidatable, StabilityPool and BO/TM BNB balances are 0, lastFeeOperationTime 2026-11-04 and the sole trove still open means no liquidation or redemption in the last 7 days. TVL is one trove (~$487k); the only recent activity is the trove owner withdrawing collateral (874 -> 845 BNB over the last 8 days, DefiLlama series).",
+  "numbers": "troves=1; debt 71064.23 USDS; coll 845.32 BNB = $487,363 (BNB $576.54 coins.llama.fi 2026-11-18); ICR ~686% vs 110% MCR; liquidatable below BNB ~$92; lastFeeOperationTime=2026-11-04 (TM 0xd380a37c at block 134385626); BO/TM/SP BNB balances = 0; liquidate ad1c3e62 from fresh EOA reverts state code '3'; gasPrice 0.05 gwei, ~300k gas/liquidation ~ $0.01; scout lane 305900/300000 CU so 7d getLogs scan not completed (state evidence used); sources: registries/liquity.js, eth_call, DefiLlama protocol API."
+}

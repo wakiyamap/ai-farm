@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-woofi-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1727,
+ "chain": "arbitrum",
+ "slug": "woofi-swap",
+ "name": "WOOFi Swap",
+ "category": "Dexs",
+ "tvl_usd": 620743,
+ "url": "https://woofi.com",
+ "github": null,
+ "listed_days_ago": 1727,
+ "run_id": "bd8f8cd1135a491e9a5ea0f6f3c121ac",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: WooRebateManager.claimRebate() (0x7616..) is stranger-callable but pays only the caller's own accrued broker rebate - 0 ClaimReward events in 7d (blocks 523500000-525641052; control 1,729 WooRouterSwap events same range, ~247 swaps/day so DEX active); all fee/oracle upkeep onlyAdmin (distributeFeth_call reverts 'WooFeeManager: !admin'); arb gas 0.02 gwei, 100k-gas call ~0.000002 ETH ~$0.004, stranger gross $0",
+  "kb": [
+   "attempts:2521",
+   "protocols:1021"
+  ],
+  "run_id": "bd8f8cd1135a491e9a5ea0f6f3c121ac",
+  "at": 1795094524
+ }
+}

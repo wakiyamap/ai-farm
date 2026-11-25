@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-joe-v2-1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1298,
+ "chain": "avalanche",
+ "slug": "joe-v2.1",
+ "name": "Joe V2.1",
+ "category": "Dexs",
+ "tvl_usd": 1976501,
+ "url": "https://lfj.gg/arbitrum/trade",
+ "github": null,
+ "listed_days_ago": 1298,
+ "run_id": "a646a205da324a85bdef84b5fd46d899",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LimitOrderManager 0x46bA84780f9a7b34C8B0E24Df07a260Fa952195D executeOrders is stranger-callable, pays ExecutionFeePaid fee to msg.sender (executorFeeShare 10000/1e4), but 0 fee events in last 7 days (blocks 100420322..100722722, control finds 98829108); Aug-Oct 2026: 78 execs, gross bash.0004-0.087 vs gas bash.00006-0.0033 (AVAX $7.02 llama.fi), 77 by one EOA 0x9edd21...35a; LBPair (factory 0x8e42f2F4101563bF679975178e880FD87d3eFd4e, 2072 pairs) has no payout fn (V2.2 shape).",
+  "kb": [
+   "attempts:2312"
+  ],
+  "run_id": "a646a205da324a85bdef84b5fd46d899",
+  "at": 1795049867
+ }
+}

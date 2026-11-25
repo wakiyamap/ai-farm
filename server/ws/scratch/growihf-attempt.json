@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-growihf",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found (no contracts on hyperevm for the TVL). GrowiHF's 12.5M USD TVL is a Hyperliquid HyperCore vault (0x1e37a337ed460039d1b15bd3bc489de789768d5e, eth_getCode=0x, 0 EVM txs; leader 0x7789450871fb1315fa982ccb8039cb34e8f2f60d is an EOA too): deposits, trades and vault rewards live in HyperCore app state, so there is no EVM function a stranger could call. Growi's only HyperEVM contract is its Lending product (curator on Morpho Vault V2), 14.3k USD, no caller-paid functions either. Updated protocols:270 (spelling growi_hf).",
+  "numbers": "TVL 12,509,024 USD Hyperliquid L1 + 119,114 USD Hibachi (api.llama.fi/protocol/growihf, 2026-11-18); vault 0x1e37.. and leader 0x7789.. eth_getCode=0x (scout lane, controls 0x54E2.. and USDC 0xb883.. non-zero same run); VaultV2 0x54E24C904CfC563Af7A1EE9DfAF1354d034e44e4 name()='Growi USDC Core HyperEVM', totalAssets 14,263,602,198 e6 = 14,263.60 USD (eth_call latest 2026-11-18), owner 0xd65480868bbd2cb07a7958992ec3d44cc8761632; explorer txs on vault: none; GitHub Growi-DeFi: 3 repos, no contracts."
+}

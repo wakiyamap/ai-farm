@@ -1,0 +1,6 @@
+{
+ "chain": "polygon",
+ "protocol": "autofarm",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/autofarm.js (polygon masterchef 0x89d065572136814230A55DdEeDDEC9DF34EB0B76; eth_getCode non-empty, poolLength()=241 via eth_call). Explorer-verified source = AutoFarmV2_CrossChain.sol (polygonscan): the CrossChain build has NO reward machinery at all - public fns only poolLength/stakedWantTokens/deposit/withdraw, owner-only add/set/inCaseTokensGetStuck; no harvest(), no emissions, no pending claim. withdraw(0,0) from fresh addr reverts 'user.shares is 0'; deposit(0,0) succeeds paying nothing. Strategies role-gated: earn() on pid37 strat 0x17d1a701e48a25491da3ba32705d3684c6aed9e0 (holds 236,456 WLP, want 0xc46991072c7eac184f7bd69d3122cd1750300b27, 18 dec) reverts '!gov' from stranger. Activity: 0 masterchef events last 7d (blocks 97234118-97637318; control: same-shape USDC getLogs returned 50,109 logs over 2,000 blocks; same contract 9 events over 90d, all Withdraw(address,uint256,uint256) of users' own funds). Polygon TVL 501,159 USD (api.llama.fi 2026-11-20). BSC sibling already dead_end (protocols bsc/autofarm, attempts 2721)."
+}

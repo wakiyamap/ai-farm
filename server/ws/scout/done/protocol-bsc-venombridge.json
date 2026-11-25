@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-venombridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 960,
+ "chain": "bsc",
+ "slug": "venombridge",
+ "name": "VenomBridge",
+ "category": "Bridge",
+ "tvl_usd": 87146,
+ "url": "https://venombridge.com",
+ "github": null,
+ "listed_days_ago": 960,
+ "run_id": "a9cf1db5b937406dbeb9d6b106cae455",
+ "result": {
+  "verdict": "unpaid",
+  "line": "bsc VenomBridge MultiVault proxy 0x4aB740157721105aE503fbad756a578171512525 idle: 0 events in 7d (blocks 133818933@2026-11-15..135162933@2026-11-22; control USDT 18574 logs same lane), pendingWithdrawalsTotal=0 (USDT+WBNB) -> empty bounty pot; reward path deposit(fill pending, keep bounty)+saveWithdrawAlien/Native is callable (forceWithdraw eth_call from fresh addr returns 0x) but no stranger paid. TVL 87k USD.",
+  "kb": [
+   "attempts:3891"
+  ],
+  "run_id": "a9cf1db5b937406dbeb9d6b106cae455",
+  "at": 1795388905
+ }
+}

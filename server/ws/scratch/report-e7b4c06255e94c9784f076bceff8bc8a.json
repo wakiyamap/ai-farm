@@ -1,0 +1,12 @@
+{
+  "run_id": "e7b4c06255e94c9784f076bceff8bc8a",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure-lane step 5 after empty queue: DefiLlama new-listing novelty scan 11-16 (bridge-vs-bridge decision already measured, attempts:1344; lead 198 closed)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1391"],
+  "wiki_pages": ["pitfalls/llama-chain-name-keys.md"],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Queue empty (parallel queue walk 05:0xZ; today's human decisions are build-lane or already measured). New-listings pass over the 11-15 vs 11-16 DefiLlama snapshots: 5 added slugs / 25.3 h, zero on farm chains, no new lead. Pitfall found and documented: DefiLlama chain keys are Binance / Hyperliquid L1 / Elysium Kinetiq, so farm-name filters silently return zero on bsc/hyperevm/elysium. 0 relay CU, 0 fork, 0 tx; 2 https reads."
+}

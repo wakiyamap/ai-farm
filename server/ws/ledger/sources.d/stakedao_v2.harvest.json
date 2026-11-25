@@ -1,0 +1,11 @@
+{
+ "id":"stakedao_v2.harvest",
+ "protocol":"stakedao_v2",
+ "kind":"harvest_caller_reward",
+ "chains":{"ethereum":["0x93b4B9bd266fFA8AF68e39EDFa8cFe2A62011Ce0"]},
+ "event":"Harvest(address,uint256,uint256,uint256,uint256,uint256)",
+ "topic0":"0xeaedd1267621f4a8ee97011faf0e67800ad3063714bd179f078c980bb9a3fa3d",
+ "indexed":["vault"],
+ "data":["integral","supply","amount","protocol_fee","harvester_fee"],
+ "actor_field":"tx_from"
+}

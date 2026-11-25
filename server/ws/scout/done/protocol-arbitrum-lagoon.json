@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-lagoon",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 693,
+ "chain": "arbitrum",
+ "slug": "lagoon",
+ "name": "Lagoon",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 9339481,
+ "url": "https://lagoon.finance",
+ "github": [
+  "hopperlabsxyz"
+ ],
+ "listed_days_ago": 693,
+ "run_id": "88fc2e2b57584779906bf24602fd8cb1",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Lagoon arbitrum = 213 ERC-7540 vaults (v0.2.0/v0.6.0 LagoonVault, verified impls 0xab4ac28d/0x3f5a9e1d): all maintenance fns onlySafe/onlyValuationManager (stranger settleDeposit reverts OnlySafe(address)); zero reward/incentive-to-caller in source; 7d (blocks 523.15M-525.25M, all 213 addrs): 85 txs / 11 active vaults, 3 settleDeposit by the vaults' own safes, 14 updateNewTotalAssets, rest curator EOAs + ~12 user ops; gross to caller $0/call, gas 196,559 gas @0.02 gwei = $0.007 (ETH $1806 coins.llama.fi); same as ethereum row id 160",
+  "kb": [
+   "attempts:2038"
+  ],
+  "run_id": "88fc2e2b57584779906bf24602fd8cb1",
+  "at": 1794985432
+ }
+}

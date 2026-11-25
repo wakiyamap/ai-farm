@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hypezion-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The value-moving keeper functions (KinetiqYieldManager harvest/compound/harvestSecondary/updateNAV, OracleAggregator updatePrice/updateAggregatedPrice) are onlyRole(OPERATOR_ROLE/ORACLE_ROLE) and collectFees is onlyRole(DEFAULT_ADMIN), so a stranger reverts; none of them pays the caller a reward anyway. The permissionless functions (updateSystemState, triggerIntervention, exitRecoveryMode) transfer nothing to msg.sender, and the protocol has had zero on-chain activity in 7 days, so no stranger is paid.",
+  "numbers": "12 contracts eth_getCode!=0x on hyperevm(999). eth_call from fresh 0x1111..1111: updateNAV() on 0xF7b3..c8167 reverts e2517d3f(OPERATOR_ROLE 0x9766..b929); updatePrice(string) on 0x6240..8d395 reverts e2517d3f(ORACLE_ROLE 0x68e7..4ef1); updateSystemState() on 0x4A62..F492 returns 0x (success, pays 0). 7d window blocks 51324600(2026-11-15T10:56Z)..51939424(2026-11-22T10:56Z) (~1 blk/s, 615k blk/7d): hzUSD 0x6E2a..97CE Transfer=0, oracle/exchange/KYM event logs=0. Control: getLogs on 0xb5e3e7751210b9c2caca5baaaabdca04913c0a24 last 3000 blk = 119 logs (query works). TVL 37847 USD (candidate) / ~28-34k (DefiLlama, tracked as Hyperliquid L1). gasPrice 0.1 gwei (0x5f5e100). Source: zion-lab-pjt/hypezion-contract + Etherscan-verified impl 0xc38b43f9bf35faa2360d064f27c022f794c33047."
+}

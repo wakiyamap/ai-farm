@@ -1,0 +1,7 @@
+{
+ "chain": "any",
+ "target": "protocol-stellar-scopuly",
+ "outcome": "dead_end_recorded",
+ "reason": "not_found: Scopuly (Stellar wallet + Dexs listing, TVL ~0.71M USD) has no Soroban contract at all, so nothing is callable and nothing pays a stranger. Its Dexs TVL is 100 classic Stellar constant-product liquidity pools (SDEX pool entries, fee 30 bps auto-compounding into reserves) read from its own API; trades are ordinary path payments made by users, with no claim/harvest/keeper function. No contract strkey in the DefiLlama adapter, the GitHub org (28 repos, zero Rust), the app bundles or the docs; no reward/staking endpoints. See protocols:1958 for the address evidence and the on-chain pool confirmation.",
+ "numbers": "tvl_usd 709,561 (api.scopuly.com/api/liquidity_pools_tvl latest daily point time 1795352460 = 2026-11-22 13:01 UTC; candidate said 708,366); 7d volume 302,995 USD and 7d fees 909 USD (sum of 8 daily points, endpoint read 15:02 UTC 2026-11-22, 0.30% of volume); pools listed 100 (api.scopuly.com/api/get_liquidity_pools, pool_id = 64-hex classic pool ids, fee_bp 30); on-chain control via relay getLedgerEntries at latestLedger 65614794: pool ff0bccad785601cd2e0e20b87814b9d9e4f56e872b2ce0cb392d37d1ed19de56 (XLM/LSP) live liquidity_pool entry, fee 30 bps, 532 trustlines, reserves 113,605.68 XLM + 146,780,650.37 LSP, lastModifiedLedgerSeq 65614520 (LSP usd: unpriced); XLM 0.1277 USD coins.llama.fi coingecko:stellar at 15:07:35 UTC 2026-11-22."
+}

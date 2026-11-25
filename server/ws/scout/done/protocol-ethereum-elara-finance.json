@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-elara-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 64,
+ "chain": "ethereum",
+ "slug": "elara-finance",
+ "name": "Elara Finance",
+ "category": "Treasury Manager",
+ "tvl_usd": 154521,
+ "url": "https://elara.fi/",
+ "github": null,
+ "listed_days_ago": 64,
+ "run_id": "44e3df604ce64de2b1a3671de7ffa5f9",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: elUSD treasury protocol (9 UUPS proxies + OZ AccessManager, docs.elara.fi); Vault.syncNAV/collectFees + Stake.syncOrphanedDonations all revert AccessManagedUnauthorized(0x068ca9d8) from fresh address; 7d: 5 NAVSynced (~1/day, single operator EOA 0x5057..e935), Minted 0, Redeemed 3; syncNAV pays the pool not the caller, fees waived; TVL 154.5k USD.",
+  "kb": [
+   "protocols:1298",
+   "attempts:2878"
+  ],
+  "run_id": "44e3df604ce64de2b1a3671de7ffa5f9",
+  "at": 1795172709
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "zerolend_vaults",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/zerolend-vaults/index.js (curator model, eulerVaultOwners = 3 ZeroLend multisigs): 3 Euler v2 eVaultKit vaults on ethereum. eth_getCode non-empty on all 3; BeaconProxy -> EVault impl 0x8ff1c814719096b61abf00bb46ead0c9a529dd7d (etherscan-verified, lib/euler-vault-kit). 96-function ABI (Blockscout API): no reward/claim/distribute/harvest/auction/epoch functions at all. touch() = no-op interest accrual, pays nobody (source Borrowing.sol L161); skim(uint256,address) = sends unaccounted dust to any receiver (Vault.sol L182); liquidate(violator,collateral,..) = discount liquidation, opportunity-based, no fixed fee; everything else is user ops (mint/deposit/withdraw/redeem/repay/borrow/skim) or governorAdmin setters. Euler v2 interest accrues continuously -> no compounding keeper needed. eth_call from fresh 0x1111..11: touch() ok (returns 0x, no role revert); skim(max, self) returns 2544 shares (~0.1 USDC dust) on the eUSDC vault, 0 on both RZR vaults."
+}

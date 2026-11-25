@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-parallel-protocol-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 474,
+ "chain": "avalanche",
+ "slug": "parallel-protocol-v3",
+ "name": "Parallel Protocol V3",
+ "category": "CDP",
+ "tvl_usd": 105450,
+ "url": "https://parallel.best/",
+ "github": null,
+ "listed_days_ago": 474,
+ "run_id": "6bc391ea28194bcda01f5e0192a2a517",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ParallelizerUSDp diamond 0x41d58951...7c80: all keeper functions (updateOracle, sellRewards, processSurplus, release) are ParallelAccessManager/whitelist gated (stranger eth_call reverts NotTrusted 0xc22a648e / AccessManagedUnauthorized 0x068ca9d8); verified Angle-fork source pays no caller reward and harvest/rebalance selectors are not registered; last 7 days: 6 updateOracle calls by keeper 0x82f603cd (none since 2026-11-11) + 1 swap tx, gross paid 0, gas 112k gas @ ~7.5 gwei = bash.006/call at AVAX $7.08 (coins.llama.fi).",
+  "kb": [
+   "attempts:1841",
+   "protocols:481"
+  ],
+  "run_id": "6bc391ea28194bcda01f5e0192a2a517",
+  "at": 1794943168
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-aave-horizon-rwa",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 343,
+ "chain": "ethereum",
+ "slug": "aave-horizon-rwa",
+ "name": "Aave Horizon RWA",
+ "category": "Lending",
+ "tvl_usd": 222696860,
+ "url": "https://app.aave.com/markets/?marketName=proto_horizon_v3",
+ "github": null,
+ "listed_days_ago": 343,
+ "run_id": "c871c80f58664d91b0643017950aeb7d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Pool 0xae05Cd22df81871bc7cC2a04BeCfb516bFe332C8, 13 reserves: liquidationCall anyone-callable (fresh eth_call reverts Error 45 health-factor, no role gate) but 0 LiquidationCall in 7 d (26408574-26459006 no-topic scan, 118 logs, 6 topic0 all mapped = control; 0/90 d on 11-07); mintToTreasury pays treasury not caller (0 calls); syncIndexes/Rates onlyPoolConfigurator, eliminateReserveDeficit onlyUmbrella; incentive pot empty (0x1d5d386a.. getRewardsByAsset=[], 0 events 7 d). TVL 222.9M/borrowed 85.9M USD; gross 0 vs gas ~1.30 USD (2.66 gwei, ETH 1631 llama 17:24Z).",
+  "kb": [
+   "attempts:2995",
+   "protocols:65"
+  ],
+  "run_id": "c871c80f58664d91b0643017950aeb7d",
+  "at": 1795195671
+ }
+}

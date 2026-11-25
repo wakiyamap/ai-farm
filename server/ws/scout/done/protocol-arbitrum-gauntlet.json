@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-gauntlet",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "arbitrum",
+ "slug": "gauntlet",
+ "name": "Gauntlet",
+ "category": "Risk Curators",
+ "tvl_usd": 63368349,
+ "url": "https://www.gauntlet.xyz",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "5f70bd5ca2a241d2a607d0c93d7e1271",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Gauntlet on arbitrum = 11 Morpho curator vaults (4 MetaMorphoV1_1 + 7 VaultV2, e.g. gtUSDC Prime 0x7c574174.., USDG Premium 0x390c1bb0.., 31.1M shares); all admin fns role-gated, accrueInterest() (0xa6afed95) stranger-callable but pays 0 to caller (fee shares -> Gauntlet); 0 stranger payments in recent txs sample of 25; gross 0 vs gas ~bash.01 (arbitrum).",
+  "kb": [
+   "attempts:1900"
+  ],
+  "run_id": "5f70bd5ca2a241d2a607d0c93d7e1271",
+  "at": 1794955917
+ }
+}

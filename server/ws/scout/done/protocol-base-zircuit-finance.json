@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-zircuit-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 264,
+ "chain": "base",
+ "slug": "zircuit-finance",
+ "name": "Zircuit Finance",
+ "category": "Yield",
+ "tvl_usd": 1446526,
+ "url": "https://finance.zircuit.com/",
+ "github": null,
+ "listed_days_ago": 264,
+ "run_id": "4995fa26e2d34538a6ac535fb6e0e0bc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Yearn TokenizedStrategy stack (2 OFT StrategyManagers + 5 AaveV3Lender + 1 InstitutionLender); report/tend/claimAndSellRewards/kickAuction/releaseReservedIdle onlyKeepers = fixed EOA 0x38591f54 or mgmt 0xc0a7c631, reportTotalAsset onlyAuditOracle; 7d (blockscout): 101 txs to the 6 vaults, only 2 senders (keeper 21: 18 report + 3 acceptReportTotalAsset; institution 0x10A0DF6A: 80 reportTotalAsset), no stranger ever; stranger eth_call reverts '!keeper'; report gas 146,498 = bash.13 (ETH 1817.78, coins.llama.fi), caller pays all, earns no fee",
+  "kb": [
+   "attempts:1735"
+  ],
+  "run_id": "4995fa26e2d34538a6ac535fb6e0e0bc",
+  "at": 1794921765
+ }
+}

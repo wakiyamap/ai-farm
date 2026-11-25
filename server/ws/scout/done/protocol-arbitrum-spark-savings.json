@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-spark-savings",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 430,
+ "chain": "arbitrum",
+ "slug": "spark-savings",
+ "name": "Spark Savings",
+ "category": "Yield",
+ "tvl_usd": 328191264,
+ "url": "https://spark.finance/",
+ "github": null,
+ "listed_days_ago": 430,
+ "run_id": "3e2a1b8fa42543e39da8a8da2015c354",
+ "result": {
+  "verdict": "unpaid",
+  "line": "spUSDT SparkVault 0x45d9...4b62 drip() is anyone-callable but pays the caller nothing (source has no fee/transfer): 2 Drip events in 7d, both inside user redeem() txs (0xa4b0b03e, 0xd5fe7a66; accrued diffs $236+$65), 0 standalone pokes, gas ~83k = $0.003; take() TAKER_ROLE, setVsr() SETTER_ROLE; sUSDC UsdcVaultL2 0x9400...4609 has no pay-anyone function at all (TVL arb $328.07M)",
+  "kb": [
+   "attempts:1821",
+   "protocols:463"
+  ],
+  "run_id": "3e2a1b8fa42543e39da8a8da2015c354",
+  "at": 1794938150
+ }
+}

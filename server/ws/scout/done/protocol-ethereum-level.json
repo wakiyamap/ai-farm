@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-level",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 807,
+ "chain": "ethereum",
+ "slug": "level",
+ "name": "Level",
+ "category": "CDP",
+ "tvl_usd": 458121,
+ "url": "https://www.level.money",
+ "github": null,
+ "listed_days_ago": 807,
+ "run_id": "798a850df68348e6b73ca142fdb36ca6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Level (lvlUSD, TVL 458k) has no caller-paid fn; only open fn completeRedeem pays caller's own redemption (7d blocks 26410992-26461247: 1 RedeemInitiated + 1 RedeemCompleted by EOA 0x892b0f6a..405e, 55.00 USDC to self, gas 88,688 = 0.06 USD @0.429 gwei); stranger eth_call reverts NoPendingRedemptions 0x2e25d45e; mint/initiateRedeem requiresAuth, transferInRewards REWARDER_ROLE",
+  "kb": [
+   "attempts:3197"
+  ],
+  "run_id": "798a850df68348e6b73ca142fdb36ca6",
+  "at": 1795237629
+ }
+}

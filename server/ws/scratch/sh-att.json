@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-stablehodl",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Polygon pool proxy 0x109d3042a3c682f94107b3818e93b3ade2a47544 (verified impl stake_pool 0xc34df695167aa2f9571976ffd5e3e0e95a53e470) is a fully custodial deposit contract: deposit() forwards stablecoins to masterAddress 0x6a102c501a9eade49e6224cec7834c89112ccead, an EOA. The verified source has no function anyone can call that pays the caller (no claim/reward/harvest/distribute/settle/epoch), and the proxy holds 0 USDC and 0 USDT. Yield accrues off-chain (HLUSD, up to 15% APY per the site). Nothing for a keeper or stranger to earn.",
+  "numbers": "7-day txs to the proxy: 0 (etherscan listing via explorer txs; last tx 2026-09-28, ts 1790529503, hash 0xbbb4ffc5e5ceb01fbaebca782d3c4cc70b84c9806a124a0f66a8f5abcef9349d). Proxy token balances (getPoolBalance, latest block 0x5cfae17): USDC 0.00, USDT 0.00. Cumulative poolTokenAmounts(USDC) 1.347e12 (adapter's TVL var, not a balance). Gas: eth_gasPrice 0x4078fc5253 = 276.5 gwei x POL $0.08192 (coins.llama.fi, ts 1794950738) = $2.3e-8/gas, so a ~120k-gas deposit = ~$0.003. DefiLlama polygon TVL reported 5,128,693 USD vs 0 USD held by the contract."
+}

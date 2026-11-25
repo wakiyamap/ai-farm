@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-aegis-yusd",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 587,
+ "chain": "ethereum",
+ "slug": "aegis-yusd",
+ "name": "Aegis YUSD",
+ "category": "Basis Trading",
+ "tvl_usd": 33258532,
+ "url": "https://app.aegis.im",
+ "github": null,
+ "listed_days_ago": 587,
+ "run_id": "eace62f90222475db5a0640e1666ba1a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Only public paying fn is AegisRewardsV2.claimMerkleRewards (0x8340f5af...eebd): 4 claims / 960.40 YUSD (~959 USD @ 0.9985) in 7d (blocks 26409428-26459686), largest 641.57 YUSD (~641 USD) vs 65,603 gas (bash.028); but each leaf pays an off-chain-named claimer (fresh address -> InvalidMerkleProof; 3 of 4 claims self, 1 vault-keeper), pool 262,062 YUSD leaf-committed, upkeep all role-gated.",
+  "kb": [
+   "attempts:3107"
+  ],
+  "run_id": "eace62f90222475db5a0640e1666ba1a",
+  "at": 1795219334
+ }
+}

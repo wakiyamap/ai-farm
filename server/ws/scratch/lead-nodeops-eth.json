@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "NodeOps $NODE reward-issuance claim class on Ethereum mainnet (follow-on from closed Base lead 87)",
+  "why": "The only measured live NodeOps reward flow: on ethereum mainnet the $NODE token 0x2f714d7b9a035d4ce24af8d9b6091c07e37f43fb shows 3176 Transfer events in blocks 24376031-26368631 (~167/day) with 92 mints from 0x0 (~4.8/day) = reward issuance/claims; the Arbitrum staking leg is near-dormant (10 transfers/last 2M blocks) and Base has no protocol contracts at all (docs contract table pins all to Arb/Eth/Bsc).",
+  "next_steps": "Identity leg first (do not probe from memory): (1) census the zero-to-user mints on the $NODE token (Transfer topic2 = recipient; sender topic1 = the minter contract - pin its address, ~4.8 mints/day); (2) $NODE on Eth/Arb/Bsc is an ERC1967Proxy (Routescan name 'ERC1967Proxy'): read the implementation slot 0x360894a13ba1a3210667c82834401656197bf257197d9a85c976912b37773876 via eth_call, then Routescan getsourcecode on the implementation for the claim function (who calls it, payout unit); (3) only then payment-leg EV: per-claim payout (prestateTracer on a claim tx) x cadence minus gas; docs say rewards are $NODE mints (no ETH payout leg measured anywhere yet) - if claims are user-driven ERC20 mints with no caller reward, close dead_end at the payment leg.",
+  "status": "unmeasured"
+}

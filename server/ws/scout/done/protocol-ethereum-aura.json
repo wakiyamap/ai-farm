@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-aura",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1581,
+ "chain": "ethereum",
+ "slug": "aura",
+ "name": "Aura",
+ "category": "Yield",
+ "tvl_usd": 7717501,
+ "url": "https://aura.finance",
+ "github": [
+  "aurafinance"
+ ],
+ "listed_days_ago": 1581,
+ "run_id": "8baf2a3c560c4e91be56935b53352d6c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Aura Booster 0xA57b8d98 isShutdown=1: earmarkRewards(uint256) (only caller-paid fn, 50 bps of BAL 18dec) reverts 'shutdown' for a stranger eth_call (verified source require(!isShutdown); distributeL2Fees is bridgeDelegate-gated); 7d BAL out/in of Booster 0/0 (blocks 26414900-26465182, 2026-11-14T18:23Z->2026-11-21T18:07Z, control 38 BAL Transfers/1536 blk); Booster no-topic 7d scan: 5 Withdrawn events only; gross 0 USD, no callable fn pays strangers.",
+  "kb": [
+   "attempts:3421",
+   "protocols:229"
+  ],
+  "run_id": "8baf2a3c560c4e91be56935b53352d6c",
+  "at": 1795285163
+ }
+}

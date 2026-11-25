@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-clearstar",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "clearstar",
+ "name": "Clearstar",
+ "category": "Risk Curators",
+ "tvl_usd": 35410663,
+ "url": "https://clearstar.xyz",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "c5bf250ed1184bbea8f2358045ec5216",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No Clearstar-owned contracts on ethereum (3 listed owner addresses are EOAs, eth_getCode 0x); 34.14M USD TVL sits in 5 third-party vaults (Upshift x2, Euler Earn, IPOR, YieldFi); their open keeper calls (Upshift chargeManagementFee/collectFees, called daily by keeper EOA 0xe0b7deab...c79, 66,384 gas = 0.03 USD at 0.262 gwei / ETH 1623 USD) pay the curator feeCollectors and 0 to the caller with totalCollectableFees() = 0, and IPOR updateMarketsBalances reverts for a stranger (0x068ca9d8); no stranger paid in 7 d.",
+  "kb": [
+   "attempts:3084",
+   "protocols:1462"
+  ],
+  "run_id": "c5bf250ed1184bbea8f2358045ec5216",
+  "at": 1795214964
+ }
+}

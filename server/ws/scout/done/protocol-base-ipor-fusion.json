@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-ipor-fusion",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 794,
+ "chain": "base",
+ "slug": "ipor-fusion",
+ "name": "IPOR Fusion",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 36366641,
+ "url": "https://app.ipor.io/fusion",
+ "github": null,
+ "listed_days_ago": 794,
+ "run_id": "8f4b972c60534d129ccad08ec60a7ab3",
+ "result": {
+  "verdict": "role_gated",
+  "line": "PlasmaVault (impl 0x7924184350e9d555a576153fe5feeec86270530a) execute/claimRewards/updateMarketsBalances all AccessManaged-restricted: fresh addr reverts AccessManagedUnauthorized on 4/4 vaults; 578 executes/7d across top-32 of 267 base vaults (18 active, 16 curator executors); 5 sample calls paid the caller 0 (no value, no transfers) vs gas 447k-1798k = $0.005-0.019 at 0.006 gwei x ETH 1809.63 (coins.llama.fi)",
+  "kb": [
+   "attempts:2089",
+   "protocols:675"
+  ],
+  "run_id": "8f4b972c60534d129ccad08ec60a7ab3",
+  "at": 1794997167
+ }
+}

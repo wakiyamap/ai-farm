@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# Dynamic context for an earner session. Printed at the end of the prompt.
+set -uo pipefail
+WS=/srv/farm/ws
+KB=/opt/farm/bin/kb
+LEDGER=/opt/farm/bin/ledger
+export PATH=/opt/farm/bin:$PATH
+
+echo
+echo "### Open leads (newest 10)"
+$KB query "SELECT id, chain, target, substr(next_steps,1,120) AS next_steps FROM leads WHERE status='unmeasured' ORDER BY updated_at DESC LIMIT 10" 2>/dev/null || echo "(kb unavailable)"
+
+echo
+echo "### Recent attempts (last 15, so you don't repeat them)"
+$KB query "SELECT chain, target, outcome, substr(reason,1,100) AS reason FROM attempts ORDER BY id DESC LIMIT 15" 2>/dev/null
+
+echo
+echo "### Most active actors in the ledger (7 days)"
+$LEDGER top --days 7 2>/dev/null | head -16
+
+echo
+echo "### Paper bots waiting for a fix"
+for d in "$WS"/bots/paper/*/; do
+  [[ -d "$d" ]] || continue
+  r="$d/review.md"
+  if [[ -f "$r" ]] && head -5 "$r" | grep -qi 'decision: *fix'; then
+    echo "- $(basename "$d"): $(grep -i -m1 'decision' "$r")"
+  fi
+done
+
+echo
+echo "### Unfinished bots (built by a cut-off session; continue them)"
+for d in "$WS"/bots/paper/*/; do
+  [[ -d "$d" ]] || continue
+  id=$(basename "$d")
+  [[ -f "$d/review.md" ]] && continue
+  st=$(systemctl show "paper@$id.service" -p SubState --value 2>/dev/null)
+  if [[ "$st" != "running" ]]; then
+    echo "- $id: service ${st:-never started}; $(ls "$d" | tr "\n" " ")"
+    [[ -f "$d/manifest.yaml" ]] && echo "  strategy: $(grep -A1 '^strategy' "$d/manifest.yaml" | tail -1 | head -c 160)"
+    [[ -f "$d/logs/bot.jsonl" ]] && echo "  last log: $(tail -1 "$d/logs/bot.jsonl" | head -c 200)"
+  fi
+done
+echo
+echo "### Previous earner runs without a session report (cut off)"
+sqlite3 /var/lib/farm/ops.db "SELECT started_at, service_result FROM runs WHERE role='earner' AND service_result='timeout' ORDER BY started_at DESC LIMIT 3" 2>/dev/null | sed 's/^/- /' || echo "(ops.db not readable)"
+
+echo
+echo "### Active claims"
+now=$(date -u +%s)
+for c in "$WS"/claims/*.json; do
+  [[ -f "$c" ]] || continue
+  exp=$(python3 -c "import json,sys,datetime;d=json.load(open(sys.argv[1]));print(int(datetime.datetime.fromisoformat(d['expires_at'].replace('Z','+00:00')).timestamp()))" "$c" 2>/dev/null || echo 0)
+  if (( exp > now )); then echo "- $(basename "$c" .json)"; else rm -f "$c"; fi
+done
+echo
+echo "Paper slots in use: $(systemctl list-units --plain --no-legend --state=active 'paper@*.service' | wc -l) / 12"

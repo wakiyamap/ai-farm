@@ -1,0 +1,457 @@
+{
+ "918f8674": [
+  [
+   "DENOMINATOR()",
+   "view",
+   [
+    "uint256"
+   ]
+  ]
+ ],
+ "648da859": [
+  [
+   "POOL_TYPE()",
+   "view",
+   [
+    "bytes32"
+   ]
+  ]
+ ],
+ "f1e663a9": [
+  [
+   "SWAP_FEE_CEIL()",
+   "view",
+   [
+    "uint256"
+   ]
+  ]
+ ],
+ "611dd084": [
+  [
+   "afterSwapFee(tuple,tuple)",
+   "view",
+   [
+    "uint24"
+   ]
+  ]
+ ],
+ "44a82430": [
+  [
+   "beforeSwapFee(tuple)",
+   "view",
+   [
+    "uint24"
+   ]
+  ]
+ ],
+ "6f89244c": [
+  [
+   "burn(int24,int24,uint128,address)",
+   "nonpayable",
+   [
+    "uint256",
+    "uint256"
+   ]
+  ]
+ ],
+ "a34123a7": [
+  [
+   "burn(int24,int24,uint128)",
+   "nonpayable",
+   [
+    "uint256",
+    "uint256"
+   ]
+  ]
+ ],
+ "31338374": [
+  [
+   "collect(address,int24,int24,uint128,uint128,address)",
+   "nonpayable",
+   [
+    "uint128",
+    "uint128"
+   ]
+  ]
+ ],
+ "4f1eb3d8": [
+  [
+   "collect(address,int24,int24,uint128,uint128)",
+   "nonpayable",
+   [
+    "uint128",
+    "uint128"
+   ]
+  ]
+ ],
+ "a480ca79": [
+  [
+   "collectFees(address)",
+   "nonpayable",
+   [
+    "uint128",
+    "uint128"
+   ]
+  ]
+ ],
+ "c45a0155": [
+  [
+   "factory()",
+   "view",
+   [
+    "address"
+   ]
+  ]
+ ],
+ "3bf0c9fb": [
+  [
+   "factoryRegistry()",
+   "view",
+   [
+    "address"
+   ]
+  ]
+ ],
+ "ddca3f43": [
+  [
+   "fee()",
+   "view",
+   [
+    "uint24"
+   ]
+  ]
+ ],
+ "f3058399": [
+  [
+   "feeGrowthGlobal0X128()",
+   "view",
+   [
+    "uint256"
+   ]
+  ]
+ ],
+ "46141319": [
+  [
+   "feeGrowthGlobal1X128()",
+   "view",
+   [
+    "uint256"
+   ]
+  ]
+ ],
+ "490e6cbc": [
+  [
+   "flash(address,uint256,uint256,bytes)",
+   "nonpayable",
+   []
+  ]
+ ],
+ "8a09c284": [
+  [
+   "flashFee(tuple)",
+   "view",
+   [
+    "uint24"
+   ]
+  ]
+ ],
+ "a6f19c84": [
+  [
+   "gauge()",
+   "view",
+   [
+    "address"
+   ]
+  ]
+ ],
+ "293833ba": [
+  [
+   "gaugeFees()",
+   "view",
+   [
+    "uint128",
+    "uint128"
+   ]
+  ]
+ ],
+ "96518d4a": [
+  [
+   "getFeeGrowthInside(int24,int24)",
+   "view",
+   [
+    "uint256",
+    "uint256"
+   ]
+  ]
+ ],
+ "a16368c9": [
+  [
+   "getRewardGrowthInside(int24,int24,uint256)",
+   "view",
+   [
+    "uint256"
+   ]
+  ]
+ ],
+ "171852be": [
+  [
+   "getSecondsPerStakedLiquidityCumulativeX128()",
+   "view",
+   [
+    "uint160"
+   ]
+  ]
+ ],
+ "32148f67": [
+  [
+   "increaseObservationCardinalityNext(uint16)",
+   "nonpayable",
+   []
+  ]
+ ],
+ "2071d884": [
+  [
+   "initialize(address,address,address,int24,address,uint160)",
+   "nonpayable",
+   []
+  ]
+ ],
+ "d0b06f5d": [
+  [
+   "lastUpdated()",
+   "view",
+   [
+    "uint48"
+   ]
+  ]
+ ],
+ "1a686502": [
+  [
+   "liquidity()",
+   "view",
+   [
+    "uint128"
+   ]
+  ]
+ ],
+ "70cf754a": [
+  [
+   "maxLiquidityPerTick()",
+   "view",
+   [
+    "uint128"
+   ]
+  ]
+ ],
+ "3c8a7d8d": [
+  [
+   "mint(address,int24,int24,uint128,bytes)",
+   "nonpayable",
+   [
+    "uint256",
+    "uint256"
+   ]
+  ]
+ ],
+ "47ccca02": [
+  [
+   "nft()",
+   "view",
+   [
+    "address"
+   ]
+  ]
+ ],
+ "252c09d7": [
+  [
+   "observations(uint256)",
+   "view",
+   [
+    "uint32",
+    "int56",
+    "uint160",
+    "bool"
+   ]
+  ]
+ ],
+ "883bdbfd": [
+  [
+   "observe(uint32[])",
+   "view",
+   [
+    "int56[]",
+    "uint160[]"
+   ]
+  ]
+ ],
+ "514ea4bf": [
+  [
+   "positions(bytes32)",
+   "view",
+   [
+    "uint128",
+    "uint256",
+    "uint256",
+    "uint128",
+    "uint128"
+   ]
+  ]
+ ],
+ "57806ada": [
+  [
+   "rewardGrowthGlobalX128()",
+   "view",
+   [
+    "uint256"
+   ]
+  ]
+ ],
+ "b056b49a": [
+  [
+   "rollover()",
+   "view",
+   [
+    "uint256"
+   ]
+  ]
+ ],
+ "00d0139a": [
+  [
+   "secondsPerStakedLiquidityCumulativeX128()",
+   "view",
+   [
+    "uint160"
+   ]
+  ]
+ ],
+ "1f7c3568": [
+  [
+   "setGaugeAndPositionManager(address,address)",
+   "nonpayable",
+   []
+  ]
+ ],
+ "fe0106d5": [
+  [
+   "settleToBlock()",
+   "nonpayable",
+   [
+    "uint256"
+   ]
+  ]
+ ],
+ "3850c7bd": [
+  [
+   "slot0()",
+   "view",
+   [
+    "uint160",
+    "int24",
+    "uint16",
+    "uint16",
+    "uint16",
+    "bool"
+   ]
+  ]
+ ],
+ "a38807f2": [
+  [
+   "snapshotCumulativesInside(int24,int24)",
+   "view",
+   [
+    "int56",
+    "uint160",
+    "uint32"
+   ]
+  ]
+ ],
+ "8f50914d": [
+  [
+   "stake(int128,int24,int24)",
+   "nonpayable",
+   []
+  ]
+ ],
+ "3ab04b20": [
+  [
+   "stakedLiquidity()",
+   "view",
+   [
+    "uint128"
+   ]
+  ]
+ ],
+ "128acb08": [
+  [
+   "swap(address,bool,int256,uint160,bytes)",
+   "nonpayable",
+   [
+    "int256",
+    "int256"
+   ]
+  ]
+ ],
+ "5339c296": [
+  [
+   "tickBitmap(int16)",
+   "view",
+   [
+    "uint256"
+   ]
+  ]
+ ],
+ "d0c93a7c": [
+  [
+   "tickSpacing()",
+   "view",
+   [
+    "int24"
+   ]
+  ]
+ ],
+ "f30dba93": [
+  [
+   "ticks(int24)",
+   "view",
+   [
+    "uint128",
+    "int128",
+    "int128",
+    "uint256",
+    "uint256",
+    "uint256",
+    "int56",
+    "uint160",
+    "uint32",
+    "bool"
+   ]
+  ]
+ ],
+ "0dfe1681": [
+  [
+   "token0()",
+   "view",
+   [
+    "address"
+   ]
+  ]
+ ],
+ "d21220a7": [
+  [
+   "token1()",
+   "view",
+   [
+    "address"
+   ]
+  ]
+ ],
+ "b64cc67b": [
+  [
+   "unstakedFee()",
+   "view",
+   [
+    "uint24"
+   ]
+  ]
+ ]
+}

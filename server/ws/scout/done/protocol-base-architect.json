@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-architect",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 75,
+ "chain": "base",
+ "slug": "architect",
+ "name": "Architect",
+ "category": "Risk Curators",
+ "tvl_usd": 1264801,
+ "url": "https://architect.systems/",
+ "github": null,
+ "listed_days_ago": 75,
+ "run_id": "9f48968a9432409bb30bac2ca2891598",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Architect = Morpho-vault curator on base: 4 ERC4626 vaults (MetaMorphoV1_1 0x5C5bf792/0x42Cecd40/0x3618a5 + VaultV2 0x5ABecC) owned by 0xC2f4848; only stranger-callable fn is VaultV2 accrueInterest (eth_call from stranger ok) and it pays 0; last 7 d (3.1M blocks, 0x34ce20e..latest): 0 events on all 4 vaults (control: 39 events since 0x24a00d4, all setup 2025-11-20); on-chain vault totalAssets .18 (2,176,447 of 6-dec USDC) vs DefiLlama tvl_usd 1,264,871; gas n/a (nothing to call); ETH 828.22 (base.blockscout.com exchange_rate).",
+  "kb": [
+   "attempts:1621",
+   "attempts:1622",
+   "protocols:319"
+  ],
+  "run_id": "9f48968a9432409bb30bac2ca2891598",
+  "at": 1794898230
+ }
+}

@@ -1,0 +1,458 @@
+#!/usr/bin/env python3
+"""Ledger ingest: pull selected events from the farm's chains (ledger.json blocks_per_call) into ledger.db.
+
+Runs as farmdata from a systemd timer. Reads two source lists:
+  - the human-owned seed list (/etc/farm/ledger-sources.json)
+  - agent-added sources under /srv/farm/ws/ledger/sources.d/*.json, each
+    validated here (schema, chain, topic hash, on-chain code) and bounded by
+    its own CU budget, so agents can widen the ledger without approval but
+    cannot spend the whole research lane on it.
+
+Every run: advance each (source, chain) cursor by up to blocks_per_call blocks
+per eth_getLogs, until the run's CU budget is used. Events are decoded with the
+source's field lists (static types only) and the sender of the transaction is
+recorded as actor via the receipt. Events may contain dynamic or tuple parameters: indexed
+ones are kept as their topic hash, and data parameters after the leading static words are
+simply not decoded. The actor_daily table is rebuilt for the
+touched days.
+
+Standard library only.
+"""
+import datetime as dt
+import glob
+import json
+import os
+import re
+import sqlite3
+import sys
+import time
+import urllib.request
+
+CONFIG_PATH = "/etc/farm/ledger.json"
+CU = {"eth_getLogs": 60, "eth_blockNumber": 10, "eth_getCode": 20, "eth_getTransactionReceipt": 20}
+
+ADDR_RE = re.compile(r"^0x[0-9a-fA-F]{40}$")
+TOPIC_RE = re.compile(r"^0x[0-9a-f]{64}$")
+ID_RE = re.compile(r"^[a-z0-9][a-z0-9_.-]{0,63}$")
+NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]{0,40}$")
+STATIC_TYPES = {"address", "bool", "bytes32"} | {f"uint{n}" for n in range(8, 257, 8)} | {f"int{n}" for n in range(8, 257, 8)}
+ELEMENTARY = STATIC_TYPES | {"string", "bytes"} | {f"bytes{n}" for n in range(1, 33)}
+ARRAY_SUFFIX = re.compile(r"(\[\d*\])+$")
+
+
+def split_top(text):
+    """Split a parameter list on top-level commas: 'a,(b,c)[],d' -> ['a', '(b,c)[]', 'd']."""
+    out, depth, cur = [], 0, ""
+    for ch in text:
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth -= 1
+            if depth < 0:
+                raise ValueError("unbalanced parentheses in event")
+        if ch == "," and depth == 0:
+            out.append(cur.strip())
+            cur = ""
+        else:
+            cur += ch
+    if depth:
+        raise ValueError("unbalanced parentheses in event")
+    if cur.strip():
+        out.append(cur.strip())
+    return out
+
+
+def valid_type(t):
+    """Canonical ABI type: elementary, tuple '(...)', each optionally followed by [] / [N]."""
+    base = ARRAY_SUFFIX.sub("", t)
+    if base.startswith("(") and base.endswith(")"):
+        inner = base[1:-1]
+        return bool(inner.strip()) and all(valid_type(x) for x in split_top(inner))
+    return base in ELEMENTARY
+
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS events (
+  chain TEXT NOT NULL, block INTEGER NOT NULL, tx_hash TEXT NOT NULL, log_index INTEGER NOT NULL,
+  ts INTEGER, source_id TEXT NOT NULL, protocol TEXT NOT NULL, kind TEXT NOT NULL,
+  contract TEXT NOT NULL, actor TEXT, tx_from TEXT, fields TEXT NOT NULL,
+  PRIMARY KEY (chain, tx_hash, log_index)
+);
+CREATE INDEX IF NOT EXISTS events_actor ON events (chain, actor, block);
+CREATE INDEX IF NOT EXISTS events_source ON events (source_id, chain, block);
+CREATE TABLE IF NOT EXISTS actor_daily (
+  day TEXT NOT NULL, chain TEXT NOT NULL, actor TEXT NOT NULL, protocol TEXT NOT NULL, kind TEXT NOT NULL,
+  n INTEGER NOT NULL, first_seen INTEGER, last_seen INTEGER,
+  PRIMARY KEY (day, chain, actor, protocol, kind)
+);
+CREATE TABLE IF NOT EXISTS cursors (
+  source_id TEXT NOT NULL, chain TEXT NOT NULL, contract TEXT NOT NULL,
+  next_block INTEGER NOT NULL, verified INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (source_id, chain, contract)
+);
+CREATE TABLE IF NOT EXISTS sources (
+  source_id TEXT PRIMARY KEY, origin TEXT NOT NULL, protocol TEXT, kind TEXT, event TEXT,
+  status TEXT NOT NULL, note TEXT, updated_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS runs (
+  id INTEGER PRIMARY KEY, started_at TEXT, ended_at TEXT, cu_seed INTEGER, cu_agent INTEGER, events INTEGER, note TEXT
+);
+"""
+
+
+class Rpc:
+    def __init__(self, url, lane):
+        self.url, self.lane = url, lane
+        self.cu = 0
+
+    def call(self, chain, method, params):
+        body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
+        req = urllib.request.Request(f"{self.url}/{chain}?lane={self.lane}", data=body,
+                                     headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            out = json.loads(r.read())
+        self.cu += CU.get(method, 30)
+        if "error" in out:
+            raise RuntimeError(f"{chain} {method}: {out['error'].get('message')}")
+        return out["result"]
+
+
+def now():
+    return dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+
+
+def load_sources(cfg):
+    """Returns (seed_sources, agent_sources, problems). Agent files are validated strictly."""
+    with open(cfg["seed_sources"], encoding="utf-8") as f:
+        seed = json.load(f)["sources"]
+    allowed_chains = set(cfg["blocks_per_call"])
+    for s in seed:
+        check_source(s, allowed_chains)   # a typo in the human file fails loud, at startup
+        s["_origin"] = "seed"
+    agent, problems = [], []
+    files = sorted(glob.glob(os.path.join(cfg["agent_sources_dir"], "*.json")))[: cfg["max_agent_sources"]]
+    seen = {s["id"] for s in seed}
+    for path in files:
+        try:
+            with open(path, encoding="utf-8") as f:
+                s = json.load(f)
+            check_source(s, allowed_chains)
+            if s["id"] in seen:
+                raise ValueError(f"id {s['id']} already exists")
+            seen.add(s["id"])
+            s["_origin"] = os.path.basename(path)
+            agent.append(s)
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            problems.append((os.path.basename(path), str(exc)))
+    return seed, agent, problems
+
+
+def check_source(s, allowed_chains):
+    if not isinstance(s, dict):
+        raise ValueError("not an object")
+    for k in ("id", "protocol", "kind", "chains", "event", "topic0", "indexed", "data", "actor_field"):
+        if k not in s:
+            raise ValueError(f"missing {k}")
+    if not ID_RE.match(s["id"]) or not ID_RE.match(s["protocol"]) or not ID_RE.match(s["kind"]):
+        raise ValueError("id/protocol/kind must be lowercase [a-z0-9_.-]")
+    if not isinstance(s["chains"], dict) or not s["chains"]:
+        raise ValueError("chains must be a non-empty object")
+    for chain, addrs in s["chains"].items():
+        if chain not in allowed_chains:
+            raise ValueError(f"chain {chain} not supported")
+        if not isinstance(addrs, list) or not addrs or len(addrs) > 20 or not all(isinstance(a, str) and ADDR_RE.match(a) for a in addrs):
+            raise ValueError(f"chains.{chain}: 1-20 addresses required")
+    m = re.match(r"^([A-Za-z_][A-Za-z0-9_]*)\((.*)\)$", s["event"].replace(" ", ""))
+    if not m:
+        raise ValueError("event must look like Name(type,type,...)")
+    types = split_top(m.group(2))
+    bad = [t for t in types if not valid_type(t)]
+    if bad:
+        raise ValueError(f"unknown ABI type(s) {bad}; use canonical types, tuples as (t1,t2) and arrays as t[] / t[N]")
+    if not TOPIC_RE.match(s["topic0"]):
+        raise ValueError("topic0 must be a 0x-prefixed 32-byte hex")
+    sig = m.group(1) + "(" + ",".join(types) + ")"
+    want = keccak(sig)
+    if want != s["topic0"]:
+        raise ValueError(f"topic0 {s['topic0']} != keccak256(\"{sig}\") = {want}")
+    indexed, data = list(s["indexed"]), list(s["data"])
+    names = indexed + data
+    if not all(isinstance(n, str) and NAME_RE.match(n) for n in names):
+        raise ValueError("indexed / data entries must be plain names")
+    if len(indexed) > 3:
+        raise ValueError("at most 3 indexed parameters")
+    # indexed parameters are the first len(indexed) event parameters (any type: a dynamic or tuple
+    # indexed value is stored as its topic hash). data names a PREFIX of the remaining parameters,
+    # which must be static one-word types; later parameters (arrays, strings, tuples...) are not
+    # decoded, so they may be left unnamed.
+    if len(names) > len(types):
+        raise ValueError("more names than event parameters")
+    data_types = types[len(indexed):len(indexed) + len(data)]
+    if not all(t in STATIC_TYPES for t in data_types):
+        raise ValueError("data may only name leading static one-word parameters "
+                         f"({sorted(STATIC_TYPES)[:6]}...); leave dynamic/tuple data parameters unnamed")
+    if s["actor_field"] not in names and s["actor_field"] != "tx_from":
+        raise ValueError("actor_field must be a parameter name or 'tx_from'")
+    s["_types"] = types
+
+
+def keccak(text):
+    """keccak-256 of a string. Tries pycryptodome, then a pure-Python fallback."""
+    try:
+        from Crypto.Hash import keccak as _k
+        h = _k.new(digest_bits=256)
+        h.update(text.encode())
+        return "0x" + h.hexdigest()
+    except ImportError:
+        return "0x" + _keccak256(text.encode()).hex()
+
+
+def _keccak256(data):
+    # Minimal Keccak-f[1600] sponge, rate 1088 bits, pad 0x01...0x80 (Ethereum keccak, not SHA3).
+    RC = [0x0000000000000001, 0x0000000000008082, 0x800000000000808A, 0x8000000080008000, 0x000000000000808B,
+          0x0000000080000001, 0x8000000080008081, 0x8000000000008009, 0x000000000000008A, 0x0000000000000088,
+          0x0000000080008009, 0x000000008000000A, 0x000000008000808B, 0x800000000000008B, 0x8000000000008089,
+          0x8000000000008003, 0x8000000000008002, 0x8000000000000080, 0x000000000000800A, 0x800000008000000A,
+          0x8000000080008081, 0x8000000000008080, 0x0000000080000001, 0x8000000080008008]
+    ROT = [[0, 36, 3, 41, 18], [1, 44, 10, 45, 2], [62, 6, 43, 15, 61], [28, 55, 25, 21, 56], [27, 20, 39, 8, 14]]
+    M = (1 << 64) - 1
+
+    def f(st):
+        for rc in RC:
+            c = [st[x][0] ^ st[x][1] ^ st[x][2] ^ st[x][3] ^ st[x][4] for x in range(5)]
+            d = [c[(x - 1) % 5] ^ (((c[(x + 1) % 5] << 1) | (c[(x + 1) % 5] >> 63)) & M) for x in range(5)]
+            st = [[st[x][y] ^ d[x] for y in range(5)] for x in range(5)]
+            b = [[0] * 5 for _ in range(5)]
+            for x in range(5):
+                for y in range(5):
+                    r = ROT[x][y]
+                    b[y][(2 * x + 3 * y) % 5] = ((st[x][y] << r) | (st[x][y] >> (64 - r))) & M if r else st[x][y]
+            st = [[b[x][y] ^ ((~b[(x + 1) % 5][y]) & b[(x + 2) % 5][y]) for y in range(5)] for x in range(5)]
+            st[0][0] ^= rc
+        return st
+
+    rate = 136
+    msg = bytearray(data) + b"\x01"
+    msg += b"\x00" * ((-len(msg)) % rate)
+    msg[-1] |= 0x80
+    st = [[0] * 5 for _ in range(5)]
+    for off in range(0, len(msg), rate):
+        blk = msg[off:off + rate]
+        for i in range(rate // 8):
+            st[i % 5][i // 5] ^= int.from_bytes(blk[i * 8:(i + 1) * 8], "little")
+        st = f(st)
+    out = b"".join(st[i % 5][i // 5].to_bytes(8, "little") for i in range(rate // 8))
+    return out[:32]
+
+
+def decode(s, log):
+    """Decode one log with the source's static-typed field list."""
+    names = list(s["indexed"]) + list(s["data"])
+    types = s["_types"]
+    words = []
+    for t in log["topics"][1:]:
+        words.append(bytes.fromhex(t[2:]))
+    data = bytes.fromhex(log["data"][2:]) if log.get("data") and log["data"] != "0x" else b""
+    words += [data[i:i + 32] for i in range(0, len(data), 32)]
+    out = {}
+    n_idx = len(s["indexed"])
+    for i, (name, typ, w) in enumerate(zip(names, types, words)):
+        if i < n_idx and typ not in STATIC_TYPES:
+            out[name] = "0x" + w.hex()        # indexed dynamic/tuple value: only its keccak is on chain
+        elif typ == "address":
+            out[name] = "0x" + w[-20:].hex()
+        elif typ == "bool":
+            out[name] = bool(int.from_bytes(w, "big"))
+        elif typ == "bytes32":
+            out[name] = "0x" + w.hex()
+        elif typ.startswith("uint"):
+            out[name] = str(int.from_bytes(w, "big"))
+        else:
+            v = int.from_bytes(w, "big", signed=True)
+            out[name] = str(v)
+    return out
+
+
+def verify_contract(rpc, chain, addr):
+    code = rpc.call(chain, "eth_getCode", [addr, "latest"])
+    return code not in (None, "0x", "0x0")
+
+
+def ingest_source(con, rpc, cfg, s, heads, budget, stats):
+    """Advance this source on every chain while budget allows. Returns events inserted.
+
+    One eth_getLogs covers every emitter of a (source, chain) that stands at the same block (10h).
+    Until 10h each emitter was queried on its own, so a source with N emitters paid N * 60 CU a
+    run only to stay at the head: with the 600 CU fair share, the 12th emitter of a source (and
+    every later chain) was never initialized. Emitters that lag (a new one still backfilling) are
+    advanced first, alone, until they reach the block of the others and join their call."""
+    inserted = 0
+    for chain, addrs in s["chains"].items():
+        if chain not in heads:
+            continue                                  # head unreadable this run (runs.note says why)
+        head = heads[chain] - cfg["confirmations"]
+        step = cfg["blocks_per_call"][chain]
+        backfill_from = max(head - int(cfg["backfill_days"] * 86400 / cfg["block_time_s"][chain]), 0)
+        addrs = list(dict.fromkeys(a.lower() for a in addrs))
+        rows = {r[0]: (r[1], r[2]) for r in con.execute(
+            "SELECT contract, next_block, verified FROM cursors WHERE source_id=? AND chain=?", (s["id"], chain))}
+        at = {}                                       # verified emitter -> next block to read
+        for addr in addrs:
+            if addr in rows:
+                if rows[addr][1]:
+                    at[addr] = rows[addr][0]
+                continue
+            if rpc.cu > budget:
+                break                                 # the rest is initialized on a later run
+            ok = verify_contract(rpc, chain, addr)
+            con.execute("INSERT INTO cursors VALUES (?,?,?,?,?)", (s["id"], chain, addr, backfill_from, int(ok)))
+            con.commit()
+            if ok:
+                at[addr] = backfill_from
+            else:
+                stats["unverified"].append(f"{s['id']}@{chain}:{addr}")
+        failed = set()                                # emitters whose call failed this run
+        while rpc.cu <= budget:
+            behind = {a: n for a, n in at.items() if n <= head and a not in failed}
+            if not behind:
+                break
+            lo = min(behind.values())
+            group = sorted(a for a, n in behind.items() if n == lo)
+            ahead = [n for n in behind.values() if n > lo]
+            to_block = min(lo + step - 1, head, min(ahead) - 1 if ahead else head)
+            try:
+                logs = rpc.call(chain, "eth_getLogs", [{"fromBlock": hex(lo), "toBlock": hex(to_block),
+                                                        "address": group if len(group) > 1 else group[0],
+                                                        "topics": [s["topic0"]]}])
+            except RuntimeError as exc:
+                msg = str(exc).lower()
+                if "range" in msg or "limit" in msg or "too many" in msg or "10000" in msg:
+                    step = max(step // 4, 50)
+                    continue
+                stats["errors"].append(str(exc))
+                failed.update(group)                  # the other emitters of this chain still advance
+                continue
+            logs = sorted(logs, key=lambda l: (int(l["blockNumber"], 16), int(l["logIndex"], 16)))
+            stop_at = None                            # first block NOT stored, when the budget ran out
+            for log in logs:
+                tx = log["transactionHash"]
+                blk = int(log["blockNumber"], 16)
+                contract = (log.get("address") or group[0]).lower()
+                fields = decode(s, log)
+                # actor: a named event field, or the tx sender (costs one receipt call)
+                tx_from = None
+                actor = fields.get(s["actor_field"]) if s["actor_field"] != "tx_from" else None
+                if actor is None:
+                    if rpc.cu > budget and blk > lo:
+                        # Out of budget inside the range: the cursor stops at this block and the
+                        # next run reads on from here. Until 10h the cursor moved past the whole
+                        # range and the remaining events were lost. (The first block of a range is
+                        # always finished, so every run makes progress.)
+                        stop_at = blk
+                        break
+                    rcpt = rpc.call(chain, "eth_getTransactionReceipt", [tx])
+                    tx_from = rcpt["from"].lower() if rcpt else None
+                    actor = tx_from
+                cur = con.execute("INSERT OR IGNORE INTO events VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+                                  (chain, blk, tx, int(log["logIndex"], 16), None, s["id"], s["protocol"],
+                                   s["kind"], contract, actor, tx_from, json.dumps(fields, separators=(",", ":"))))
+                inserted += cur.rowcount
+            next_block = stop_at if stop_at is not None else to_block + 1
+            for a in group:
+                at[a] = next_block
+                con.execute("UPDATE cursors SET next_block=? WHERE source_id=? AND chain=? AND contract=?",
+                            (next_block, s["id"], chain, a))
+            con.commit()
+            if stop_at is not None:
+                break
+    return inserted
+
+
+def fill_timestamps(con, rpc, budget):
+    """Blocks are fetched once per (chain, block) so actor_daily can bucket by UTC day."""
+    rows = con.execute("SELECT DISTINCT chain, block FROM events WHERE ts IS NULL LIMIT 400").fetchall()
+    for chain, blk in rows:
+        if rpc.cu > budget:
+            break
+        b = rpc.call(chain, "eth_getBlockByNumber", [hex(blk), False])
+        if b and b.get("timestamp"):
+            con.execute("UPDATE events SET ts=? WHERE chain=? AND block=?", (int(b["timestamp"], 16), chain, blk))
+    con.commit()
+
+
+def rebuild_actor_daily(con):
+    con.execute("DELETE FROM actor_daily")
+    con.execute("""
+        INSERT INTO actor_daily
+        SELECT date(ts, 'unixepoch'), chain, actor, protocol, kind, count(*), min(ts), max(ts)
+        FROM events WHERE ts IS NOT NULL AND actor IS NOT NULL
+        GROUP BY 1,2,3,4,5""")
+    con.commit()
+
+
+def main():
+    with open(CONFIG_PATH, encoding="utf-8") as f:
+        cfg = json.load(f)
+    os.makedirs(os.path.dirname(cfg["db"]), exist_ok=True)
+    con = sqlite3.connect(cfg["db"], timeout=30)
+    # Rollback journal, not WAL: with WAL, readers that cannot write the -shm
+    # file (the agents) fail even on SELECT. One writer every 15 min needs no WAL.
+    con.execute("PRAGMA journal_mode=DELETE")
+    con.executescript(SCHEMA)
+    os.chmod(cfg["db"], 0o644)
+    started = now()
+    rpc = Rpc(cfg["relay_url"], cfg["lane"])
+    stats = {"unverified": [], "errors": []}
+
+    seed, agent, problems = load_sources(cfg)
+    for s in seed + agent:
+        con.execute("INSERT OR REPLACE INTO sources VALUES (?,?,?,?,?,?,?,?)",
+                    (s["id"], s["_origin"], s["protocol"], s["kind"], s["event"], "active", None, started))
+    for fname, why in problems:
+        con.execute("INSERT OR REPLACE INTO sources VALUES (?,?,?,?,?,?,?,?)",
+                    (fname, fname, None, None, None, "rejected", why, started))
+    con.commit()
+
+    # Only chains some source uses, and one unreadable head skips that chain for this run instead of
+    # failing the whole run (10a: eight chains, any public node can be down).
+    heads = {}
+    for chain in sorted({c for s in seed + agent for c in s["chains"]}):
+        try:
+            heads[chain] = int(rpc.call(chain, "eth_blockNumber", []), 16)
+        except (OSError, RuntimeError, ValueError) as exc:
+            stats["errors"].append(f"{chain} head unreadable: {exc}")
+    events = 0
+    seed_budget = cfg["max_cu_per_run"] - cfg["max_cu_per_run_agent_sources"]
+    for s in seed:
+        events += ingest_source(con, rpc, cfg, s, heads, seed_budget, stats)
+    cu_seed = rpc.cu
+    agent_budget = cu_seed + cfg["max_cu_per_run_agent_sources"]
+    # Fair share: rotate the starting source every run and give each source an equal slice first,
+    # so sources late in file order (or with a long first backfill) are not starved forever.
+    if agent:
+        k = con.execute("SELECT count(*) FROM runs").fetchone()[0] % len(agent)
+        agent = agent[k:] + agent[:k]
+        share = max(600, cfg["max_cu_per_run_agent_sources"] // len(agent))
+        for s in agent:
+            events += ingest_source(con, rpc, cfg, s, heads, min(rpc.cu + share, agent_budget), stats)
+        for s in agent:                                   # leftover budget, same rotated order
+            if rpc.cu >= agent_budget:
+                break
+            events += ingest_source(con, rpc, cfg, s, heads, agent_budget, stats)
+    cu_agent = rpc.cu - cu_seed
+    fill_timestamps(con, rpc, cfg["max_cu_per_run"])
+    rebuild_actor_daily(con)
+    for sid in stats["unverified"]:
+        con.execute("UPDATE sources SET status='unverified', note=? WHERE source_id=?", (sid, sid.split("@")[0]))
+    note = "; ".join(stats["errors"][:5]) or None
+    con.execute("INSERT INTO runs (started_at, ended_at, cu_seed, cu_agent, events, note) VALUES (?,?,?,?,?,?)",
+                (started, now(), cu_seed, cu_agent, events, note))
+    con.commit()
+    con.close()
+    print(f"ledger-ingest: events={events} cu_seed={cu_seed} cu_agent={cu_agent} "
+          f"rejected={len(problems)} unverified={len(stats['unverified'])} errors={len(stats['errors'])}", file=sys.stderr)
+    for fname, why in problems:
+        print(f"  rejected {fname}: {why}", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-nuva",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 134,
+ "chain": "ethereum",
+ "slug": "nuva",
+ "name": "NUVA",
+ "category": "Yield",
+ "tvl_usd": 5207444,
+ "url": "https://nuva.finance",
+ "github": null,
+ "listed_days_ago": 134,
+ "run_id": "12e7038c22e245b188a85566b448f9bc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: router accept/reject/sweepRedemptions onlyRole(KEEPER_ROLE) + StakingVault distributeRewards onlyRole(REWARDS_ADMIN_ROLE) (fresh-addr eth_call reverts AccessControlUnauthorizedAccount 0xe2517d3f); no fn pays its caller (gross $0/call, no payment code in source); 7d router no-topic scan 9 logs: 1 keeper EOA 0xe2b39391d60bc5d5c44872ef8fca1dce614e4237 did 2 accepts (gas $0.022) + 2 sweeps (gas $0.065), ETH $1732.02 coins.llama.fi 2026-11-20",
+  "kb": [
+   "attempts:2923",
+   "protocols:1338"
+  ],
+  "run_id": "12e7038c22e245b188a85566b448f9bc",
+  "at": 1795181688
+ }
+}

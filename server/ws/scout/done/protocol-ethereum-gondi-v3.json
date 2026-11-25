@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-gondi-v3",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 691,
+ "chain": "ethereum",
+ "slug": "gondi-v3",
+ "name": "Gondi V3",
+ "category": "NFT Lending",
+ "tvl_usd": 2965560,
+ "url": "https://www.gondi.xyz",
+ "github": null,
+ "listed_days_ago": 691,
+ "run_id": "5557a62143a8447588e958f323cc9200",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Auction settleAuction/settleWithBuyout on liquidators 0x2995ae72/0xe6ef3321 are open-callable but triggerFee=0 bps on both (last settle blk 26164003 ~48d ago paid 0 USDC on 2000 USDC proceeds); 0 auction events in 7d (control: 2494 loan logs same range); foreclosure-path liquidateLoan ran 22x/7d by EOAs paying caller 0; gas ~0.09 USD vs gross 0.",
+  "kb": [
+   "attempts:3149"
+  ],
+  "run_id": "5557a62143a8447588e958f323cc9200",
+  "at": 1795228881
+ }
+}

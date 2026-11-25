@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-nonce-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 46,
+ "chain": "optimism",
+ "slug": "nonce-capital",
+ "name": "Nonce Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 201589374,
+ "url": "https://nonce-capital.xyz/",
+ "github": null,
+ "listed_days_ago": 46,
+ "run_id": "a1b5dcf0adc646b0903ed5840b6315d6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Veda BoringVault stack curated by Nonce on optimism: updateExchangeRate(uint96) requiresAuth on all 3 accountants (stranger eth_call reverts UNAUTHORIZED), claimFees vault-only, vault manage/enter/exit Auth-gated, teller+Midas tokens user/role ops; 7d: 21 ExchangeRateUpdated (7/accountant, ~1/day) all from keeper 0x43e9fa7a60f80711c9d3afe4ce1bb3e8c3f7a9b8, pays the caller 0 (blocks 159344705..159647105).",
+  "kb": [
+   "protocols:302",
+   "attempts:1596"
+  ],
+  "run_id": "a1b5dcf0adc646b0903ed5840b6315d6",
+  "at": 1794893255
+ }
+}

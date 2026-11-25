@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-stake-dao-yield",
+ "outcome": "dead_end_recorded",
+ "reason": "Verdict unpaid. Stake DAO Yield on optimism = 10 v2 RewardVault Curve strategies (~200.3k USD TVL, 5 non-zero) behind one Accountant 0x8f872ce018898ae7f218e5a3ce6fe267206697f8 (verified source, eth_getCode non-0x). The only stranger-payable path is Accountant.harvest(address[],bytes[],address) with no modifier, but getHarvestFeePercent()=0 on chain so the harvester fee is always 0; all 15 Harvest events in 7d show harvesterFee=0 and are all self-serving claim(address[],bytes[]) calls by 7 vault-user EOAs. Same dead end as protocols 1110 (arbitrum), 1155 (base), 237 (ethereum).",
+ "numbers": "10 vaults (config api.stakedao.org/api/strategies/v2/curve/10.json), TVL sum 200,342 USD (candidate 203,372); Harvest events 7d blocks 159478031-159780431: 15 in 12 txs, harvesterFee=0 in 15/15 (eth_getLogs topic0 0xeaedd126...); getHarvestFeePercent()=0 (eth_call latest); top harvest 393 CRV = 75.7 USD gross (CRV 0.1925 coins.llama.fi ts 1795159920), protocolFee 17% to feeReceiver; gas per tx 397,552-879,626 gas @ 32,303-123,632 wei = 0.00002-0.0002 USD (ETH 1741.19 same source/ts); eth_call harvest from fresh address succeeds (no role revert)"
+}

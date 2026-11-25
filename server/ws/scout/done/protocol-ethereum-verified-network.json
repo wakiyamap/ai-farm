@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-verified-network",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 470,
+ "chain": "ethereum",
+ "slug": "verified-network",
+ "name": "Verified Network",
+ "category": "RWA",
+ "tvl_usd": 126716,
+ "url": "https://www.verified.network/",
+ "github": null,
+ "listed_days_ago": 470,
+ "run_id": "6396a1cc13894e74984920bb236d5224",
+ "result": {
+  "verdict": "role_gated",
+  "line": "3 Balancer-v2 SecondaryIssuePool orderbook pools (factory 0x0332299005d0331d6623db3b7afc5478222b5621 verified; 126,720 USD USDC TVL): no public paid fn \u2014 Orderbook newOrder/cancelOrder onlyOwner (fresh eth_call reverts BAL#426), onSwap onlyVault, factory create() pays 0; 0 TradeReport+OrderBook events in 7 d (blocks 26411248-26461648; same-shape control since creation returns 4; last event ~2024-11-21, manager last tx 2024-12-05) \u2014 dormant since Nov 2024.",
+  "kb": [
+   "attempts:3052",
+   "protocols:1435"
+  ],
+  "run_id": "6396a1cc13894e74984920bb236d5224",
+  "at": 1795208635
+ }
+}

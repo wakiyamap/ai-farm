@@ -1,0 +1,26 @@
+{
+ "id": "protocol-hyperevm-ezmanager",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 261,
+ "chain": "hyperevm",
+ "slug": "ezmanager",
+ "name": "EZManager",
+ "category": "Liquidity Manager",
+ "tvl_usd": 58330,
+ "url": "https://ezmanager.finance",
+ "github": [
+  "EZManagerCL"
+ ],
+ "listed_days_ago": 261,
+ "run_id": "d520310ffb564e84bb5f59fcb8e21688",
+ "result": {
+  "verdict": "role_gated",
+  "line": "CLManager 0x84ff6013E88A9414205f8EA9dE8427FE91815FC2 hyperevm: 7d (blocks 51,326,266-51,940,365, 2026-11-15..22) 151 BotFeePaid all to one whitelisted bot EOA 0x1b18cb97bba759fadcf1f9ab0a293650384e2a6b, 26.21 USDC total (avg $0.17, max $2.15), gas 1.2-2.9M @ 0.1-0.24 gwei = $0.012-0.028/tx (HYPE $62.47); collectFeesToUSDC/changeRange from fresh address revert NotOwner 0x30cd7471, allowedBots(fresh)=false (addBot onlyOwner) - whitelist, no stranger path",
+  "kb": [
+   "attempts:3701"
+  ],
+  "run_id": "d520310ffb564e84bb5f59fcb8e21688",
+  "at": 1795346601
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-fuel-bridge (correction to attempt 3539)",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - correction of one derived count only: of the 8 relayMessage calls in the 7 d window, 3 had caller == recipient (users self-relaying) and there were 5 distinct caller EOAs; attempt 3539's line said 5 self-relays. Verdict and all other figures unchanged: relayMessage is permissionless (whenNotPaused; fresh-address eth_call reverts 0xd0ebeb4b AlreadyRelayed, not AccessControl) and pays the caller 0; FuelChainState.commit is COMMITTER_ROLE-gated.",
+  "numbers": "8 relayMessage calls in 6.85 d (blocks 26,418,049 2026-11-15T04:36:35Z -> 26,467,201 2026-11-22T00:55:35Z), 3 self-relays, 5 distinct callers; caller reward 0 ETH / 0 USD; gas 183,743-307,194 = 0.05-1.12 USD at ETH 1680.73 USD (coins.llama.fi coingecko:ethereum ts 1795309212 = 2026-11-22T01:00Z); 3 gateway Withdrawal events to recipients, 55 commits from 1 EOA. See attempt 3539 and protocols:1795."
+}

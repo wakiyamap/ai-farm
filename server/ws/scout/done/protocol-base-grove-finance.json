@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-grove-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 235,
+ "chain": "base",
+ "slug": "grove-finance",
+ "name": "Grove Finance",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 499134164,
+ "url": "https://data.grove.finance/",
+ "github": null,
+ "listed_days_ago": 235,
+ "run_id": "049a1da9d5b84a86b059abda5ead8227",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Grove Base = ALMProxy 0x9B746dBC..CEEE + Spark-style ForeignController 0x7f8408eB..C955; every state-changing fn is onlyRole(CONTROLLER/RELAYER) (doCall from fresh addr reverts); 7d: 113 out/110 in USDC transfers on proxy, all by protocol relayers 0x0eEC86.. and 0x918780.. (eth_getLogs, control 6630 logs/100 blk); no fn pays a caller: gross 0, gas <0.01 USD/call (ETH 1813 USD coins.llama.fi)",
+  "kb": [
+   "attempts:1709",
+   "protocols:384"
+  ],
+  "run_id": "049a1da9d5b84a86b059abda5ead8227",
+  "at": 1794917836
+ }
+}

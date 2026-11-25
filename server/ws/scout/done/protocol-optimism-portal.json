@@ -1,0 +1,26 @@
+{
+ "id": "protocol-optimism-portal",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1710,
+ "chain": "optimism",
+ "slug": "portal",
+ "name": "Portal",
+ "category": "Bridge",
+ "tvl_usd": 152931,
+ "url": "https://portalbridge.com",
+ "github": [
+  "wormhole-foundation"
+ ],
+ "listed_days_ago": 1710,
+ "run_id": "0c3829fbd1854383bdcc2ee4f6cab8fa",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: 17 redemptions/7d (full census, blocks 159444869-159747269), 0/17 paid the caller - completeTransfer(bytes) permissionless and pays msg.sender the VAA fee when recipient!=caller (source impl 0xcc02226e), but all 4 direct calls were self-redemptions and 13 went to routers as recipients; gross $0.00/call vs gas $0.00005-0.0007 (253k-281k gas @ 0.0001-0.0013 gwei, ETH $1805 coins.llama.fi 13:15Z)",
+  "kb": [
+   "attempts:2519"
+  ],
+  "run_id": "0c3829fbd1854383bdcc2ee4f6cab8fa",
+  "at": 1795094438
+ }
+}

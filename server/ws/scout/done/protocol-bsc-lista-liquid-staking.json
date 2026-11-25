@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-lista-liquid-staking",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1197,
+ "chain": "bsc",
+ "slug": "lista-liquid-staking",
+ "name": "Lista Liquid Staking",
+ "category": "Liquid Staking",
+ "tvl_usd": 585656682,
+ "url": "https://lista.org/",
+ "github": null,
+ "listed_days_ago": 1197,
+ "run_id": "45f9f7d0762f495ab88f38423dc57a3c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ListaStakeManager 0x1adB950d8bB3dA4bE104211D5AB038628e477fE6 (slisBNB): claimWithdraw/claimWithdrawByUUID are stranger-callable but pay the user's own queued BNB to the user, not the caller (7d: ClaimWithdrawal 66, RequestWithdraw 51, InstantWithdraw 0; sample 7/8 self-claims, 0.007-100 BNB at 576.49 USD/BNB); claimWithdrawFor is BOT-role gated and pays the user too; caller gross 0 vs gas ~0.01 USD (0.05 gwei).",
+  "kb": [
+   "attempts:2270",
+   "protocols:821"
+  ],
+  "run_id": "45f9f7d0762f495ab88f38423dc57a3c",
+  "at": 1795038849
+ }
+}

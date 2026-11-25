@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-tokenpocket",
+  "outcome": "dead_end_recorded",
+  "reason": "not_found - no staking/vault contract on ethereum. The DefiLlama adapter (projects/TokenPocket/index.js) has no addresses: it just reads off-chain API preserver.mytokenpocket.vip/v1/pledge/global and returns {ethereum: staking_total}; that host now returns HTTP 404 on all probed paths and its TVL series has been a flat 100 units since 2024-10-24 (so 212,407 USD = 100 x ~2124 ETH, stale). The listing's only address, TPT token 0x4161725d019690a3e0de50f6be67b07a86a9fae1, is a bare ERC-20 (verified ABI: name/approve/totalSupply/transferFrom/decimals/balanceOf/symbol/transfer/allowance) with no claim/harvest/reward function. The dapp itself (dapp.tokenpocket.pro/StakeVault/) is 404/AccessDenied today. GitHub orgs tokenbankteam/TP-Lab have no contract repos. Nothing callable that pays a stranger.",
+  "numbers": "TPT 0x4161725d019690a3e0de50f6be67b07a86a9fae1: eth_getCode non-empty, symbol()=TPT, decimals()=8 (eth_call). Deploy tx 0xbec45e... block 10446529, creator 0x74f85fe5538dbfcf3b46399e121c3ba83f695f91 (explorer creation). TPT Transfer logs 7d via eth_getLogs blocks 26413759 (2026-11-14T14:15:35Z) -> 26464159 (2026-11-21T14:45:23Z): 6 transfers in 4 txs, largest 492743965 (8 dec)=4.93 TPT to 0xdc33d1...; counterparties EOAs + SakeSwapPair 0xe291b2a9...; no vault contract receives TPT. Adapter TVL source HTTP 404 (2026-11-21).",
+  "bot_id": null
+}

@@ -1,0 +1,21 @@
+{
+ "id": "trial-base-lead13",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 13,
+ "target": "morpho executable-route liquidations: same-block oracle-race capture class (poll cadence has no measured window)",
+ "retries": 1,
+ "run_id": "35cd234070c442ed99514f3e49353d6d",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7d base morpho_blue liquidations: 7,874 occ / 181 takers (ledger); 12 USDC markets 4,690 paid, gross sum ~.08M; sample 20: top-5 gross 9k-48k, median .6, winner prio median 15 gwei (0-26, baseFee 0.005) = same-block gas auction at rush, ~0 at trickle; attempt ~300k gas = bash.01-0.16 trickle / .6 at 15 gwei (ETH ,834 blue-api); oracle emits no events (on-demand) so gap not event-measurable, same-block race class stands",
+  "kb": [
+   "attempts:1494",
+   "leads:13"
+  ],
+  "run_id": "35cd234070c442ed99514f3e49353d6d",
+  "at": 1794868620
+ }
+}

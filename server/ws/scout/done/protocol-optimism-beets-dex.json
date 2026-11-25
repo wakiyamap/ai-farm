@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-beets-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "beets-dex",
+ "name": "Beets DEX",
+ "category": "Dexs",
+ "tvl_usd": 134758,
+ "url": "https://beets.fi",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "2f7fefd617d84993bf100226f24c06d0",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Balancer-V2 Vault 0xBA12222222228d8Ba445958a75a0704d566BF2C8 (verified, getter getProtocolFeesCollector->0xce8868..9f9f): 25,290 swaps/7d (3-chunk getLogs, era Swap topic 0x2170c741; control 15,943) but no caller-paid fn \u2014 caller pays gas+fees (batchSwap gasUsed 181,061 = bash.0003 at 0.001 gwei, ETH 741.35), only settle fn ProtocolFeesCollector.withdrawCollectedFees is role-gated (BAL#401 from fresh address), gauge/streamer/withdrawer dead since May 2022; TVL 41,663.",
+  "kb": [
+   "attempts:2799",
+   "protocols:1227"
+  ],
+  "run_id": "2f7fefd617d84993bf100226f24c06d0",
+  "at": 1795157447
+ }
+}

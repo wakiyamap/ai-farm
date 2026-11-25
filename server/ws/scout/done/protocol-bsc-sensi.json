@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-sensi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 737,
+ "chain": "bsc",
+ "slug": "sensi",
+ "name": "Sensi",
+ "category": "Yield Aggregator",
+ "tvl_usd": 75269,
+ "url": "https://sensi.fi/",
+ "github": null,
+ "listed_days_ago": 737,
+ "run_id": "e33f668c75f74a94b1a4079f97551c7f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "SYManager 0x21B6...f3A3 rebalance(bool) reverts 'SY:UN' from a stranger (15-address worker whitelist, getAuthorizationHistory); everything else is owner self-service (withdrawRewards reverts 0x8e5693a0 from stranger); 0 events in 7d on SYManager/Locking/Marketplace (blocks 133760339-135136983; WBNB control 7,662 logs), 0 on SYManager over 90d, last Locking event 28d ago; totalActiveVaults 0/1; reward pot 0.001 SENSI (unpriced, ~0 USD; 0.58 USD even if BNB) vs gas ~0.003 USD at 0.05 gwei.",
+  "kb": [
+   "attempts:3832",
+   "protocols:2013"
+  ],
+  "run_id": "e33f668c75f74a94b1a4079f97551c7f",
+  "at": 1795377142
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-wasabix",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: Wasabix is a 2021-vintage zombie aggregator (TVL 158,640 USD). Its only caller-paying functions are masterchef/transmuter claims (StakingPoolsV4.claim(pid), StakingPools.claim/exit, Transmuter.claim/transmute/exit) which pay msg.sender's own accrued WASABI/staked waToken, not a bounty; a stranger with no position is paid 0 (eth_call claim(0) from fresh address returns 0x, no role revert; Transmuter.claim reverts only on realisedTokens[sender]==0). Zero events from all 13 adapter contracts in 7 days: nobody was paid at all.",
+ "numbers": "7d window blocks 26402800 (2026-11-15 06:41 UTC) to 26468954 (2026-11-22 06:44 UTC, from eth_getBlockByNumber timestamps): 0 logs, topicless eth_getLogs over 13 adapter addresses (stakingPoolsV4 0x47e3..5c6E, stakingPools 0x0EdA..010, votingEscrow 0xb938..3B2, 4 transmuters, 6 vaults); control same shape 90d (from 0x18a1f5a) = 3 events (no-topic scan of these contracts, topic0 from receipts). StakingPoolsV4.claim(0) eth_call from 0x1111..1111: returns 0x; eth_estimateGas 101,970 gas; gasPrice 0x665e821 = 0.1074 gwei -> ~0.0000109 ETH = 0.02 USD at ETH 1660.80 USD (coins.llama.fi ts 1795330214). rewardRate 0xbcbce7f1b150000 = 0.85 WASABI/block across 8 pools, totalAllocPoint 10000, mintWasabi true; WASABI 0.0009531 USD (coins.llama.fi ts 1795327654) -> ~5.8 USD/day protocol-wide emissions. Gross to a positionless stranger: 0 USD vs 0.02 USD gas."
+}

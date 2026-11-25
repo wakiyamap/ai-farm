@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-steer-protocol",
+  "outcome": "lead_recorded",
+  "reason": "unclear: no vault addresses on Base could be enumerated, so no reward function was eth_called. DefiLlama adapter lists Base vaults only via a subgraph that now 404s (ormilabs steer-protocol-base/beta/gn: deployment does not exist) and Steer's own archive subgraph (subgraph-archive.steer.finance/graphql/base) returns 0 vaults/keepers/jobs. Docs and GitHub publish no Base deployment table. Only anchor: SteerPeriphery proxy 0x16BA7102271dC83Fff2f709691c2B601DAD7668e (code yes, getter nodeConfig() answers, 0 logs in 7d, control WETH 26335 logs/2k blocks). Missing: vault addresses to test updateInterval/tend pay.",
+  "numbers": "tvl_usd 2548159 (candidate/DefiLlama); periphery logs 7d = 0 vs control 26335; staking 0x07536E7fBc498BD886D393fb693E71c8C4e45B97 periodFinish 2025-12-30 expired, rewardRate 6.43e18/s; block head 59282122 (2026-11-18, eth_blockNumber via relay)"
+}

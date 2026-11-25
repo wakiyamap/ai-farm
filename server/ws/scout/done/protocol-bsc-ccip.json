@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-ccip",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 166,
+ "chain": "bsc",
+ "slug": "ccip",
+ "name": "CCIP",
+ "category": "Bridge",
+ "tvl_usd": 957572,
+ "url": "https://chain.link/cross-chain",
+ "github": null,
+ "listed_days_ago": 166,
+ "run_id": "659e98e86bdf48348c1c3073330005b5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No stranger-paid fn on bsc: OffRamp 2.0.0 0x4914044f8d787bd5dc7528f00775d850dc54477e execute is EXECUTOR-role-gated, only Chainlink DEO EOA 0xdb0b05410fd02614c3d78074871ed2f4cd5854ec calls it and is paid off-chain (execute tx 0x309279c5 gasUsed 285627 @0.1 gwei = 2.9e-5 BNB ~ 0.02 USD, no token/BNB paid to caller); activity near-nil: 2 txs in 100k-blk (~15h) 20-chunk sample, control CAKE same shape 3615 logs; registry+31 pools (BurnMint/LockRelease 1.5.x) from adapter 0x736Fd8660c443547a85e4Eaf70A49C1b7Bb008fc, Router 1.2.0 0x34b03cb9086d7d758ac55af71584f81a598759fe.",
+  "kb": [
+   "attempts:1667"
+  ],
+  "run_id": "659e98e86bdf48348c1c3073330005b5",
+  "at": 1794908492
+ }
+}

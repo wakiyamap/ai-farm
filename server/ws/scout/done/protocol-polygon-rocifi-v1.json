@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-rocifi-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1537,
+ "chain": "polygon",
+ "slug": "rocifi-v1",
+ "name": "RociFi V1",
+ "category": "Lending",
+ "tvl_usd": 27528,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1537,
+ "run_id": "1bbd9709cbcb4294976113ca5314336a",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: collect() and liquidateLoans() are onlyRole to two whitelisted EOAs (0x3c3e.., 0xa306.., code 0), both revert from a fresh address; 0 logs from all 9 protocol contracts in 7d (blocks 97406253-97809453, controls USDC 40741/200 blk, WETH 3088/3000); TVL 27818 USD, borrowed 0, last payment tx 2026-09-14, liquidator/collector EOAs idle since Mar 2023; revmanager holds 21396.61 USDC.e, withdrawToken admin-only; gross/gas per call: pays 0 to strangers.",
+  "kb": [
+   "attempts:4032"
+  ],
+  "run_id": "1bbd9709cbcb4294976113ca5314336a",
+  "at": 1795420040
+ }
+}

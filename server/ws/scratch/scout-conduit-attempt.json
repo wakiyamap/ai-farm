@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-conduit-bridge",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. The Ethereum side of the Conduit (Doma) bridge is the standard OP-Stack contract set: L1ChugSplashProxy (L1StandardBridge) 0xbaedb5b6da67f96b4125f17dd92f618696494bd3 and OptimismPortal2 proxy 0x14ea6add7fa61001bd2e38100bfdf2cd710e44d9 (impl 0xe89f13c5ee4033b2d3cd76c9d6958efbfe26d3c2). Verified source has only payable user-pays entrypoints (depositTransaction, receive) plus role-gated admin; no function pays the caller a reward, bounty or keeper fee, so nothing a stranger can call for profit.",
+ "numbers": "TVL 910,656 USD = 519.545 WETH (api.llama.fi/protocol/conduit-bridge, 2026-11-20); adapter PR #18169 owners WETH balanceOf 0 and 100e18 (eth_call balanceOf 0x70a08231 at latest 0x193b521) - DefiLlama's live owners differ but L1 contract set is OP-Stack standard; Doma chain 97477 (chainlist, rpc.doma.xyz), ConduitController 0x00000000F9490004C11Cef243f5400493c00Ad63 on L2 (explorer.doma.xyz/api/v2/search); OptimismPortal2 verified source (etherscan) grep: no claimCredit/claimGethReward/proposeL2Output in portal; deposits on Ethereum 2026-11: +11.59962 (11-06), +29.7377 (11-10), +11.70559 (11-20) WETH events (daily WETH deltas, api.llama.fi tokens series). No 7-day event count done: no reward function to count."
+}

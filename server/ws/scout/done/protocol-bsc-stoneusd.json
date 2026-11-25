@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-stoneusd",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 285,
+ "chain": "bsc",
+ "slug": "stoneusd",
+ "name": "STONEUSD",
+ "category": "CeDeFi",
+ "tvl_usd": 134434,
+ "url": "https://www.stakestone.io/",
+ "github": null,
+ "listed_days_ago": 285,
+ "run_id": "38fedcb2c5684881a22c5f8fb2f9551f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "BSC contract is just the StakeStone USD ERC-20 0x8B4E28607bdcacBf937f81F29E3DAFe7Bc1D7c0b (supply 129,350.69, TVL $134,434): 21-selector surface = ERC-20 + mint (reverts AccessControlUnauthorizedAccount from fresh addr) + self-burn + accessRegistry 0x8449...223d whitelist/blacklist; no function anyone can call pays the caller; 0 Transfer logs in four 5,000-block windows across ~7 days (control USDC 35,079).",
+  "kb": [
+   "attempts:1739",
+   "protocols:404"
+  ],
+  "run_id": "38fedcb2c5684881a22c5f8fb2f9551f",
+  "at": 1794922752
+ }
+}

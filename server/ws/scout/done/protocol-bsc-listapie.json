@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-listapie",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 866,
+ "chain": "bsc",
+ "slug": "listapie",
+ "name": "Listapie",
+ "category": "Farm",
+ "tvl_usd": 56903,
+ "url": "https://www.lista.magpiexyz.io/stake",
+ "github": null,
+ "listed_days_ago": 866,
+ "run_id": "92786545cfcd4c5f885d05728df9fa6e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ListaStaking 0x76865d.. harvestVeListaRewards(uint16) callable by stranger but pays 0 (trace: no internal calls, distributor getClaimable=0); unlockVeLista Ownable, batchClaimVotingRewards OnlyBribeManager; 7d (blocks 133801003-135144455) proxy 0 logs, MasterListapie 5 logs/3 txs all self-claims (LISTA pot 584,757 = ~42,615 USD @0.0729 unclaimable by caller)",
+  "kb": [
+   "attempts:3853"
+  ],
+  "run_id": "92786545cfcd4c5f885d05728df9fa6e",
+  "at": 1795380854
+ }
+}

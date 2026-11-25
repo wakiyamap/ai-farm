@@ -1,0 +1,20 @@
+{
+ "id": "actor-optimism-0x3c0546587d27354635a4972390a7b96f962d8bbd",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "optimism",
+ "address": "0x3c0546587d27354635a4972390a7b96f962d8bbd",
+ "run_id": "c0d9e614f60c4580809725024098633f",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Alchemix V3 AlchemistRouter on OP = stateless user-facing proxy (verified src/router/AlchemistRouter.sol, ctor _alchemist=0x930750a3...FC1De, no fee/owner logic): 29 calls in 7d = 4.1/day (16 withdrawUnderlying, 10 depositUnderlying, 1 repay, 1 claimRedemption, 1 selfLiquidate; sample 50 of 50, Blockscout), 28 distinct caller EOAs moving own funds, gross/call median ~6 USD p75 ~1802 max 27,410 (7d sum ~58k USD-pegged USDC/mixUSDC/ALCV3), gas/call median ~0.0001 USD (n=10 receipts, 660-822k gas @ ~0.0001 gwei, ETH 1827.86 coins.llama.fi), router holds 0 ETH/0 tokens - protocol pays it nothing",
+  "kb": [
+   "attempts:1566",
+   "actors:223",
+   "protocols:287"
+  ],
+  "run_id": "c0d9e614f60c4580809725024098633f",
+  "at": 1794887194
+ }
+}

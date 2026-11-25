@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-pendle-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "pendle-v2",
+ "name": "Pendle V2",
+ "category": "Yield",
+ "tvl_usd": 37267562,
+ "url": "https://pendle.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "55a396805ef24ef99743cad814a8a9e3",
+ "result": {
+  "verdict": "no_reward",
+  "line": "No anyone-callable function in Pendle V2 on arbitrum pays its caller: GaugeController 0x1e56299e redeemMarketReward() (0x58f3d163, eth_call from a fresh address succeeds, no role revert) credits the calling market so a stranger keeps 0 USD, and that proxy has taken no tx since block 65014349 (Feb 2023); all other externals (router swaps, redeem, ExpiredLpPtRedeemer.exitPostExpToToken, merkle claim) pay a user receiver - 3 exitPostExpToToken in the 8 most recent router txs to head ts 1795120011, TVL 37.27M USD (api.llama.fi 2026-11-19).",
+  "kb": [
+   "attempts:2631",
+   "protocols:1104",
+   "leads:306"
+  ],
+  "run_id": "55a396805ef24ef99743cad814a8a9e3",
+  "at": 1795120268
+ }
+}

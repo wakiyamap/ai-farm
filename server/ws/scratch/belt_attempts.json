@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-belt-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Belt v2 vaults (beltBTC/ETH/BNB/BUSD/USDT/USDC/DAI, 5.4M of 11.3M TVL measured on chain) expose one keeper-style function, rebalance(), and it reverts 'Not authorized' from a fresh address: only gov, policyAdmin 0x2f99d712bd3e3e72d3b5abb5b4361bd1d770784f or owner can call, and even for them it moves funds between strategies without paying the caller. updateAllStrategies() is open but 'System paused' and pays 0. Protocol idle: 0 Rebalance and 0 vault Transfer logs in 4x4500-block windows sampled over 7 days (control WBNB 7075 logs/300 blocks). Legacy b* keep3r vaults hold dust.",
+ "numbers": "TVL bsc 10.88M USD (api.llama.fi/protocol/belt-finance, Binance 10882384, fetched 2026-11-20T02:20Z); vault pool values sum 5.41M USD (calcPoolValueInToken x coins.llama.fi prices ts 1795141652: BTC 61481.63 ETH 1730.40 BNB 570.60); rebalance() eth_call stranger revert 'Not authorized' (blocks: latest, head 134614796); Rebalance topic b0850b8e0f9e8315dde3c9f9f31138283e6bbe16cd29e8552eb1dcdf9fac9e3b: 0 logs in windows head-4500..-9000, -334500..-330000, -664500..-660000, -1304500..-1300000 across 7 vaults; control 7075 WBNB Transfer logs in 300 blocks; bsc eth_gasPrice 0.05 gwei x BNB 570.60 = 0.003 USD per 100k gas"
+}

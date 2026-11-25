@@ -1,0 +1,6 @@
+{
+ "chain": "hyperevm",
+ "protocol": "qualia",
+ "status": "dead_end",
+ "checked": "Qualia is a curation/research firm (DefiLlama 'Risk Curators', desc: 'Qualia curates Upshift's Kintsu superMON and HLPe vaults'); no DefiLlama adapter dir projects/qualia (404, slug from a fork/child listing). Upshift API (api.augustdigital.io tokenized_vault) lists exactly one HyperEVM (chain 999) vault with strategist 'Qualia': HLPe multiAssetVault proxy 0x8fFDcd8A96d293f45aA044d10b899F9D71897E8a (TransparentUpgradeableProxy, impl 0x1a23cc6da488e57d590498b37b65c7d62217c3f1 'HlpeVault' verified, etherscan). Getters answer: asset()=USDe 0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34 (18 decimals on-chain, $0.9994 coins.llama.fi 2026-11-22 08:56Z), getTotalAssets=139,422.58 USDe (~$139k; DefiLlama qualia Hyperliquid-L1 TVL shows 68,743 - adapter counts less than the vault reports, noted), owner 0x16024126dbd8bbda140dfa2033777c7c57a1b611, operatorAddress 0xe0b7deab801d864650dec58cbd1b3c441d058c79, sendersWhitelistAddress=0x0. Source (flattened HlpeVault.sol): only permissionless reward-verb fns are chargeManagementFee(), collectFees() ('can be called by any address'), claim(y,m,d,receiver), processAllClaimsByDate(y,m,d,maxLimit) - all pay ONLY the receiver/fee-collector, never msg.sender. updateTotalAssets/chargePerformanceFees are onlyOwnerOrOperator."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-elfi-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. ELFi perp Diamond 0x153c613D572c050104086c7113d00B76Fbaa5d55 on arbitrum: the paying functions executeOrder (0x22dabfa5, repays keeper gas in WETH) and liquidationAccount (0x5a536f8f) revert RequireRole(fresh,'KEEPER') from a fresh address; liquidationPosition is in-contract gated (source checkRole ROLE_KEEPER; bogus-selector control proves it is registered). Only open fn callLiabilityClean is a 1:1 collateral-for-liability redemption, 1 pending clean (0.007704 WETH in, 15 USDC out, +1.36 USD gross) untouched since 2026-07-17. Protocol dormant: 0 events on all 5 contracts in 7 days, last diamond tx 2026-09-15 (diamondCut), keeper bot 0xf36c0451... last active 2026-09-02. Mirrors base verdict (protocols:676).",
+  "numbers": "eth_getLogs all 5 addresses blocks 0x1f359f2d..0x1f55be4d (2.42M blocks, 7d) = 0 events; control USDC Transfer same shape = 15890 logs/2k blocks; executeOrder eth_call from 0x1111...1111 reverts 0xb5f43834 RequireRole(fresh,'KEEPER'); getCleanInfo(1365): liability 0.007704477874695405 WETH = 13.64 USD at WETH 1769.85 (coins.llama.fi, 2026-11-19), collateral 15.0 USDC => gross +1.36 USD; gas 0x1316b80=20016000 wei (0.02 gwei): 150k gas ~0.005 USD, 500k gas ~0.018 USD; TVL 114986 USD (DefiLlama 2026-11-19)"
+}

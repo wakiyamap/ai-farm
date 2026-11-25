@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-lisaster",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: no permissionless function pays the caller. Permissionless surface is AsterVault.deposit and LisAsterDistributor.claim(account,cumulative,proof) (eth_call from fresh addr reverts 'invalid proof', not a role error), but claim pays the merkle account, not the caller; over 7d all 37 Claimed events were self-claims (0 third-party callers, 37/37 tx.from == account), so a stranger calling for someone else pays gas and receives 0. The reward dispatch pipeline (AsterRewards.notifyRewards/distributeRewards, Distributor.setPendingMerkleRoot/acceptMerkleRoot) is all onlyRole(BOT) - eth_call from a fresh address reverts AccessControl (err 0xe2517d3f).",
+  "numbers": "7d (blocks 132756090-134099493, eth_getLogs 20k-chunk scan): 43 AsterVault Deposited events (all direct EOA users, sel 0x6e553f65); 37 Distributor Claimed events = 78.1 ASTER = $46 gross (price $0.5901, coins.llama.fi 2026-11-17), top 5: 32.3/20.3/11.6/2.3/2.1 ASTER to accounts themselves; gas/call 71.9k-106k gas @ 0.05-0.08 gwei = $0.002-0.003/call (BNB $591, coins.llama.fi). AsterRewards.pendingAster()=0 (pool empty). TVL $2.89M, totalSupply 5,143,273 lisAster. Contracts: vault 0xb3df1b695d720ddc5906005dd5448db160687c42, distributor 0xee545e1db73c3fff0fe81bad7673054706507168, rewards 0x935e18a52e24746ff7b4d307012d8a82c2ab5a23, staking 0x3D786C991452Cb7634D02b351374CB0aCC69fD71."
+}

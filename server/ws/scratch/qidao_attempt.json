@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-qidao",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. Anyone-callable liquidateVault (stabilityPool()=0x0 on all 9 vaults, no role gate) paid a stranger wallet 0xf7789fa997beeb4fec6ba288af857a6943743ec7 in the last 7 days: 5 liquidations on WETH vault 0x062016cd29fabb26c52bab646878987fc9b0bc55, paid out via getPaid() as 2 WETH Transfers totalling 0.000086 WETH (~$0.15) with per-tx gas ~$0.0001. It is dust (liquidator must front halfDebt MAI ~$0.002-0.12 to earn a ~10% bonus) and one wallet took 5/5, but the rubric is met. Refines the 2026-11-18 dead_end (protocols:762, attempts:2194) which saw the same 5 events but classified the tiny size as 'not a trial candidate'.",
+  "numbers": "7d window blocks 159,474,474-159,776,874 (eth_getLogs, control: same shape returned logs). LiquidateVault=5, BoughtRiskyDebtVault=0. Largest extract 0.00007323 WETH=$0.13 (tx 0xe29575307d66f139c21bd0ef398402eaeeeabfbd87a665cb1a3cb86ec8ee59e9). 7d total paid to liquidator 0.000086 WETH (~$0.15) via 2 getPaid transfers (blocks 0x9825099, 0x9828c62). Gas 177,635 @ 0.0001-0.0003 gwei ~= $0.00003-0.00009/tx (receipts 0xe295..., 0xc2ff...). WETH 0x4200000000000000000000000000000000000006 collateral() read on-chain, decimals()=18; ETH $1,747.77 coins.llama.fi 2026-11-20 07:17 UTC. 30d: 17 events, 5 distinct liquidators, 0.0226 WETH (~$40) total gross. Fresh-address liquidateVault(2081) reverts 'Vault is not below minimum collateral percentage' (state, not role)."
+}

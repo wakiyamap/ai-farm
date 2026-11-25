@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-basis-cash",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "basis-cash",
+ "name": "Basis Cash",
+ "category": "Algo-Stables",
+ "tvl_usd": 205634,
+ "url": "https://basis.cash/",
+ "github": [
+  "Basis-Cash"
+ ],
+ "listed_days_ago": null,
+ "run_id": "bc3273c1e03e4cd1882075a395bdd38f",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: allocateSeigniorage/claimReward/buyBonds callable by anyone (no role revert from fresh 0x1111) but pay 0 - BAC $0.000877 needs > $1.0413 to mint/redeem; 0 calls to TreasuryV3 0x7715a2ca and Boardroom3 0x4b1824 in 7d (blocks 26,419,400@2026-11-14 22:51 to 26,468,344@2026-11-21 22:45, no-topic scan: 13 dust BAC transfers only); pots 46,622 BAC ($41) boardroom + 108,681 BAC ($95) treasury reserve",
+  "kb": [
+   "attempts:3506",
+   "protocols:1774"
+  ],
+  "run_id": "bc3273c1e03e4cd1882075a395bdd38f",
+  "at": 1795301569
+ }
+}

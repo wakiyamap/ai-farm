@@ -1,0 +1,12 @@
+{
+  "run_id": "075a3f15e7624d75a05518d4141c3071",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "moonwell-whale-base fix bot: liveLossSettle stale-valuation repair per review 2026-11-09T17:30Z (run 7cbf8b95)",
+  "outcome": "fix_submitted",
+  "kb_rows": ["attempts:716"],
+  "wiki_pages": ["pitfalls/paper-review-blockers.md"],
+  "bot_ids": ["moonwell-whale-base"],
+  "injection_seen": false,
+  "notes": "The only open review item was settlement valuation: liveLossSettle guarded only ETH_USD<=0, so a receipt confirmed during a failed price refresh was valued at the stale price and removed from pending forever. refreshEthUsd now returns its success and cycle() passes it as freshOk; confirmed receipts stay pending until a cycle whose oracle refresh succeeded (persisted by the existing persist() before the next send). The 1e-6 ETH no-fee-field fallback is kept and justified as a conservative UPPER BOUND (~370x headroom: measured l1Fee 2.01e-9 ETH at 1,641,107 gas scales to ~2.7e-9 at the 2,200,000-gas signed cap). Decision-table proof on the extracted live function: scratch/mw-whale-fix/settle-proof.js (4 PASS); node --check and manifest-check pass; paper restarted 17:47:03Z, heartbeats/opportunity records healthy, zero cycle_error. Executor, runtime and manifest unchanged (mechanics accepted 17:30Z)."
+}

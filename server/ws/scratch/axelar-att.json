@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-axelar-cross-chain",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: no permissionless function on Axelar's Arbitrum contracts pays the caller. Gateway execute(bytes) is open (434 Executed events in 7 days, callers 0x2102c32a09cbced4146c3db2d27ae21a185bda43 and 0xc77820eef59629fc8d88154977bc8de8a1b2f4ae, Amplifier processors) but pays 0 on-chain (gateway native balance 0 ETH; reward is AXL on Axelar). Gas service holds 0.076 ETH (~$137) but collectFees/refund are onlyCollector (Operators 0x7DdB...fbC). ITS expressExecute costs the caller (fronts tokens). USDX token (the TVL) is a plain ERC20 with no claim function.",
+ "numbers": "434 gateway Executed events in 7d (eth_getLogs 0x1f28cd99..latest, topic0 0xa74c8847d513feba22a0f0cb38d53081abf97562cdb293926ba243689e7c41ca); gross to caller 0 USD; caller gas ~288k gas x 0.0202 gwei (eth_gasPrice 0x1343270) = ~$0.010/tx at ETH $1801.56 (coins.llama.fi coingecko:ethereum 2026-11-18); gateway balance 0 ETH; gas service balance 0.0762 ETH = $137 (onlyCollector); USDX totalSupply 0x6273457bb252b92ee3b057; adapter tvl arbitrum $809,401 (api.llama.fi)"
+}

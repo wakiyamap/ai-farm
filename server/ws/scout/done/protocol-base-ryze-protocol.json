@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-ryze-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 172,
+ "chain": "base",
+ "slug": "ryze-protocol",
+ "name": "Ryze Protocol",
+ "category": "Dexs",
+ "tvl_usd": 444733,
+ "url": "https://www.ryze.pro/",
+ "github": [
+  "ryze-protocol"
+ ],
+ "listed_days_ago": 172,
+ "run_id": "3aa0c78c0b714ccaa8f1ce2291f46243",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Factory 0xdf97B25A...b49 execute fn (sel a47bd76d) is the only thing called: 450 txs 2026-11-09..11-17 all from one EOA 0x356579...45fF (blockscout, sample of 9 pages/450), stranger reverts with identical calldata (no funds/allowance on keeper, so role gate); caller paid 0 ETH + 0 ERC20 (receipt empty, balance diff = gas exactly 3.42e-6 ETH = bash.006 at ETH 1805.96 coins.llama.fi); both pools 0 txs in 7d (last 10-07 and 11-09); no claim/harvest fn in 4byte-resolved selectors, no verified source.",
+  "kb": [
+   "attempts:1675",
+   "protocols:359"
+  ],
+  "run_id": "3aa0c78c0b714ccaa8f1ce2291f46243",
+  "at": 1794910312
+ }
+}

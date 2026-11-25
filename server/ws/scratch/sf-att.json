@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-synfutures-v3",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. instrument.fill(bytes32) is open to anyone: submitting the tx that converts a filled limit order into a position pays the sender an execution fee of 0.02 USDC (BTC-USDC-LINK, ETH-USDC-LINK; 0.0001 WETH on community pairs). Active keeper market (19 distinct operator contracts in a 2.8 h window); gross > gas but thin margin and a per-block competition. normalize() and claimProtocolFee() are admin-gated (NotSynFuturesV3Admin); update(uint32) is open but pays nothing documented; liquidation is take-over style (no fixed bounty).",
+  "numbers": "Fill events 456 in 50k blocks (~2.8 h, blocks 59108720-59158720, 10 of 25 instruments, topic0 0x6cb1fc582503d121058bedba12222cd15fe6e2b9ca6ca7bca7f4e8f65a6f54c4), every tip = 2e16 (0.02 USDC wad); 19 distinct operators; sample tx gasUsed 694,790 at gasPrice 0x5bcb70 (6.02e6 wei) = $0.007 at ETH $1,771 (coins.llama.fi 2026-11-18) vs gross $0.02; extrapolated ~27k fills/7d on the 10 scanned instruments (~$540/7d gross tip pool, sample of 456 of ~27k). Gate 0x208B443983D8BcC8578e9D86Db23FbA547071270, instrument impl 0xc4f8016bf760fcc98312e300f1fb3cdae7855272 (unverified, ABI from SynFutures/ts-sdk perpv3-ts)."
+}

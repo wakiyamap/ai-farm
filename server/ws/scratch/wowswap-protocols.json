@@ -1,0 +1,6 @@
+{
+ "chain": "bsc",
+ "protocol": "wowswap",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/wowswap (constants.js, protocol.js, abi.json) gives bsc reserveFactory 0x334ebaD4d6EC7Cf028022Ef8d923f674007BcEa7 and pairFactory 0xb58D4c6E7481DABeB47c96B57bf06Df9C26698a0 (both proxies, eth_getCode non-empty, getters answer: getAllLendables -> WBNB 0xbb4cdb...095c + BUSD 0xe9e7cea3...87d56, 32 tradables/32 shortables/32 proxyLendables). Reserves: WBNB 0xd34ac87492339c478f88230051b0fcebecbd599c, BUSD 0x410d4833a995e5d9ac80eb115f4da70f1c569189 (share impl 0x29e5c178ab9b717db5d93da743d8916c8d017129). 53 pairs enumerated via getPair/getShortingPair. explorer source/txs on bsc failed (etherscan not_on_plan, blockscout 402/404) and sourcify v2 gives match but no ABI; function set recovered from impl bytecode selectors + 4byte.directory: Reserve = deposit/withdraw/borrow/repay/liquidate/fill/sweepFee/migrate/getTotalDebt/getTotalLiquidity..., pair = liquidatePosition(address,address)/closePosition/getTotalLoan/getLoan. wowswap-io GitHub org has no repos."
+}

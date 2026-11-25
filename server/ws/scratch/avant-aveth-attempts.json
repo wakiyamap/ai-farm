@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-avant-aveth",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. All value-moving entry points on Avant avETH ethereum contracts sit behind AccessControl roles held only by protocol infrastructure (single relayer/controller); no function anyone can call pays the caller. Users staking/cooldown/unstaking savETH move their own funds with no reward to the caller. Same family verdict as avalanche avUSD/avBTC scouts.",
+ "numbers": "TVL 22,013,730 USD (candidate, DefiLlama). 7-day activity (explorer txs, sample of 25): AvantMintingV2 ~10 mint/redeem calls 2026-11-18..20, all from one relayer 0xaf6fd55a83b0f85b4f330e2b25512c2b669786d2 (hasRole MINTER_ROLE=true 0x9f2df0fe..., REDEEMER_ROLE=true 0x44ac9762... via eth_call at block 0x193b80b); savETH StakedAvantCoinV2 ~4 transferInRewards calls/7d from controller 0xdb87e930065bc4c9cc4273672a64bf8e2761f1d8 plus user unstake/cooldownShares from EOAs (0xaebf33c5..., 0xabbc839e...). eth_call from fresh addr 0x000000000000000000000000000000000000EA7A: transferInRewards(1e18) -> MissingRole REWARDER_ROLE; completeMint(1)/completeBurn(1) -> MissingRole SERVICE_ROLE (d8a7a795...); redeem(zero order) -> MissingRole REDEEMER_ROLE (revert sig 0xe2517d3f). Gas baseline eth_gasPrice 0x4db20e08 = 1.30 gwei at block 0x193b80b (2026-11-20). No caller-paid reward function found, so no gross to price: nothing was paid to a stranger."
+}

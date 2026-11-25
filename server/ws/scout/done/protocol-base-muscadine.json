@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-muscadine",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 348,
+ "chain": "base",
+ "slug": "muscadine",
+ "name": "Muscadine",
+ "category": "Risk Curators",
+ "tvl_usd": 495283,
+ "url": "https://muscadine.xyz/",
+ "github": null,
+ "listed_days_ago": 348,
+ "run_id": "e411ed87c1e74fccae40e904fcc7f4e2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Muscadine = 11 Morpho VaultV2 vaults on Base (TVL 495k: USDC 158k, cbBTC 4.93, WETH 9.26); only anyone-callable reward fn accrueInterest() (eth_call from fresh addr succeeds, no role revert) pays 0 - managementFee=performanceFee=0 WAD on all 4 funded vaults and fee shares go to fixed recipient 0x057f..., not the caller; 51 AccrueInterest events last 7d (blocks 55.65M-58.68M), 14/15 sampled callers = owner EOA 0xf35b...; gross 0 USD vs gas 0.001 USD (100,088 gas @ 0.006 gwei, ETH 1,812 USD coins.llama.fi).",
+  "kb": [
+   "attempts:1763",
+   "protocols:422"
+  ],
+  "run_id": "e411ed87c1e74fccae40e904fcc7f4e2",
+  "at": 1794927427
+ }
+}

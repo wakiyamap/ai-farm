@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-hyper-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "hyper-finance",
+ "name": "Hyper Finance",
+ "category": "Yield",
+ "tvl_usd": 32062,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "65381b654ea0431f95613b577440048c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Sushi-fork MasterChef 0x4b7a...d7df (only adapter contract, 38 pools, TVL 32k USD): no caller reward - deposit/withdraw/updatePool pay only msg.sender's own accrual (fresh pendingSushi=0), sushiPerBlock=1 wei, allEndBlock 27,245,268 vs head 135,294,544; 1 MasterChef tx in 7d = self-withdraw paying the user their own 350.69 HYFI (0.019 USD, HYFI 0.0000533 coingecko 15:30Z) vs gas 0.007 USD",
+  "kb": [
+   "attempts:4142",
+   "protocols:2263"
+  ],
+  "run_id": "65381b654ea0431f95613b577440048c",
+  "at": 1795448037
+ }
+}

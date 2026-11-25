@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-float",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The callable state-advance functions (LongShort.updateSystemState(uint32)/updateSystemStateMulti, executeOutstandingNextPriceSettlementsUser) succeed from a fresh non-role address but pay the caller 0: source (Float-Capital/contracts LongShort template) has no transfer/reward/gems logic on these paths (GEMS gm() only via gemCollecting on mint/redeem trades). Nobody calls them anymore: 0 events on all 11 protocol proxies over the last 7 days (control: same getLogs shape returned 2 SystemStateUpdated over 90d, both incidental inside a user exitEverything tx). Last protocol tx 2026-10-17 = exitEverything; users are exiting, no keeper runs, TVL $126k. No function pays a stranger; nothing to farm.",
+  "numbers": "7d window blocks 97,235,468->97,638,668 (polygon, 2026-11-13..11-20): 0 logs on TreasuryAlpha 0xeb1bB3..6441, Staker 0xe7C8..C47F, LongShort 0x168a..b733, Keeper 0x21d9..04e15 + 7 vaults (eth_getLogs, relay scout lane). Control 90d: 2 SystemStateUpdated, both block 95,783,575 (ts 2026-10-17) tx 0x0aa934685d6b93edea37d712e3ad7f3f5b0bb04fcd5b73f8fb619718619afc03 (exitEverything, not a keeper call). Gross per updateSystemState call = 0 USD (no payment logic in source; void return). eth_call updateSystemState(m=1..7) from 0x1111111111111111111111111111111111111111 OK; market 0 reverted 'market doesn't exist'. latestMarket()=8. TVL polygon $125,957 (api.llama.fi/protocol/float 2026-11-20); collateral = amDAI held by 7 vault proxies."
+}

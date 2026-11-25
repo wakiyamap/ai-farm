@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-paraspace-lending-v1",
+  "outcome": "lead_recorded",
+  "reason": "unclear: A public unhealthy-position Ape unstake path can pay an APE incentive to a stranger, but no current eligible position or gross payout was verified. The pool had no events in the seven-day window, so there is no measured recent stranger payout.",
+  "numbers": "Ethereum pool 0x638a98bbb92a7582d07c52ff407d49664dc8b3ee. Timestamp-derived 7d blocks 26430256 (2026-11-16T21:23:11Z) through 26480499 (2026-11-23T21:23:11Z): no-topic logs 0; LiquidateERC20 topic 0x3eed91ee94327a739739ce44c8671c09c96631ccd3209c94037e01b5d433d37f logs 0; LiquidateERC721 topic 0xd256c154d52ecfb630982b0a37b0384e210fc60de22aaa4510d72b6fd3c65a26 logs 0. No-topic scan excludes an alternate event topic. Control: on-chain reserve USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 Transfer same-shaped getLogs returns 98 events at block 26480499. Explorer txs newest direct pool tx block 26299589 (2026-10-29T16:27:11Z). Fresh-address eth_call unstakeApePositionAndRepay(BAYC,0) reverts 45 (health-factor check). Gross APE and USD: unverified; gas USD: unmeasured; sample of 0 of 0 pool events. Sources: DefiLlama adapter paraspace/helper/address.js; Etherscan verified pool/provider source; parallel-finance/paraspace-core PoolApeStaking.sol and ApeStakingLogic.sol; relay eth_getLogs/eth_call."
+}

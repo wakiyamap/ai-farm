@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-lista-rwa",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Stranger-callable payout functions exist (RWAEarnPool.claimWithdraw(address,uint256), BpnEarnPool.claimRedeem(uint256[]), not role-gated per eth_call from a fresh address) but they pay the user's own redemption principal to a user/owner argument, never the caller, and there is no reward, bounty or keeper-fee mechanism in any of the 4 BSC pool contracts or their RWAAdapter (all adapter fns onlyRole BOT/MANAGER). In the last 7 days nobody even claimed: 10 logs total on the 4 contracts, all Lista-keeper NotifyInterest/FinishWithdraw/Upgraded ticks; last claims (30d window) were users claiming their own.",
+ "numbers": "TVL 4,048,799 USD (DefiLlama candidate). 7d window blocks 132792784-134135292 (head 134135292, 0.451 s/block measured): 10 logs from 4 pool addresses (single eth_getLogs call; controls: 269-chunk 5000-block scan on Dowsure+BPN = 0 logs 0 errors, USDC 38167 logs/5000 blk). 30d: 3 ClaimWithdrawal + 2 RequestWithdraw + 1 RedeemRequested, all self-claims. Gas: eth_gasPrice 0x2faf080 = 0.05 gwei, BNB 591.96 USD (coins.llama.fi coingecko:binancecoin 2026-11-17) => ~100k-gas claim = ~0.003 USD; caller reward 0. Whitelist: both Centrifuge pools isInWhitelist(fresh)=true (empty whitelist), but irrelevant - no payment to caller."
+}

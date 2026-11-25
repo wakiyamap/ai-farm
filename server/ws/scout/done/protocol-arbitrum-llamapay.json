@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-llamapay",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1673,
+ "chain": "arbitrum",
+ "slug": "llamapay",
+ "name": "LlamaPay",
+ "category": "Payments",
+ "tvl_usd": 568359,
+ "url": "https://llamapay.io",
+ "github": [
+  "LlamaPay"
+ ],
+ "listed_days_ago": 1673,
+ "run_id": "380af7d6f82f41f0b861988948871bcb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LlamaPay.withdraw(from,to,amountPerSec) is callable by anyone (eth_call from fresh addr passes) but pays the stream's employee, never the caller: 7d scan (blocks 523542294-525594937) found 104 Withdraw events on 5 of 75 streams, 80,371 USDC gross (median 291.41/call, max 9,897) + 1,321 ltLLP + 799 USDt0, all 10 sampled calls self-claims or payer proxies (third-party claimer got 0), gas 63-126k gas x 0.02 gwei = ~0.003-0.005 USD, caller reward 0",
+  "kb": [
+   "protocols:996",
+   "attempts:2489"
+  ],
+  "run_id": "380af7d6f82f41f0b861988948871bcb",
+  "at": 1795086303
+ }
+}

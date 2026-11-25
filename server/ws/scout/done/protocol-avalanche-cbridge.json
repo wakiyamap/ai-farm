@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-cbridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1835,
+ "chain": "avalanche",
+ "slug": "cbridge",
+ "name": "cBridge",
+ "category": "Bridge",
+ "tvl_usd": 329740,
+ "url": "https://cbridge.celer.network/#/transfer",
+ "github": [
+  "celer-network"
+ ],
+ "listed_days_ago": 1835,
+ "run_id": "27ea17b7b61f41879ac726cf2a746faf",
+ "result": {
+  "verdict": "no_reward",
+  "line": "cBridge avalanche router 0xef3c714c..e5d4 + OTV2 + 2 pegged bridges (snowtrace-verified): no reward/claim/keeper function exists; relay/withdraw/executeDelayedTransfer pay the fixed signed receiver, not the caller. 7d (blocks 100487454-100789854): Send 21 (6,508 USDT.e, 19 from 0x49719d25..), Relay 1 (6,467 USDT.e from chain 56, caller 0x98e9d288.. got 0 on-chain), WithdrawDone 0, DelayedTransferExecuted 0, MessageBus 0 logs; gas 7.54 gwei = ~$0.005/100k-gas call (AVAX $6.94, coins.llama.fi 17:08Z).",
+  "kb": [
+   "attempts:2580",
+   "protocols:1067"
+  ],
+  "run_id": "27ea17b7b61f41879ac726cf2a746faf",
+  "at": 1795108270
+ }
+}

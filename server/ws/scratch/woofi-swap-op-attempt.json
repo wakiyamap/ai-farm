@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-woofi-swap",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. WOOFi Swap on optimism (SPMM v2 stack, docs addresses) has no function that pays a stranger: the keeper work (WooracleV2.2.postPrice, WooFeeManager.distributeFees, CrossRouter.claimFee) all revert for a fresh EOA ('!Admin' / '!admin' / '!feeRecipient'), and the only stranger-callable payout, pool.claimFee(), transfers the whole unclaimedFee to feeAddr (WooFeeManager) with unclaimedFee()=0 now, so the caller is paid 0. 7d: pool/oracle/rebate 0 txs, router 1 user swap - nobody was paid anything.",
+ "numbers": "7d txs: router 1 (swap 0xecfa651c7f0b4f5aff661e117208f6a3333f9bb6a599bbf47a004800880ab519, 2026-11-16), pool 0 (last tx 2026-09-01), oracle 0 (last write 2026-05-22), rebate mgr 0 (last 2025-06-19), cross-router 0 (6 swaps 2026-11-12 just outside window); pool.unclaimedFee()=0 USDC (0x0b2C639c533813f4Aa9D7837CAf62653d097FF85, 6 dec); gross to stranger caller $0; claimFee gasUsed 77,264 @ 0.0015 gwei eff = $0.21 (ETH $1,807.39 coins.llama.fi ts 1795096510) + L1 fee"
+}

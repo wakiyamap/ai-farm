@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-wise-token",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 91,
+ "chain": "ethereum",
+ "slug": "wise-token",
+ "name": "Wise Token",
+ "category": "Yield",
+ "tvl_usd": 51425234,
+ "url": "https://app.wisetoken.com/",
+ "github": [
+  "wise-foundation"
+ ],
+ "listed_days_ago": 91,
+ "run_id": "5bcf664d2680466b9ace44ff692f90f7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Wise token stack alive (544 token events/7d: 284 Transfer, 156 ReferralCollected, 4 InterestScraped) but every reward path pays msg.sender itself; the only anyone-callable maintenance fns manualDailySnapshot/Point + liquidityGuardTrigger pay 0 (no transfer to caller in verified source; eth_call from fresh addr succeeds), guard assignInflation + transformer forwardLiquidity already consumed as one-shots; TVL 49.6M USD is the ownerless-LP WETH share of UniV2 pair 0x21b8..596e; gas 0.38 gwei",
+  "kb": [
+   "attempts:2902",
+   "protocols:1320"
+  ],
+  "run_id": "5bcf664d2680466b9ace44ff692f90f7",
+  "at": 1795177741
+ }
+}

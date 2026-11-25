@@ -1,0 +1,6 @@
+{
+ "chain": "hyperevm",
+ "protocol": "hyperbrick",
+ "status": "dead_end",
+ "checked": "Trader Joe v2.2 (Liquidity Book) AMM fork on HyperEVM. Factory (LBFactory) 0x4A1EFb00B4Ad1751FC870C6125d917C3f1586600 from DefiLlama registries/traderJoeV2.js (projects/hyperbrick 404s; protocol API chainTvls Hyperliquid L1 = hyperevm); getNumberOfLBPairs()=87 via eth_call 2026-11-22. Pair 0 0xe50866b3c6146b599e8ed4c0c22b098f8938f1dc is an EIP-1167-style minimal proxy to impl 0x984769768d4cbbc58c45ce7bfc0b22a4650236bd. No verified source (etherscan+Sourcify); GitHub HyperBrickLabs joe-v2/joe-v2-periphery forks are upstream mirrors (latest commit 2024-07). Extracted 36 dispatch selectors from impl bytecode: all standard TJ v2.2 LBPair (swap/mint/burn/flashLoan/increaseOracleLength/getters; 3 resolved via 4byte = old-signature initialize/setStaticFeeParameters + approveForAll). Factory: 42 selectors, all standard LBFactory (owner/role setters, views, createLBPair; unknown 1af5bacc returns a bytes32 constant). Only public mutable fn on pairs is increaseOracleLength(uint16) - no token transfer to caller; collectProtocolFees is onlyProtocolFeeRecipient, forceDecay onlyFactory. No reward/claim/harvest/distribute/liquidation fn; no extra contract in HyperBrickLabs/hyperbrick-tokenlists. Verdict no_reward: nothing pays a stranger."
+}

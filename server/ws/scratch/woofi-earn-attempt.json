@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-woofi-earn",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. WOOFi Earn on Base is an internal auto-compounding vault stack (WooSuperChargerVaultV2 + WooLendingManager + WooWithdrawManagerV2): every value-moving function is either user self-service (deposit/withdraw own funds) or role-gated (startWeeklySettle/endWeeklySettle onlyAdmin, borrow/repay onlyBorrower); the only stranger-callable state fn, WooLendingManager.accureInterest, is pure bookkeeping that pays msg.sender $0 and even the admin EOA last called it 26 days ago. Nothing a stranger could be paid for.",
+  "numbers": "TVL $393k (fi-api.woo.org/yield?network=base: ETH vault $75.8k + USDC $165.6k + cbBTC $151.7k). startWeeklySettle reverts '!ADMIN' from fresh address, 3/3 vaults (eth_call). accureInterest callable by anyone (eth_call ok), pays $0; last real call ts 1792800297 (~26 d before 2026-11-19) by admin EOA 0x3668ba88a32332269483a0eb2406a7f8149b486d (explorer txs on 0x913e116cd0e279763b0419798c0ba18f9311b390, tx 0xb80aaef18be4f7fa77f281faf131abf334748f6182a25cdc90ee7208142b846a). ETH vault got 1 tx in last 7 d (deposit 0xb6b55f25, 0.00442 ETH, tx 0x48a276675f0a2ed97ababde0f794324c660c69024735ee58adcbff0d136858cd; explorer txs). Base gasPrice 0.006 gwei (eth_gasPrice 6000000 wei); accureInterest ~45k gas ~= $0.0005 at ETH $1774 (fi-api price)."
+}

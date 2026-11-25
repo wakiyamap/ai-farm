@@ -1,0 +1,76 @@
+# via etherscan
+constructorNone()
+areChecksDeferred() view -> (bool)
+areChecksInProgress() view -> (bool)
+batch((address,address,uint256,bytes)[]) payable
+batchRevert((address,address,uint256,bytes)[]) payable
+batchSimulation((address,address,uint256,bytes)[]) payable -> ((bool,bytes)[],(address,bool,bytes)[],(address,bool,bytes)[])
+call(address,address,uint256,bytes) payable -> (bytes)
+controlCollateral(address,address,uint256,bytes) payable -> (bytes)
+disableCollateral(address,address) payable
+disableController(address) payable
+enableCollateral(address,address) payable
+enableController(address,address) payable
+forgiveAccountStatusCheck(address) payable
+forgiveVaultStatusCheck() payable
+getAccountOwner(address) view -> (address)
+getAddressPrefix(address) pure -> (bytes19)
+getCollaterals(address) view -> (address[])
+getControllers(address) view -> (address[])
+getCurrentOnBehalfOfAccount(address) view -> (address,bool)
+getLastAccountStatusCheckTimestamp(address) view -> (uint256)
+getNonce(bytes19,uint256) view -> (uint256)
+getOperator(bytes19,address) view -> (uint256)
+getRawExecutionContext() view -> (uint256)
+haveCommonOwner(address,address) pure -> (bool)
+isAccountOperatorAuthorized(address,address) view -> (bool)
+isAccountStatusCheckDeferred(address) view -> (bool)
+isCollateralEnabled(address,address) view -> (bool)
+isControlCollateralInProgress() view -> (bool)
+isControllerEnabled(address,address) view -> (bool)
+isLockdownMode(bytes19) view -> (bool)
+isOperatorAuthenticated() view -> (bool)
+isPermitDisabledMode(bytes19) view -> (bool)
+isSimulationInProgress() view -> (bool)
+isVaultStatusCheckDeferred(address) view -> (bool)
+name() view -> (string)
+permit(address,address,uint256,uint256,uint256,uint256,bytes,bytes) payable
+reorderCollaterals(address,uint8,uint8) payable
+requireAccountAndVaultStatusCheck(address) payable
+requireAccountStatusCheck(address) payable
+requireVaultStatusCheck() payable
+setAccountOperator(address,address,bool) payable
+setLockdownMode(bytes19,bool) payable
+setNonce(bytes19,uint256,uint256) payable
+setOperator(bytes19,address,uint256) payable
+setPermitDisabledMode(bytes19,bool) payable
+event AccountStatusCheck(address,address)
+event CallWithContext(address,bytes19,address,address,bytes4)
+event CollateralStatus(address,address,bool)
+event ControllerStatus(address,address,bool)
+event LockdownModeStatus(bytes19,bool)
+event NonceStatus(bytes19,uint256,uint256,uint256)
+event NonceUsed(bytes19,uint256,uint256)
+event OperatorStatus(bytes19,address,uint256)
+event OwnerRegistered(bytes19,address)
+event PermitDisabledModeStatus(bytes19,bool)
+event VaultStatusCheck(address)
+error EVC_BatchPanic()
+error EVC_ChecksReentrancy()
+error EVC_ControlCollateralReentrancy()
+error EVC_ControllerViolation()
+error EVC_EmptyError()
+error EVC_InvalidAddress()
+error EVC_InvalidData()
+error EVC_InvalidNonce()
+error EVC_InvalidOperatorStatus()
+error EVC_InvalidTimestamp()
+error EVC_InvalidValue()
+error EVC_LockdownMode()
+error EVC_NotAuthorized()
+error EVC_OnBehalfOfAccountNotAuthenticated()
+error EVC_PermitDisabledMode()
+error EVC_RevertedBatchResult((bool,bytes)[],(address,bool,bytes)[],(address,bool,bytes)[])
+error EVC_SimulationBatchNested()
+error InvalidIndex()
+error TooManyElements()

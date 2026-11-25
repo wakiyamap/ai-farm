@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-arbinyan",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "arbinyan",
+ "name": "ArbiNYAN",
+ "category": "Farm",
+ "tvl_usd": 51693,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "9deeda3cf49d4fd59369d304ca072623",
+ "result": {
+  "verdict": "unpaid",
+  "line": "NyanRewards getReward()/exit() anyone-callable but pays a fresh stranger 0 (periodFinish 2021, owner=0x0, both staking contracts); only 7d payout was a staker exit() of his own 517.5 NYAN ~= $0.32 vs gas $0.003 (tx 0x6a9f66c5, 2026-11-16, blocks 524749427-526806741); frozen pot 770,420 NYAN ~= $478 owed to existing stakers; 0x9F79 holds 30.9 ETH staked with 0 events 7d (control ok), pair 0 Skim.",
+  "kb": [
+   "attempts:4104"
+  ],
+  "run_id": "9deeda3cf49d4fd59369d304ca072623",
+  "at": 1795438166
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-cbridge",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: cBridge 2.0 Router 0x9D39Fc627A6d9d9F8C831c16995b209548cc3401 and OriginalTokenVault 0xbCfeF6Bb4597e724D720735d32A9249E0640aA11 (verified source, celer-network sgn-v2) have no reward/bounty/claim/harvest function; every public state-changing fn pays a recorded receiver (relay->request.receiver, withdraw->wdmsg.receiver, executeDelayedTransfer->queued receiver), never msg.sender. No IncentiveEventsReward/Transfer Agent contract on optimism (docs list only Ethereum+BNB). Same conclusion as arbitrum/cbridge (protocols dead_end, attempts:2576).",
+ "numbers": "7d blocks 159149724-159754524 (to 2026-11-19 16:55Z, eth_getLogs): Router Send 92, Relay 21, WithdrawDone 8; OTV Deposited 0, Withdrawn 0 (control: same shape on Router returned logs). relay() callers (Blockscout txs): Celer relayer bots 0x9a666440..., 0x98e9d288..., 0xbfa2f68b..., 0xd10c833f... ; gross paid to caller per call 0 USD (contract pays receiver arg, not caller). nativeWrap()=0x4200000000000000000000000000000000000006 (WETH). DefiLlama TVL optimism ~450k USD. executeDelayedTransfer eth_call from fresh addr reverts 'delayed transfer not exist' (state-gated, empty queue)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-mux-perps",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1472,
+ "chain": "optimism",
+ "slug": "mux-perps",
+ "name": "MUX Perps",
+ "category": "Derivatives",
+ "tvl_usd": 178586,
+ "url": "https://mux.network/",
+ "github": null,
+ "listed_days_ago": 1472,
+ "run_id": "8488bef9a8894dad87bbb92fcd4fb0f5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "MUX Optimism = BluePrint broker model. OrderBook 0x6fde9892...bc9d: all keeper/reward fns (liquidate, fillPositionOrder, collectFundingFee, claimBrokerGasRebate) are onlyBroker (brokers[] registry, maintainer-added); fresh-addr eth_call liquidate reverts BKR. 7d (blocks 159430648..159733048): 6 FillOrder + 5 order placements, 0 liquidations, all fills by registered broker EOA 0x988aa44e...; gas ~$0.0004/call @ ETH $1798.66. Dead end, matches Arbitrum mux_perps BROKER_ROLE (attempts:435).",
+  "kb": [
+   "attempts:2394",
+   "protocols:925"
+  ],
+  "run_id": "8488bef9a8894dad87bbb92fcd4fb0f5",
+  "at": 1795065222
+ }
+}

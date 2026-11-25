@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-justmoney",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. UniV2 fork (JMSwapFactory + standard Pair) on Polygon: no caller-reward function exists (no claim/reward/keeper/distribute); factory's only public function is createPair, Pair only has mint/burn/swap/skim/sync (skim type, S). The pools earn only swap-taker arb, which 42 bot contracts are already doing (top one 422 swaps/7d). No keeper reward to unpaid callers, so nothing a stranger can call and get paid.",
+ "numbers": "7d window blocks 97,408,097 (2026-11-16) to 97,811,297 (2026-11-23), polygon 1.5 s blocks (eth_getBlockByNumber timestamps). Swap events on all 30 pairs (topic0 0xd78ad95f.. = cast keccak Swap(address,uint256,uint256,uint256,uint256,address); a no-topic scan of the 30 pairs returned only this + Sync 0x1c411e9a.., so topic0 control built in): 2,124 swaps + 2,124 Sync in 7d = ~303 swaps/day. 42 distinct indexed swap callers; top: 0x9a972d8c 422, 0xc37184b6 383, 0x7f7835c7 302, 0x575229dc 219, 0x04fa5f68 210 (txs go to bot contracts that call pair.swap directly, not to the JM router). allPairsLength()=30 (eth_call 0x574f2ba3). Polygon TVL 32,253 USD (DefiLlama candidate 2026-11-23). No reward function -> no gross/gas per call to measure; JM price 0.0000035 USD (Blockscout exchange_rate)."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-sherpa",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Sherpa shUSD vault is a fully operator-run capital allocator: the only state-moving public entrypoints (rollToNextRound, applyGlobalPrice, processWrapperWithdrawals, permissionedMint/Burn) are onlyOperator/onlyKeeper, and both resolve to the same EOA. A stranger can call completeWithdrawal/emergencyUnpause but those pay the caller nothing. No reward-bearing anyone-callable function exists.",
+  "numbers": "7d (blocks 26411470-26461870, no-topic0 scan): 12 vault logs = 3 RoundRolled (rounds 363-365) + 3 Transfer + 6 SystemPausedToggled, all sent by owner==operator EOA 0xcd0c931f86b4fb59de6ab83ae766808926f61c4a; 0 user/stranger calls, 0 Stake/Unstake/ClaimShares. Yield paid to stakers per round: 110, 100, 100 USDC (6 decimals, USDC=$1; 110000000 raw in RoundRolled data, tx 0xf0da9cc4...) - accrues to share price, not to any caller. rollToNextRound gasUsed 101825 x 2.125 gwei = 0.0002164 ETH = 0.35 USD (ETH 1633.08 coins.llama.fi t1795195504). eth_call rollToNextRound from fresh address 0x1111.. reverts OnlyOperator (0x27e1f1e5). TVL ethereum 397,699 USD (DefiLlama currentChainTvls). Vault 0x96043804D00DCeC238718EEDaD9ac10719778380 decimals()=6, wrapper 0x2e7d6f4ab0f5ec106ce6985ca33bd0967412d3e5 (USDC 6d)."
+}

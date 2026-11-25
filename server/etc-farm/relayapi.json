@@ -1,0 +1,11 @@
+{
+  "listen": ["127.0.0.1", 29485],
+  "upstream": "https://api.relay.link",
+  "allow": {
+    "GET": ["/chains", "/requests", "/intents/status", "/currencies", "/config", "/price"],
+    "POST": ["/quote", "/price", "/currencies"]
+  },
+  "min_interval_s": 0.2,
+  "daily_limit": 50000,
+  "timeout_s": 30
+}

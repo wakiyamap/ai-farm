@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-vest-markets",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 964,
+ "chain": "ethereum",
+ "slug": "vest-markets",
+ "name": "Vest Markets",
+ "category": "Derivatives",
+ "tvl_usd": 187195,
+ "url": "https://alpha.vestmarkets.com",
+ "github": null,
+ "listed_days_ago": 964,
+ "run_id": "8ab5ae061eb948a793c9bf894572f3ec",
+ "result": {
+  "verdict": "no_reward",
+  "line": "One SrcBridge proxy 0xE80F92077131b9890599E418AE323de71cE1C35a is the whole Ethereum footprint, holding 184,725.76 USDC (= DefiLlama TVL); 7d blocks 26412273-26462530: 19 txs all from one BRIDGE_OPERATOR 0x0eee2e82..ff85 (18 processSending Across pushes 116,168.70 USDC; 1 Withdrawed 2,586 USDC to the recipient arg; 0 Deposited, no-topic-scan control); no function pays its caller - withdraw sends the full amount to the recipient arg, processSending is role-gated (fresh-address eth_call reverts AccessControl); gross 0 vs gas 0.02-0.13 USD/call (106k gas, 0.12-0.73 gwei, ETH 1,629.76 USD).",
+  "kb": [
+   "attempts:3257",
+   "protocols:1586"
+  ],
+  "run_id": "8ab5ae061eb948a793c9bf894572f3ec",
+  "at": 1795253224
+ }
+}

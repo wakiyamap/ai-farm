@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-alchemix-v3",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The anyone-can-call functions on the OP Mainnet deployment either pay 0 (Transmuter.pokeMatured and AlchemistV3.poke have no token transfer in source; 0 PositionPoked events in 54d) or had zero executions (AlchemistV3.liquidate public, 0 Liquidated events in 54d; only owner-driven SelfLiquidated 4/7d). claimRedemption is NFT-owner gated (fresh-address eth_call -> CallerNotOwner) and pays the owner their own principal, not a caller bounty. Consistent with protocols:193 (ethereum) and protocols:287 (optimism router row).",
+  "numbers": "54d getLogs blocks 157323349-159657141 on 0x2584E8b0.../0x693b7594.../0x930750a3.../0xDeD3A046...: PositionPoked 0, Liquidated 0, PositionClaimed 6 (1 in 7d: tx 0x41abf501338f08aaf3aaec1496b7cd63cb429a3a0a979dfb582834614f58e990, 2474.10 alUSD-eq to owner, gasUsed 1,389,728). SelfLiquidated 4/7d. transmutationFee 0 both markets; timeToTransmute 4,536,000/3,888,000 blocks (~105d/~90d at 2s). Gas: optimism gasPrice 0xf9bce wei/gas (0.001 gwei), poke ~150k gas = $0.0003, claim under $0.01 incl L1 fee; ETH $1789.38 (coins.llama.fi 2026-11-17)."
+}

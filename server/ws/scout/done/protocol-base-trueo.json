@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-trueo",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 759,
+ "chain": "base",
+ "slug": "trueo",
+ "name": "Trueo",
+ "category": "Prediction Market",
+ "tvl_usd": 1861931,
+ "url": "https://trueo.com/",
+ "github": [
+  "trueo-protocol"
+ ],
+ "listed_days_ago": 759,
+ "run_id": "7ff583b1706d46439d76a0d6bf2666b6",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "TruthMarketManager 0x61A98Bef...695d7 propose(address,uint) open to anyone (fresh-address eth_call reverts only on the 50 USDC bond allowance, no role): 22 proposals on 22 markets in 7d (blocks 55985375-59013068), 12 settled paying 300 TRUE total (~34.04 USD at TRUE 0.11347, coins.llama.fi) to 6 distinct EOA proposers (10-50 TRUE = 1.13-5.67 USD per market) vs 0.0074 USD gas per proposal tx (315975 gas @0.013 gwei, ETH 1810.71); bond 50 USDC locked 12h (firstChallengePeriod 43200s), slash on wrong outcome.",
+  "kb": [
+   "attempts:2075",
+   "leads:269"
+  ],
+  "run_id": "7ff583b1706d46439d76a0d6bf2666b6",
+  "at": 1794993968
+ }
+}

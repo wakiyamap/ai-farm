@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-bio-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 396,
+ "chain": "ethereum",
+ "slug": "bio-protocol",
+ "name": "Bio Protocol",
+ "category": "Launchpad",
+ "tvl_usd": 1302132,
+ "url": "https://www.bio.xyz/",
+ "github": [
+  "bio-xyz"
+ ],
+ "listed_days_ago": 396,
+ "run_id": "48f6fc25f26a420b84430fdd11e16d03",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: ethereum deployment = veBIO proxy 0xF91a1274...f40C (impl 0xc0a2ca1c...) + 8 same-impl DAO escrows (adapter projects/bio/index.js); only user-driven stake/withdraw/extend/toggleAutoRenew (toggleAutoRenew reverts 'Lock not found' from a fresh address), no claim/harvest/distribute; live but 0 for strangers: 23 logs in 7d over the 9 (Stake x4, Withdraw x13, AutoRenew x6; no-topic scan blocks 26407818-26458218), gross 0 vs gas; same as base (attempt 1784)",
+  "kb": [
+   "attempts:3018",
+   "protocols:1411"
+  ],
+  "run_id": "48f6fc25f26a420b84430fdd11e16d03",
+  "at": 1795201074
+ }
+}

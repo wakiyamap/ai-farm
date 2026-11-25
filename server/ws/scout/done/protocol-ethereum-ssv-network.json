@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-ssv-network",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "ssv-network",
+ "name": "SSV Network",
+ "category": "Staking Pool",
+ "tvl_usd": 9255822647,
+ "url": "https://ssv.network/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "d9dcfc483e34478eadbc27bef58f1b75",
+ "result": {
+  "verdict": "unpaid",
+  "line": "liquidate/liquidateSSV on 0xDD9BC35...a4E1 are callable by anyone and pay msg.sender the cluster's whole remaining balance, but 7d (blocks 26418352-26468606) had only 2 ClusterLiquidated, BOTH owner self-liquidations (0.0197 ETH=2.5 / 3.90 SSV=.8, gas bash.55/bash.07) - no stranger paid; 30d: 53 events, sample 20 -> 12 stranger takes for only 0.0012 ETH=.98 / 0.386 SSV=bash.58 gross vs .31/bash.15 gas",
+  "kb": [
+   "attempts:3609"
+  ],
+  "run_id": "d9dcfc483e34478eadbc27bef58f1b75",
+  "at": 1795326640
+ }
+}

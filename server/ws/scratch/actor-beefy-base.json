@@ -1,0 +1,8 @@
+{
+ "chain": "base",
+ "address": "0x03d9964f4d93a24b58c0fc3a8df3474b59ba8557",
+ "strategy": "Beefy harvest keeper on Base: calls harvest(address) directly on delisted/retired Base beefy vaults (ChargedFees emitters) collecting the caller-side fee share (~2.6 harvests/day over blocks 55476284-55485247)",
+ "evidence": "relay eth_getLogs topic0 0xd255b592.. ChargedFees blocks 55475171-55487171 (scratch/beefy-base-topiconly.json); txs 0xdf798a3445c357... blk 55476436, 0xdba7c3623cde85... blk 55476588; caller share words 5.26e7-5.01e12 asset units",
+ "est_profit_usd_day": 0.05,
+ "our_bot_id": null
+}

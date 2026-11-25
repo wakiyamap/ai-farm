@@ -1,0 +1,839 @@
+#!/usr/bin/env python3
+"""The deploy gate. Runs as farmgate via sudo; the only program besides the
+signer that touches keys. Enforces X (total capital), n (daily loss) and the
+promotion rules in code.
+
+  gate-ctl status [<id>]           balances, today's PnL, limits, frozen?
+  gate-ctl promote <id>            paper -> live: checks, fund, start bot@<id>
+  gate-ctl fund <id> <usd> [--usdc]  top up a live bot from the intermediate wallet (ETH gas, or USDC with --usdc)
+  gate-ctl sweep <id>              move a bot's balances back to the intermediate wallet
+  gate-ctl stop <id>               stop service, cancel pending, revoke approvals, sweep, archive
+  gate-ctl stop --all              halt the signer, then stop every live bot
+  gate-ctl restart <id>
+  gate-ctl intermediate            print the intermediate wallet address (where the human deposits)
+  gate-ctl accounts                list account index -> address for intermediate and every bot ever promoted
+  gate-ctl export-key <label>      print ONE private key (intermediate | bot:<id>) for recovery in another wallet
+
+Funding: native ETH for gas (manifest capital_usd minus principal, split across the
+bot's chains, capped per chain by gas_wallet_cap_usd) and, when the manifest sets
+`principal_usdc: <usd>`, that much USDC split across the chains. Sweep returns both.
+Every action is appended to /var/lib/farmgate/gate.log.
+"""
+import datetime as dt
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import urllib.request
+
+sys.path[:0] = ["/opt/farm/pylib", "/opt/farm/lib"]
+import farmkeys  # noqa: E402
+
+
+def manifest_block(text, key):
+    """Lines of a top-level manifest key: the value on its own line plus every following indented
+    line, comments stripped. Tolerates inline lists, block lists and lists of mappings."""
+    out, inside = [], False
+    for raw in text.splitlines():
+        line = raw.split(" #", 1)[0].rstrip() if not raw.lstrip().startswith("#") else ""
+        if not line.strip():
+            continue
+        if not line[0].isspace() and not line.startswith("-"):
+            inside = line.split(":", 1)[0].strip() == key
+            if inside:
+                out.append(line.split(":", 1)[1] if ":" in line else "")
+            continue
+        if inside:
+            out.append(line)
+    return out
+
+
+def manifest_addresses(text, key="allowed_contracts"):
+    seen = []
+    for line in manifest_block(text, key):
+        for a in re.findall(r"0x[0-9a-fA-F]{40}(?![0-9a-fA-F])", line):
+            if a.lower() not in seen:
+                seen.append(a.lower())
+    return seen
+
+
+def manifest_list(text, key):
+    vals = []
+    for line in manifest_block(text, key):
+        s = line.strip()
+        if s.startswith("["):
+            vals += [v.strip().strip("'\"") for v in s.strip("[]").split(",") if v.strip()]
+        elif s.startswith("- "):
+            vals.append(s[2:].strip().strip("'\""))
+        elif s and not vals and "," not in s:
+            vals.append(s.strip("'\""))
+    return vals
+
+
+def manifest_number(line):
+    """Number on a top-level `key: value` manifest line. A trailing `# comment` and YAML quotes are
+    allowed (9k; `capital_usd: 16 # ...` crashed promote with ValueError before funding)."""
+    key, raw = line.split(":", 1)
+    raw = raw.split("#", 1)[0].strip().strip("'\"")
+    try:
+        return float(raw)
+    except ValueError:
+        die(f"manifest {key.strip()} must be a number, got {raw!r}")
+
+CONF = "/etc/farm/gate.json"
+STATE = "/var/lib/farmgate"
+LOG = f"{STATE}/gate.log"
+PNL = f"{STATE}/pnl.json"          # {"day": ..., "realized_usd": {bot: usd}, "baseline": {bot: {chain: wei}}}
+WS = "/srv/farm/ws"
+PAPER, LIVE, ARCHIVE = f"{WS}/bots/paper", f"{WS}/bots/live", f"{WS}/bots/archive"
+ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]{2,47}$")
+# chain ids, native/USD feeds, USDC decimals, gas limits: /opt/farm/lib/farmchains.py (10b)
+from farmchains import CHAIN_IDS, ETH_USD_FEED, CORE, usdc_scale, price_ok, native, max_tx_gas  # noqa: E402
+
+
+def die(msg, code=2):
+    print(f"gate: {msg}", file=sys.stderr)
+    sys.exit(code)
+
+
+def now():
+    return dt.datetime.now(dt.timezone.utc)
+
+
+def log(**rec):
+    rec["at"] = now().isoformat(timespec="seconds")
+    rec["by"] = os.environ.get("SUDO_USER", "?")
+    rec["role"] = os.environ.get("FARM_ROLE", "?")
+    with open(LOG, "a", encoding="utf-8") as f:
+        f.write(json.dumps(rec, separators=(",", ":")) + "\n")
+
+
+class Rpc:
+    """Reads over http (8545); sends over the farmgate-only unix socket."""
+    SEND_SOCK = "/run/farm-relay/send.sock"
+
+    def __init__(self, url):
+        self.url = url
+
+    def call(self, chain, method, params, lane="live"):
+        body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
+        if method == "eth_sendRawTransaction":
+            out = self._unix(f"/{chain}?lane={lane}", body)
+        else:
+            req = urllib.request.Request(f"{self.url}/{chain}?lane={lane}", data=body,
+                                         headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                out = json.loads(r.read())
+        if "error" in out:
+            raise RuntimeError(out["error"].get("message", "rpc error"))
+        return out["result"]
+
+    def _unix(self, path, body):
+        import http.client
+        import socket as _s
+
+        class Conn(http.client.HTTPConnection):
+            def connect(self):
+                self.sock = _s.socket(_s.AF_UNIX, _s.SOCK_STREAM)
+                self.sock.settimeout(30)
+                self.sock.connect(Rpc.SEND_SOCK)
+        c = Conn("unix")
+        c.request("POST", path, body=body, headers={"Content-Type": "application/json", "Content-Length": str(len(body))})
+        r = c.getresponse()
+        return json.loads(r.read())
+
+
+class Gate:
+    def __init__(self):
+        with open(CONF, encoding="utf-8") as f:
+            self.cfg = json.load(f)
+        self.rpc = Rpc(self.cfg["relay_url"])
+        self.master = farmkeys.load_master()
+        self._price = {}
+
+    # --- keys / addresses ------------------------------------------------
+    def key(self, label, create=False):
+        return farmkeys.derive_private_key(self.master, label, create)
+
+    def addr(self, label):
+        return farmkeys.address_of(self.key(label))
+
+    def intermediate(self):
+        return self.addr("intermediate")
+
+    # --- chain helpers ---------------------------------------------------
+    def eth_usd(self, chain):
+        if chain not in self._price:
+            res = self.rpc.call(chain, "eth_call", [{"to": ETH_USD_FEED[chain], "data": farmkeys.selector("latestAnswer()")}, "latest"])
+            price = int(res, 16) / 1e8
+            if not price_ok(chain, price):
+                die(f"implausible {native(chain)}/USD price {price} on {chain} (feed {ETH_USD_FEED[chain]})")
+            self._price[chain] = price
+        return self._price[chain]
+
+    def balance_wei(self, chain, addr):
+        return int(self.rpc.call(chain, "eth_getBalance", [addr, "latest"]), 16)
+
+    # --- USDC (decimals per chain: farmchains.usdc_scale, 18 on bsc; addresses from gate.json) ---
+    def usdc(self, chain):
+        return (self.cfg.get("usdc") or {}).get(chain)
+
+    def usdc_raw(self, chain, addr):
+        """USDC balance in raw units (1e6 = 1 USD); 0 when the chain has no USDC configured."""
+        token = self.usdc(chain)
+        if not token:
+            return 0
+        res = self.rpc.call(chain, "eth_call", [{"to": token, "data": farmkeys.encode_call("balanceOf(address)", addr)}, "latest"])
+        return int(res, 16) if res and res != "0x" else 0
+
+    def send_usdc(self, chain, label, to, raw_amount, *, fees=None):
+        """ERC-20 transfer of USDC from the derived key `label`. Returns (txHash, max gas cost wei)."""
+        token = self.usdc(chain)
+        if not token:
+            die(f"no USDC address configured for {chain}")
+        priv = self.key(label)
+        frm = farmkeys.address_of(priv)
+        max_fee, tip = fees or self.fees(chain)
+        data = farmkeys.encode_call("transfer(address,uint256)", to, raw_amount)
+        gas = 90_000
+        tx = {"chainId": CHAIN_IDS[chain], "nonce": self.nonce(chain, frm), "to": token, "value": 0, "data": data,
+              "gas": gas, "maxFeePerGas": max_fee, "maxPriorityFeePerGas": tip}
+        raw = farmkeys.sign_eip1559(priv, tx)
+        return self.rpc.call(chain, "eth_sendRawTransaction", ["0x" + raw.hex()]), gas * max_fee
+
+    def poll_receipt(self, chain, txhash, timeout_s=120):
+        """Receipt or None after timeout_s; never exits, the caller checks the status.
+        (Until 9i this was a second `wait_receipt`, shadowed by the promote one below, so the
+        USDC sweep raised TypeError right after broadcasting the transfer.)"""
+        import time
+        t0 = time.monotonic()
+        while time.monotonic() - t0 < timeout_s:
+            r = self.rpc.call(chain, "eth_getTransactionReceipt", [txhash])
+            if r:
+                return r
+            time.sleep(3)
+        return None
+
+    def manifest_principal(self, path):
+        """principal_usdc: USD of USDC the bot holds as principal (0 when absent)."""
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                if line.startswith("principal_usdc:"):
+                    return manifest_number(line)
+        return 0.0
+
+    def nonce(self, chain, addr, tag="pending"):
+        return int(self.rpc.call(chain, "eth_getTransactionCount", [addr, tag]), 16)
+
+    def fees(self, chain):
+        base = int(self.rpc.call(chain, "eth_gasPrice", []), 16)
+        tip = max(base // 10, 100_000) if chain != "ethereum" else max(base // 10, 10**9)
+        if chain not in CORE:
+            # chains added in phase 10: take the node's suggested tip when higher (Polygon rejects
+            # transactions below its minimum priority fee)
+            try:
+                tip = max(tip, int(self.rpc.call(chain, "eth_maxPriorityFeePerGas", []), 16))
+            except (RuntimeError, ValueError, OSError):
+                pass
+        return base * 2 + tip, tip
+
+    def send_eth(self, chain, label, to, value_wei, *, nonce=None, bump=1.0, fees=None):
+        """Sign and broadcast a plain ETH transfer from the derived key `label`."""
+        priv = self.key(label)
+        frm = farmkeys.address_of(priv)
+        max_fee, tip = fees or self.fees(chain)
+        max_fee, tip = int(max_fee * bump), int(tip * bump)
+        if nonce is None:
+            nonce = self.nonce(chain, frm)
+        tx = {"chainId": CHAIN_IDS[chain], "nonce": nonce, "to": to, "value": value_wei, "data": "0x",
+              "gas": 21000, "maxFeePerGas": max_fee, "maxPriorityFeePerGas": tip}
+        raw = farmkeys.sign_eip1559(priv, tx)
+        return self.rpc.call(chain, "eth_sendRawTransaction", ["0x" + raw.hex()]), 21000 * max_fee
+
+    # --- accounting ------------------------------------------------------
+    def pnl(self):
+        try:
+            with open(PNL, encoding="utf-8") as f:
+                p = json.load(f)
+        except (OSError, ValueError):
+            p = {}
+        day = now().strftime("%Y-%m-%d")
+        if p.get("day") != day:
+            p = {"day": day, "realized_usd": {}, "baseline": p.get("baseline", {}), "baseline_usdc": p.get("baseline_usdc", {}),
+                 "usdc_in_flight": p.get("usdc_in_flight", {})}
+        return p
+
+    def save_pnl(self, p):
+        tmp = PNL + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(p, f)
+        os.replace(tmp, PNL)
+
+    def live_bots(self):
+        return sorted(d for d in os.listdir(LIVE) if ID_RE.match(d) and os.path.isdir(f"{LIVE}/{d}")) if os.path.isdir(LIVE) else []
+
+    def manifest_chains(self, path):
+        with open(path, encoding="utf-8") as f:
+            chains = manifest_list(f.read(), "chains")
+        return [c for c in chains if c in CHAIN_IDS]
+
+    def gas_cap_usd(self, chain):
+        """Native-wallet cap on chains where the signed tx does not bound every fee (OP Stack:
+        L1 data fee and operator fee are charged at inclusion). The wallet balance is then the
+        only enforceable worst case per transaction, so the gate never funds above it and the
+        signer refuses while the balance is above it. None = no cap (fees bounded by tx fields)."""
+        return (self.cfg.get("gas_wallet_cap_usd") or {}).get(chain)
+
+    def capped_wei(self, chain, bot_addr, wanted_wei):
+        cap = self.gas_cap_usd(chain)
+        if cap is None:
+            return wanted_wei
+        cap_wei = int(cap / self.eth_usd(chain) * 1e18)
+        room = cap_wei - self.balance_wei(chain, bot_addr)
+        return max(0, min(wanted_wei, room))
+
+    def fund_reserve_wei(self, chain, with_usdc):
+        """Native the intermediate wallet keeps for the funding transfers themselves. 0.001 of the
+        native token on the original chains (unchanged); on the chains added in phase 10 at least
+        the actual gas of the native + USDC transfers, twice (0.001 POL would not pay one)."""
+        if chain in CORE:
+            return 10**15
+        return max(10**15, (21000 + (90_000 if with_usdc else 0)) * self.fees(chain)[0] * 2)
+
+    def capital_usd(self):
+        """X: intermediate + every live bot, native balances in USD."""
+        total, detail = 0.0, {}
+        inter = self.intermediate()
+        for chain in self.cfg["chains"]:
+            usd = self.balance_wei(chain, inter) / 1e18 * self.eth_usd(chain)
+            detail[f"intermediate@{chain}"] = round(usd, 2)
+            total += usd
+            u = self.usdc_raw(chain, inter) / usdc_scale(chain)
+            detail[f"intermediate@{chain}:usdc"] = round(u, 2)
+            total += u
+        for bot in self.live_bots():
+            a = self.addr(f"bot:{bot}")
+            for chain in self.manifest_chains(f"{LIVE}/{bot}/manifest.yaml"):
+                usd = self.balance_wei(chain, a) / 1e18 * self.eth_usd(chain)
+                detail[f"{bot}@{chain}"] = round(usd, 2)
+                total += usd
+                u = self.usdc_raw(chain, a) / usdc_scale(chain)
+                detail[f"{bot}@{chain}:usdc"] = round(u, 2)
+                total += u
+        return total, detail
+
+    def daily_loss(self):
+        p = self.pnl()
+        return -sum(v for v in p["realized_usd"].values() if v < 0)
+
+    def frozen(self):
+        return self.daily_loss() > self.cfg["max_daily_loss_usd"] or os.path.exists(f"{STATE}/halt")
+
+    # --- ops -------------------------------------------------------------
+    def status(self, bot_id=None):
+        total, detail = self.capital_usd()
+        out = {"intermediate": farmkeys.checksum(self.intermediate()), "capital_usd": round(total, 2),
+               "intermediate_balances_usd": {k.split("@", 1)[1]: v for k, v in detail.items() if k.startswith("intermediate@")},
+               "max_capital_usd": self.cfg["max_capital_usd"], "daily_loss_usd": round(self.daily_loss(), 2),
+               "max_daily_loss_usd": self.cfg["max_daily_loss_usd"], "frozen": self.frozen(),
+               "halted": os.path.exists(f"{STATE}/halt"),
+               "gas_wallet_cap_usd": self.cfg.get("gas_wallet_cap_usd", {}), "live": {}}
+        for bot in self.live_bots():
+            if bot_id and bot != bot_id:
+                continue
+            st = subprocess.run(["systemctl", "show", f"bot@{bot}.service", "-p", "ActiveState,SubState"],
+                                capture_output=True, text=True, check=False).stdout.replace("\n", " ")
+            out["live"][bot] = {"address": farmkeys.checksum(self.addr(f"bot:{bot}")), "service": st.strip(),
+                                "balances_usd": {k.split("@")[1]: v for k, v in detail.items() if k.startswith(bot + "@")},
+                                "nonces": {c: self.nonce(c, self.addr(f"bot:{bot}"), "latest")
+                                           for c in self.manifest_chains(f"{LIVE}/{bot}/manifest.yaml")}}
+        print(json.dumps(out, indent=2))
+
+    def promote(self, bot_id):
+        src = f"{PAPER}/{bot_id}"
+        if not os.path.isdir(src):
+            die(f"no paper bot {bot_id}")
+        if os.path.exists(f"{LIVE}/{bot_id}"):
+            die(f"{bot_id} is already live")
+        if self.frozen():
+            die("promotions are frozen (daily loss limit or halt)")
+        mpath = f"{src}/manifest.yaml"
+        chains = self.manifest_chains(mpath)
+        if not chains:
+            die("manifest.yaml must list chains")
+        cap = 0.0
+        allowed = []
+        with open(mpath, encoding="utf-8") as f:
+            text = f.read()
+        for line in text.splitlines():
+            if line.startswith("capital_usd:"):
+                cap = manifest_number(line)
+            if line.startswith("max_loss_per_tx_usd:"):
+                if manifest_number(line) > self.cfg["max_loss_per_tx_usd"]:
+                    die("manifest max_loss_per_tx_usd exceeds L")
+        allowed = manifest_addresses(text)
+        # an executor bot needs no allowed_contracts: the gate deploys the executor and the signer
+        # allows that address from state/executor.json. Listing the protocols the executor calls
+        # internally would only let the bot wallet call them directly (10d).
+        if not allowed and not re.search(r"^executor:\s*\S", text, re.M):
+            die("manifest.yaml must list allowed_contracts (the contracts the bot wallet sends to) "
+                "or name an executor")
+        if not (0 < cap <= self.cfg["max_capital_per_bot_usd"]):
+            die(f"capital_usd must be 0 < x <= {self.cfg['max_capital_per_bot_usd']}")
+        total, _ = self.capital_usd()
+        if total + 0 > self.cfg["max_capital_usd"]:
+            die(f"capital {total:.2f} already at X; funding is impossible")
+        principal = self.manifest_principal(mpath)
+        if principal < 0 or principal > cap:
+            die("principal_usdc must be between 0 and capital_usd")
+        for chain in chains:
+            if principal > 0 and not self.usdc(chain):
+                die(f"principal_usdc set but no USDC address configured for {chain}")
+        # per chain: native gas float = (capital - principal) / chains, USDC principal = principal / chains
+        per_chain = (cap - principal) / len(chains)
+        per_chain_usdc = {c: int(principal / len(chains) * usdc_scale(c)) for c in chains}   # raw units (10b)
+        inter = self.intermediate()
+        bot_addr = farmkeys.address_of(self.key(f"bot:{bot_id}", create=True))
+        for chain in chains:
+            # check what will actually be sent: on a capped chain (gas_wallet_cap_usd) the funding
+            # below never exceeds the cap, so the intermediate wallet need not hold the full share
+            wanted = int(per_chain / self.eth_usd(chain) * 1e18)
+            wei = self.capped_wei(chain, bot_addr, wanted)
+            if self.balance_wei(chain, inter) < wei + self.fund_reserve_wei(chain, bool(per_chain_usdc[chain])):
+                note = (f" (capital share {per_chain:.2f} USD, capped by the {self.gas_cap_usd(chain)} USD gas wallet cap)"
+                        if wei < wanted else "")
+                die(f"intermediate wallet on {chain} has less than {wei / 1e18 * self.eth_usd(chain):.2f} USD{note} + gas; deposit first")
+            if per_chain_usdc[chain] and self.usdc_raw(chain, inter) < per_chain_usdc[chain]:
+                die(f"intermediate wallet on {chain} has less than {principal / len(chains):.2f} USDC; deposit first")
+        self.check_deploy_gas(bot_id, text, chains, bot_addr)    # before anything moves (10b, hyperevm)
+        r = subprocess.run(["sudo", "-n", "/opt/farm/bin/gate-root", "adopt", bot_id], capture_output=True, text=True, check=False)
+        if r.returncode:
+            die(f"adopt failed: {r.stderr.strip()}")
+        funding = []
+        p = self.pnl()
+        p["baseline"][bot_id] = {}
+        p.setdefault("baseline_usdc", {})[bot_id] = {}
+        for chain in chains:
+            wei = self.capped_wei(chain, bot_addr, int(per_chain / self.eth_usd(chain) * 1e18))
+            if wei == 0:
+                p["baseline"][bot_id][chain] = 0
+                log(op="fund", bot=bot_id, chain=chain, wei=0, note="gas wallet already at cap")
+            else:
+                h, _ = self.send_eth(chain, "intermediate", bot_addr, wei)
+                funding.append((chain, h))
+                p["baseline"][bot_id][chain] = wei
+                log(op="fund", bot=bot_id, chain=chain, wei=wei, txHash=h,
+                    gas_cap_usd=self.gas_cap_usd(chain))
+            if per_chain_usdc[chain]:
+                h, _ = self.send_usdc(chain, "intermediate", bot_addr, per_chain_usdc[chain])
+                p["baseline_usdc"][bot_id][chain] = per_chain_usdc[chain]
+                log(op="fund_usdc", bot=bot_id, chain=chain, usdc=per_chain_usdc[chain], txHash=h)
+        self.save_pnl(p)
+        for chain, h in funding:                     # the executor deploy pays gas from these funds
+            self.wait_receipt(chain, h, "funding")
+        executor = self.deploy_executor(bot_id, text, chains)
+        subprocess.run(["sudo", "-n", "/usr/bin/systemctl", "enable", "--now", f"bot@{bot_id}.service"], check=True)
+        log(op="promote", bot=bot_id, chains=chains, capital_usd=cap, principal_usdc=principal, address=bot_addr, executor=executor)
+        print(f"ok promoted {bot_id} ({farmkeys.checksum(bot_addr)}) on {chains}, {cap} USD (USDC principal {principal})")
+
+    def tx_nonce(self, chain, h):
+        """Nonce of a tx we just broadcast, for the watchdog's 'who sent this' check."""
+        try:
+            r = self.rpc.call(chain, "eth_getTransactionByHash", [h])
+            return int(r["nonce"], 16) if r else None
+        except Exception:                             # logging aid only; never fail the operation
+            return None
+
+    def wait_receipt(self, chain, h, what, tries=60):
+        import time as _t
+        for _ in range(tries):
+            rcpt = self.rpc.call(chain, "eth_getTransactionReceipt", [h])
+            if rcpt:
+                if rcpt.get("status") != "0x1":
+                    die(f"{what} tx {h} on {chain} failed")
+                return rcpt
+            _t.sleep(3)
+        die(f"{what} tx {h} on {chain} not mined after {tries * 3} s")
+
+    def deploy(self, bot_id):
+        """Finish a promotion whose executor deployment failed: the bot is live and funded but has
+        no state/executor.json. Deploys the executor from the bot's key, then starts the service."""
+        mpath = f"{LIVE}/{bot_id}/manifest.yaml"
+        if not os.path.exists(mpath):
+            die(f"{bot_id} is not live")
+        if os.path.exists(f"{LIVE}/{bot_id}/state/executor.json"):
+            die(f"{bot_id} already has an executor (state/executor.json)")
+        if self.frozen():
+            die("promotions are frozen (daily loss limit or halt)")
+        with open(mpath, encoding="utf-8") as f:
+            text = f.read()
+        chains = self.manifest_chains(mpath)
+        executor = self.deploy_executor(bot_id, text, chains)
+        subprocess.run(["sudo", "-n", "/usr/bin/systemctl", "enable", "--now", f"bot@{bot_id}.service"], check=True)
+        log(op="deploy", bot=bot_id, chains=chains, executor=executor)
+        print(f"ok deployed executor for {bot_id}: {executor}; service started")
+
+    def deploy_executor(self, bot_id, manifest_text, chains):
+        """Deploy the bot's executor contract (manifest `executor:` = forge artifact path, relative
+        to the workspace) from the bot's own key on each chain; write the addresses to
+        state/executor.json and append them to allowed_contracts in a gate-owned file."""
+        priv = self.key(f"bot:{bot_id}")
+        frm = farmkeys.address_of(priv)
+        code = self.executor_code(manifest_text, frm)
+        if code is None:
+            return None
+        out = {}
+        for chain in chains:
+            max_fee, tip = self.fees(chain)
+            nonce = self.nonce(chain, frm)
+            gas = int(self.rpc.call(chain, "eth_estimateGas", [{"from": frm, "data": code}]), 16)
+            if int(gas * 1.2) > max_tx_gas(chain):
+                die(f"executor deployment on {chain} needs {int(gas * 1.2):,} gas, above the {max_tx_gas(chain):,} "
+                    "that chain includes for farm keys; shrink the contract")
+            tx = {"chainId": CHAIN_IDS[chain], "nonce": nonce, "to": None, "value": 0, "data": code,
+                  "gas": int(gas * 1.2), "maxFeePerGas": max_fee, "maxPriorityFeePerGas": tip}
+            raw = farmkeys.sign_eip1559(priv, tx)
+            h = self.rpc.call(chain, "eth_sendRawTransaction", ["0x" + raw.hex()])
+            # logged before waiting for the receipt: the watchdog checks bot nonces every 15 s and
+            # treats a bot-key tx it cannot attribute as a key compromise
+            log(op="deploy_executor_sent", bot=bot_id, chain=chain, txHash=h, nonce=nonce)
+            # address = keccak(rlp([sender, nonce]))[12:]
+            import rlp as _rlp
+            addr = "0x" + farmkeys.keccak256(_rlp.encode([bytes.fromhex(frm[2:]), nonce]))[-20:].hex()
+            for _ in range(60):                       # do not hand out an address that has no code
+                rcpt = self.rpc.call(chain, "eth_getTransactionReceipt", [h])
+                if rcpt:
+                    break
+                import time as _t
+                _t.sleep(3)
+            if not rcpt or rcpt.get("status") != "0x1":
+                die(f"executor deployment on {chain} failed or not mined (tx {h}); check executor_args")
+            out[chain] = {"address": addr, "txHash": h, "nonce": nonce}
+            log(op="deploy_executor", bot=bot_id, chain=chain, address=addr, txHash=h, nonce=nonce)
+        with open(f"{LIVE}/{bot_id}/state/executor.json", "w", encoding="utf-8") as f:
+            json.dump(out, f, indent=1)
+        # the signer also allows the executor addresses it finds in state/executor.json
+        return out
+
+    def check_deploy_gas(self, bot_id, manifest_text, chains, bot_addr):
+        """On chains that include only small transactions for farm keys (farmchains.max_tx_gas
+        below the usual 3M: hyperevm), refuse a promote whose executor deployment would not fit,
+        before any funds move (10b)."""
+        small = [c for c in chains if max_tx_gas(c) < 3_000_000]
+        if not small:
+            return
+        code = self.executor_code(manifest_text, bot_addr)
+        if code is None:
+            return
+        for chain in small:
+            try:
+                gas = int(self.rpc.call(chain, "eth_estimateGas", [{"from": bot_addr, "data": code}]), 16)
+            except (RuntimeError, ValueError, OSError) as exc:
+                die(f"cannot estimate the executor deployment on {chain}: {exc}")
+            if int(gas * 1.2) > max_tx_gas(chain):
+                die(f"executor deployment on {chain} needs {int(gas * 1.2):,} gas; {chain} includes at most "
+                    f"{max_tx_gas(chain):,} per transaction for farm keys (small blocks). Shrink the contract")
+
+    def executor_code(self, manifest_text, frm):
+        """Creation code + constructor arguments for the manifest's executor, or None if the
+        manifest names no executor. `frm` is the bot address that replaces {bot}."""
+        # the path may be quoted (YAML string) and may carry a trailing comment (9j)
+        m = re.search(r"^executor:\s*['\"]?([^'\"\s#]+)", manifest_text, re.M)
+        if not m:
+            return None
+        art = m.group(1)
+        if art.startswith("/") or ".." in art:
+            die("executor path must be relative to the workspace, without '..'")
+        try:
+            with open(os.path.join(WS, art), encoding="utf-8") as f:
+                artifact = json.load(f)
+            code = artifact["bytecode"]["object"] if isinstance(artifact.get("bytecode"), dict) else artifact["bytecode"]
+        except (OSError, ValueError, KeyError) as exc:
+            die(f"executor artifact unreadable: {exc}")
+        if not code.startswith("0x") or len(code) < 10:
+            die("executor artifact has no bytecode")
+        # constructor arguments: manifest `executor_args` (ABI-encoded hex). The token {bot} stands
+        # for the bot's own address (unknown until promotion), left-padded to one 32-byte word.
+        am = re.search(r"^executor_args:\s*['\"]?([^'\"\s#]+)", manifest_text, re.M)
+        if am:
+            args = am.group(1).replace("{bot}", "0" * 24 + frm[2:].lower())
+            args = args[2:] if args.startswith("0x") else args
+            if not re.fullmatch(r"(?:[0-9a-fA-F]{2})*", args) or len(args) % 64:
+                die("executor_args must be ABI-encoded hex (whole 32-byte words; {bot} = the bot address)")
+            code = code + args.lower()
+        return code
+
+    def fund(self, bot_id, usd, usdc=False):
+        if bot_id not in self.live_bots():
+            die(f"{bot_id} is not live")
+        if self.frozen():
+            die("frozen")
+        total, _ = self.capital_usd()
+        if total > self.cfg["max_capital_usd"]:
+            die("at X")
+        chains = self.manifest_chains(f"{LIVE}/{bot_id}/manifest.yaml")
+        per = usd / len(chains)
+        bot_addr = self.addr(f"bot:{bot_id}")
+        p = self.pnl()
+        if usdc:
+            inter = self.intermediate()
+            raw = {c: int(per * usdc_scale(c)) for c in chains}      # raw units per chain (10b)
+            for chain in chains:
+                if self.usdc_raw(chain, inter) < raw[chain]:
+                    die(f"intermediate wallet on {chain} has less than {per:.2f} USDC")
+            for chain in chains:
+                h, _ = self.send_usdc(chain, "intermediate", bot_addr, raw[chain])
+                b = p.setdefault("baseline_usdc", {}).setdefault(bot_id, {})
+                b[chain] = b.get(chain, 0) + raw[chain]
+                log(op="fund_usdc", bot=bot_id, chain=chain, usdc=raw[chain], txHash=h)
+            self.save_pnl(p)
+            print(f"ok funded {bot_id} with {usd} USDC across {chains}")
+            return
+        for chain in chains:
+            wei = self.capped_wei(chain, bot_addr, int(per / self.eth_usd(chain) * 1e18))
+            if wei == 0:
+                print(f"{chain}: gas wallet already at its cap ({self.gas_cap_usd(chain)} USD); nothing sent")
+                continue
+            h, _ = self.send_eth(chain, "intermediate", bot_addr, wei)
+            p["baseline"].setdefault(bot_id, {})[chain] = p["baseline"].get(bot_id, {}).get(chain, 0) + wei
+            log(op="fund", bot=bot_id, chain=chain, wei=wei, txHash=h, gas_cap_usd=self.gas_cap_usd(chain))
+        self.save_pnl(p)
+        print(f"ok funded {bot_id} with {usd} USD across {chains}")
+
+    def sweep(self, bot_id, record_pnl=True):
+        chains = self.manifest_chains(f"{LIVE}/{bot_id}/manifest.yaml") if os.path.exists(f"{LIVE}/{bot_id}/manifest.yaml") else list(CHAIN_IDS)
+        label = f"bot:{bot_id}"
+        bot_addr = self.addr(label)
+        inter = self.intermediate()
+        p = self.pnl()
+        swept, all_ok = {}, True
+        for chain in chains:
+            fees = self.fees(chain)
+            fees = (int(fees[0] * 1.2), fees[1])        # margin for base fee moving between calls
+            if self.settle_usdc_in_flight(p, bot_id, chain, record_pnl) == "pending":
+                log(op="sweep_failed", bot=bot_id, chain=chain, why="an earlier USDC sweep transfer is still unresolved")
+                swept[chain + ":usdc"] = "failed: earlier transfer still pending"
+                all_ok = False
+                continue
+            # 1. USDC back to the intermediate wallet (before the native sweep: the transfer needs gas)
+            uraw = self.usdc_raw(chain, bot_addr)
+            if uraw > 0:
+                need = 90_000 * fees[0] * (2 if chain != "ethereum" else 1) + 21000 * fees[0] * 2
+                have = self.balance_wei(chain, bot_addr)
+                if have < need:
+                    # the bot ran its gas float down: top it up from the intermediate wallet and wait
+                    topup = need - have + 21000 * fees[0]
+                    th, _ = self.send_eth(chain, "intermediate", bot_addr, topup, fees=fees)
+                    if bot_id in p["baseline"] and chain in p["baseline"][bot_id]:
+                        p["baseline"][bot_id][chain] += topup      # funded capital, so the PnL math sees it
+                    log(op="sweep_gas_topup", bot=bot_id, chain=chain, wei=topup, txHash=th)
+                    tr = self.poll_receipt(chain, th)
+                    if not tr or tr.get("status") != "0x1":
+                        state = "pending" if not tr else "reverted"
+                        log(op="sweep_failed", bot=bot_id, chain=chain, why=f"gas top-up {state}", txHash=th)
+                        swept[chain + ":usdc"] = f"failed: gas top-up {state}"
+                        all_ok = False
+                        continue
+                try:
+                    un = self.nonce(chain, bot_addr)    # send_usdc signs with this same pending nonce
+                    uh, _ = self.send_usdc(chain, label, inter, uraw, fees=fees)
+                except RuntimeError as exc:
+                    log(op="sweep_failed", bot=bot_id, chain=chain, why=f"usdc: {exc}")
+                    swept[chain + ":usdc"] = f"failed: {exc}"
+                    all_ok = False
+                    continue
+                # recorded before waiting: the watchdog must know this bot-key nonce even when the
+                # receipt does not come back while we wait
+                log(op="sweep_usdc_sent", bot=bot_id, chain=chain, usdc=uraw, txHash=uh, nonce=un)
+                ur = self.poll_receipt(chain, uh, timeout_s=180)
+                if not ur:
+                    # not booked either way: the next sweep settles it from the receipt instead of
+                    # reading the then-empty wallet as "principal gone" (a phantom loss)
+                    p.setdefault("usdc_in_flight", {}).setdefault(bot_id, {})[chain] = {"txHash": uh, "usdc": uraw, "nonce": un}
+                    log(op="sweep_failed", bot=bot_id, chain=chain, why="usdc transfer not mined in time; next sweep settles it",
+                        txHash=uh, nonce=un)
+                    swept[chain + ":usdc"] = "failed: pending (in flight)"
+                    all_ok = False
+                    continue
+                if ur.get("status") != "0x1":
+                    log(op="sweep_failed", bot=bot_id, chain=chain, why="usdc transfer reverted", txHash=uh, nonce=un)
+                    swept[chain + ":usdc"] = "failed: reverted"
+                    all_ok = False
+                    continue
+                swept[chain + ":usdc"] = uraw
+                ubase = p.get("baseline_usdc", {}).get(bot_id, {}).get(chain)
+                uusd = None
+                if record_pnl and ubase is not None:
+                    uusd = round((uraw - ubase) / usdc_scale(chain), 4)
+                    p["realized_usd"][bot_id] = p["realized_usd"].get(bot_id, 0.0) + uusd
+                    p["baseline_usdc"][bot_id].pop(chain, None)
+                log(op="sweep_usdc", bot=bot_id, chain=chain, usdc=uraw, usd=uusd, txHash=uh, nonce=un)
+            elif p.get("baseline_usdc", {}).get(bot_id, {}).get(chain):
+                # principal was funded but the wallet holds none now: that is a realized loss
+                ubase = p["baseline_usdc"][bot_id].pop(chain)
+                if record_pnl:
+                    p["realized_usd"][bot_id] = p["realized_usd"].get(bot_id, 0.0) - ubase / usdc_scale(chain)
+                log(op="sweep_usdc", bot=bot_id, chain=chain, usdc=0, usd=-ubase / usdc_scale(chain), note="principal gone")
+            # 2. native
+            bal = self.balance_wei(chain, bot_addr)
+            # L2s (base, arbitrum) charge an extra L1 data fee on top of gas*price; the node
+            # rejects a transfer that leaves less than that. Reserve one more 21000*maxFee for it.
+            cost = 21000 * fees[0] * (2 if chain != "ethereum" else 1)
+            if bal <= cost * 2:
+                swept[chain] = 0
+                continue
+            try:
+                n = self.nonce(chain, bot_addr)
+                h, _ = self.send_eth(chain, label, inter, bal - cost, nonce=n, fees=fees)
+            except RuntimeError as exc:
+                log(op="sweep_failed", bot=bot_id, chain=chain, why=str(exc))
+                swept[chain] = f"failed: {exc}"
+                all_ok = False
+                continue
+            swept[chain] = bal - cost
+            base = p["baseline"].get(bot_id, {}).get(chain)
+            usd = None
+            if record_pnl and base is not None:
+                usd = round((bal - base) / 1e18 * self.eth_usd(chain), 4)
+                p["realized_usd"][bot_id] = p["realized_usd"].get(bot_id, 0.0) + usd
+                p["baseline"][bot_id].pop(chain, None)   # consumed: a re-sweep must not count it again
+            log(op="sweep", bot=bot_id, chain=chain, wei=bal - cost, usd=usd, txHash=h, nonce=n)
+        if all_ok and not p["baseline"].get(bot_id):
+            p["baseline"].pop(bot_id, None)
+        if all_ok and not p.get("baseline_usdc", {}).get(bot_id):
+            p.get("baseline_usdc", {}).pop(bot_id, None)
+        self.save_pnl(p)
+        print(f"ok swept {bot_id}: {swept}")
+
+    def settle_usdc_in_flight(self, p, bot_id, chain, record_pnl=True):
+        """A USDC sweep transfer whose receipt had not come back (9i). Returns 'none' (nothing in
+        flight), 'pending' (still unresolved: touch nothing on this chain) or 'done' (settled from
+        the receipt: mined -> PnL booked against baseline_usdc; reverted -> the USDC is still in
+        the bot wallet and the normal sweep moves it)."""
+        fl = p.get("usdc_in_flight", {}).get(bot_id, {}).get(chain)
+        if not fl:
+            return "none"
+        r = self.poll_receipt(chain, fl["txHash"], timeout_s=10)
+        if not r:
+            return "pending"
+        p["usdc_in_flight"][bot_id].pop(chain, None)
+        if not p["usdc_in_flight"][bot_id]:
+            p["usdc_in_flight"].pop(bot_id, None)
+        if r.get("status") != "0x1":
+            log(op="sweep_usdc_inflight", bot=bot_id, chain=chain, txHash=fl["txHash"], nonce=fl.get("nonce"),
+                note="reverted; the USDC is still in the bot wallet")
+            return "done"
+        ubase = p.get("baseline_usdc", {}).get(bot_id, {}).get(chain)
+        uusd = None
+        if record_pnl and ubase is not None:
+            uusd = round((fl["usdc"] - ubase) / usdc_scale(chain), 4)
+            p["realized_usd"][bot_id] = p["realized_usd"].get(bot_id, 0.0) + uusd
+            p["baseline_usdc"][bot_id].pop(chain, None)
+        log(op="sweep_usdc_inflight", bot=bot_id, chain=chain, usdc=fl["usdc"], usd=uusd, txHash=fl["txHash"],
+            nonce=fl.get("nonce"), note="mined")
+        return "done"
+
+    def cancel_pending(self, bot_id):
+        """Replace any pending tx with a 0-value self-send at a higher fee."""
+        label = f"bot:{bot_id}"
+        a = self.addr(label)
+        for chain in self.manifest_chains(f"{LIVE}/{bot_id}/manifest.yaml"):
+            latest, pending = self.nonce(chain, a, "latest"), self.nonce(chain, a, "pending")
+            for n in range(latest, pending):
+                try:
+                    h, _ = self.send_eth(chain, label, a, 0, nonce=n, bump=1.3)
+                    log(op="cancel", bot=bot_id, chain=chain, nonce=n, txHash=h)
+                except RuntimeError as exc:
+                    log(op="cancel_failed", bot=bot_id, chain=chain, nonce=n, why=str(exc))
+
+    def stop(self, bot_id):
+        if bot_id not in self.live_bots():
+            die(f"{bot_id} is not live")
+        subprocess.run(["sudo", "-n", "/usr/bin/systemctl", "disable", "--now", f"bot@{bot_id}.service"], check=False)
+        subprocess.run(["sudo", "-n", "/usr/bin/systemctl", "reset-failed", f"bot@{bot_id}.service"], check=False, capture_output=True)
+        self.cancel_pending(bot_id)
+        # approvals: v1 bots hold no ERC-20 approvals from the gate's side; the signer
+        # limits approves to allowed contracts and finite amounts. Revocation of
+        # ERC-20 approvals comes with the USDC step.
+        self.sweep(bot_id)
+        with open(f"{STATE}/stop-{bot_id}.md", "w", encoding="utf-8") as f:
+            f.write(f"# Stopped by gate\n\n- when: {now().isoformat(timespec='seconds')}\n- by: {os.environ.get('SUDO_USER','?')} "
+                    f"({os.environ.get('FARM_ROLE','?')}/{os.environ.get('FARM_RUN_ID','?')})\n")
+        r = subprocess.run(["sudo", "-n", "/opt/farm/bin/gate-root", "archive", bot_id], capture_output=True, text=True, check=False)
+        if r.returncode:
+            die(f"archive failed: {r.stderr.strip()}")
+        dest = r.stdout.strip()
+        log(op="stop", bot=bot_id, archived=dest)
+        print(f"ok stopped {bot_id} -> {dest}")
+
+    def stop_all(self):
+        open(f"{STATE}/halt", "w").close()   # the signer refuses everything from now on
+        log(op="halt")
+        for bot in self.live_bots():
+            try:
+                self.stop(bot)
+            except SystemExit:
+                pass
+            except Exception as exc:                  # one bot's failure must not leave the others running
+                log(op="stop_failed", bot=bot, why=repr(exc))
+                print(f"gate: stop {bot} failed: {exc!r}", file=sys.stderr)
+        print("ok halted: signer refuses all sends; remove /var/lib/farmgate/halt to resume promotions")
+
+    def restart(self, bot_id):
+        if bot_id not in self.live_bots():
+            die(f"{bot_id} is not live")
+        subprocess.run(["sudo", "-n", "/usr/bin/systemctl", "restart", f"bot@{bot_id}.service"], check=True)
+        log(op="restart", bot=bot_id)
+        print(f"ok restarted {bot_id}")
+
+
+def main(argv):
+    if os.geteuid() == 0:
+        die("run as farmgate, not root")
+    g = Gate()
+    cmd, rest = (argv[0] if argv else ""), argv[1:]
+    bid = rest[0] if rest else None
+    if bid and bid != "--all" and cmd != "export-key" and not ID_RE.match(bid):
+        die("bad bot id")
+    if cmd == "status":
+        g.status(bid)
+    elif cmd == "intermediate":
+        print(farmkeys.checksum(g.intermediate()))
+    elif cmd == "accounts":
+        acc = farmkeys._accounts()
+        print(f"0\tintermediate\t{farmkeys.checksum(g.addr('intermediate'))}\tm/44'/60'/0'/0/0")
+        for bot, idx in sorted(acc["bots"].items(), key=lambda kv: kv[1]):
+            print(f"{idx}\t{bot}\t{farmkeys.checksum(g.addr('bot:' + bot))}\tm/44'/60'/0'/0/{idx}")
+    elif cmd == "export-key" and bid:
+        label = bid if bid == "intermediate" else bid
+        if label != "intermediate" and not label.startswith("bot:"):
+            die("label must be intermediate or bot:<id>")
+        if os.environ.get("SUDO_USER") in (None, "harness", "earner"):
+            die("export-key is for the human operator only (run it from your own account)")
+        print("0x" + g.key(label).hex())
+        log(op="export-key", label=label)
+    elif cmd == "promote" and bid:
+        g.promote(bid)
+    elif cmd == "deploy" and bid:
+        g.deploy(bid)
+    elif cmd == "fund" and len(rest) in (2, 3) and (len(rest) == 2 or rest[2] == "--usdc"):
+        usd = float(rest[1])
+        if not 0 < usd <= g.cfg["max_capital_per_bot_usd"]:
+            die("usd out of range")
+        g.fund(bid, usd, usdc=(len(rest) == 3))
+    elif cmd == "sweep" and bid:
+        g.sweep(bid)
+    elif cmd == "stop" and bid == "--all":
+        g.stop_all()
+    elif cmd == "stop" and bid:
+        g.stop(bid)
+    elif cmd == "restart" and bid:
+        g.restart(bid)
+    else:
+        die("usage: gate status [id] | intermediate | promote <id> | deploy <id> | fund <id> <usd> [--usdc] | sweep <id> | stop <id> | stop --all | restart <id>")
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

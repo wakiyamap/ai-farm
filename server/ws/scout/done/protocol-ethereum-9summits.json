@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-9summits",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 547,
+ "chain": "ethereum",
+ "slug": "9summits",
+ "name": "9Summits",
+ "category": "Risk Curators",
+ "tvl_usd": 15065117,
+ "url": "https://9summits.io",
+ "github": null,
+ "listed_days_ago": 547,
+ "run_id": "aae81312c45641b6922bafa77d84c584",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: 4 Lagoon ERC7540 vaults on ethereum ($14.2M TVL); settleDeposit(0xd24ca58a)/expireTotalAssets(0x927b15df) onlySafe, updateNewTotalAssets(0xbcd1bf34) onlyValuationManager, 3 keeper txs/vault/day by fixed signers (safes b64bfcd2/547090eb/c868bfb2/b65b8cf3, VM 0x9dcbfe1b), eth_call from fresh address reverts OnlySafe/OnlyValuationManager, 0 USD gross to any caller, no keeper reward in LagoonVault v0.6.0 source (sample of ~25 txs/vault over ~10 d via explorer txs)",
+  "kb": [
+   "attempts:3078",
+   "protocols:1457"
+  ],
+  "run_id": "aae81312c45641b6922bafa77d84c584",
+  "at": 1795213340
+ }
+}

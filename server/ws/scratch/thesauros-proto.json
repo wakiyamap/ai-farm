@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "thesauros",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/thesauros/index.js lists 3 arbitrum vaults, all with code (eth_getCode): v1 tUSDC 0x57C10bd3fdB2849384dDe954f63d37DfAD9d7d70, v1 tUSDT 0xcd72118C0707D315fa13350a63596dCd9B294A30 (both name 'Rebalancer', verified on etherscan), v2 tUSDC proxy 0x4E5c0A4C11d713002D74bA43a458efc31bc76378 -> impl 0xed3296117daaa46fe4cf94036bb42ee86100f8c7 ('Rebalancer', source fetched via explorer). Source read: rebalance() is onlyRole(EXECUTOR_ROLE) (v2, Rebalancer.sol L515) / onlyOperator (v1); applyFees() external, no modifier (v2 L559) but mints ALL fee shares to the protocol treasury and is also run internally on every deposit/mint/withdraw/redeem (L237-299) - pays the caller nothing. getProviders() (sel 0xedc922a9) returns 9 thin provider wrappers (deposit/withdraw/getDepositBalance/getDepositRate/getIdentifier/getSource only, ABI-checked) + provider-manager registry 0x5f9f7ae7a8ea732220e19694fb07da3f296386c5 (owner-set markets, no reward fn). v1 setupVault is a one-time self-deposit. No reward/bounty/harvest/claim function anywhere: verdict unpaid."
+}

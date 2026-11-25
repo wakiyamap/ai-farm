@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-abracadabra-spell",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "abracadabra-spell",
+ "name": "Abracadabra Spell",
+ "category": "CDP",
+ "tvl_usd": 119320,
+ "url": "https://abracadabra.money/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "0dccac36e4624f359039d35d1dab5a69",
+ "result": {
+  "verdict": "unpaid",
+  "line": "bsc Abracadabra Spell = 2 dormant CauldronV2 clones (0x692C...2C90 WBNB, 0xF804...3319 CAKE, impl 0x26Fa...06a9): only liquidate(address[],uint256[],address,address) is open to anyone (fresh-addr eth_call reverts 'Cauldron: all are solvent', not role) and pays the 10%/12.5% LIQUIDATION_MULTIPLIER spread, but 7d eth_getLogs (269x5000-block windows, 0 logs; control 15,019) shows nobody did anything; total debt 29,439 MIM (~\\40 at \\bash.025, coins.llama.fi 1795135972), max full-book bounty ~\\3, gas ~\\bash.01-0.05 (BNB \\79).",
+  "kb": [
+   "attempts:2715",
+   "protocols:1165"
+  ],
+  "run_id": "0dccac36e4624f359039d35d1dab5a69",
+  "at": 1795138387
+ }
+}

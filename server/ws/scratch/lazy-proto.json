@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "lazy",
+  "status": "dead_end",
+  "checked": "LazyUSD (getlazy.xyz), DefiLlama slug lazy, adapter projects/lazyusd/index.js. Single contract ethereum: LazyUSDVault 0xd53B68fB4eb907c3c1E348CD7d7bEDE34f763805 (verified source via explorer, eth_getCode non-empty, totalAssets() 0x01e1d114 = 854,379 USDC 6dec). RoleManager 0x02f8836bbf41e579ae66b981f538bc015cd12c7d (verified, no payout functions). Only anyone-callable state-changing fn is purgeProcessedWithdrawals(uint256) - by design pays 0, gas refund only; eth_call from fresh addr succeeds (returns 5 pending purged), 0 WithdrawalsPurged events since deploy blk 24184528 (control: same-shape WithdrawalFulfilled query on same contract returned 4). All other jobs role-gated: fulfillWithdrawals onlyOperator (eth_call fresh addr reverts 0x27e1f1e5), reportYieldAndCollectFees + forceProcessWithdrawal onlyOperatorOrOwner. Last 7d: 3 vault txs total (1 reportYield+FeeCollected, 1 WithdrawalRequested user, 1 forceProcessWithdrawal), all team EOA 0x46a1022e7574680c5d79e5a09f8b704ee308254a; 0 fulfillWithdrawals, 0 purges. All 4 WithdrawalFulfilled in entire history also by team EOA. No reward/incentive contract; docs say 'No staking. No claiming.'"
+}

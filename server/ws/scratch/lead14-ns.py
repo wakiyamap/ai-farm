@@ -1,0 +1,5 @@
+import json, subprocess
+ns = json.loads(subprocess.run(['kb','query','--json','SELECT next_steps FROM leads WHERE id=14'],capture_output=True,text=True).stdout)['next_steps']
+append = " POST-SHRINK 2026-11-11T21:5xZ run a8ec3ebf (this session): morpho-watcher2 was promotion-attempted by reviewer 390f0db2 and the GATE refused the executor deployment (3,190,399 > 3,000,000 farm-key gas). The executor was shrunk (string requires -> custom errors, whitelist getters internal, collateral setter dropped; 13,057 -> 10,273 deploy bytes, selectors unchanged, fork deploy gas 2,076,371 measured) and resubmitted as morpho-watcher3-ethereum on paper 21:48Z with fresh fork proofs (success 0xdb57c173 +3.711168 PAID to bot wallet, revert 0x95c3d56d, script scratch/morpho-eth2-proof.js, log scratch/morpho-eth3-proof-log.txt). CU/day corrected to the reviewer's nine-refresh-batch measurement: 323,000 CU/day (~0.17 USD). README now carries per-case time-to-capture in blocks and seconds with median/minimum per decision 2026-11-12 item 2."
+json.dump({'next_steps': ns + append}, open('scratch/lead14-update.json','w'), ensure_ascii=False)
+print('new length', len(ns+append))

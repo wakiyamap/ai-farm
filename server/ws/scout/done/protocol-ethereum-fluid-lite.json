@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-fluid-lite",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "fluid-lite",
+ "name": "Fluid Lite",
+ "category": "Yield Aggregator",
+ "tvl_usd": 175106771,
+ "url": "https://www.fluid.io/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "bc39ba250aea4bb6ac5018bd5791816e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Fluid Lite USD Vault (proxy 0x273DA948...9012, USDC): all 6 non-user fns (updateExchangePrice/updateConfig/updateRewardConfig/pullFunds/deployIdleUSDC/pushFunds) onlyStrategyHandler (0x066e84ca...a965, immutable) and pay caller 0; eth_call from fresh addr reverts 20008 NotStrategyHandler; 7d (blocks 26416839-26467094, 11-15 to 11-22): 791 logs no unknown topic0 = 203 user ops (165 withdraws 4.23M USDC gross, fees 2,117 USDC stay in vault; 38 deposits), 0 standalone keeper calls; nothing a stranger can call for reward.",
+  "kb": [
+   "attempts:3533",
+   "protocols:1790"
+  ],
+  "run_id": "bc39ba250aea4bb6ac5018bd5791816e",
+  "at": 1795308141
+ }
+}

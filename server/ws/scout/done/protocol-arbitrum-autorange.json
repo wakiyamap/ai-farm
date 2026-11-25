@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-autorange",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 116,
+ "chain": "arbitrum",
+ "slug": "autorange",
+ "name": "AutoRange",
+ "category": "Dexs",
+ "tvl_usd": 214741,
+ "url": "https://autorange.xyz/",
+ "github": null,
+ "listed_days_ago": 116,
+ "run_id": "5af51858b6f3464c850c2fbf22c7e2c2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: all keeper entrypoints (rebalance/harvestFees/sweepIdleDust/reinjectIntoPosition/initPosition) are onlyOperator keeper-registry on AutoRangeVaultV1 0xB2294bcC... and legacy V5/V8/V9; 7d eth_getLogs: 1539 Rebalanced + 2280 KeeperGasReimbursed over ~233 vaults, 13/13 sampled calls from one operator 0xae39218...; only payout is gas reimbursement median $0.031 / max $0.045 vs gas ~$0.030 (828k gas @ 0.02 gwei, ETH $1829 DefiLlama) - no premium above gas; fresh-addr eth_call reverts NotOperator",
+  "kb": [
+   "attempts:1644",
+   "protocols:339"
+  ],
+  "run_id": "5af51858b6f3464c850c2fbf22c7e2c2",
+  "at": 1794903299
+ }
+}

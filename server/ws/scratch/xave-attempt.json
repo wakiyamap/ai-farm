@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-xave-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward - Xave Finance polygon contracts (Balancer-fork DEX, TVL $134,724) have no anyone-callable function that pays the caller: FXPool public functions are user actions (swap/join/exit via Balancer vault) or onlyOwner setters, CurveSwap-fork pool fees go to LPs, factory newFXPool makes the caller pay. The whole deployment is also dormant on-chain: FXPoolFactory last tx 2023-10-10, FXPoolDeployer last newFXPool 2024-02-27, a sampled curve pool last real tx 2023-12-11, AmmRewards MasterChef last tx 2023-03-20. Not listed in DefiLlama dexs volume.",
+  "numbers": "factories+deployer: FXPoolFactory 0x627d7593... last tx block 48544510 (ts 1696926553, all-time only newFXPool/transferOwnership by admin 0x009c4ba0); FXPoolDeployer 0xf169c1ae... last tx block 54023518 (ts 1709046048); CurveFactory 0x6bfb... last tx block 22312700 (ts 1639043112) (explorer txs, full listings). Sampled curve pool 0x6156f030... last non-failed tx ts 1702263550 (approve). AmmRewards 0x972127af... harvest last ts 1658875069, last tx ts 1679265047 (block 40542627). 0 reward-bearing functions, so 0 calls in last 7 days; POL $0.0804 (coins.llama.fi ts 1795028926) -> a 100k-gas call ~= $0.0008 anyway. Sources: explorer txs + explorer source (verified FXPoolFactory.sol/FXPool.sol) + eth_call owner()/getPoolId() ok."
+}

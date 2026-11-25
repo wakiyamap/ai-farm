@@ -1,0 +1,7 @@
+{
+ "chain": "polygon",
+ "target": "protocol-polygon-compound-v3",
+ "outcome": "lead_recorded",
+ "reason": "pays_strangers (re-confirm of lead 236, 2 days after it was recorded): buyCollateral on cUSDCv3 is public (4-arg (asset,minAmount,baseAmount,recipient): 3-arg selector reverts empty, 4-arg from an unfunded fresh address reverts only on the ERC20 pull) and unrelated bot contracts took the discounted residue in every sale of the fresh 7 d window. Incumbent 0x10e3c6c0 still takes the big lots at next-block tx index 0 with bids up to 2,637,000 gwei; on 2026-11-18 a different bot (0x5ac9bc14) took $82 gross with no incumbent grab. Trial bot trial-cv3-buy-polygon (paper) already placed on this route 2026-11-17.",
+ "numbers": "7 d window blocks 97,175,741-97,578,941 to 2026-11-19 07:38Z (eth_getLogs, scratch/cv3-poly-v3-scan.json): cUSDCv3 0xF25212E676D1F7F89Cd72fFEe66158f541246445 10 AbsorbCollateral + 17 BuyCollateral (5 absorb txs); cUSDTv3 0xaeB318360f27748Acb200CE616E389A6C9409a07 0 events. 17 buys paid $57,251 USDC.e, gross (spot-vs-paid, coins.llama.fi historical) $3,683, 8 distinct bot buyers (contracts, e.g. 0x10e3c6c0 $1,921 over 4 buys, 0xc36d7053 $1,259 over 3). 5 sample buys: gross $82-$1,533 each, gas $0.02-$132.68 at POL $0.0822 (coins.llama.fi coingecko:polygon-ecosystem-token); largest sample 0x10e3c6c0 paid $23,155.48 for 0.3959 WBTC, gross $1,533, gas $132.68 (tx 0x5828395dd1c01d3cf8269bc7e7f2f8c7951f6851129eaa7749fff522dce08e33)."
+}

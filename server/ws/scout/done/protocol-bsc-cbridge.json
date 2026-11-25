@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-cbridge",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1835,
+ "chain": "bsc",
+ "slug": "cbridge",
+ "name": "cBridge",
+ "category": "Bridge",
+ "tvl_usd": 2032514,
+ "url": "https://cbridge.celer.network/#/transfer",
+ "github": [
+  "celer-network"
+ ],
+ "listed_days_ago": 1835,
+ "run_id": "39530aba93514932914048ebd28bed7c",
+ "result": {
+  "verdict": "no_reward",
+  "line": "cBridge V2 Router 0xdd90E5E8..a1af (BSC): relay/send/executeDelayedTransfer send bridge principal to a designated receiver, never msg.sender - no caller reward, no pot. ~880 relay+880 send/7d (sample 23 relay/35k blocks); relay callers fixed 2-addr Celer set 0x98e9d288,0x9a666440; gas ~0.002 USD BNB @0.05gwei. BSC state reads (getCode/call) returned empty for all addrs incl WBNB control this session; used source+getLogs. Matches arb cbridge no_reward.",
+  "kb": [
+   "attempts:2582",
+   "protocols:1068"
+  ],
+  "run_id": "39530aba93514932914048ebd28bed7c",
+  "at": 1795108908
+ }
+}

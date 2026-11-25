@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-qidao",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "qidao",
+ "name": "QiDao",
+ "category": "CDP",
+ "tvl_usd": 942780,
+ "url": "https://app.mai.finance",
+ "github": [
+  "0xlaozi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "33e50c5b8e4944c5870b447037663d12",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "liquidateVault(uint256)+getPaid() anyone-callable on 27 polygon VaultToken vaults (stabilityPool()=0x0, fresh-addr eth_call hits balance revert not role); 7d (blocks 97,237,500-97,640,727): 37 LiquidateVault events / 3 txs / 2 stranger keepers, best single call $1.17 gross vs $0.0000089 gas, bonus 1-10% of halfDebt (gainRatio 1010-1100 on chain), 7d total only 2.28 MAI (~$2.26) across all vaults, stock 742 liquidatable ids / 74.80 MAI (attempts:2814) -> pays but dust",
+  "kb": [
+   "attempts:2851",
+   "leads:321"
+  ],
+  "run_id": "33e50c5b8e4944c5870b447037663d12",
+  "at": 1795167843
+ }
+}

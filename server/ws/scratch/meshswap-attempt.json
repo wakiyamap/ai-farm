@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-meshswap",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Pool ExchangeImpl 0xe13f021df700b35bb3dde0fa050c72ee71e26479 exposes public claimReward()/claimReward(address user)/updateMiningIndex() (not owner/role gated), but they pay MESH to the LP recipient argument, never to the caller, and the MESH mining reward is now dust. Over the last 7 days all 129 pools emitted only 2 GiveReward events (Blockscout log scan of pool contracts, control = 50 MESH-token log items returned), both for the same exiting LP 0x7bb36bbca7a1c9ea886fa86a0cd446844c417a4a on pool 0x051304433837f0655e2a24c38548e85d602c3dc9, amounts 5.06e-09 and 2.53e-09 MESH, from a removeLiquidityWithLimit tx (0x33d8df6b...). No stranger is paid: a caller who is not the LP gets nothing.",
+  "numbers": "GiveReward last 7d = 2 events / 129 pools, both to self-claiming LP 0x7bb36..., amount 5.06e-09 and 2.53e-09 MESH (dust, usd unpriced). MESH token 0x82362ec182db3cf7829014bc61e9be8a2e82868a: mined() rose 60,020 MESH over blocks 97283588->97585988 (~8,574/day), but coins.llama.fi price = {} (usd: unpriced). TVL 207,395 USD (api.llama.fi 2026-11-19, misrepresentedTokens:true). Router 0x10f4a785f458bc144e3706575924889954946639 still swaps (~minutes ago). Sources: explorer source polygon + Blockscout polygon.blockscout.com/api/v2/.../logs."
+}

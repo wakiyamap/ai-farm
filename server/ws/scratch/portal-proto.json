@@ -1,0 +1,6 @@
+{
+ "chain": "base",
+ "protocol": "portal",
+ "status": "dead_end",
+ "checked": "Wormhole/Portal bridge on Base (DefiLlama slug 'portal', TVL $1.31M base, api.llama.fi 2026-11-19). Addresses from wormhole-foundation/wormhole-sdk-ts core/base/src/constants/contracts (mainnet): core bridge 0xbebdb6C8ddC678FfA9f8748f85C815C556Dd8ac6, token bridge 0x8d2de8d2f73F1F4cAB472AC9A881C9b123C79627 (beacon proxy, impl 0x24850c6f61c438823f01b7a3bf2b89b72174fa9d read from ERC-1967 slot; chainId() returns 30 = Wormhole base id), executor relayer 0xD8B736EF27Fc997b1d00F22FE37A58145D3BDA07, nft bridge 0xDA3adC6621B2677BEf9aD26598e6939CF0D92f88. eth_getCode non-empty for all 4. Verified impl source: redeem functions completeTransfer(bytes)/completeTransferAndUnwrapETH pay msg.sender the VAA arbiter fee; payloadID 3 (withPayload) is restricted to the recipient. 7-day activity: 1,696 TransferRedeemed; sample of 15: 10/10 direct calls had fee 0 with recipient==caller; no stranger paid => verdict unpaid. DefiLlama adapter projects/portal 404 (TVL tracked elsewhere)."
+}

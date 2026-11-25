@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "dforce_lending",
+  "status": "dead_end",
+  "checked": "BSC LiQee general-pool comptroller 0x6d290f45A280A688Ff58d095de480364069af110 (DefiLlama adapter projects/dforce/index.js allControllers.bsc; eth_getCode non-empty; getAlliTokens() returns 15 markets). RewardDistributor 0xaa272a00e0d6f763acc8fe6ddedf2684a122b215 read from comptroller.rewardDistributor(); rewardToken() = FIS 0xf4bafaeae73a4a7c8b6479970075e91e641fb1fc (decimals 18, symbol FIS, both on-chain; no coins.llama.fi price). Source: github dforce-network/LendingContractsV2 RewardDistributor.sol claimAllReward(address[]) pays holder arg via safeTransfer (no role). paused()=true, globalDistributionSpeed=0, globalDistributionSupplySpeed=0. Fresh-addr eth_call claimAllReward([fresh]) succeeds (no role revert). 7-day eth_getLogs (blocks 133276368-134620535, ts 1794538897->1795144073, 28 chunks of <=5000): 0 FIS Transfers from distributor (control: 15,608 USDT Transfers in 200-block chunk). TVL 111,847 USD / borrowed 5.71 USD (api.llama.fi/protocol/dforce-lending 2026-11-20)."
+}

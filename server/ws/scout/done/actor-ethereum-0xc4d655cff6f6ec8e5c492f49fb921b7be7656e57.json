@@ -1,0 +1,19 @@
+{
+ "id": "actor-ethereum-0xc4d655cff6f6ec8e5c492f49fb921b7be7656e57",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "ethereum",
+ "address": "0xc4d655cff6f6ec8e5c492f49fb921b7be7656e57",
+ "run_id": "11644252290a455f8207142aabadb00c",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Bancor Carbon Vortex fee-sweep keeper: EOA->own executor execute() ~3-4x/day calls processNetworkFees on 3 old Bancor V2 converters then permissionless Vortex.execute (0xd053dcd7, pays msg.sender 0.5% via rewardsPPM 5000); 20 sweeps/7d (top of 9 collectors), 1305 USD swept -> gross ~0.93 USD/day (~0.33/sweep), gas 680-873k @0.12-0.23 gwei ~0.15-0.30 USD/call -> net ~0.4 USD/day; strangers get paid but pool tiny and contested (leads:198 already 30d-dead_end).",
+  "kb": [
+   "attempts:1547",
+   "actors:209"
+  ],
+  "run_id": "11644252290a455f8207142aabadb00c",
+  "at": 1794882900
+ }
+}

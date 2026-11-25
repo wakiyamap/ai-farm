@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-ostium",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only freely callable keeper-ish functions (OstiumVault.tryNewSettlement / tryResetDailyAccPnlDelta) pay the caller $0 - eth_call from a fresh address succeeds and transfers nothing to msg.sender; in a 2-day explorer sample of vault txs no one calls them at all (settlements run internally inside traders' closeTradeMarket). Every function that does get paid (PriceUpKeep/TradesUpKeep.performUpkeep) is behind an isForwarder[msg.sender] whitelist (onlyTimelock registration = keeper registry) and is stale anyway: last on-chain upkeep calls 2026-06-05 (chainlinkPriceUpkeep) and 2026-07-02 (tradesUpKeep).",
+  "numbers": "tryNewSettlement eth_estimateGas from fresh address 34,759 gas (0x87c7); gasPrice 0.02 gwei -> ~$0.0013 per call at ETH $1,799.65 (coins.llama.fi 2026-11-18); gross to caller $0; vault totalAssets 3,385,888 USDC (totalAssets() 0x31456aaa661); 7d vault tx sample: 25 txs, blocks 524,637,898-525,277,813 (explorer txs, etherscan), all self-serving user ops (request/claim Withdraw-Deposit, unlockDeposit, approve), 0 tryNewSettlement/tryResetDaily calls (same-list control returns the other calls); tradesUpKeep last performUpkeep 2026-07-02 (ts 1783002890), chainlinkPriceUpkeep last 2026-06-05 (ts 1780689134); scout-lane Alchemy budget spent (300,016/300,000 CU) so eth_getLogs fell to public nodes and refused archive ranges - counts are from explorer txs lists, not log scans."
+}

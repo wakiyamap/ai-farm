@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-dexfi-aggregator",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "dexfi-aggregator",
+ "name": "DexFi Aggregator",
+ "category": "Yield Aggregator",
+ "tvl_usd": 74813,
+ "url": "https://dexfi.com/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "f79a77db1c2e4306a89f4247d80926bb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "harvest(uint256) permissionless on 27 arb vaults (factory 0x061f8132b344cb2a32d3895eb3ebc2ff87455f79, blacklist 0) but pays caller 0: traceCall from 0xc0ff pays only fixed harvester 0xe92a4f69 (0.0000622) + keeper 0xfc9cac67 (0.0000268) WETH; 640 Harvested in 7 d (blk 524755487 2026-11-16 -> 526813695 2026-11-23), 13/13 samples via keeper EOA 0x99999bc8; 7 d fee+paidDebt pot 0.0546 WETH = 3.9 to fixed addresses (largest fee .25); gas bash.046/call (1.29M gas x 0.021 gwei, ETH 721.32); same verdict as base+ethereum.",
+  "kb": [
+   "attempts:4112",
+   "protocols:2233"
+  ],
+  "run_id": "f79a77db1c2e4306a89f4247d80926bb",
+  "at": 1795440377
+ }
+}

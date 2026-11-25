@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-upshift",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 712,
+ "chain": "hyperevm",
+ "slug": "upshift",
+ "name": "Upshift",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 17586476,
+ "url": "https://app.upshift.finance",
+ "github": null,
+ "listed_days_ago": 712,
+ "run_id": "9f2d6794cafd4558877ecc702d857c69",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Custodial vaults, no keeper reward: collectFees/chargeManagementFee callable by anyone but pay the protocol's feeCollectors (0 to caller); claim/processAllClaimsByDate open but pay the redeemer's own funds; distributeYield reverts OnlyOwnerOrOperator (0x89b7a070); 7d scan 72 events on 6 vaults + 3 distributors, 5x processAllClaimsByDate all by operator 0xe0b7...8c79 ($0.08 gas at 0.142 gwei), 0 paid to strangers; TVL Doma 207,973 WHYPE ~$14.3M + hbHYPE 20,098 HYPE ~$1.38M + HLPe 139k USDe (HYPE $68.83 coins.llama.fi).",
+  "kb": [
+   "attempts:2054",
+   "protocols:640"
+  ],
+  "run_id": "9f2d6794cafd4558877ecc702d857c69",
+  "at": 1794989555
+ }
+}

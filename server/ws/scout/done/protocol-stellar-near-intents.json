@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-near-intents",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 401,
+ "chain": "stellar",
+ "slug": "near-intents",
+ "name": "NEAR Intents",
+ "category": "Bridge",
+ "tvl_usd": 66684,
+ "url": "https://near.com/",
+ "github": null,
+ "listed_days_ago": 401,
+ "retries": 1,
+ "run_id": "7ec58d0b77db46aaab97fcc2a2a5dae1",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid - NEAR Intents on Stellar is the HOT bridge connector (contract CCLWL5NYSV2WJQ3VBU44AMDHEVKEPA45N2QP2LL62O3JVKPGWWAQUVAG + treasury G-account GDJ4JZXZ...QBJK, docs treasury-addresses.mdx); deposit/withdraw pay the caller nothing (hot-dao/omni-sdk bridge-stellar), 0 contract events in 7d (ledgers 65495769 2026-11-15 -> 65615769 2026-11-22, same-shape control on XLM SAC returns events), TVL 66.7k USD, fee 200 stroops inclusion, XLM 0.1279 USD; same unpaid verdict as the 7 EVM near_intents scouts",
+  "kb": [
+   "attempts:3784"
+  ],
+  "run_id": "7ec58d0b77db46aaab97fcc2a2a5dae1",
+  "at": 1795366555
+ }
+}

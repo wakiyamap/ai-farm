@@ -1,0 +1,25 @@
+# Farm feed: WebSocket subscriptions (new heads, logs) to Alchemy, served to bots as HTTP long-polls
+# on 127.0.0.1:8546. Read-only; it cannot send transactions. Runs as farmrelay because it needs the
+# same Alchemy key as rpc-relay (/etc/farm/alchemy.key). Independent of rpc-relay, farm-signer and
+# the bots: stopping it only makes callers fall back to polling the relay.
+[Unit]
+Description=Farm feed (push new heads and logs to bots)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+User=farmrelay
+Group=farmrelay
+ExecStart=/opt/farm/bin/farm-feed
+Restart=always
+RestartSec=5
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+MemoryMax=512M
+SyslogIdentifier=farm-feed
+
+[Install]
+WantedBy=multi-user.target

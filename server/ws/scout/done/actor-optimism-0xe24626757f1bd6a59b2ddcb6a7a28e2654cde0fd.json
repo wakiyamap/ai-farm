@@ -1,0 +1,20 @@
+{
+ "id": "actor-optimism-0xe24626757f1bd6a59b2ddcb6a7a28e2654cde0fd",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "optimism",
+ "address": "0xe24626757f1bd6a59b2ddcb6a7a28e2654cde0fd",
+ "run_id": "a4d374de49b543a9bf4eb81658d9d283",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "HAI OracleJob 0xf4f18205d8d46638489865e42c0a71a3d4f9fc22 workUpdateCollateralPrice(WSTETH): 166 calls in 7 d at exactly 3600 s (24.1/day, blocks 159551382-159853782), 3 wins = 0.15 HAI = 0.181 USD gross (0.05 HAI = 0.0602 USD/win, internal SAFE coin), gas 0.550 USD (0.0505 won call, 0.0024 revert) = net -0.053 USD/day; job-wide 2,520 rewards/7 d = 360/day over 12 keepers = 21.7 USD/day pool; a fresh address gets the identical 0x12f5ddd6 revert - no auth on the reward path, so pays_strangers, still the slot-1 race of leads 211/251 (attempts:1439/1927 blocked_infra).",
+  "kb": [
+   "attempts:3530",
+   "actors:342",
+   "leads:251"
+  ],
+  "run_id": "a4d374de49b543a9bf4eb81658d9d283",
+  "at": 1795307249
+ }
+}

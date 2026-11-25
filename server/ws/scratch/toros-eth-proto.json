@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "toros",
+  "status": "dead_end",
+  "checked": "Toros ethereum = 30 dHedge v1 managed pools (DefiLlama adapter factory proxy 0x96d33bcf84dde326014248e2896f79bbb9c13d6d, manager 0xfbd2b4216f422dc1eee1cff4fb64b726f099def5; getManagedPools -> 30 pools, getFundSummary sum ~$116,679). Pools are InitializableUpgradeabilityProxy, proxyType=2, getLogic(2) -> PoolLogic 0xad3384d295b35f12f698ae923c864b8729a06b0f (verified source). Only keeper-like entries: execTransaction(address,bytes) reverts 'dh24' from a stranger (manager/trader/owner or guard-marked public only) and pays no keeper; mintManagerFee() is permissionless (eth_call from fresh address OK) but mints all fee shares to the manager 0xfbd2b421..def5 + DAO, caller receives 0. deposit/withdraw are user-paid. No liquidation/auction/reward function in the ABI (full function list read from verified source). Same architecture verdict as arbitrum toros (attempts:2458)."
+}

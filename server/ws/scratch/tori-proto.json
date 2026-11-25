@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "tori_finance",
+ "status": "dead_end",
+ "checked": "docs.tori.finance/resources/contracts.md + github.com/Tori-Finance/tori-contracts (DefiLlama adapter only lists trUSD). eth_getCode + getters on: trUSD 0xd0580192E98eA6CEB9c7b6191Ed2E27560911697 (UUPS proxy, impl 0xb1d133fe29255eb4ac9b05d647d49cd7f05ff631, totalSupply 77.45M trUSD 18d); strUSD 0x280839980a7eD0D7717F64125fE241012E5F5815 (impl 0x6561272e3ebc9f2e07cdb12b7c474db9132b977a, ERC4626, totalAssets 66.68M trUSD, cooldownDuration 7d, lastDistributionTimestamp live); Minting 0xe16b821B9F6B0a6f06a2C4a61D5d1f71cFa53F1E (mint/redeem behind MINTER_ROLE/REDEEMER_ROLE + KYC whitelist); StakingRewardsDistributor 0xa0C49fFa4B7941830235cde974d9B2a8420CD375 (transferInRewards OnlyOperator, operator EOA 0xa2adcd948dcfb8af6db60c43c1c1b841e6d7f006); Silo 0xF7c0d8853E69DCD37ee7599c6280d2632F3360B4 (withdraw OnlyStakingVault). Reward flow is push-based: operator -> distributor.transferInRewards -> vault.transferInRewards (REWARDER_ROLE) -> vesting in the ERC4626 exchange rate. No callable function pays the caller: unstake/cancelCooldown/cooldownAssets/cooldownShares/deposit/mint are user actions, PendleYTLock.claimPendleYield is permissionless but credits yield to lockers, not the caller."
+}

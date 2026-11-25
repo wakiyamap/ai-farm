@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-arcadia-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 952,
+ "chain": "optimism",
+ "slug": "arcadia-v2",
+ "name": "Arcadia V2",
+ "category": "Liquidity Manager",
+ "tvl_usd": 221524,
+ "url": "https://arcadia.finance",
+ "github": null,
+ "listed_days_ago": 952,
+ "run_id": "f88349b5bc01486ebaf268eca739473e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Arcadia V2 OP (registry 0xDa14...8e59, 359 accounts; wethPool 0x803ea6.., usdcPool 0x3ec4a2..): pay-callers gated - settleLiquidation*/auctionRepay onlyLiquidator, startLiquidation reverts IsNotAnAccountWithDebt from fresh addr; 7d: 0 AuctionStarted/Finished/Repay, 11 Borrow fee=0.0 (550 logs, same-query control); 90d: 8 auction events, last ~45d ago; last initiationReward 0.00286 WETH = $5.05 (ETH $1765.89 coins.llama.fi), gas/tx ~$0.00002 (blockscout)",
+  "kb": [
+   "attempts:2184",
+   "protocols:752"
+  ],
+  "run_id": "f88349b5bc01486ebaf268eca739473e",
+  "at": 1795017633
+ }
+}

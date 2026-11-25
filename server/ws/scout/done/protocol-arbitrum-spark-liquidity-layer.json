@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-spark-liquidity-layer",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 592,
+ "chain": "arbitrum",
+ "slug": "spark-liquidity-layer",
+ "name": "Spark Liquidity Layer",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 9992507,
+ "url": "https://spark.finance/",
+ "github": null,
+ "listed_days_ago": 592,
+ "run_id": "c505783bef304eabb8df3ecae032e066",
+ "result": {
+  "verdict": "unpaid",
+  "line": "PSM3 0x2B05F8e1...27266 is a fee-free USDC/USDS/sUSDS pool (totalAssets $82.3M): swapExactIn/Out/deposit/withdraw open to anyone, but its 809 Swaps by 94 senders in blocks 523,156,877-525,203,419 moved $10.41M in = $10.41M out (exact NAV, zero fee, so a call pays $0), median $468; top sender is its own spUSDC vault 0x940098b1 (406 swaps, $6.09M), best stranger 0x0f9274f7 (72, $1.34M); gas ~290k at 0.02 gwei = $0.01 (ETH $1,808 coins.llama.fi); ALM proxies 0x92afd6F2 (50.0M sUSDS) and 0x4eE67c8D (empty) expose only doCall behind onlyRole(CONTROLLER), 0 logs/7d.",
+  "kb": [
+   "attempts:1958"
+  ],
+  "run_id": "c505783bef304eabb8df3ecae032e066",
+  "at": 1794969619
+ }
+}

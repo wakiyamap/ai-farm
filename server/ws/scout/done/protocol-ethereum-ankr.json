@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-ankr",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "ankr",
+ "name": "Ankr",
+ "category": "Liquid Staking",
+ "tvl_usd": 14563475,
+ "url": "https://www.ankr.com/",
+ "github": [
+  "Ankr-network"
+ ],
+ "listed_days_ago": null,
+ "run_id": "30663e43ed57408fab2f8aced842b26d",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ankrETH token 0xE95A203B1a91a908F9B9CE46459d101078c2c3cb (impl 0x5403cf3da1920e46b6ec07724407ab6f5c041402, unverified): no stranger-callable pay \u2014 updateRatio/claimTokens revert 'Operator: not allowed', freeze/unfreeze/repairRatio revert 'Ownable: caller is not the owner' (eth_call from 0x1111..1111); 7d no-topic logs blocks 26416085-26466339: 43 logs = 21 Transfer + 16 Approval + 6 admin events, 0 payments (control: same query returns 43); proxy holds 0 ETH; gross paid to strangers 0 USD/7d vs 0.89 USD per 50k-gas call (0.105 gwei x 1684.70 ETH, coins.llama.fi 1795298425).",
+  "kb": [
+   "attempts:3490",
+   "protocols:1763"
+  ],
+  "run_id": "30663e43ed57408fab2f8aced842b26d",
+  "at": 1795298891
+ }
+}

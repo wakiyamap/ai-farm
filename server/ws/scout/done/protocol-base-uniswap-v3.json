@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-uniswap-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1489,
+ "chain": "base",
+ "slug": "uniswap-v3",
+ "name": "Uniswap V3",
+ "category": "Dexs",
+ "tvl_usd": 278989628,
+ "url": "https://app.uniswap.org/",
+ "github": null,
+ "listed_days_ago": 1489,
+ "run_id": "e8b175eeb12b4232a1e44c9fcea9ab59",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: collect() is anyone-callable but pays a stranger (0,0) (fresh-address eth_call; position keyed by msg.sender), collectProtocol is onlyFactoryOwner (fresh call reverts; 165 calls in 7d on the top-3 factory WETH/USDC pools, all by owner 0xabea7665 -> jar 0x9bd25e67, 123.5 WETH + 199,601 USDC ~ $422k gross/7d, sample sweep $7,392 tx 0x6e8993ed), gas <$0.01/call at 0.006 gwei; LP Collects are self-harvest only (26/9h sample, control 1,745 Swaps/3.6h); same shape as arbitrum protocols:933 / avalanche protocols:935.",
+  "kb": [
+   "attempts:2410",
+   "protocols:940"
+  ],
+  "run_id": "e8b175eeb12b4232a1e44c9fcea9ab59",
+  "at": 1795069302
+ }
+}

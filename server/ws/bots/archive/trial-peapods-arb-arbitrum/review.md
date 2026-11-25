@@ -1,0 +1,39 @@
+**Decision: promote** — cheap-chain trial; prior technical approval stands. 2026-11-20-trial-slots-45.md opened capacity; 34/45 live before this promote. Gate status: capital $1071.63, daily loss $0.01; not frozen. next_review_at: none.
+
+**Decision: wait** (parked: approved, waiting for a live trial slot) — cheap-chain trial. Technical approval: 2026-11-19 17:49 UTC. next_review_at: 2026-11-19T19:49:16Z. Non-liquidation route, after older approved non-liquidation trials and ahead of liquidation trials. Stop the paper service under decisions/human/2026-11-18-park-approved-trials.md.
+
+Reviewer run 9794ded777f846ccb54dd75721749890. The changed executor source is SHA-256 835323403217bcbf32c7c97d5c846aba854cea45edfbcdb726e09d3972d04245, and the manifest now names the new fork proof; manifest-check PASS and forge build succeeds. The prior 1-wei OHM executor residue is resolved: _clearToken transfers route dust to the owner and reverts on unreadable balance, failed transfer, or nonzero residue. run() checks positive WETH gain after loan repayment, clears approvals, unwraps WETH and pays native ETH to the bot wallet. Constructor stores owner only; all protocol targets are per-call. The live code uses EXECUTOR_ADDR, sends only if simulated gross exceeds the signed gas cap, sets minProfit above that cap, caps the tip at 1 wei, and logs each send result. capital_usd $15, max_loss_per_tx_usd $1, allowed_contracts empty. The recent paid entry and public callable mechanism are documented in the README. The 60-second timer plus PEAS/WETH Swap feed uses about 45,240 CU/day before opportunity checks; the relay cap is 93,000 CU/day (about $.049 at $.53 per million). Natural paper capture and counted EV are waived for a cheap-chain trial.
+
+Independent fresh Arbitrum fork proof: scratch/trial-peapods-arb-arbitrum/review-9794ded7-arb.json, reset to parent block 525,390,726 and deploy current artifact. Guard 0x3c9917a4944ea778af3329b1a0088ba65939c0ab149d889a28609837e2d9cb5b reverted NoProfit and stranger 0xb9ac678a7ed5b93d16b8c980a3bb54e8a81b95a32d89f779435649fc98d1f4f2 reverted NotOwner. Four successful routes raised the owner native balance: appeasusdc +171,473,749,121,047 wei; apohm +9,191,828,976,376,327 wei; apump +2,906,110,307,256,286 wei; ppeas_usdc_rev +859,795,101,975,981 wei. After EACH success the executor held zero native and all 14 checked route tokens, with zero approvals to all checked spenders; repeats reverted. The remaining four routes had no paying case at that reset and are not needed for the paid-entry criterion.
+
+Fresh gate status: 30/30 live trial IDs, capital $1071.54, daily loss $0.01, frozen=False. Live trial IDs: trial-aave-arbitrum, trial-aave-avalanche, trial-aave-bsc, trial-aave-optimism, trial-aave-polygon, trial-aave4-base, trial-benqi-avalanche, trial-cv3-buy-arbitrum, trial-cv3-buy-base, trial-cv3-buy-optimism, trial-cv3-buy-polygon, trial-ethos-redeem-optimism, trial-euler-base, trial-exactly-optimism, trial-feusd-redeem-hyperevm, trial-flatmoney-arbitrum, trial-fluid-arbitrum, trial-flux-bsc, trial-hyperlend-hyperevm, trial-hypurrfi-hyperevm, trial-moonwell-base, trial-moonwell-optimism, trial-morpho-arbitrum, trial-morpho-cbbtc-base, trial-morpho-eth-base, trial-morpho-khype-hyperevm, trial-morpho-whype-hyperevm, trial-revert-lend-arbitrum, trial-venus-bsc, trial-xlend-base.
+
+**Decision: fix** — unchanged since b0031010d7d949df96d3abc483cce9b5; the prior fix stands. `next_review_at`: after the builder removes residual executor token balances and submits new fork evidence. 2026-11-19 16:06 UTC: only runtime state changed; paper logs show no new profitable probe.
+
+unchanged since b0031010d7d949df96d3abc483cce9b5, decision fix stands (2026-11-19 13:00 UTC; code, manifest and executor source hashes match; only runtime state changed).
+
+unchanged since b0031010d7d949df96d3abc483cce9b5, decision fix stands (2026-11-19 11:25 UTC; bot.py, manifest.yaml and executor source hashes match; only runtime state changed).
+
+## 2026-11-19 09:52 UTC — fix (cheap-chain trial)
+
+Reviewer run: `b0031010d7d949df96d3abc483cce9b5`. `next_review_at`: after the builder removes residual executor token balances and the fork archive route is usable.
+
+- The current manifest passes `manifest-check`; bot.py, manifest.yaml and executor source have the same hashes as the 08:15 review. No new code or executor change was submitted. The earlier builder fork output `scratch/trial-peapods-arb-arbitrum/proof-result.json` reports **1 wei OHM left in the executor** after successful routes. `pitfalls/executor-no-baked-targets.md` requires zero balances after each success. Fix the route or clear residual OHM atomically and show a zero-balance fork proof.
+- Independent reproduction is still blocked: `fork reset arbitrum 525390726` at 09:47 UTC failed loading an account with archive public-node HTTP 403 before deployment. `/health` showed fork CU 601,570/600,000; reported in `inbox/meta/2026-11-19-fork-archive-after-15h-b0031010.md`. The builder's earlier success and guard results do not replace the required independent runs.
+- Current source has an owner-only atomic Balancer flash round trip, checks positive WETH gain and returns native ETH to the wallet. The live branch reads `EXECUTOR_ADDR_ARBITRUM` / `EXECUTOR_ADDR`; `allowed_contracts: []` is correct. Paper timer logs show no current opportunity; natural capture and EV are waived. Estimated read load is 37,440 CU/day timer plus 7,800 CU/day feed-triggered checks, under the code's 93,000 CU/day cap ($0.049/day maximum at $0.53/M CU). Gate has 30/30 live trial IDs.
+
+Hashes: bot.py `ffcfc73f438003d01ac8119093299dfc1f067d0c6f70736fe15b9b8ec31db4`; manifest.yaml `d97ae70184b75f9405c241c80069c45d9426285084ff70b0841ba4bd58d0e21b`; executor source `0cb4d4396c60cf336bc93d57d2f46e9090cbfae1428a7ce92e9bb705b3f23426`.
+
+## 2026-11-19 08:15 UTC — wait (fork archive read unavailable)
+
+Reviewer run: `57f67367d1b642888a1bf9996d67908c`. `next_review_at: 2026-11-19T10:15:00Z`.
+
+- Static manifest check: PASS. Source inspection finds an owner-only, atomic Balancer flash round trip with a positive WETH gain guard and native ETH returned to the bot wallet. The live branch reads `EXECUTOR_ADDR_ARBITRUM` / `EXECUTOR_ADDR`, uses the signer, and sends only to its executor. `allowed_contracts: []` is correct. Paper logs show 60-second timer checks with no current profitable route; natural capture is waived for a cheap-chain trial.
+- Independent fork reproduction is still open. Two runs of `scratch/trial-peapods-arb-arbitrum/proof.py` at parent block 525,390,726 failed before a probe or success send: first on historical PEAS storage, then during `fork reset` account loading. Both got `all providers failed: public: HTTP 403 Archive requests require a personal token` from the relay. The builder's earlier result is not a substitute for this reviewer's success and guard-revert reproductions. Retry when the fork archive route works. Do not promote until then.
+- The claimed live read load is 1,440 timer probes × 26 CU = 37,440 CU/day plus about 300 feed-triggered probes × 26 CU = 7,800 CU/day, plus sweeps; code cap 93,000 relay CU/day, about $0.049/day at $0.53 per million. The PEAS/WETH Swap feed is an estimated 300 events/day, not a busy generic Transfer subscription. The README names a paid 7-day tx and competing takers.
+- Gate capacity at review: 30/30 live trial IDs. This bot is not technically approved or parked because fork reproduction is open.
+
+Hashes: bot.py `ffcfc73f438003d01ac8119093299dfc1f067d0c6f70736fe15b9b8ec31db4db`; manifest.yaml `d97ae70184b75f9405c241c80069c45d9426285084ff70b0841ba4bd58d0e21b`; executor source `0cb4d4396c60cf336bc93d57d2f46e9090cbfae1428a7ce92e9bb705b3f23426`.
+unchanged since b0031010d7d949df96d3abc483cce9b5, decision fix stands (2026-11-19 11:25 UTC; bot.py, manifest.yaml, and executor source hashes match; only runtime state changed).
+
+

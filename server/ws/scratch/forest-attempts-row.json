@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-forest-v1",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Forest V1 (UniV2-fork launchpad AMM + staking pool) has one stranger-payable keeper function, pool.kickExpiredDeposit(address,uint256) (no role check, eth_call from a fresh address succeeds on an expired deposit), but its caller reward kickRewardIncentive is 0 and was never changed (0 KickRewardIncentiveUpdated events since genesis), so every kick pays 0 FOREST. Nobody called it in the last 7 days either (47/47 burn-vs-withdraw tx sets identical).",
+  "numbers": "7d window blocks 133958902 (2026-11-16 16:23 UTC) to 135302287 (2026-11-23 16:23 UTC) from eth_getBlockByNumber timestamps: 47 Withdrawn, 20 Deposited, 47 share-burns (eth_getLogs on pool 0xb6C6B8bF9d415E2D91B95134800De146Dcc5dc94, topic0 from cast keccak) -> 0 kicks (control: same shape 47 hits). Lifetime 1001 Withdrawn vs 1456 burns (455 kicks/relocks, all paid 0). kickRewardIncentive()=0, gracePeriod()=604800s, depositToken=FOREST 0x11cf6bf6d87cb0eb9c294fd6cbfec91ee3a1a7d0 (18 dec on chain), pool holds 43.43M FOREST ~= 1.53M USD at $0.035265 (coins.llama.fi 2026-11-23 16:28 UTC). Gas: eth_gasPrice 0.05 gwei, BNB $568.21 -> ~$0.004 per ~130k-gas kick. Factory 0x9d5ef0f61a5e88d90fb231f84413b5fc43bf6a9e (Sourcify exact match, bsc chainId 56)."
+}

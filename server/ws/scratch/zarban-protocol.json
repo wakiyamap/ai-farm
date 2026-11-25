@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "protocol": "zarban",
+  "status": "measured",
+  "checked": "Lending = Aave-v2-fork LendingPool 0xC62545B7f466317b014773D1C605cA0D0931B0Fd (eth_getCode ok, getReservesList() answers, 8 reserves) + Maker-style SCS: vat 0x975Eb113D580c44aa5676370E2CdF8f56bf3F99F, dog 0x4eb5a223b2c797dcc13297b3c002225b1770d837, 14 ilk clips via Deployment 0x7569D671D95b6215203f091FeBEa65e1369c5037 / dog.ilks (sources: DefiLlama adapter projects/zarban/index.js, github zarbanio/auction-keeper config.arbitrum.yaml, zarban-scs contracts). Permissionless pay functions: LendingPool.liquidationCall (penalty bonus to msg.sender); Dog.bark(ilk,urn,kpr) pays tip+chip (vat.suck to the kpr arg, anyone-named); Clipper.redo(id,kpr) same incentives (redo clipper, no tend); clip.take = arbitrage only. 7d window blocks 524541908 (2026-11-15T19:10) to 526595576 (2026-11-22T19:10 UTC): 1 LiquidationCall on LM (tx 0xf06a38475ba848adbd1546c8a0523afcb0db445ea087373add27a657c5096977); 0 Bark/Kick/Redo/Take on dog+14 clips (control: same dog + same topic shape over 1y returns 791 Bark, latest SCS Kick/Take 2026-09-27); count()=0 active auctions on every clip now. Subgraph's older pool 0x381D5e078b8ce96489517E326377eF6BEE815D5c has code but 0 LiquidationCall in 7d."
+}

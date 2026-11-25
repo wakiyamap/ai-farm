@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-stablehodl",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 513,
+ "chain": "ethereum",
+ "slug": "stablehodl",
+ "name": "StableHodl",
+ "category": "Yield",
+ "tvl_usd": 998977,
+ "url": "https://stablehodl.com/",
+ "github": null,
+ "listed_days_ago": 513,
+ "run_id": "7cd03c3c3703440d816026e224f3d887",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Custodial stake_pool proxy 0x109D3042a3c682F94107b3818e93b3aDE2A47544 (verified impl 0xc34df695167aa2f9571976ffd5e3e0e95a53e470): only callable fn deposit() pays nothing (stables go to master EOA 0x6a102c501a9eade49e6224cec7834c89112ccead); no claim/reward/harvest/distribute fn; 0 logs on proxy last 7 days (no-topic scan, control at last tx 2026-05-09 returns log), book TVL 998,977 USD vs 95,500 USDT actually held by master.",
+  "kb": [
+   "attempts:3063",
+   "protocols:1445"
+  ],
+  "run_id": "7cd03c3c3703440d816026e224f3d887",
+  "at": 1795210122
+ }
+}

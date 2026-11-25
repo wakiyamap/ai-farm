@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-k3-capital",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "optimism",
+ "slug": "k3-capital",
+ "name": "K3 Capital",
+ "category": "Risk Curators",
+ "tvl_usd": 9290912,
+ "url": "https://k3.capital",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "44878be91cf4432e90bccda5fb335e8e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "K3 owns no contracts on optimism: adapter counts its $9.29M TVL as the Midas weEUR token 0xcC476B...C13 (impl weEUR 0x3f5c...a6a0, verified, name()='Liquid Euro', totalSupply 8.27M); its only non-view fns are ERC-20 transfers + role-gated mint/burn/pause/unpause/setMetadata (mint from fresh addr reverts 'WMAC: hasnt role') - no reward/harvest/claim function exists to pay a stranger.",
+  "kb": [
+   "attempts:1923",
+   "protocols:541"
+  ],
+  "run_id": "44878be91cf4432e90bccda5fb335e8e",
+  "at": 1794960886
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-spartadex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1201,
+ "chain": "arbitrum",
+ "slug": "spartadex",
+ "name": "SpartaDex",
+ "category": "Dexs",
+ "tvl_usd": 137630,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1201,
+ "run_id": "a069a31a88bd468da021a6f2bfb806f4",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Uni V2 fork (factory 0xFe8EC10Fe07A6a6f4A2584f8cD9FE232930eAF55, 8 pairs) + plain ERC20 SPARTA (0x11f98c7e...e9a8); no public fn pays a caller (factory setters owner-gated, createPair ACL-gated; pair only mint/burn/skim/sync); pair[0] 7 swaps/7d (8-addr getLogs silently 0, 1-addr control=7), SPARTA 19 transfers/7d; swaps pay LPs not caller; TVL ~$137.6k; gas ~$0.01/swap -> no_reward",
+  "kb": [
+   "attempts:2271"
+  ],
+  "run_id": "a069a31a88bd468da021a6f2bfb806f4",
+  "at": 1795039034
+ }
+}

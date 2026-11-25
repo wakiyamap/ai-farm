@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-theo-straddle-vaults",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 698,
+ "chain": "ethereum",
+ "slug": "theo-straddle-vaults",
+ "name": "Theo Straddle Vaults",
+ "category": "Basis Trading",
+ "tvl_usd": 706359,
+ "url": "https://app.theo.xyz/invite?invite=defillama",
+ "github": null,
+ "listed_days_ago": 698,
+ "run_id": "d6949f37fbc543ea959cfc48d3d626b0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "5 active vaults (TETH1 138.89 ETH, TUSDC1+TUSDCH1 431.8k USDC, TLBTC1, maweETH ~681k USD): all anyone-callable fns are user self-service paying 0; rollToNextRound is onlyKeeper (reverts '!keeper' from fresh addr) and pays even the keeper 0 (keeper sweeps assets, forwards to owner); 0 logs of any kind on all 5 vaults in 7 d (blocks 26410346 2026-11-14 to 26460613 2026-11-21; control TETH1 30 d = 10 logs); last RollRound 2026-09-22, gasUsed 181,608 (~0.04 USD), gross 0.",
+  "kb": [
+   "attempts:3154",
+   "protocols:1517"
+  ],
+  "run_id": "d6949f37fbc543ea959cfc48d3d626b0",
+  "at": 1795230119
+ }
+}

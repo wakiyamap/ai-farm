@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-symmio",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. SYMM Core diamond 0x8F06459f184553e5d04F07F868720BDaCAB39395 (arbitrum) pays caller-borne liquidation rewards (liquidatorShare into allocatedBalances, LibLiquidation L112-115) but every liquidation entry point requires LIQUIDATOR_ROLE / PARTYB_LIQUIDATOR_ROLE (admin-granted); eth_call liquidatePartyB from a fresh address reverts 'Accessibility: Must have role'. The anyone-callable functions (expireQuote, chargeFundingRate) pay the caller 0, and the vault is dormant: 0 transactions in the last 7 days.",
+ "numbers": "0 txs to the diamond in 7d (Etherscan tx listing, newest tx block 521252770 = 2026-11-04 18:22 UTC vs head block 525098451 = 2026-11-17 17:09 UTC; 13 days idle). TVL 316,033 USD (DefiLlama candidate row). 29 facets / 382 selectors (facets() eth_call). liquidatePartyB selector 0x7e65a279, role revert via eth_call (paper lane - research-lane Alchemy budget spent 1,001,366/1,000,000 CU today, public nodes 403 on archive). Failed liquidatePartyA attempts blocks 497099377/497099655/497155086 (~2026-08-23) by 0x18ad5aa8948f2b5a571a6f7096a41df68f1301ef, 0xe7f100009a7f06aa08a9d956e9607b5d9481fac1. Control for the zero: the same explorer txs listing returns txs for this contract within the same 13-day window (deposits 2026-11-04, expireQuote by 0xc07c1b411cb1f4bae8b3a96502e67d471bd74846)."
+}

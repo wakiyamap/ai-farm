@@ -1,0 +1,5 @@
+{
+  "status": "blocked_infra",
+  "why": "blocked_infra: decision 2026-11-15-widen-beyond-liquidations closed crash-postmortem work for new sessions and 171's counted EV 0.33 USD/day is below the 1 USD/day floor (its own why: build only with the human's EV rule). Base liquidation inclusion now runs through the Atlas OEV auction (bot census class O: 97% of Base Morpho, 92% Base Aave via metacall auction), which farm's public mempool send cannot bid - the slow-sweep leftover class survives only where the auction does not reach it. Sibling lead 170 was closed blocked_infra today (attempts:1243).",
+  "next_steps": "Parked 2026-11-15 run 7478a349 per decision 2026-11-15. If reopened: the preserved fork proof item stands - reset 57162812-131072, fund, executor liquidate the counted capture (attempt 1198, taken 2026-11-14 02:5xZ by 0xd6f6e21a..., net 23.90 USD, gas 12.19), then count slow-sweep candidates per month from the moonwell_core ledger source before any build; do not fleet. private-send (and/or Atlas bid access) is the unlock."
+}

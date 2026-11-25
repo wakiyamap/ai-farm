@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-superfluid",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1852,
+ "chain": "polygon",
+ "slug": "superfluid",
+ "name": "Superfluid",
+ "category": "Payments",
+ "tvl_usd": 1037632,
+ "url": "https://superfluid.org/",
+ "github": [
+  "superfluid-finance"
+ ],
+ "listed_days_ago": 1852,
+ "run_id": "2c4815f8c1084dd4bf88ad9b58d22fb9",
+ "result": {
+  "verdict": "unpaid",
+  "line": "polygon Superfluid: only open-callable paid fn is CFA stream liquidation; 7d = 8 AgreementLiquidatedV2 / 6 txs / 2 stranger callers (EOA 0xf9c29c1f 5, contract 0xa7afdc46 3); gross/tx 0.000003-0.0547 USD (whole chain 7d: 0.0551 USD priced + 0.3437 unpriced IXT) vs gas 0.012-0.048 USD/tx -> 5 of 6 txs pay under gas; unpaid",
+  "kb": [
+   "attempts:2600",
+   "protocols:1078"
+  ],
+  "run_id": "2c4815f8c1084dd4bf88ad9b58d22fb9",
+  "at": 1795112450
+ }
+}

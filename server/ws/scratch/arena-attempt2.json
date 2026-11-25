@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-arena-dex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward (supersedes attempts 1932: main-pair reserve figures corrected, verdict unchanged). Arena DEX is a vanilla UniswapV2 fork on Avalanche; no reward, claim, harvest, keeper, epoch or auction function anyone can call for pay exists on factory/router/pair/token, and skim(to) - the only caller-paid function - has zero dust on the main pair (token balanceOf(pair) == reserve0 exactly).",
+  "numbers": "Main pair 0x3c5f68d2f72debba4900c60f32eb8629876401f2 reserves = 2,567.89 WAVAX + 38.5M ARENA (eth_call getReserves 0x0902f1ac, 2026-11-18; WAVAX 7.26 USD per coins.llama.fi, pair ~19k USD); skim dust 0 (WAVAX balanceOf(pair) = 0x8b34a5024aa2933c96 = reserve0); 0 Swap logs in 6 sampled 1026-block windows over last 7 days (control 709 WAVAX Transfer logs same range); router ArenaRouter02 0xf56d524d651b90e4b84dc2fffd83079698b9066e last 100 txs 2026-11-13..11-17 (~25 tx/day across 1075 pairs); factory 0xF16784dcAf838a3e16bEF7711a62D12413c39BD1 allPairsLength()=1075; gas 7.5 gwei, 150k-gas call ~0.008 USD."
+}

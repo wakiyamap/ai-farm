@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-near-intents",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The only stranger-callable state function on the BSC contract (HOT bridge MetaWallet treasury 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd) is withdraw(uint128,address,address,uint128,bytes), gated only by an ECDSA MPC signature (fresh-address eth_call reverts 'ECDSA: invalid signature v value', not a role revert); it pays the user's own withdrawal amount to the receiver_id argument and pays the caller nothing (msg.value just accrues to an owner-only fees pot, currently 16384 wei ~= 0). Deposits are user actions. Everything else is onlyOwner or a view.",
+  "numbers": "7d deposits 561 (nonceMax 1338231@133346126 -> 1338792@134152526, bsc); NewTransfer logs 0 in 3 sampled 5000-block windows of last 24h vs USDC Transfer control ~30k/window (same run); treasury ~9362 USDC + 87.9 BNB ~= 68k USD vs DefiLlama BSC tvl 3,526,575 USD (adapter missing: projects/near-intents 404 on DefiLlama-Adapters main); gas 0.05 gwei -> ~80k-gas withdraw ~= $0.002 (BNB $584.57 coins.llama.fi 2026-11-17); gross to caller 0 USD"
+}

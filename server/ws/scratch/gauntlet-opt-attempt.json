@@ -1,0 +1,7 @@
+{
+  "chain": "optimism",
+  "target": "protocol-optimism-gauntlet",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Gauntlet on optimism is just 2 Morpho MetaMorphoV1_1 curator vaults owned by its proxies (Gauntlet USDC Prime 0xC30ce6A5758786e0F640cC5f881Dd96e9a1C5C59 with 448,947 USDC = the whole 448.9k TVL; Gauntlet USDC Balanced 0x55B1Fd10a5654E947c53113CB2cf25801deCD3b8 dormant at 1 USDC). The keeper fn reallocate() reverts for a stranger (onlyAllocatorRole, custom error 0xf7137c0f) and was called 0 times in 7 days; the only permissionless fn, skim(), pays skimRecipient not the caller; all 403 txs in the last 7 days are ERC-4337 user deposits (bundler -> EntryPoint -> Coinbase smart wallets). No stranger earned anything.",
+  "numbers": "TVL 448,852 USD (api.llama.fi protocol/gauntlet currentChainTvls.Optimism 2026-11-18) = totalAssets() 448,947 USDC on 0xC30ce6A5758786e0F640cC5f881Dd96e9a1C5C59; 7d eth_getLogs blocks 159378656..159681056: 2,828 logs, 403 txs, 0 ReallocateSupply (0x89bf199d), 0 ReallocateWithdraw (0xdd8bf522), 0 Skim (0x2ae72b44), control = same shape returns 2,828; sample 8/403 txs all bundler->EntryPoint handleOps; gross paid to any caller 0; gas 0.00125 gwei (receipt 0x1b552987bad98e04b69747eedd26ebd977f21b41b32e1eb6ee2b3356ba27849f), ETH $1,819.80 (coins.llama.fi) -> full tx $0.0035, keeper-scale call ~$0.0009"
+}

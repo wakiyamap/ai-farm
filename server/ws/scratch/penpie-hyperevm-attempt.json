@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-penpie",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. The open reward functions on Penpie's hyperevm deployment are callable by anyone (eth_call from a fresh address succeeds, no role revert) but pay a stranger exactly 0: PendleStaking.harvestCallerPendleFee and vePendleHarvestCallerFee read 0 and MasterPenpie.penpiePerSec is 0, so the only caller incentive is nil; on top of that the deployment is dead - zero logs on both proxies in 7 d and the last event of any kind was a user NewMarketWithdraw 88 days ago.",
+  "numbers": "Fees/state read 2026-11-23 on impls via proxies MP 0xb664342D02A71cc16e7f88dc5711fF6cC28512E7, PS 0xDAe38aE946F95206d9b687d7d53b2856379A21c0: harvestCallerPendleFee=0, vePendleHarvestCallerFee=0, penpiePerSec=0, poolLength=37, paused=0, harvestTimeGap=0. Fresh-address eth_calls succeed: harvestMarketReward gas 147,054, batchHarvestMarketRewards 146,988, multiclaim([]) 39,371. Gross to caller = harvested PENDLE x fee/10000 = 0 (fee 0), so gross $0.00 vs gas 0.1 gwei x 147,054 = 1.47e-4 HYPE = $0.0091 (HYPE $61.9956 coins.llama.fi coingecko:hyperliquid 2026-11-23T03:09Z). 7 d window blocks 51383708 (2026-11-16T03:05Z) - 51998528 (2026-11-23T03:05Z): 0 logs on both proxies (no-topic scan; PENDLE token control same shape 167 logs); 0 callers. 90 d: 2 logs total, block 44294670 2026-08-27T09:58Z tx 0x52368e3315c7da7537b4a7b6aa7986cb7a8b6f6159146e65f775e4565290cfa3. TVL 26,489 USD (candidate). Prior: attempts:2100 same 0-fee finding for hyperevm."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-clearstar",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "base",
+ "slug": "clearstar",
+ "name": "Clearstar",
+ "category": "Risk Curators",
+ "tvl_usd": 47933533,
+ "url": "https://clearstar.xyz",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "46dbdcbdbbc24ad2a3787e92bbb3977b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Curator with no owned contracts on Base (just Safes); 48.9M USD TVL sits in Morpho vaults (0.38M), IPOR Fusion (6.25M, api.ipor.io) and Euler (~42M); the only keeper fn IPOR updateMarketsBalances (0xe9a2e778) reverts AccessManagedUnauthorized from a stranger, daily keeper 0x48d3...ac9a (EOA) pays own gas (~0.006 gwei, <bash.01) and receives 0 tokens; Morpho accrueInterest also reverts for strangers; fee flow is depositors -> curator, nothing pays callers",
+  "kb": [
+   "attempts:1908",
+   "protocols:529"
+  ],
+  "run_id": "46dbdcbdbbc24ad2a3787e92bbb3977b",
+  "at": 1794957773
+ }
+}

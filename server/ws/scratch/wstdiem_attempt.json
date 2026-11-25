@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-wstdiem",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. wstDIEM vault's permissionless keeper functions flush()/settle()/claimRedeem() are callable by anyone (stranger eth_call reverts are state errors, not role gates) but pay the caller $0 - verified InferenceVault.sol contains no transfer to msg.sender; yield accrues to wstDIEM share price only. No keeper call at all in the last 7 days; every historical call came from one team EOA 0x988ce72d127b8a06821bbb3708897dbdc0d66f2f.",
+  "numbers": "7d event counts (eth_getLogs vault 0xe49FA849cB37b0e7A42B2335e333fb99474167ba, blocks 55,474,983-58,498,983): BatchFlushed 0, BatchSettled 0, Claimed 0, RedeemRequested 1, DIEMCredited 43 (role-gated adapter credits, control for query shape). Gross to caller per call: $0. Gas: flush 101,128, settle 77,511 (receipts 0x05ac0e87..., 0x143df498...) x 0.006 gwei (eth_gasPrice) x $1826.63 ETH (coins.llama.fi) = $0.001-0.002 + L1 data fee, so <$0.05 per call. TVL $363k (api.llama.fi 2026-11-17); totalAssets 215.34 DIEM @ $1734.87. Next flushableAt 2026-11-18 02:16 UTC (batch 4, 0.001 DIEM queued)."
+}

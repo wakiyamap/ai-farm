@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-origin-ether",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Origin Ether (oETH) on ethereum has no function anyone can call that pays the caller. The reward-shaped ones revert from a fresh address: vault rebase() 'Caller not authorized', CurveAMO collectRewardTokens() 'Caller is not the Harvester or Strategist' (rewards go to the vault, not the caller). The permissionless functions (vault allocate, addWithdrawalQueueLiquidity; CSS snapBalances, verifyBalances, verifyValidator) transfer nothing to the caller and Origin's own operator EOA does all of it daily. Same shape as the Base leg (attempts:2306 role_gated) and consistent with attempts:2134's unpinned Harvester non-signal.",
+  "numbers": "7 d = blocks 26413724 (2026-11-14 14:08Z) to 26463988 (2026-11-21 14:10Z), eth_getLogs on vault 0x39254033945aa2e4809cc2977e7087bee48bd7ab + CSS strategy 0x25e1d468b14005716111d5e8464573e5135275f4: YieldDistribution 14, AssetAllocated 0, BalancesSnapped 14, BalancesVerified 14, ValidatorWithdraw 0 (topic0s keccak'd from deployed impl event declarations; non-zero same-shape result on both addresses = control). Sample 5 of 28 logs: all from 0x739212d5bafe6aac8be49a60b7d003bd41dbf38b (operatorAddr). Gross to caller per call: 0 (no transfer to msg.sender in verified source). Gas: verifyBalances 715,010 gas, snapBalances 202,761 gas; eth_gasPrice 0x15298c47 = 0.355 gwei -> ~0.00025 ETH = 0.43 USD at ETH 1687.39 USD (coins.llama.fi WETH, 2026-11-21 14:21Z). Vault totalValue 538,822 WETH (0x073882064d27f1112c5f, asset read on chain); candidate tvl_usd 39,607,074.",
+  "bot_id": null
+}

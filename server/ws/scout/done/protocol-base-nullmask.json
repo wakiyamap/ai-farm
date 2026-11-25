@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-nullmask",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 47,
+ "chain": "base",
+ "slug": "nullmask",
+ "name": "Nullmask",
+ "category": "Privacy",
+ "tvl_usd": 27746,
+ "url": "https://nullmask.io",
+ "github": [
+  "nullmask-services"
+ ],
+ "listed_days_ago": 47,
+ "run_id": "7b766e129dc64dce984da5342afb0dfc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Nullmask Base pool 0xd64EF1417EB047ed0b54736a5a41F01178C391c6: approveDeposit/rejectDeposit/pullDeposit are guard-only (NotGuard revert for strangers); 9,688 approvals in 7d (blocks 57386547-60732344) all from guard EOA 0x0558e584... paid 0.0252 ETH = $42 total (~$0.0044/call vs $0.0040 gas); only permissionless payout sweepProtocolFees sends 15.67 ETH + 1.01 USDC/7d to treasury EOA, caller gets 0.",
+  "kb": [
+   "attempts:3658"
+  ],
+  "run_id": "7b766e129dc64dce984da5342afb0dfc",
+  "at": 1795337930
+ }
+}

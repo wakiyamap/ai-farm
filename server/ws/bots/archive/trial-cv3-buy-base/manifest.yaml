@@ -1,0 +1,22 @@
+id: trial-cv3-buy-base
+author: earner/qwen3.8-flash-next
+chains: [base]
+strategy: "trial: Compound v3 cUSDCv3 Base buyCollateral of reserve residue left after anyone's absorb, flash-swapped on UniV3 in one tx (no principal); feed-triggered, sends only when simulated surplus > that send's gas cap"
+copied_from: "residue buy 0x2c0433b40949afade98aeca585511020e9faea320625ae05192aad0f3660a317 (block 57502607, executor 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd, 56.82 USDC for 90,881 sat cbBTC, 3 blocks after absorb 0x8c30d087.. at 57502604); other residue buyers 0x8407699e359ae158bd7ec0668600cc19a79f17c3, 0x860a7a04b728f27a7188675809e906cb4bce7a70"
+capital_usd: 10
+allowed_contracts: []
+send_route: public
+max_loss_per_tx_usd: 1
+max_loss_guarantee: "Cv3FlashBuy.sol buy(): reverts NoProfit unless the executor's USDC ends above its start by minProfit+1, then sends it all to the owner; bot.py attempt() sets minProfit = the send's gas cap and sends only if simulated gross > gas cap = 500000 gas x min(0.45 gwei, 2 x base fee + priority) x 4000 USD/ETH + 0.02 USD L1 (< 0.92 USD). Priority bid is at most 25% of simulated gross (BID_SHARE). Worst case per send = gas; Base native wallet 10 USD < 18 USD cap"
+expected_value: "trial, no EV floor (decision 2026-11-17-cheap-chain-trials). 7 d: 199 absorbs, 147 buys by 8 buyers, 135 atomic with the absorb; 12 residue buys by 5 buyers, real ones taken 1-4 blocks after the absorb (copied case: 3 blocks, winner 0.52 gwei effective, ~1.5-2 USD gross). The bot aims at the residue buys an incumbent is late for; expected share is small and is what the trial measures"
+executor: scratch/trial-cv3-buy-base/c2/out/Cv3FlashBuy.sol/Cv3FlashBuy.json
+executor_args: "{bot}"
+executor_note: "Cv3FlashBuy: owner-only buy(comet, collateral, pool, payBase, minProfit); comet, collateral and pool are call arguments, constructor arg is the bot wallet only. UniV3 callback accepts only the pool set for the running call (cleared after); approves the comet for exactly payBase and resets to 0. Holds nothing between transactions; owner-only sweep(token) for strays. Deploy gas 725,692. Replaces Cv3Sniper (needed USDC principal held in the executor)"
+fork_evidence: "scratch/trial-cv3-buy-base/proof3.py (lease, reset 57502606, deploy, checks, release; base fork gen 1153): deploy 0xe59f4d62fec5e873fdcb6118047aa25cebae7280726695b8d874691ac248a51a; SUCCESS 0xbafc6739e19423ea69fcee095f0b012e5fa254101c1d841f77686132887eb456 status 1 gas 344433 block 57502610 owner wallet +1.481324 USDC (paid 56.552589, executor left with 0 USDC / 0 cbBTC / 0 allowance); GUARD 0x543b197968fe13c520b798eda5292aff2e605cd7535f240d9d30db0c0066aa68 status 0 NoProfit delta 0; NOTHING-LEFT 0xdb3286a0004a27459ac9dddddfc474a33c49fbe6fa9831e0e5b6b6006ad81524 status 0 delta 0; NON-OWNER 0x1f15515d0e42ccd80bdd9a98d5f064ce52dccf4e4859fdf95fa9e09e6ae65ab8 status 0"
+awaited_events: "AbsorbCollateral on cUSDCv3 Base 0xb125e6687d4313864e53df431d5425969c15eb2f (topic0 0x9850ab1af75177e4a9201c65a2cf7976d5d28e40ef63494b44366f86b2f9412e): 199 events in 7 d, last at block 58369752 (2026-11-16 21:25Z); the next comes whenever a borrower crosses the liquidation line"
+good_signs: "logs/bot.jsonl: start, a check line every 10 min with reserve_usd per collateral, feed lines whose blocks match ledger compound_v3.absorb, then simulate_revert (already bought, the common case) or opportunity + paper_sim; no feed_error lines"
+bad_signs: "repeated feed_error or loop_error lines; no feed line while the ledger shows new absorbs; read_budget lines; an opportunity with gross_usd below gas_cap_usd"
+rpc_reads_per_min: 0.4
+alchemy_cu_per_day: "~20k CU = 0.011 USD at 0.53 USD per 1M CU (safety poll up to 7.5k, absorb wakes ~5k, feed ~7k); hard stop at 60k relay CU/day in code"
+legal_note: "public, anyone-callable buyCollateral at the protocol's own discount; a fee bid for a public sale, no mempool watching, no reaction to other users' pending transactions"
+expedite: false

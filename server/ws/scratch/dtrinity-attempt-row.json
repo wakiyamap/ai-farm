@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-dtrinity-dusd",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Public dUSD issue/redeem only convert the caller's tokens at oracle value (redemption takes a fee). Vault, issuer incentive, redeemer protocol, and AMO value-moving paths are role-gated; no permissionless caller reward was found.",
+  "numbers": "2026-11-23 Ethereum relay: vault 0x84c58066a4408454b7380f168c95F571419253f4 listCollateral() returned 7 addresses; issuer 0xF84Cc8217713A53Fc3e3eB2D62D2Af33a084FF85 and redeemer 0x093e9dB2C2eC21ff7E5E1F5766Bbfb48B7BA90cD getters both returned vault. eth_getCode nonempty for all 3. Fresh-address exchangeCollateral eth_call reverted 0xe2517d3f AccessControlUnauthorizedAccount. Eligible payout functions: none; 7-day calls, gross USD and gas USD: not applicable, no zero-call claim. Sources: DefiLlama adapter projects/dtrinity/index.js, Etherscan verified source for the 3 contracts, protocol GitHub dtrinity/ethereum-solidity-contracts."
+}

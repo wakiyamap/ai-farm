@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-uniswap-v4",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: no Uniswap V4 (Arbitrum) function pays a stranger for calling. The only open claim-style function is the fee adapter's collect(CollectParams[]) (0x6b3c04567cc62fc5d6ab8d50f1bc1dee161eb2cc, no access modifier, stranger eth_call succeeds) and it forwards everything to a hard-coded TOKEN_JAR 0x95e337c5b155385945d407f5396387d0c2a3a263, so gross to the caller is 0. PoolManager.collectProtocolFees is role-gated to the controller (InvalidCaller revert reproduced), donate/clear are onlyWhenUnlocked, and LP fee collection is self-service behind PositionManager.onlyIfApproved.",
+  "numbers": "7d window blocks 523203896-525238930 (2026-11-11..18). PoolManager 0x360e68faccca8ca495c1b759fd9eee466db9fb32 (DefiLlama adapter address; owner() 0x2bad8182c09f50c8318d769245bea52c32be46cd answers). collectProtocolFees from 0x1111..11 -> revert 0x48f5c3ed InvalidCaller. Adapter collect() stranger eth_call -> success (returns void). FeesCollected (topic0 0x9dc46f23cfb5ddca...) 267 events / 14 txs in 7d (sample of 3 txs: 0x08b4cf11e0675dd3.., 0x4da0d53a025bc78.., 0x7d4cafb65a8d27c.., all from 0x16f09eaaca9514c59c85e3798088fbff835dfe99 via 0xf697c9ed033f434f061e43d41adfb03035de9e5a); ~2 batches/day; value moved to TokenJar ~USD 22,400/7d (~USD 1,600/tx, 11 small unpriced tokens excluded, prices coins.llama.fi arbitrum:*); gross to caller USD 0; gas USD 0.61-0.68/tx (10,293,055-11,113,543 gas x 0.033 gwei, ETH $1,811.41 = coins.llama.fi arbitrum:0x82af49447d8a07e3bd95bd0d56f35241523fbab1). Accrued WETH in PoolManager at head 0.00025 ETH (~USD 0.45). TVL $33.86M (DefiLlama candidate row).",
+  "bot_id": null
+}

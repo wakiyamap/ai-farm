@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-felix-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 537,
+ "chain": "hyperevm",
+ "slug": "felix-vaults",
+ "name": "Felix Vaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 29619403,
+ "url": "https://www.usefelix.xyz?ref=4BF702FF",
+ "github": null,
+ "listed_days_ago": 537,
+ "run_id": "f8145cd2ebcb4d31a62a72f95f34fe98",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Felix Vaults on hyperevm = 19 Felix-owned Morpho vaults (15 MetaMorphoV1_1 + 4 VaultV2, TVL 30.66M USD DefiLlama); last 7d (block 50,922,802-51,542,802): 2,283 keeper events (1,395 ReallocateSupply all by Felix allocator EOA 0xdd000599, 888 Allocate by 7 registered allocator keys, 1,432 V2 AccrueInterest), 0 by a stranger; reallocate/allocate revert from a fresh address (onlyAllocatorRole / isAllocator), unguarded skim/accrueInterest pay skimRecipient/fee recipients not the caller: gross 0 USD vs gas 0.0013 USD (181,845 gas @ 0.1 gwei, HYPE 69.08 coins.llama.fi).",
+  "kb": [
+   "attempts:1895",
+   "protocols:520"
+  ],
+  "run_id": "f8145cd2ebcb4d31a62a72f95f34fe98",
+  "at": 1794955131
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-steer-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1269,
+ "chain": "ethereum",
+ "slug": "steer-protocol",
+ "name": "Steer Protocol",
+ "category": "Liquidity Manager",
+ "tvl_usd": 722370,
+ "url": "https://app.steer.finance",
+ "github": null,
+ "listed_days_ago": 1269,
+ "run_id": "1c57e77522744ec698e443c79b7bdedc",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Orchestrator.executeAction (0x4867dc4e) is keeper-registry gated: fresh-address eth_call reverts NOT_A_KEEPER, 3/3 keeper slots filled, rewardPerAction=0; 15 executions in 7d (blocks 26413600-26463911) all by 3 bonded keeper EOAs, only GasVault reimbursement 0.02742 ETH = 46.71 USD (~3.11 USD/run, ~= gas 1.99-4.33 USD) -> net ~0; vault tend() onlyRole(MANAGER_ROLE), poke() public but pays nothing.",
+  "kb": [
+   "attempts:3339"
+  ],
+  "run_id": "1c57e77522744ec698e443c79b7bdedc",
+  "at": 1795269478
+ }
+}

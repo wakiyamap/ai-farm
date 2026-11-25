@@ -1,0 +1,27 @@
+{
+ "id": "protocol-arbitrum-enzyme-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "enzyme-finance",
+ "name": "Enzyme Finance",
+ "category": "Indexes",
+ "tvl_usd": 1214267,
+ "url": "https://enzyme.finance/",
+ "github": [
+  "enzymefinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "38eb04eebf354f87ab1d5cfe24739ec6",
+ "result": {
+  "verdict": "unpaid",
+  "line": "buyShares+redeemSharesForSpecificAssets callable by anyone (fresh-address eth_call passes policies, reverts only on my minShares arg); 80 round trips by 3 stranger EOAs in 7d (2026-11-16T23:08Z..11-19T11:57Z, buyers 0x2c1e8016 47 / 0xeb0fb869 25 / 0xf7c70a04 8), median gross 0.202 USDC > 0.047 USD gas (5-sample, attempts:2506), but the pot is drained: JC vault UNI balanceOf 0.152 (~1 USD), no open zero-timelock fund holds >~200 USD, FundDeployer 0 events in 7d (control ok); events are SharesBought 0x849165c1.. / SharesRedeemed 0xbf88879a.. (BuyShares-named topic = silent 0).",
+  "kb": [
+   "attempts:2616",
+   "protocols:1006"
+  ],
+  "run_id": "38eb04eebf354f87ab1d5cfe24739ec6",
+  "at": 1795116333
+ }
+}

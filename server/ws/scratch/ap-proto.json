@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "alphaping",
+ "status": "dead_end",
+ "checked": "Risk curator (Morpho vault operator), no DefiLlama adapter (404 on projects/alphaping), api.llama.fi gives addresses:null. 28 vault contracts on ethereum scraped from alphaping.ch homepage JSON: 11x Morpho VaultV2 (e.g. Acuto 0x153Bd1abE60104Bd46aa05a27fA12D1346D64A57, verified VaultV2 via etherscan, eth_getCode nonempty) + 17x MetaMorphoV1_1 (0xb0f05E4De970A1aaf77f8C2F823953a367504BA9). All are standard Morpho ERC-4626 vaults; owner 0xEB4Af6fA3AFA08B10d593EC8fF87efB03BC04645, curator 0x6788c8ad65E85CCa7224a0B46D061EF7D81F9Da5. Only public state-changing fn = accrueInterest() on VaultV2 (eth_call from 0x...dEaD succeeds, selector 0xa6afed95); pays caller 0 (fee shares minted to owner-set performanceFeeRecipient/managementFeeRecipient). forceDeallocate is anyone-callable but the caller PAYS a penalty (withdrawn from onBehalf), gets nothing: 6 calls/7d (exitors). allocate/deallocate gated by isAllocator/isSentinel. MorphoBlue adapter (0x9b42102feb9Ba61d9793E49239eDA0d0C3cb5bD5) has no keeper entry (allocate/deallocate vault-only, skim admin). No reward/claim/bounty function anywhere: no keeper economy, curator moves funds for vault yield only."
+}

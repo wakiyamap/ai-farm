@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "ramses_cl_v2",
+  "status": "dead_end",
+  "checked": "2026-11-17 run 7c0c0746: factory RamsesV3Factory 0x07E60782535752be279929e2DFfDd136Db2e6b45 (DefiLlama registry registries/uniswapV3.js entry ramses-cl-v2.hyperliquid; eth_getCode non-empty, getters accessHub 0x6631a487.../feeCollector 0xa22fc995.../voter 0x9aab8c41.../feeProtocol answer). Voter proxy 0x9aab8c415af5936b09c595b09b1ff15cbadcd843 (impl 0x06abdec0aa48f402de4869507a0e8dfd1942aa95), FeeCollector 0xa22fc9950be328d8a32a8c1e2c92eac4e6bada00, Minter 0x252acc15430a26748ced7376b317e74e250fcf00, 52 gauges (getGaugesLength). Pools are v3-style CL (sample WHYPE/USDC fee250 pool 0x5a177cf0effb7e0e7115d792e587c1a5a9cbc9d4, PoolCreated logs): pool ABI has mint/burn/swap/flash/increaseObservationCardinalityNext/_advancePeriod, no caller-reward function. Anyone-callable keeper class exists on the voter (distribute/distributeAll/batchDistributeByIndex/poke) and FeeCollector.collectProtocolFees(pool) - verified ungated (distribute source is 'public nonReentrant', eth_call distribute(gauge) from fresh 0x2222..22 returns 0x), but pays msg.sender nothing: RAM emissions go to the gauge/stakers. gaugeForClPool(WHYPE,USDC,250 and 10000) = 0x0 (no CL gauge for the top pools). Verdict unpaid: calls happen but gross to caller is 0."
+}

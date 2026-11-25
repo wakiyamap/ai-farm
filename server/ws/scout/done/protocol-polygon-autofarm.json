@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-autofarm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "autofarm",
+ "name": "Autofarm",
+ "category": "Yield Aggregator",
+ "tvl_usd": 508220,
+ "url": "",
+ "github": [
+  "autofarmnetwork"
+ ],
+ "listed_days_ago": null,
+ "run_id": "ba0c3db47301431a9250ea43005572c9",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Polygon deploy is AutoFarmV2_CrossChain masterchef 0x89d065572136814230A55DdEeDDEC9DF34EB0B76: no reward/claim function exists (only deposit/withdraw of own funds; withdraw reverts 'user.shares is 0' for strangers), strategy earn() reverts '!gov'; 0 masterchef events in 7d (control: USDC 50,109 logs/2,000 blocks; same contract 9 events/90d, all user withdrawals); TVL 501,159 USD (DefiLlama 2026-11-20), gas 275 gwei x 100k = ~0.002 USD/call.",
+  "kb": [
+   "attempts:2821",
+   "protocols:1245"
+  ],
+  "run_id": "ba0c3db47301431a9250ea43005572c9",
+  "at": 1795161861
+ }
+}

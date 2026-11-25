@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-chainport",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1796,
+ "chain": "ethereum",
+ "slug": "chainport",
+ "name": "ChainPort",
+ "category": "Bridge",
+ "tvl_usd": 233424,
+ "url": "https://app.chainport.io",
+ "github": null,
+ "listed_days_ago": 1796,
+ "run_id": "1d993b66ab4a410f88e13e649bc3536c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "ChainPort bridge 0xd02c8a35 (ethereum): only callable keeper fn is bridgeWithdraw - 38 in 7 d (blocks 26412480 2026-11-14 -> 26467545 2026-11-21, no-topic log scan: 49 BridgeDeposited + 38 BridgeWithdrawn), all by ChainPort's own relayer 0xfe834758...9d82, pays the receiver not the caller: gross 0 USD to the caller (2 of 38 receipts checked, no transfer to caller; gasFeeBalance 0) vs gas 172-201k = 0.04 USD at 0.13 gwei / 1682 USD ETH; withdrawAirdrop reverts for a stranger.",
+  "kb": [
+   "attempts:1729"
+  ],
+  "run_id": "1d993b66ab4a410f88e13e649bc3536c",
+  "at": 1795295016
+ }
+}

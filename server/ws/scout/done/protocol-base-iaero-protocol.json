@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-iaero-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 357,
+ "chain": "base",
+ "slug": "iaero-protocol",
+ "name": "iAero Protocol",
+ "category": "Liquid Staking",
+ "tvl_usd": 2110262,
+ "url": "https://app.iaero.finance/",
+ "github": [
+  "iaeroProtocol"
+ ],
+ "listed_days_ago": 357,
+ "run_id": "95a27a234b974346b6999cbec59ea40d",
+ "result": {
+  "verdict": "unpaid",
+  "line": "iAero Base (docs+Blockscout verified): permissionless calls (xiAERO.syncSurplus, cvault.harvestUSDC/recycleUnassignedUSDC, TreasuryDistributor.distribute) pay the caller 0 (source: no caller payout); 7d blocks 55.66M-58.69M getLogs: 0 SurplusSynced, 0 UnassignedRecycled, 0 USDCClaimed; 236 compound() + weekly processAndDistribute all by one keeper EOA 0xf21c44d0 (keepers[] whitelist, pays no fee); 238 xiAERO RewardPaid ($1.40/$2.99, to the CompoundingVault as staker), 417 legacy RewardClaimed (self-claims, $0.54); gas 0.006 gwei ~$0.011 per 1M gas (WETH $1,814 coins.llama.fi).",
+  "kb": [
+   "attempts:1764"
+  ],
+  "run_id": "95a27a234b974346b6999cbec59ea40d",
+  "at": 1794927581
+ }
+}

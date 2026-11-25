@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-hashflow",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. Hashflow on arbitrum is the same RFQ X-protocol as on ethereum (protocols:1745, dead_end there): the only public functions are trade entries (tradeRFQT/RFQM/XChain on the router; the caller is a trader who PAYS, zero-paid-to-caller) plus onlyOwner/only-operator admin; no reward/bounty/harvest/poke/claim/distribute/auction function anywhere in the source. And on arbitrum even trading is dead: 0 txs to router, all 7 pools and SwapFacade in the last 7 days.",
+ "numbers": "7d window ts 1794823517 (2026-11-16) to 1795428317 (2026-11-23, date -u): router 0x55084eE0...735151 last tx 1773414668 (2026-03-13) = 0 txs in window; 7 pools last txs 1791100293/1791071340/1791069276 (2026-10-03) and older (2022-10..2024-02) = 0 in window; SwapFacade 0x3e8Fb048...1042 last 1753799768 (2025-07-29) = 0 in window; control: explorer txs (same query, same addresses) returned rows, latest ts < window start. eth_call tradeRFQT (cast sig -> 0x0d51ac05) from fresh 0x1111111111111111111111111111111111111111: execution reverted. TVL check: USDT 0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9 38,377 + USDC.e 0xff970a61a04b1ca14834a43f5de4533ebddb5cc8 15,630 (decimals()=6 both on-chain) + 1.2451 ETH @ 1721.47 USD (coins.llama.fi coingecko:ethereum ts 1795428304) = ~56,150 USD vs candidate tvl 56,033. Gas: no caller-paid function to pay for, gas moot. Sources: repo hashflownetwork/x-protocol, DefiLlama adapter dataCache.json, explorer txs, rpc.py arbitrum."
+}

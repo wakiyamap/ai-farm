@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-narwhalswap",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Uniswap V2 fork DEX: factory/pair/router source (github.com/narwhalswap/contracts) has no reward/harvest/claim/distribute function anyone can call for pay - feeToSetter/setFeeTo are role-gated and pay no one. The only caller-paid primitive, pair.skim(address), pays 0 today: balanceOf-minus-reserve = 0 on 9 of 10 sampled pairs (one had 0.011 COM dust). DEX still trades (a sampled pair swapped 12 minutes before check) but swap fees go to LPs/feeTo, not to a caller. The 'The Grand Banks' farm layer (2021, MasterChef fork) pays its stakers, not strangers, and its deployed address is not published in the repo.",
+  "numbers": "Factory 0xB9fA84912FF2383a617d8b433E926Adf0Dd3FEa1, allPairsLength=96, feeTo=0x7f8a46ec48442d9ebf28fbc1144a83f8bc53f7e9, feeToSetter=0xb104ae8b7da105ca79cba208b9a41c1d63fff2c5; all eth_calls at block 134517049 (2026-11-19 ~14:15 UTC); skim excess 0 on 9/10 sampled pairs, 0.011 COM on 0xa0d30090831a6cfe646d833b62cf09c8f5cf5b07; activity from getReserves blockTimestampLast on 14 of 96 pairs: 0.2h (0x5ec32c21c9a6215d239f2bd0df22d7632b4717c3 WBNB/BUSD 15 WBNB + 8,969 BUSD), 2.6h (DAI/WBNB), 113h (0xcdd527c82382a6074239ec229a58db954baacc03 NAR/BUSD 531k NAR unpriced + 10.56M BUSD), 11 pairs idle 4,500-53,100h; DefiLlama TVL 344,956 USD at check; 7d log counts unavailable: scout Alchemy lane spent (300,562/300,000 CU) and public bsc nodes reject eth_getLogs."
+}

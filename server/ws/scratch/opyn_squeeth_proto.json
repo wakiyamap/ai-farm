@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "opyn_squeeth",
+ "status": "dead_end",
+ "checked": "Controller 0x64187ae08781B09368e6253F9E94951243A493D5 (from DefiLlama adapter projects/opyn-squeeth/index.js; eth_getCode non-empty; getters answer: shortPowerPerp()=0xa653e22a963ff0026292cc8b67941c0ba7863a38, wPowerPerp()=0xf1b99e3e573a1a9c5e6b2ce818b617f0e664e86b; holds 245.07 ETH; verified source via explorer). Stranger-payable function: liquidate(uint256,uint256) pays msg.sender collateralPaid in native ETH (+10% LIQUIDATION_BOUNTY=1e17) or 2% REDUCE_DEBT_BOUNTY rescue bounty, but caller must hold wPowerPerp (burned from msg.sender) and needs an unsafe vault (C12). applyFunding() callable by anyone, pays 0. reduceDebt owner/operator-gated (C20). No-topic eth_getLogs on controller, 7d blocks 26414347 (2026-11-14) to 26464600 (2026-11-21): exactly 1 log, UpdateOperator (tx 0x4c437025076bb9749cc470280f151e45424989a0c9791b5feba218aa68438919); 0 Liquidate, 0 ReduceDebt, 0 NormalizationFactorUpdated. isVaultSafe eth_call over vault ids 1-440: 0 unsafe, so no liquidation exists right now. All-time (since block 13991213): only 10 Liquidate events; last stranger payout 2024-03-04, vault 386, liquidator 0x3cb195088a2dc15785666334c92bf17d51bd55cd, 7.767 ETH gross (ETH $1676.93, coins.llama.fi ts 1795277690), gasUsed 729,225 (~$0.22 at 0.179 gwei)."
+}

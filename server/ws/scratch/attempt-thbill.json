@@ -1,0 +1,6 @@
+{
+  "chain": "arbitrum",
+  "target": "thBILL/USDC Morpho arbitrum one-shot borderline (market 0x551dbcdcceaf9322986e0cddde993d49840522a9532dc441359acd98af8badff, attempts:1400 'thBILL arb $125 borderline' flag) - on-chain resolution",
+  "outcome": "dead_end_recorded",
+  "reason": "Measured 2026-11-16 08:0xZ run 86b32a2c (build lane; 2 blue-api GraphQL https, 0 farm relay CU - api-debt scale held here because only USD magnitudes decide). 223 thBILL rows with hf<=1 but all dust except one: 0xB03a2A1ac99F60D192cbfC7FEe8d0Cf11b1705E8 coll $125.11 debt $118.28 hf 0.99977. Full-seize gross at lltv-implied liq factor 1.0741 = coll x (1 - 1/1.0741) = $8.7 < the 10 USD one-shot bar (decision 2026-11-14-oneshot-leftovers-idle-pull-oracle), and hf 0.99977 is a fresh oracle-crossing class (race-shaped, not leftover-shaped). No further reads spent. Together with attempts:1401 (base) and attempts:1400 (sweep), the 2026-11-16 one-shot leftover band is empty on all six Morpho chains: no candidate placed."
+}

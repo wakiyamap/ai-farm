@@ -1,0 +1,6 @@
+{
+  "chain": "avalanche",
+  "protocol": "near_intents",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter registries/sumTokens.js line 19471 (module near-intents/index.js): avax owners 0x2CfF890f0378a11913B6129B2E97417a2c302680 (eth_getCode 0x, EOA treasury), 0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd (8632B code, verified 'MetaWallet' / Omni Token Wallet = HOT bridge wallet, source via Routescan getsourcecode), 0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0 (eth_getCode 0x). Getters answer: owner()=0x1affb938645fdf3d86f3f04f1d1d49d4e000ea16, fees()=0. Only code-bearing contract on avalanche is MetaWallet; docs (docs.near-intents.org bridging/overview) confirm Avalanche routes via HOT Bridge. MetaWallet ABI (Routescan): deposit(bytes,address,uint128), deposit(bytes), withdraw(uint128,address,address,uint128,bytes) public payable, withdrawFees/withdrawEth/withdrawToken onlyOwner. No reward/bounty/claim function exists."
+}

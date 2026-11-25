@@ -1,0 +1,24 @@
+{
+ "id": "protocol-avalanche-joe-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1424,
+ "chain": "avalanche",
+ "slug": "joe-v2",
+ "name": "Joe V2",
+ "category": "Dexs",
+ "tvl_usd": 83489,
+ "url": "https://lfj.gg/avalanche/trade",
+ "github": null,
+ "listed_days_ago": 1424,
+ "run_id": "cc1fd56525844cf6b141fc1ce99e7e01",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LBFactory 0x6e77932a...aeef (verified, 30 pairs, impl LBPair 0x3b4a9036...c681d): only open paying fn is collectFees(address,uint256[]) paying the account's own accrued LP fees; eth_call from a fresh address returns (0,0). 4 collects in 7 d (blocks 100451668..101137251, control 548 Swap), all sender==recipient, gross bash.0059-bash.0584 each, bash.142 total vs bash.0021 standalone gas (41,739 x 7.5 gwei x AVAX .711). collectProtocolFees role_gated to FeeBank 0x60233142...ccaab, pot 0/0, flashLoanFee 0. TVL 84,347 USD.",
+  "kb": [
+   "attempts:4003"
+  ],
+  "run_id": "cc1fd56525844cf6b141fc1ce99e7e01",
+  "at": 1795413294
+ }
+}

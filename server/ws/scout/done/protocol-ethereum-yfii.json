@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-yfii",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "yfii",
+ "name": "YFII",
+ "category": "Yield Aggregator",
+ "tvl_usd": 429009,
+ "url": "",
+ "github": [
+  "yfii"
+ ],
+ "listed_days_ago": null,
+ "run_id": "cb6caa56463b4eb1892ac77ce51d85b2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "harvest() pays a 1% YFII call fee to any EOA but the pot is empty: 0.000165 YFII = $0.0036 gross vs $0.38 gas (1.838M gas @ baseFee 0.1234 gwei), 0 calls in 7 d (blocks 26418878-26469131, control 187 YFII transfers; newest harvest tx 2020-12-13), 7 of 8 strategies revert on dead 2020 deps, CRV pot = 1 wei",
+  "kb": [
+   "attempts:3639",
+   "protocols:1874"
+  ],
+  "run_id": "cb6caa56463b4eb1892ac77ce51d85b2",
+  "at": 1795332948
+ }
+}

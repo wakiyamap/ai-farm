@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-infer",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. bark/bite/heel on the imdUSD vault are permissionless and bite pays a 20% liquidation bonus (liq ~16%, marker 2%, treasury 2% of debt value), but 0 Bites and 0 Barks happened in the last 7 days (last Bite blk 26,379,671, 10.5d ago): reward pot empty, nothing liquidatable at 65k imdUSD total debt. Only 7 Bites ever since 2026-10-11 launch, all taken by 3 repeat keepers + team operator 5167d014; per-Bite gross $2.4-32 barely covers $0.10-1.22 gas at quiet prices and the protocol is too small (~0.5 liquidations/week) to farm.",
+  "numbers": "7d vault logs (50,400 blk, no-topic scan, control 19 logs): Bark 0 Bite 0 Lock 5 Draw 4 Wipe 4 Free 5 Cash 1. 7 Bites since launch blk 26,191,503-26,379,671: debt $15-200, liquidator gross +$2.41/6.42/8.01/8.02/18.41/19.07/32.02 (sIMD valued at collateralPriceFeed 0xf065c8b6 latestValue() at the Bite block, archive eth_call; imdUSD=1 USD by peg), gas 295,687-349,788 gas at 0.18-2.14 gwei = $0.10-1.22 (ETH $1,744.51 coins.llama.fi ts 1795170030). Marker paid $0.30-4.00/Bite (0xf4a51bc9 6/7, 0x121d14 1/7). Sources: getLogs+receipts via rpc.py ethereum; CDPVault.sol events, docs/ABI.md (github imdusd/infer-protocol)."
+}

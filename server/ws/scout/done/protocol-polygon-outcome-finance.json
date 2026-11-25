@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-outcome-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "outcome-finance",
+ "name": "Outcome Finance",
+ "category": "Synthetics",
+ "tvl_usd": 27365,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "50cb19c1c432461191df5e42a4d3cb46",
+ "result": {
+  "verdict": "no_reward",
+  "line": "65 UMA LongShortPair pools (4 factories, all 65 with code); no function pays a caller - create/redeem/settle need own tokens, expire() is anyone-callable but CHARGES the caller proposerReward (17 pools: 20 AX/20 UMA/50 WPOL/50 USDC, to the oracle proposer); 0 logs on all 65 pools in 7d (blocks 97430750 [2026-11-16] - 97834500 [2026-11-23], control USDC 10,751 logs/500 blk), latest pool tx 2026-08-17; 27,417 USD priced collateral is holder money (skim type).",
+  "kb": [
+   "attempts:4183",
+   "protocols:2301"
+  ],
+  "run_id": "50cb19c1c432461191df5e42a4d3cb46",
+  "at": 1795458239
+ }
+}

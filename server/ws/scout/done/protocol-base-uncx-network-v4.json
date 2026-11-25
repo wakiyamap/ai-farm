@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-uncx-network-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 136,
+ "chain": "base",
+ "slug": "uncx-network-v4",
+ "name": "UNCX Network V4",
+ "category": "Token Locker",
+ "tvl_usd": 1199479,
+ "url": "https://uncx.network/",
+ "github": null,
+ "listed_days_ago": 136,
+ "run_id": "f32b198d7efe42d7bc41c7298265fb94",
+ "result": {
+  "verdict": "role_gated",
+  "line": "5 verified Base UniV4 lockers (adapter unicrypt-v4): collect(uint256,address) only lock.owner or designated AUTO_COLLECT 0x31c44a17 (fresh-addr eth_call reverts NotOwner 0x30cd7471); unlock/relock/migrate owner-only; lockNFTPosition charges caller 0.1 ETH. 7d: 2 collect calls (V3 0xff908ded, txs 0xdf67cbfa, 0xbd90ae81), both owner self-collects, gross 0.75 EUR and 36.4 EUR+37.5 USDC (~4), gas bash.004-0.007/call (ETH 828.34 coins.llama.fi), 2% fee to UNCX; other 4 lockers idle; 1 Locked / 0 Unlocked events in 7d (control 147 full-history). No stranger paid.",
+  "kb": [
+   "attempts:1648",
+   "protocols:342"
+  ],
+  "run_id": "f32b198d7efe42d7bc41c7298265fb94",
+  "at": 1794904171
+ }
+}

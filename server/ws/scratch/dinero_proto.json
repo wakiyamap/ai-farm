@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "dinero_pxeth",
+ "status": "dead_end",
+ "checked": "Dinero (pxETH) liquid staking. DefiLlama adapter (DefiLlama-Adapters projects/dinero/index.js) measures pxETH token 0x04C154b66CB340F3Ae24111CC767e0184Ed00Cc6 (name()=Pirex Ether, symbol()=pxETH, decimals 18, totalSupply 2150.5 pxETH, eth_getCode non-empty, getters answer). Vault proxy PirexEth 0xd664b74274dfeb538d9bac494f3a4760828b02b0 (Etherscan name PirexEth, TransparentUpgradeableProxy, impl 0x9e0d7d79735e1c63333128149c7b616a0dc0bbdb), found via token RoleGranted(MINTER_ROLE) events + last-mint tx trace. All reward/keeper functions are role-gated (repo dinero-protocol/pirex-eth-contracts master PirexEthValidators.sol + eth_call from fresh addr 0x1111...1111): harvest(uint256) reverts with custom error 0xb5674cfd (NotRewardRecipient, onlyRewardRecipient modifier, rewardRecipient()=0xde4a1b2ea88ec03e93aad9d4c5bffeb18687d079), depositPrivileged() reverts 'AccessControl: missing role' (KEEPER_ROLE), topUpStake KEEPER_ROLE (payable: keeper funds the top-up), slashValidator/dissolveValidator onlyRewardRecipient, validator-queue fns GOVERNANCE_ROLE. User fns (deposit, initiateRedemption, redeemWithUpxEth, bulkRedeemWithUpxEth, instantRedeemWithPxEth) are user-driven swaps that pay treasury fees, not the caller. No function anyone can call pays the caller."
+}

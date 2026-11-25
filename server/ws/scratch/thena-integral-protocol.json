@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "thena_integral",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/thena-integral/index.js: bsc-only, factory 0x30055F87716d3DFD0E5198C27024481099fB4A98 (eth_getCode non-0x, owner()=0x46f99291eedf25fd5c6ae56bbfd6679d0ea3630b answers). DefiLlama advertised address 0xf4c8e32eadec4bfe97e0f595add0f4450a863a11 = THE token (symbol() returns THE). Pool THE/WBNB 0xc268ee337543a62115d46109d6771f1cf068063b via factory poolByPair(), getCommunityFeePending() answers (pending ~0.026 THE / 260.6 WBNB raw units), plugin()=0x08d8e78fa5039ae4a5d31b7c16446058810a4032. Protocol source = Algebra Integral (cryptoalgebra): docs repo algebra-integral-docs lists pool functions mint/burn/collect/swap/swapWithPaymentInAdvance/flash (user actions, no caller reward) and role-gated setters (POOLS_ADMINISTRATOR_ROLE, COMMUNITY_FEE_WITHDRAWER for community fees); factory createPool callable by anyone but pays nothing. AlmVault repo (cryptoalgebra/AlmVault branch integral-1.2.2): rebalance() is onlyRebalancerOrRebalanceManager, collectRewards() sends farming rewards to the vault/distributor, nothing pays the caller. No verified source on BSC reachable (bscscan API needs key, Blockscout instance unreachable, explorer tool lacks bsc)."
+}

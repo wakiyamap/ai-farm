@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "cryptex_v1",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter projects/cryptex-finance/index.js identifies six Ethereum VaultHandler contracts: 0x717170b66654292dfbd89c39f5ae6753d2ac1381, 0x443366a7a5821619D8d57405511E4fadD9964771, 0xc2Ba6B8E0EE3cf48B045D966F1dCda767df74833, 0xA5b3Bb6e1f206624B3B8CE0c6A0f7614fd35Fa03, 0xa8CcA36A624215a39D5af6854ac24868559424d3, 0x2364536F4891Ed560A6728f4B36871de8176eE5c; all eth_getCode nonempty and collateralContract(), counter(), paused() answer. Verified Etherscan ETHVaultHandler/IVaultHandler source at 0xc2Ba6... has public liquidateVault(uint256,uint256), paying collateral to msg.sender, with no role gate; factory 0x70236b36f86AB4bd557Fe9934E1246537B472918 has only self getReward() and owner-only notifyRewardAmount(). No vault emitted any log, including VaultLiquidated, in blocks 26430685 (2026-11-16 22:49:11 UTC) to 26480927 (2026-11-23 22:49:11 UTC); same-shape no-topic control on USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 returned 2005 logs in the two latest blocks. Sample of 20 of 952 created vault IDs: no positive liquidation reward; 0xc2Ba6... vault 1 has debt 0 and liquidationReward(1)=0. Fresh-address eth_call liquidateVault(1,0) succeeds with zero WETH reward. Sample cannot rule out unsampled positions."
+}

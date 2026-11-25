@@ -1,0 +1,28 @@
+{
+ "id": "reserve_folio.auction_bid",
+ "protocol": "reserve_folio_dtf",
+ "kind": "rebalance_bid",
+ "chains": {
+  "ethereum": [
+   "0x2cf4dafc17e163abd6770e1794e1ad10deb7d32e",
+   "0x33b44bb8ad29e863cf44e77c010de6795cd19bf7",
+   "0x9ac93e97928e98a9e8544c1c58be2fbf28a4a22e",
+   "0x7b7374b163d71a7aa964d06cd3712a5e6942886e",
+   "0xcdd9290626ef3296a7e0d32e1d724716b09bdf5d",
+   "0x3fe46c4a4817babc3e9db883fbdf3ccfac47d195"
+  ]
+ },
+ "event": "AuctionBid(uint256,address,address,uint256,uint256)",
+ "topic0": "0x8eda72ced8404ff0ffda416826fcbaed9d7326fbbc62f3bfbfb3b048f8bfe481",
+ "indexed": [
+  "auctionId",
+  "sellToken",
+  "buyToken"
+ ],
+ "data": [
+  "sellAmount",
+  "buyAmount"
+ ],
+ "note": "AuctionBid fills on Reserve Folio DTF rebalance Dutch auctions (lead 91); 6 Folios with bids in the 30d census; bidder is the tx sender. Other 22 Folios deployers: FolioDeployer 0xBE3B47587cEeff7D48008A0114f51cD571beC63A/0x4d201a6e5bf975e2cee9e5cbdfc803c0ff122073 (scratch/dtf-folios.json)",
+ "actor_field": "tx_from"
+}

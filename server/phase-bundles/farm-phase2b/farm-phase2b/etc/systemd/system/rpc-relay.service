@@ -1,0 +1,21 @@
+[Unit]
+Description=Farm RPC relay (Alchemy + public endpoints, per-lane budgets)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=exec
+User=farmrelay
+Group=farmrelay
+ExecStart=/usr/bin/python3 -I /opt/farm/bin/rpc-relay
+Restart=always
+RestartSec=5
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/var/lib/farm
+SyslogIdentifier=rpc-relay
+
+[Install]
+WantedBy=multi-user.target

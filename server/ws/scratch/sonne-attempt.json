@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-sonne-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: the only permissionless reward entry, Comptroller.claimComp(address) on Base (eth_call from a stranger: no revert), pays the holder argument SONNE from an empty pot: 0.00061816 SONNE held (usd: unpriced) and compSupply/BorrowSpeeds = 0 on all 7 markets, ExternalRewardDistributor has no reward tokens. 0 SONNE payouts in 7 days; the lending markets are alive (293 sToken transfers/7d) but nothing accrues for callers. BaseRewardManager and sSONNE distributor (staking-protocol) emitted 0 events in 7d.",
+ "numbers": "7d window blocks 58114128 (2026-11-16 07:13 UTC) to 61138384 (2026-11-23 07:13 UTC), base 0.2s blocks, found via eth_getBlockByNumber timestamps. claimComp gas estimate 776,941 gas (eth_estimateGas, claims all 7 markets) x 6 gwei base + 1 gwei prio x ETH $1724.45 (coins.llama.fi 2026-11-23 07:17 UTC) = ~$8-9 USD; single-market claim ~1/7 of that. SONNE from comptroller 7d = 0 (eth_getLogs, topic0 Transfer + topic1=comptroller on 0x22a2488fe295047ba13bd8cccdbc8361dbd8cf7c; control: same shape on WETH over 200 blocks returns logs; SONNE total transfers in window = 3; last comptroller payout block 41.4M, 1.3e-08 SONNE). Pot balanceOf 0.00061816 SONNE. Speeds 0/0 on all 7 markets (eth_call compSupplySpeeds 0x6aa875b5, compBorrowSpeeds 0xf4a433c0). sToken Transfers 7d = 293 (7 market addresses). Comptroller 0x1DB2466d9F5e10D7090E7152B68d62703a2245F0 (DefiLlama registries/compound.js + lending-protocol deployments/base)."
+}

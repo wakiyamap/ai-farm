@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-arbswap-amm",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1548,
+ "chain": "arbitrum",
+ "slug": "arbswap-amm",
+ "name": "Arbswap AMM",
+ "category": "Dexs",
+ "tvl_usd": 60699,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1548,
+ "run_id": "a150ee279caa48e2bf4e3c51f8343193",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Vanilla UniV2 fork (factory 0xd394e9cc..., router 0xd01319f4..., 76 pairs, TVL 61,882 USD): no function anyone can call that pays the caller. 7 d census blocks 524686718-526744491: 1905 swaps on 17/76 pairs, 1 Mint (LP add via router, not a reward), ARBS 1 Transfer (chef on Nova). Pair mint callable but deposit-required (stranger eth_call reverts INSUFFICIENT_LIQUIDITY_MINTED), skim=LP money, fees to feeTo EOA 0xeae69ce0...; gas ~0.01 USD/call at 0.02 gwei (WETH 1721.67 coins.llama.fi 11-23 07:57Z)",
+  "kb": [
+   "attempts:4035",
+   "protocols:2164"
+  ],
+  "run_id": "a150ee279caa48e2bf4e3c51f8343193",
+  "at": 1795421044
+ }
+}

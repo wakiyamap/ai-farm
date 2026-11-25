@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-parallel-protocol-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 474,
+ "chain": "hyperevm",
+ "slug": "parallel-protocol-v3",
+ "name": "Parallel Protocol V3",
+ "category": "CDP",
+ "tvl_usd": 342767,
+ "url": "https://parallel.best/",
+ "github": null,
+ "listed_days_ago": 474,
+ "run_id": "f11ed5049788473f9e3ee89b38e12105",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ParallelizerUSDp diamond 0x1250304F66404cd153fA39388DDCDAec7E0f1707 (Angle transmuter fork, 74 selectors); only keeper job that runs is updateOracle(address): 4 calls in 7d all by one trusted keeper 0x82f603cd...657a (blocks 51500140/51412300/51236620/50973217), stranger eth_call reverts NotTrusted() 0xc22a648e, gross $0 (keeper receipt 0xce638e9a has no token transfer), gas 121,081 ~= $0.0008 at HYPE $68.01 (coins.llama.fi); settle/runKeeperJob not registered; processSurplus pays payees, not the caller.",
+  "kb": [
+   "protocols:482",
+   "attempts:1842"
+  ],
+  "run_id": "f11ed5049788473f9e3ee89b38e12105",
+  "at": 1794943707
+ }
+}

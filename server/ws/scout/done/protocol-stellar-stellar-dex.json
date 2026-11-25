@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-stellar-dex",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 536,
+ "chain": "stellar",
+ "slug": "stellar-dex",
+ "name": "Stellar DEX",
+ "category": "Dexs",
+ "tvl_usd": 11504681,
+ "url": "https://developers.stellar.org/docs/learn/fundamentals/liquidity-on-stellar-sdex-liquidity-pools",
+ "github": null,
+ "listed_days_ago": 536,
+ "run_id": "71b90add089a4b58ba8a8422bb9807ed",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Native SDEX orderbook, not a deployed protocol: github null, adapter ids are asset token contracts (AQUA CAUIKL...BAS6OJPK), no Soroban contract and no function that pays a caller - classic Offer ops make the caller PAY network fees (p50 100 stroops = 0.00001 XLM = 0.0000013 USD at XLM 0.1282 coins.llama.fi 2026-11-22), profit is spread only; book is active (sample 30 txs from ledger 65613990: 36 manageSellOffer + 22 manageBuyOffer + 8 path payments; 7d window 65494009 closed 2026-11-15T15:21:27Z to 65614009); TVL 11.50M USD",
+  "kb": [
+   "attempts:3740",
+   "protocols:1949"
+  ],
+  "run_id": "71b90add089a4b58ba8a8422bb9807ed",
+  "at": 1795356566
+ }
+}

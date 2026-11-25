@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-latteswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "latteswap",
+ "name": "LatteSwap",
+ "category": "Dexs",
+ "tvl_usd": 52684,
+ "url": "",
+ "github": [
+  "latteswap-official"
+ ],
+ "listed_days_ago": null,
+ "run_id": "1b5c40d00f6d4cc09a063b0562a11237",
+ "result": {
+  "verdict": "role_gated",
+  "line": "UniV2-fork DEX (dead 2021, TVL 52.7k): MasterBarista.harvest reverts for a stranger ('only funder'), LatteVault.harvest ('onlyFarmer'); all 37 harvests in 7d (blocks 133,683,632 2026-11-15 -> 135,297,017 2026-11-23) called by the protocol's own Booster paying 47.4M unpriced LATTEV2 to its stakers (largest 32.3M, tx 0x2cb7e4b3); factory/pairs plain UniV2 with 38 swaps/7d, no caller-paid function; gas 0.05 gwei.",
+  "kb": [
+   "attempts:4149",
+   "protocols:2267"
+  ],
+  "run_id": "1b5c40d00f6d4cc09a063b0562a11237",
+  "at": 1795449024
+ }
+}

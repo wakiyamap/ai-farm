@@ -1,0 +1,1 @@
+fork status / fork lease print "ethereum-review: http://127.0.0.1:9013 Connection refused" - the 9013 review fork is down (run 61b2fd54, 2026-11-09 17:1xZ). Lease/release of the 9003 fork worked; only the status line shows 9013 down. If reviewers depend on ethereum-review, it needs a restart.

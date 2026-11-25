@@ -1,0 +1,7 @@
+{
+  "chain": "avalanche",
+  "target": "protocol-avalanche-allblue-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. AllBlue V2 (parent pumpspace) is a UniswapV2 factory + MasterChef-style farms (SHELL, PEARL). The public payout fns (claimReward(uint256), massUpdatePools()) are callable by anyone (eth_call from fresh addr succeeds, no role revert) but pay only the caller's own accrual: pendingReward(0, fresh)=0, no recipient argument pays a stranger. In the 7-day window nobody even called claimReward: users only deposit/withdraw (self-service yield in SHELL, ~$12.3/day total emission across all 7 SHELL pools).",
+  "numbers": "Window 2026-11-15T15:20Z..11-22T15:15Z (Routescan txlist sort=desc offset=100 covers back to 10-25; control: same query returned 15 SHELL txs in window). SHELL MasterChef 0xc5101878e56F10A2f5106cA301ADA3Ad0b6A894c: 15 txs in window = deposit(e2bbb158)x12, withdraw(441a3e70)x2, updateRewardPerDay(9b33ba4a)x1 by admin 0x7adf576b2a; claimReward(ae169a50) x0 (last call 2026-08-28). PEARL 0x3cEC4339b50f62bADFF78e6A05E8558f66a34883: 3 txs, all deposits. token()=SHELL 0xad4cb79293322c07973ee83aed5df66a53214dc6 $0.000142 (coins.llama.fi 2026-11-22), rewardPerDay()=86400e18 = $12.3/day total, totalAllocPoint=1000. Gas: deposit gasUsed 143500 (tx 0x1970cd8db5137c59b1ee53ba81b8602653bc24f5bd396fb9839a83ccfbdca0fa), eth_gasPrice 7.5 gwei, AVAX $6.67 (coins.llama.fi) -> ~$0.0072/call. Factory 0x6FEa5651FaC99b854A961dbB41380AdB9F8F9a8b allPairsLength()=12."
+}

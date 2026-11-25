@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-binance-staked-eth",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1297,
+ "chain": "bsc",
+ "slug": "binance-staked-eth",
+ "name": "Binance staked ETH",
+ "category": "Liquid Staking",
+ "tvl_usd": 385502998,
+ "url": "https://www.binance.com/en/wbeth",
+ "github": null,
+ "listed_days_ago": 1297,
+ "run_id": "f2f9072778ee407b94d7647f04a52ff0",
+ "result": {
+  "verdict": "no_reward",
+  "line": "WBETH proxy 0xa2E3356610840701BDf5611a53974510Ae27E2e1 (impl 0xfe928a7d8be9c8cece7e97f0ed5704f4fa2cb42a, FiatToken/StakedTokenV1): only ERC20 + minter-gated mint/burn + oracle-gated updateExchangeRate; no reward/claim function pays a caller; sample of 3x5000 blocks over 7d: 0 Mint, 0 Burn, 122 Transfer+1 Approval by Binance hot wallets; yield accrues in exchangeRate 1.111074 ETH/WBETH on 190896 WBETH (~85M); gas ~bash.002/call (0.05 gwei, BNB 83.83 coins.llama.fi)",
+  "kb": [
+   "attempts:2309"
+  ],
+  "run_id": "f2f9072778ee407b94d7647f04a52ff0",
+  "at": 1795049270
+ }
+}

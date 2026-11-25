@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-alephium-bridge",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Wormhole-style TokenBridge: the only anyone-can-call paying function is completeTransfer(bytes), which pays the caller the sender-set arbiterFee in the bridged token, but over the last 7 days all 20 calls were users self-claiming their own transfers (single Transfer log to caller in every receipt), so 0 gross reward went to any stranger; not role-gated (dummy eth_call from a fresh address reverts on VAA parsing 'toUint32_outOfBounds', not a role).",
+  "numbers": "7d window blocks 26412949 (2026-11-14) -> 26463205 (2026-11-21), ts-derived; 20 completeTransfer + 29 transferTokens + 2 wrapAndTransferETH (Blockscout api/v2 method-filtered list); all 20 receipts scanned: fee-to-caller cases 0, self-claims 20; gasUsed 152,469-172,708 per call, gas price 0.241 gwei (eth_gasPrice 2026-11-21 11:32 UTC) -> ~0.06-0.07 USD gas at ETH 1639.59 USD (coins.llama.fi 2026-11-21 11:30 UTC); proxy 0x579a3bde631c3d8068cbfe3dc45b0f14ec18dd43, impl 0x0f843945075df4ea9c8a21f0e0ccfd5eb073eeab; top callers EOAs 0xab31994c300583b5545961e5a4d767f518590608 (7x), 0xac387d318415f3935acc8e09a7c8ac9fae625c28 (5x); TVL 196,825 USD (candidate)"
+}

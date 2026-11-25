@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-whales-market",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 921,
+ "chain": "arbitrum",
+ "slug": "whales-market",
+ "name": "Whales Market",
+ "category": "OTC Marketplace",
+ "tvl_usd": 33025,
+ "url": "https://whales.market/",
+ "github": null,
+ "listed_days_ago": 921,
+ "run_id": "ab88de4400ea4ad58b82f7b17b6c076e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: one proxy 0x7a560269480ef38b885526c8bbecdc4686d8bf7a (impl 0xfeee1c66 unverified; same owner+feeReceiver as ethereum KB 1571); no function pays a caller - all trade actions refund the party their own funds (last CancelOffer 2026-11-05 tx 0xbfa879... caller=party, gas 0.0042 USD); 0 proxy logs in 7d (blocks 524566566-526619948 2026-11-15..22; same-shape control 7 logs; 90d total 4 logs); escrow 19.892 ETH = ~34.2k USD at 1721.44 matches TVL 33,025.",
+  "kb": [
+   "attempts:3865"
+  ],
+  "run_id": "ab88de4400ea4ad58b82f7b17b6c076e",
+  "at": 1795382902
+ }
+}

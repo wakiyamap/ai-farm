@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-swamp-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: Beefy-v1 MasterChef on bsc is dormant - deposit/withdraw/massUpdatePools are public and eth_call from a fresh address succeeds, but nothing pays: SWAMP emission is spent (totalSupply 2,000,012 >= NATIVEMaxSupply 2,000,000) and no one has called the contract since ~Aug 2021. No stranger was paid in the last 7 days.",
+ "numbers": "MC 0x33AdBf5f1ec364a4ea3a5CA8f310B597B8aFDee3, 309 pools, 98 with allocPoint>0, all lastRewardBlock <= 16,172,245 (current 134,637,109). MC events 7d (blocks 133,437,109-134,637,109): 0 (controls: USDC 13,585 logs/2000 blk same shape; MC 7-14 logs/5000 blk @16.16-16.17M). nativePerBlock 0.1712 SWAMP, SWAMP totalSupply 2,000,012 vs cap 2,000,000, MC SWAMP balance 89,813.5 (= pid-2 staked principal). gasPrice 0.05 gwei, deposit ~150k gas ~ $0.004 at BNB $566.60 (coins.llama 2026-11-20 05:15Z). SWAMP usd: unpriced (no coins.llama price). Source: eth_call eth_getCode/eth_getLogs via relay; adapter projects/swampfinance/index.js."
+}

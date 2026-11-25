@@ -1,0 +1,19 @@
+{
+ "id": "actor-arbitrum-0x877af3fe40bcd805edc64df96b3eaba2448a5ae7",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "arbitrum",
+ "address": "0x877af3fe40bcd805edc64df96b3eaba2448a5ae7",
+ "run_id": "94e9064335a54c3e8e7708f2f7635b8d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Private multi-venue arb executor (unverified proxy; keepers 0x2ff77/0x02ab/0x375291 call selector 0x6a2b5055, packed calldata): Balancer LBPool 0xe2b32e6d vs UniV3/V2 + Balancer Vault flash loans; 1006 successful calls/7 d = 144/day (sample of 26 recent txs: ~50% revert), spread exits in-tx as WETH fee to fixed owner wallet 0xdcca6a29: gross 0.0000203 WETH = $0.033/call, gas $0.01-0.018/call (310-540k gas @ 0.02 gwei), net ~$1/day - own funds/spread, a stranger paying gas would donate the profit",
+  "kb": [
+   "attempts:3108",
+   "actors:305"
+  ],
+  "run_id": "94e9064335a54c3e8e7708f2f7635b8d",
+  "at": 1795219516
+ }
+}

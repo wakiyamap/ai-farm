@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Dynamic context for the paper-reviewer: the review queue.
+set -uo pipefail
+WS=/srv/farm/ws
+now=$(date -u +%s)
+echo
+echo "### Review queue"
+echo "| bot | service | expedite | last decision | next_review_at | due |"
+echo "|---|---|---|---|---|---|"
+for d in "$WS"/bots/paper/*/; do
+  [[ -d "$d" ]] || continue
+  id=$(basename "$d")
+  st=$(systemctl show "paper@$id.service" -p SubState --value 2>/dev/null)
+  exp=$(grep -m1 -E '^expedite:' "$d/manifest.yaml" 2>/dev/null | awk '{print $2}')
+  dec="none"; nra=""; due="NEW"
+  if [[ -f "$d/review.md" ]]; then
+    dec=$(grep -i -m1 'decision:' "$d/review.md" | sed 's/.*decision: *//I')
+    nra=$(grep -i -m1 'next_review_at:' "$d/review.md" | sed 's/.*next_review_at: *//I')
+    due="no"
+    if [[ -n "$nra" ]]; then
+      t=$(date -u -d "$nra" +%s 2>/dev/null || echo 0)
+      (( t <= now )) && due="YES"
+    fi
+  fi
+  [[ "$exp" == "true" ]] && due="EXPEDITE"
+  echo "| $id | ${st:-not running} | ${exp:-false} | $dec | $nra | $due |"
+done
+echo
+echo "Slots: $(systemctl list-units --plain --no-legend --state=active 'paper@*.service' | wc -l) running / 12"
+echo
+echo "Daily loss so far: (gate not installed yet; promotion is unavailable until phase 4)"

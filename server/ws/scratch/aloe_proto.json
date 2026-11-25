@@ -1,0 +1,6 @@
+{
+ "chain": "arbitrum",
+ "protocol": "aloe",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/aloe: factory 0x000000009efdB26b970bCc0085E126C9dfc16ee8 (eth_getCode not 0x, rewardsToken() 0xd1af0c7d answers = address(0)). CreateMarket topic0 from cast keccak: 7 markets / 14 Lender proxies (e.g. 0x5a9fbc41276b885a35b89e93bb1a68db50be1fe0 -> impl 0x29ad9ff7c67041af3f99e34f0fa9aeb3122b8309 'Lender', etherscan-verified, aloe-backend a0G-style). CreateBorrower: 28 borrowers, all owned by Aloe app wallet 0x00000000000078b629b7c06f5339060648468aa6. Public functions: Factory.claimRewards(Lender[],beneficiary) eth_call from 0x1111 reverts (rewardsToken=0); Borrower.warn(uint40) external pays msg.sender min(balance, ante/4) ETH per verified source (getParameters WETH/USDC pool ante=0.003e18 wei); Borrower.liquidate(callee,data,closeFactor,seed) public, 105-112% liquidation incentive; Lender.claimRewards is FACTORY-gated; Lender.accrueInterest public, no payment. Source: explorer source arbitrum (etherscan) src/Factory.sol, src/Borrower.sol, src/Lender.sol."
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-umia",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 81,
+ "chain": "base",
+ "slug": "umia",
+ "name": "Umia",
+ "category": "Launchpad",
+ "tvl_usd": 2552578,
+ "url": "https://www.umia.finance",
+ "github": [
+  "umiafinance"
+ ],
+ "listed_days_ago": 81,
+ "run_id": "b69f235003e34db397eee44291ab4f91",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Umia base: source-wide no caller-reward mechanism; anyone-callable settleMarket/claimSettlementFor/collectProtocolFees/executeWinningProposal pay caller 0 (fees go to protocolFeeRecipient), rebalance/basketArb are onlyActiveKeeper; 7d: 2 MarketCore logs (1 self-claim of 10e18 venture tokens, tx 0xacdd4386), 0 settle/execute, all 6 ever from protocol EOA 0x38e767499142ad483117817d9317fdad5b448388; gas ~$0.002/call (0.006 gwei x 150k, ETH $1819 coins.llama.fi)",
+  "kb": [
+   "attempts:1618",
+   "protocols:317"
+  ],
+  "run_id": "b69f235003e34db397eee44291ab4f91",
+  "at": 1794897959
+ }
+}

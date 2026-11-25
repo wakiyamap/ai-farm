@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-meta-pool-eth",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1190,
+ "chain": "ethereum",
+ "slug": "meta-pool-eth",
+ "name": "Meta Pool ETH",
+ "category": "Liquid Staking",
+ "tvl_usd": 19022123,
+ "url": "https://metapool.app",
+ "github": null,
+ "listed_days_ago": 1190,
+ "run_id": "27683d76702d4a0f9004705172ddf3df",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: keeper fns reportEpochs/pushToBeacon behind UPDATER_ROLE/ACTIVATOR_ROLE (contracts/Staking.sol; fresh-address eth_call reverts); only 7d activity = 2 reportEpochs by role-holder 0x52e5219ef6af019776c0a64925370f92cab282ec (74,348 gas = bash.02 at 0.169 gwei x ETH ,656, pays caller 0, fee shares mint to treasury); public completeWithdraw is a self-claim (fresh addr reverts UserDontHavePendingWithdraw), 0 calls in 7d and 30d by no-topic scan; TVL 9.0M (11,650 ETH old mpETH 0x48AF..1710 + 465 ETH StakingV2 0xD06f..4A0E)",
+  "kb": [
+   "attempts:3315"
+  ],
+  "run_id": "27683d76702d4a0f9004705172ddf3df",
+  "at": 1795264619
+ }
+}

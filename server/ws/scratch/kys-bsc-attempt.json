@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-kyberswap-classic",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. skim type (S): the only open, role-free function on KyberSwap Classic (KyberDMM, factory 0x878dFE971d44e9122048308301F540910Bbd934c, 133 pools) that pays its recipient is skim(address), which takes the pool's balance-above-reserves - LP money, not a caller reward. Zero Skim events in 7 d (nobody calls it) and the whole above-reserve balance across all 133 pools is 6 unpriced small-token bags (max 2.008 LFS / 3,840,889 FEG).",
+ "numbers": "Window blocks 133,954,923 (2026-11-16 15:53:24) to 135,298,311 (2026-11-23 15:53:24), ts from eth_getBlockByNumber. 7 d no-topic getLogs, 133 pools: 3,287 logs, all topic0 identified (no unknown): Swap 1,098; Sync 1,099; UpdateEMA 1,084; Transfer 3; Approval 2; Burn 1; Skim 0. 12/133 pools active; swap event topic1/topic2 indexed args 19 and 67 distinct, senders = aggregators (1inch 0x11111605..., Kyber executor 0x8f10b468..., sample of 12 of 1,098 tx.from). skim excess measured on all 133 pools at block ~135.30M: 0 on 125, negative on 1; nonzero unpriced only (coins.llama.fi empty 2026-11-23 15:57Z): 2.008 LFS (18 dec), 3,840,889 + 19.1 FEG (9 dec), 0.24 RMD (9 dec), 0.0016 BBZ (12 dec), 12 wei dust. skim gas: estimateGas 141,326 x 0.05 gwei = 0.004 USD at BNB 567.93 USD (coins.llama.fi ts 1795449427). eth_call skim from fresh address ok (no role revert). Factory allPoolsLength()=133."
+}

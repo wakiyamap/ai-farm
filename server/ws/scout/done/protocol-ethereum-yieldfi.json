@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-yieldfi",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 681,
+ "chain": "ethereum",
+ "slug": "yieldfi",
+ "name": "YieldFi",
+ "category": "Yield Aggregator",
+ "tvl_usd": 10032039,
+ "url": "https://yield.fi/",
+ "github": [
+  "YieldFiLabs"
+ ],
+ "listed_days_ago": 681,
+ "run_id": "9c82dcb8d711499eade59bb48a83f846",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: executeOrder/distributeYield/updateTotalAssets revert from a fresh address ('!minter'/'!rewarder'/'!manager'); 0 keeper calls in 7d (Manager last tx 2026-07-02 by 0xad03a5a6), vyUSD 7d logs = 12 (9 Approve + 3 Transfer, 0 vault events), gross 0 USD vs ~0.05 USD gas (0.1328 gwei x 250k x $1620.92); matches arb/base dead_ends",
+  "kb": [
+   "attempts:3145",
+   "protocols:1508"
+  ],
+  "run_id": "9c82dcb8d711499eade59bb48a83f846",
+  "at": 1795227943
+ }
+}

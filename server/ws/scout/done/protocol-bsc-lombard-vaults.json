@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-lombard-vaults",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 799,
+ "chain": "bsc",
+ "slug": "lombard-vaults",
+ "name": "Lombard Vaults",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 32474,
+ "url": "https://www.lombard.finance/app/stake/?referrer=ssybnl",
+ "github": null,
+ "listed_days_ago": 799,
+ "run_id": "22653b0c26624b3797c72b66d1e2c65e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only accountant.updateExchangeRate(uint96) (0x28634d0c...) moves on bsc - 4 calls/7d (blocks 133798085 2026-11-15 to 135141537 2026-11-22), all by keeper EOA 0xfa8af0b4a6e4e7111440dc02c85a5a823ad73452 via registry 0x757fad4e...; eth_call from a fresh address reverts UNAUTHORIZED; pays the caller 0 (0 ERC20 Transfers, 0 value in all 4 receipts) vs 0.31 USD gas/call (111,865 gas @ 5 gwei, BNB 554.71); vault 0x5401b862... and hook 0x2ea43384... emitted 0 events in 7d (same-shape control LBTC = 61 logs); holdings 0.34836448 BTCB + 0.20159204 LBTC = 33,268 USD.",
+  "kb": [
+   "attempts:3846",
+   "protocols:2022"
+  ],
+  "run_id": "22653b0c26624b3797c72b66d1e2c65e",
+  "at": 1795379470
+ }
+}

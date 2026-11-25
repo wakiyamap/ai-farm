@@ -1,0 +1,19 @@
+{
+ "id": "actor-hyperevm-0x881d8a7e0e0607ddaf60e8487dda135f5dff6e25",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "hyperevm",
+ "address": "0x881d8a7e0e0607ddaf60e8487dda135f5dff6e25",
+ "run_id": "1406daf1b41746359472cf26f3a92608",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Private arb bot, not a paid job: EOA calls its own owner-only unverified executor 0xf38142 (fresh-address eth_call reverts gated, all on-chain callers = this EOA); Morpho flashLoan USDT0 (free) -> UniswapV3/DEX swaps -> profit to itself in same tx. Sample of 131 arb txs of last 200, Sep 4 - Nov 14 2026: 2.1 calls/day, 49 ok (37%); gross $0.05-0.50/call (mean $0.1726, n=10 receipts); gas 0.00013-0.0008 HYPE/call = $0.009-0.056 (HYPE $68.88 DefiLlama) -> est net ~$0.11/day.",
+  "kb": [
+   "attempts:1560",
+   "actors:217"
+  ],
+  "run_id": "1406daf1b41746359472cf26f3a92608",
+  "at": 1794885590
+ }
+}

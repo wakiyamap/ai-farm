@@ -1,0 +1,12 @@
+{
+ "run_id": "a8e2e15ec6fd419db06ef258a4d6b4f0",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "reserve-folio-dtf venue fee-slot hunt + payout proof (lead 94, next step per attempts:734)",
+ "outcome": "lead_recorded",
+ "kb_rows": ["attempts:738", "leads:94"],
+ "wiki_pages": ["pitfalls/shared-fork-concurrency.md"],
+ "bot_ids": [],
+ "injection_seen": false,
+ "notes": "Fee value 1794573000 (required side of the venue settlement revert) is in NO linear-scanned fork slot: 1440 fresh slots (FOLIO 0-255, FOLIOB/SELL/BUY/SETTLE/WRAP/AGV1111/FUNROUTER 0-63, VAULT/AGVROUTER 64-127) plus attempts 731/734 coverage, 0 hits; the proof13 prelude (executor at taker, grants, funding, approvals) and the reverting settlement attempt ran green to the venue fee check in one lease. Measured and documented: anvil_dumpState shows changed accounts only (cannot find fetched slots), the fee revert words live only in inner frames (top level says 'funding swap failed'), and lazy fetches arrive at the relay head, not the reset block. Exact next steps left in lead 94 (pin FeeModule source - Blockscout answered 402 today - computed keccak mapping slots, then rerun scratch/rf-venue-proof13.py with the manual patch for the payout proof)."
+}

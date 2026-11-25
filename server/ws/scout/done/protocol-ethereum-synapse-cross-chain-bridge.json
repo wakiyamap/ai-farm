@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-synapse-cross-chain-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "synapse-cross-chain-bridge",
+ "name": "Synapse Cross Chain Bridge",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 6237046,
+ "url": "https://synapseprotocol.com",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "9d4e9b666dc44e8eb22fe9ed3f86b49f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Bridge 0x2796317b0fF8538F253012862c06787Adfb8cEb6: mint/withdraw/mintAndSwap/withdrawAndRemove NODEGROUP-gated (1 member 0x5ba0...05ba, fresh eth_call reverts 'Caller is not a node group'); withdrawFees/withdrawChainGas GOVERNANCE, chainGasAmount=0, getFeeBalance(WETH)=0; deposit/redeem user ops; pool 0x1116898... user ops + onlyOwner withdrawAdminFees. 7d (26418514 11-15..26468768 11-22): 51 bridge logs (46 TokenWithdraw+5 TokenMint, no-topic scan) from 4 node + 4 user EOAs via MetaRouter; pool 519 user logs. Gross to stranger 0 USD. Same dead_end as arbitrum/avalanche.",
+  "kb": [
+   "attempts:3621"
+  ],
+  "run_id": "9d4e9b666dc44e8eb22fe9ed3f86b49f",
+  "at": 1795328678
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-bsc-btcst",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1795,
+ "chain": "bsc",
+ "slug": "btcst",
+ "name": "BTCST",
+ "category": "Yield",
+ "tvl_usd": 768534,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1795,
+ "run_id": "e2c1e703f3d3458281d914f2a1d0694e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BTCST bsc: 6 vault proxies (MasterChef impl 0xEF2fE818.., rToken sigmaDOGE 0xe550..404a); open updatePool/massUpdatePools/claimReward(address,uint256) from fresh address: no role revert but pays caller 0 (claimReward(fresh,0)=0); poolInfo.lastRewardBlock newest 134,119,440 vs head 134,791,565 = ~2.1 d old at measured 0.446 s/block (rest 46-77 d); gasPrice 0.05 gwei ~1e-5 BNB/call (usd unpriced); TVL 768k/42.6k staking, deadUrl; bsc getLogs dead for scout lane today (301,302/300,000 CU) so no 7d caller list.",
+  "kb": [
+   "attempts:2555",
+   "protocols:1050"
+  ],
+  "run_id": "e2c1e703f3d3458281d914f2a1d0694e",
+  "at": 1795102866
+ }
+}

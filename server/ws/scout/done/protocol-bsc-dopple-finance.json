@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-dopple-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "bsc",
+ "slug": "dopple-finance",
+ "name": "Dopple Finance",
+ "category": "Algo-Stables",
+ "tvl_usd": 160636,
+ "url": "",
+ "github": [
+  "DoppleFinance"
+ ],
+ "listed_days_ago": null,
+ "run_id": "c764df10b5f24dab96fdd90419afeff5",
+ "result": {
+  "verdict": "role_gated",
+  "line": "KUSD vault 0xa275769Fb6fF34A1a01C8CE61D0182f5d36AD27A: recollateralizeShare (recollatFee 0.6%) reverts 'Not whitelisted' and stepDownTCR 'Sender is not a ratio setter' from a fresh address; buyBackShare callable but 'No enough Share' (getECR()=0, buybackFee()=0); 8 stable pools have only user swap/liquidity fns; 7d eth_getLogs 35 logs all user swaps (sample of 35 of 35), 0 vault events; TVL 160.6k USD, app dead.",
+  "kb": [
+   "attempts:2751"
+  ],
+  "run_id": "c764df10b5f24dab96fdd90419afeff5",
+  "at": 1795145940
+ }
+}

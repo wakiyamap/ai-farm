@@ -1,0 +1,25 @@
+{
+ "id": "protocol-stellar-upshift",
+ "kind": "protocol",
+ "tier": 2,
+ "age": 718,
+ "chain": "stellar",
+ "slug": "upshift",
+ "name": "Upshift",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 81905080,
+ "url": "https://app.upshift.finance",
+ "github": null,
+ "listed_days_ago": 718,
+ "run_id": "4d17798e6971443c9c48233a2cb3508e",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: 9 Stellar vaults (github.com/upshift-protocol/stellar-upshift-vault-contracts, Rust); every mutating fn is require_operator/admin/controller or a self-authorized user deposit/withdraw and none pays the caller; 16 events in 7.25 d across all 9 vaults (ledgers 65489000 close 11-15 03:04Z -> 65614200 close 11-22 14:17Z; control 100 events same shape), 12 deposits / 1 withdraw / 1 operator update, 0 reward payments; fee per call 0.1049 XLM = 0.0134 USD (XLM 0.1279 USD coins.llama.fi 2026-11-22 14:25 UTC). Same verdict family as EVM siblings (attempts:2051/2053/2054/3165).",
+  "kb": [
+   "attempts:3745",
+   "protocols:1953"
+  ],
+  "run_id": "4d17798e6971443c9c48233a2cb3508e",
+  "at": 1795358015
+ }
+}

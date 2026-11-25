@@ -1,0 +1,20 @@
+{
+ "id": "trial-base-lead356",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "base",
+ "lead_id": 356,
+ "target": "Morpho Blue liquidate batch executor 0xfaab09c4 (USDC-loan cbBTC/cbETH/cbXRP/JitoSOL markets): incumbent 15-hour economics",
+ "run_id": "84a5cb8da58240f4b6d80fdaf139c3f7",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7 d at entry (Morpho liquidate, USDC-loan cbBTC/cbETH/cbXRP/JitoSOL markets, base): 6,127 occurrences, 133 distinct takers (ledger morpho_blue.liquidate, ts 1794656520..1795261320); sample 16: all paid, medians gross-at-oracle 18,738 USDC (top-biased; realized 1.98 USDC/liq from incumbent sweep 364.76/175), winner priority fee 15 gwei, winner gas 74,588/liq = 1.85 USD, feed-tick-to-capture median 165 blocks (33 s, range 5 s-21 min); one attempt ~0.01 USDC at head base fee 0.005 gwei; caveat: 4 replay-probed captures were takeable only 0-2 s (attempts:3292)",
+  "kb": [
+   "attempts:3308",
+   "leads:356"
+  ],
+  "run_id": "84a5cb8da58240f4b6d80fdaf139c3f7",
+  "at": 1795262646
+ }
+}

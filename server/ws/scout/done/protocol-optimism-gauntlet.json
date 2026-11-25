@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-gauntlet",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 545,
+ "chain": "optimism",
+ "slug": "gauntlet",
+ "name": "Gauntlet",
+ "category": "Risk Curators",
+ "tvl_usd": 439499,
+ "url": "https://www.gauntlet.xyz",
+ "github": null,
+ "listed_days_ago": 545,
+ "run_id": "437f457dba2245138cfafabc50a90aa6",
+ "result": {
+  "verdict": "role_gated",
+  "line": "2 Morpho MetaMorphoV1_1 curator vaults: Prime 0xC30ce6A5758786e0F640cC5f881Dd96e9a1C5C59 448,947 USDC = full 448.9k TVL, Balanced dormant (1 USDC); reallocate onlyAllocatorRole (stranger eth_call reverts 0xf7137c0f), skim pays skimRecipient not caller; 7d (blocks 159378656..159681056, 2828 logs / 403 txs, control ok): 0 reallocate, 0 skim, all 8 sampled txs = ERC-4337 user deposits via EntryPoint, gross to any stranger 0; gas 0.00125 gwei, call <bash.001 (ETH ,819.80 coins.llama.fi). Same dead_end shape as gauntlet on base/arbitrum/bsc/hyperevm.",
+  "kb": [
+   "attempts:1924",
+   "protocols:542"
+  ],
+  "run_id": "437f457dba2245138cfafabc50a90aa6",
+  "at": 1794961650
+ }
+}

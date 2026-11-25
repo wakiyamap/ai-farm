@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-dinero--pxeth",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Every reward/keeper function on the PirexEth vault (harvest, depositPrivileged, topUpStake, slashValidator, dissolveValidator) is behind KEEPER_ROLE / rewardRecipient / GOVERNANCE_ROLE; eth_call from a fresh address reverts. Even un-gated they pay nobody: harvest routes CL rewards to the whitelisted rewardRecipient contract 0xde4a1b2e..., topUpStake is payable (keeper funds it), user fns pay treasury fees. Protocol is also near-dormant: zero vault events in the last 7 days and last vault tx on 2026-08-09.",
+ "numbers": "7d window blocks 26412688 (2026-11-14, ts 1794652859) -> 26463088 (2026-11-21): vault 0xd664b742 no-topic eth_getLogs = 0 logs (control same shape: token 0x04C154b6 = 172 Transfers incl. 0 mints 0 burns); last vault tx block 25719117 ts 1786298891 = 2026-08-09 (failed deposit 14 ETH, 0x5dabac7d...) per explorer txs; pxETH totalSupply 2150.53 pxETH (eth_call), DefiLlama TVL 3.88M USD at candidate time; harvest(1) from fresh addr reverts 0xb5674cfd (NotRewardRecipient); depositPrivileged() reverts AccessControl missing role 0xfc8737ab...; rewardRecipient()=0xde4a1b2ea88ec03e93aad9d4c5bffeb18687d079 (contract, 2260 bytes), autoPxEth()=0xdead (unset). Source: github.com/dinero-protocol/pirex-eth-contracts master src/PirexEthValidators.sol modifiers; deployed ABI via Etherscan (explorer abi)."
+}

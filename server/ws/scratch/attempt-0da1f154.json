@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "actor-hyperevm-0x0da1f1549e9377b566f52268800e51826dccde3b",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the EOA is the owner and only caller of its own private executor 0x1438e66b049ab1df862b56126969911afd4e97c1; the money it makes is its own flash-loan arbitrage spread (forwarded in-tx to its own treasury 0x18c6a0c8), not a protocol payment for a public job; a fresh address may not even call 0x9d410c42 (onlyOwner, eth_call reverts 0x30cd7471).",
+  "numbers": "~15.6 arb tx/day + ~5-7 heartbeat self-calls (explorer txs, 25 arb txs 2026-11-15T01:37Z..2026-11-16T16:03Z, 1.6 d window, 4/25 FAILED); gross $0.0747 USDC/call avg of 4 receipts (sample of 4 of 25; USDC 6dp transferred to treasury 0x18c6a0c8), gas $0.0535/call avg (1.60-1.90M gasUsed x 0.14-0.85 gwei; HYPE $68.77 from coins.llama.fi coingecko:hyperliquid 2026-11-17); net ~$0.3/day, EOA balance 1.13 HYPE"
+}

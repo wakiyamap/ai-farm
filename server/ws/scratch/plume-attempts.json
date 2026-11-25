@@ -1,0 +1,8 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-plume-vaults",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Plume Vaults = Nest (api.nest.credit) BoringVault stack on BSC (10 active vaults, DefiLlama Binance TVL 26.4M). Verified source (same addresses verified on Ethereum; bsc explorer keyless access broken) shows every state-changing external function is solmate requiresAuth (manage/enter/exit/deposit/bulkDeposit/bulkWithdraw/updateExchangeRate) and claimFees is BoringVault-only; eth_call updateExchangeRate from a stranger reverts 'UNAUTHORIZED'. No permissionless function that pays the caller, so no 7-day stranger payments exist to measure; deposits themselves are whitelist-gated via a MerkleManager.",
+  "numbers": "DefiLlama protocols API 2026-11-18: chainTvls.Binance = 26,433,150 USD. eth_getCode: nALPHA 0x593ccca4c4bf58b7526a4c164ceef4003c6388db 7494 B, nTBILL 0xe72fe64840f4ef80e3ec73a1c749491b5c938cb9 7494 B, nPRIME proxy 0x6fec234e8801ed88964bc058a0f9fbcc9fcbd2eb 793 B -> impl 0x75cde6fa26f8622ea1cd51aac6f01790d268e94a 20367 B (66 selectors, none reward-like), accountant 0xe0cf451d6e373ff04e8ee3c50340f18afa6421e1 6440 B. eth_call 0x3458113d (updateExchangeRate(uint96)) from 0x1111..1111 -> revert UNAUTHORIZED (solmate Auth). Getter control: name() on nTBILL = 'Nest Treasuries Vault'. Vault/token functions: 26 selectors on nALPHA = ERC20 + manage/enter/exit + Auth only.",
+  "bot_id": null
+}

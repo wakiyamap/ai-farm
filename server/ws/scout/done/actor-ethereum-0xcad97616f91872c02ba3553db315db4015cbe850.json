@@ -1,0 +1,20 @@
+{
+ "id": "actor-ethereum-0xcad97616f91872c02ba3553db315db4015cbe850",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "ethereum",
+ "address": "0xcad97616f91872c02ba3553db315db4015cbe850",
+ "run_id": "75fbaa9592cb478b83a761d7013d1965",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Across V3 relayer EOA (7702) drives executor 0xfd03abca with one call fillV3Relay (sel 0x260595cf) ~2000-3100 fills/day (24h eth_getLogs capped at 2000; 1h control 131/502 pool fills, 10 relayers); fills 1351 distinct depositors' Base/BSC/Arb/Polygon/OP deposits into Ethereum; median spread $0.070/fill (~34 bps, same-asset subset n=227), gas 114,655 @ 0.122 gwei = $0.025/call @ ETH $1810 (coins.llama.fi) -> ~$120/day net est; nothing received in-tx (spread repaid later on origin chain); sample of 2000 of >=2000.",
+  "kb": [
+   "attempts:1548",
+   "leads:226",
+   "actors:210"
+  ],
+  "run_id": "75fbaa9592cb478b83a761d7013d1965",
+  "at": 1794883363
+ }
+}

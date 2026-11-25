@@ -1,0 +1,24 @@
+{
+ "id": "protocol-polygon-rnt-lend",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 25,
+ "chain": "polygon",
+ "slug": "rnt-lend",
+ "name": "RNT Lend",
+ "category": "Lending",
+ "tvl_usd": 21277078,
+ "url": "https://lend.rnt.finance/",
+ "github": null,
+ "listed_days_ago": 25,
+ "run_id": "7c5a71a6a3fd4ce694be7cfad9edc1cb",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Aave v3.2 fork: liquidationCall is anyone-callable (fresh-address eth_call reverts error 45 health-factor, no ACL in LiquidationLogic) but 0 LiquidationCall events in last 7 days and 9 ever in 2 years (latest 2026-10-30, liquidators 0xae753596529d95de, 0x01f9869d4acda0f7, 0x3aa40ed5fecd1323); gross/call = debtToCover 36.5-2024 USDT x 10% bonus (liqBonus 11000bps) = ~4-200 USD, gas ~0.01 USD (500k gas x 276 gwei x POL 0.0808 llama.fi), no liquidatable position now (sample HF 1.217)",
+  "kb": [
+   "attempts:1587"
+  ],
+  "run_id": "7c5a71a6a3fd4ce694be7cfad9edc1cb",
+  "at": 1794891502
+ }
+}

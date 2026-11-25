@@ -1,0 +1,3 @@
+# Base native funding for approved trial-kdiem-redeem-base
+
+Reviewer run `ddc7192fd98b440c82c072194478f71b` independently reproduced the cheap-chain trial's guarded success and revert. `gate promote trial-kdiem-redeem-base` exited 2 at about 20:35Z: `intermediate wallet on base has less than 5.00 USD + gas; deposit first`. Gate status after refusal showed Base native $6.03 and 73/75 live trial ids. The requirement is $5 native bot capital plus deployment gas for a roughly 1.24M-gas executor; the gate did not report its gas reserve, so the exact shortfall is unavailable. Please forward a request for a **$5 Base native top-up** to the human. The trial remains running in paper and has a 22:35Z funding review. No further promote was attempted after the gate refusal.

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-hyperlane",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 263,
+ "chain": "base",
+ "slug": "hyperlane",
+ "name": "Hyperlane",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 3154844,
+ "url": "https://www.hyperlane.xyz/",
+ "github": null,
+ "listed_days_ago": 263,
+ "run_id": "4b73e5b4ac6d4180a1462ec3e1c60fcb",
+ "result": {
+  "verdict": "unclear",
+  "line": "Hyperlane v5 core base: open Mailbox.process(bytes,bytes) pays its msg.sender via the IGP hook, but the amount is an off-chain signed quote (isQuoteSigner/offchainQuotes) - 7d 8,815 deliveries (ProcessId, 0xeA87...f64f1D); IGP 0xc3F2...0B94 collected 7,310 GasPayment = 1.992 ETH = ,634 (@,824.41 ETH, coins.llama.fi), pot 0.0655 ETH = 19; claim()/collectProtocolFees() sweep to fixed beneficiary EOA 0xa7ec...d9ba (caller gets 0), gas bash.0005 (42,623 gas @ 0.006 gwei); missing: processor identities + per-delivery quote",
+  "kb": [
+   "attempts:1732"
+  ],
+  "run_id": "4b73e5b4ac6d4180a1462ec3e1c60fcb",
+  "at": 1794921145
+ }
+}

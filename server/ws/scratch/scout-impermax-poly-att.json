@@ -1,0 +1,7 @@
+{
+  "chain": "polygon",
+  "target": "protocol-polygon-impermax-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: callable reward functions exist (Borrowable.liquidate permissionless, StakedLPToken.reinvest 2pct bounty but tx.origin EOA-only in every version) but nothing paid a stranger in the last 7 days: Borrow 0, Liquidate 0, Reinvest 0 topic-only logs (7 d, control OK); 0 liquidations even over 33 d; sampled borrowables totalBorrows = 0, book idle. Not worth a bot at this size (TVL 143k USD).",
+  "numbers": "TVL 142,994 USD Polygon (api.llama.fi/protocol/impermax-v2, 2026-11-20); 133 pools over 4 factories (allLendingPoolsLength eth_calls); 7 d topic-only eth_getLogs blocks 97,337,033-97,639,433: Borrow 0 / Liquidate 0 / Reinvest 0; 33 d from 96,216,335: Borrow 7 (cluster ~96.62M, ~16 d ago, tx 0x47c97773b254f35d269437bd7d1a640b67f6bf2b90879e5d93c743acc954a604), Liquidate 0; gross/call 0 USD; gas per call ~0.004 USD (200k gas x 265 gwei eth_gasPrice x POL 0.0784 USD coins.llama.fi 2026-11-20); reinvest bounty 2e16/1e18 of harvest (REINVEST_BOUNTY constant, repo staked-lp-token)"
+}

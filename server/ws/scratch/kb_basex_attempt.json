@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-basex",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. BaseX is a plain Uniswap V3 fork on Base (factory 0x38015d05f4fec8afe15d7cc0386a126574e8077b, source baseswapfi/v3-core confirmed by fee-tier getters). No function anyone can call pays the caller: factory fns are owner-gated (setOwner, enableFeeAmount) or pay nothing (createPool); pool fees accrue to LP positions and are self-collected; protocol fees go to the treasury multisig via collectProtocol. The 109 senders in the last 7d are swappers paying gas, not keepers collecting.",
+  "numbers": "Factory eth_getCode 24,535 B; owner()=0x463112327576814f80da8d3632f7bad23c853a29 (FactoryManager). feeAmountTickSpacing 80->1, 450->10, 2500->60, 10000->200 (eth_call latest, matches repo constructor). 429 PoolCreated total (fromBlock 3152527 -> 61040324); 9 in 365d, 0 in 7d (blocks 58016322 2026-11-16 -> 61040324 2026-11-23; controls: same shape 365d on factory = 9, aave 0xa238dd80 pool window = 4,366 logs). 114/429 pools liquidity()>0. Swaps 7d across all 429 pools: 6,531 events / 6,318 txs / 109 unique senders (topic0 0xc42079f94a6350d7..., cast keccak + no-topic scan). Gross per call 0 (no reward function). TVL 27,784 USD, vol 2,417/24h, 55,583/7d (api.llama.fi 2026-11-23). Gas irrelevant: nothing to call."
+}

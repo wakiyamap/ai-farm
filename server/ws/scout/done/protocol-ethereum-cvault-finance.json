@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-cvault-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 99999,
+ "chain": "ethereum",
+ "slug": "cvault-finance",
+ "name": "cVault Finance",
+ "category": "Yield",
+ "tvl_usd": 4586541,
+ "url": "",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "88ba15fb68714336aec8aae9d5993446",
+ "result": {
+  "verdict": "unclear",
+  "line": "no adapter (404; no cvault* dir in main tarball of 8156 files), github null/url empty, docs+app dead; DefiLlama's only address CORE token 0x62359ed7505efc61ff1d56fef82158ccaffa23d7 has no caller-paid fn (claimLPTokens revert \"Nothing to claim\", addLiquidityToUniswapCORExWETHPair \"generation already finished\", emergencyDrain onlyOwner); TVL 4,404,927 USD flat since 2025-10-28 (WETH 41.6, DAI 27,587, WBTC 0.63454, DELTA/WETH SLP 82,630); vault contracts holding TVL unidentified, no gross/gas measured",
+  "kb": [
+   "attempts:3514",
+   "protocols:1780"
+  ],
+  "run_id": "88ba15fb68714336aec8aae9d5993446",
+  "at": 1795303240
+ }
+}

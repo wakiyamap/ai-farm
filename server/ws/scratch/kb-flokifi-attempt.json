@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-flokifi-locker",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. FlokiFi Locker vaults (ImmutableVault, verified source via Blockscout) pay only through functions gated by onlyKeyHolder (getBeneficiary() == msg.sender, the VaultKey NFT owner) that send funds to msg.sender - a stranger cannot call unlock/vest for a bounty; there is no keeper incentive. eth_call vest() from a fresh address reverts 'Vault:onlyKeyHolder:UNAUTHORIZED'. The protocol is also nearly dormant on Base: 0 vault token-outflow transfers in the last 7 days across all 287 token-vault pairs.",
+  "numbers": "222 vault contracts, 287 token-vault pairs (api.flokifi.com tokens/vault-pairs-tvl?chainId=8453); 7d outflow transfers = 0 (eth_getLogs blocks 0x35b5044..0x38974c4, vaults emit no events so token Transfer topic1=vault used); 180d same-shape control = 18 transfers in 4 txs, latest block 0x3134b3c = 2026-09-21 09:05 UTC (sender = beneficiary 0xe966e2e77469f106a30aba95859158831d842f58 of vault 0xac7f5c937eea34be1bb0fcd7283b5144c92b739b); TVL 157,444 USD (DefiLlama candidate row); no stranger paid, so no gross/gas USD figure applies"
+}

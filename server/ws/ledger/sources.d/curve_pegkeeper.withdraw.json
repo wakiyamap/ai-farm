@@ -1,0 +1,20 @@
+{
+  "id": "curve_pegkeeper.withdraw",
+  "protocol": "curve_pegkeeper",
+  "kind": "keeper_rebalance",
+  "chains": {
+    "ethereum": [
+      "0x9201da0d97caaaff53f01b2fb56767c7072de340",
+      "0xfb726f57d251ab5c731e5c64ed4f5f94351ef9f3",
+      "0x3fa20eaa107de08b38a8734063d605d5842fe09c",
+      "0x338cb2d827112d989a861cde87cd9ffd913a1f9d"
+    ]
+  },
+  "event": "Withdraw(uint256)",
+  "topic0": "0x5b6b431d4476a211bb7d41c20d1aab9ae2321deee0d20be3d9fc9b1093fa6e3d",
+  "indexed": [],
+  "data": [
+    "amount"
+  ],
+  "actor_field": "tx_from"
+}

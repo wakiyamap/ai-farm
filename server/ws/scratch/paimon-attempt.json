@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-paimon",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Paimon Prime (PPT vault 0x8505c32631034A7cE8800239c08547e0434EdaD9, USDT, TVL $14.13M) exposes callable-by-anyone settleRedemption(uint256)/settleWithVoucher/refreshCache, but none pay the caller: settlement pays the redeemer (request.receiver) their own USDT and there is zero keeper-reward logic (grep payable|reward|incentive|bounty = 0 hits in PPT.sol/RedemptionManager.sol/AssetController.sol; PAIMON token not yet issued). eth_call from a stranger reverts with state errors only (InvalidRequestStatus 0xe5230ee1, SettlementTimeNotReached 0x6761442b), never a role error. In addition the flow is nearly idle: 0 RedemptionSettled and 2 RedemptionRequested in 7d.",
+ "numbers": "TVL totalAssets 14,132,389 USDT (eth_call PPT 0x01e1d114, 2026-11-17); sharePrice 1.0423e18; RM getRequestCount 171, getSevenDayLiability 33,617 USDT; 7d RedemptionSettled=0 and RedemptionRequested=2 (relay-log-scan full scans 132,782,884-134,126,884 = 1,344,000 blocks, 269 pages each, complete; control USDT Transfer 300 blocks = 22,064 logs same run); gas 0.05 gwei (eth_gasPrice 0x2faf080) x ~200k gas = $0.006 at BNB $592.23 (coins.llama.fi coingecko:binancecoin); gross per caller call = $0."
+}

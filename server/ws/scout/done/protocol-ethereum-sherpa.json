@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-sherpa",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 354,
+ "chain": "ethereum",
+ "slug": "sherpa",
+ "name": "Sherpa",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 397552,
+ "url": "https://earn.sherpa.trade",
+ "github": [
+  "hedgemonyxyz"
+ ],
+ "listed_days_ago": 354,
+ "run_id": "a59ed26f0c4c448ca52bddcb1a6b338e",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only round-advance rollToNextRound is onlyOperator (owner==operator EOA 0xcd0c931f86b4fb59de6ab83ae766808926f61c4a); 7d no-topic0 scan: 12 vault logs, 3 RoundRolled (rounds 363-365, +310 USDC total yield to share price, no caller reward) all sent by that EOA, 0 stranger calls; eth_call from fresh addr reverts OnlyOperator; roll gas 101825 = 0.35 USD; no reward/bounty fn in source or docs.",
+  "kb": [
+   "attempts:2996",
+   "protocols:1395"
+  ],
+  "run_id": "a59ed26f0c4c448ca52bddcb1a6b338e",
+  "at": 1795195718
+ }
+}

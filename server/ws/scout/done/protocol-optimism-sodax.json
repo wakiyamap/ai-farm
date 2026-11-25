@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-sodax",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 102,
+ "chain": "optimism",
+ "slug": "sodax",
+ "name": "SODAX",
+ "category": "Bridge",
+ "tvl_usd": 72607,
+ "url": "https://www.sodax.com/",
+ "github": null,
+ "listed_days_ago": 102,
+ "run_id": "beaa806b08e8435c8ddf49dc24847dee",
+ "result": {
+  "verdict": "role_gated",
+  "line": "SODAX optimism spoke: only keeper job is recvMessage delivery, gated by require(executors[tx.origin]) (fresh addr reverts 'unauthorized executor'); 42/42 deliveries in 7d (blocks 159568918-159871542, 51 AM txs total) from one registered executor 0xa4026a97d3bf3caed9489cfac61ac8863d2ddb83, caller paid $0 (trace 0xbdb2ae65: 0.00228 ETH to user recipient), gas $0.0010-0.0013/call at ETH $1,710.28 \u2014 same shape as arbitrum/ethereum/hyperevm (protocols:1903).",
+  "kb": [
+   "attempts:3680",
+   "protocols:1903"
+  ],
+  "run_id": "beaa806b08e8435c8ddf49dc24847dee",
+  "at": 1795342394
+ }
+}

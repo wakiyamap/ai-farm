@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-liminal-basis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 478,
+ "chain": "hyperevm",
+ "slug": "liminal-basis",
+ "name": "Liminal Basis",
+ "category": "Basis Trading",
+ "tvl_usd": 24762193,
+ "url": "https://liminal.money",
+ "github": null,
+ "listed_days_ago": 478,
+ "run_id": "914631342a654710bdedceadb1af7362",
+ "result": {
+  "verdict": "role_gated",
+  "line": "HyperEVM hub (chain 999) verified from docs (xHYPE RedemptionPipe 0x19f4881c..03e8 impl RedemptionPipeV2 0xaed7cd19..); only keeper fns fulfillRedeems/fulfillFastRedeems are onlyRole(FULFILL_MANAGER_ROLE) (stranger eth_call reverts AccessControlUnauthorizedAccount 0x0143b440..): 8 fulfillRedeems in last 7d (block<=51,531,199), all by one keeper 0x56485380..db9a, gross per call 50.7k/164.7k USDC moved to redeemers but fee to caller = 0 (fast-redeem fee 30 bps accrues to LP 0x6a8c4a63..); fulfillFastRedeems 0 in 34d; gas 830k-1.16M gas = 0.006-0.008 USD (HYPE 67.83, coins.llama.fi).",
+  "kb": [
+   "attempts:1844",
+   "protocols:484"
+  ],
+  "run_id": "914631342a654710bdedceadb1af7362",
+  "at": 1794943849
+ }
+}

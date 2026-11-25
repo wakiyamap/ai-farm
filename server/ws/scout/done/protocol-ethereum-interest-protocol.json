@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-interest-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1615,
+ "chain": "ethereum",
+ "slug": "interest-protocol",
+ "name": "Interest Protocol",
+ "category": "CDP",
+ "tvl_usd": 1020402,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1615,
+ "run_id": "adf1a3a0a04f4afd851ad88befea5917",
+ "result": {
+  "verdict": "unpaid",
+  "line": "unpaid: only stranger-payable reward path is VaultController 0x4aaE..CbE3 liquidateVault (eth_call from fresh addr reverts 'must liquidate>0', not role-gated), 0 paid in 7 d: VC 0 events blocks 26415172-26465417 (2026-11-14/21, no-topic scan; control USDC 19,516 logs/297 blocks, USDI 7 logs same window); last VC tx 2026-07-21 (single EOA withdrawing collateral, ~54k gas); USDC reserve 0.0001 USDC; TVL = 1 static MKR vault (957 MKR unpriced) + 13.5 aOptUSDC - protocol in wind-down.",
+  "kb": [
+   "attempts:3437"
+  ],
+  "run_id": "adf1a3a0a04f4afd851ad88befea5917",
+  "at": 1795287942
+ }
+}

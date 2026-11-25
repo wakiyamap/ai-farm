@@ -1,0 +1,25 @@
+{
+ "id": "protocol-arbitrum-mim-swap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 944,
+ "chain": "arbitrum",
+ "slug": "mim-swap",
+ "name": "MIM Swap",
+ "category": "Dexs",
+ "tvl_usd": 25456,
+ "url": "https://app.abracadabra.money/#/mim-swap",
+ "github": null,
+ "listed_days_ago": 944,
+ "run_id": "6f51bc9d5bf149319dd1d3fba0f93300",
+ "result": {
+  "verdict": "no_reward",
+  "line": "MimSwap Klines-fork pools (factory 0x8D0Cd3eEf1794F59F2B3a664Ef07fCAD401FEc73, impl 0x2958db359d22411cdf9825f8b27f17350a6fc6bb): no claim/reward/harvest/collect function; stranger-callable sync()/correctRState() pay 0, ratioSync/rescue/setPaused revert 0x08fc08f9 (operator only); swaps charge the caller 5 bp LP fee to protocol-owned LPs + maintainer fee; 7 d = 98 swaps / 333.85 USD gross on 2 of 20 pools (23,192.79 USD held) = ~0.17 USD LP fees, gas 0.012-0.036 USD, 91 of 98 swaps by 2 bots.",
+  "kb": [
+   "attempts:3880",
+   "protocols:2047"
+  ],
+  "run_id": "6f51bc9d5bf149319dd1d3fba0f93300",
+  "at": 1795385819
+ }
+}

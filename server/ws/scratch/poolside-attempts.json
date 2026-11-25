@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-poolside",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Poolside (ButtonswapFactory AMM by Buttonwood) has no function anyone can call that pays the caller - pair exposes only mint/mintWithReservoir/burn/burnFromReservoir/swap (Uniswap-v2 style, verified source); protocol fees go to factory feeTo as LP shares or are burned (role-set). The protocol is also dormant: 0 events on all 3 pairs in the last 7 days; last activity 2026-10-04. Nothing for a keeper bot to earn.",
+ "numbers": "Factory 0x75a92DfB38C3506dcE3Bbb5EB32A10852f9ba64a, allPairsLength()=4 (eth_call latest 2026-11-23). 3 real pairs (PairCreated topic0 0x0d3648bd.., full scan from block 3674737): 0x9e06b7351d0c1099564fac636b2bf3e412f3bf12, 0x4978e6f34843e9670b07c60593e3302d9202cd82, 0x5d222725c084ecafff9cb6f9a4ca29348a363336. 7d window blocks 58280542 (2026-11-16) -> 61304543 (2026-11-23, from eth_getBlockByNumber timestamps): 0 logs on the 3 pairs (no-topic scan). Control: same query shape full range returned 3239 logs, last activity block 52161874 (2026-10-04). TVL 25,634 USD (DefiLlama candidate, 2026-11-23). No caller-reward function in source -> gross/gas n/a."
+}

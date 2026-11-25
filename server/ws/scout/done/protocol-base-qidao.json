@@ -1,0 +1,27 @@
+{
+ "id": "protocol-base-qidao",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "qidao",
+ "name": "QiDao",
+ "category": "CDP",
+ "tvl_usd": 482264,
+ "url": "https://app.mai.finance",
+ "github": [
+  "0xlaozi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "68b144cbbe5647c488fe05477fbd6bce",
+ "result": {
+  "verdict": "unpaid",
+  "line": "4 vault contracts (MyVaultV5) expose anyone-callable liquidateVault/buyRiskDebtVault/getPaid, but 0 LiquidateVault/BoughtRiskyDebtVault events in 7 d (141 in full history, last 2026-06-05); getPaid reverts 'Don't have anything for you.', liquidateVault reverts 'Vault debt is 0' from a fresh address (state, not role); vaults total 2 logs of any kind in 7 d (control USDC same-shape 26,700 logs/2.7k blocks); MAI 0 mints 7 d, 408 transfers; gas on base <1 cent USD, gross 0.",
+  "kb": [
+   "attempts:2698",
+   "protocols:763"
+  ],
+  "run_id": "68b144cbbe5647c488fe05477fbd6bce",
+  "at": 1795134741
+ }
+}

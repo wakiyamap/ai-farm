@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-krystal-auto-farm-vault",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 652,
+ "chain": "arbitrum",
+ "slug": "krystal-auto-farm-vault",
+ "name": "Krystal Auto-Farm Vault",
+ "category": "AI Agents",
+ "tvl_usd": 37600,
+ "url": "https://krystal.app",
+ "github": null,
+ "listed_days_ago": 652,
+ "run_id": "c543629fab4f42359c73f3c37e459cb0",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Same PrivateVault system as base/bsc dead_ends: only non-owner entry multicall is onlyAuthorized (stranger eth_call reverts 0x82b42900, owner passes); 7d (blocks 524540402..526594219) sample of 6 of 390 vaults: 1 active, its 3 logs all from the owner EOA 0x3105cca7; legacy 5 factories 0 logs 7d (control 1); no function pays msg.sender, fees to Krystal feeRecipient 0x8e2a9d95; 200k-gas call $0.007",
+  "kb": [
+   "attempts:3822"
+  ],
+  "run_id": "c543629fab4f42359c73f3c37e459cb0",
+  "at": 1795374633
+ }
+}

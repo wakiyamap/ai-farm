@@ -1,0 +1,7 @@
+{
+  "chain": "any",
+  "target": "Uniswap V3 / PancakeSwap V3 expired-position claim as an expiring public claim class on the farm chains",
+  "status": "dead_end",
+  "why": "Non-liquidation 'expiring public claim' example from the 2026-11-08 decision list. Closed at lead stage: the live farm-chain position managers pay the caller nothing for claiming expired positions.",
+  "next_steps": "CLOSED 2026-11-10 run 92fd180a (attempt dead_end row this session): live mainnet V3 NonfungiblePositionManager pinned 0xc36442b4a4522e871399cd717abdd847ab11fe88 by IncreaseLiquidity emitter scan (324/343 logs in 2000 blocks); PancakeV3 NFPM pinned 0x46A15B0b27311cedF172AB29E4f4766fbe7f4364 (same deterministic address on BSC + ethereum). Neither deployed contract dispatches claim(uint256) 0x379607f5 (bytecode checked on ethereum and BSC with burn(uint256) 0x42966c68 as same-contract control; eth_call claim reverts with empty data like a garbage selector while getApproved on the same tokenId succeeds). Pancake periphery source has no claim; Uniswap/v3-periphery main/v1.1.0/v1.3.0 have no claim. The 2021-era memory address 0xC36441b809097E659cAdd36EDcAfebC8b7E420C3 has no code. Reopen only if a manager is pinned WITH claim dispatch on a farm chain and a claimer bounty appears in its source; then census claimers by logs first. Do not re-scout from docs prose."
+}

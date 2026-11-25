@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-symbiosis",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1692,
+ "chain": "polygon",
+ "slug": "symbiosis",
+ "name": "Symbiosis",
+ "category": "Cross Chain Bridge",
+ "tvl_usd": 448822,
+ "url": "https://symbiosis.finance",
+ "github": [
+  "symbiosis-finance"
+ ],
+ "listed_days_ago": 1692,
+ "run_id": "380f458db94c4c1ebc5b2bd8c14cd96f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Same as arbitrum: completions run through receiveRequestV2Signed (needs MPC sig, pays caller 0) or onlyMPC receiveRequestV2; 195 calls in explorer's 200-tx page (4.44d, ~44/day, ~300/7d) all by one relayer EOA 0x67f9b3e5...; fee 0.25-0.75 USDC.e/call goes to the bridge contract (pot 128.05 USDC.e, withdrawFee onlyOwnerOrAdmin), caller gross $0 vs gas $0.008-$0.12 (191k-2.95M gas @ ~480 gwei, POL $0.0822, coins.llama.fi 2026-11-19 12:09 UTC).",
+  "kb": [
+   "attempts:2504",
+   "protocols:1004"
+  ],
+  "run_id": "380f458db94c4c1ebc5b2bd8c14cd96f",
+  "at": 1795090442
+ }
+}

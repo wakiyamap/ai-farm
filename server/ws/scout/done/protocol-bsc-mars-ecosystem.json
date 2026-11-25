@@ -1,0 +1,27 @@
+{
+ "id": "protocol-bsc-mars-ecosystem",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1860,
+ "chain": "bsc",
+ "slug": "mars-ecosystem",
+ "name": "Mars Ecosystem",
+ "category": "CDP",
+ "tvl_usd": 214005,
+ "url": "https://marsecosystem.com/home",
+ "github": [
+  "MarsEcosystem"
+ ],
+ "listed_days_ago": 1860,
+ "run_id": "e75eb1e740c24f67a4e39c0b602005ea",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Mars Ecosystem on bsc is a UniV2 DEX + MasterChef farms (not CDP): deposit/harvest callable by anyone (fresh-address eth_call OK, gas 44,891 = $0.0013) but pays only the caller's own stake rewards, 0 for a stranger; 0 events from both farms over 7d (sample 80k/40k of 1.34M blocks, head 134550582; control WBNB 6938 logs/500 blk); XMS pots 28.30M (~$5.8k) + 5.55M (~$1.1k) untouched.",
+  "kb": [
+   "protocols:1080",
+   "attempts:2602"
+  ],
+  "run_id": "e75eb1e740c24f67a4e39c0b602005ea",
+  "at": 1795113140
+ }
+}

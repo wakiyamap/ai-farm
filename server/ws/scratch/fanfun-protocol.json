@@ -1,0 +1,6 @@
+{
+  "chain": "hyperevm",
+  "protocol": "fan_fun",
+  "status": "dead_end",
+  "checked": "DefiLlama protocol fan.fun (id 6081, category SoFi, deadUrl:true): module fandotfun/index.js; adapter now in registries/sumTokens.js entry 'fandotfun' -> owners [0x1Ce2521E11D1FF489BE872a4091fE423F4E4eA44] on 'hyperliquid' (native HYPE). Same address on hyperevm has code (eth_getCode not 0x), verified source 'Keys' (Etherscan, BUSL-1.1, solc 0.8.28): creator-subscription keys with 1/day decay; created block 1975595 by 0x25b652a90ee7db85a021b25cb4f663d7bc1cdd0e; constructor protocolFeeDestination=that EOA, protocolFeePercent=200 (getter 0xd6e6eb9f -> 200). Balance 448.01 HYPE x 62.98 USD (coins.llama.fi ts 1795370597) = 28,218 USD ~= listed TVL 26,925 USD. Functions: claim(address,address[])/(address[][]) public, no access control (eth_call claim from fresh 0xa11ce...01 returns 0x); buyKeys payable, sellKeys, unlockBuys. claim pays protocolFeeDestination + creator arg + subscribers array args (Claimed + ClaimFeeDistributed events) - msg.sender gets nothing unless it is creator/subscriber. fandotfun GitHub org has only DefiLlama forks, no protocol source."
+}

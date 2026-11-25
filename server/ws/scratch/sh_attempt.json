@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-stablehodl",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: StableHodl's BSC contract is a custodial funding-arb vault (pool proxy 0x528d46B5780879E28Cf410C0b86D991A38Fe64Aa, impl 0xc34df695167aa2f9571976ffd5e3e0e95a53e470). Full function surface from bytecode dispatch + OpenChain DB has no reward/claim/harvest/keeper function anyone can call: only deposit(address,uint256), emergencyWithdraw, admin setters (setMasterAddress/setWhitelistToken, ADMIN/MOD/SUPER_ADMIN roles) and views. Yield accrues off-chain (HLUSD rewards on HeLa chain); pool holds 0 tokens on BSC (getPoolBalance(USDT)=0, actual USDT/USDC balances 0). 7-day eth_getLogs (6 sampled 5000-block windows, ~30 min each, spread across the week) show zero events; same-shape control (USDT addr-only, 100 blocks) returned 5838 logs.",
+ "numbers": "TVL $231,341 (DefiLlama, matches on-chain poolAmount()=231,430 units: USDT 20,176 + USDC 211,254). Pool logs over last 7 days: 0 in 6x5000-block sampled windows of ~1.61M weekly blocks; control 5838 logs/100 blocks (USDT 0x55d398326f99059ff775485246999027b3197955, block ~134190088). Custodian masterAddress 0x6a102c501a9eade49e6224cec7834c89112ccead holds 9 USDT. Gas cost N/A (no candidate call). Source: rpc.py bsc eth_call/eth_getLogs 2026-11-17, DefiLlama adapter projects/stablehodl/index.js."
+}

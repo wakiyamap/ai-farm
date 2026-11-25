@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "sera",
+  "status": "dead_end",
+  "checked": "Sera (sera.cx) stablecoin-FX orderbook DEX. Addresses from DefiLlama adapter projects/sera/index.js + explorer. Sera orderbook 0xB5C50C5D5f038404F85970b7f5B7259C4AC0E198 (verified src), Vault 0xC7d4Fd2638e6630C8C61329878676b88A8A24D43, SeraSOR router 0xa7a0cf7cd6f043fca23f29d8ae5aae6b46e11c18 (trustedRouter() read on chain), Batcher 0x1f4b366f4145a92978df4beeb6bde71bc652f034. All eth_getCode non-empty. Verified source (explorer): matchOrders onlyRole(EXECUTOR_ROLE); executeIntent (SOR) onlySeraRole(EXECUTOR_ROLE); settleRoutedLeg/consumeIntentUuid only trustedRouter; user fns (depositFund, emergencyWithdraw, executeInstantWithdrawDualSig) pay the user/caller themselves, caller gets nothing. Fees+spread go to treasury 0x562fffc562d3d70e04b3160cd80d612dad5c0136 (slippageShares on chain: protocolShareBps=10000/10000). eth_call matchOrders from fresh addr reverts AccessControlUnauthorizedAccount(0x..dead, EXECUTOR_ROLE) sel 0xe2517d3f. hasRole(EXECUTOR_ROLE) true for batcher 0x1f4b366f and operator EOA 0xf0d26d482785285e21b6d22f46719dbad2f7d87e. No reward/claim/epoch fn pays msg.sender anywhere."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "target": "protocol-base-yo-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - ERC-4626 vault protocol: the only functions anyone can call (deposit/redeem/requestRedeem) just move the caller's own assets; the protocol pays the caller nothing. The keeper-type settle path fulfillRedeem is role-gated (requiresAuth) and also pays 0 to the caller. Yield accrues to share holders (plus Merkl rewards for depositors), so earning here means depositing capital, not calling a function.",
+  "numbers": "7d (blocks 0x354a6dc-0x382e2cc, eth_getLogs on 5 vaults): 345 instant exits (yoUSD 218, yoETH 57, yoEUR 21, yoBTC 15, yoUSD Edge 34 RedeemRequest+Withdraw pairs), 1 RequestFulfilled (yoETH, tx 0x2a5426ea786350977f4d57affe0466601d6c7bddf6f5392d930e52bd60656f51, dust 164 wei), 0 ERC4626 Deposit events in 7d AND 30d (net-outflow phase). Sample direct redeem tx 0x95ec7f83e2bd2352948e83c4cbcc967308061e07b8c4f9b670dfc2aea30a89e1: gasUsed 88,335, gasPrice 0.006 gwei (eth_gasPrice 0x5b8d80) ~ $0.001 at ETH $1805 (coins.llama.fi coingecko:ethereum 2026-11-18). Gross paid to a stranger caller with no position: $0. eth_call from 0x1111...1111: requestRedeem reverts InsufficientShares() 0x39996567 (public, needs own shares), fulfillRedeem reverts Unauthorized() 0x82b42900 (role_gated)."
+}

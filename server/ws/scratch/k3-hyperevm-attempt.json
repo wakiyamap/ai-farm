@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-k3-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. K3 Capital's only hyperevm contract is an Euler Earn VaultV2 (0x589a57196c16d0CfAB3Ed229Fcfa959f65cA00bf, 'K3 USDC'). The single role-free state-changing function, accrueInterest(), is callable by anyone (eth_call from fresh addr returns 0x, no role revert) but pays the caller 0 - the 0.5% performance-fee shares go to K3's fixed fee-recipient EOA 0x9ce1c5271b26978bc95bfa180e6b3d0507523d9c, not to msg.sender. All 46 accrue events in 7 days were emitted internally by user deposit/withdraw txs, not by a stranger keeper collecting a bounty. Same curator pattern as k3_capital arbitrum/bsc dead-ends.",
+  "numbers": "contract 0x589a57196c16d0CfAB3Ed229Fcfa959f65cA00bf (Euler VaultV2, source via explorer etherscan hyperevm). TVL (chainTvls Hyperliquid L1) = $828,420 (api.llama.fi 2026-11-17). accrueInterest() sel 0xa6afed95: caller reward gross = $0.00 (perf fee 0.5% = 0.005e18, mgmt fee 0; both paid to recipient 0x9ce1c527..3d9c, not caller). gas per accrue = 119,080 units (eth_estimateGas from 0x..dEaD) x gasPrice 0.106 gwei (eth_gasPrice 0x6514889) = 1.26e-5 HYPE x $69.81 (coins.llama.fi hyperevm HYPE 2026-11-17) = $0.00088/call. AccrueInterest topic0 0x4dec04e750ca11537cabcd8a9eab06494de08da3735bc8871cd41250e190bc04: 46 events / 35 txs over blocks 0x3092ca7-0x3128eff (7d, ~0.984 s/block), all deposit/withdraw-triggered. Verdict gross $0 << gas $0.00088 -> unpaid."
+}

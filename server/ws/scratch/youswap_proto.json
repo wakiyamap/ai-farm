@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "youswap",
+  "status": "dead_end",
+  "checked": "DefiLlama: no dedicated adapter (404); listed in registries/uniswapV2.js: bsc factory 0x137f34df5bcdb30f5e858fc77cb7ab60f8f7a09a (eth_getCode live; allPairsLength()=362; feeTo()=0x240dd2e6f0dc14fd60dde0070dd093f3638cb390). Dead project (deadUrl=true, url empty, symbol YOU, chains Heco/Ethereum/Binance). GitHub YouSwap/contracts (last push 2021-05-25) README lists BSC: Router 0xA4CE57F063A610290EEEF0564B034278438D06CF, YOU 0x181801F00df1BD997D38Dd579dBd44bf9b5a6d2D, Invite 0xe71f923F8032CEdE47DB1d73611370BA24fDF53b, BlackHole, Pool 0x8F1c3c2D8F5675b7c521f827E3899bF76f9382F6 (LP staking), Repurchase 0xB621EA6Fab84A813217439FAeb11B6d9c52C3806. bsc has no explorer source route (etherscan not_on_plan, blockscout/routescan 404), so Pool ABI was read from bytecode selectors + 4byte.directory: deposit(uint256,uint256) reverts 'YouSwap:FORBIDDEN' from a fresh address (invite/whitelist gate), withdraw(uint256,uint256) callable by anyone (empty return), pendingReward(uint256,address), selfReward(address)=0 fresh, poolCount()=56, rewardTotal()=3447249.321190 YOU. Pool emitted 0 logs in the last 7 days; probes at 330-day depth also empty. YOU/USDT liquidity is on Pancake (0x71ef3e32838e7b30f8b23a9085ae916d7cd74842), $10/day volume, YOU $0.005288 (GeckoTerminal 2026-11-20 06:01Z)."
+}

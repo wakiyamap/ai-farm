@@ -1,0 +1,6 @@
+{
+  "chain": "bsc",
+  "protocol": "mochiswap",
+  "status": "dead_end",
+  "checked": "UniV2 fork (DefiLlama api.llama.fi/protocol/mochiswap: forkedFrom 2197, tvlCodePath registries/uniswapV2.js; adapter file 404). Addresses confirmed by eth_getCode (non-0x) + a getter that answers: MOCHI token 0x055dab90880613a556a5ae2903b2682f8a5b8d27 (from DefiLlama `address` field; Sourcify v2 'MochiToken'; owner(), totalSupply() ok, decimals 18); MochiChef 0xa9c9d9aed47320835c84090c62dc324fcf24f683 (MOCHI owner(); Sourcify v2 'MochiChef', Sushi V1 MasterChef: mochi()=MOCHI, poolLength()=17, mochiPerBlock()=1.5e18, totalAllocPoint()=3185); Factory 0xCBac17919f7aad11E623Af4FeA98B10B84802eAc (protocol's own subgraph unchase-subgraphs/mochiswap-bsc-subgraph networks.json + subgraph.yaml startBlock 5270228; feeTo()=0x0233dc54642d266c65c6cb6f8c3d7ab726d7e599). ABI+source from sourcify.dev/server/v2/contract/56/<addr>?fields=all (bsc has no explorer route). Chef is the only reward contract (deposit/withdraw pay accrued MOCHI to the caller-staker only)."
+}

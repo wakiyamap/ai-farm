@@ -1,0 +1,7 @@
+{
+  "chain": "base",
+  "address": "0xb0cd8135476ebeacb553cb5258b404b91401088c",
+  "strategy": "Morpho Blue batch liquidator: unverified self-deployed executor contract (batch(bytes[],bool) 0xd2423b51, exec(address,uint256,bytes) 0x0565bb67) driven by two EOAs (0xde3fdf151ff16de6e547a99ed162749f4f2910f5, 0x68954b1a5b61f9385f577dee61afdc3a9da43025); flash-loans USDC from Morpho (flashLoan -> transferFrom repay), liquidates 1-9 borrowers per tx on USDC-loan markets (cbBTC/USDC 0x9103c3b4, cbXRP/USDC 0xd4a903dc and others), sells seized collateral in-tx on Clearloop CLPool + UniV3-style pools, unwraps and sweeps profit as ETH to EOA 0xde3fdf15",
+  "evidence": "0x876eb723dc69d8be01647e33112416607d428b43632d9994c8d9fafe62832b16 (9 liq cbBTC/USDC, +19.93 USDC in-tx); 0xf147764fcae359088e2a59dee6880941b1c85614d828159157b2f77c52bcdf6d (4 liq cbXRP/USDC, +8.11 USDC); 0x8dac53fbe7a3a133d8531ffd118f0dc9b9f182d822dd309c6debd94a579af7e2 (profit sweep USDC->WETH->0.005 ETH to 0xde3fdf15)",
+  "est_profit_usd_day": 2.8
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "ethereum",
+  "protocol": "juicebox_v3",
+  "status": "dead_end",
+  "checked": "DefiLlama adapter 404 (no projects/juicebox-v3 dir); used api.llama.fi/protocol/juicebox-v3 (address 0x4554CC10898f92D45378b98D6D6c2dD54c687Fb2 = a JBV3Token project token) + github repo jbx-protocol/juice-contracts-v3 deployments/mainnet/*.json for addresses, verified on chain (eth_getCode non-0x, decimals()=18, token()=0xEEee..., currentEthOverflowOf(1) returns). Key contracts: JBDirectory 0x65572FB928b46f9aDB7cfe5A4c41226F636161ea, JBController3_1 0x97a5b9D9F0F7cD676B69f584F29048D0Ef4BB59b, JBETHPaymentTerminal 0x594Cb208b5BB48db1bcbC9354d1694998864ec63, 3_1 0xFA391De95Fcbcd3157268B91d8c7af083E607A5C, 3_1_1 0x457cD63bee88ac01f3cD4a67D5DCc921D8C0D573, 3_1_2 0x1d9619E10086FdC1065B114298384aAe3F680CC0. Only permissionless value-moving fn on terminals is distributePayoutsOf (no access control; NatSpec: anyone can distribute, project MAY set a wildcard split paying msg.sender). useAllowanceOf/migrate/processFees are requirePermission (owner/operator); setFee etc onlyOwner. No keeper bounty otherwise: protocol fee goes to Juicebox fee destination, not callers."
+}

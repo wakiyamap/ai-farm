@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-piku-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 364,
+ "chain": "ethereum",
+ "slug": "piku-finance",
+ "name": "Piku Finance",
+ "category": "Basis Trading",
+ "tvl_usd": 24189394,
+ "url": "https://piku.co/",
+ "github": [
+  "piku-co"
+ ],
+ "listed_days_ago": 364,
+ "run_id": "b70b8a1348094e899e9a272eca091299",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Institutional USP-stablecoin/Morini-vault platform (24M USDC): only permissionless functions are accrueAndProcess()/updateLateStatus() on Accountable strategy 0xcbbbd2 (eth_call from fresh addr succeeds); pay caller $0 - 3 calls/7d by keeper 0x185a0d..., gross $0, gas 254k = $0.04 (ETH 1623.50 USD llama 17:39 UTC); rest role-gated (Midas mint/burn roles, onlyAuth whitelisted deposits)",
+  "kb": [
+   "attempts:2998",
+   "protocols:1397"
+  ],
+  "run_id": "b70b8a1348094e899e9a272eca091299",
+  "at": 1795196509
+ }
+}

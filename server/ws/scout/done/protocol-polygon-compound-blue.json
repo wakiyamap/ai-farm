@@ -1,0 +1,27 @@
+{
+ "id": "protocol-polygon-compound-blue",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 566,
+ "chain": "polygon",
+ "slug": "compound-blue",
+ "name": "Compound Blue",
+ "category": "Lending",
+ "tvl_usd": 354882,
+ "url": "https://www.compound.blue/",
+ "github": [
+  "papercliplabs"
+ ],
+ "listed_days_ago": 566,
+ "run_id": "1252da1d8fe344d78369c8d94a5f8770",
+ "result": {
+  "verdict": "no_reward",
+  "line": "4 MetaMorpho v1.1 vaults (USDC 0x781F..c42, WETH 0xF5C8..3cCF, USDT 0xfD06..D6c8, POL 0x3F33..64c2); verified source has no reward/claim/keeper fn at all \u2014 permissionless ERC-4626 flows pay the caller 0, skim(address) succeeds from a stranger but pays skimRecipient; rest is owner/curator/allocator/guardian-gated; 7d eth_getLogs 97,203,322-97,505,722: 7 Withdraw + 0 Deposit, largest 2.09 USD (gas on polygon <0.01 USD)",
+  "kb": [
+   "attempts:1938",
+   "protocols:552"
+  ],
+  "run_id": "1252da1d8fe344d78369c8d94a5f8770",
+  "at": 1794964343
+ }
+}

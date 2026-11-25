@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "sudoswap_v1",
+ "status": "dead_end",
+ "checked": "Sudoswap V1 (DefiLlama slug sudoswap-v1, adapter projects/sudoswap/index.js) = the LSSVM AMM. PairFactory 0xb16c1342E617A5B6E4b631EB114483FDB289c0A4 (verified source LSSVMPairFactory via explorer): eth_getCode non-0x, protocolFeeMultiplier()=5e15 (0.5%) answers. 39,453 pools created (NewPair(address) logs, topic0 cast keccak + matches adapter, fromBlock 14,645,816..26,469,055, 119 getLogs chunks); pool clone 0xd14db5cd6baad26ce06a98d0adc57a816bfdc73d code non-0x, spotPrice() and nft() answer. Routers from factory RouterStatusUpdate logs: 0xe5763f17cf9668328938b61e282855c04ffb50a4, 0x2b2e8cda09bba9660dca5cb6233787738ad68329 (main), 0x844d04f79d2c58dcebf8fff1e389fccb1401aa49, 0x3062627136de797f807bcb63f0d5399a21dfb6c8. Full verified source (factory, LSSVMPair + all 4 variants, LSSVMRouter) grepped for reward/bounty/incentive/harvest/poke/compound/rebalance/settle/checkpoint/distribute/epoch/claim/redeem: no such function. Non-view externals are only swaps (caller supplies NFT or token), createPairETH/ERC20, depositNFTs/ERC20 and pool receive/fallback; every change*/withdraw*/set* is onlyOwner. Nothing pays the caller. Near-dormant at $313k TVL."
+}

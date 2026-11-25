@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-velvet-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Velvet V2 on BSC (IndexFactory 0xE61472Ce45e559830ECF12F6a215Cd732F4D798B, 1145 portfolios, source Velvet-Capital/protocol-v2-public) is an asset-management protocol where every work function is role-gated via AccessController: rebalance/update functions are onlyAssetManager, IndexSwap set-updating onlyRebalancerContract, minting onlyMinter (fresh-address eth_call reverts, setLastRebalance -> 0x7f3d3344 role error). The only anyone-callable work entry is FeeModule.chargeFees() (no role, stranger eth_call returns 0x) but it pays the caller 0 - it mints fee shares to the asset-manager and protocol treasuries; user invest/withdraw functions likewise pay the protocol, not the caller. 7d caller counts unmeasurable this session: scout-lane Alchemy budget spent and BSC public nodes refused eth_getLogs ('all providers failed'), so no activity zeros claimed.",
+  "numbers": "indexId()=1145 portfolios; sample portfolio 0x1fece7d14c66b480cc59466662e0a014c57957f5 totalSupply 46,093,301,616,332, own FeeModule 0x4835d15b75d86b02a11825a4bb55246e4cdcb611; chargeFees() from stranger 0x00..99 = returns 0x (pays caller $0); updateWeights + setLastRebalance from stranger revert (0x7f3d3344); gross to a stranger per call $0; gas 0.05 gwei (eth_gasPrice bsc) x BNB $579.28 (coins.llama.fi) = $0.0029 per 100k-gas call; TVL $271,821 BSC+Arbitrum (DefiLlama); scout CU 305,634/300,000 (relay /health)."
+}

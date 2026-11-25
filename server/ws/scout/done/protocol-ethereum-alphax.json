@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-alphax",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 828,
+ "chain": "ethereum",
+ "slug": "alphax",
+ "name": "AlphaX",
+ "category": "Derivatives",
+ "tvl_usd": 753788,
+ "url": "https://alphax.com/",
+ "github": [
+  "AlphaX-Protocol"
+ ],
+ "listed_days_ago": 828,
+ "run_id": "cb3bc6b8bcee495a9588f0de6b3a99c4",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Custodial DEXVaultV1 (proxy 0xEc0377...E1e1, impl 0x3afa86...428e verified), same as arb/bsc dead_ends: no fn pays the caller; withdraws need 2 protocol ECDSA sigs and pay users their own funds. 7d (blocks 26411108-26461370, 11-14..11-21): 323 Deposit + 100 Withdraw, 100/100 submitted by one protocol EOA 0x4977...cc30 at own gas 214512 gas = 2.47e-5 ETH = 0.039 USD (ETH 1568.50 coins.llama.fi ts 1795238981); sample payouts 20098 USDT / 111 USDC / 0.0068 ETH. eth_call withdrawETH from fresh addr: revert 'invalid allSigners length'.",
+  "kb": [
+   "attempts:3204",
+   "protocols:1550"
+  ],
+  "run_id": "cb3bc6b8bcee495a9588f0de6b3a99c4",
+  "at": 1795239196
+ }
+}

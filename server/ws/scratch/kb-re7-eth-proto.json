@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "re7_labs",
+ "status": "dead_end",
+ "checked": "Scout 2026-11-20 run 726ab342. DefiLlama re7-labs is the Risk Curators aggregator (registries/curators.js 're7' block, github null on api.llama.fi/protocol/re7-labs). Ethereum config = morphoVaultOwners 0x46BA7bCD764a692208781B0Fdc642E272ee597bC (EOA, eth_getCode 0x) + 0xE86399fE6d7007FdEcb08A2ee1434Ee677a04433 (GnosisSafeProxy), eulerVaultOwners 0xa563FEEA4028FADa193f1c1F454d446eEaa6cfD7 (EOA, 0x) + 0x46BA7bCD, morpho VaultV2 0x5E2339BCb89B42782CEE454B46C7C6f88c0E4f83 (AxP-USDC Core; totalSupply 6.116e6 shares, decimals()=18 read on chain, asset()=USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 read on chain), 11 Mellow vaults (impl MultiVault 0x0C5BC4C8406Fe03214D18bbf2962Ae2fa378c6f7 x7, MellowVaultCompat 0x09bBa67C316e59840699124a8DC0bBDa6A2A9d59 x4), turtleclub BoringVault 0x294eecec65A0142e84AEdfD8eB2FBEA8c9a9fbad (tacETH), symbiotic 0x35E44d92E8F738A272Bddbae53d1Dc9490e75Fe7. Re7 owns no contract of its own on ethereum: all addresses are other protocols' vaults or the curator's wallets. ABIs (etherscan) + Blockscout names checked; same aggregator pattern already dead-ended on base/optimism/avalanche re7_labs."
+}

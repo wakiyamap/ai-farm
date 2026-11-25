@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-pods-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward: Pods Finance (Options) Arbitrum has no function anyone can call that pays the caller. All value transfers (PodOption mint/exercise/unmint/withdraw; OptionAMMPool addLiquidity/removeLiquidity/tradeExact*; OptionHelper mint/buy/sell combos) move msg.sender's own funds or position; FeePool setFee/mint/withdraw are onlyOwner and OptionAMMPool.withdrawRewards() requires configurationManager.owner() (Aave rewards go to admin). Protocol is also dead: 0 logs in 7 days on all 56 protocol contracts; last pool created 2022-06-08, last option 2023-02-09.",
+ "numbers": "TVL 32,053 USD (api.llama.fi/protocol/pods-finance 2026-11-23); 7-day logs = 0 on 5 core contracts (OptionFactory 0xabfce317..58c0, AMMFactory 0x6575e244..4ae3, Helper 0xefafa749..b80a, PriceProvider 0xeb624b9e..120, IVGuesser 0x62fafd02..7bf8, ConfigurationManager 0x84601612..9008) + 20 pools + 31 options, blocks 524,748,212 ts 1794832469 (2026-11-16) to 526,806,040 ts 1795437432 (2026-11-23); control USDC.e 353 Transfer logs in 6,096 blocks same run; 28-day scan (from 518,473,496 ts 1793026909) returned exactly 1 log: option-token Transfer on 0x854415aa..38e7 tx 0xb91878d5..3e6715; 20 PoolCreated full history (last block 14,061,111 ts 1654686898), 31 OptionCreated (last block 59,425,849 ts 1675939770) via factory event getLogs; source github.com/pods-finance/contracts (solc 0.6.12); docs pods-finance/documentation developers/deployed-contracts.md"
+}

@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "reserve_protocol eUSD revenue auction bidWithCallback",
+ "status": "measured",
+ "why": "24 fills in 7 d (blocks 26426772-26455712), all taken by permissionless bids: 0xd1c6aca7ea7ed44e1873dafa054c28ceb690c7eb x12, 0x1159e35657ea130c09b198373827512304e82073 x7, 0xf7c70a04d2c0bba340fffb1816d30a25dd3562f6 x5 (bidder()/bidType() read on-chain, 19 callback + 5 transfer, 0 trusted fill). Sample gross at today's prices +1.0 to +1.1 USD on ~500-1000 USD collateral->eUSD legs and +8.5 to +29.3 USD on RSR legs, vs gas $0.237-0.487 (ETH $1657.16, coins.llama.fi 2026-11-22T05:0xZ).",
+ "next_steps": "Contracts: eUSD RToken revenue trader 0x3d5ebb5399243412c7e895a7aa468c7cd4b1014a (13 fills/7 d) and RSR revenue trader 0xe04c26f68e0657d402fa95377aa7a2838d6cba6f (11 fills/7 d), both proxy 4.2.0; the trader creates a one-shot IDutchTrade and anyone calls bidWithCallback(bytes) 0xd5557c04 (principal-free) or bid; 1800 s Dutch decay, fills land 87-111 blocks after start (wiki infra/reserve-revenue-auctions.md: not a latency race, gas is the edge, incumbent wins at the last moment). Watch: this class ran as bot reserve-dutch-ethereum v1-v3 and was archived 2026-11-12 because the winner's payout came in ETH+/unrealizable tokens (attempts:973, lead:126 dead_end) and the collateral legs are ~0.2% thin: realize gtusdcp/gtusdcf/saEthUSDT to USDC cheaply before sizing. Others take it well after the first block (last-moment bidding by incumbents), so not a first-block trial."
+}

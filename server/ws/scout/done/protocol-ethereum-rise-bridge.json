@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-rise-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 210,
+ "chain": "ethereum",
+ "slug": "rise-bridge",
+ "name": "RISE Bridge",
+ "category": "Bridge",
+ "tvl_usd": 124481,
+ "url": "https://risechain.com/",
+ "github": null,
+ "listed_days_ago": 210,
+ "run_id": "927b7c24e5cb4061b2f207d4785bff05",
+ "result": {
+  "verdict": "unclear",
+  "line": "RISE Bridge = Ethereum L2 (chainId 4153); 120.5k USD TVL sits on Ethereum as ~52 WETH (api.llama.fi 2026-11-20) but no Ethereum contract address resolvable: DefiLlama adapter not in public tree, docs list none, portal.risechain.com bridges via LayerZero (lzEid 30101) + a custom Bridgeable/BridgeableReceiptToken standard (Blockscout); eth_getCode/gates never run - missing the L1 escrow address",
+  "kb": [
+   "attempts:2951",
+   "protocols:1360"
+  ],
+  "run_id": "927b7c24e5cb4061b2f207d4785bff05",
+  "at": 1795187359
+ }
+}

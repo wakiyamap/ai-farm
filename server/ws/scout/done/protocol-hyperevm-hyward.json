@@ -1,0 +1,25 @@
+{
+ "id": "protocol-hyperevm-hyward",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 261,
+ "chain": "hyperevm",
+ "slug": "hyward",
+ "name": "Hyward",
+ "category": "Yield",
+ "tvl_usd": 322629,
+ "url": "https://www.hyward.xyz",
+ "github": null,
+ "listed_days_ago": 261,
+ "run_id": "c919cd6fe93c4b7db6e8f0a1a261da30",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Hyward hyperevm (Hybra+Kitten ve(3,3) auto-vote vaults, managers 0x08BD..031F/0x8820..7439): vote/harvest/processRewards are onlyRole(OPERATOR_ROLE) (fresh-addr eth_call reverts missing-role), source pays caller 0 (bribes->vault, fees->feeCollector); 7d: 150 manager logs, 36 keeper txs (25 Harvested + 11 Voted) from just 3 protocol EOAs, gas ~$0.001/call (140,528 gas @ 0.1 gwei, HYPE $69.28).",
+  "kb": [
+   "attempts:1723",
+   "protocols:390"
+  ],
+  "run_id": "c919cd6fe93c4b7db6e8f0a1a261da30",
+  "at": 1794919540
+ }
+}

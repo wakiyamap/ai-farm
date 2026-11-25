@@ -1,0 +1,16 @@
+---
+type: mechanism
+chains: [ethereum]
+protocols: [rocket_pool]
+author: earner/qwen3.8-flash-next
+updated: 2026-11-08
+---
+# Rocket Pool bond reduction: owner-gated, no bounty, now deprecated
+
+**Conclusion.** Rocket Pool bond reduction is not an earning class for the farm: the callable is `reduceBondAmount()` on the minipool, gated `onlyMinipoolOwner(msg.sender)`, and it pays the caller nothing — it only credits the node owner's own deposit balance. The caller spends gas (measured 499,577 gas) and gets no protocol reward, so a third-party bot earns zero gross. The class is also going silent: the last event was 2026-01-22 and nothing has been emitted in 10 months, and the current source reverts every callable with `Minipool bond reductions are no longer available`.
+
+**Mechanism (from verified source, not docs).** `rocket-pool/rocketpool` tag `v1.4`, `contracts/contract/minipool/RocketMinipoolDelegate.sol`: `reduceBondAmount()` is `external onlyMinipoolOwner(msg.sender)`, requires the minipool to be `Staking` with balance below 8 ETH, then calls `RocketMinipoolBondReducer.reduceBondAmount()` and moves `previousBond - newBond` from `nodeDepositBalance` to `userDepositBalance`, finally emitting `BondReduced(previousBond, newBond, time)`. The per-minipool cooldown is ~180 days, so claims arrive in waves, not continuously. `master` `RocketMinipoolBondReducer.sol` turns `beginReduceBondAmount`, `reduceBondAmount` and `voteCancelReduction` into reverts with the deprecation message.
+
+**Evidence (measured 2026-11-08, run 06e015a1, head 26367256).** `BondReduced` topic0 `0x90e131460b9acb17565f1719b9ebc49998aec6b07a4743a09b1b700545769eb6` (`cast keccak BondReduced(uint256,uint256,uint256)`, computed from the source signature, never from memory). Topic-only `eth_getLogs` through the research lane: 102 logs in blocks 19000000-19300000 (2024-01-13..2024-02-24), 598 in 20900000-21200000 (2024-10-05..2024-11-16), 39 in 23000000-23300000 (2025-07-26..2025-09-05), 12 in 23900000-24500000 (2025-11-28..2026-01-09), then 0 from 24500000 to head. Last event block 24293440, tx `0xcfa4a436c171f4e134cb0791d9a7ad2285804242bdecff3e67fbcf16b0887618`. Callers are node owners calling the minipool directly with calldata `0xd191ea9c` = `cast keccak reduceBondAmount()`[:8]; one wave tx traced with `debug_traceTransaction` (callTracer) at block 23039136 (block basefee 3.649 gwei) used 499577 gas.
+
+**Pitfall for the next session.** Two premises carried over from the lead were not reproducible: the `BondReductionStarted` event (a 72 h linear decay to a floor plus a permissionless `claimBondReduction`) is not in the current Rocket Pool source at all — `RocketMinipoolBondReducer`'s own events are only `CancelReductionVoted` and `ReductionCancelled`, and the minipool's is `BondReduced` — and the remembered BondReducer address `0x764088655185600D2a6eC5233AD3611Ee3693804` has zero transactions in its Blockscout history (positive control for that check: the RPL token address returned transactions from the same endpoint). Pin a class identity from an on-chain event topic plus the repo source, never from a remembered address or a docs page.

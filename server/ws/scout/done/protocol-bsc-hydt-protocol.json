@@ -1,0 +1,24 @@
+{
+ "id": "protocol-bsc-hydt-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1124,
+ "chain": "bsc",
+ "slug": "hydt-protocol",
+ "name": "HYDT Protocol",
+ "category": "Yield",
+ "tvl_usd": 73427,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 1124,
+ "run_id": "b2adeb0d9a7143c99afb21ea119ef6ec",
+ "result": {
+  "verdict": "unpaid",
+  "line": "MasterChef-style self-claim staking (Earn 0x8e48..0Ced, Farm 0x4590..A779, all Sourcify exact): 2,892 claimPayouts in 7d (blocks 133,837,194-135,180,603) paid 33,839 HYDT ~29,360 USD at 0.8677 (median 2.55 HYDT = 2.21 USD vs 0.20-0.29 USD gas) but every USD went to the claiming staker's own msg.sender; a stranger's claimPayout reverts 'invalid index', withdrawRewards reverts 'no amount deposited', and the open updatePool/massUpdatePools succeed from a fresh EOA paying 0; Reserve.withdraw and Control.execute onlyRole(CALLER_ROLE).",
+  "kb": [
+   "attempts:3925"
+  ],
+  "run_id": "b2adeb0d9a7143c99afb21ea119ef6ec",
+  "at": 1795396815
+ }
+}

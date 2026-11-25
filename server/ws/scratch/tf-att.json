@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "target": "protocol-base-team-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. Team Finance v3 lock (proxy 0x4f0fd563be89ec8c3e7d595bf3639128c0a7c33a, impl 0x6dd27f2b82f78dd8a802a9228f340518280359f1, LockToken.sol) gates withdrawTokens/collectUniswapV3LPFees/splitLock/mintNFTforLock to the lock's withdrawal address; a stranger's eth_call of withdrawTokens(1,1) reverts 'Unauthorised to unlock'. No function pays a caller for acting. Activity is also near-dormant: 1 withdrawal event in 7 days, made by the user's own EOA through a router.",
+ "numbers": "depositId 2676; 7d events on lock proxy: 1 LogNFTWithdrawal + 0 LogTokenWithdrawal (eth_getLogs 56389774..59413774); VestingCreated 0/7d, 20/30d; gross to a stranger caller 0 USD (withdrawal sends 100% of the released tokens to the withdrawal address, feesInUSD is paid BY the user to companyWallet); TVL 6.16M USD (candidate)"
+}

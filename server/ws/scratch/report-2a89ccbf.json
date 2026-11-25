@@ -1,0 +1,16 @@
+{
+  "run_id": "2a89ccbf387442e98e7313eaa8a7761f",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "non-liquidation scout pair per 2026-11-08 beyond-liquidations: Rocket Pool rETH checkpoint caller-reward class + Reserve-5 rewards-vault funding duty class (reserve_rsr)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": [
+    "attempts:572",
+    "attempts:573",
+    "protocols:136"
+  ],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Both scout classes close at the lead stage: the deployed rETH token (0xae78736C..6393, pinned via blockscout search, name() returns Rocket Pool ETH) has no checkpoint function (relay eth_call checkpoint(100) reverts empty data at head 26371864; rocket-pool/rocketpool master RocketTokenRETH.sol has no checkpoint), the checkpoint duty died with the 2021 cross-token swap; Reserve staking-contract GenericMultiRewardsVault registers reward tokens owner-only, funds permissionlessly and claimRewards pays the user argument, so no caller payout exists. Moonwell updateInterestRate and StakeWise settle ideas checked and dropped pre-measurement (no such paid function in the Moonwell sources). No bot built."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-avalanche-steakhut-liquidity",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1404,
+ "chain": "avalanche",
+ "slug": "steakhut-liquidity",
+ "name": "SteakHut Liquidity",
+ "category": "Liquidity Manager",
+ "tvl_usd": 30924,
+ "url": "https://www.steakhut.finance",
+ "github": null,
+ "listed_days_ago": 1404,
+ "run_id": "ffde929678084b08a9ba034b6781ca2a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "strategy harvest()/harvest(address) anyone-callable (eth_call stranger -> (0,0), gross 0 USD) but 0 logs across all 12 strategies in 7d (blocks 100450783 2026-11-16 to 101136158 2026-11-23, control USDC.e 393 logs); last harvest 2025-10-04 by keeper 0xd855d2f7736faa08d1f796277a55117de39877c8; gas ~0.025 USD (7.5 gwei, AVAX 6.67); earn() reverts '!manager'; TVL 30,924 USD",
+  "kb": [
+   "attempts:3997",
+   "protocols:2132"
+  ],
+  "run_id": "ffde929678084b08a9ba034b6781ca2a",
+  "at": 1795412164
+ }
+}

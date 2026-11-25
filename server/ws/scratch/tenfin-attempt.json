@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-ten-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. The only anyone-relevant compound function, earn() on the 19 active Beefy-v2 strategies of TEN Finance's masterchef, is onlyGov=true on every one (fresh-address eth_call reverts '!gov'), and its 0.8% fee goes to the protocol rewardsAddress, never msg.sender, so even ungated it pays a stranger 0. Not even gov has earned since block ~31.6M (2021); TENFI emissions are over (getMultiplier returns 0), so the 178 masterchef deposit/withdraw events of the last 7 days are aggregator harvest cycles paying nothing.",
+  "numbers": "105 pools, 19 with allocPoint>0 (poolInfo, MC 0x264A1b3F6db28De4D3dD4eD23Ab31A468B0C1A96); onlyGov=true 19/19 (eth_call 0x0daef321); earn() from 0x1111... reverts !gov (0xd389800f); lastEarnBlock max 31,644,058 vs current 134,639,275 (block 1795152508 = 2026-11-20); getMultiplier(100,101)=0 and (48441350,134600000)=0 -> emissions dead, pendingTENFI(49,0xb2aa...c5a4)=0; MC Deposit/Withdraw eth_getLogs 133,176,331..latest: 178 logs (73 Deposit, 105 Withdraw), 5 user addresses, deposit+withdraw equal amounts same tx (harvest cycles, pay 0 since pending=0); TENGas_Fee 80 / TENGas_FeeMax 10000 = 0.8% to rewardsAddress 0x393c7c3ebcbff2c1138d123df5827e215458f0c4; TVL 185,296 USD (DefiLlama 2026-11-20); gross to a stranger per earn() call = 0."
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-rocksolid-network",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. RockSolid is 3 Lagoon v0.5.2 ERC-7540 custodial vaults on ethereum (TVL ~16.6M USD). Every state-changing function is onlySafe/onlyValuationManager (settleDeposit/settleRedeem/claimSharesOnBehalf/updateNewTotalAssets); the publicly callable functions (syncDeposit, requestDeposit, requestRedeem, redeem, claimSharesAndRequestRedeem) are user operations on the caller's own balance and pay the caller nothing - no reward/bounty/keeper function exists in the ABI or verified source, referral is event-only.",
+  "numbers": "Vaults: rETH 0x936facdf10c8c36294e7b9d28345255539d81bc7 (impl 0x8a051dd8f97b1725dc60f0f69cacc1d3e12ff92c), AutoPlus 0x7a12d4b719f5aa479ecd60defed909fb2a37e428, USDm 0xBa71097E426983D840569EdFa1a01396b56D86Ad (impl 0xe50554ec802375c9c3f9c087a8a7bb8c26d3dedf). eth_call settleDeposit from fresh addr reverts OnlySafe(0x9ca1d6e730eb9fbfd45c9ff5f0ac4e3d172d8f4d) 0xfde82f1f (cast sig OnlySafe(address)). Last 25 txs to rETH vault over 2026-11-13..20 (explorer txs): safe = updateNewTotalAssets 0xbcd1bf34 + settleDeposit 0xd24ca58a; users = syncDeposit 0xd01d073a, redeem, claimSharesAndRequestRedeem 0x5cfe2fe4; 0 stranger-paid calls, gross reward per call 0. Source: explorer source 0x8a051dd8... (Lagoon Vault v0.5.2, src/v0.5.2/Vault.sol)."
+}

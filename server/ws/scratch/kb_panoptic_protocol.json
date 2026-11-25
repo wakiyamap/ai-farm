@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "panoptic_v2",
+ "status": "measured",
+ "checked": "DefiLlama adapter projects/panoptic-v2/index.js gave factories PanopticFactoryV3 0x0000000000000aDC9A108591e718F2aee963a2a7 and V4 0x0000000000000c51d0f8cf4bd9adE7191372a625 plus 4 PLP vaults (HypoVault). PoolDeployed logs give 3 pools: 0x9bb5a62102ee85a23222059646db9c00842a7a56 (wNVDAx/USDC), 0x00000000009c7b687e833559e34503f64d7ed7c4 (USDC/WETH), 0x00000000000e98f6c5ae16835badf2f7cc0d49d7 (USDC/WETH); all 178-byte clones with code, getters answer (collateralToken0/1 + asset() on trackers: USDC 0xa0b8..eb48, WETH 0xc02a..6cc2). Verified source via explorer (PanopticPool.sol, CollateralTracker.sol, HypoVault.sol, panoptic-v2-core). Liquidation path = PanopticPool.dispatchFrom (external payable, no role) pays bonusAmounts to caller. 7-day no-topic log scan (control: same shape returned 256 logs on pool 3): pools 1 and 2 dead (0 logs), pool 3 active: 1 AccountLiquidated, 14 ForcedExercised (exercisor PAYS a fee), 4 PremiumSettled, 237 mint/burn. pokeOracle() and CollateralTracker.accrueInterest() are permissionless but pay the caller 0. HypoVault executeDeposit/executeWithdrawal pay the caller 0 (assets go to the user)."
+}

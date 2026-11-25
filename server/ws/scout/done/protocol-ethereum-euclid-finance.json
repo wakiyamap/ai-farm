@@ -1,0 +1,24 @@
+{
+ "id": "protocol-ethereum-euclid-finance",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 968,
+ "chain": "ethereum",
+ "slug": "euclid-finance",
+ "name": "Euclid Finance",
+ "category": "Liquid Restaking",
+ "tvl_usd": 214785,
+ "url": "",
+ "github": null,
+ "listed_days_ago": 968,
+ "run_id": "1afd6e46e9044cc79f67c6920c2ad8d2",
+ "result": {
+  "verdict": "unpaid",
+  "line": "LayerBank-fork LRT (elETH): no caller-paid reward. Only permissionless payout is WM.completeWithdrawal (own principal; fresh eth_call reverts QueueEmpty); keeper ops (updateElETHPrice, unlockQueue, completeUnstaking, startCheckpoint, verifyCheckpointProofs, claimSwellAirdrop) all onlyRole(ADMIN_ROLE) (source + eth_call revert). 0 events on all 7 contracts in 7d (blocks 26412435@2026-11-14 to 26462635@2026-11-21, no-topic scan, control returned logs on WM 24228552-24238320); last redemption 2026-01-14 (0x52f0160a..); pool paused 2025-02-24; deadUrl; TVL 194.5k USD.",
+  "kb": [
+   "attempts:3262"
+  ],
+  "run_id": "1afd6e46e9044cc79f67c6920c2ad8d2",
+  "at": 1795254248
+ }
+}

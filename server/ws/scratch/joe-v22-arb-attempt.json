@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-joe-v2-2",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Joe V2.2 (DLMM) exists and is live on Arbitrum (LBFactory 0xb43120c4745967fa9b93E79C149E66B0f2D6Fe0c, 113 pools, 326 swaps/7d) but no function anyone can call and get paid: swap/mint/burn/flashLoan are user actions, collectProtocolFees is onlyProtocolFeeRecipient (fresh-address eth_call reverts 0x3e24df14), forceDecay/setters are onlyFactory/onlyOwner, and the only open keeper-ish call increaseOracleLength succeeds from a fresh address but transfers nothing (source read). Same verdict as avalanche (attempts:2146) and arbitrum v2.1 (attempts:2311).",
+  "numbers": "113 LB pairs (getNumberOfLBPairs 0x4e937c3a); pool impl 0x7a5b4e301fc2b148cefe57257a236eb845082797 verified LBPair (arbiscan via explorer); increaseOracleLength(uint16) 0xc7bd6586 eth_call from 0x1111..1111 -> success 0x, no transfer in body; collectProtocolFees() 0xa1af5b9a from fresh -> revert 0x3e24df14 (role); 7d = blocks 524561242 (ts 1794775886, 2026-11-15) .. 526614463 (ts 1795380686, 2026-11-22) via eth_getBlockByNumber timestamps: 326 logs across all 113 pools (full scan, not a sample), all topic0 0xad7d6f97ab = Swap(address,address,uint24,bytes32,bytes32,uint24,bytes32,bytes32) (cast keccak, matches verified ILBPair.sol), concentrated in 4 pools (0xa8a502 149, 0xe27c31 125, 0xb7236b 50, 0x37570d 2); Arbitrum TVL 34,418 USD (api.llama.fi/protocol/joe-v2.2 chainTvls, 2026-11-22)"
+}

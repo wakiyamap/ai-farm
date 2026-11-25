@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-alien-base-v2",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1195,
+ "chain": "base",
+ "slug": "alien-base-v2",
+ "name": "Alien Base V2",
+ "category": "Dexs",
+ "tvl_usd": 197738,
+ "url": "https://alienbase.xyz/",
+ "github": null,
+ "listed_days_ago": 1195,
+ "run_id": "eec717a7e2a241f8b074daaf554a9e2a",
+ "result": {
+  "verdict": "unpaid",
+  "line": "UniV2 fork (factory 0x3E84D913..FdE7, 1291 pairs) + ALB MasterChef (0x52eaecac..6590, 110 pools, 30 ALB/s): updatePool/massUpdatePools/harvestMany callable from fresh address but pay a no-position caller 0 (pendingTokens=0); only 1 farm call in 7d (withdraw 0xadb1e367, 7283 ALB = $20.45 own accrued rewards to staker 0x6c16b59c vs $0.0013 gas); 0 farm events in last 9,500 blocks (control USDC >20k); no DEX swaps (WETH/USDC pair last tx 2026-10-01; yields.llama.fi lists no alien-base-v2 pool); ALB $0.0028",
+  "kb": [
+   "attempts:2266"
+  ],
+  "run_id": "eec717a7e2a241f8b074daaf554a9e2a",
+  "at": 1795037894
+ }
+}

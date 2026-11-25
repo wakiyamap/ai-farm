@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-iziswap",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1600,
+ "chain": "base",
+ "slug": "iziswap",
+ "name": "iZiSwap",
+ "category": "Dexs",
+ "tvl_usd": 82125,
+ "url": "https://izumi.finance/trade/swap",
+ "github": null,
+ "listed_days_ago": 1600,
+ "run_id": "e80ffeaedde74af789129f575d2b95e8",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: LiquidityManager 0x110dE362cc436D7f54210f96b8C7652C2617887D - collect/burn/decLiquidity are checkAuth(_isApprovedOrOwner); stranger eth_call collect reverts 'Not approved' (owner passes auth); pool collectFeeCharged pays chargeReceiver 0x195bb56e not the caller; 7 d (58137406 11-16 -> 61161408 11-23) 171 logs in 170 txs (169 DecLiquidity), 8/8 sampled callers are the NFT owners; stranger gross 0 USD, gas ~0.001 USD/collect (0.006 gwei, ETH 1722.80); Base TVL 83.8k USD",
+  "kb": [
+   "attempts:4047"
+  ],
+  "run_id": "e80ffeaedde74af789129f575d2b95e8",
+  "at": 1795423137
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-ape-finance",
+  "outcome": "lead_recorded",
+  "reason": "unclear: No stranger liquidation payout occurred in the measured 7-day window. Public liquidation exists, but a fresh-address eth_call failed on insufficient shortfall; without a successful call, per-call gross and gas are unmeasured. Stabilizer reward claim is owner-only and ApeUSD.profit sends to governance.",
+  "numbers": "Ethereum eth_getBlockByNumber: start block 26430284 at 2026-11-16 21:28:47 UTC; end block 26480527 at 2026-11-23 21:28:47 UTC (exactly 7 d by timestamps). eth_getLogs on both Comptroller.getAllMarkets() addresses 0xc7319dbc86a121313bc48b7c54d0672756465031 and 0xcab90816f91cc25b04251857ed6002891eb0d6fa: no-topic scan 0 logs, LiquidateBorrow(address,address,uint256,address,uint256) topic0 0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52 scan 0 logs; no-topic scan shows no unknown topic0. Same-window same-shape control on ApeUSD 0xff709449528b6fb6b88f557f7d93dece33bca78d: 11 logs (5 Transfer, 6 Approval); topic-filtered Transfer control: 5. Liquidation count 0; observed gross payout 0 token units; per-call gross and gas USD unmeasured because no successful calls. APE market totalBorrows() 5581550.211751568 APE at latest, ApeUSD market totalBorrows() 0 ApeUSD. Token identity APE from APE market underlying() 0x4d224452801aced8b2f0aebe155379bb5d594381; ApeUSD market underlying() 0xff709449528b6fb6b88f557f7d93dece33bca78d; both decimals() returned 18. No USD price used."
+}

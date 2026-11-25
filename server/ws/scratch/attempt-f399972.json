@@ -1,0 +1,8 @@
+{
+  "chain": "arbitrum",
+  "target": "actor-arbitrum-0xf399972cff76e258175e4fc9e2f5cc24bebd0cc1",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: the address is an Atlas intent solver adapter (unverified contract deployed 2026-11-12 by EOA 0x271381c423d07bfab0479af2be110262e8469d58, owner() = that EOA) whose only entry 0x024181a6 is called by Atlas 0x8ad1ae9d97c79aa68a0a151e83ff3942f68f86c1; a fresh address making the same call is not paid - filling needs to be the bonded/registered solver (Atlas balanceOfBonded and accessData for it are now 0) and its take is the user's fill spread, not a protocol fee. It is idle: 9 fills over 4 days, none since 2026-11-15T01:08. Matches protocols:283 (atlas/arbitrum dead_end), which found the same gated entry on a second adapter.",
+  "numbers": "fills: 9 of 9 (whole history, explorer txs --internal and --token, -n 200), 2026-11-12T14:19 to 2026-11-15T01:08 = 2.3/day, 0 in the last 2 days. Gross swap flow per call $2.46-$124.11 USDC-equivalent (median $56.66). Net balance change per call = ETH only: +0.000024 / +0.000110 / +0.000085 ETH measured by eth_call balanceOf at block-1 vs block for 3 of 9 txs (mean +0.000073 ETH = $0.13 at WETH $1826.18, coins.llama.fi 2026-11-16T23:12); every other token round-trips to zero (flash-funded). Chain gas per bundler tx: mean 1,094,296 gasUsed at 0.038-0.087 gwei = 0.0000468 ETH = $0.085 (eth_getTransactionReceipt x9); the adapter pays the exec env 0xab6deeaf17d69f091e6fe8e9f472a69c7112ce45 0.000054-0.00178 ETH per fill, which is the fill, not gas. Est profit ~$0.3/day while active.",
+  "bot_id": null
+}

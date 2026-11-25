@@ -1,0 +1,33 @@
+OWNER 0x000000000000000000000000000000000000f007 42
+arbitrum	fork 522766864	mainnet 522824297	gen 5	free	http://127.0.0.1:9002
+base	fork 55308841	mainnet 55392729	gen 388	free	http://127.0.0.1:9001
+ethereum	fork 26306790	mainnet 26380793	gen 365	free	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+ok leased ethereum for 15 min (run 717ab8a0a8e44a3e97841f3b0960b6ea); generation 365
+ok reset ethereum at block 26306742 generation 366
+interval0: None
+arbitrum	fork 522766864	mainnet 522824300	gen 5	free	http://127.0.0.1:9002
+base	fork 55308841	mainnet 55392735	gen 388	free	http://127.0.0.1:9001
+ethereum	fork 26306742	mainnet 26380793	gen 366	leased by 717ab8a0a8e44a3e97841f3b0960b6ea 898s	http://127.0.0.1:9003
+ethereum-review	down	http://127.0.0.1:9013
+PAYFULL 9398683583154130380
+grant 0x06050552 0x1
+grant 0x06050552 0x1
+grant 0xf404e5f8 0x1
+grant 0xf404e5f8 0x1
+grant 0xA043FDc5 0x1
+grant 0xA043FDc5 0x1
+grant 0x2b772707 0x1
+grant 0x2b772707 0x1
+grant 0xebbcb2ce 0x0
+grant 0xebbcb2ce 0x0
+MOD USDC now 20000000000
+probeA: {"code": "3", "message": "execution reverted: funding under-delivered", "data": "0x08c379a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000"}
+TRACE errors:
+   {'from': '0x000000000000000000000000000000000000f007', 'to': '0xd98d34008d1bbb29013592c637f8e9fca4179fa0', 'fn': '0x7cda801a', 'err': 'execution reverted', 'type': 'CALL'}
+prelude done u0 b0 s0 o0: 20000000000 8000000000000000000 57582275034043643305 543454680
+ts_head 1793377391 past-reset 0 blob expiry 1793377428
+probeT: {"code": "3", "message": "execution reverted: funding under-delivered", "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001766"}
+TRACE settle errors:
+   {'from': '0x000000000000000000000000000000000000f007', 'to': '0xd98d34008d1bbb29013592c637f8e9fca4179fa0', 'fn': '0x7cda801a', 'err': 'execution reverted', 'type': 'CALL'}
+venue22 done ok= False settled= None

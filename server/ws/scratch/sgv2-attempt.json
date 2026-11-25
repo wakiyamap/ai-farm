@@ -1,0 +1,7 @@
+{
+ "chain": "arbitrum",
+ "target": "protocol-arbitrum-stargate-v2",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: the only permissionless recipient-paying function is retryReceiveToken, which pays the stuck message's own receiver (their own bridged funds), 0 to the caller, and there were 0 UnreceivedTokenCached events on all 3 pools in 7 days, so there is nothing to retry; all other entry points are role-gated (onlyCaller tokenMessaging/creditMessaging, burnAdmin, treasurer, planner). No keeper reward exists on these pools.",
+ "numbers": "0 UnreceivedTokenCached events in 7d, blocks 522905896-525325096, 3 pools (Blockscout v1 getLogs; scout lane CU spent 300376/300000 so relay getLogs 403s on public node); control: same query shape 228 OFTReceived logs in 1 day on 0xe8CDF27AcD73a434D661C84887215F7598e7d0d3. retryReceiveToken eth_call from fresh address reverts 0xaba8b6ef Stargate_UnreceivedTokenNotFound. Arbitrum gasPrice 20176048 wei (eth_gasPrice 2026-11-18) -> a ~150k-gas retry would cost ~$0.005 at ETH 1791.30 USD (coins.llama.fi). TVL 5818970 USD (candidate, DefiLlama)."
+}

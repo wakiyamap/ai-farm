@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-harmonix-finance",
+ "outcome": "dead_end_recorded",
+ "reason": "role_gated. The only keeper-shaped functions (harvestManagementFee, harvestPerformanceFee, updateNav) on both registered vaults revert 'INVALID_ROLE' from a fresh address, and the fees they mint go to protocol fee receivers as shares, not to the caller. A single whitelisted keeper runs them continuously; no public function pays a stranger.",
+ "numbers": "TVL 4,551,409 USDT (factory 0x8085C67f122B7C7c7AB06864ac359536640f5E28 getVaultsTVL, block ~51.59M, 2026-11-18); vaults 0xfde5b0626fc80e36885e2fa9cd5ad9d7768d725c, 0x1368ee9d1212ae5b26ff166049220051a9eebc42 (vaultList(0)/(1)); harvestManagementFee/harvestPerformanceFee/updateNav revert 'INVALID_ROLE' on both vaults from fresh addr 0x1111111111111111111111111111111111111111 (eth_call 2026-11-18); keeper 0xa3e2e81079bf3d4f708be4c6a6897e82749424c6 made 6 updateNav/harvestPerformanceFee txs in 8 min 12:21-12:28 UTC 2026-11-18 (explorer txs, sample of 6 of 27 recent); gross to caller $0 (fees minted to protocol fee receivers as shares, harmonixfi/core-smart-contract fundContract.sol); 7d CollectedFee count not obtained (public hyperevm getLogs max range 1000 blocks, rate-limited)"
+}

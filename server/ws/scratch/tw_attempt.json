@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-tokenworks",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: processTokenTwap() on the 6 NFTStrategy contracts and the factory is anyone-callable (no role; eth_call from a fresh address succeeds) and pays the caller 0.5% of the burn in ETH, but the pots are dust: ethToTwap is 7-9 WEI on every strategy and the factory holds 0.00034 ETH, so a call pays ~0 vs ~$2.2 gas. Last 7 days the whole mechanism moved ~77 wei (10 NFTSoldByProtocol events, each 6-9 wei); the only caller is one keeper bot (EOA 0xa8b3ce2842b7fea51d5f46e49eb7012b1af8f33a via relayer 0xe7adf43698370e3ae6661c4eededb66580ff98fa) that sells its own NFT to the strategy for ~9 wei and processes in the same tx, receiving 0 ETH reward.",
+ "numbers": "Reward fn processTokenTwap 0x1db52755, pays 0.5% of min(1 ETH, pot) to caller, twapDelayInBlocks=1. Pots at blk 26460872: ethToTwap 7-9 wei (APESTR 9, BIRB 0, PUDGY 8, DICK 7, MEEB 9, TOAD 9), factory 0.0003356 ETH. 7d (blk 26409872-26460872, no-topic eth_getLogs control: 51 Transfer + 11 Bought + 10 Sold returned): 10 NFTSoldByProtocol, prices 6-9 wei each, ~77 wei total; sample trace 0x50247ddda7dc6d16d42b137d9a1b1fbb64412fc08df58891c9812b3f1988a13f blk 26453970: reward to caller 0 ETH. Gas 234,515 est (eth_estimateGas) = $2.18 at 5.83 gwei; ETH $1593.46 (coins.llama.fi ts 1795202112). currentFees held by strategies 0.04-0.44 ETH each, ~1.23 ETH (~$1960) total."
+}

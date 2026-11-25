@@ -1,0 +1,26 @@
+{
+ "id": "protocol-arbitrum-overtime",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "overtime",
+ "name": "Overtime",
+ "category": "Prediction Market",
+ "tvl_usd": 364211,
+ "url": "https://www.overtimemarkets.xyz",
+ "github": [
+  "thales-markets"
+ ],
+ "listed_days_ago": null,
+ "run_id": "dfddca6ef78641e7b618321eb64a4944",
+ "result": {
+  "verdict": "unpaid",
+  "line": "SportsAMM/DigitalAMM round-close keepers (prepareRoundClosing/processRoundClosingBatch/closeRound/exerciseBatch) are permissionless (fresh-EOA eth_call: no role revert) but pay msg.sender 0 (payouts go to LPs/ticket owners); 7d eth_getLogs on 6 pool proxies (blocks 523298301-525717501): 15 events = 5 round closes, all by one EOA 0xe881267d...5cf24e; gas per full close ~0.46 USD (prepareRoundClosing 12.35M gas @0.0205 gwei, ETH 1760 USD coins.llama.fi ts 1795119685), gross to caller 0 USD; SpeedMarkets resolveMarketWithPrice/createNewMarket role-gated.",
+  "kb": [
+   "attempts:2630"
+  ],
+  "run_id": "dfddca6ef78641e7b618321eb64a4944",
+  "at": 1795120020
+ }
+}

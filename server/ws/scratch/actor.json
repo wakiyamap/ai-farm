@@ -1,0 +1,7 @@
+{
+ "chain": "base",
+ "address": "0x0918242d33718b7cb3a1c6dd36fdfa9e9db37786",
+ "strategy": "Morpho Blue liquidator executor contract (unverified, deployed 2026-11-19 19:17Z by 0x5c51b4a2): keeper EOAs call 0x7acd82aa(payload) -> Morpho flashLoan USDC (0xe0232b42, callback 0x31f57072) -> N x Morpho liquidate (0xd8eabcb8) -> sell seized collateral (WETH, cbDOGE) to USDC on UniV3 pools 0x1809bca1 / 0xd0b53d92 (swap 0x128acb08 + callback 0xfa461e33) -> repay flash loan; profit = liquidation incentive kept as USDC in the contract, swept by the owner with sweep(address) 0x01681a62. 5 caller EOAs (0x2c7a070b, 0x3e8dc6da, 0x5c51b4a2, 0x85080da2, 0xd3335ce6) pay the gas; the contract keeps the profit.",
+ "evidence": "0x3d6b9c6a9df6f130d5d922f416b4aea4634366ea150b674a18ce31cb6330bb64 (15 liqs, +26.75 USDC), 0x9565afbae4ff281a6b11d2bd0fcbe62bf39943ae5460d876264a2e0a8eb73a0f (15 liqs, +58.40 USDC), 0xf7d79a8b96ee5dd247882a2cef1b20253d0df5fe7f92f3a6d231a36801a4f567 (15, +50.21), 0xba2bbcb0b0e190cc68c02cc5e963b45065da92a224359b7b9496e56f6b3793ef (15, +53.59), 0xa29204e2bb2e580e762396e1b115be202354521a3d67a7301eb2dbf4f6fb6505 (11, +9.78), 0x1f5a34a3e0bbe66410d0ea467f688ce3637ca47744f97da6c82148fb1349e9d7 (2, +0.58, traced), sweep 0x0cb68775b05d3b6b34818a4902fc493125fa4fec0c557029c366929d52f6b805",
+ "est_profit_usd_day": 98
+}

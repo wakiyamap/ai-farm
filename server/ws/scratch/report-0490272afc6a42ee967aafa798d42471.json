@@ -1,0 +1,12 @@
+{
+  "run_id": "0490272afc6a42ee967aafa798d42471",
+  "role": "scout",
+  "model": "qwen3.8-flash-next",
+  "target": "protocol-bsc-elk",
+  "outcome": "scouted",
+  "kb_rows": ["protocols:2261", "attempts:4140"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Elk bsc = vanilla Uni V2 fork (ElkFactory 0x31affd875e9f68cd6cd12cee8943566c9a4bba13 + ElkPair, Sourcify full match): createPair/mint/burn/swap/skim/sync pay only the LP, feeTo()=0x0, skim excess 0 on both pairs, ELK token (Elk.sol) has no mint/claim; TVL 30,991 USD, 132 txs and 107,337 ELK (~704 USD) moved in 6.93 d (blocks 133,963,257-135,290,151), gas 0.0043 USD/call, gross/call 0 -> no_reward, same as avalanche elk (protocols:2244)."
+}

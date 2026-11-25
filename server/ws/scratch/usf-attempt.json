@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-unslashed",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid. Unslashed Finance is dormant: website dead (deadUrl:true), the Enzyme vault 0x86fb84e92c1eedc245987d28a42e123202bd6701 holding the entire TVL last transacted 2024-01-05, and the v2 suite (factory 0xB0e0C4, BasketMarket 0xfa6Ace, MerkleTokenDispenser 0xf55f3a, collateral 0x6DBa76) emitted 0 events in the last 7 days while the control (same query on token 0xe0e05c) returned 7 Approval logs. MerkleTokenDispenser.claim is the only stranger-callable reward path and its reward pot holds 0 USF; no keeper/bounty function that pays the caller.",
+  "numbers": "7d window blocks 26418719 (2026-11-15 06:50:59) to 26468974 (2026-11-22 06:51:11), timestamps via eth_getBlockByNumber: 0 logs on 0xB0e0C4, 0xfa6Ace, 0xf55f3a, 0x6DBa76, 0x86fb84; control same shape = 7 Approval logs on USF token (eth_getLogs, blocks quoted). MerkleTokenDispenser USF balance 0 (eth_call balanceOf 0x70a08231, latest). USF totalSupply 86M. Enzyme vault last tx block 18944197 ts 1704495755 = 2024-01-05 (explorer txs). TVL 2,468,054 USD (api.llama.fi/protocol/unslashed, point 1795324583 = 2026-11-21). No function pays a caller: claim pays beneficiary only."
+}

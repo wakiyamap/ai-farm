@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-dinosaur-eggs",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Dinosaur Eggs is a UniswapV2-fork DEX (SwapFactory 0x73d9f93d...9d10, 156 pairs); factory and pair expose no caller-paid reward/claim/harvest/keeper function - only uniV2 swap/mint/burn/skim plus views (getPrice, feeToRate=0) and role-gated fns (join_tg...(address,address,bool) reverts 'SwapFactory: FORBIDDEN' from a stranger eth_call). The MasterChef-style staking in the org's core repo (Aggregator + LiquidityPool/DepositPool) pays depositors, not strangers. Activity is near zero anyway: 0 logs in the last 5000 blocks on the flagship pool (control ok), ~28 USD 24h volume across all pools (GeckoTerminal 2026-11-19). Website dead.",
+  "numbers": "allPairsLength=156; feeTo=0xd8a09505a93d97de6fe3fd251027a74a5999eeed; feeToRate()=0; join_tg eth_call revert 'SwapFactory: FORBIDDEN' (eth_call from 0x1111...1111, 2026-11-19); flagship pool 0x9f2023116b8562d352e1e01d8f06e31f07b01905: 0 logs blocks 0x804f4b8-0x8050880 (4808 blocks ~1h, eth_getLogs via relay) vs control 4682 logs WBNB 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c blocks 0x8050780-0x8050880; 24h vol ~28 USD sum of GT pool volume_usd h24 (GeckoTerminal, queried 2026-11-19 ~17:58 UTC); DSG 0.0000645 USD (coins.llama.fi, 2026-11-19)"
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-fyde-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: no function pays a caller. AUM upkeep (performUpkeep/updateProtocolAUM) is gated by an isKeeper registry (fresh-address eth_call reverts Unauthorized 0x82b42900) and pays nothing on-chain anyway - RelayerV2 0x6830c61d... holds 0 ETH and 0 LINK, collectFees/collectEth are onlyOwner. The only anyone-callable state function (collectManagementFee on TRSY 0x87Cc45...) mints the fee to the contract itself. Protocol is nearly dormant: 1 user action in 7 days.",
+  "numbers": "TVL 251,177 USD (DefiLlama 2026-11-21). 7d = blocks 26413192 (2026-11-14) to 26463240 (2026-11-21): RelayerV2 1 log (2026-11-18T18:42Z tx 0xb93cd0484e32945bf85ac1fd20686113ae30342a0f57e7c074d874c629b447cf, from EOA 0x2f4e1a92dd8d3a57328c5a87cd6dcdb49ac8be7b, 550,285 gas ~0.000065 ETH ~0.11 USD at 0.118 gwei, ETH 1639.58 USD coins.llama.fi 2026-11-21T10:58Z); TRSY token 7 logs (Transfers+ProtocolAumUpdated+Withdraw, same tx); old Relayer 0 logs 7d with same-shape control returning 664 logs over creation->2026-11-14; last old-Relayer log 2024-04-05. RelayerV2 native balance 0, LINK balance 0."
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "8383e02e31974c72ae2c593f2bd7e8e2",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "measure lane: request-exhaustion confirm + lead 117 re-measure (Liquity V2 BOLD redemption burst windows)",
+  "outcome": "lead_recorded",
+  "kb_rows": ["attempts:1298", "leads:117", "actors:156", "protocols:46"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure lane: 0 pending measurement requests (no new leads since the 11:26Z exhaustion check #4; the 13:10Z researcher batch remains the next input), so ran a fresh ledger+trace measurement instead of another walk: Liquity V2 redemption (lead 117, closed blocked_infra as a same-block race) has changed regime since ~11-10 - 20.3 redemption txs/day (2x), 15/27 bursts span >=2 blocks (up to 60 s), 46% of trove events land in tail blocks, and a traced tail tx (0x059d1b77, 47,375 BOLD -> 26.2683 ETH) pays the builder 0.0727 ETH (~130 USD) that a no-bid next-block follower keeps. Lead 117 flipped blocked_infra -> measured with one fork-proof next step for the build lane (flash-sized ~20k BOLD tail entry, no more measuring); incumbent added to actors (0xa07c794f). Reads used: 2 relay (research lane) + ledger-only; 0 fork."
+}

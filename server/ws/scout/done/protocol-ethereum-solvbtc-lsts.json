@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-solvbtc-lsts",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 770,
+ "chain": "ethereum",
+ "slug": "solvbtc-lsts",
+ "name": "SolvBTC LSTs",
+ "category": "Restaked BTC",
+ "tvl_usd": 55088677,
+ "url": "https://solv.finance",
+ "github": null,
+ "listed_days_ago": 770,
+ "run_id": "5e944eaf29e84be8898c192205c4a4fa",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: Safe 0x32611194..c287 holds 100% of LockedFBTC 0xEb28877D..6052 (870.029 coin, 8 dec, 55,786.16 USD/coin coins.llama.fi ts 1795234976 = 48.5M USD; DefiLlama 50.96M); all 4 mutatives (mintLockedFbtcRequest 0x9d3d1567, confirmRedeemFbtc 0xdb760093, burn, redeemFbtcRequest) revert missing role MINTER_ROLE from a fresh address, transfer() disabled; 0 calls/0 events on both in 7 d (blocks 26410836-26461090; control 21 d on Safe = 3 logs at 26375360); token untouched since 2024-08-10; gross 0 USD vs 0.15 USD gas",
+  "kb": [
+   "attempts:3188",
+   "protocols:1539"
+  ],
+  "run_id": "5e944eaf29e84be8898c192205c4a4fa",
+  "at": 1795236012
+ }
+}

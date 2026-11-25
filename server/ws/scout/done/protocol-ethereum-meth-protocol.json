@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-meth-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1080,
+ "chain": "ethereum",
+ "slug": "meth-protocol",
+ "name": "mETH Protocol",
+ "category": "Liquid Staking",
+ "tvl_usd": 420523556,
+ "url": "https://www.methprotocol.xyz/",
+ "github": null,
+ "listed_days_ago": 1080,
+ "run_id": "fc07dcffc0344fd79dd98206c9a99be7",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Staking.claimUnstakeRequest (0xe3cbd06d...) is the only anyone-callable payer and pays 0 reward (redeems caller's own principal): sample of 5 of 36 claims over 7d (blocks 26412901-26463157, 2026-11-14->21), 9,081.5 ETH = 14.9M USD redeemed to 22 stakers all calling for themselves, gas 131,465 = 0.03 USD/call; topUp/initiate/allocate/oracle receiveRecord/processReturns all behind AccessControl roles; TVL cross-check totalControlled 232,993 ETH x 1637.89 = 381.6M USD",
+  "kb": [
+   "attempts:3296",
+   "protocols:1616"
+  ],
+  "run_id": "fc07dcffc0344fd79dd98206c9a99be7",
+  "at": 1795260503
+ }
+}

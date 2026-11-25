@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-sierra-protocol",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 288,
+ "chain": "ethereum",
+ "slug": "sierra-protocol",
+ "name": "Sierra Protocol",
+ "category": "Yield",
+ "tvl_usd": 22920545,
+ "url": "https://sierra.money/",
+ "github": null,
+ "listed_days_ago": 288,
+ "run_id": "3e4a4aa4d5c74bae98973e576517de1b",
+ "result": {
+  "verdict": "role_gated",
+  "line": "SIERRA/SPLUS LYTPool proxies (impl 0xfd10892c): deposit/requestRedeem NotMarketMaker, processRedemption(s)/openClaims NotIssuer, claim NotClaimant from fresh address; 7d = 35 txs SIERRA (5 processRedemption by issuer 0xb841dbcb, 5 requestRedeem + 2 deposit by MM EOAs, 23 transfer/approve) + 4 SPLUS + 2 OFT approves; caller reward $0 (fees to feeCollector), sample processRedemption paid 3.38M USDC to MM, gas $0.37 (ETH $1644, Blockscout 11-20)",
+  "kb": [
+   "attempts:2985",
+   "protocols:1383"
+  ],
+  "run_id": "3e4a4aa4d5c74bae98973e576517de1b",
+  "at": 1795193528
+ }
+}

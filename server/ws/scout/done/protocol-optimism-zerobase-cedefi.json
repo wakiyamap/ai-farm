@@ -1,0 +1,24 @@
+{
+ "id": "protocol-optimism-zerobase-cedefi",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 530,
+ "chain": "optimism",
+ "slug": "zerobase-cedefi",
+ "name": "ZEROBASE CeDeFi",
+ "category": "Basis Trading",
+ "tvl_usd": 8096766,
+ "url": "https://app.zerobase.pro/",
+ "github": null,
+ "listed_days_ago": 530,
+ "run_id": "65d2ecb7e65d456593e867a7a2181962",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Same deterministic vault as arbitrum (0xCc5Df5...28E4, TVL 8,101,216 USDT getTVL block 159,677,006): every write pays msg.sender or is role-gated (claim requires claimItem.user==msg.sender; transferToCeffu onlyRole BOT_ROLE, fresh-address eth_call reverts AccessControlUnauthorizedAccount; sendLpTokens only airdropAddr); reward is an admin-set 3.3%/yr APY to depositors, no caller bounty; 7-day eth_getLogs 0 logs (controls 30 and 1), last tx 2026-10-12 self-service requestClaim.",
+  "kb": [
+   "attempts:1890"
+  ],
+  "run_id": "65d2ecb7e65d456593e867a7a2181962",
+  "at": 1794953160
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "protocol-bsc-impossible",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1823,
+ "chain": "bsc",
+ "slug": "impossible",
+ "name": "IMPOSSIBLE",
+ "category": "Launchpad",
+ "tvl_usd": 79707,
+ "url": "https://impossible.finance",
+ "github": [
+  "ImpossibleFinance"
+ ],
+ "listed_days_ago": 1823,
+ "run_id": "5209ecdc2c0e4538be0ccb875fd811e5",
+ "result": {
+  "verdict": "unpaid",
+  "line": "0 events on all 3 IFAllocationMaster staking contracts in 7d (blocks 133,923,927 [2026-11-16 12:00 UTC] -> 135,267,322 [2026-11-23], no-topic scan; control 212 IDIA Transfers same window); only open call activeRollOver succeeds from a fresh address but transfers nothing (pays 0); AMM factories (StableX 0x918d..ffC, ImpossibleSwap 0x4233..f85f) have no caller reward; TVL 80.1k AMM + 4.5k staking.",
+  "kb": [
+   "attempts:4093"
+  ],
+  "run_id": "5209ecdc2c0e4538be0ccb875fd811e5",
+  "at": 1795435793
+ }
+}

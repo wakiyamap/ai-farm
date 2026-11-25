@@ -1,0 +1,26 @@
+{
+ "id": "protocol-ethereum-revert-lend",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 546,
+ "chain": "ethereum",
+ "slug": "revert-lend",
+ "name": "Revert Lend",
+ "category": "Lending",
+ "tvl_usd": 1163806,
+ "url": "https://revert.finance/#/ref/w6vno3",
+ "github": null,
+ "listed_days_ago": 546,
+ "run_id": "312f1d3a1ad649ce86ce51f9823e934b",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "liquidate() on V3Vault 0xa2754543f69dC036764bBfad16d2A74F5cD15667 (asset USDC, debt 545.7k / lent 792.2k): 1 liquidation in 7d (3 in 90d, sample=all); last tx 0xf6827ce4a2a1abbddf27415452f060dbc6ff85b692c4be42054fe16a75f6da00 gross bonus 432.50 USDC (value 1,936.42 - cost 1,503.92) to stranger bot 0x5ac9bc14376bf2727c6211960cf3cec1e2f295bd (not owner), gas 3.05 USD (911,076 gas @ 2.0667 gwei, ETH 1,621.83 USD coins.llama.fi ts 1795212918); bonus paid as raw pool tokens (0.955 WETH + 11.2 USDC), needs swap; topic0 from no-topic-scan receipt, control 197 logs same window.",
+  "kb": [
+   "attempts:3077",
+   "leads:340",
+   "protocols:1456"
+  ],
+  "run_id": "312f1d3a1ad649ce86ce51f9823e934b",
+  "at": 1795213317
+ }
+}

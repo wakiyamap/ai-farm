@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "zunami_protocol",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/zunami/index.js (main): pools zunUSD 0x8C0D76C9B18779665475F3E212D9Ca1Ed6A1A0e6, zunUSDAps 0x28e487bbF6b64867C29e61DccbCD17aB64082889, zunETH 0xc2e660C62F72c2ad35AcE6DB78a616215E2F2222, zunETHAps 0x5Ab3aa11a40eB34f1d2733f08596532871bd28e2, ZUNStaking proxy 0x45af4F12B46682B3958B297bAcebde2cE2E795c3 (impl 0xce3a40f3b0f6539ad1bb669eb80beaf54c28e842 ZUNStakingRewardDistributor), ZUN 0x6b5204B0Be36771253Cc38e88012E02B752f0f36; all eth_getCode non-0x. Enumerated 25 strategies via strategyCount/strategyInfo (11+4+6+4). Verified source ZunamiPool.sol: claimRewards/mintAndClaimExtraGains/deposit/depositStrategy/withdraw = onlyRole(CONTROLLER_ROLE), moveFundsBatch = EMERGENCY_ADMIN, addStrategy/launch/enable = DEFAULT_ADMIN. Strategy source (0x7aa84c31...): claimRewards external onlyZunamiPool (empty body), deposit/withdraw onlyZunamiPool. Staking: claim(address) + updateUserCheckpoint() public nonReentrant; distribute = onlyRole(DISTRIBUTOR_ROLE) (caller funds it via safeTransferFrom); deposit/withdraw user ops. eth_call claim() from fresh 0x..42 succeeds (0x return), pays 0. extraGains()=0 on all 4 pools; all 8 staking reward-token streams expired (periodFinish max 0x682b08cf = 2025-05-19)."
+}

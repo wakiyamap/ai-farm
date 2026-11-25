@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-veda",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 633,
+ "chain": "base",
+ "slug": "veda",
+ "name": "Veda",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 1414597,
+ "url": "https://veda.tech",
+ "github": [
+  "Veda-Labs"
+ ],
+ "listed_days_ago": 633,
+ "run_id": "2a2048cbdb864106a4c194b0e212f58d",
+ "result": {
+  "verdict": "no_reward",
+  "line": "no_reward: 5 Veda boring-vault stacks on base (BoringVault/Teller/AccountantWithRateProviders, verified) pay no caller: claimFees is vault-only (0x7e3db46f), updateExchangeRate and bulkWithdraw revert UNAUTHORIZED from a fresh address, deposit just swaps the user's own assets for shares. 7d eth_getLogs 136 logs / 14 addrs: only Lombard BTC (8 deposits + 8 bulkWithdrawals, 0.30 LBTC = 19 USD) and Staked ETHFI (4 Enter + 4 Exit, 218 ETHFI = 104 USD) active; 19 rate updates by keepers 0x43e9fa7a60/0xfa8af0b4a6; 0 USD paid to any caller; gas 160k = 0.002 USD (0.006 gwei, ETH 1802 llama).",
+  "kb": [
+   "attempts:1996"
+  ],
+  "run_id": "2a2048cbdb864106a4c194b0e212f58d",
+  "at": 1794977204
+ }
+}

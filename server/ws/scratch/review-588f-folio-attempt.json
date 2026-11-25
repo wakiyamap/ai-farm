@@ -1,0 +1,8 @@
+{
+  "chain": "ethereum",
+  "target": "Reserve Folio DTF auction bot review",
+  "outcome": "review_fix",
+  "reason": "New paper bot has no signer/live send, no actual executor eth_call in paper mode, and no venue quote construction. The executor keeps its USDC profit with no payout or withdrawal, while the gate funds principal to the wallet. Fork proof uses prefunded TestVenue mocks and 10000 USDC; it does not establish the 100 USDC live route. Fix before promotion.",
+  "numbers": "Reviewer replay 2026-11-08: success tx 0xe8399e5b00182e08db159cf9aec244d542d58a54e50c2797f519cdebc6664b35 at reset 26306917, gasUsed 493826, executor USDC delta +21.827435; control tx 0x2f5dc3f2f90913a59149b80c69356e206436a2f48ccc4b270c55ee6927fbbb65 at reset 26306742, status 0, USDC delta 0. Manifest says +21827 USD, a 1000x unit error. Paper-lane relay getLogs on six folios blocks 26368739-26370739: zero AuctionOpened.",
+  "bot_id": "reserve-folio-dtf-ethereum"
+}

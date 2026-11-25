@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-shift-protocol",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward. Shift Protocol's 3 arbitrum vaults (verified ShiftVault source) have no function anyone can call that pays the caller: public writes are user deposits/withdrawals paying themselves; fee claims are CLAIMER_ROLE-gated and pay feeCollector; batch withdrawal ops are EXECUTOR_ROLE-gated and the executor actually transfers USDC in to fund users. Custodian-run onchain fund vault, no keeper bounty exists.",
+  "numbers": "3 vaults eth_getCode non-empty (~17.9kB code each), totalSupply() ok; claimMaintenanceFee from stranger reverts Unauthorized(\"claimer\"); feed updateTvl reverts Unauthorized(\"oracle\") (0x4062c539d09a76d79e366f8c2a2e2f987ead1fe0); 7d eth_getLogs blocks 522661359-latest: 15 user-op events, 9 distinct users, gross paid to callers 0 USD; TVL arbitrum 379874 USD (api.llama.fi 2026-11-17)"
+}

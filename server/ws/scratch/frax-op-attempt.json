@@ -1,0 +1,7 @@
+{
+ "chain": "optimism",
+ "target": "protocol-optimism-frax-swap",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. FraxSwap optimism is a Uniswap-V2 fork with embedded TWAMM (same family as bsc/ethereum/avalanche/polygon frax_swap dead ends). The stranger-callable keeper function executeVirtualOrders works from a fresh address but pays 0 (no transfer to msg.sender) and the TWAMM reward pot is empty: open order rates (0,0) on all 7 pairs, zero LongTermSwap/Withdraw/Cancel events in 7 d, nobody called it directly (of 1,949 txs carrying VOE logs, 1,945 are swaps that execute virtual orders internally and 4 are sync sweeps by one helper). skim() dust is 0 on all pairs (skim type (S) anyway), feeTo()=0x0, docs list only Factory + Router (no distributor/gauge).",
+ "numbers": "7 d window blocks 159607228 (2026-11-16T07:13:53Z) -> 159909628 (2026-11-23T07:13:53Z), no-topic eth_getLogs on all 7 pairs = 7,565 logs: Swap 2,784, Sync 2,807, VirtualOrderExecution 1,974, all other event types 0 (control: same no-topic scan enumerates only the 3 identified topic0s). 7 d swap throughput 14,687 FRAX ~ 14.6k USD (FRAX 0x2e3d870790dc77a83dd1d18184acc7439a53f475 18 dec, 0.9936 USD coins.llama.fi 1795418585). executeVirtualOrders pays 0, gas 58,741 x 1,043,546 wei = 6.1e-8 ETH = 0.0001 USD (ETH 1,722.86 coins.llama.fi 1795419027). skim dust 0 on 7/7 pairs both tokens; feeTo=0 on both factories; factories 0xBe90FD3CDdaf0D3B8576ffb5E51aDbfD304d0437 (2 pairs) + 0x67a1412d2D6CbF211bb71F8e851b4393b491B10f (5 pairs)."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-d2-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 864,
+ "chain": "base",
+ "slug": "d2-finance",
+ "name": "D2 Finance",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 2380593,
+ "url": "https://d2.finance/strategies",
+ "github": null,
+ "listed_days_ago": 864,
+ "run_id": "eb8635494e414a7db9c899fbaaaf6766",
+ "result": {
+  "verdict": "role_gated",
+  "line": "2 Base vaults (0x6c05 dgnBTC V2 dormant since 2025-08-27; 0x2406 HYPE++ active epoch 13, custodied) + strategy dispatchers 0xc226/0xc3f9: startEpoch onlyOwner, custodyFunds/returnFunds onlyTrader, deposit/redeem onlyWhitelisted (USDC-balance soft whitelist), strategy modules all onlyRole(EXECUTOR/ADMIN), claim() one-shot consumed (eth_call reverts 'claimed'); 0 vault/strategy txs last 7d (last vault tx 2026-10-02 ts1790906677, last strategy tx 2026-10-30 ts1793310465, Blockscout; all strategy calls from ops EOA 0xbbc90a05); no function pays a stranger",
+  "kb": [
+   "attempts:2129",
+   "protocols:704"
+  ],
+  "run_id": "eb8635494e414a7db9c899fbaaaf6766",
+  "at": 1795005548
+ }
+}

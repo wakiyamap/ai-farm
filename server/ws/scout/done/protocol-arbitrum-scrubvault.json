@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-scrubvault",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 192,
+ "chain": "arbitrum",
+ "slug": "scrubvault",
+ "name": "ScrubVault",
+ "category": "Basis Trading",
+ "tvl_usd": 64040,
+ "url": "https://invest.scrub.money/",
+ "github": null,
+ "listed_days_ago": 192,
+ "run_id": "026fd1314974422885ca2dedbe06bb2f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "ScrubVault arb DepositVault 0x439a923517C4DFD3F3d0ABb0C36E356D39CF3f9d (impl unverified, AUM off-chain CEX/DEX; TVL 64,037 USDC via totalVaultValue): only 7 txs in the 7 d window (blocks 524,397,644 @2026-11-15 to 526,493,858 @2026-11-22), all the daily bookkeeping call 0xd7779e98 by team strategy EOA 0xd47d2f15..cb652, 0 user txs, 0 strangers paid; keeper fns revert from a fresh address (AccessControlUnauthorizedAccount / OwnableUnauthorizedAccount) and the daily call pays its caller 0 USDC while costing 41,130 gas = 0.0014 USD",
+  "kb": [
+   "attempts:3690"
+  ],
+  "run_id": "026fd1314974422885ca2dedbe06bb2f",
+  "at": 1795344431
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "chain": "base",
+  "target": "moonwell-maero base fix round 2 (review a50ef674 item 3: LIQUIDATE_REJECTED on the proven WADO capture)",
+  "outcome": "fix_submitted",
+  "bot_id": "moonwell-maero-base",
+  "reason": "Lens 3-tuple binding FIXED (root cause of NOT_LIQUIDATABLE at time-accrued heads): the delegate ABI getAccountLiquidity returns (error, liquidity, shortfall); the executor bound liquidity<-error (require(liquidity==0) vacuous, always 0) and sized repay from the LIQUIDITY word: fresh reset (0,189.48,0) -> repay 94.74e6 -> delegate shortfall==0 -> LIQUIDATE_REJECTED at every size (sweep22 'mystery'); time-accrued head (0,0,593.69) -> repay 0 -> NOT_LIQUIDATABLE. New binding (uint256 lensErr, liquidity, shortfall), require(err==0 && liquidity==0 && shortfall>0), repay=shortfall/2 (scratch/mw-whale/contracts/src/MoonwellWhale.sol). sweep23 timed legs (anvil_setNextBlockTimestamp +6d per phase, proof22.adv_time): eligibility guard green, success leg now passes the lens and reaches the swap leg, reverts SELL1_FAILED at the accrued-head sizing (repay capped at half principal 82.41 USDC, tx 0x24a4b09a... gasUsed 1270775) - sell sizing at the +6d-accrued shortfall is the open item; the archived green repay 59.62 sold through the same P0/P1 pools at the real-capture shortfall 119.24. Fork runtime re-taken from a head-3 deploy (executor 0x8f7a45ebde059392e46a46dcc14ab24681a961ea) and bot.js IMMUTABLE_CHECKS re-pinned P2 7858 / P1 7926; paper restarted.",
+  "numbers": "sweep23 legs at reset 53265094 +6d time: lens (0,0,593.69); success leg tx 0x24a4b09a32efdc7af9d3218cfe4104ce67360d2f1964f751cccfa7abad2984fa gasUsed 1270775 SELL1_FAILED; fresh-reset lens (0,189.48,0); imm re-pin P2 7858 P1 7926"
+}

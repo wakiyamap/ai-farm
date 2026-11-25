@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "hashport",
+ "status": "dead_end",
+ "checked": "DefiLlama adapter projects/hashport/index.js CONFIG.ethereum = 0x367e59b559283C8506207d75B0c5D8C66c4Cd4B7 (EIP-2535 diamond 'Router', eth_getCode non-0x, facets() getter returns 10 facets incl RouterFacet 0xF9fE427563b12eC644e79a42B68e148273942b34, FeeCalculatorFacet 0x2bF0C79ce13A405a1f752F77227a28eeC621f94C). Hashport v1 Hedera<->EVM bridge: lock/unlock/mint/burn move user funds, no keeper incentive. Only reward fn: FeeCalculatorFacet.claim(address _token,address _member) sel 0x21c0b342 - callable by anyone but modifier onlyMember(_member): pays accumulated service fees via safeTransfer to the member's memberAdmin, NOT the caller. membersCount()=9 (Hashport validators), nativeTokensCount()=24. Bridge dormant: last router activity 2026-06-01; 0 txs / 0 logs in last 7 d (blocks 26,410,777 2026-11-14 to 26,460,903 2026-11-21; control same-shape query returns 7 logs on the June range). Reward pot empty: tokenFeeData(UNDEAD) accumulator == claimedRewardsPerAccount(member) -> claimable 0. TVL 1.2M USD is locked idle tokens in this dormant router."
+}

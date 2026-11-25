@@ -1,0 +1,28 @@
+{
+ "id": "protocol-arbitrum-harvest-finance",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "arbitrum",
+ "slug": "harvest-finance",
+ "name": "Harvest Finance",
+ "category": "Yield Aggregator",
+ "tvl_usd": 411432,
+ "url": "https://harvest.finance/",
+ "github": [
+  "harvest-finance",
+  "harvestfi"
+ ],
+ "listed_days_ago": null,
+ "run_id": "cad6fe71d01d461d9b891cc04c86077f",
+ "result": {
+  "verdict": "role_gated",
+  "line": "Harvest Arbitrum (164 vaults, Controller 0x68b2fc15...59d03): all harvest fns role-gated (vault doHardWork/rebalance onlyControllerOrGovernance; Controller.doHardWork(address) onlyHardWorker, stranger eth_call reverts); 99 harvests in 7d (SharePriceChangeLog, blocks 523603646-525703646), all by one keeper EOA 0xfeed4c53...7e70 (sample 25 of 99); caller paid 0 USD (0 of 18 token transfers in sample tx 0x7e9b0be7...), gas/call bash.04 (1.235M gas @0.02 gwei, ETH 777.10 llama).",
+  "kb": [
+   "attempts:2617",
+   "protocols:1092"
+  ],
+  "run_id": "cad6fe71d01d461d9b891cc04c86077f",
+  "at": 1795116972
+ }
+}

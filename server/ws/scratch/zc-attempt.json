@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-zircuit-staking",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: the only ethereum contract of the protocol is a custodial points-staking pool (ZtakingPool 0xf047ab4c75cebf0eb9ed34ae2c186f3611aeafa6, verified source). Its public functions (depositFor, depositETHFor, withdraw, migrate) move the caller's own tokens and pay nothing to the caller; there is no claim/reward/distribute/harvest function at all - rewards are off-chain points. Admin functions are onlyOwner.",
+  "numbers": "TVL 38.76M USD (candidate; DefiLlama chainTvls.Ethereum last entry 35.08M USD). Pool 0xf047ab4c75cebf0eb9ed34ae2c186f3611aeafa6: eth_getCode non-0x, zircuitSigner()=0xe42a95c84f9dd116066effb733e8294931967a0d. 7d window blocks 26412510 (2026-11-14T10:03Z) to 26462757 (2026-11-21T10:03Z), no-topic eth_getLogs: 52 logs = 47 Deposit (topic0 0xfeb2000dca3e617cd6f3a8bbb63014bb54a124aac6ccbf73ee7229b4cd01f120) + 5 Withdraw (0x2c0f148b435140de488c1b34647f1511c646f7077e87007bacf22ef9977a16d8), 0 Migrate; topic0s from cast keccak of interface events, no unknown topic0 in scan. Reward functions payable to a stranger: 0 (source read)."
+}

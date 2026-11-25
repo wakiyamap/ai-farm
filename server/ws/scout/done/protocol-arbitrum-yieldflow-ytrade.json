@@ -1,0 +1,24 @@
+{
+ "id": "protocol-arbitrum-yieldflow-ytrade",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 506,
+ "chain": "arbitrum",
+ "slug": "yieldflow-ytrade",
+ "name": "YieldFlow-YTrade",
+ "category": "Derivatives",
+ "tvl_usd": 43373,
+ "url": "https://yieldflow.com",
+ "github": null,
+ "listed_days_ago": 506,
+ "run_id": "e1f6c6400ff848e8a122864fd51c21af",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only anyone-callable fn is router.executeOrderFromExecutor (verified source 0xba509b9e), needs config.isOrderExecutor whitelist (owner-granted) and pays 0.00005 ETH=0.086 USD fee to protocol vault EOA 0xbe087ad8, not the caller; reconcileGrid/checkADL revert OnlyOwner/OnlyOwnerOrExecutor from a fresh addr; 0 executions in 7d (blocks 524517995-526570957; last OrderSubmitted 524181057=2026-11-14, control 337 all-history); no-topic scan of all 1109 routers = 37 logs / 19 txs, all from one owner EOA 0x108bc66d (fee deposits, cancels, withdrawals); gas ~0.02 gwei (~0.003 USD/call).",
+  "kb": [
+   "attempts:3792"
+  ],
+  "run_id": "e1f6c6400ff848e8a122864fd51c21af",
+  "at": 1795368096
+ }
+}

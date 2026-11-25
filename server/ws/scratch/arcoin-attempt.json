@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-arca-labs-arcoin",
+ "outcome": "dead_end_recorded",
+ "reason": "no_reward. ArCoin (RCOIN) is a single-contract tokenized T-bill fund: security-token proxy with ERC20 + issuer ops (issueTokens/burn/seize/omnibus*), no reward/bounty/claim/distribute/settle function anywhere in the ABI, so nothing pays a caller. The issuer ops are themselves role-gated (revert 'Insufficient trust level' from a fresh address) and pay the caller nothing even when called. Contract is near-dormant anyway.",
+ "numbers": "1 contract: proxy 0x252739487c1fa66eaeae7ced41d6358ab2a6bca9, impl 0xeb9b9d0af960e9ba579f624cbee86856bb1d7e90 (DefiLlama adapter projects/arca-labs/index.js + eth_getCode). 62 dispatch selectors extracted from impl bytecode, resolved via 4byte.directory; none reward-class. eth_call from 0x1111..: issueTokens 0x475a9fa9 / burn 0x15f570dc / seize 0x3ce5aae9 all revert 'Insufficient trust level'. 7 d window blocks 26411506..26461761 (2026-11-14T06:43Z..2026-11-21T06:43Z, timestamp-derived): no-topic eth_getLogs on token = 2 logs, both tx 0xb8390da6356c6138862e2bb6e4b6ed9125687f76ee6e7ff1662642f946e1d295 (Transfer 5523.55 RCOIN, decimals 8 on chain + event 0x47e772fd). Control: USDC 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48 same shape = 6960 logs/60 blocks. TVL 449,846 USD (candidate, DefiLlama)."
+}

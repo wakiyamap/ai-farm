@@ -1,0 +1,7 @@
+{
+  "chain": "hyperevm",
+  "target": "protocol-hyperevm-hyperlend-pooled",
+  "outcome": "lead_recorded",
+  "reason": "pays_strangers. HyperLend Pooled (DefiLlama) is the HyperLend core pool on HyperEVM (Aave v3 fork, Pool 0x00a89d7a5a02160f20150ebea7a2b5e4879a1a8b) - the same protocol as KB protocols.hyperlend (id 500), whose liquidationCall lead (leads 253, paper trial trial-hyperlend-hyperevm) is already live, so no new leads row. liquidationCall paid strangers in the last 7 days: 117 liquidations, largest repaid 160,685 USDC for 2,795.8 WHYPE (gas $1,393 in the burst auction). Everything else measured today is role_gated or unpaid: CapAutomator.exec* is UPDATE_ROLE-gated (reverts 0xe2517d3f from a fresh address) and pays the caller nothing; the Pool ABI has no other public paying entry; isolated pairs 0 liquidations in 130 d (attempts:1865).",
+  "numbers": "117 LiquidationCall blocks 50929427-51559571 (7.17 d, eth_getLogs on 0x00a89d7a5a02160f20150ebea7a2b5e4879a1a8b, topic0 0xe413a321...); 73 USDC-debt, debtToCover sum 59,169 USDC; 15 USDT0 3,551 USD; top-5 USDC debt 160,685/71,420/52,160/37,827/31,817; gross ~9% bonus (attempts:1871) => ~$38-1,925 typical, ~14k max; gas $1,393 (0xe01dad45, 10,738 gwei), $12.9 (0x87269dfb, 237 gwei), $0.055 (0x501a1f62, 1.48 gwei); HYPE $68.67 coins.llama.fi ts 1794971417"
+}

@@ -1,0 +1,27 @@
+{
+ "id": "protocol-avalanche-portal",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1710,
+ "chain": "avalanche",
+ "slug": "portal",
+ "name": "Portal",
+ "category": "Bridge",
+ "tvl_usd": 1867545,
+ "url": "https://portalbridge.com",
+ "github": [
+  "wormhole-foundation"
+ ],
+ "listed_days_ago": 1710,
+ "run_id": "c5d29f2bf3a84585a4e9728bc3f2408c",
+ "result": {
+  "verdict": "unpaid",
+  "line": "Portal/Wormhole bridge avalanche (proxy 0x0e082F06...8052, impl 0x07d6b04d...01c9): only public payout path is completeTransfer(bytes) arbiter fee to caller (caller!=recipient); 65 TransferRedeemed in 7d (blocks 100213443-100769443, snowtrace getLogs 10k chunks; USDC control 778/1000 blocks); all 44 direct + 21 routed receipts scanned: 0 fee-to-caller splits, 15 self-completions got principal, 29 stranger callers paid 0 (one EOA did 24); gross/call $0, gas 263649 x 7.57 gwei = $0.014 (AVAX $7.09 coins.llama.fi ts 1795092122); 0 events in last ~280k blocks (~4.5 d idle).",
+  "kb": [
+   "protocols:1018",
+   "attempts:2518"
+  ],
+  "run_id": "c5d29f2bf3a84585a4e9728bc3f2408c",
+  "at": 1795093848
+ }
+}

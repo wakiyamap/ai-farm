@@ -1,0 +1,7 @@
+{
+ "chain": "hyperevm",
+ "target": "protocol-hyperevm-valantis-stex",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid. Valantis STEX (STEXAMM + SovereignPool + stHYPE withdrawal module) has no function that pays its outside caller: the only permissionless state-changing calls are update() (duty poke, pays 0), claim(id) (pays the LP recipient, self-claimed in the only 7d sample) and claimPoolManagerFees() (pays two fixed protocol recipients, 0 calls in 7d); everything else is onlyALM/onlyGauge/onlyOwner/onlyPoolManager. A bot would pay gas and receive nothing.",
+ "numbers": "7d blocks 0x30704a3-0x312b390 (eth_getLogs, control 106 logs): Update() x15, 14 sampled receipts all from duty EOA 0x6fa0b094b71ef7fca715177242682bdf1954e2e8 (gasUsed 71584 = $0.0005 @ 0.1 gwei gasPrice, HYPE $68.85 coins.llama.fi); LPWithdrawalRequestClaimed x1, tx 0x7f62933501ba7092dfec6b723734ece418e7833631273cb93d0fe46b75678c7e, caller==recipient 0x5c7b28d6a3de2509d84f1aa57b89431e62038942, paid 47.05 HYPE = $3,240 to the LP (debug_traceTransaction callTracer), gas 38288 = $0.0003; claimPoolManagerFees 0 calls x2 AMMs; duty bot inbound 7d = 1 x 0.1 HYPE ops top-up (alchemy_getAssetTransfers); stHYPE AMM 37 deposits / 2 withdrawals; TVL $2.22M (candidate)"
+}

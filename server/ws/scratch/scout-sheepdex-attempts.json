@@ -1,0 +1,7 @@
+{
+  "chain": "bsc",
+  "target": "protocol-bsc-sheepdex",
+  "outcome": "lead_recorded",
+  "reason": "unclear: UniV3-fork DEX on bsc, factory 0x571521f8c16f3c4ed5f2490f19187ba7a5a3cbdf alive (getters answer) but has no anyone-can-call reward function in its 7-function dispatch; no major-token pools at fee 500/3000/10000 (getPool=0); absent from dexscreener/geckoterminal; adapter deleted 2026-02-18. Missing: pool enumeration (no allPools getter) and 7-day Swap/Collect event counts - scout-lane bsc eth_getLogs was rate-limited all session (control query failed too), so no 7-day zero could be established.",
+  "numbers": "factory dispatch 7 fns (bytecode, 2026-11-19); getPool zero for 6 major pairs x 3 fee tiers (eth_call); llama tvl_usd 391097 (stale page, adapter removed); PoolCreated scan window 11640600..11645600 unrun (getLogs lane exhausted); current block 0x804afa9 (134525097)."
+}

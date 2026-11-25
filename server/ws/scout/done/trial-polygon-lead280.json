@@ -1,0 +1,20 @@
+{
+ "id": "trial-polygon-lead280",
+ "kind": "trial",
+ "tier": 1,
+ "age": 0,
+ "chain": "polygon",
+ "lead_id": 280,
+ "target": "fluid_lending VaultT1 liquidate (polygon, WBTC/USDT0 + USDC vaults)",
+ "run_id": "be5cc6c47c4c4e7c9cd32ba04ade24a0",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "7 d Nov 11-18: 90 LogLiquidate / 8 taker contracts (prior '71' was ~3 d: poly blocks 0.7-1.5 s, not 2 s); sample of 19 medians gross 18.25 USD (max 80.91, tx 0x5c3cdd0a73), taker prio 121 gwei, blocks takeable->taken 0 (66/71 same-block, 5 at +1 with 11k-88k gwei bids, 0 waited 2+), attempt gas ~0.026 USD (0.92M x ~350 gwei x POL 0.0803); 47/90 gross-positive, median paid 15.09 USD; pays_strangers but same-block class: farm R=3 s sees none.",
+  "kb": [
+   "attempts:2246",
+   "leads:280"
+  ],
+  "run_id": "be5cc6c47c4c4e7c9cd32ba04ade24a0",
+  "at": 1795032912
+ }
+}

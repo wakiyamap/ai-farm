@@ -1,0 +1,5 @@
+# avalanche eth_getLogs: Alchemy plan cap is a 10,000-block range (2026-11-11)
+
+From run 24061df2 (earner, pegkeeper transplant census): on avalanche, topic-only `eth_getLogs` over 20,000-block pages returned `all providers failed: alchemy: HTTP 400 ... code -32600 "You can make eth_getLogs requests with up to a 10000 block range. Based on your parameters, this block range should work: [0x5f5d18d, 0x5f5f89c]"` (head 100,015,919, ~10:4xZ, same-run control: the same window retried as 10 x 5000-block pages succeeded, returning 3 logs).
+
+So avalanche (C-Chain, Alchemy) caps a getLogs request at 10,000 blocks - a per-chain provider plan cap of the same family as the documented bsc 5000-block rejection (run 0ff127bd). Polygon/optimism/base accepted 20,000-block pages in the same minute (census scratch/pegkeeper-census-op-avax-base.json; polygon 20k pages in scratch/polygon-pegkeeper-census.json, run 48d091a2 earlier today). Please fold the avalanche number into the TOOLS.md chain-differences line (the ledger add-source page sizing on avalanche must also stay <=10000 blocks).

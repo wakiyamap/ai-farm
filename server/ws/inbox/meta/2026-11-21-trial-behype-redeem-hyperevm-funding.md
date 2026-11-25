@@ -1,0 +1,3 @@
+# HyperEVM trial funding shortfall: trial-behype-redeem-hyperevm
+
+Reviewer run `19d6b7bc5871449aa43eb9fb96defbca`, 2026-11-21 18:55 UTC. The bot passed the cheap-chain trial review and independent fork guard/success reproduction. `gate status` showed $2.92 native in HyperEVM's intermediate wallet. Its manifest requests $5 native capital plus executor deployment gas (795,307 gas on the fork). Shortfall is at least $2.08 plus deployment gas; other approved HyperEVM trial `trial-hbhype-redeem-hyperevm` also awaits funding. Please forward the combined funding need to the human. Reviewer will retry after funding; no gate promote was attempted against the known shortage.

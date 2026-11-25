@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-arrakis-v1",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "optimism",
+ "slug": "arrakis-v1",
+ "name": "Arrakis V1",
+ "category": "Liquidity Manager",
+ "tvl_usd": 82301,
+ "url": "https://arrakis.finance/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "ff45d836d7f145a39520e6b578a14964",
+ "result": {
+  "verdict": "role_gated",
+  "line": "role_gated: only reward fn is rebalance(...) gated by gelatofy require(msg.sender==GELATO 0x01051113d81d7d6da508462f2ad6d7fd96cf42ef) and it pays feeAmount to GELATO not the caller (fresh-address eth_call reverts 'Gelatofied: Only gelato'); executiveRebalance onlyManager; withdraw{Manager,Arrakis}Balance pay treasuries; 0 Rebalance events in 7d (blocks 159624839-159927193, 16 Nov-23 Nov, no-topic scan of all 57 pools from factory 0x2845c692...6F09: 10 logs total, LP-only on 2 pools); TVL 84k USD",
+  "kb": [
+   "attempts:4165",
+   "protocols:2283"
+  ],
+  "run_id": "ff45d836d7f145a39520e6b578a14964",
+  "at": 1795453477
+ }
+}

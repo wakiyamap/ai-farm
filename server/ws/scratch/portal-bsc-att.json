@@ -1,0 +1,7 @@
+{
+ "chain": "bsc",
+ "target": "protocol-bsc-portal",
+ "outcome": "lead_recorded",
+ "reason": "unclear: Portal (Wormhole) BSC bridge contracts confirmed live (tokenBridge 0xB6F6D86a8f9879A9c87f643768d9efc38c1Da6E7, chainId()=4; coreBridge 0x98f3c9e6E3fAce36bAAd05FE09d375Ef1464288B). The only anyone-callable paying function is completeTransfer(bytes)/completeTransferWithPayload(bytes) (Bridge.sol): msg.sender is paid the per-VAA fee field in the transferred token (no role gate; payloadID-3 VAAs are reserved to the recipient relayer contract). Missing for a verdict: 7-day call count and fee distribution - eth_getLogs was unavailable all session (scout lane Alchemy budget spent, public bsc providers refuse getLogs with 'limit exceeded'; explorer bsc not_on_plan; ledger bsc has only uniswapx.fill). Retry after the lane's daily reset: scan TransferRedeemed topic0 (cast keccak of both old sig TransferRedeemed(bytes32,uint256,address,address) 0x2535aa05.. and new sig TransferRedeemed(uint16,bytes32,uint64) 0xcaf280c8..) over 7d (~1.34M blocks at 0.45 s/block, ranges <=5000 = ~269 calls), then trace 5 sample txs for the fee paid to tx.from; if all sampled fees are 0 the verdict is unpaid.",
+ "numbers": "TVL 43,629,800 USD (candidate); scout lane alchemy_cu_today 300502/300000 (relay /health 2026-11-19 ~12:52 UTC); getLogs 7 retries 5..5000 blocks all 'all providers failed: public: limit exceeded'; BSC block time 0.450 s (blocks 134479703->134506103, 11884 s); tokenBridge impl 0x621199f6beb2ba6fbd962e8a52a320ea4f6d4aa3 (ERC1967 slot)"
+}

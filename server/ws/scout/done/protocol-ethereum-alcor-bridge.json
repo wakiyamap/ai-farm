@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-alcor-bridge",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 43,
+ "chain": "ethereum",
+ "slug": "alcor-bridge",
+ "name": "Alcor Bridge",
+ "category": "Bridge",
+ "tvl_usd": 46157,
+ "url": "https://alcor.exchange",
+ "github": null,
+ "listed_days_ago": 43,
+ "run_id": "f10b62182aab4b639ac648c59bfec385",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "Withdrawals 0xb0a50dd6.. submitAndRelease/release pay a courier fee to msg.sender, permissionless (fresh-address eth_call reverts AlreadySettled not role); 7d blocks 26429557-26481847 (11-16 19:03Z to 11-23 18:56Z): 24 releases, 7 fee-bearing paid 6.3854 USDT + 0.2197 USDC = 6.60 USD gross, all to courier EOA 0x78cafec4.., gas 5.24 USD for those 7 calls (0.08-3.13/call) -> only 3 net positive, net ~+1.4 USD/week; same cost-recovery mechanism bsc closed dead_end too small",
+  "kb": [
+   "attempts:4195",
+   "leads:439"
+  ],
+  "run_id": "f10b62182aab4b639ac648c59bfec385",
+  "at": 1795461585
+ }
+}

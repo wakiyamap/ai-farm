@@ -1,0 +1,27 @@
+{
+ "id": "protocol-ethereum-presto",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 78,
+ "chain": "ethereum",
+ "slug": "presto",
+ "name": "Presto",
+ "category": "Risk Curators",
+ "tvl_usd": 4359954,
+ "url": "https://www.prestolabs.io",
+ "github": [
+  "prestolabs"
+ ],
+ "listed_days_ago": 78,
+ "run_id": "d270020c1c894d568864d0a0264b2124",
+ "result": {
+  "verdict": "no_reward",
+  "line": "Presto = 2 Morpho V2 vaults on ethereum (Prime 0x13361449..a2ca 304k USDC; Forte 0x68a65f31..48e1 4.06M USDC, decimals 6 on-chain, USDC $0.9999) + MorphoMarketV1AdapterV2 each; no function pays a stranger caller (accrueInterest anyone-callable pays 0 - eth_call fresh addr ok; allocate=allocator, skim=skimRecipient, forceDeallocate charges penalty); no-topic eth_getLogs 4 addrs: 0 events/7d, control since creation 211 events, last 26,130,431 ~45d ago (Presto keepers); accrueInterest gas 100k @ 0.43 gwei = $0.074 (ETH $1,730.56 llama).",
+  "kb": [
+   "attempts:2901",
+   "protocols:1319"
+  ],
+  "run_id": "d270020c1c894d568864d0a0264b2124",
+  "at": 1795177410
+ }
+}

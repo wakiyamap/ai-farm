@@ -1,0 +1,2306 @@
+{
+  "sha": "eacc9c013cf74316263cfae7a00b3361a1644795",
+  "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/eacc9c013cf74316263cfae7a00b3361a1644795",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "635d3760517d6005e073dc42dfafa173b90a1d06",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/635d3760517d6005e073dc42dfafa173b90a1d06"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7315297cd1a19896e072445f5496e9f168c160c5",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/7315297cd1a19896e072445f5496e9f168c160c5"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19bcf1b36652a82ad9023610a235e04e4e400ba0",
+      "size": 2108,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/19bcf1b36652a82ad9023610a235e04e4e400ba0"
+    },
+    {
+      "path": ".github/workflows/lint.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a0f0b495e0c960bce5fee0d326511bcaa75b42b",
+      "size": 1658,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9a0f0b495e0c960bce5fee0d326511bcaa75b42b"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d3513bfa0ca3b3f54aafe50228ef19b40a9c659",
+      "size": 283,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/3d3513bfa0ca3b3f54aafe50228ef19b40a9c659"
+    },
+    {
+      "path": ".gitmodules",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b6490e247c4df392b1841c1ac17d45f67685996",
+      "size": 1264,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9b6490e247c4df392b1841c1ac17d45f67685996"
+    },
+    {
+      "path": ".records",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7d11834e238f892acc8a0767d40eb985d49382b1",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/7d11834e238f892acc8a0767d40eb985d49382b1"
+    },
+    {
+      "path": ".records/Arc.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3594acf6bc6252d761e0f83430020f328c85c583",
+      "size": 715,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/3594acf6bc6252d761e0f83430020f328c85c583"
+    },
+    {
+      "path": ".records/DeployFeeInfraRobinhood.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "31aa6992c2caa9d75b4098add91d7768e0c7eb27",
+      "size": 287,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/31aa6992c2caa9d75b4098add91d7768e0c7eb27"
+    },
+    {
+      "path": ".records/DeployV4FeeInfra.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fdc50e3f548fdd1a3c66890fa8a360173efb669e",
+      "size": 1172,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/fdc50e3f548fdd1a3c66890fa8a360173efb669e"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e0aa8f95beffccadfeeb6aec7f2d9a854e652f8b",
+      "size": 35998,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e0aa8f95beffccadfeeb6aec7f2d9a854e652f8b"
+    },
+    {
+      "path": "audit",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "55a84b18c0d0101f98ae87bb572c571571341a8e",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/55a84b18c0d0101f98ae87bb572c571571341a8e"
+    },
+    {
+      "path": "audit/cantina.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95c4c2908c8dd9cfb8d2328627c1549c635e01bb",
+      "size": 502927,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/95c4c2908c8dd9cfb8d2328627c1549c635e01bb"
+    },
+    {
+      "path": "audit/openzeppelin-1.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eea219555f0a03ac113e9045060a5eb839562d09",
+      "size": 253895,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/eea219555f0a03ac113e9045060a5eb839562d09"
+    },
+    {
+      "path": "audit/openzeppelin-2.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dba52d359d00eb80895328549e6aa2dc460d115f",
+      "size": 243862,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/dba52d359d00eb80895328549e6aa2dc460d115f"
+    },
+    {
+      "path": "audit/openzeppelin-3.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a57805d8e06ea0c79d0f0eb323f28b0b8e211ca6",
+      "size": 113978,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a57805d8e06ea0c79d0f0eb323f28b0b8e211ca6"
+    },
+    {
+      "path": "audit/openzeppelin-5.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b563ff8924f6d0809210ef7022d3e73da431633",
+      "size": 234803,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/5b563ff8924f6d0809210ef7022d3e73da431633"
+    },
+    {
+      "path": "audit/openzeppelin-6.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d712abcfbf202cf7599af8e57ca6b1fb842bbb57",
+      "size": 233143,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d712abcfbf202cf7599af8e57ca6b1fb842bbb57"
+    },
+    {
+      "path": "audit/openzeppelin-7.pdf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc1050e29525265ced605f4519654b5c4a7969b7",
+      "size": 221356,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/fc1050e29525265ced605f4519654b5c4a7969b7"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5709b54e986116ae8e543ea5e7740d21c92b2065",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/5709b54e986116ae8e543ea5e7740d21c92b2065"
+    },
+    {
+      "path": "docs/V4FeePolicy-governance-guide.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7aa6e3f43e8015cf5e939dcddf402b830cdd6585",
+      "size": 18902,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/7aa6e3f43e8015cf5e939dcddf402b830cdd6585"
+    },
+    {
+      "path": "foundry.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4fcc1e3580ac3ccac948ff2a6cacf5ccb62c167d",
+      "size": 1039,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/4fcc1e3580ac3ccac948ff2a6cacf5ccb62c167d"
+    },
+    {
+      "path": "foundry.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79aaf5d25aa013ff056b6e12beba1badddc27e30",
+      "size": 1911,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/79aaf5d25aa013ff056b6e12beba1badddc27e30"
+    },
+    {
+      "path": "lib",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "259d2ae68e7b3c100ab236c51fd6fdb61bd7eac9",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/259d2ae68e7b3c100ab236c51fd6fdb61bd7eac9"
+    },
+    {
+      "path": "lib/BokkyPooBahsDateTimeLibrary",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "1dc26f977c57a6ba3ed6d7c53cafdb191e7e59ae"
+    },
+    {
+      "path": "lib/briefcase",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "62c718ec25b64ecc95b4e09c2751134d78b89a4f"
+    },
+    {
+      "path": "lib/dao-signer",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "ee1e73fbda9b3328aca30d9e42ca78819f4383a3"
+    },
+    {
+      "path": "lib/forge-std",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "77041d2ce690e692d6e03cc812b57d1ddaa4d505"
+    },
+    {
+      "path": "lib/govkit",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "3a12378362e6c444d5312ed82c2ee98ef1d0841f"
+    },
+    {
+      "path": "lib/murky",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "5feccd1253d7da820f7cccccdedf64471025455d"
+    },
+    {
+      "path": "lib/native-token-transfers",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "25a5c3f89446be499a89d1c453db996f29de9290"
+    },
+    {
+      "path": "lib/openzeppelin-contracts",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "e34251682bac9c3252af30e91e999f13dd098b9f"
+    },
+    {
+      "path": "lib/optimism",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "d19d7d9a8acad2fb745d80e43bbb5d419220c9fc"
+    },
+    {
+      "path": "lib/solmate",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "e5e0ed64c75e74974151780884e59071d026d84e"
+    },
+    {
+      "path": "lib/v3-core",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "e3589b192d0be27e100cd0daaf6c97204fdb1899"
+    },
+    {
+      "path": "lib/v4-core",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "59d3ecf53afa9264a16bba0e38f4c5d2231f80bc"
+    },
+    {
+      "path": "merkle-generator",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "064302eca7cc5348bfe4db189c861202db93d799",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/064302eca7cc5348bfe4db189c861202db93d799"
+    },
+    {
+      "path": "merkle-generator/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a40326992cd2b89a828a686a4f635619a8253e5",
+      "size": 89,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/5a40326992cd2b89a828a686a4f635619a8253e5"
+    },
+    {
+      "path": "merkle-generator/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43b5997fe77e4de56bca2994f327d95eb42a01db",
+      "size": 6296,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/43b5997fe77e4de56bca2994f327d95eb42a01db"
+    },
+    {
+      "path": "merkle-generator/data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fb11de4e10960bf759a3865a9dff7e4bc2a19898",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/fb11de4e10960bf759a3865a9dff7e4bc2a19898"
+    },
+    {
+      "path": "merkle-generator/data/merkle-tree.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c767797e19497dc187a5b93cff39454d7a74f5bd",
+      "size": 589297,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c767797e19497dc187a5b93cff39454d7a74f5bd"
+    },
+    {
+      "path": "merkle-generator/data/raw.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0e09cc25c5efb8bda814815e8868bdc98bcbf29",
+      "size": 375963,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d0e09cc25c5efb8bda814815e8868bdc98bcbf29"
+    },
+    {
+      "path": "merkle-generator/data/token-pairs.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0618d5345aaa545a616796746bed89e23b255c06",
+      "size": 159421,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0618d5345aaa545a616796746bed89e23b255c06"
+    },
+    {
+      "path": "merkle-generator/eslint.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79a7889ffb98d7dc3c5559021a252e130c270e86",
+      "size": 228,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/79a7889ffb98d7dc3c5559021a252e130c270e86"
+    },
+    {
+      "path": "merkle-generator/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c79dc26f2a828e929f66a799f8ee6b613d0dbb3",
+      "size": 2076,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/8c79dc26f2a828e929f66a799f8ee6b613d0dbb3"
+    },
+    {
+      "path": "merkle-generator/pnpm-lock.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fffcc7935504e2c04ba4a8c8b4bae9cf8090fa7d",
+      "size": 162947,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/fffcc7935504e2c04ba4a8c8b4bae9cf8090fa7d"
+    },
+    {
+      "path": "merkle-generator/pnpm-workspace.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2e6121e34bec7d838e4263129501b0fbb8c6762",
+      "size": 704,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e2e6121e34bec7d838e4263129501b0fbb8c6762"
+    },
+    {
+      "path": "merkle-generator/proof.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "251aa000e8d8b82216ded2c88af47b9353473418",
+      "size": 2633,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/251aa000e8d8b82216ded2c88af47b9353473418"
+    },
+    {
+      "path": "merkle-generator/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "54653ccd1bf7a125edae35cd188ac85e5a34923f",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/54653ccd1bf7a125edae35cd188ac85e5a34923f"
+    },
+    {
+      "path": "merkle-generator/src/abi.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e890f9261c60de42830a328f032ce22aad2c48f0",
+      "size": 657,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e890f9261c60de42830a328f032ce22aad2c48f0"
+    },
+    {
+      "path": "merkle-generator/src/cli.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10cb89f2f1eba2a2ec633f475b7abfffd25cb650",
+      "size": 15282,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/10cb89f2f1eba2a2ec633f475b7abfffd25cb650"
+    },
+    {
+      "path": "merkle-generator/src/propagate-fees.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ec223398e5afec9cb027147b27ed3fcb7adff9b",
+      "size": 5789,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/2ec223398e5afec9cb027147b27ed3fcb7adff9b"
+    },
+    {
+      "path": "merkle-generator/src/utils.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b6361b2c0c28055b05e74e414dacbe80cd07d0e",
+      "size": 1801,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/2b6361b2c0c28055b05e74e414dacbe80cd07d0e"
+    },
+    {
+      "path": "merkle-generator/test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6e71c57aea34f7d4c1a55843983db3229bc11cbd",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/6e71c57aea34f7d4c1a55843983db3229bc11cbd"
+    },
+    {
+      "path": "merkle-generator/test/cli.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f970279993950d20b28a8ecadd8ce4fb2ae57ca",
+      "size": 10772,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/7f970279993950d20b28a8ecadd8ce4fb2ae57ca"
+    },
+    {
+      "path": "merkle-generator/test/merkle.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16ea326df0c6cfc944a3b53f571980573f60a32e",
+      "size": 10385,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/16ea326df0c6cfc944a3b53f571980573f60a32e"
+    },
+    {
+      "path": "merkle-generator/test/propagate-fees.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "733cc2a757b4b473f4160da38841b5c349241cbe",
+      "size": 5298,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/733cc2a757b4b473f4160da38841b5c349241cbe"
+    },
+    {
+      "path": "merkle-generator/test/utils.test.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fcbd669b0381283970ca18e471121d4c9395b732",
+      "size": 5751,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/fcbd669b0381283970ca18e471121d4c9395b732"
+    },
+    {
+      "path": "merkle-generator/tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f9ceaf31be9a8ee7ee7bd2f6f28fddb7348ce4b",
+      "size": 359,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9f9ceaf31be9a8ee7ee7bd2f6f28fddb7348ce4b"
+    },
+    {
+      "path": "merkle-generator/tsdown.config.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "657993af584611eb414b27b68ea40fec28726b00",
+      "size": 121,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/657993af584611eb414b27b68ea40fec28726b00"
+    },
+    {
+      "path": "merkle-generator/vitest.config.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "020017ef83c3d4a5d72174cd1eb5ee802616d1a2",
+      "size": 184,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/020017ef83c3d4a5d72174cd1eb5ee802616d1a2"
+    },
+    {
+      "path": "proposals",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5f3b43e59cbc1668d86d6891c2e77b28fa4d1978",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/5f3b43e59cbc1668d86d6891c2e77b28fa4d1978"
+    },
+    {
+      "path": "proposals/unification.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "148536c00279b33f82e2df0999326c87bc46731b",
+      "size": 32250,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/148536c00279b33f82e2df0999326c87bc46731b"
+    },
+    {
+      "path": "remappings.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d70698ecc24baaae731a287d4ba2949b5757b41c",
+      "size": 700,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d70698ecc24baaae731a287d4ba2949b5757b41c"
+    },
+    {
+      "path": "script",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2a67a3ec7a1f2b5dcf7c10e08d15c1f17345e3c0",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/2a67a3ec7a1f2b5dcf7c10e08d15c1f17345e3c0"
+    },
+    {
+      "path": "script/deployers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "af7cea758df37577393e45a832d99319e3c86bbc",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/af7cea758df37577393e45a832d99319e3c86bbc"
+    },
+    {
+      "path": "script/deployers/ArbitrumDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7fcd7617bc18bb081289ad008d739cd35062055",
+      "size": 4507,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c7fcd7617bc18bb081289ad008d739cd35062055"
+    },
+    {
+      "path": "script/deployers/ArbitrumOrbitDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a883d54a250066e45f5f41070038437e79bd75e8",
+      "size": 4686,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a883d54a250066e45f5f41070038437e79bd75e8"
+    },
+    {
+      "path": "script/deployers/MainnetDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a479cbf40bf38d8b7bdce1cd0bea0e029d0df6df",
+      "size": 6295,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a479cbf40bf38d8b7bdce1cd0bea0e029d0df6df"
+    },
+    {
+      "path": "script/deployers/OPStackDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e49f991e27d71e8f0102afeaf902917779e267f7",
+      "size": 4467,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e49f991e27d71e8f0102afeaf902917779e267f7"
+    },
+    {
+      "path": "script/deployers/UnichainDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9fb752b13a05bf9ca5bca51cd1f1592d2a0f1b24",
+      "size": 2066,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9fb752b13a05bf9ca5bca51cd1f1592d2a0f1b24"
+    },
+    {
+      "path": "script/deployers/V3OpenMainnetDeployer.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c392d73a0bec177d08e60c011f75850f52da04d6",
+      "size": 3245,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c392d73a0bec177d08e60c011f75850f52da04d6"
+    },
+    {
+      "path": "script/proposal-1",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ed252a40b42b294b1e1983708f7f4edfaeeb70ae",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/ed252a40b42b294b1e1983708f7f4edfaeeb70ae"
+    },
+    {
+      "path": "script/proposal-1/01_DeployMainnet.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ed12e67cea1b060e34eb66df4ccb197bf0eeca6",
+      "size": 821,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/1ed12e67cea1b060e34eb66df4ccb197bf0eeca6"
+    },
+    {
+      "path": "script/proposal-1/02_DeployUnichain.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26a31e1d4a6aca48f8733e86a1c3f1f6f67f5399",
+      "size": 804,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/26a31e1d4a6aca48f8733e86a1c3f1f6f67f5399"
+    },
+    {
+      "path": "script/proposal-1/03_CreateAgreementAnchorsMainnet.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "149673b797cbebb7f2f6da4efb289284db4e181e",
+      "size": 2095,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/149673b797cbebb7f2f6da4efb289284db4e181e"
+    },
+    {
+      "path": "script/proposal-1/04_UnificationProposal.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6c7cd6d744e1528b95cb1bfe21aa84e71051522",
+      "size": 28748,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/f6c7cd6d744e1528b95cb1bfe21aa84e71051522"
+    },
+    {
+      "path": "script/proposal-2",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5e7aaec29cef96a86d5ee8556308b1c97ea156b8",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/5e7aaec29cef96a86d5ee8556308b1c97ea156b8"
+    },
+    {
+      "path": "script/proposal-2/05_ActivateOPBaseArbProposal.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6eeb2d049ee26432f512fe19c4c164669a5ae70",
+      "size": 18245,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/f6eeb2d049ee26432f512fe19c4c164669a5ae70"
+    },
+    {
+      "path": "script/proposal-2/DeployArbitrum.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09df050ce03f184dc20acc6aad3214961e3f1793",
+      "size": 2739,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/09df050ce03f184dc20acc6aad3214961e3f1793"
+    },
+    {
+      "path": "script/proposal-2/DeployBase.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c097364ef9c4c8c73a95ccb335a26252b8240fe",
+      "size": 1149,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/8c097364ef9c4c8c73a95ccb335a26252b8240fe"
+    },
+    {
+      "path": "script/proposal-2/DeployCelo.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cec31e7b64a3d671ccb1568eb5621665403323cf",
+      "size": 842,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/cec31e7b64a3d671ccb1568eb5621665403323cf"
+    },
+    {
+      "path": "script/proposal-2/DeployOPMainnet.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7b347bd14d9a5209c6f09f3a7f025f8a773bb87",
+      "size": 1129,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b7b347bd14d9a5209c6f09f3a7f025f8a773bb87"
+    },
+    {
+      "path": "script/proposal-2/DeployV3OpenMainnet.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0457041349bf03a37a4af3022e3000789115b30b",
+      "size": 661,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0457041349bf03a37a4af3022e3000789115b30b"
+    },
+    {
+      "path": "script/proposal-3",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9c844079e219f2e9a6ab8c2340452d012da78e7b",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/9c844079e219f2e9a6ab8c2340452d012da78e7b"
+    },
+    {
+      "path": "script/proposal-3/06_ActivateL2sProposal.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09431549503013e91998202a6ff609899bee24a2",
+      "size": 17703,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/09431549503013e91998202a6ff609899bee24a2"
+    },
+    {
+      "path": "script/proposal-3/DeploySoneium.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ffac8aaf3372da2987d661b9fdcbebcd3910b5c",
+      "size": 862,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0ffac8aaf3372da2987d661b9fdcbebcd3910b5c"
+    },
+    {
+      "path": "script/proposal-3/DeployWorldchain.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2aa29eb59b760acc1024590cda2d2dfe9f9124e",
+      "size": 1153,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b2aa29eb59b760acc1024590cda2d2dfe9f9124e"
+    },
+    {
+      "path": "script/proposal-3/DeployXLayer.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00cb629ac9fa3ab23000fab56eb80d8e06db97c1",
+      "size": 858,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/00cb629ac9fa3ab23000fab56eb80d8e06db97c1"
+    },
+    {
+      "path": "script/proposal-3/DeployZora.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c4e2d62d3d1efcc37aabd7d3a6d00fc4f36e851",
+      "size": 1145,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/7c4e2d62d3d1efcc37aabd7d3a6d00fc4f36e851"
+    },
+    {
+      "path": "script/proposal-4",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "794af0abf06c17ce47b02c237cbc08ad5069ff4a",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/794af0abf06c17ce47b02c237cbc08ad5069ff4a"
+    },
+    {
+      "path": "script/proposal-4/ActivateL2sProposal.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "367bc8cb3e97e0da92f746e74680141d10f249d8",
+      "size": 9642,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/367bc8cb3e97e0da92f746e74680141d10f249d8"
+    },
+    {
+      "path": "script/proposal-4/BroadcastResolver.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e765653aa9a69a5bb04203e9906a479dc07556ec",
+      "size": 4194,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e765653aa9a69a5bb04203e9906a479dc07556ec"
+    },
+    {
+      "path": "script/proposal-4/Constants.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38d01e2bb01831376bc236b2ea838d3b2d8d24bf",
+      "size": 10179,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/38d01e2bb01831376bc236b2ea838d3b2d8d24bf"
+    },
+    {
+      "path": "script/proposal-4/Index.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d87881685662c70e8ed76da9c447de0c80468547",
+      "size": 51863,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d87881685662c70e8ed76da9c447de0c80468547"
+    },
+    {
+      "path": "script/proposal-4/Interfaces.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5d797a7d4268911f44d1311a10cf4f3785a7fa7",
+      "size": 1652,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a5d797a7d4268911f44d1311a10cf4f3785a7fa7"
+    },
+    {
+      "path": "script/proposal-4/ProposalDescription.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ddc51118e49eed3aa463a18691cae72651924420",
+      "size": 7136,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/ddc51118e49eed3aa463a18691cae72651924420"
+    },
+    {
+      "path": "script/proposal-4/deploys",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7bc2da56cce9e2916ce409aab9b84b50691c2e59",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/7bc2da56cce9e2916ce409aab9b84b50691c2e59"
+    },
+    {
+      "path": "script/proposal-4/deploys/ConfigWormholeInfraBNBChain.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0d73489e79d22c22c410b12bc8db54464ab26c8",
+      "size": 16283,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b0d73489e79d22c22c410b12bc8db54464ab26c8"
+    },
+    {
+      "path": "script/proposal-4/deploys/ConfigWormholeInfraEthereum.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b2d1f64490786c4d46dfd6d35486ad1a8e9da6e",
+      "size": 24929,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9b2d1f64490786c4d46dfd6d35486ad1a8e9da6e"
+    },
+    {
+      "path": "script/proposal-4/deploys/ConfigWormholeInfraPolygon.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7bc97946ec49e921ea8e849f8cc7a1a6550734d",
+      "size": 16178,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b7bc97946ec49e921ea8e849f8cc7a1a6550734d"
+    },
+    {
+      "path": "script/proposal-4/deploys/DeployAndConfigureFeeInfraBNBChain.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d551b2f9b0b0a8d445418956760ced11f99f8a2",
+      "size": 17671,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9d551b2f9b0b0a8d445418956760ced11f99f8a2"
+    },
+    {
+      "path": "script/proposal-4/deploys/DeployAndConfigureFeeInfraPolygon.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf68f9d947012c6fd0dd5edf2bd0c0fcf1596d4b",
+      "size": 17609,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/bf68f9d947012c6fd0dd5edf2bd0c0fcf1596d4b"
+    },
+    {
+      "path": "script/proposal-4/deploys/DeployWormholeInfraBNBChain.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a9396708fec6cf906714e2795a231cd553b6f771",
+      "size": 16495,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a9396708fec6cf906714e2795a231cd553b6f771"
+    },
+    {
+      "path": "script/proposal-4/deploys/DeployWormholeInfraEthereum.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74d76453cabadb790a913631d1e1484e79af165d",
+      "size": 11700,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/74d76453cabadb790a913631d1e1484e79af165d"
+    },
+    {
+      "path": "script/proposal-4/deploys/DeployWormholeInfraPolygon.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8aa27a3ca46bc5a1ac7717eea8357546a08c998",
+      "size": 16466,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a8aa27a3ca46bc5a1ac7717eea8357546a08c998"
+    },
+    {
+      "path": "script/proposal-4/sim",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "796c25940763e4300c96f903387038e464402612",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/796c25940763e4300c96f903387038e464402612"
+    },
+    {
+      "path": "script/proposal-4/sim/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f50199971d871b1c7885a1751727046c02bc8b1",
+      "size": 3945,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/8f50199971d871b1c7885a1751727046c02bc8b1"
+    },
+    {
+      "path": "script/proposal-5",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b6816468d30f4dc8c16e1fe143788ea9f57feb89",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/b6816468d30f4dc8c16e1fe143788ea9f57feb89"
+    },
+    {
+      "path": "script/proposal-5/Constants.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34447aa661f8f780610a6ad3ea3de8b3dbabc656",
+      "size": 764,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/34447aa661f8f780610a6ad3ea3de8b3dbabc656"
+    },
+    {
+      "path": "script/proposal-5/Description.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4917a03f2dddef3b91e6ead36dbddb3f2cd6ec8b",
+      "size": 5165,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/4917a03f2dddef3b91e6ead36dbddb3f2cd6ec8b"
+    },
+    {
+      "path": "script/proposal-5/Interfaces.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "11704ff3c2cb1f0138b9af18370e39d9507a2042",
+      "size": 3114,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/11704ff3c2cb1f0138b9af18370e39d9507a2042"
+    },
+    {
+      "path": "script/proposal-5/RobinhoodFees.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1632692869594ddf8dc8455721d31e0940a3c581",
+      "size": 2967,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/1632692869594ddf8dc8455721d31e0940a3c581"
+    },
+    {
+      "path": "script/proposal-5/prereq",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "75e291e98c779b5a93be2eee1f2a3a588c486ece",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/75e291e98c779b5a93be2eee1f2a3a588c486ece"
+    },
+    {
+      "path": "script/proposal-5/prereq/DeployFeeInfraRobinhood.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71e315a98425e50a207e497f496787a2cc553da8",
+      "size": 3575,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/71e315a98425e50a207e497f496787a2cc553da8"
+    },
+    {
+      "path": "script/proposal-6",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ff7d79c646289e9c6ce44dd0496f1e03417e57e5",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/ff7d79c646289e9c6ce44dd0496f1e03417e57e5"
+    },
+    {
+      "path": "script/proposal-6/Description.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b7a02ed1ce79da88c16af8695272daa200074f8",
+      "size": 7604,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/6b7a02ed1ce79da88c16af8695272daa200074f8"
+    },
+    {
+      "path": "script/proposal-6/Interfaces.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f3c36520e2501ca731f8e0d444b9748c8eef981",
+      "size": 175,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/1f3c36520e2501ca731f8e0d444b9748c8eef981"
+    },
+    {
+      "path": "script/proposal-6/StableStablePairs.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab20240b8440754ef929abf014a22893ab30f09b",
+      "size": 34499,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/ab20240b8440754ef929abf014a22893ab30f09b"
+    },
+    {
+      "path": "script/proposal-6/V4FeesProposal.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02b65635edb9ae5e8270bdd4877b70e06f853fa5",
+      "size": 10224,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/02b65635edb9ae5e8270bdd4877b70e06f853fa5"
+    },
+    {
+      "path": "script/proposal-6/prereq",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "06f99ed1dd57e7fdf6b2d77bc1ce817f7f043089",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/06f99ed1dd57e7fdf6b2d77bc1ce817f7f043089"
+    },
+    {
+      "path": "script/proposal-6/prereq/DeployV4FeeInfra.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "536937f1dd671e59b7fb56ad5b96866ca87664bb",
+      "size": 13077,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/536937f1dd671e59b7fb56ad5b96866ca87664bb"
+    },
+    {
+      "path": "script/proposal-7",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8660853ba3b40e74239c4c17f350cdfe67fdfadb",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/8660853ba3b40e74239c4c17f350cdfe67fdfadb"
+    },
+    {
+      "path": "script/proposal-7/ArcFees.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4c4943eaafb68a625150b4955d3449abd4f7e9e",
+      "size": 13569,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a4c4943eaafb68a625150b4955d3449abd4f7e9e"
+    },
+    {
+      "path": "script/proposal-7/ArcPreflight.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34716f9b5706459b56e34927c05c250786a4a9ea",
+      "size": 1579,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/34716f9b5706459b56e34927c05c250786a4a9ea"
+    },
+    {
+      "path": "script/proposal-7/Description.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7872915afb88ac790b92a35f9f718f88575aa974",
+      "size": 8163,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/7872915afb88ac790b92a35f9f718f88575aa974"
+    },
+    {
+      "path": "script/proposal-7/Index.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a11bb8a8cfbea20e19ac36c67e94c14e77ef726",
+      "size": 23487,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/5a11bb8a8cfbea20e19ac36c67e94c14e77ef726"
+    },
+    {
+      "path": "script/proposal-7/Interfaces.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e02b20a7b9a5a148b1ddba6e89aa3586c97b0357",
+      "size": 1923,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e02b20a7b9a5a148b1ddba6e89aa3586c97b0357"
+    },
+    {
+      "path": "script/proposal-7/params",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c2119ceeed560622c58bfa28312bf9a89eaa85b7",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/c2119ceeed560622c58bfa28312bf9a89eaa85b7"
+    },
+    {
+      "path": "script/proposal-7/params/Constants.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c47b430462e15b199f366148c7d47a1d08548d7e",
+      "size": 4776,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c47b430462e15b199f366148c7d47a1d08548d7e"
+    },
+    {
+      "path": "script/proposal-7/params/v4-fee-policy.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c78139798579339b65904c15028348dd2f52a81c",
+      "size": 323,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c78139798579339b65904c15028348dd2f52a81c"
+    },
+    {
+      "path": "script/proposal-7/prereq",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "494f09d1515ea19bb1db6e9782fca5912150f115",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/494f09d1515ea19bb1db6e9782fca5912150f115"
+    },
+    {
+      "path": "script/proposal-7/prereq/DeployFeeInfraArc.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1c7155a88e3c199e40f048fb723a6a4c99b9854",
+      "size": 42045,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e1c7155a88e3c199e40f048fb723a6a4c99b9854"
+    },
+    {
+      "path": "script/proposal-8",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f1b635078b6a5a94d52dca4ac4212bb854013810",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/f1b635078b6a5a94d52dca4ac4212bb854013810"
+    },
+    {
+      "path": "script/proposal-8/Constants.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1bd4ea4c6f3dd4839c10863b0481f18ec5d5d4ce",
+      "size": 1495,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/1bd4ea4c6f3dd4839c10863b0481f18ec5d5d4ce"
+    },
+    {
+      "path": "script/proposal-8/Description.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b43efbba38f16220b245655832802e09664389b",
+      "size": 5721,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0b43efbba38f16220b245655832802e09664389b"
+    },
+    {
+      "path": "script/proposal-8/Interfaces.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "55e2b6f6ea3cfb6915c0f97a72a6b4eaea05c9fd",
+      "size": 492,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/55e2b6f6ea3cfb6915c0f97a72a6b4eaea05c9fd"
+    },
+    {
+      "path": "script/proposal-8/RotateEarnSentinels.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db7096152b1dfbf0eef4eda166e89975a9f31ac6",
+      "size": 7010,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/db7096152b1dfbf0eef4eda166e89975a9f31ac6"
+    },
+    {
+      "path": "script/shared",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "88267947fafba994fd2d4f2c01005c741d917180",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/88267947fafba994fd2d4f2c01005c741d917180"
+    },
+    {
+      "path": "script/shared/DeployOPStackChain.s.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f9135e1024a36102033b459c8f6b2583ea24626",
+      "size": 5980,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/2f9135e1024a36102033b459c8f6b2583ea24626"
+    },
+    {
+      "path": "script/shared/FeeSchedule.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba2374a378751b8aaf1f83b3b7392bda732b28e6",
+      "size": 5067,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/ba2374a378751b8aaf1f83b3b7392bda732b28e6"
+    },
+    {
+      "path": "script/shared/V4FeePolicyAssignments.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f96e9f9e00748841a0ffed055474de702c17b00",
+      "size": 5983,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/1f96e9f9e00748841a0ffed055474de702c17b00"
+    },
+    {
+      "path": "snapshots",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d0e3da51714df460d9dd21b8379e6227ecf09d3c",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/d0e3da51714df460d9dd21b8379e6227ecf09d3c"
+    },
+    {
+      "path": "snapshots/V3FeeAdapterTest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffe21f9c08d6d41e58ba562a5782fc4a7c109a83",
+      "size": 157,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/ffe21f9c08d6d41e58ba562a5782fc4a7c109a83"
+    },
+    {
+      "path": "snapshots/V3OpenFeeAdapterTest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0420b6c1bc95315ac10c470565fe46a591582a3e",
+      "size": 160,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0420b6c1bc95315ac10c470565fe46a591582a3e"
+    },
+    {
+      "path": "snapshots/V4FeeAdapterForkTest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59c11934538c36d544495e81039499886f1542f8",
+      "size": 186,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/59c11934538c36d544495e81039499886f1542f8"
+    },
+    {
+      "path": "snapshots/V4FeeAdapterTest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01c214c2d746be2298c4bb50ef0a86994381fc5d",
+      "size": 1272,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/01c214c2d746be2298c4bb50ef0a86994381fc5d"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4de4eeeca1f3960c837c9416bf4ed2c8ffb77317",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/4de4eeeca1f3960c837c9416bf4ed2c8ffb77317"
+    },
+    {
+      "path": "src/CrossChainAccount.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad64e158515598043d00600e532535d61e19553d",
+      "size": 1410,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/ad64e158515598043d00600e532535d61e19553d"
+    },
+    {
+      "path": "src/TokenJar.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e008517a5a10a4a553b3d2b50669d0560ace2328",
+      "size": 1456,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e008517a5a10a4a553b3d2b50669d0560ace2328"
+    },
+    {
+      "path": "src/UNIVesting.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c46eea5a1f94522bdca6aa509c68f984120b59cf",
+      "size": 6206,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c46eea5a1f94522bdca6aa509c68f984120b59cf"
+    },
+    {
+      "path": "src/base",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2533e66a8175ae90bc8b60aa5f60a14f666c7dce",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/2533e66a8175ae90bc8b60aa5f60a14f666c7dce"
+    },
+    {
+      "path": "src/base/Nonce.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4b432cdc16f32ed2ec204d09ec525f92370dc68",
+      "size": 1202,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a4b432cdc16f32ed2ec204d09ec525f92370dc68"
+    },
+    {
+      "path": "src/base/ResourceManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8715033ea8fabe7152ca2b743179589d325c210",
+      "size": 1605,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c8715033ea8fabe7152ca2b743179589d325c210"
+    },
+    {
+      "path": "src/feeAdapters",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9b109e7eecee744c7d986ae8f493f3e20543c900",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/9b109e7eecee744c7d986ae8f493f3e20543c900"
+    },
+    {
+      "path": "src/feeAdapters/V3FeeAdapter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d74008cb27bc9e8bd3d0c8082c6787cc29cb26ed",
+      "size": 8543,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d74008cb27bc9e8bd3d0c8082c6787cc29cb26ed"
+    },
+    {
+      "path": "src/feeAdapters/V3OpenFeeAdapter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2fa2df70b743f81159231c6553e42dd024ea9d4",
+      "size": 11448,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e2fa2df70b743f81159231c6553e42dd024ea9d4"
+    },
+    {
+      "path": "src/feeAdapters/V4FeeAdapter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68d1ee8c40d1e9bf9f799dfa2bc41bac652c4f2e",
+      "size": 6324,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/68d1ee8c40d1e9bf9f799dfa2bc41bac652c4f2e"
+    },
+    {
+      "path": "src/feeAdapters/V4FeePolicy.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69ea73bffe0d70cca6d50068de657835f2e7386f",
+      "size": 16383,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/69ea73bffe0d70cca6d50068de657835f2e7386f"
+    },
+    {
+      "path": "src/interfaces",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2ef050552c1c94facbb92478adc547cc19f121ca",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/2ef050552c1c94facbb92478adc547cc19f121ca"
+    },
+    {
+      "path": "src/interfaces/IFeeClassifiedHook.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58cffd00f12df583a7630796d21545d0add4495f",
+      "size": 982,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/58cffd00f12df583a7630796d21545d0add4495f"
+    },
+    {
+      "path": "src/interfaces/IReleaser.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a63377195e78be08a7345bc749d4fa9b34de203c",
+      "size": 1165,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a63377195e78be08a7345bc749d4fa9b34de203c"
+    },
+    {
+      "path": "src/interfaces/ITokenJar.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8eeee76f536ad3c87b078c3a70784040e107ca8",
+      "size": 845,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e8eeee76f536ad3c87b078c3a70784040e107ca8"
+    },
+    {
+      "path": "src/interfaces/IUNIVesting.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6179c88386ddd5fc353cbb72ee62459885ab5efe",
+      "size": 2908,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/6179c88386ddd5fc353cbb72ee62459885ab5efe"
+    },
+    {
+      "path": "src/interfaces/IUniswapV3FactoryOwnerActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69afaf543184cc6b8ae70d9114a3b528280d6e9a",
+      "size": 1708,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/69afaf543184cc6b8ae70d9114a3b528280d6e9a"
+    },
+    {
+      "path": "src/interfaces/IUniswapV3PoolOwnerActions.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2b8277eeec2e9a99896ce8050b19c157f0853d5",
+      "size": 1321,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a2b8277eeec2e9a99896ce8050b19c157f0853d5"
+    },
+    {
+      "path": "src/interfaces/IV3FeeAdapter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c17e1d78e367fd013270e53db03841b11c0e3161",
+      "size": 6302,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c17e1d78e367fd013270e53db03841b11c0e3161"
+    },
+    {
+      "path": "src/interfaces/IV3OpenFeeAdapter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ee77ddb3ef766088ab7687339632753b5295812",
+      "size": 9963,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/3ee77ddb3ef766088ab7687339632753b5295812"
+    },
+    {
+      "path": "src/interfaces/IV4FeeAdapter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7813a22d3d2897fe338575bb8f8a7b83611016c6",
+      "size": 6166,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/7813a22d3d2897fe338575bb8f8a7b83611016c6"
+    },
+    {
+      "path": "src/interfaces/IV4FeePolicy.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1584fb0dfa006d7717d58d37e1ed696452b7ccee",
+      "size": 17834,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/1584fb0dfa006d7717d58d37e1ed696452b7ccee"
+    },
+    {
+      "path": "src/interfaces/base",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "eb34f23ca7189749f808e80156903952e78b56ad",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/eb34f23ca7189749f808e80156903952e78b56ad"
+    },
+    {
+      "path": "src/interfaces/base/INonce.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e934c9c14f883892a86498e1270a133d21c9e1ce",
+      "size": 313,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e934c9c14f883892a86498e1270a133d21c9e1ce"
+    },
+    {
+      "path": "src/interfaces/base/IOwned.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b98d9d8deea2136f784f152b0728c66519c48b6a",
+      "size": 381,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b98d9d8deea2136f784f152b0728c66519c48b6a"
+    },
+    {
+      "path": "src/interfaces/base/IResourceManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "793494a221a78daa400bde0ae465536aa1a8eb42",
+      "size": 1529,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/793494a221a78daa400bde0ae465536aa1a8eb42"
+    },
+    {
+      "path": "src/interfaces/external",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bf76f65fed358dc1471c6a74cc9a8ceb9348b391",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/bf76f65fed358dc1471c6a74cc9a8ceb9348b391"
+    },
+    {
+      "path": "src/interfaces/external/IL2GatewayRouter.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f76e772478da707b45cdba36bacb621eb1ea246a",
+      "size": 1363,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/f76e772478da707b45cdba36bacb621eb1ea246a"
+    },
+    {
+      "path": "src/interfaces/external/IL2StandardBridge.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6124d44482b89a96d3eeb6e3ec0de7a09e792ced",
+      "size": 2313,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/6124d44482b89a96d3eeb6e3ec0de7a09e792ced"
+    },
+    {
+      "path": "src/interfaces/wormhole",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e80ea188219ca04bd6871fec6d9e52ddb15b7d73",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/e80ea188219ca04bd6871fec6d9e52ddb15b7d73"
+    },
+    {
+      "path": "src/interfaces/wormhole/INttManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06eedab18a613e5856483a55ef6bfb6d434a32fd",
+      "size": 362,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/06eedab18a613e5856483a55ef6bfb6d434a32fd"
+    },
+    {
+      "path": "src/interfaces/wormhole/INttToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b7a16a14dd4a23541774c3fccfd4be0393b1131",
+      "size": 192,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/2b7a16a14dd4a23541774c3fccfd4be0393b1131"
+    },
+    {
+      "path": "src/libraries",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "96af15f49fb901ba4a09a06a810a4de2b1d9850b",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/96af15f49fb901ba4a09a06a810a4de2b1d9850b"
+    },
+    {
+      "path": "src/libraries/ArrayLib.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c660d0481e82138291eafe2c48d4531c9b1e3ff",
+      "size": 785,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/6c660d0481e82138291eafe2c48d4531c9b1e3ff"
+    },
+    {
+      "path": "src/releasers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "10b12c9f77e8d61bb3a975d75e7d7879a98fb080",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/10b12c9f77e8d61bb3a975d75e7d7879a98fb080"
+    },
+    {
+      "path": "src/releasers/ArbitrumBridgedResourceFirepit.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca85c93eba492aefe73dc5f5b11308f154f5a4fa",
+      "size": 3546,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/ca85c93eba492aefe73dc5f5b11308f154f5a4fa"
+    },
+    {
+      "path": "src/releasers/ArbitrumOrbitResourceFirepit.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df41a5a1ec413b3daef12875b9bb0d3d92e4bd59",
+      "size": 3496,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/df41a5a1ec413b3daef12875b9bb0d3d92e4bd59"
+    },
+    {
+      "path": "src/releasers/ExchangeReleaser.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0fceb1da8173cfd02387f28ec35782622e7e98cb",
+      "size": 2930,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0fceb1da8173cfd02387f28ec35782622e7e98cb"
+    },
+    {
+      "path": "src/releasers/Firepit.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3543100db58aedfdd1792ee9ff524f0865d7f18e",
+      "size": 422,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/3543100db58aedfdd1792ee9ff524f0865d7f18e"
+    },
+    {
+      "path": "src/releasers/OptimismBridgedResourceFirepit.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e904311c44980c1360fba8b1498e55e79083692",
+      "size": 2893,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/2e904311c44980c1360fba8b1498e55e79083692"
+    },
+    {
+      "path": "src/releasers/WormholeReleaser.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e75ee1da959396bc50df0dc7d7d7813967b82b78",
+      "size": 4569,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e75ee1da959396bc50df0dc7d7d7813967b82b78"
+    },
+    {
+      "path": "src/wormhole",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "735a910aff9f4bafd1796559a064900cd7fa6035",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/735a910aff9f4bafd1796559a064900cd7fa6035"
+    },
+    {
+      "path": "src/wormhole/SyntheticNttUni.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "47f2bf2269a71c67f007cb2f4c7baffcb2dd7aae",
+      "size": 1993,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/47f2bf2269a71c67f007cb2f4c7baffcb2dd7aae"
+    },
+    {
+      "path": "test",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d31a6ce1f46b3796261256d04991c0f3336aab48",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/d31a6ce1f46b3796261256d04991c0f3336aab48"
+    },
+    {
+      "path": "test/ArbitrumBridgedResourceFirepit.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c1e11e108e3d713b9ffbf05daf0bd6127d5583c",
+      "size": 16261,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/4c1e11e108e3d713b9ffbf05daf0bd6127d5583c"
+    },
+    {
+      "path": "test/ArbitrumDeployer.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "914ac67845be93b12d89aacbd7c0632c09e446ae",
+      "size": 9719,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/914ac67845be93b12d89aacbd7c0632c09e446ae"
+    },
+    {
+      "path": "test/ArbitrumProtocolFees.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32a87ad95864889eb7e02ec8184701cd1e078f98",
+      "size": 10970,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/32a87ad95864889eb7e02ec8184701cd1e078f98"
+    },
+    {
+      "path": "test/CreateAgreementAnchorsMainnet.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59d61c0f69062f376ff51eda2e62b245ab9b632a",
+      "size": 1683,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/59d61c0f69062f376ff51eda2e62b245ab9b632a"
+    },
+    {
+      "path": "test/ExchangeReleaser.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19a84c376832673438fce201579d089bea6a1476",
+      "size": 4628,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/19a84c376832673438fce201579d089bea6a1476"
+    },
+    {
+      "path": "test/FeeSchedule.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5136e8c0e6d4c169685170eaa19ed8989aab7b30",
+      "size": 2496,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/5136e8c0e6d4c169685170eaa19ed8989aab7b30"
+    },
+    {
+      "path": "test/Firepit.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "670af074358318ae614b8b245402b435f48f6322",
+      "size": 5856,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/670af074358318ae614b8b245402b435f48f6322"
+    },
+    {
+      "path": "test/MainnetDeployer.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72d6b3186655c1c56c6607f8418a7fd656c3fdd9",
+      "size": 2455,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/72d6b3186655c1c56c6607f8418a7fd656c3fdd9"
+    },
+    {
+      "path": "test/OPStackDeployer.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "480bc8eb30aac8424a7c8b6c18be7117cdf5733d",
+      "size": 7692,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/480bc8eb30aac8424a7c8b6c18be7117cdf5733d"
+    },
+    {
+      "path": "test/OptimismBridgedResourceFirepit.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "789e22a587b13d1171f4c9ef2de7dd696b523b31",
+      "size": 15595,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/789e22a587b13d1171f4c9ef2de7dd696b523b31"
+    },
+    {
+      "path": "test/ProtocolFees.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53e5ce704c599687265eae898e0a07b432894e21",
+      "size": 16687,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/53e5ce704c599687265eae898e0a07b432894e21"
+    },
+    {
+      "path": "test/SyntheticNttUni.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a6245a5c58c20dfe247f1707dac217e35331ac0",
+      "size": 4065,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/2a6245a5c58c20dfe247f1707dac217e35331ac0"
+    },
+    {
+      "path": "test/TokenJar.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f6bc5ee0799277c129cbe54590a256eae8738f7",
+      "size": 7458,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0f6bc5ee0799277c129cbe54590a256eae8738f7"
+    },
+    {
+      "path": "test/UNIVesting.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03d972cf19fdc22d90279b40787f0085e69cf75b",
+      "size": 12189,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/03d972cf19fdc22d90279b40787f0085e69cf75b"
+    },
+    {
+      "path": "test/UNIVesting.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8ca83de74260b05881495e6b6cf07f11a9f27a9",
+      "size": 20206,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c8ca83de74260b05881495e6b6cf07f11a9f27a9"
+    },
+    {
+      "path": "test/UnichainProtocolFees.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "56e437c1f6fbdd8c078e8117c617ce584b57b695",
+      "size": 8225,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/56e437c1f6fbdd8c078e8117c617ce584b57b695"
+    },
+    {
+      "path": "test/V3FeeAdapter.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd42a6dd0e90dd29d95ce673b442e7f3a2fd87ef",
+      "size": 22304,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/bd42a6dd0e90dd29d95ce673b442e7f3a2fd87ef"
+    },
+    {
+      "path": "test/V3OpenFeeAdapter.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cddfab79c79d0b3adfe750a8ab2c1ab68af7c4ae",
+      "size": 15840,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/cddfab79c79d0b3adfe750a8ab2c1ab68af7c4ae"
+    },
+    {
+      "path": "test/V3OpenFeeAdapter.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b7ea7ea5bf8aadcd6dada0f2a3fc4784c321993d",
+      "size": 34556,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b7ea7ea5bf8aadcd6dada0f2a3fc4784c321993d"
+    },
+    {
+      "path": "test/V4FeeAdapter.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4b3fcdccae358d2c44af4d0bc553b0c54dd10eb",
+      "size": 17332,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c4b3fcdccae358d2c44af4d0bc553b0c54dd10eb"
+    },
+    {
+      "path": "test/V4FeeAdapter.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efbb4c67b339e6cc3a6376294afb3f3b4c27710a",
+      "size": 81591,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/efbb4c67b339e6cc3a6376294afb3f3b4c27710a"
+    },
+    {
+      "path": "test/V4FeePolicyAssignments.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b68b4c831505a6d46ee99e9ed7be331e4bb92d5a",
+      "size": 8250,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b68b4c831505a6d46ee99e9ed7be331e4bb92d5a"
+    },
+    {
+      "path": "test/WormholeReleaser.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6b7c604bb3c260b66ed664444ea281ea15b00b1",
+      "size": 10554,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e6b7c604bb3c260b66ed664444ea281ea15b00b1"
+    },
+    {
+      "path": "test/end-to-end",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d64d21b03db738cef0aea946e06118797924ab36",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/d64d21b03db738cef0aea946e06118797924ab36"
+    },
+    {
+      "path": "test/end-to-end/proposal-4",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "345471d061b40555b66551837cc6ec3590bf6d0f",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/345471d061b40555b66551837cc6ec3590bf6d0f"
+    },
+    {
+      "path": "test/end-to-end/proposal-4/PostflightChecks.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "636ed25cd5628a6b85efa3c24a0a8402a213e5f5",
+      "size": 17576,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/636ed25cd5628a6b85efa3c24a0a8402a213e5f5"
+    },
+    {
+      "path": "test/end-to-end/proposal-4/PreflightCheck.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75279e3223354e100dad519cc08d99128f9bbc86",
+      "size": 2743,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/75279e3223354e100dad519cc08d99128f9bbc86"
+    },
+    {
+      "path": "test/end-to-end/proposal-7",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "053097d755ebc7f081235d6b14c905a0b4202e06",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/053097d755ebc7f081235d6b14c905a0b4202e06"
+    },
+    {
+      "path": "test/end-to-end/proposal-7/ArcFeesArc.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a308c03c138c8e9bd96a912ff1fd8270f69cc69",
+      "size": 17546,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/4a308c03c138c8e9bd96a912ff1fd8270f69cc69"
+    },
+    {
+      "path": "test/end-to-end/proposal-7/ArcFeesEthereum.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "31192e55e4d5dfe30c723d580f1eb49a1ea72296",
+      "size": 4034,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/31192e55e4d5dfe30c723d580f1eb49a1ea72296"
+    },
+    {
+      "path": "test/end-to-end/proposal-7/ArcFeesProposal.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab0b13fd637e0f4db0177b18ce93f71e48aa1657",
+      "size": 6116,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/ab0b13fd637e0f4db0177b18ce93f71e48aa1657"
+    },
+    {
+      "path": "test/end-to-end/proposal-8",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "452af42b6427d1bc9d9b2df9f636c3a6525c4daf",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/452af42b6427d1bc9d9b2df9f636c3a6525c4daf"
+    },
+    {
+      "path": "test/end-to-end/proposal-8/RotateEarnSentinels.fork.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b354652470140c751ae060390b215fe6626f3bfc",
+      "size": 1435,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b354652470140c751ae060390b215fe6626f3bfc"
+    },
+    {
+      "path": "test/integration",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3fc4f9fb50c5e4efb631aeb6627a85a89405e1d1",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/3fc4f9fb50c5e4efb631aeb6627a85a89405e1d1"
+    },
+    {
+      "path": "test/integration/WormholeReleaserIntegration.t.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5cac7bd0d4c039f83b701b6ca49c995748efdf07",
+      "size": 22491,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/5cac7bd0d4c039f83b701b6ca49c995748efdf07"
+    },
+    {
+      "path": "test/interfaces",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5199725e96be53711febd8d3d9b90e3a8d55d9bf",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/5199725e96be53711febd8d3d9b90e3a8d55d9bf"
+    },
+    {
+      "path": "test/interfaces/IUniswapV2Factory.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f682c23a942f233ea306ecd1c262767f3d17d38e",
+      "size": 652,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/f682c23a942f233ea306ecd1c262767f3d17d38e"
+    },
+    {
+      "path": "test/interfaces/IUniswapV2Pair.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aee72cd73cddb85de3845c663c8ffd5a19717585",
+      "size": 2460,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/aee72cd73cddb85de3845c663c8ffd5a19717585"
+    },
+    {
+      "path": "test/interfaces/IUniswapV2Router02.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06f11ce8b4ec397c3f82c375b5589e32858c27a1",
+      "size": 4750,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/06f11ce8b4ec397c3f82c375b5589e32858c27a1"
+    },
+    {
+      "path": "test/mocks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "aa85e9ef98d4b7a2be041341313c3a6896397fde",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/aa85e9ef98d4b7a2be041341313c3a6896397fde"
+    },
+    {
+      "path": "test/mocks/ExchangeReleaserMock.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b09d04e75884fe2826acb32697997ce3a59a3040",
+      "size": 362,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b09d04e75884fe2826acb32697997ce3a59a3040"
+    },
+    {
+      "path": "test/mocks/MockEmptyERC20.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b467ae659b9d848d58c92fb87f86bebd9a232bf6",
+      "size": 804,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b467ae659b9d848d58c92fb87f86bebd9a232bf6"
+    },
+    {
+      "path": "test/mocks/MockFeeClassifiedHook.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "efe8b67e10979b1c09005b54508f756860bfb085",
+      "size": 1164,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/efe8b67e10979b1c09005b54508f756860bfb085"
+    },
+    {
+      "path": "test/mocks/MockNttManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b39a8c69001beed84642df6474a5786206256f5",
+      "size": 1132,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0b39a8c69001beed84642df6474a5786206256f5"
+    },
+    {
+      "path": "test/mocks/MockPoolManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50187bd3db93152e9a09884148513d64aa60a468",
+      "size": 1682,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/50187bd3db93152e9a09884148513d64aa60a468"
+    },
+    {
+      "path": "test/mocks/MockReleaser.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfbd4680857abcb6b4dd918837d6ac7dfa3a49ca",
+      "size": 1245,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/dfbd4680857abcb6b4dd918837d6ac7dfa3a49ca"
+    },
+    {
+      "path": "test/mocks/MockReleaserCaller.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "422558d03f4e842f1be4c9c0e73fef6edfa007c5",
+      "size": 1026,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/422558d03f4e842f1be4c9c0e73fef6edfa007c5"
+    },
+    {
+      "path": "test/mocks/MockSyntheticNttUni.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5c9bf8ee9a3d5a3a49d522a86283127dd3c2e67",
+      "size": 396,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e5c9bf8ee9a3d5a3a49d522a86283127dd3c2e67"
+    },
+    {
+      "path": "test/mocks/MockTokenJar.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ed179211aa2fc4c17e4042cbf2ef7bf319a5cc9",
+      "size": 959,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/1ed179211aa2fc4c17e4042cbf2ef7bf319a5cc9"
+    },
+    {
+      "path": "test/mocks/MockV4PoolManager.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32c5e48a0e5c17d4173d2b927e94ed8a67a48294",
+      "size": 5083,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/32c5e48a0e5c17d4173d2b927e94ed8a67a48294"
+    },
+    {
+      "path": "test/mocks/MockWormhole.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35fb7d92930728d6d7c24bac7f51820fbbd8d239",
+      "size": 787,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/35fb7d92930728d6d7c24bac7f51820fbbd8d239"
+    },
+    {
+      "path": "test/mocks/OOGToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ceb34f8874435440d756196d4770817724dbed6b",
+      "size": 436,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/ceb34f8874435440d756196d4770817724dbed6b"
+    },
+    {
+      "path": "test/mocks/RevertBombToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c46bc7eeda12ce4644a7c398e3d363ccbf3a4782",
+      "size": 693,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c46bc7eeda12ce4644a7c398e3d363ccbf3a4782"
+    },
+    {
+      "path": "test/mocks/RevertingToken.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c7affad42a0f6a8e3a188a0b2ab997d5adb7314",
+      "size": 735,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/4c7affad42a0f6a8e3a188a0b2ab997d5adb7314"
+    },
+    {
+      "path": "test/utils",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ee3202e4b43ddb5be25d69516a637254067fe604",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/ee3202e4b43ddb5be25d69516a637254067fe604"
+    },
+    {
+      "path": "test/utils/ArcStandIns.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c74eb5bac2535fdb67ef66496b065fa2838747f2",
+      "size": 1830,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/c74eb5bac2535fdb67ef66496b065fa2838747f2"
+    },
+    {
+      "path": "test/utils/HookFeeFlags.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "745238a12522665202430a2d16410f18a7be2999",
+      "size": 906,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/745238a12522665202430a2d16410f18a7be2999"
+    },
+    {
+      "path": "test/utils/ProtocolFeesTestBase.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7620effd7405e83a1f083fe20328d8556bb587ac",
+      "size": 4512,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/7620effd7405e83a1f083fe20328d8556bb587ac"
+    },
+    {
+      "path": "test/utils/TimelockExecution.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d954c04c6b92a61d93e2e1cccdb28b85460d8adb",
+      "size": 616,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d954c04c6b92a61d93e2e1cccdb28b85460d8adb"
+    },
+    {
+      "path": "test/utils/WormholeDecode.sol",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "462d14bc63367c187dc3139d43ae413a306f0443",
+      "size": 2444,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/462d14bc63367c187dc3139d43ae413a306f0443"
+    },
+    {
+      "path": "vocs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "96b52344dd3c05608d145215988af048756b1e88",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/96b52344dd3c05608d145215988af048756b1e88"
+    },
+    {
+      "path": "vocs/.gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04c01ba7ba0830ccdc49fce1c7257114ed81e68b",
+      "size": 19,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/04c01ba7ba0830ccdc49fce1c7257114ed81e68b"
+    },
+    {
+      "path": "vocs/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5b71307d75a2c74feac037665f0d6c43517307fc",
+      "size": 115,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/5b71307d75a2c74feac037665f0d6c43517307fc"
+    },
+    {
+      "path": "vocs/docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c388dc470cdc7c7051fc28dd90f807ba36bfd267",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/c388dc470cdc7c7051fc28dd90f807ba36bfd267"
+    },
+    {
+      "path": "vocs/docs/pages",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9877708957bfe767607c4c7eec2e26b914cbc4d9",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/9877708957bfe767607c4c7eec2e26b914cbc4d9"
+    },
+    {
+      "path": "vocs/docs/pages/guides",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8168acedb4bf634b97bde3dde2e0824edff43480",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/8168acedb4bf634b97bde3dde2e0824edff43480"
+    },
+    {
+      "path": "vocs/docs/pages/guides/best-practices.mdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6aea1f550cc89c383a3ac0a6af44740f3b1086d4",
+      "size": 4306,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/6aea1f550cc89c383a3ac0a6af44740f3b1086d4"
+    },
+    {
+      "path": "vocs/docs/pages/guides/flash-borrow.mdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "09bd37349e15b3087011cc2ff36f87bd9dbd1914",
+      "size": 40,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/09bd37349e15b3087011cc2ff36f87bd9dbd1914"
+    },
+    {
+      "path": "vocs/docs/pages/guides/getting-started.mdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d970de0ac956abb50cec39cc233065606b974040",
+      "size": 3975,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d970de0ac956abb50cec39cc233065606b974040"
+    },
+    {
+      "path": "vocs/docs/pages/guides/read-asset-balance.mdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e865f42529133fcc0f1fea3ba5d352444bae2c0",
+      "size": 3565,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/2e865f42529133fcc0f1fea3ba5d352444bae2c0"
+    },
+    {
+      "path": "vocs/docs/pages/guides/simple-example.mdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "vocs/docs/pages/guides/temp.mdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9b6047365945dcbe5b1ee24aabb27ccaa82f985",
+      "size": 622,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d9b6047365945dcbe5b1ee24aabb27ccaa82f985"
+    },
+    {
+      "path": "vocs/docs/pages/implementation-process.mdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "670cbdf05b69ec00009dc7947f02e6d8a6849097",
+      "size": 2367,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/670cbdf05b69ec00009dc7947f02e6d8a6849097"
+    },
+    {
+      "path": "vocs/docs/pages/index.mdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc0a561d8bb4915ee347de02978d3d73d60dbdd3",
+      "size": 535,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/bc0a561d8bb4915ee347de02978d3d73d60dbdd3"
+    },
+    {
+      "path": "vocs/docs/pages/overview.mdx",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8977c5ce6c2aa746a5eaaaa0df71d1dcd97bef4c",
+      "size": 5980,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/8977c5ce6c2aa746a5eaaaa0df71d1dcd97bef4c"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "850f6a1af9abd7b03a3af1018b0bb4f0ce2a92f4",
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/trees/850f6a1af9abd7b03a3af1018b0bb4f0ce2a92f4"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/ArrayLib.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a586ef2ae8c9b95c7d9ed6047d970d2fc60c3b4",
+      "size": 272,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9a586ef2ae8c9b95c7d9ed6047d970d2fc60c3b4"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/Deployer.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "df62ae42d25f66a53e0c051fe09e1781acac18d5",
+      "size": 1354,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/df62ae42d25f66a53e0c051fe09e1781acac18d5"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/ExchangeReleaser.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7eba09c1ba21b350c2b34af39fa21db4aa921581",
+      "size": 2384,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/7eba09c1ba21b350c2b34af39fa21db4aa921581"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/Firepit.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f036f1d57ca3f563a44588ea42bfcd195d64804",
+      "size": 1625,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9f036f1d57ca3f563a44588ea42bfcd195d64804"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/FirepitDestination.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e10412b27df5b93df67763d07c8e9f7b4aabf03",
+      "size": 1782,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/6e10412b27df5b93df67763d07c8e9f7b4aabf03"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/FirepitSource.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b8b7f72a2e731abf367dd2184275dc5e039eac37",
+      "size": 1250,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/b8b7f72a2e731abf367dd2184275dc5e039eac37"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/IFirepitDestination.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "947b5193335a3387802759648ec388def0a92aa0",
+      "size": 296,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/947b5193335a3387802759648ec388def0a92aa0"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/IL1CrossDomainMessenger.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a70a1b1055a5c72f2376a5d81a974ba80f72b25a",
+      "size": 423,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/a70a1b1055a5c72f2376a5d81a974ba80f72b25a"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/INonce.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46b1c77e544c7a20a802d93ad94182b8f6641ee4",
+      "size": 478,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/46b1c77e544c7a20a802d93ad94182b8f6641ee4"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/IOwned.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0429e69fe8f0363887be8d59ff9f2a1e5d88020a",
+      "size": 534,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0429e69fe8f0363887be8d59ff9f2a1e5d88020a"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/IReleaser.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d4abf02d72a059911bc1848b923ab86c5b53e2b",
+      "size": 1307,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9d4abf02d72a059911bc1848b923ab86c5b53e2b"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/IResourceManager.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05682a6904dfe20e63dafd0eea8dbc0688117a99",
+      "size": 1618,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/05682a6904dfe20e63dafd0eea8dbc0688117a99"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/ITokenJar.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "368f5ba001a59b31f85173a20245e04ff18b7f77",
+      "size": 946,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/368f5ba001a59b31f85173a20245e04ff18b7f77"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/IUniswapV3FactoryOwnerActions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84f542c0f9946152afe827b6d08a2ccf7b942e4e",
+      "size": 2043,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/84f542c0f9946152afe827b6d08a2ccf7b942e4e"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/IUniswapV3PoolOwnerActions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "62da74eaa4e2d7708507006db98fdd5508f1bccf",
+      "size": 1563,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/62da74eaa4e2d7708507006db98fdd5508f1bccf"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/IV3FeeAdapter.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a8ab66cedc716b988e52cc70247203c67528a41",
+      "size": 7767,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/5a8ab66cedc716b988e52cc70247203c67528a41"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/Nonce.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "587cfda3b6e13acdcf85f0fbc2abd68262690e18",
+      "size": 433,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/587cfda3b6e13acdcf85f0fbc2abd68262690e18"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/OPStackFirepitSource.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4f7bd6e6b3a8a870ab073a6fc112b3de77f97eb",
+      "size": 876,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/f4f7bd6e6b3a8a870ab073a6fc112b3de77f97eb"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/ResourceManager.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "977584f4d8d24e446070371b2366800a2357d679",
+      "size": 2061,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/977584f4d8d24e446070371b2366800a2357d679"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/TokenJar.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22c0006ed58ca3c1175a5c23f5c91a79f92a403d",
+      "size": 1409,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/22c0006ed58ca3c1175a5c23f5c91a79f92a403d"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/UnauthorizedCall.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9af40be86d3d5f27144273655f1bdc560244c879",
+      "size": 203,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/9af40be86d3d5f27144273655f1bdc560244c879"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/V3FeeAdapter.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "307f38627fcf0881385b701d1457083ef5ba966a",
+      "size": 5850,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/307f38627fcf0881385b701d1457083ef5ba966a"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/V4FeeAdapter.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3488e1a8604291aa091295b7b7bb5181d7c8b87d",
+      "size": 2251,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/3488e1a8604291aa091295b7b7bb5181d7c8b87d"
+    },
+    {
+      "path": "vocs/docs/pages/technical-reference/md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02a6cd2753b880addbdb49bcd923f933b1313831",
+      "size": 2273,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/02a6cd2753b880addbdb49bcd923f933b1313831"
+    },
+    {
+      "path": "vocs/forge-doc.sh",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d1df3ce435bac7b6ac71afc036912d08546bacb5",
+      "size": 2294,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d1df3ce435bac7b6ac71afc036912d08546bacb5"
+    },
+    {
+      "path": "vocs/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e899270d47cf759f97871675c5446b1fa23e74f",
+      "size": 400,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/0e899270d47cf759f97871675c5446b1fa23e74f"
+    },
+    {
+      "path": "vocs/tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2636aac47ec385c845f162385d451b05a735e22",
+      "size": 567,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/d2636aac47ec385c845f162385d451b05a735e22"
+    },
+    {
+      "path": "vocs/vocs.config.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec1ded3a2b1846474c6487303c47f77b221d2402",
+      "size": 1294,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/ec1ded3a2b1846474c6487303c47f77b221d2402"
+    },
+    {
+      "path": "vocs/yarn.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7540800b33fb5046afc478c271297b2b92c63e94",
+      "size": 261006,
+      "url": "https://api.github.com/repos/Uniswap/protocol-fees/git/blobs/7540800b33fb5046afc478c271297b2b92c63e94"
+    }
+  ],
+  "truncated": false
+}

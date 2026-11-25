@@ -1,0 +1,6 @@
+{
+ "chain": "ethereum",
+ "protocol": "frax_swap",
+ "status": "dead_end",
+ "checked": "2026-11-21 run d6c32449 scout (reads only). Uniswap-V2 fork with embedded TWAMM (LongTermOrdersLib), same family as frax_swap avalanche:954 / polygon:956 / bsc:958. Addresses from DefiLlama-Adapters projects/frax-swap/index.js: factories 0xb076b06f669e682609fb4a8c6646d2619717be4b (14 pairs) and 0x43ec799eadd63848443e2347c49f5f52e8fe0f6f (30 pairs); both eth_getCode non-empty, allPairsLength() answers. Explorer source = FraxswapFactory.sol (FraxFinance) for both. feeTo()=0x0 on both factories => no fee minting. Only stranger-callable state-changing pair functions: executeVirtualOrders(uint256) (succeeds from fresh address, no transfer to msg.sender anywhere in executeVirtualOrdersInternal => pays 0), sync()/skim(to) (checkpoint / stray balance; dust measured 0 on top-5 pairs), longTermSwapFrom0To1/1To0 (position). withdrawProceedsFromLongTermSwap and cancelLongTermSwap require order.owner==msg.sender (revert from fresh address) => position-gated, not stranger keeper. getTwammOrderProceeds pays 0. togglePauseNewSwaps onlyOwner (one-shot). No distributor/gauge/minter in docs or adapter (llama uses getUniTVL only)."
+}

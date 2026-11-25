@@ -1,0 +1,26 @@
+{
+ "id": "protocol-base-synfutures-v3",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 990,
+ "chain": "base",
+ "slug": "synfutures-v3",
+ "name": "SynFutures V3",
+ "category": "Derivatives",
+ "tvl_usd": 2068258,
+ "url": "https://trade.synfutures.com/#/trade",
+ "github": null,
+ "listed_days_ago": 990,
+ "run_id": "585e717c29054c3f8e7dbaf8afe338c0",
+ "result": {
+  "verdict": "pays_strangers",
+  "line": "instrument.fill(bytes32) open to anyone, pays sender 0.02 USDC execution fee (BTC/ETH-USDC-LINK); 456 Fill events w/ tip>0 by 19 distinct keeper contracts in a 50k-block (~2.8 h) window over 10 of 25 instruments (extrapolates ~27k fills / ~$540 gross per 7d on that subset); gross $0.02 vs gas $0.007 (694,790 gas @ 0.006 gwei, ETH $1,771 coins.llama.fi); normalize+claimProtocolFee admin-gated (NotSynFuturesV3Admin), update(uint32) open but no reward, liquidation is take-over",
+  "kb": [
+   "attempts:2207",
+   "leads:279",
+   "protocols:773"
+  ],
+  "run_id": "585e717c29054c3f8e7dbaf8afe338c0",
+  "at": 1795023286
+ }
+}

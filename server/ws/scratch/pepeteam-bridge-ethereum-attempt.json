@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "pepeteam_bridge ExecutorV3.execute reward (lead 366)",
+  "outcome": "dead_end_recorded",
+  "reason": "Non-trial Ethereum route fails the clearly-positive EV check before executor work. The complete measured 7-day reward pool was only $7.42 ($1.06/day gross across all 38 releases), while the official relayer submitted 26/38. Of the measured stranger examples, two solo calls lost money after gas ($0.031 gross versus $0.117 gas; $0.015 versus $0.037), and the only profitable bundle was one tx at +$3.88 net. That isolated bundle yields $0.55/day over seven days even if the farm had captured it. A bot would also need the bridge operator signed payload before the official relayer. No repeatable, attributable >=$1/day net route is evidenced, so stop under the step-4 EV rule; do not build.",
+  "numbers": "Source attempts:3369 and protocols:1678, 7-day Ethereum blocks 26414080-26464324 ending 2026-11-21 15:18Z; tx 0x5586af55d2915ff7047d98bedf19cbf9e3ad0aea017d4a984cea1faa3aae480f = 3-release bundle gross $3.95, gas $0.07; tx 0xc7b9bc00 and 0xbe43df33 examples are identified in attempts:3369. Relay eth_getTransactionByHash of the full bundled tx saved at scratch/pepeteam-tx.json. Max entire reward pool $7.42/7=$1.06 gross/day, before gas/read cost/competition."
+}

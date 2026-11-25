@@ -1,0 +1,25 @@
+{
+ "id": "protocol-base-re",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 328,
+ "chain": "base",
+ "slug": "re",
+ "name": "Re",
+ "category": "RWA",
+ "tvl_usd": 4334059,
+ "url": "https://app.re.xyz",
+ "github": null,
+ "listed_days_ago": 328,
+ "run_id": "1a69bf3fffbf4855a4edc2b801e1eea2",
+ "result": {
+  "verdict": "role_gated",
+  "line": "No fn pays strangers on Base: redeemInstant/claimWindowPayout revert KYCRequired() from a fresh address and pay the redeemer own principal (shares->sUSDe at NAV, caller pays ~0.06% fee to feeVault); keeper fns (updateHighWatermark, releaseFromWindow, withdrawReserved, claimDepositFees) revert AccessManagedUnauthorized (AccessManager 0x47De22cA). 7d = 2 self-redemptions (tx 0x7a8412f0 30 sh ~33 USD; tx 0xfbe78b75 910,377 sh ~1.01M USD), gas ~0.009 USD/call (ETH 1821.76, coins.llama.fi); control USDC getLogs 45,987 logs/5000 blk.",
+  "kb": [
+   "protocols:417",
+   "attempts:1755"
+  ],
+  "run_id": "1a69bf3fffbf4855a4edc2b801e1eea2",
+  "at": 1794925908
+ }
+}

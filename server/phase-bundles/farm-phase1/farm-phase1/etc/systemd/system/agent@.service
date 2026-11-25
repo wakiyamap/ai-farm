@@ -1,0 +1,23 @@
+# One agent session. The instance name selects the role, harness and model
+# (/etc/farm/roles.conf). Every run is recorded in /var/lib/farm/ops.db.
+[Unit]
+Description=Farm agent session (%i)
+Wants=network-online.target
+After=network-online.target farm-nft.service
+Requires=farm-nft.service
+
+[Service]
+Type=exec
+User=harness
+Group=harness
+SupplementaryGroups=farm
+EnvironmentFile=/etc/farm/farm.env
+WorkingDirectory=/srv/farm/runners/%i
+# '+' runs these as root: the agent can't alter its own prompt or its run record.
+ExecStartPre=+/opt/farm/bin/assemble-prompt %i
+ExecStart=/opt/farm/bin/run-role %i
+ExecStopPost=+/opt/farm/bin/record-run %i
+UMask=0002
+PrivateTmp=yes
+RuntimeMaxSec=2h
+SyslogIdentifier=agent-%i

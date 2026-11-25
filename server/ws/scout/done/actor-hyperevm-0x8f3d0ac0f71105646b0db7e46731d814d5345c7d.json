@@ -1,0 +1,19 @@
+{
+ "id": "actor-hyperevm-0x8f3d0ac0f71105646b0db7e46731d814d5345c7d",
+ "kind": "actor",
+ "tier": 2,
+ "age": 0,
+ "chain": "hyperevm",
+ "address": "0x8f3d0ac0f71105646b0db7e46731d814d5345c7d",
+ "run_id": "29673f7b1594410f807892632583e810",
+ "result": {
+  "verdict": "role_gated",
+  "line": "auctioneer4 of the 4 hardcoded auctioneer EOAs of Executor 0xf2314753 (impl 0xb7ef55af EXECUTOR_V6) which submits solver-signed Morpho Blue (0x68e37de8) liquidation ops on HyperEVM: 9 sends on 2026-11-21 (day 1, 6 ok / 3 failed), gross to caller 0 - fronts 0.0049 HYPE (0.28 USD) gas, repaid only 0.0044 HYPE (0.25 USD) solver liability (tx 0x5032f29e); bids go to oevCollector Safe 0xcf8252e8 (7d: 54 Executed = ~7.7/day, 7 solvers, bid median 0.835 HYPE ~47 USD, max 262; HYPE 56.58 USD llama 2026-11-21 06:29Z); fresh address reverts NOT_AUCTIONEER (cf attempts:1084 blocked_infra).",
+  "kb": [
+   "attempts:3218",
+   "actors:320"
+  ],
+  "run_id": "29673f7b1594410f807892632583e810",
+  "at": 1795243482
+ }
+}

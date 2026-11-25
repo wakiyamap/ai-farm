@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-satlayer",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: Vault fee collection pays only the configured fee receiver, price updates require the rebalancer, and redemption confirmation requires the operator. Staking pools have no caller bounty.",
+  "numbers": "Sample: 2 of 2 adapter-listed vaults and 2 of 2 linked redemption operators. Fresh-address eth_call (2026-11-23 UTC, latest): collectManagementFee() and collectRevenue() at both vaults each revert 0xd200485c (InvalidFeeReceiver); updateExchangePrice() at both reverts 0xbd72e291 (CallerNotRebalancer); confirmWithdrawal([],0) at both operators reverts 0xa5523ee5 (CallerNotOperator). Public payable-to-stranger functions: 0 in inspected verified source. Seven-day payout count/gross/gas: not applicable because every candidate payout is role gated. Sources: DefiLlama SatLayer adapter, Etherscan verified source, Ethereum relay eth_getCode/eth_call."
+}

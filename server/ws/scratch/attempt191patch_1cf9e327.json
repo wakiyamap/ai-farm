@@ -1,0 +1,7 @@
+{
+ "chain": "elysium",
+ "target": "lead 191 poolH null root cause (lagging-provider head race in logger) + patch",
+ "outcome": "lead_recorded",
+ "reason": "Supplement to attempts:1323, same run 1cf9e327 (measure lane; 3 hyperevm research-lane reads, 0 tx). The 17:27Z/17:37Z logger rows had poolH_hyp_px=null because pool_px hit a lagging-provider race: eth_blockNumber is served by a relay provider ahead of the one serving the following eth_getLogs, and the getLogs then fails with -32602 'block range extends beyond current head block' (rpc.py exit 1 -> logger recorded 0 logs). Positive control: the same-shape call with toBlock=head-... won the race at 17:31Z (580 logs; control USDC decimals()=6 OK at 0xb88339cb...). Patched scratch/relay191/logger.py pool_px (toBlock margin 10 blocks + one retry with window re-anchored 300 lower) and restarted the logger 17:41:12Z (pid 1132533): first tick filled gap_pct 0.7665 (poolA 66.297 n=48, poolH 66.805 n=798). The two 17:27-17:38Z rows (poolH_n=0) are superseded. Original 15:06Z process death still unexplained. Note for any future per-chain poller on the relay: never use toBlock=head from a separate eth_blockNumber read without a margin on lagging-provider chains.",
+ "numbers": "error -32602 'block range extends beyond current head block'; patched tick 17:41:12Z gap_pct 0.7665, poolA_n 48, poolH_n 798; pid 1132533"
+}

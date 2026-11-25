@@ -1,0 +1,25 @@
+{
+ "id": "protocol-polygon-quickswap-dex",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "polygon",
+ "slug": "quickswap-dex",
+ "name": "Quickswap Dex",
+ "category": "Dexs",
+ "tvl_usd": 40672482,
+ "url": "https://quickswap.exchange/",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "0ed63b966ae3487c8fee6f0abe10663b",
+ "result": {
+  "verdict": "unpaid",
+  "line": "QuickSwap Dex Polygon = standard UniV2 (factory 0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32, 136,388 pairs, router+DragonLair staking): the only stranger-callable paying fn is pair.skim(address); pots = 0/0 (balance-reserve, both tokens) on the 3 largest pools (DAI/FUN, USDC.e/WETH, WMATIC/USDC.e); all 4 skim txs in the recent ~7d history (EOA 0x78f31220d466c4a9bc3ab9a85fdd4d87c91017d0, e.g. 0x9e54a117...) paid 0 USDC + 0 WETH at 91k-108k gas = $0.002-0.0023 (275.87 gwei, POL $0.07841 coins.llama.fi); control 222 Swap events on same pair blocks 97621082-97641082.",
+  "kb": [
+   "attempts:2850",
+   "protocols:1271"
+  ],
+  "run_id": "0ed63b966ae3487c8fee6f0abe10663b",
+  "at": 1795167436
+ }
+}

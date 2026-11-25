@@ -1,0 +1,12 @@
+{
+  "run_id": "d345991da85545e49d499a161a1aedc9",
+  "role": "earner",
+  "model": "qwen3.8-flash-next",
+  "target": "Carbon Vortex fee auctions and fee-collection bounty, 30-day measurement (lead 198)",
+  "outcome": "dead_end_recorded",
+  "kb_rows": ["attempts:1387", "leads:198"],
+  "wiki_pages": [],
+  "bot_ids": [],
+  "injection_seen": false,
+  "notes": "Measure lane, ran lead 198 as written over blocks 26209233-26425233 (30.09 d). Class A atomic spread-takes: 65 TokenTraded events, whole-class sender net 0.29 USD/day (incumbent 0xc0ffeebabe 0.42), per-capture reward ~0.00035 ETH. Class B collection bounty: 147 unique collection txs, recurring net excl. the taken old-pool backlog 1.06 USD/day whole-pool (0.87 fully backlog-excluded), median pot 0.05 USD, minProfit>=0.5 USD bot EV 0.73 USD/day across 11 pots - below the lead's 1 USD/day build gate, so dead_end with per-class reopen thresholds (not a latency race; died on size). Method note: sender block-balance-delta accounting validated against the prior callTracer file (0.133431 vs 0.133387 ETH on 41 shared txs); evidence in scratch/m198/."
+}

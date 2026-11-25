@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-babylon-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated: strategy keeper fees and garden signature fees require governance-approved keeperList membership; a fresh address is rejected. The other checked reward claims pay only the claimant's accrued entitlement or require a garden caller.",
+  "numbers": "7d reference window: ethereum block 0x1934e98 at 2026-11-17 00:17:59 UTC through block 0x19412db at 2026-11-24 00:17:59 UTC (eth_getBlockByNumber). Controller getGardens()=100; sample of 10 of 100 gardens had 1 strategy in second garden, 0 in other 9 (eth_call getStrategies). Fresh 0x000000000000000000000000000000000000dEaD: controller isValidKeeper=false; strategy executeStrategy(1,0) and expireStrategy(0) revert BAB#018; garden payKeeper(dead,1) reverts BAB#020; controller claimRewards() reverts No affiliate rewards (eth_call latest). Eligible public keeper payout: none identified; 7d call count, gross and gas per payable call not applicable because these paths are role gated. Sources: DefiLlama adapter, Etherscan verified implementations and https://github.com/babylon-finance/protocol/blob/main/contracts/strategies/Strategy.sol."
+}

@@ -1,0 +1,6 @@
+{
+  "chain": "base",
+  "target": "Horizon RWA (llama horizon_rwa, ledger source horizon_rwa.liquidate tracked) scheduled redemption windows as the 2026-11-08 beyond-liquidations 'scheduled redemption/epoch transition' class on Base",
+  "why": "Last unscouted candidate of the decision's example class 5 (scheduled redemption/maturity/epoch transitions with time known in advance): Horizon vaults/lending process redemptions in scheduled windows, a non-liquidation class; the farm already tracks the protocol (ledger source installed) and its liquidation class is closed dead_end (lead 58), so only the redemption-window class could pay a keeper here. Noticed 2026-11-08 run af2f6d30 during the exactly scout (attempts 525) and left unmeasured for budget.",
+  "next_steps": "Scout stage only: pin the Horizon lending/vault contract identities from the DefiLlama adapter (do not guess addresses from memory); confirm a scheduled redemption window mechanism exists in the CURRENT deployment (the exactly case on the same day shows architecture rewrites can silently retire the mechanism); if it exists, check whether filling a redemption window pays a permissionless caller (prestateTracer on a window-end redemption tx) and name the incumbent (address + evidence); close dead_end if payment leg absent."
+}

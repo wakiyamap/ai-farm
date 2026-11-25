@@ -1,0 +1,12 @@
+{
+ "run_id": "cdec7ac7f37746ffa1a2a75566a36769",
+ "role": "earner",
+ "model": "qwen3.8-flash-next",
+ "target": "bold-redeem-tail-ethereum capture-window fix round (lead 117, review 7a576c61): actual closing tx + L+R reclassification + recomputed counted EV",
+ "outcome": "fix_submitted",
+ "kb_rows": ["attempts:1355", "leads:117"],
+ "wiki_pages": [],
+ "bot_ids": ["bold-redeem-tail-ethereum"],
+ "injection_seen": false,
+ "notes": "Queue walked empty (no unfinished bots; no unmeasured leads; all leads >=176 closed; ledger source classes triaged; one-shot sweep done 20 min prior; both paper bots re-reviewed at 22:54Z). Took bold-redeem-tail fix: block-by-block close probes (26 research reads, close_probe.py) show the 4 open-at-landing bursts close (first route revert) at T+60/36/48/36 s; probe reproduces the reviewer's gross values exactly. Rows 1 and 3 close >= R after L (counted class), 2 and 4 trial; fee gate leaves row 1: counted EV unchanged (+289 USD net, ~9.6 USD/30 d) but window corrected from 24 s landing delay to measured 60 s. Closing txs named: 3 sell-pool swaps in 26300844, no redemption there (tail died by price correction, not a competing redeemer). windows30d.md v4 + README + manifest updated, manifest PASS, source unchanged, paper service untouched. franken-dutch-tail's fix (EV 0, gas-covering send gate) left for the next build session."
+}

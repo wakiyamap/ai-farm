@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-deq",
+  "outcome": "dead_end_recorded",
+  "reason": "no_reward: Verified Ethereum implementations have no public function that pays a third-party caller; maintenance methods require roles. The protocol's own site says it is discontinued and withdrawal-only.",
+  "numbers": "3 documented proxies confirmed live by eth_getCode and getter eth_call (2026-11-23 UTC); 3 current implementation slots matched Etherscan source. 2 fresh-address maintenance eth_call attempts reverted AccessControlUnauthorizedAccount (selector 0xe2517d3f). Eligible caller-reward functions found: none; 7-day activity/gross/gas USD not applicable, not a measured zero. Sources: https://docs.deq.fi/addresses, https://deq.fi, Etherscan verified implementations 0x3ce617ef3bb29333fd24370a570036f237110e21, 0x2603537d10c7bd27ee75427d222ddfc51c637f16, 0x6fe46c5cfcad18b833c7933e40867d7571370a5e."
+}

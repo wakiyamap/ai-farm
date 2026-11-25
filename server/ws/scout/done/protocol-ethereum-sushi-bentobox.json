@@ -1,0 +1,25 @@
+{
+ "id": "protocol-ethereum-sushi-bentobox",
+ "kind": "protocol",
+ "tier": 4,
+ "age": 1493,
+ "chain": "ethereum",
+ "slug": "sushi-bentobox",
+ "name": "Sushi BentoBox",
+ "category": "Yield",
+ "tvl_usd": 346402,
+ "url": "https://www.sushi.com",
+ "github": null,
+ "listed_days_ago": 1493,
+ "run_id": "dd9901518764494abd78773c43aeff8e",
+ "result": {
+  "verdict": "unpaid",
+  "line": "BentoBox 0xf5bce5..3966: harvest(token,balance,maxChangeAmount) is callable by anyone (fresh-addr eth_call OK on WETH/DAI, reverts only where strategy=0x0) but pays the caller $0 (profit credited to depositor shares; both strategies return balanceChange 0 now); 0 strategy events in 7d (blocks 26414579-26464828, no-topic scan 24 logs control); gas 38,391 x 0.153 gwei = $0.0099 (ETH $1680.90); TVL $333,478",
+  "kb": [
+   "attempts:3403",
+   "protocols:1705"
+  ],
+  "run_id": "dd9901518764494abd78773c43aeff8e",
+  "at": 1795280808
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-uniswap-v2",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid: the Uniswap V2 core (verified canonical factory + pair on Arbitrum) has no keeper-reward function; the only open pay-the-recipient function is pair.skim(address to) and its pot is empty - excess (balance minus reserve) measured 0 on every sampled active pair and there were zero successful skim calls in the last 7 days (the single skim in ~39 d of pair(0) direct-call history failed). Everything else is a user action (mint/burn/swap), pays nothing (createPair, sync), or is feeToSetter-gated (setFeeTo, setFeeToSetter).",
+  "numbers": "Factory 0xf1D7CC64Fb4452F05c498126312eBE29f30Fbcf9 (DefiLlama uniswap-v2 adapter; explorer source UniswapV2Factory solc 0.5.16); allPairsLength 8893 (eth_call); feeTo 0x95e337c5b155385945d407f5396387d0c2a3a263 (eth_call). Skim excess = 0 on 6/6 token balances of allPairs(0..2) (eth_call balanceOf vs getReserves). Pair(0) control: 3,613 Swap events in blocks 522,889,622-525,303,797 (~7 d, eth_getLogs). skim eth_call from fresh 0x1111..1111: returns 0x, no revert (not role_gated). Gas: eth_gasPrice 0.020306 gwei, skim ~45k gas => ~$0.002 per call (ETH $1797.73, coins.llama.fi 2026-11-19). Sample of 3 of 8,893 pairs."
+}

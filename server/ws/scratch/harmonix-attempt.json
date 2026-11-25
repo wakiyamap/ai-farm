@@ -1,0 +1,7 @@
+{
+  "chain": "arbitrum",
+  "target": "protocol-arbitrum-harmonix-finance",
+  "outcome": "dead_end_recorded",
+  "reason": "role_gated. Managed-vault protocol: every keeper-ish function (syncBalance, closeRound, acquireWithdrawalFunds, acquireManagementFee, claimFee, settleCoveredCalls/Puts, rebalanceAsset) is behind ROCK_ONYX_ADMIN_ROLE / ROCK_ONYX_OPTIONS_TRADER_ROLE and pays the caller nothing; the only open functions are user deposit/withdraw that pay msg.sender their own funds. In the last 7 days no stranger was paid anything by any of the 9 arbitrum vaults.",
+  "numbers": "Factory 0x3363A85c31cf13a96802e2935724232767420135 getVaultsTVL=439185e6 USDT (2026-11-18). Active vault 0xf12f8753c25f8005311a24bbba1f7209249b00e3 totalValueLocked 410232e6 (~$410k). 7d activity (explorer txs page of 25 covering 2026-10-26..11-18): 5x syncBalance(uint256) by keeper 0x562b8f8e...fc844d (e.g. 0x92de5f54...7b21b7d, block 523955536), 1x 0xa9591b76 by same keeper, 3x initiateWithdrawal + 2x completeWithdrawal by users; v2 0x4a10c31b...600523 1x initiateWithdrawal. syncBalance reward to caller $0 (no transfer/event in body); gas 38,473 gas @ 1.02 gwei = 3.9e-5 ETH = $0.07 (receipt 0x92de5f54; ETH $1801.47 coingecko via coins.llama.fi 2026-11-18). eth_call from 0x1111...1111 reverts ROCK_ONYX_OPTIONS_TRADER_ROLE_ERROR."
+}

@@ -1,0 +1,25 @@
+{
+ "id": "protocol-optimism-pooltogether-v4",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 1117,
+ "chain": "optimism",
+ "slug": "pooltogether-v4",
+ "name": "PoolTogether V4",
+ "category": "Yield Lottery",
+ "tvl_usd": 214750,
+ "url": "https://pooltogether.com/",
+ "github": null,
+ "listed_days_ago": 1117,
+ "run_id": "0fa3c5da097d4b5ca92d1ba86a325068",
+ "result": {
+  "verdict": "unclear",
+  "line": "On OP: AaveV3YieldSource 0x4ecB..2dDA1 (verified) + YieldSourcePrizePool 0x79bc..3373 (verified); only reward fn pinned is claimRewards(address) onlyManagerOrOwner (Safe) = role_gated; yield source 0 txs in 7d (last 2025-12-03, Blockscout control ok); prize-pool traffic is user withdrawFrom (sample gas 342,646 @ 118,797 wei ~0.0001 USD); awardPrize() call reverted; legacy claim/award path not confirmed (unverified ABI, scout lane 305k/300k CU spent) - no stranger paid in 7d.",
+  "kb": [
+   "attempts:2235",
+   "protocols:797"
+  ],
+  "run_id": "0fa3c5da097d4b5ca92d1ba86a325068",
+  "at": 1795030426
+ }
+}

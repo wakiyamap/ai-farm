@@ -1,0 +1,7 @@
+{
+ "chain": "ethereum",
+ "target": "protocol-ethereum-stakingverse",
+ "outcome": "dead_end_recorded",
+ "reason": "unpaid: the only ethereum contract is a plain StakeWise V3 EthVault run by Stakingverse; the one keeper-class function anyone can call (updateState) transfers 0 to the caller in source, and there is no reward/bounty/claim function that pays a stranger. 7-day activity is a single tx by the vault manager itself; no stranger was paid.",
+ "numbers": "TVL 2,932,283 USD (candidate). Vault proxy 0x8A93A876912c9F03F88Bc9114847cf5b63c89f56, impl 0x927a83c679a5e1a6435d6bfaef7f20d4db23e2cc (Etherscan source = StakeWise V3 EthVault). feePercent()=500 (5%), feeRecipient()=0x93281072aa2725194e571e7fc924541bccd38819 (eth_call). updateState from fresh address 0xf39Fd6...2266 reverts InvalidRewardsRoot 0xd526111a (data revert, role-free). 7d = blocks 26409336 (2026-11-13) to 26459636 (2026-11-20): 1 tx (explorer txs) = 0x43d4692ce6dae0236ba8775357a02e5439f0bd274ebe86fcc6773ee4d35b73ae multicall deposit ~1.0 ETH by manager 0x9328...38819; no-topic eth_getLogs on vault = 2 logs, same tx. Gross to caller 0 ETH (source: no transfer to msg.sender in updateState/harvest path); gas ~150k @ baseFee 0xad3d6f6 (0.18 gwei) ~ 0.000027 ETH ~ 0.04 USD (ETH 1621.26 USD, coins.llama.fi ts 1795218004)."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "protocol-base-rage-protocol",
+ "kind": "protocol",
+ "tier": 3,
+ "age": 99999,
+ "chain": "base",
+ "slug": "rage-protocol",
+ "name": "RAGE Protocol",
+ "category": "Onchain Capital Allocator",
+ "tvl_usd": 236779,
+ "url": "https://ultraroundmoney.com/rage",
+ "github": null,
+ "listed_days_ago": null,
+ "run_id": "a8b0f7ed33fc4973b32dd3828a4f6a47",
+ "result": {
+  "verdict": "role_gated",
+  "line": "RageChaosEngine 0x4c15f778...13fe + RageBuyingProtocol 0xff70cd1e...da4c (verified, base): stackUnderlying/poolBoost/rageCrush/rageBurst all require automator EOA 0xCBe5a410...8020, stranger eth_call reverts 'unauthorized'; 7d (getLogs 0x36121d8-0x38f4658): 15 RCE events (9 UnderlyingStacked, 4 ConfigChanged, 1 RageCrushed, 1 PoolBoosted), all by the automator, 0 strangers; gross to strangers 0 USD vs gas 0.007 USD/call (689,981 gas @ 6.06M wei, ETH 1753.10 coins.llama.fi ts1795134608); RBP invest/mintRage/refund/claim pay only the caller's own position; TVL 230,760 USD (llama 2026-11-20).",
+  "kb": [
+   "attempts:2699"
+  ],
+  "run_id": "a8b0f7ed33fc4973b32dd3828a4f6a47",
+  "at": 1795134866
+ }
+}

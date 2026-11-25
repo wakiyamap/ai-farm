@@ -1,0 +1,7 @@
+{
+  "chain": "ethereum",
+  "target": "protocol-ethereum-sharpbyte-capital",
+  "outcome": "dead_end_recorded",
+  "reason": "unpaid - the protocol is a set of curated Morpho/Upshift vaults, no permissionless function pays the caller. VaultV2 accrueInterest() and Upshift collectFees()/chargeManagementFee() are callable by strangers (eth_call from fresh address succeeds) but the accrued fees go to stored fee-recipient addresses (curator), caller reimburses only gas. Real keeper EOA 0xe0b7deab... (curator's own) calls collectFees daily; independent callers of accrueInterest earn 0.",
+  "numbers": "5 contracts on ethereum (eth_getCode non-0x; Morpho API ownerAddress_in 0x07A1eC35... + DefiLlama registries/curators.js); ethereum TVL 3.30M USD (llama 2026-11-20); accrueInterest 7d on 0x1586...: 19 events, callers 0x8511af0d/0xb4638e79/0xe1066ffc, gas 0x3fd7d=261,501 per sample tx ~0.14 USD at 0.307 gwei (eth_gasPrice) x ETH 1738.04 (coins.llama.fi ts 1795176307), gross to caller 0 USD; Upshift 0x5776...: 7 FeesCollected/7d by 0xe0b7deab801d864650dec58cbd1b3c441d058c79, gross to caller 0; eth_call from fresh addr: 0xd3a8d718 ok, 0xc8796572 ok, 0x5486679d revert 0x6618f002 (high-watermark, not role); VaultV2 source VaultV2.sol L636-644 fee shares to performanceFeeRecipient/managementFeeRecipient. Full 7d event counts (eth_getLogs, no sampling), 3 sample receipts traced; blocks 26,405,775..26,456,175."
+}
